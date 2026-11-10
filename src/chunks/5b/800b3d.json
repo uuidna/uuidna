@@ -1,0 +1,12 @@
+{
+  "handle": "5b800b3d",
+  "address": "5b800b3d-bbf3-8f73-b3f0-3a507daa2442",
+  "statement": "(74 + 28590 = 28664)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_science_partitions_28664"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3bf120c8",
+  "address": "3bf120c8-c613-8b15-8eb4-612cfe5eff01",
+  "statement": "(461 <= 631) ∧ (631 - 461 = 170)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_driver_origins_631"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

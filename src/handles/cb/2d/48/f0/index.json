@@ -1,0 +1,12 @@
+{
+  "handle": "cb2d48f0",
+  "address": "cb2d48f0-34e1-83e9-a933-b00ba9fd0b4d",
+  "kind": "chunk",
+  "keys": [
+    "alpine_binding_origins_overcount_16101"
+  ],
+  "statement": "(1288 + 2820 + 13850 = 17958) ∧ (17958 - 16101 = 1857)",
+  "files": [
+    "Wave.lean"
+  ]
+}

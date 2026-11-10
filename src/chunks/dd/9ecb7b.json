@@ -1,0 +1,12 @@
+{
+  "handle": "dd9ecb7b",
+  "address": "dd9ecb7b-5ac9-82b3-89b2-b785cd9ee99d",
+  "statement": "44100 - 1905 = 42195",
+  "tactic": "decide",
+  "keys": [
+    "cross_production_wave_difference_42195"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

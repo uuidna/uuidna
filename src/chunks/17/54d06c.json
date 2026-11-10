@@ -1,0 +1,12 @@
+{
+  "handle": "1754d06c",
+  "address": "1754d06c-5acf-8be4-9bca-40f5f5de92fe",
+  "statement": "(2054 + 3088 + 23522 = 28664)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_bindings_partition_packages_28664"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

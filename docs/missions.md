@@ -11,7 +11,7 @@ description: The mission board, derived — open work with an exact deliverable,
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
 **295 missions** — 28 seal-finding · 136 decide-bound · 131 symbol-leg — derived from the
-rosetta mirror, the sealed bound census (`a6ee67f27d587544`) and the research ledger. The captain of every mission
+rosetta mirror, the sealed bound census (`42c7378c05cf51be`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [`uuidna_agent_contribute`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
@@ -32,7 +32,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 
 | Skill | Theorems | Wings | Open missions | Start with |
 | --- | ---: | ---: | ---: | --- |
-| wave | 67088 | 93 | 153 | `b97801e1` |
+| wave | 67208 | 93 | 153 | `b97801e1` |
 | fermat | 2096 | 24 | 24 | `257643cd` |
 | involution | 20 | 11 | 13 | `fdb12218` |
 | vortex | 41 | 5 | 7 | `fa48a04a` |
@@ -44,7 +44,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | z7-rosette | 150 | 2 | 4 | `3560147c` |
 | links | 17 | 2 | 3 | `e872009a` |
 | neuro | 19 | 2 | 3 | `c912e182` |
-| quantum | 66 | 3 | 3 | `2efc2c84` |
+| quantum | 69 | 3 | 3 | `2efc2c84` |
 | audit | 33 | 2 | 2 | `15f4bed8` |
 | chess | 37 | 2 | 2 | `ec90748c` |
 | clay-reflection | 1 | 1 | 2 | `fdb12218` |
@@ -1563,10 +1563,10 @@ _a sealed Lean line with no TypeScript mirror in the wing emitter — the comput
   <br><small>deliverable: 16 theorems in Vortex.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
   <br><small>covers: [`three_sq_zero`](/theorem/three_sq_zero) · [`six_sq_zero`](/theorem/six_sq_zero) · [`three_no_inverse`](/theorem/three_no_inverse) · [`two_mul_five`](/theorem/two_mul_five) · [`four_mul_seven`](/theorem/four_mul_seven) · [`eight_self_inv`](/theorem/eight_self_inv) · [`doubling_circuit`](/theorem/doubling_circuit) · [`two_order_six`](/theorem/two_order_six) · [`tens_complement_involutive`](/theorem/tens_complement_involutive) · [`rosette_pow_six`](/theorem/rosette_pow_six) · [`rosette_orbit`](/theorem/rosette_orbit) · [`k432`](/theorem/k432) · +4 more in the wing</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
-- **`80497750`** give 963 theorems in Wave.lean the symbol leg
-  <br><small>○ open — ✓ address-recomputes · ✗ symbol-leg-written · fused `3355ab7b-6742…`</small>
-  <br><small>deliverable: 963 theorems in Wave.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
-  <br><small>covers: [`wave_probe_eleven_thirteens`](/theorem/wave_probe_eleven_thirteens) · [`pilgrims_walk_must_cycle`](/theorem/pilgrims_walk_must_cycle) · [`scrubber_margin_holds`](/theorem/scrubber_margin_holds) · [`chubb_stood_thirty_three_years`](/theorem/chubb_stood_thirty_three_years) · [`freedive_records_ascend`](/theorem/freedive_records_ascend) · [`fock_window_exceeds_a_monthly_toll`](/theorem/fock_window_exceeds_a_monthly_toll) · [`checklist_trial_two_dives_each`](/theorem/checklist_trial_two_dives_each) · [`three_cell_vote_majority`](/theorem/three_cell_vote_majority) · [`correlated_failure_defeats_the_vote`](/theorem/correlated_failure_defeats_the_vote) · [`ppo2_window_of_life`](/theorem/ppo2_window_of_life) · [`bramah_stood_sixty_seven_years`](/theorem/bramah_stood_sixty_seven_years) · [`time_lock_removes_the_hostage`](/theorem/time_lock_removes_the_hostage) · +951 more in the wing</small>
+- **`8ab898d7`** give 1083 theorems in Wave.lean the symbol leg
+  <br><small>○ open — ✓ address-recomputes · ✗ symbol-leg-written · fused `a1521544-52e5…`</small>
+  <br><small>deliverable: 1083 theorems in Wave.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`wave_probe_eleven_thirteens`](/theorem/wave_probe_eleven_thirteens) · [`pilgrims_walk_must_cycle`](/theorem/pilgrims_walk_must_cycle) · [`scrubber_margin_holds`](/theorem/scrubber_margin_holds) · [`chubb_stood_thirty_three_years`](/theorem/chubb_stood_thirty_three_years) · [`freedive_records_ascend`](/theorem/freedive_records_ascend) · [`fock_window_exceeds_a_monthly_toll`](/theorem/fock_window_exceeds_a_monthly_toll) · [`checklist_trial_two_dives_each`](/theorem/checklist_trial_two_dives_each) · [`three_cell_vote_majority`](/theorem/three_cell_vote_majority) · [`correlated_failure_defeats_the_vote`](/theorem/correlated_failure_defeats_the_vote) · [`ppo2_window_of_life`](/theorem/ppo2_window_of_life) · [`bramah_stood_sixty_seven_years`](/theorem/bramah_stood_sixty_seven_years) · [`time_lock_removes_the_hostage`](/theorem/time_lock_removes_the_hostage) · +1071 more in the wing</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
 
 ## Honest scope

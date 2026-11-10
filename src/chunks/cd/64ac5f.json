@@ -1,0 +1,12 @@
+{
+  "handle": "cd64ac5f",
+  "address": "cd64ac5f-812f-8b56-a1da-228926199e27",
+  "statement": "Same 2 (mm 2 (mm 2 S X) (dag S)) Y ∧ Same 2 (mm 2 (mm 2 S Y) (dag S)) (smul (-1) X) ∧ Same 2 (mm 2 (mm 2 S Z) (dag S)) Z",
+  "tactic": "decide",
+  "keys": [
+    "uuidprog_tableau_s"
+  ],
+  "files": [
+    "UuidProgram.lean"
+  ]
+}

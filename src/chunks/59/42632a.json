@@ -1,0 +1,12 @@
+{
+  "handle": "5942632a",
+  "address": "5942632a-0ae7-8864-8e6e-5653339e421f",
+  "statement": "(631 + 86 - 0 = 717)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_dr_se_ie_717"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

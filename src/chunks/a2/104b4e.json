@@ -1,0 +1,12 @@
+{
+  "handle": "a2104b4e",
+  "address": "a2104b4e-6c86-879d-8c72-04aaddbc014c",
+  "statement": "(631 + 7503 - 61 = 8073)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_dr_la_ie_8073"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

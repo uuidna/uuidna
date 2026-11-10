@@ -1,0 +1,12 @@
+{
+  "handle": "d4782311",
+  "address": "d4782311-7911-8474-a081-6c332d3d6c39",
+  "statement": "(259 + 1281 - 4 = 1536)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_me_sh_ie_1536"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

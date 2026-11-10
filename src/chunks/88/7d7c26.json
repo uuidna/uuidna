@@ -1,0 +1,12 @@
+{
+  "handle": "887d7c26",
+  "address": "887d7c26-d311-8c7e-b1a3-bcc042330cfb",
+  "statement": "(1281 + 7 - 0 = 1288)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_sh_ph_ie_1288"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

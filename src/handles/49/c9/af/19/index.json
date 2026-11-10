@@ -1,0 +1,12 @@
+{
+  "handle": "49c9af19",
+  "address": "49c9af19-2ea4-8a7a-bdb8-bc3dc5d4abc1",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_shell_partitions_28664"
+  ],
+  "statement": "(1281 + 27383 = 28664)",
+  "files": [
+    "Wave.lean"
+  ]
+}

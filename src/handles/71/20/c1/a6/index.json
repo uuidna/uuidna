@@ -1,0 +1,12 @@
+{
+  "handle": "7120c1a6",
+  "address": "7120c1a6-3cc5-842d-8e1b-fc84a205e171",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_virtualization_partitions_28664"
+  ],
+  "statement": "(232 + 28432 = 28664)",
+  "files": [
+    "Wave.lean"
+  ]
+}

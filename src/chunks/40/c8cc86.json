@@ -1,0 +1,12 @@
+{
+  "handle": "40c8cc86",
+  "address": "40c8cc86-e41c-873e-a1f9-adfa95a4f3ec",
+  "statement": "(303 + 28361 = 28664)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_social_partitions_28664"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "323a1089",
+  "address": "323a1089-a220-89e4-b18d-c3018138b9ba",
+  "statement": "28633 - 8849 = 19784",
+  "tactic": "decide",
+  "keys": [
+    "cross_topography_wave_difference_19784"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

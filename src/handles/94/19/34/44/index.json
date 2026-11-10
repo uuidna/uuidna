@@ -1,0 +1,12 @@
+{
+  "handle": "94193444",
+  "address": "94193444-5116-8017-8b55-e816bb92cdf6",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_geo_partitions_28664"
+  ],
+  "statement": "(62 + 28602 = 28664)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "efcb081f",
+  "address": "efcb081f-0db9-80a6-a07b-e4189cdee1a1",
+  "statement": "(631 + 30 - 1 = 660)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_dr_en_ie_660"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

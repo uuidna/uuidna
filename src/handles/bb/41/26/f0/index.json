@@ -1,0 +1,12 @@
+{
+  "handle": "bb4126f0",
+  "address": "bb4126f0-0f62-84e4-b295-61d9aa4139b4",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_build_partitions_28664"
+  ],
+  "statement": "(260 + 28404 = 28664)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -2,9 +2,9 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "56958a6c092a8301",
-      "principles": "74caa140e5250618",
-      "monographs": "749502ff4e8674fc"
+      "theorems": "e30a5fefe7ff454e",
+      "principles": "176c38257e012382",
+      "monographs": "2deeec96a1e081fa"
     },
     "served": {
       "packages": "068aa5b6c7f3b962",
@@ -18,44 +18,44 @@
     },
     "record": {
       "legal": "e934fa226bd178c4",
-      "prose": "621435d1e2b8284d",
+      "prose": "b95a5892044e3fcc",
       "deposits": "22d0031523359f9f"
     },
     "walks": {
       "star_walk": "00dcb9ca1eb1d2be",
       "rosette_receipts": "4d988bc7c4e58bc0740e49ccc3cf30f4",
-      "rosette_audit": "7fca60f294e3c310"
+      "rosette_audit": "695b2cb50679c5a4"
     }
   },
   "trinity_folds": {
-    "sealed": "f413f7194c1c06089d6b8687a4944517",
+    "sealed": "990db836b8e6be4d4ad29f59fd1b88e6",
     "served": "d456087d548e1a56d10297948b30ef97",
     "proven": "65b94142221a0948f87ca3002d3d9f06",
-    "record": "fbd171a496f3f1c4ee6b57c8a8fb2cf4",
-    "walks": "3f46b24a5e31aedc09fb5c4f6a6f321f"
+    "record": "88bbf00abf34deaabf8a5dc15b7312e9",
+    "walks": "d76d97c13b33607096f4e00317b424a4"
   },
-  "unified_fold": "1a7e3007b5691b46",
-  "receipt": "a57c1d2119f96c0e",
+  "unified_fold": "39e7214da839f555",
+  "receipt": "61833ee2cee82662",
   "rosette_receipt": {
     "rays": [
-      "40ec9486ab964d1c",
+      "854e603afb441977",
       "bf0a979de9af126f",
-      "73f17e4b3e9d7f5f",
+      "4196bc74fd56ff11",
       "a20454282e566346",
-      "712a25a496978273",
+      "3376aefe0a26252f",
       "a761502744407dcd",
       "15ce12dd35c6e412"
     ],
-    "concurrence": "af048d57087630c40aacbf44c2649016"
+    "concurrence": "7586722d6110c8fb254c7c3c7d28a24c"
   },
   "aura": {
-    "rgb": "#e13d5b",
-    "hsl": "hsl(11, 73%, 56%)",
+    "rgb": "#5422dd",
+    "hsl": "hsl(256, 73%, 50%)",
     "alphabet": "4c12110e5c171d38",
-    "movie": "34a195808d872f08",
-    "lessons": "911d4bb0d6b1b44d",
+    "movie": "4dcbf04ae96a3951",
+    "lessons": "2d7686a7126d0a93",
     "report": "940001b6ff9bd2fc",
-    "session": "a30aca0a545e7879",
+    "session": "3849118156c0e17b",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -71,12 +71,12 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 3,
+      "residue": 0,
       "ray": 5,
-      "wave": 8,
-      "hue": 11,
+      "wave": 1,
+      "hue": 256,
       "sat": 73,
-      "light": 56,
+      "light": 50,
       "period": 22,
       "rotation": 360,
       "glow_inner": 24,

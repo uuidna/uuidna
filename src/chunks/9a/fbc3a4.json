@@ -1,0 +1,12 @@
+{
+  "handle": "9afbc3a4",
+  "address": "9afbc3a4-659f-80fc-9ea4-873947109660",
+  "statement": "Same 2 (mm 2 (mm 2 H X) (dag H)) (smul 2 Z) ∧ Same 2 (mm 2 (mm 2 H Z) (dag H)) (smul 2 X) ∧ Same 2 (mm 2 (mm 2 H Y) (dag H)) (smul (-2) Y)",
+  "tactic": "decide",
+  "keys": [
+    "uuidprog_tableau_h"
+  ],
+  "files": [
+    "UuidProgram.lean"
+  ]
+}

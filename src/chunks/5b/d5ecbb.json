@@ -1,0 +1,12 @@
+{
+  "handle": "5bd5ecbb",
+  "address": "5bd5ecbb-58b9-88d5-8cbd-beb64f072c5c",
+  "statement": "(259 + 28405 = 28664)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_media_partitions_28664"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

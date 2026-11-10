@@ -1,0 +1,12 @@
+{
+  "handle": "e9c7093a",
+  "address": "e9c7093a-8d3b-8ceb-b2b9-b2aff014f1a1",
+  "statement": "(2 + 28662 = 28664)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_bio_partitions_28664"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

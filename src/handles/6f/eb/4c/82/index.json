@@ -1,0 +1,12 @@
+{
+  "handle": "6feb4c82",
+  "address": "6feb4c82-fad3-8064-9d4f-94a0f53546d1",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_physics_partitions_28664"
+  ],
+  "statement": "(7 + 28657 = 28664)",
+  "files": [
+    "Wave.lean"
+  ]
+}

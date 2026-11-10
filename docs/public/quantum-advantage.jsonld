@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:afe9891d-37d6-88f7-baea-3d0f33c4e8e2",
+  "@id": "urn:uuid:f3287da5-19d4-8cff-94c8-ea9054308c18",
   "@type": "Dataset",
   "name": "uuidna per-level report — reach, cost and fidelity",
   "description": "Every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction, citing the level's sealed theorem), COST (steady-state floor, measured) and FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). Sealed keys cited: usable_gap_is_two_to_eighty (128 - 48 = 80), n_qubit_dimension (n qubits span 2^n amplitudes), gate_error_baseline_class (1000 = 10^3 per million).",
   "url": "https://uuidna.com/quantum-advantage.jsonld",
-  "identifier": "550c5a47-a40d-8d80-b290-2a3234a376a8",
+  "identifier": "4acda199-d2eb-8bfa-a387-86d3a76c21fa",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
@@ -90,7 +90,7 @@
       "value": "10^3",
       "unitText": "ns (order of magnitude)",
       "measurementTechnique": "measured",
-      "citation": "steady-state floor over 7111400 theorem statement re-addressed in a full sweep, warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+      "citation": "steady-state floor over 7123700 theorem statement re-addressed in a full sweep, warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
     },
     {
       "@type": "PropertyValue",
@@ -98,7 +98,7 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "71114 decisions executed; a bound of better than one in 71114, never a proof of zero"
+      "citation": "71237 decisions executed; a bound of better than one in 71237, never a proof of zero"
     },
     {
       "@type": "PropertyValue",
@@ -114,7 +114,7 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "better than one disagreement per 497476 executions on this host, across 66 of the wing's 66 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide"
+      "citation": "better than one disagreement per 497476 executions on this host, across 66 of the wing's 69 theorems — a bound from the count, not a proof of zero, and not a claim about the 3 this battery does not decide"
     },
     {
       "@type": "PropertyValue",

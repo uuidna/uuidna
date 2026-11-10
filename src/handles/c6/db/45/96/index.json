@@ -1,0 +1,12 @@
+{
+  "handle": "c6db4596",
+  "address": "c6db4596-386f-89c4-adbc-c5660c349922",
+  "kind": "chunk",
+  "keys": [
+    "alpine_dom_la_ne_ie_7786"
+  ],
+  "statement": "(7503 + 332 - 49 = 7786)",
+  "files": [
+    "Wave.lean"
+  ]
+}

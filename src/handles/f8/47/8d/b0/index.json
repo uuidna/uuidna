@@ -1,0 +1,12 @@
+{
+  "handle": "f8478db0",
+  "address": "f8478db0-2a44-85c2-bbe0-22f59f5c8051",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_audio_partitions_28664"
+  ],
+  "statement": "(198 + 28466 = 28664)",
+  "files": [
+    "Wave.lean"
+  ]
+}

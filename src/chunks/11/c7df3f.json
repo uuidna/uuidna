@@ -1,0 +1,12 @@
+{
+  "handle": "11c7df3f",
+  "address": "11c7df3f-cf65-8526-9a25-8ec5e1a6eb24",
+  "statement": "(438 + 1281 - 1 = 1718)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_da_sh_ie_1718"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

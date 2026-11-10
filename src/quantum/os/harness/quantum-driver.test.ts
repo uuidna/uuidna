@@ -263,6 +263,9 @@ const FALSIFIED: readonly string[] = [
   'uuidprog_toffoli',
   'uuidprog_bell_runs',
   'uuidprog_ghz_runs',
+  'uuidprog_tableau_h',
+  'uuidprog_tableau_s',
+  'uuidprog_tableau_cnot',
 ]
 
 test('THE FALSIFIED SET IS NAMED, AND CANNOT DRIFT FROM THE BATTERY IT DESCRIBES', () => {

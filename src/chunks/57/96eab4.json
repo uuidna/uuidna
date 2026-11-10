@@ -1,0 +1,12 @@
+{
+  "handle": "5796eab4",
+  "address": "5796eab4-adff-858e-9c3d-101511e531fd",
+  "statement": "(438 + 28226 = 28664)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_database_partitions_28664"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

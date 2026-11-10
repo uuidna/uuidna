@@ -1,0 +1,12 @@
+{
+  "handle": "0e3fa5ab",
+  "address": "0e3fa5ab-3d0f-82a9-bf12-eb8e4b67d8bc",
+  "statement": "(332 + 1281 - 8 = 1605)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ne_sh_ie_1605"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

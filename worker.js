@@ -486,6 +486,8 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
       // honesty gate the tool will decide with — both answered from the baked root without a row. Anything else is
       // not fetched, and a door that wants a row it did not cite reads it as absent, which is a fact about the call.
       const wantedKeys = (m) => {
+        // a prompts/get names one theorem: its row is fetched like a cited key
+        if (m && m.method === 'prompts/get' && typeof m.params?.name === 'string' && m.params.name.startsWith('iso-test-')) return [m.params.name.slice('iso-test-'.length)].filter((k) => sealedAddressOf(k) !== undefined)
         if (!m || m.method !== 'tools/call') return []
         const args = m.params?.arguments ?? {}
         if (m.params?.name === 'uuidna_evidence' && args.deposit !== undefined) return []   // a deposit reads no row

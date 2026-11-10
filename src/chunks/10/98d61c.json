@@ -1,0 +1,12 @@
+{
+  "handle": "1098d61c",
+  "address": "1098d61c-6344-8fcd-ac0e-61e38681df97",
+  "statement": "(3 + 28661 = 28664)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_chemistry_partitions_28664"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

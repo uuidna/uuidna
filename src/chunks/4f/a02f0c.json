@@ -1,0 +1,12 @@
+{
+  "handle": "4fa02f0c",
+  "address": "4fa02f0c-2d70-80b2-ad3c-3f5a6975d9c5",
+  "statement": "Same 4 (mm 4 (mm 4 CNOT (kron 2 X idm)) (dag CNOT)) (kron 2 X X) ∧ Same 4 (mm 4 (mm 4 CNOT (kron 2 idm X)) (dag CNOT)) (kron 2 idm X) ∧ Same 4 (mm 4 (mm 4 CNOT (kron 2 Z idm)) (dag CNOT)) (kron 2 Z idm) ∧ Same 4 (mm 4 (mm 4 CNOT (kron 2 idm Z)) (dag CNOT)) (kron 2 Z Z)",
+  "tactic": "decide +kernel",
+  "keys": [
+    "uuidprog_tableau_cnot"
+  ],
+  "files": [
+    "UuidProgram.lean"
+  ]
+}

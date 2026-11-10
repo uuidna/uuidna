@@ -1,0 +1,12 @@
+{
+  "handle": "02037dbf",
+  "address": "02037dbf-cbc1-8207-934e-323a09343455",
+  "kind": "chunk",
+  "keys": [
+    "cross_stringtheory_wave_difference_28595"
+  ],
+  "statement": "42195 - 13600 = 28595",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c25ca5d9",
+  "address": "c25ca5d9-914e-8f53-95a7-af3dfc88dffd",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_engineering_partitions_28664"
+  ],
+  "statement": "(30 + 28634 = 28664)",
+  "files": [
+    "Wave.lean"
+  ]
+}

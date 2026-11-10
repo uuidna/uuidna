@@ -1,12 +1,12 @@
 {
- "audited": 71114,
- "total": 71114,
- "axiomFree": 71114,
+ "audited": 71237,
+ "total": 71237,
+ "axiomFree": 71237,
  "offenders": {},
  "dependencySets": {
-  "(none)": 71114
+  "(none)": 71237
  },
- "asked": "953632cd-555f-8970-a6e9-a838aef6ff80",
+ "asked": "92517045-5e37-8ea8-a67b-677d2bcd8963",
  "toolchain": "leanprover/lean4:v4.33.0",
  "wings": {
   "45bcb8b0.lean": {
@@ -126,7 +126,7 @@
    }
   },
   "Audit.lean": {
-   "asked": "afec995a-4085-8e79-b114-30626d0abb65",
+   "asked": "e949e4cb-9f88-8914-a3d7-2e924149db42",
    "verdict": {
     "wall_steady_state": [],
     "flag_truth_table": [],
@@ -612,7 +612,7 @@
    }
   },
   "CrossFormulas.lean": {
-   "asked": "05ca08d4-cedb-8641-9e2d-556634e12217",
+   "asked": "7baa22e5-4e7f-8cf4-bb64-67ce2d8f7bd2",
    "verdict": {
     "the_generated_closure_partitions_into_three_kinds": [],
     "the_arithmetic_alphabet_partitions_by_its_own_algebra": [],
@@ -671,7 +671,7 @@
    }
   },
   "Cyber.lean": {
-   "asked": "b4944b00-1073-8ec9-9dce-8a8527e47362",
+   "asked": "118a2e06-a3ab-852d-9060-4dbf290758e0",
    "verdict": {
     "the_store_footprint_is_its_folders": [],
     "the_third_level_already_shares": []
@@ -69337,7 +69337,7 @@
    }
   },
   "Infinity.lean": {
-   "asked": "95f03e87-1648-825e-8a68-9b97d611bac1",
+   "asked": "1651945a-42b6-8aef-822c-922f0a3cd8e0",
    "verdict": {
     "zeno_finite_sum": [],
     "uv_partition_closed": [],
@@ -69399,7 +69399,7 @@
    }
   },
   "Involutionb13fd37a.lean": {
-   "asked": "234feffd-655c-891c-8edd-9e14f9311a52",
+   "asked": "15f93a06-dd3c-8e85-b3f0-54c7ad291b71",
    "verdict": {
     "reconciled_b13fd37a": [],
     "involution_b13fd37a": []
@@ -69825,7 +69825,7 @@
    }
   },
   "Links.lean": {
-   "asked": "7d4ae07b-5e73-8b65-9692-55a93ac3b5c3",
+   "asked": "beac923f-0874-894f-b332-e42eb2fe256c",
    "verdict": {
     "not_dvd_of_bound": [],
     "the_untested_hundred_pay_a_third_of_the_wire": [],
@@ -69892,7 +69892,7 @@
    }
   },
   "Models.lean": {
-   "asked": "4a8a903c-2cb0-871b-862b-6a0ebe563962",
+   "asked": "70bad051-d7a7-8125-8899-20a8a3a9b753",
    "verdict": {
     "a_token_approximates_eight_hexbits": [],
     "context_windows_are_transient_hexbits": [],
@@ -71062,7 +71062,7 @@
    }
   },
   "SiteBuild.lean": {
-   "asked": "97b17e80-a385-8626-bca1-81d487bbb25c",
+   "asked": "a5ca011a-6c7f-849a-821e-2878f0ef3e2d",
    "verdict": {
     "render_retention_exceeds_the_container": [],
     "counting_beats_composing_by_six_magnitudes": [],
@@ -71082,7 +71082,7 @@
    }
   },
   "Software.lean": {
-   "asked": "c68dcb46-0607-8662-b2d0-4eb469e0edf9",
+   "asked": "78f47b9f-40c8-8873-8c55-1758799014c8",
    "verdict": {
     "codec_split_recompose_lossless": [],
     "map_preserves_length": [],
@@ -71367,7 +71367,7 @@
    }
   },
   "UuidProgram.lean": {
-   "asked": "2407649c-31d3-8163-a47d-acf7ab5a9ea7",
+   "asked": "66d07cf7-9480-8827-afe9-f1003c10b4c0",
    "verdict": {
     "uuidprog_address": [],
     "uuidprog_layout": [],
@@ -71375,6 +71375,9 @@
     "uuidprog_paulis_unitary": [],
     "uuidprog_cnot_swap": [],
     "uuidprog_toffoli": [],
+    "uuidprog_tableau_h": [],
+    "uuidprog_tableau_s": [],
+    "uuidprog_tableau_cnot": [],
     "uuidprog_bell_runs": [],
     "uuidprog_ghz_runs": []
    }
@@ -71445,7 +71448,7 @@
    }
   },
   "Wave.lean": {
-   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
+   "asked": "0c31a872-24fc-8523-b0f2-613549ecefac",
    "verdict": {
     "a440_not_on_the_vortex": [],
     "morris_eight_bars_halved": [],
@@ -72414,7 +72417,127 @@
     "mass_coord_clay_seven_has_centre": [],
     "mass_comply_nor_tied_inverts": [],
     "mass_comply_de_morgan_or_to_and": [],
-    "mass_comply_demux_never_both_hot": []
+    "mass_comply_demux_never_both_hot": [],
+    "alpine_bindings_partition_packages_28664": [],
+    "alpine_binding_origins_overcount_16101": [],
+    "alpine_domain_database_partitions_28664": [],
+    "alpine_domain_filesystem_partitions_28664": [],
+    "alpine_domain_blockchain_partitions_28664": [],
+    "alpine_domain_driver_partitions_28664": [],
+    "alpine_domain_driver_origins_631": [],
+    "alpine_domain_language_partitions_28664": [],
+    "alpine_domain_language_origins_7503": [],
+    "alpine_domain_network_partitions_28664": [],
+    "alpine_domain_science_partitions_28664": [],
+    "alpine_domain_media_partitions_28664": [],
+    "alpine_domain_shell_partitions_28664": [],
+    "alpine_domain_shell_origins_1281": [],
+    "alpine_domain_chat_partitions_28664": [],
+    "alpine_domain_crypto_partitions_28664": [],
+    "alpine_domain_security_partitions_28664": [],
+    "alpine_domain_math_partitions_28664": [],
+    "alpine_domain_art_partitions_28664": [],
+    "alpine_domain_bio_partitions_28664": [],
+    "alpine_domain_chemistry_partitions_28664": [],
+    "alpine_domain_neuro_partitions_28664": [],
+    "alpine_domain_astronomy_partitions_28664": [],
+    "alpine_domain_physics_partitions_28664": [],
+    "alpine_domain_geo_partitions_28664": [],
+    "alpine_domain_virtualization_partitions_28664": [],
+    "alpine_domain_font_partitions_28664": [],
+    "alpine_domain_audio_partitions_28664": [],
+    "alpine_domain_build_partitions_28664": [],
+    "alpine_domain_social_partitions_28664": [],
+    "alpine_domain_engineering_partitions_28664": [],
+    "alpine_port_all_partition_28664": [],
+    "alpine_dom_da_dr_ie_1008": [],
+    "alpine_dom_da_la_ie_7787": [],
+    "alpine_dom_da_sh_ie_1718": [],
+    "alpine_dom_fi_dr_ie_838": [],
+    "alpine_dom_fi_la_ie_7702": [],
+    "alpine_dom_fi_sh_ie_1493": [],
+    "alpine_dom_bl_dr_ie_660": [],
+    "alpine_dom_bl_la_ie_7525": [],
+    "alpine_dom_bl_sh_ie_1310": [],
+    "alpine_dom_dr_la_ie_8073": [],
+    "alpine_dom_dr_ne_ie_963": [],
+    "alpine_dom_dr_sc_ie_703": [],
+    "alpine_dom_dr_me_ie_889": [],
+    "alpine_dom_dr_sh_ie_1908": [],
+    "alpine_dom_dr_ch_ie_872": [],
+    "alpine_dom_dr_cr_ie_830": [],
+    "alpine_dom_dr_se_ie_717": [],
+    "alpine_dom_dr_ma_ie_671": [],
+    "alpine_dom_dr_ar_ie_684": [],
+    "alpine_dom_dr_bi_ie_633": [],
+    "alpine_dom_dr_ch_ie_634": [],
+    "alpine_dom_dr_ne_ie_642": [],
+    "alpine_dom_dr_as_ie_656": [],
+    "alpine_dom_dr_ph_ie_638": [],
+    "alpine_dom_dr_ge_ie_655": [],
+    "alpine_dom_dr_vi_ie_851": [],
+    "alpine_dom_dr_fo_ie_713": [],
+    "alpine_dom_dr_au_ie_740": [],
+    "alpine_dom_dr_bu_ie_889": [],
+    "alpine_dom_dr_so_ie_934": [],
+    "alpine_dom_dr_en_ie_660": [],
+    "alpine_dom_la_ne_ie_7786": [],
+    "alpine_dom_la_sc_ie_7561": [],
+    "alpine_dom_la_me_ie_7695": [],
+    "alpine_dom_la_sh_ie_8715": [],
+    "alpine_dom_la_ch_ie_7702": [],
+    "alpine_dom_la_cr_ie_7656": [],
+    "alpine_dom_la_se_ie_7580": [],
+    "alpine_dom_la_ma_ie_7537": [],
+    "alpine_dom_la_ar_ie_7551": [],
+    "alpine_dom_la_bi_ie_7503": [],
+    "alpine_dom_la_ch_ie_7506": [],
+    "alpine_dom_la_ne_ie_7511": [],
+    "alpine_dom_la_as_ie_7518": [],
+    "alpine_dom_la_ph_ie_7510": [],
+    "alpine_dom_la_ge_ie_7562": [],
+    "alpine_dom_la_vi_ie_7719": [],
+    "alpine_dom_la_ga_ie_7528": [],
+    "alpine_dom_la_fo_ie_7581": [],
+    "alpine_dom_la_au_ie_7699": [],
+    "alpine_dom_la_bu_ie_7752": [],
+    "alpine_dom_la_so_ie_7717": [],
+    "alpine_dom_la_en_ie_7532": [],
+    "alpine_dom_ne_sh_ie_1605": [],
+    "alpine_dom_sc_sh_ie_1355": [],
+    "alpine_dom_me_sh_ie_1536": [],
+    "alpine_dom_sh_ch_ie_1519": [],
+    "alpine_dom_sh_cr_ie_1470": [],
+    "alpine_dom_sh_se_ie_1363": [],
+    "alpine_dom_sh_ma_ie_1321": [],
+    "alpine_dom_sh_ar_ie_1333": [],
+    "alpine_dom_sh_bi_ie_1283": [],
+    "alpine_dom_sh_ch_ie_1284": [],
+    "alpine_dom_sh_ne_ie_1292": [],
+    "alpine_dom_sh_as_ie_1303": [],
+    "alpine_dom_sh_ph_ie_1288": [],
+    "alpine_dom_sh_ge_ie_1342": [],
+    "alpine_dom_sh_vi_ie_1507": [],
+    "alpine_dom_sh_ga_ie_1306": [],
+    "alpine_dom_sh_fo_ie_1363": [],
+    "alpine_dom_sh_au_ie_1475": [],
+    "alpine_dom_sh_bu_ie_1535": [],
+    "alpine_dom_sh_so_ie_1581": [],
+    "alpine_dom_sh_en_ie_1311": [],
+    "cross_cipher_handlespan_sum_2097152": [],
+    "cross_cipher_handlespan_difference_1048576": [],
+    "cross_cipher_wave_sum_1048576": [],
+    "cross_cipher_wave_difference_524288": [],
+    "cross_production_wave_sum_44100": [],
+    "cross_stringtheory_wave_sum_42195": [],
+    "cross_production_wave_difference_42195": [],
+    "cross_topography_wave_sum_28633": [],
+    "cross_stringtheory_wave_difference_28595": [],
+    "cross_editing_wave_sum_28436": [],
+    "cross_editing_wave_difference_27356": [],
+    "cross_topography_wave_sum_25000": [],
+    "cross_topography_wave_difference_19784": [],
+    "cross_topography_wave_difference_17265": []
    }
   },
   "Waves.lean": {
@@ -72444,10 +72567,10 @@
    }
   }
  },
- "receipt": "3a203dc9-a9dc-873c-9f75-9b8db7c5c3fd",
+ "receipt": "dd2d2242-daa6-82a8-91ae-f8ac8fb6387d",
  "crossed": {
-  "sorted": "3a203dc9-a9dc-873c-9f75-9b8db7c5c3fd",
-  "reversed": "3a203dc9-a9dc-873c-9f75-9b8db7c5c3fd",
+  "sorted": "dd2d2242-daa6-82a8-91ae-f8ac8fb6387d",
+  "reversed": "dd2d2242-daa6-82a8-91ae-f8ac8fb6387d",
   "agrees": true
  }
 }

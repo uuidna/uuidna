@@ -1,0 +1,12 @@
+{
+  "handle": "c0723c72",
+  "address": "c0723c72-0c77-8f0f-bd79-e1dea8ed9180",
+  "kind": "chunk",
+  "keys": [
+    "cross_editing_wave_difference_27356"
+  ],
+  "statement": "28436 - 1080 = 27356",
+  "files": [
+    "Wave.lean"
+  ]
+}

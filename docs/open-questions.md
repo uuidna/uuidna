@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**48 open leads** across 16 topics — only leads **in trial** from lean/leads.json, prose develop
+**49 open leads** across 15 topics — only leads **in trial** from lean/leads.json, prose develop
 fragments `decide()` has not yet closed, support-wave research-leads, and axiom-hunt exposed items. Refuted
 (measurement closed) and refused (boundary closed) enroll on [research leads](/leads), not here. Research
 findings and search-feed silence live on their own surfaces ([research ledger](/mcp#uuidna-research-ledger),
@@ -127,7 +127,7 @@ page regrows without it.
   <br><small>sealed neighbors: [`the_cern_file_total_is_twice_a_prime`](/theorem/the_cern_file_total_is_twice_a_prime) · [`the_cern_totals_close_under_the_ledger_own_reduction`](/theorem/the_cern_totals_close_under_the_ledger_own_reduction) · [`handle_outreaches_planck`](/theorem/handle_outreaches_planck) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
-## wave — 8 open
+## wave — 9 open
 
 - **Quantum advantage or speedup claims**
   <br><small>door: the leads in trial</small>
@@ -138,6 +138,11 @@ page regrows without it.
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`lead_b13fd37a_is_flagged_by_every_single_refuter`](/theorem/lead_b13fd37a_is_flagged_by_every_single_refuter) · [`involution_c0727ef6`](/theorem/involution_c0727ef6) </small>
   <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`four_mul_is_four_copies`](/theorem/four_mul_is_four_copies) · [`reconciled_generator_sat_inside_the_truncated_run`](/theorem/reconciled_generator_sat_inside_the_truncated_run) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **Scrape King Wen, sephirot, chakra, or deity-name tables into occupancy, Lean, or hero chrome.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`theology_counts_in_the_mirror_base`](/theorem/theology_counts_in_the_mirror_base) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
+  <br><small>sealed neighbors: [`cross_cipher_handlespan_difference_1048576`](/theorem/cross_cipher_handlespan_difference_1048576) · [`cross_cipher_handlespan_sum_2097152`](/theorem/cross_cipher_handlespan_sum_2097152) · [`cross_editing_wave_difference_27356`](/theorem/cross_editing_wave_difference_27356) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Catalogues published without a token**
   <br><small>door: the leads in trial</small>
@@ -230,14 +235,6 @@ page regrows without it.
   <br><small>sealed neighbors: [`proof_de5612a2`](/theorem/proof_de5612a2) · [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
-## nim — 1 open
-
-- **Scrape King Wen, sephirot, chakra, or deity-name tables into occupancy, Lean, or hero chrome.**
-  <br><small>door: the leads in trial</small>
-  <br><small>involutions around: [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`theology_counts_in_the_mirror_base`](/theorem/theology_counts_in_the_mirror_base) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
-  <br><small>sealed neighbors: [`grundy_sum_is_xor`](/theorem/grundy_sum_is_xor) · [`hamming_differences_are_the_code`](/theorem/hamming_differences_are_the_code) · [`hexagram_width_closes_rosetta_and_glagolitic`](/theorem/hexagram_width_closes_rosetta_and_glagolitic) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-
 ## quantum — 1 open
 
 - **Replace ChaCha20-Poly1305 with the 256-triangle fold as the secrecy primitive.**
@@ -294,7 +291,7 @@ page regrows without it.
   <br><small>sealed neighbors: [`recto_odd_verso_even`](/theorem/recto_odd_verso_even) · [`the_page_admits_sixteen`](/theorem/the_page_admits_sixteen) · [`context_windows_are_transient_hexbits`](/theorem/context_windows_are_transient_hexbits) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
-## open frontier — 3 open
+## open frontier — 4 open
 
 - **Bulk crawling of chitanka.info**
   <br><small>door: the leads in trial</small>
@@ -310,6 +307,11 @@ page regrows without it.
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
   <br><small>sealed neighbors: [`crossing_sits_inside`](/theorem/crossing_sits_inside) · [`handle_outreaches_planck`](/theorem/handle_outreaches_planck) · [`pairings_exhaust_the_cancellations`](/theorem/pairings_exhaust_the_cancellations) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **1048576 + 1048576 = 2097152**
+  <br><small>door: the prose trials · src/scripts/cross-formulate.ts · receipt `d6d9eeb5-9746-83e0-acb2-78c0f06c92e6`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## Honest scope

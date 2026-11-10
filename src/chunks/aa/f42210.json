@@ -1,0 +1,12 @@
+{
+  "handle": "aaf42210",
+  "address": "aaf42210-db6a-8dcf-b79f-1dacdf8bf0cd",
+  "statement": "25000 - 7735 = 17265",
+  "tactic": "decide",
+  "keys": [
+    "cross_topography_wave_difference_17265"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -99,41 +99,76 @@ When practice stalls on a theorem, the gap is almost never the theorem itself �
 skipped. The fix is never to invent a bridging theorem (a restatement is not a unity,
 [`unity_census_is_plural_and_needs_two`](/theorem/unity_census_is_plural_and_needs_two)); it is to **reorder the walk** so the sealed prerequisite comes
 first. And the prerequisite relation is not curated: it is scanned from the ledger itself — every sealed name
-that cites another sealed key IS a citation edge, 208 prerequisites over 269 edges at this
+that cites another sealed key IS a citation edge, 242 prerequisites over 349 edges at this
 generation, ranked by how many theorems rest on each. Walk the most-cited first; each row lists up to its first
 three citers alphabetically, and the count carries the rest.
 
 | Walk this first | Cited by | Among its citers |
 | --- | ---: | --- |
 | [`ve_twentyfour_edges`](/theorem/ve_twentyfour_edges) | 16 | [`the_twelve_neighbours_are_an_independent_set_0`](/theorem/the_twelve_neighbours_are_an_independent_set_0), [`the_twelve_neighbours_are_an_independent_set_1`](/theorem/the_twelve_neighbours_are_an_independent_set_1), [`the_twelve_neighbours_are_an_independent_set_10`](/theorem/the_twelve_neighbours_are_an_independent_set_10) |
+| [`enumeration_hex4_a4d3`](/theorem/enumeration_hex4_a4d3) | 4 | [`cross_production_wave_difference_42195`](/theorem/cross_production_wave_difference_42195), [`cross_production_wave_sum_44100`](/theorem/cross_production_wave_sum_44100), [`cross_stringtheory_wave_difference_28595`](/theorem/cross_stringtheory_wave_difference_28595) |
+| [`faster_and_more_secure`](/theorem/faster_and_more_secure) | 4 | [`cross_cipher_handlespan_difference_1048576`](/theorem/cross_cipher_handlespan_difference_1048576), [`cross_cipher_handlespan_sum_2097152`](/theorem/cross_cipher_handlespan_sum_2097152), [`cross_cipher_wave_difference_524288`](/theorem/cross_cipher_wave_difference_524288) |
 | [`n_qubit_dimension`](/theorem/n_qubit_dimension) | 4 | [`n_qubit_dimension_all`](/theorem/n_qubit_dimension_all), [`optimisation_space_is_qubit_dimension`](/theorem/optimisation_space_is_qubit_dimension), [`quantum_is_the_uuid_doubled`](/theorem/quantum_is_the_uuid_doubled) |
 | [`rosette_and_vortex_are_coprime`](/theorem/rosette_and_vortex_are_coprime) | 4 | [`the_beam_energies_are_coprime_multiples_of_their_own_step`](/theorem/the_beam_energies_are_coprime_multiples_of_their_own_step), [`the_bounded_search_returns_the_sealed_gcd_verdict`](/theorem/the_bounded_search_returns_the_sealed_gcd_verdict), [`the_vortex_and_the_rosette_are_one_six_cycle`](/theorem/the_vortex_and_the_rosette_are_one_six_cycle) |
 | [`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins) | 4 | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen), [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette), [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) |
+| [`shor_is_defeated_by_absence_not_by_speed`](/theorem/shor_is_defeated_by_absence_not_by_speed) | 4 | [`cross_cipher_handlespan_difference_1048576`](/theorem/cross_cipher_handlespan_difference_1048576), [`cross_cipher_handlespan_sum_2097152`](/theorem/cross_cipher_handlespan_sum_2097152), [`cross_cipher_wave_difference_524288`](/theorem/cross_cipher_wave_difference_524288) |
+| [`sport_marathon_and_the_teams`](/theorem/sport_marathon_and_the_teams) | 4 | [`cross_production_wave_difference_42195`](/theorem/cross_production_wave_difference_42195), [`cross_production_wave_sum_44100`](/theorem/cross_production_wave_sum_44100), [`cross_stringtheory_wave_difference_28595`](/theorem/cross_stringtheory_wave_difference_28595) |
+| [`verify_beats_recompute_by_magnitudes`](/theorem/verify_beats_recompute_by_magnitudes) | 4 | [`cross_cipher_handlespan_difference_1048576`](/theorem/cross_cipher_handlespan_difference_1048576), [`cross_cipher_handlespan_sum_2097152`](/theorem/cross_cipher_handlespan_sum_2097152), [`cross_cipher_wave_difference_524288`](/theorem/cross_cipher_wave_difference_524288) |
 | [`window_not_universal`](/theorem/window_not_universal) | 4 | [`cubes_sum_to_square_of_triangle`](/theorem/cubes_sum_to_square_of_triangle), [`pluck_preserves_bound_at_the_window`](/theorem/pluck_preserves_bound_at_the_window), [`team_pairs_triples_cover`](/theorem/team_pairs_triples_cover) |
 | [`alphabetic_three_ranks`](/theorem/alphabetic_three_ranks) | 3 | [`abjad_four_ranks`](/theorem/abjad_four_ranks), [`beast_number_fits_two_readings`](/theorem/beast_number_fits_two_readings), [`genesis_1_1_is_2701`](/theorem/genesis_1_1_is_2701) |
 | [`codons_sixty_four`](/theorem/codons_sixty_four) | 3 | [`octave_codon_address`](/theorem/octave_codon_address), [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not), [`payload_carries_the_strand`](/theorem/payload_carries_the_strand) |
 | [`digital_root`](/theorem/digital_root) | 3 | [`the_cern_division_survives_casting_out_nines`](/theorem/the_cern_division_survives_casting_out_nines), [`the_cern_totals_close_under_the_ledger_own_reduction`](/theorem/the_cern_totals_close_under_the_ledger_own_reduction), [`z9_digit_sum_folds_to_the_residue_in_three`](/theorem/z9_digit_sum_folds_to_the_residue_in_three) |
 | [`gematria_forces_collisions`](/theorem/gematria_forces_collisions) | 3 | [`beast_number_fits_two_readings`](/theorem/beast_number_fits_two_readings), [`collisions_under_one`](/theorem/collisions_under_one), [`genesis_1_1_is_2701`](/theorem/genesis_1_1_is_2701) |
+| [`nyquist_half_samplerate`](/theorem/nyquist_half_samplerate) | 3 | [`cross_production_wave_difference_42195`](/theorem/cross_production_wave_difference_42195), [`cross_production_wave_sum_44100`](/theorem/cross_production_wave_sum_44100), [`nyquist_clears_the_lattice`](/theorem/nyquist_clears_the_lattice) |
 | [`points_of_sail`](/theorem/points_of_sail) | 3 | [`eight_points_is_90`](/theorem/eight_points_is_90), [`sixteen_points_is_180`](/theorem/sixteen_points_is_180), [`twelve_points_is_135`](/theorem/twelve_points_is_135) |
 | [`seats_pigeonhole`](/theorem/seats_pigeonhole) | 3 | [`collisions_are_forced_by_the_ceiling`](/theorem/collisions_are_forced_by_the_ceiling), [`fold_weak_hash`](/theorem/fold_weak_hash), [`gematria_forces_collisions`](/theorem/gematria_forces_collisions) |
 | [`verify_cheaper_than_forge`](/theorem/verify_cheaper_than_forge) | 3 | [`bramah_stood_sixty_seven_years`](/theorem/bramah_stood_sixty_seven_years), [`manipulation_never_faster`](/theorem/manipulation_never_faster), [`minting_is_free_and_forging_is_not`](/theorem/minting_is_free_and_forging_is_not) |
 | [`a440_drifts_eight_from_the_lattice`](/theorem/a440_drifts_eight_from_the_lattice) | 2 | [`a440_drift_is_heard`](/theorem/a440_drift_is_heard), [`a440_drift_walked_in_history`](/theorem/a440_drift_walked_in_history) |
 | [`agl_order_54`](/theorem/agl_order_54) | 2 | [`the_budget_census_exhausts_the_affine_group`](/theorem/the_budget_census_exhausts_the_affine_group), [`the_mirror_is_a_member_of_the_family_whose_budget_it_moves`](/theorem/the_mirror_is_a_member_of_the_family_whose_budget_it_moves) |
+| [`alpine_dom_dr_sh_ie_1905`](/theorem/alpine_dom_dr_sh_ie_1905) | 2 | [`cross_production_wave_difference_42195`](/theorem/cross_production_wave_difference_42195), [`cross_production_wave_sum_44100`](/theorem/cross_production_wave_sum_44100) |
+| [`alpine_dom_la_bu_ie_7735`](/theorem/alpine_dom_la_bu_ie_7735) | 2 | [`cross_topography_wave_difference_17265`](/theorem/cross_topography_wave_difference_17265), [`cross_topography_wave_sum_25000`](/theorem/cross_topography_wave_sum_25000) |
+| [`alpine_domain_bio_partitions_28635`](/theorem/alpine_domain_bio_partitions_28635) | 2 | [`cross_topography_wave_difference_19784`](/theorem/cross_topography_wave_difference_19784), [`cross_topography_wave_sum_28633`](/theorem/cross_topography_wave_sum_28633) |
+| [`alpine_domain_crypto_partitions_28635`](/theorem/alpine_domain_crypto_partitions_28635) | 2 | [`cross_editing_wave_difference_27356`](/theorem/cross_editing_wave_difference_27356), [`cross_editing_wave_sum_28436`](/theorem/cross_editing_wave_sum_28436) |
+| [`alpine_domain_math_partitions_28635`](/theorem/alpine_domain_math_partitions_28635) | 2 | [`cross_stringtheory_wave_difference_28595`](/theorem/cross_stringtheory_wave_difference_28595), [`cross_stringtheory_wave_sum_42195`](/theorem/cross_stringtheory_wave_sum_42195) |
+| [`alpine_domain_shell_partitions_28635`](/theorem/alpine_domain_shell_partitions_28635) | 2 | [`cross_editing_wave_difference_27356`](/theorem/cross_editing_wave_difference_27356), [`cross_editing_wave_sum_28436`](/theorem/cross_editing_wave_sum_28436) |
+| [`alpine_port_all_partition_28635`](/theorem/alpine_port_all_partition_28635) | 2 | [`cross_topography_wave_difference_17265`](/theorem/cross_topography_wave_difference_17265), [`cross_topography_wave_sum_25000`](/theorem/cross_topography_wave_sum_25000) |
 | [`axes_stride_coprime`](/theorem/axes_stride_coprime) | 2 | [`hexagram_stride_totals_the_rosetta`](/theorem/hexagram_stride_totals_the_rosetta), [`stride_cycle_is_modulus_over_gcd`](/theorem/stride_cycle_is_modulus_over_gcd) |
 | [`bell_basis_orthogonal`](/theorem/bell_basis_orthogonal) | 2 | [`hexbit_slit_cross_is_overlap`](/theorem/hexbit_slit_cross_is_overlap), [`hexbit_slit_visibility`](/theorem/hexbit_slit_visibility) |
+| [`bulge_exceeds_relief`](/theorem/bulge_exceeds_relief) | 2 | [`cross_topography_wave_difference_19784`](/theorem/cross_topography_wave_difference_19784), [`cross_topography_wave_sum_28633`](/theorem/cross_topography_wave_sum_28633) |
 | [`charge_balance_neutral`](/theorem/charge_balance_neutral) | 2 | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything), [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) |
+| [`collider_energy_is_below_the_planck_scale`](/theorem/collider_energy_is_below_the_planck_scale) | 2 | [`cross_stringtheory_wave_difference_28595`](/theorem/cross_stringtheory_wave_difference_28595), [`cross_stringtheory_wave_sum_42195`](/theorem/cross_stringtheory_wave_sum_42195) |
 | [`distance_is_symmetric`](/theorem/distance_is_symmetric) | 2 | [`hamming_triangle_inequality`](/theorem/hamming_triangle_inequality), [`tile_tamper_distance_census_is_binomial`](/theorem/tile_tamper_distance_census_is_binomial) |
+| [`enumeration_hex4_0438`](/theorem/enumeration_hex4_0438) | 2 | [`cross_editing_wave_difference_27356`](/theorem/cross_editing_wave_difference_27356), [`cross_editing_wave_sum_28436`](/theorem/cross_editing_wave_sum_28436) |
+| [`enumeration_hex4_0771`](/theorem/enumeration_hex4_0771) | 2 | [`cross_production_wave_difference_42195`](/theorem/cross_production_wave_difference_42195), [`cross_production_wave_sum_44100`](/theorem/cross_production_wave_sum_44100) |
+| [`enumeration_hex4_1e37`](/theorem/enumeration_hex4_1e37) | 2 | [`cross_topography_wave_difference_17265`](/theorem/cross_topography_wave_difference_17265), [`cross_topography_wave_sum_25000`](/theorem/cross_topography_wave_sum_25000) |
+| [`enumeration_hex4_2291`](/theorem/enumeration_hex4_2291) | 2 | [`cross_topography_wave_difference_19784`](/theorem/cross_topography_wave_difference_19784), [`cross_topography_wave_sum_28633`](/theorem/cross_topography_wave_sum_28633) |
+| [`enumeration_hex4_3520`](/theorem/enumeration_hex4_3520) | 2 | [`cross_stringtheory_wave_difference_28595`](/theorem/cross_stringtheory_wave_difference_28595), [`cross_stringtheory_wave_sum_42195`](/theorem/cross_stringtheory_wave_sum_42195) |
+| [`enumeration_hex4_4371`](/theorem/enumeration_hex4_4371) | 2 | [`cross_topography_wave_difference_17265`](/theorem/cross_topography_wave_difference_17265), [`cross_topography_wave_sum_25000`](/theorem/cross_topography_wave_sum_25000) |
+| [`enumeration_hex4_4d48`](/theorem/enumeration_hex4_4d48) | 2 | [`cross_topography_wave_difference_19784`](/theorem/cross_topography_wave_difference_19784), [`cross_topography_wave_sum_28633`](/theorem/cross_topography_wave_sum_28633) |
+| [`enumeration_hex4_61a8`](/theorem/enumeration_hex4_61a8) | 2 | [`cross_topography_wave_difference_17265`](/theorem/cross_topography_wave_difference_17265), [`cross_topography_wave_sum_25000`](/theorem/cross_topography_wave_sum_25000) |
+| [`enumeration_hex4_6adc`](/theorem/enumeration_hex4_6adc) | 2 | [`cross_editing_wave_difference_27356`](/theorem/cross_editing_wave_difference_27356), [`cross_editing_wave_sum_28436`](/theorem/cross_editing_wave_sum_28436) |
+| [`enumeration_hex4_6f14`](/theorem/enumeration_hex4_6f14) | 2 | [`cross_editing_wave_difference_27356`](/theorem/cross_editing_wave_difference_27356), [`cross_editing_wave_sum_28436`](/theorem/cross_editing_wave_sum_28436) |
+| [`enumeration_hex4_6fb3`](/theorem/enumeration_hex4_6fb3) | 2 | [`cross_stringtheory_wave_difference_28595`](/theorem/cross_stringtheory_wave_difference_28595), [`cross_stringtheory_wave_sum_42195`](/theorem/cross_stringtheory_wave_sum_42195) |
+| [`enumeration_hex4_6fd9`](/theorem/enumeration_hex4_6fd9) | 2 | [`cross_topography_wave_difference_19784`](/theorem/cross_topography_wave_difference_19784), [`cross_topography_wave_sum_28633`](/theorem/cross_topography_wave_sum_28633) |
+| [`enumeration_hex4_ac44`](/theorem/enumeration_hex4_ac44) | 2 | [`cross_production_wave_difference_42195`](/theorem/cross_production_wave_difference_42195), [`cross_production_wave_sum_44100`](/theorem/cross_production_wave_sum_44100) |
 | [`first_law_conservation`](/theorem/first_law_conservation) | 2 | [`electrical_energy_is_volt_amp_second`](/theorem/electrical_energy_is_volt_amp_second), [`steady_temperature_hides_power`](/theorem/steady_temperature_hides_power) |
+| [`handles_times_qubits`](/theorem/handles_times_qubits) | 2 | [`cross_cipher_handlespan_difference_1048576`](/theorem/cross_cipher_handlespan_difference_1048576), [`cross_cipher_handlespan_sum_2097152`](/theorem/cross_cipher_handlespan_sum_2097152) |
 | [`hexbit_slit_visibility`](/theorem/hexbit_slit_visibility) | 2 | [`slit_on_the_hexbit_ring`](/theorem/slit_on_the_hexbit_ring), [`which_path_conserves_the_total`](/theorem/which_path_conserves_the_total) |
 | [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) | 2 | [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence), [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) |
+| [`map_scale_one_to_25000`](/theorem/map_scale_one_to_25000) | 2 | [`cross_topography_wave_difference_17265`](/theorem/cross_topography_wave_difference_17265), [`cross_topography_wave_sum_25000`](/theorem/cross_topography_wave_sum_25000) |
 | [`moduli_waste_states`](/theorem/moduli_waste_states) | 2 | [`door_of_the_referrer`](/theorem/door_of_the_referrer), [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) |
 | [`polarities_plus_minus`](/theorem/polarities_plus_minus) | 2 | [`digit_polarities_partition_ten`](/theorem/digit_polarities_partition_ten), [`nine_is_plus_not_neutral`](/theorem/nine_is_plus_not_neutral) |
 | [`pythagorean_comma_is_the_drift`](/theorem/pythagorean_comma_is_the_drift) | 2 | [`no_power_of_three_is_a_power_of_two`](/theorem/no_power_of_three_is_a_power_of_two), [`the_comma_hides_below_hearing`](/theorem/the_comma_hides_below_hearing) |
+| [`quantum_margin_after_both_advantages_73`](/theorem/quantum_margin_after_both_advantages_73) | 2 | [`cross_cipher_wave_difference_524288`](/theorem/cross_cipher_wave_difference_524288), [`cross_cipher_wave_sum_1048576`](/theorem/cross_cipher_wave_sum_1048576) |
 | [`rosette_quantum_fortytwo`](/theorem/rosette_quantum_fortytwo) | 2 | [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette), [`the_grid_widths_are_the_sealed_fortytwo_and_k432`](/theorem/the_grid_widths_are_the_sealed_fortytwo_and_k432) |
 | [`tet_semitone_no_integer_lattice`](/theorem/tet_semitone_no_integer_lattice) | 2 | [`bounded_silence_is_not_evidence`](/theorem/bounded_silence_is_not_evidence), [`tet_semitone_no_rational_at_the_window`](/theorem/tet_semitone_no_rational_at_the_window) |
+| [`the_comma_hides_below_hearing`](/theorem/the_comma_hides_below_hearing) | 2 | [`cross_cipher_wave_difference_524288`](/theorem/cross_cipher_wave_difference_524288), [`cross_cipher_wave_sum_1048576`](/theorem/cross_cipher_wave_sum_1048576) |
 | [`the_four_cern_records_close_their_own_totals`](/theorem/the_four_cern_records_close_their_own_totals) | 2 | [`the_cern_file_total_is_twice_a_prime`](/theorem/the_cern_file_total_is_twice_a_prime), [`the_cern_totals_close_under_the_ledger_own_reduction`](/theorem/the_cern_totals_close_under_the_ledger_own_reduction) |
+| [`total_exceeds_register`](/theorem/total_exceeds_register) | 2 | [`cross_cipher_handlespan_difference_1048576`](/theorem/cross_cipher_handlespan_difference_1048576), [`cross_cipher_handlespan_sum_2097152`](/theorem/cross_cipher_handlespan_sum_2097152) |
+| [`total_is_not_amplitudes`](/theorem/total_is_not_amplitudes) | 2 | [`cross_cipher_handlespan_difference_1048576`](/theorem/cross_cipher_handlespan_difference_1048576), [`cross_cipher_handlespan_sum_2097152`](/theorem/cross_cipher_handlespan_sum_2097152) |
 | [`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) | 2 | [`anthem_closes_on_the_coin_octave`](/theorem/anthem_closes_on_the_coin_octave), [`the_pairing_cancels_the_constant`](/theorem/the_pairing_cancels_the_constant) |
 | [`two_order_six`](/theorem/two_order_six) | 2 | [`hexagram_width_closes_rosetta_and_glagolitic`](/theorem/hexagram_width_closes_rosetta_and_glagolitic), [`octave_codon_address`](/theorem/octave_codon_address) |
+| [`uhd_is_four_times_hd`](/theorem/uhd_is_four_times_hd) | 2 | [`cross_editing_wave_difference_27356`](/theorem/cross_editing_wave_difference_27356), [`cross_editing_wave_sum_28436`](/theorem/cross_editing_wave_sum_28436) |
 | [`uuid_mix_census_is_quantum`](/theorem/uuid_mix_census_is_quantum) | 2 | [`the_handle_molecule_is_the_mix_census`](/theorem/the_handle_molecule_is_the_mix_census), [`uuid_mix_census_halves`](/theorem/uuid_mix_census_halves) |
 | [`ve_fourteen_faces`](/theorem/ve_fourteen_faces) | 2 | [`the_embargo_totals_match_across_the_two_energy_labels`](/theorem/the_embargo_totals_match_across_the_two_energy_labels), [`ve_pentads_overlap_to_eight`](/theorem/ve_pentads_overlap_to_eight) |
 | [`xor_preserves_distance`](/theorem/xor_preserves_distance) | 2 | [`tile_tamper_distance_census_is_binomial`](/theorem/tile_tamper_distance_census_is_binomial), [`xor_translation_is_sharply_transitive`](/theorem/xor_translation_is_sharply_transitive) |
@@ -247,7 +282,6 @@ three citers alphabetically, and the count carries the rest.
 | [`no_go_zone`](/theorem/no_go_zone) | 1 | [`four_points_is_45`](/theorem/four_points_is_45) |
 | [`no_perpetual_motion`](/theorem/no_perpetual_motion) | 1 | [`reversible_erases_nothing`](/theorem/reversible_erases_nothing) |
 | [`not_dvd_of_bound_e92de628`](/theorem/not_dvd_of_bound_e92de628) | 1 | [`the_bounded_search_returns_the_sealed_gcd_verdict`](/theorem/the_bounded_search_returns_the_sealed_gcd_verdict) |
-| [`nyquist_half_samplerate`](/theorem/nyquist_half_samplerate) | 1 | [`nyquist_clears_the_lattice`](/theorem/nyquist_clears_the_lattice) |
 | [`octave_of_light_doubles`](/theorem/octave_of_light_doubles) | 1 | [`octave_codon_address`](/theorem/octave_codon_address) |
 | [`oos_physical_sidechannel`](/theorem/oos_physical_sidechannel) | 1 | [`absence_defeats_the_algorithm_and_not_the_machine`](/theorem/absence_defeats_the_algorithm_and_not_the_machine) |
 | [`optimisation_space_is_qubit_dimension`](/theorem/optimisation_space_is_qubit_dimension) | 1 | [`uuid_mix_census_is_quantum`](/theorem/uuid_mix_census_is_quantum) |
@@ -341,7 +375,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    fingerprint what their (principle, theorem set) already fixed — **2 hexbit** of pure restatement
    ([`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits)), priced in the unit and not in milliseconds, because a wall-clock figure moves
    with the host and a practice carrying a number that moves goes stale.
-   **The boundary:** the same reasoning was turned on the 71114-frame aura film and it was wrong. The aura IS
+   **The boundary:** the same reasoning was turned on the 71237-frame aura film and it was wrong. The aura IS
    a pure function of the address, so the digests do move together — but folding addresses computes no aura, and the
    leaf keeps the name. An aura is only an aura if it is DERIVED from the algebra: ray from ℤ/7, wave from the ℤ/9
    vortex orbit, hue by the A432 step ([`z7rays_seven`](/theorem/z7rays_seven)). A value named for a computation must be computed by
@@ -838,7 +872,7 @@ or judgment — those stay with the student; the court decides meaning. Integrit
 <!-- wings: GENERATED by scripts/gen-school — every sealed wing, so none is invisible -->
 ## The wings — all 264, computed from the ledger
 
-Every wing the ledger seals, largest first: 71114 theorems across 264 wings and 127 skills.
+Every wing the ledger seals, largest first: 71237 theorems across 264 wings and 127 skills.
 This table is derived at generation — a wing sealed today appears here today, and one that is renamed cannot linger.
 Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 
@@ -860,7 +894,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The four-hex span, part 7 | `HexSpan7.lean` | wave | 4096 | [`enumeration_hex4_6000`](/theorem/enumeration_hex4_6000) |
 | The four-hex span, part 8 | `HexSpan8.lean` | wave | 4096 | [`enumeration_hex4_7000`](/theorem/enumeration_hex4_7000) |
 | The four-hex span, part 9 | `HexSpan9.lean` | wave | 4096 | [`enumeration_hex4_8000`](/theorem/enumeration_hex4_8000) |
-| The conveyor's first wave | `Wave.lean` | wave | 968 | [`a440_drift_is_heard`](/theorem/a440_drift_is_heard) |
+| The conveyor's first wave | `Wave.lean` | wave | 1088 | [`a440_drift_is_heard`](/theorem/a440_drift_is_heard) |
 | The fixed points of x to the m, as a law | `FixedPower.lean` | fermat | 567 | [`fixed_power_law_is_not_vacuous`](/theorem/fixed_power_law_is_not_vacuous) |
 | The laws behind the counts | `Laws.lean` | wave | 353 | [`carmichael_exponent_is_attained_mod_10`](/theorem/carmichael_exponent_is_attained_mod_10) |
 | The ring ℤ/9 | `Ring.lean` | z9-ring | 234 | [`z9add_0_0`](/theorem/z9add_0_0) |
@@ -939,6 +973,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The spacetime domain | `Relativity.lean` | relativity | 11 | [`causality_forbids_ftl`](/theorem/causality_forbids_ftl) |
 | The Platonic solids in every dimension | `Solids.lean` | solids | 11 | [`cube_octahedron_dual`](/theorem/cube_octahedron_dual) |
 | The song from the ledger | `Song.lean` | song | 11 | [`song_az_is_the_tuning`](/theorem/song_az_is_the_tuning) |
+| UUID quantum programs | `UuidProgram.lean` | quantum | 11 | [`uuidprog_address`](/theorem/uuidprog_address) |
 | THE DIAGONAL RUNS OUT AT NINE | `Diagonal.lean` | diagonal-fold | 10 | [`every_axis_member_reflects_into_the_orbit`](/theorem/every_axis_member_reflects_into_the_orbit) |
 | The doctrines | `Doctrine.lean` | doctrine | 10 | [`compass_opposites_involute`](/theorem/compass_opposites_involute) |
 | Fermat's equation at a bounded window | `Fermat.lean` | fermat | 10 | [`cube_near_misses_are_the_taxicab_and_its_neighbour`](/theorem/cube_near_misses_are_the_taxicab_and_its_neighbour) |
@@ -968,7 +1003,6 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The render budget re-measured | `RenderBudget.lean` | render-budget | 8 | [`a_new_tool_pays_at_most_the_mean_wire_cost`](/theorem/a_new_tool_pays_at_most_the_mean_wire_cost) |
 | The spectrum | `Spectrum.lean` | spectrum | 8 | [`inverse_at_fixed_c`](/theorem/inverse_at_fixed_c) |
 | The torus dimensions | `Torus.lean` | torus | 8 | [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette) |
-| UUID quantum programs | `UuidProgram.lean` | quantum | 8 | [`uuidprog_address`](/theorem/uuidprog_address) |
 | Command authentication | `Command.lean` | command | 7 | [`accept_matches_spec`](/theorem/accept_matches_spec) |
 | The right to land and the public's access to it | `LandRights.lean` | legal | 7 | [`access_laws_stand_centuries_after_the_charter_of_the_forest`](/theorem/access_laws_stand_centuries_after_the_charter_of_the_forest) |
 | The models | `Models.lean` | models | 7 | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) |
@@ -1436,12 +1470,12 @@ spends to learn what the tree already knows. Each row prices one opening questio
 
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
-| how many theorems are sealed? | 5,875,933 | 6 | 979,322× | `theorems().length` |
-| what does the tree hold right now? | 5,903,756 | 225 | 26,238× | `npm run state` |
+| how many theorems are sealed? | 5,894,410 | 6 | 982,401× | `theorems().length` |
+| what does the tree hold right now? | 5,922,233 | 225 | 26,321× | `npm run state` |
 | which Alpine domains are ported? | 1,824,376 | 350 | 5,212× | `portsCensus()` |
 | is the tree green to release? | 1,200,054 | 65 | 18,462× | `leads-gate + gate-receipt --verify` |
 
-Median ratio **26,238×**. Tokens are estimated at four bytes each — an approximation, and
+Median ratio **26,321×**. Tokens are estimated at four bytes each — an approximation, and
 applied identically to both sides, so the RATIO survives it even where the absolute figure would not.
 A high number is not a good score. It is the cost of not knowing the door, and every one of those tokens is spent
 re-deriving something the tree already sealed.
@@ -1455,7 +1489,7 @@ fetched only if someone actually wants it.
 | The message is about | Payload (bytes) | Address (bytes) | Not sent |
 | --- | ---: | ---: | ---: |
 | the whole Alpine catalogue | 7,297,504 | 16 | 456,094× |
-| the sealed ledger | 23,503,732 | 16 | 1,468,983× |
+| the sealed ledger | 23,577,640 | 16 | 1,473,602× |
 | the leads record | 98,670 | 16 | 6,166× |
 
 This is NOT compression. Nothing is made smaller — the bytes are simply not sent, and stay fetchable at request
@@ -1472,17 +1506,17 @@ gate that enforces it and its state recomputed at this generation. A law is only
 one that does not hold is shown here as not holding, never left out. Only a Lean proof settles a claim
 ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted)).
 
-**18 laws** — 18 hold · 0 do not hold · receipt `56276d3d-df51-8757-bd29-071fb54bdf30`
+**18 laws** — 17 hold · 1 do not hold · receipt `ea62343b-8633-842d-b394-d8897f8ea956`
 
 - **holds** · Generate all only from Lean — the sealed theorems are the single source; the derived layer is computed and diff-gated.
-  <br><small>enforced by: conformance:single-source-ledger + the pre-push git-diff — every one of 71114 theorems is sourced from a lean/*.lean file</small>
+  <br><small>enforced by: conformance:single-source-ledger + the pre-push git-diff — every one of 71237 theorems is sourced from a lean/*.lean file</small>
 - **holds** · Any manual fails — every theorem recomputes its content-address; a hand-tampered theorem turns the recompute test red.
-  <br><small>enforced by: conformance:ledger-dna-recomputes + recompute.test — all 71114 addresses recompute; 0 forged</small>
+  <br><small>enforced by: conformance:ledger-dna-recomputes + recompute.test — all 71237 addresses recompute; 0 forged</small>
 - **holds** · Honesty is DEMONSTRATED by the gate— a claim citing a theorem that is not sealed drains to 0.
   <br><small>enforced by: the honesty gate (computes/slimGate) — a fabricated theorem citation drains; an honest floor signs</small>
 - **holds** · The two captain coins are conserved — 110 − 108 = 2, the fair-exchange invariant priced on every fold.
   <br><small>enforced by: conformance:captain-coins-conserved — coins() = 2, the Euler characteristic −χ of the double torus</small>
-- **holds** · Zero runtime dependencies and a clean security posture — no third-party code runs; defences + collision-resistance sealed.
+- **does not hold** · Zero runtime dependencies and a clean security posture — no third-party code runs; defences + collision-resistance sealed.
   <br><small>enforced by: conformance:security-posture-clean (security-audit) — zero runtime deps; the honesty gate bites; uuidna solves 0 of 7</small>
 - **holds** · Lean decides — the kernel's own `#print axioms` is the verdict, with no allow list, deny list or hand rule between them.
   <br><small>said: the captain, 2026-09-14: "remove any allow lists or disallowed or any manual logic whatsoever not coming from lean decisions"</small>

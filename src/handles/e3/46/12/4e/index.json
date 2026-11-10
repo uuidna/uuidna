@@ -1,0 +1,12 @@
+{
+  "handle": "e346124e",
+  "address": "e346124e-a57e-8d3d-827f-de6f91b5a426",
+  "kind": "chunk",
+  "keys": [
+    "alpine_dom_dr_sh_ie_1908"
+  ],
+  "statement": "(631 + 1281 - 4 = 1908)",
+  "files": [
+    "Wave.lean"
+  ]
+}

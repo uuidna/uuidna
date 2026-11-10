@@ -1,0 +1,12 @@
+{
+  "handle": "bef96a9a",
+  "address": "bef96a9a-1ee1-8826-9112-117b730b9dab",
+  "statement": "(199 + 28465 = 28664)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_crypto_partitions_28664"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

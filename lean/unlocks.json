@@ -1,13 +1,13 @@
 {
  "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).",
- "keys": 71114,
- "distinct": 71028,
+ "keys": 71237,
+ "distinct": 71151,
  "skills": 131,
  "files": 264,
  "bySkill": [
   {
    "name": "wave",
-   "n": 67088
+   "n": 67208
   },
   {
    "name": "fermat",
@@ -27,7 +27,7 @@
   },
   {
    "name": "quantum",
-   "n": 66
+   "n": 69
   },
   {
    "name": "vortex",
@@ -597,7 +597,7 @@
   },
   {
    "name": "Wave.lean",
-   "n": 968
+   "n": 1088
   },
   {
    "name": "FixedPower.lean",
@@ -904,6 +904,6 @@
    "name": "THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live state-vector computation, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize."
   }
  ],
- "receipt": "2f781eba-850c-87b0-ab20-852162ddbba1",
+ "receipt": "0f6eed17-9583-8167-990f-3c51de44a917",
  "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
 }

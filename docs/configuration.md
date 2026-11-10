@@ -31,13 +31,13 @@ the ISO paywall; the claim rests on the published previews and is stated as such
 | Worker | Config | Entry | Routes | Bindings |
 |---|---|---|---|---|
 | `uuidna` | `wrangler.toml` | `worker.js` | none declared | Service QPU → qpu<br>Email EMAIL<br>Assets ASSETS |
-| `uuidna-site` | `web/wrangler.jsonc` | `worker.ts` | none declared | D1 D1 → qpu (126117f2-95b6-4d63-a3c3-65556ebbfc7a)<br>R2 R2 → qpu-media<br>Durable Object CHAT_ROOM → ChatRoom<br>Email EMAIL<br>Assets ASSETS |
+| `uuidna-site` | `web/wrangler.jsonc` | `.open-next/worker.js` | none declared | D1 D1 → uuidna-site (26009cdf-da4d-4a71-94b9-1b9949f4966a)<br>R2 R2 → uuidna-site<br>Assets ASSETS |
 
 ### Shared storage
 
 | D1 database | Bound by |
 |---|---|
-| `126117f2-95b6-4d63-a3c3-65556ebbfc7a` | `uuidna-site` |
+| `26009cdf-da4d-4a71-94b9-1b9949f4966a` | `uuidna-site` |
 
 ### Package
 
@@ -59,7 +59,7 @@ the ISO paywall; the claim rests on the published previews and is stated as such
 | research | `research.yml` | schedule, workflow_dispatch |
 | school-grade | `school-grade.yml` | schedule, workflow_dispatch |
 | school | `school.yml` | workflow_dispatch |
-| security | `security.yml` | push, pull_request, workflow_dispatch |
+| security | `security.yml` | push, pull_request, workflow_dispatch, schedule |
 | wave | `wave.yml` | schedule, workflow_dispatch |
 | zenodo-orcid | `zenodo-orcid.yml` | workflow_dispatch |
 

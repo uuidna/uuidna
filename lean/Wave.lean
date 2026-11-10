@@ -5699,3 +5699,798 @@ theorem mass_comply_de_morgan_or_to_and : [(0, 0), (0, 1), (1, 0), (1, 1)].all (
     zero. Compliance of a split path is exclusive routing — the unused arm stays dark, so two reports cannot
     both claim the same bit. -/
 theorem mass_comply_demux_never_both_hot : (List.range 4).all (fun n => ((1 - n % 2) * (n / 2 % 2) + (n % 2) * (n / 2 % 2) == n / 2 % 2) && ((1 - n % 2) * (n / 2 % 2) * ((n % 2) * (n / 2 % 2)) == 0)) := by decide
+
+/-- Alpine port harvest: 16101 project(s), 28664 package(s) attest "2054+3088+23522=28664" — sample every
+    package holds exactly one binding — the classes are exhaustive and disjoint -/
+theorem alpine_bindings_partition_packages_28664 : (2054 + 3088 + 23522 = 28664) := by decide
+
+/-- Alpine port harvest: 16101 project(s), 28664 package(s) attest "1288+2820+13850=17958" — sample 1857 origins
+    ship into more than one class — origins do NOT partition -/
+theorem alpine_binding_origins_overcount_16101 : (1288 + 2820 + 13850 = 17958) ∧ (17958 - 16101 = 1857) := by decide
+
+/-- Alpine domain port (database): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the database domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_database_partitions_28664 : (438 + 28226 = 28664) := by decide
+
+/-- Alpine domain port (filesystem): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the filesystem domain and everything outside it sum to the catalogue — nothing is counted twice
+    and nothing is lost -/
+theorem alpine_domain_filesystem_partitions_28664 : (215 + 28449 = 28664) := by decide
+
+/-- Alpine domain port (blockchain): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the blockchain domain and everything outside it sum to the catalogue — nothing is counted twice
+    and nothing is lost -/
+theorem alpine_domain_blockchain_partitions_28664 : (29 + 28635 = 28664) := by decide
+
+/-- Alpine domain port (driver): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the driver domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_driver_partitions_28664 : (631 + 28033 = 28664) := by decide
+
+/-- Alpine domain port (driver): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    170 of the 631 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+theorem alpine_domain_driver_origins_631 : (461 <= 631) ∧ (631 - 461 = 170) := by decide
+
+/-- Alpine domain port (language): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the language domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_language_partitions_28664 : (7503 + 21161 = 28664) := by decide
+
+/-- Alpine domain port (language): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    3071 of the 7503 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+theorem alpine_domain_language_origins_7503 : (4432 <= 7503) ∧ (7503 - 4432 = 3071) := by decide
+
+/-- Alpine domain port (network): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the network domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_network_partitions_28664 : (332 + 28332 = 28664) := by decide
+
+/-- Alpine domain port (science): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the science domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_science_partitions_28664 : (74 + 28590 = 28664) := by decide
+
+/-- Alpine domain port (media): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the media domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_media_partitions_28664 : (259 + 28405 = 28664) := by decide
+
+/-- Alpine domain port (shell): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the shell domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_shell_partitions_28664 : (1281 + 27383 = 28664) := by decide
+
+/-- Alpine domain port (shell): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    599 of the 1281 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+theorem alpine_domain_shell_origins_1281 : (682 <= 1281) ∧ (1281 - 682 = 599) := by decide
+
+/-- Alpine domain port (chat): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the chat domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_chat_partitions_28664 : (241 + 28423 = 28664) := by decide
+
+/-- Alpine domain port (crypto): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the crypto domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_crypto_partitions_28664 : (199 + 28465 = 28664) := by decide
+
+/-- Alpine domain port (security): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the security domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_security_partitions_28664 : (86 + 28578 = 28664) := by decide
+
+/-- Alpine domain port (math): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the math domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_math_partitions_28664 : (40 + 28624 = 28664) := by decide
+
+/-- Alpine domain port (art): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the art domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost -/
+theorem alpine_domain_art_partitions_28664 : (53 + 28611 = 28664) := by decide
+
+/-- Alpine domain port (bio): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the bio domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost -/
+theorem alpine_domain_bio_partitions_28664 : (2 + 28662 = 28664) := by decide
+
+/-- Alpine domain port (chemistry): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the chemistry domain and everything outside it sum to the catalogue — nothing is counted twice and
+    nothing is lost -/
+theorem alpine_domain_chemistry_partitions_28664 : (3 + 28661 = 28664) := by decide
+
+/-- Alpine domain port (neuro): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the neuro domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_neuro_partitions_28664 : (11 + 28653 = 28664) := by decide
+
+/-- Alpine domain port (astronomy): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the astronomy domain and everything outside it sum to the catalogue — nothing is counted twice and
+    nothing is lost -/
+theorem alpine_domain_astronomy_partitions_28664 : (25 + 28639 = 28664) := by decide
+
+/-- Alpine domain port (physics): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the physics domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_physics_partitions_28664 : (7 + 28657 = 28664) := by decide
+
+/-- Alpine domain port (geo): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the geo domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost -/
+theorem alpine_domain_geo_partitions_28664 : (62 + 28602 = 28664) := by decide
+
+/-- Alpine domain port (virtualization): exact arithmetic over the census counts. — membership is a pattern
+    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
+    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the virtualization domain and everything outside it sum to the catalogue — nothing is counted
+    twice and nothing is lost -/
+theorem alpine_domain_virtualization_partitions_28664 : (232 + 28432 = 28664) := by decide
+
+/-- Alpine domain port (font): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the font domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_font_partitions_28664 : (82 + 28582 = 28664) := by decide
+
+/-- Alpine domain port (audio): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the audio domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_audio_partitions_28664 : (198 + 28466 = 28664) := by decide
+
+/-- Alpine domain port (build): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the build domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_build_partitions_28664 : (260 + 28404 = 28664) := by decide
+
+/-- Alpine domain port (social): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the social domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_social_partitions_28664 : (303 + 28361 = 28664) := by decide
+
+/-- Alpine domain port (engineering): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the engineering domain and everything outside it sum to the catalogue — nothing is counted twice
+    and nothing is lost -/
+theorem alpine_domain_engineering_partitions_28664 : (30 + 28634 = 28664) := by decide
+
+/-- EVERY PACKAGE PORTED, AND THE HONEST SPLIT. All 28664 carry a port identity — name, version, checksum, repo,
+    branch and arch folded to an address, which needs no classification. 11627 are also placed in one of 27
+    named domains and 17037 are not; placed and unplaced partition the catalogue exactly. The third clause is
+    the one that matters: classification is strictly less than identity, and widening patterns to close that gap
+    collects homonyms (ovmf for BIOS, btrbk for atomic) rather than members. -/
+theorem alpine_port_all_partition_28664 : (28664 = 28664) ∧ (11627 + 17037 = 28664) ∧ (11627 < 28664) := by decide
+
+/-- Inclusion-exclusion across database and driver, exact over the committed mirror. They share 61 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_da_dr_ie_1008 : (438 + 631 - 61 = 1008) := by decide
+
+/-- Inclusion-exclusion across database and language, exact over the committed mirror. They share 154 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_da_la_ie_7787 : (438 + 7503 - 154 = 7787) := by decide
+
+/-- Inclusion-exclusion across database and shell, exact over the committed mirror. They share 1 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_da_sh_ie_1718 : (438 + 1281 - 1 = 1718) := by decide
+
+/-- Inclusion-exclusion across filesystem and driver, exact over the committed mirror. They share 8 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_fi_dr_ie_838 : (215 + 631 - 8 = 838) := by decide
+
+/-- Inclusion-exclusion across filesystem and language, exact over the committed mirror. They share 16 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_fi_la_ie_7702 : (215 + 7503 - 16 = 7702) := by decide
+
+/-- Inclusion-exclusion across filesystem and shell, exact over the committed mirror. They share 3 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_fi_sh_ie_1493 : (215 + 1281 - 3 = 1493) := by decide
+
+/-- Inclusion-exclusion across blockchain and driver, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_bl_dr_ie_660 : (29 + 631 - 0 = 660) := by decide
+
+/-- Inclusion-exclusion across blockchain and language, exact over the committed mirror. They share 7 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_bl_la_ie_7525 : (29 + 7503 - 7 = 7525) := by decide
+
+/-- Inclusion-exclusion across blockchain and shell, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_bl_sh_ie_1310 : (29 + 1281 - 0 = 1310) := by decide
+
+/-- Inclusion-exclusion across driver and language, exact over the committed mirror. They share 61 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_dr_la_ie_8073 : (631 + 7503 - 61 = 8073) := by decide
+
+/-- Inclusion-exclusion across driver and network, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_dr_ne_ie_963 : (631 + 332 - 0 = 963) := by decide
+
+/-- Inclusion-exclusion across driver and science, exact over the committed mirror. They share 2 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_dr_sc_ie_703 : (631 + 74 - 2 = 703) := by decide
+
+/-- Inclusion-exclusion across driver and media, exact over the committed mirror. They share 1 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_dr_me_ie_889 : (631 + 259 - 1 = 889) := by decide
+
+/-- Inclusion-exclusion across driver and shell, exact over the committed mirror. They share 4 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_dr_sh_ie_1908 : (631 + 1281 - 4 = 1908) := by decide
+
+/-- Inclusion-exclusion across driver and chat, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_dr_ch_ie_872 : (631 + 241 - 0 = 872) := by decide
+
+/-- Inclusion-exclusion across driver and crypto, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_dr_cr_ie_830 : (631 + 199 - 0 = 830) := by decide
+
+/-- Inclusion-exclusion across driver and security, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_dr_se_ie_717 : (631 + 86 - 0 = 717) := by decide
+
+/-- Inclusion-exclusion across driver and math, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_dr_ma_ie_671 : (631 + 40 - 0 = 671) := by decide
+
+/-- Inclusion-exclusion across driver and art, exact over the committed mirror. They share no packages under the
+    seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry
+    more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is
+    for. -/
+theorem alpine_dom_dr_ar_ie_684 : (631 + 53 - 0 = 684) := by decide
+
+/-- Inclusion-exclusion across driver and bio, exact over the committed mirror. They share no packages under the
+    seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry
+    more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is
+    for. -/
+theorem alpine_dom_dr_bi_ie_633 : (631 + 2 - 0 = 633) := by decide
+
+/-- Inclusion-exclusion across driver and chemistry, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_dr_ch_ie_634 : (631 + 3 - 0 = 634) := by decide
+
+/-- Inclusion-exclusion across driver and neuro, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_dr_ne_ie_642 : (631 + 11 - 0 = 642) := by decide
+
+/-- Inclusion-exclusion across driver and astronomy, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_dr_as_ie_656 : (631 + 25 - 0 = 656) := by decide
+
+/-- Inclusion-exclusion across driver and physics, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_dr_ph_ie_638 : (631 + 7 - 0 = 638) := by decide
+
+/-- Inclusion-exclusion across driver and geo, exact over the committed mirror. They share 38 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_dr_ge_ie_655 : (631 + 62 - 38 = 655) := by decide
+
+/-- Inclusion-exclusion across driver and virtualization, exact over the committed mirror. They share 12
+    packages, so this is a real set statement rather than an addition. The identity fails if any of the four
+    counts is wrong, which is what it is for. -/
+theorem alpine_dom_dr_vi_ie_851 : (631 + 232 - 12 = 851) := by decide
+
+/-- Inclusion-exclusion across driver and font, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_dr_fo_ie_713 : (631 + 82 - 0 = 713) := by decide
+
+/-- Inclusion-exclusion across driver and audio, exact over the committed mirror. They share 89 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_dr_au_ie_740 : (631 + 198 - 89 = 740) := by decide
+
+/-- Inclusion-exclusion across driver and build, exact over the committed mirror. They share 2 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_dr_bu_ie_889 : (631 + 260 - 2 = 889) := by decide
+
+/-- Inclusion-exclusion across driver and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_dr_so_ie_934 : (631 + 303 - 0 = 934) := by decide
+
+/-- Inclusion-exclusion across driver and engineering, exact over the committed mirror. They share 1 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_dr_en_ie_660 : (631 + 30 - 1 = 660) := by decide
+
+/-- Inclusion-exclusion across language and network, exact over the committed mirror. They share 49 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_ne_ie_7786 : (7503 + 332 - 49 = 7786) := by decide
+
+/-- Inclusion-exclusion across language and science, exact over the committed mirror. They share 16 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_sc_ie_7561 : (7503 + 74 - 16 = 7561) := by decide
+
+/-- Inclusion-exclusion across language and media, exact over the committed mirror. They share 67 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_me_ie_7695 : (7503 + 259 - 67 = 7695) := by decide
+
+/-- Inclusion-exclusion across language and shell, exact over the committed mirror. They share 69 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_sh_ie_8715 : (7503 + 1281 - 69 = 8715) := by decide
+
+/-- Inclusion-exclusion across language and chat, exact over the committed mirror. They share 42 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_ch_ie_7702 : (7503 + 241 - 42 = 7702) := by decide
+
+/-- Inclusion-exclusion across language and crypto, exact over the committed mirror. They share 46 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_cr_ie_7656 : (7503 + 199 - 46 = 7656) := by decide
+
+/-- Inclusion-exclusion across language and security, exact over the committed mirror. They share 9 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_se_ie_7580 : (7503 + 86 - 9 = 7580) := by decide
+
+/-- Inclusion-exclusion across language and math, exact over the committed mirror. They share 6 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_ma_ie_7537 : (7503 + 40 - 6 = 7537) := by decide
+
+/-- Inclusion-exclusion across language and art, exact over the committed mirror. They share 5 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_ar_ie_7551 : (7503 + 53 - 5 = 7551) := by decide
+
+/-- Inclusion-exclusion across language and bio, exact over the committed mirror. They share 2 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_bi_ie_7503 : (7503 + 2 - 2 = 7503) := by decide
+
+/-- Inclusion-exclusion across language and chemistry, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_la_ch_ie_7506 : (7503 + 3 - 0 = 7506) := by decide
+
+/-- Inclusion-exclusion across language and neuro, exact over the committed mirror. They share 3 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_ne_ie_7511 : (7503 + 11 - 3 = 7511) := by decide
+
+/-- Inclusion-exclusion across language and astronomy, exact over the committed mirror. They share 10 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_la_as_ie_7518 : (7503 + 25 - 10 = 7518) := by decide
+
+/-- Inclusion-exclusion across language and physics, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_la_ph_ie_7510 : (7503 + 7 - 0 = 7510) := by decide
+
+/-- Inclusion-exclusion across language and geo, exact over the committed mirror. They share 3 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_ge_ie_7562 : (7503 + 62 - 3 = 7562) := by decide
+
+/-- Inclusion-exclusion across language and virtualization, exact over the committed mirror. They share 16
+    packages, so this is a real set statement rather than an addition. The identity fails if any of the four
+    counts is wrong, which is what it is for. -/
+theorem alpine_dom_la_vi_ie_7719 : (7503 + 232 - 16 = 7719) := by decide
+
+/-- Inclusion-exclusion across language and game, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_la_ga_ie_7528 : (7503 + 25 - 0 = 7528) := by decide
+
+/-- Inclusion-exclusion across language and font, exact over the committed mirror. They share 4 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_fo_ie_7581 : (7503 + 82 - 4 = 7581) := by decide
+
+/-- Inclusion-exclusion across language and audio, exact over the committed mirror. They share 2 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_au_ie_7699 : (7503 + 198 - 2 = 7699) := by decide
+
+/-- Inclusion-exclusion across language and build, exact over the committed mirror. They share 11 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_bu_ie_7752 : (7503 + 260 - 11 = 7752) := by decide
+
+/-- Inclusion-exclusion across language and social, exact over the committed mirror. They share 89 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_so_ie_7717 : (7503 + 303 - 89 = 7717) := by decide
+
+/-- Inclusion-exclusion across language and engineering, exact over the committed mirror. They share 1 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_la_en_ie_7532 : (7503 + 30 - 1 = 7532) := by decide
+
+/-- Inclusion-exclusion across network and shell, exact over the committed mirror. They share 8 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_ne_sh_ie_1605 : (332 + 1281 - 8 = 1605) := by decide
+
+/-- Inclusion-exclusion across science and shell, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_sc_sh_ie_1355 : (74 + 1281 - 0 = 1355) := by decide
+
+/-- Inclusion-exclusion across media and shell, exact over the committed mirror. They share 4 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_me_sh_ie_1536 : (259 + 1281 - 4 = 1536) := by decide
+
+/-- Inclusion-exclusion across shell and chat, exact over the committed mirror. They share 3 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_sh_ch_ie_1519 : (1281 + 241 - 3 = 1519) := by decide
+
+/-- Inclusion-exclusion across shell and crypto, exact over the committed mirror. They share 10 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_sh_cr_ie_1470 : (1281 + 199 - 10 = 1470) := by decide
+
+/-- Inclusion-exclusion across shell and security, exact over the committed mirror. They share 4 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_sh_se_ie_1363 : (1281 + 86 - 4 = 1363) := by decide
+
+/-- Inclusion-exclusion across shell and math, exact over the committed mirror. They share no packages under the
+    seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry
+    more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is
+    for. -/
+theorem alpine_dom_sh_ma_ie_1321 : (1281 + 40 - 0 = 1321) := by decide
+
+/-- Inclusion-exclusion across shell and art, exact over the committed mirror. They share 1 packages, so this is
+    a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_sh_ar_ie_1333 : (1281 + 53 - 1 = 1333) := by decide
+
+/-- Inclusion-exclusion across shell and bio, exact over the committed mirror. They share no packages under the
+    seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry
+    more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is
+    for. -/
+theorem alpine_dom_sh_bi_ie_1283 : (1281 + 2 - 0 = 1283) := by decide
+
+/-- Inclusion-exclusion across shell and chemistry, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_sh_ch_ie_1284 : (1281 + 3 - 0 = 1284) := by decide
+
+/-- Inclusion-exclusion across shell and neuro, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_sh_ne_ie_1292 : (1281 + 11 - 0 = 1292) := by decide
+
+/-- Inclusion-exclusion across shell and astronomy, exact over the committed mirror. They share 3 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_sh_as_ie_1303 : (1281 + 25 - 3 = 1303) := by decide
+
+/-- Inclusion-exclusion across shell and physics, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_sh_ph_ie_1288 : (1281 + 7 - 0 = 1288) := by decide
+
+/-- Inclusion-exclusion across shell and geo, exact over the committed mirror. They share 1 packages, so this is
+    a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_sh_ge_ie_1342 : (1281 + 62 - 1 = 1342) := by decide
+
+/-- Inclusion-exclusion across shell and virtualization, exact over the committed mirror. They share 6 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_sh_vi_ie_1507 : (1281 + 232 - 6 = 1507) := by decide
+
+/-- Inclusion-exclusion across shell and game, exact over the committed mirror. They share no packages under the
+    seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry
+    more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is
+    for. -/
+theorem alpine_dom_sh_ga_ie_1306 : (1281 + 25 - 0 = 1306) := by decide
+
+/-- Inclusion-exclusion across shell and font, exact over the committed mirror. They share no packages under the
+    seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry
+    more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is
+    for. -/
+theorem alpine_dom_sh_fo_ie_1363 : (1281 + 82 - 0 = 1363) := by decide
+
+/-- Inclusion-exclusion across shell and audio, exact over the committed mirror. They share 4 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_sh_au_ie_1475 : (1281 + 198 - 4 = 1475) := by decide
+
+/-- Inclusion-exclusion across shell and build, exact over the committed mirror. They share 6 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_sh_bu_ie_1535 : (1281 + 260 - 6 = 1535) := by decide
+
+/-- Inclusion-exclusion across shell and social, exact over the committed mirror. They share 3 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_sh_so_ie_1581 : (1281 + 303 - 3 = 1581) := by decide
+
+/-- Inclusion-exclusion across shell and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_sh_en_ie_1311 : (1281 + 30 - 0 = 1311) := by decide
+
+/-- THE ARITHMETIC: 1048576 + 1048576 = 2097152, decided by the kernel over a finite domain. THE FORMS,
+    computed: 1048576 = 2^20; 2097152 = 2^21. 1048576 IS CARRIED BY verify_beats_recompute_by_magnitudes
+    [Cipher.lean], faster_and_more_secure [Cipher.lean], shor_is_defeated_by_absence_not_by_speed
+    [Refusion.lean] and others. 2097152 IS CARRIED BY handles_times_qubits [HandleSpan.lean],
+    total_exceeds_register [HandleSpan.lean], total_is_not_amplitudes [HandleSpan.lean] and others. THE
+    OPERATOR, measured by probing it over the corpus's own integers rather than named from a list: + is
+    commutative and not forced on its diagonal. THE SPAN is 2 — no single wing carries all three integers, so
+    this could not have been noticed by reading one wing. It joins Cipher.lean, HandleSpan.lean. THE RARITY: the
+    rarest of the three, 1048576, appears in 1 wing(s) (Cipher.lean) — a characteristic quantity rather than a
+    counting number, which is why the ranking puts it here. NOT CLAIMED: that these domains are related in any
+    sense beyond the integers. Two fields using one number is mostly how small numbers behave; what is claimed
+    is the identity, the carriers, and the span. -/
+theorem cross_cipher_handlespan_sum_2097152 : 1048576 + 1048576 = 2097152 := by decide
+
+/-- THE ARITHMETIC: 2097152 - 1048576 = 1048576, decided by the kernel over a finite domain. THE FORMS,
+    computed: 2097152 = 2^21; 1048576 = 2^20. 2097152 IS CARRIED BY handles_times_qubits [HandleSpan.lean],
+    total_exceeds_register [HandleSpan.lean], total_is_not_amplitudes [HandleSpan.lean] and others. 1048576 IS
+    CARRIED BY verify_beats_recompute_by_magnitudes [Cipher.lean], faster_and_more_secure [Cipher.lean],
+    shor_is_defeated_by_absence_not_by_speed [Refusion.lean] and others. THE OPERATOR, measured by probing it
+    over the corpus's own integers rather than named from a list: - is not commutative and forced on its
+    diagonal. THE SPAN is 2 — no single wing carries all three integers, so this could not have been noticed by
+    reading one wing. It joins Cipher.lean, HandleSpan.lean. THE RARITY: the rarest of the three, 2097152,
+    appears in 1 wing(s) (HandleSpan.lean) — a characteristic quantity rather than a counting number, which is
+    why the ranking puts it here. NOT CLAIMED: that these domains are related in any sense beyond the integers.
+    Two fields using one number is mostly how small numbers behave; what is claimed is the identity, the
+    carriers, and the span. -/
+theorem cross_cipher_handlespan_difference_1048576 : 2097152 - 1048576 = 1048576 := by decide
+
+/-- THE ARITHMETIC: 524288 + 524288 = 1048576, decided by the kernel over a finite domain. THE FORMS, computed:
+    524288 = 2^19; 1048576 = 2^20. 524288 IS CARRIED BY the_comma_hides_below_hearing [Wave.lean],
+    quantum_margin_after_both_advantages_73 [Wave.lean]. 1048576 IS CARRIED BY
+    verify_beats_recompute_by_magnitudes [Cipher.lean], faster_and_more_secure [Cipher.lean],
+    shor_is_defeated_by_absence_not_by_speed [Refusion.lean] and others. THE OPERATOR, measured by probing it
+    over the corpus's own integers rather than named from a list: + is commutative and not forced on its
+    diagonal. THE SPAN is 2 — no single wing carries all three integers, so this could not have been noticed by
+    reading one wing. It joins Cipher.lean, Wave.lean. THE RARITY: the rarest of the three, 524288, appears in 1
+    wing(s) (Wave.lean) — a characteristic quantity rather than a counting number, which is why the ranking puts
+    it here. NOT CLAIMED: that these domains are related in any sense beyond the integers. Two fields using one
+    number is mostly how small numbers behave; what is claimed is the identity, the carriers, and the span. -/
+theorem cross_cipher_wave_sum_1048576 : 524288 + 524288 = 1048576 := by decide
+
+/-- THE ARITHMETIC: 1048576 - 524288 = 524288, decided by the kernel over a finite domain. THE FORMS, computed:
+    1048576 = 2^20; 524288 = 2^19. 1048576 IS CARRIED BY verify_beats_recompute_by_magnitudes [Cipher.lean],
+    faster_and_more_secure [Cipher.lean], shor_is_defeated_by_absence_not_by_speed [Refusion.lean] and others.
+    524288 IS CARRIED BY the_comma_hides_below_hearing [Wave.lean], quantum_margin_after_both_advantages_73
+    [Wave.lean]. THE OPERATOR, measured by probing it over the corpus's own integers rather than named from a
+    list: - is not commutative and forced on its diagonal. THE SPAN is 2 — no single wing carries all three
+    integers, so this could not have been noticed by reading one wing. It joins Cipher.lean, Wave.lean. THE
+    RARITY: the rarest of the three, 1048576, appears in 1 wing(s) (Cipher.lean) — a characteristic quantity
+    rather than a counting number, which is why the ranking puts it here. NOT CLAIMED: that these domains are
+    related in any sense beyond the integers. Two fields using one number is mostly how small numbers behave;
+    what is claimed is the identity, the carriers, and the span. -/
+theorem cross_cipher_wave_difference_524288 : 1048576 - 524288 = 524288 := by decide
+
+/-- THE ARITHMETIC: 1905 + 42195 = 44100, decided by the kernel over a finite domain. THE FORMS, computed: 1905
+    = 3 x 635; 42195 = 3 x 14065; 44100 = 3 x 14700. 1905 IS CARRIED BY enumeration_hex4_0771 [HexSpan1.lean],
+    alpine_dom_dr_sh_ie_1905 [Wave.lean]. 42195 IS CARRIED BY enumeration_hex4_a4d3 [HexSpan11.lean],
+    sport_marathon_and_the_teams [Wave.lean]. 44100 IS CARRIED BY enumeration_hex4_ac44 [HexSpan11.lean],
+    nyquist_half_samplerate [Production.lean]. THE OPERATOR, measured by probing it over the corpus's own
+    integers rather than named from a list: + is commutative and not forced on its diagonal. THE SPAN is 2 — no
+    single wing carries all three integers, so this could not have been noticed by reading one wing. It joins
+    Production.lean, Wave.lean. THE RARITY: the rarest of the three, 1905, appears in 1 wing(s) (Wave.lean) — a
+    characteristic quantity rather than a counting number, which is why the ranking puts it here. NOT CLAIMED:
+    that these domains are related in any sense beyond the integers. Two fields using one number is mostly how
+    small numbers behave; what is claimed is the identity, the carriers, and the span. -/
+theorem cross_production_wave_sum_44100 : 1905 + 42195 = 44100 := by decide
+
+/-- THE ARITHMETIC: 13600 + 28595 = 42195, decided by the kernel over a finite domain. THE FORMS, computed:
+    13600 = 5 x 2720; 28595 = 5 x 5719; 42195 = 3 x 14065. 13600 IS CARRIED BY enumeration_hex4_3520
+    [HexSpan4.lean], collider_energy_is_below_the_planck_scale [StringTheory.lean]. 28595 IS CARRIED BY
+    enumeration_hex4_6fb3 [HexSpan7.lean], alpine_domain_math_partitions_28635 [Wave.lean]. 42195 IS CARRIED BY
+    enumeration_hex4_a4d3 [HexSpan11.lean], sport_marathon_and_the_teams [Wave.lean]. THE OPERATOR, measured by
+    probing it over the corpus's own integers rather than named from a list: + is commutative and not forced on
+    its diagonal. THE SPAN is 2 — no single wing carries all three integers, so this could not have been noticed
+    by reading one wing. It joins StringTheory.lean, Wave.lean. THE RARITY: the rarest of the three, 13600,
+    appears in 1 wing(s) (StringTheory.lean) — a characteristic quantity rather than a counting number, which is
+    why the ranking puts it here. NOT CLAIMED: that these domains are related in any sense beyond the integers.
+    Two fields using one number is mostly how small numbers behave; what is claimed is the identity, the
+    carriers, and the span. -/
+theorem cross_stringtheory_wave_sum_42195 : 13600 + 28595 = 42195 := by decide
+
+/-- THE ARITHMETIC: 44100 - 1905 = 42195, decided by the kernel over a finite domain. THE FORMS, computed: 44100
+    = 3 x 14700; 1905 = 3 x 635; 42195 = 3 x 14065. 44100 IS CARRIED BY enumeration_hex4_ac44 [HexSpan11.lean],
+    nyquist_half_samplerate [Production.lean]. 1905 IS CARRIED BY enumeration_hex4_0771 [HexSpan1.lean],
+    alpine_dom_dr_sh_ie_1905 [Wave.lean]. 42195 IS CARRIED BY enumeration_hex4_a4d3 [HexSpan11.lean],
+    sport_marathon_and_the_teams [Wave.lean]. THE OPERATOR, measured by probing it over the corpus's own
+    integers rather than named from a list: - is not commutative and forced on its diagonal. THE SPAN is 2 — no
+    single wing carries all three integers, so this could not have been noticed by reading one wing. It joins
+    Production.lean, Wave.lean. THE RARITY: the rarest of the three, 44100, appears in 1 wing(s)
+    (Production.lean) — a characteristic quantity rather than a counting number, which is why the ranking puts
+    it here. NOT CLAIMED: that these domains are related in any sense beyond the integers. Two fields using one
+    number is mostly how small numbers behave; what is claimed is the identity, the carriers, and the span. -/
+theorem cross_production_wave_difference_42195 : 44100 - 1905 = 42195 := by decide
+
+/-- THE ARITHMETIC: 8849 + 19784 = 28633, decided by the kernel over a finite domain. THE FORMS, computed: 8849
+    is prime; 19784 is prime; 28633 = 11 x 2603. 8849 IS CARRIED BY bulge_exceeds_relief [Topography.lean],
+    enumeration_hex4_2291 [HexSpan3.lean]. 19784 IS CARRIED BY bulge_exceeds_relief [Topography.lean],
+    enumeration_hex4_4d48 [HexSpan5.lean]. 28633 IS CARRIED BY enumeration_hex4_6fd9 [HexSpan7.lean],
+    alpine_domain_bio_partitions_28635 [Wave.lean]. THE OPERATOR, measured by probing it over the corpus's own
+    integers rather than named from a list: + is commutative and not forced on its diagonal. THE SPAN is 2 — no
+    single wing carries all three integers, so this could not have been noticed by reading one wing. It joins
+    Topography.lean, Wave.lean. THE RARITY: the rarest of the three, 8849, appears in 1 wing(s)
+    (Topography.lean) — a characteristic quantity rather than a counting number, which is why the ranking puts
+    it here. NOT CLAIMED: that these domains are related in any sense beyond the integers. Two fields using one
+    number is mostly how small numbers behave; what is claimed is the identity, the carriers, and the span. -/
+theorem cross_topography_wave_sum_28633 : 8849 + 19784 = 28633 := by decide
+
+/-- THE ARITHMETIC: 42195 - 13600 = 28595, decided by the kernel over a finite domain. THE FORMS, computed:
+    42195 = 3 x 14065; 13600 = 5 x 2720; 28595 = 5 x 5719. 42195 IS CARRIED BY enumeration_hex4_a4d3
+    [HexSpan11.lean], sport_marathon_and_the_teams [Wave.lean]. 13600 IS CARRIED BY enumeration_hex4_3520
+    [HexSpan4.lean], collider_energy_is_below_the_planck_scale [StringTheory.lean]. 28595 IS CARRIED BY
+    enumeration_hex4_6fb3 [HexSpan7.lean], alpine_domain_math_partitions_28635 [Wave.lean]. THE OPERATOR,
+    measured by probing it over the corpus's own integers rather than named from a list: - is not commutative
+    and forced on its diagonal. THE SPAN is 2 — no single wing carries all three integers, so this could not
+    have been noticed by reading one wing. It joins StringTheory.lean, Wave.lean. THE RARITY: the rarest of the
+    three, 42195, appears in 1 wing(s) (Wave.lean) — a characteristic quantity rather than a counting number,
+    which is why the ranking puts it here. NOT CLAIMED: that these domains are related in any sense beyond the
+    integers. Two fields using one number is mostly how small numbers behave; what is claimed is the identity,
+    the carriers, and the span. -/
+theorem cross_stringtheory_wave_difference_28595 : 42195 - 13600 = 28595 := by decide
+
+/-- THE ARITHMETIC: 1080 + 27356 = 28436, decided by the kernel over a finite domain. THE FORMS, computed: 1080
+    = 3 x 360; 27356 = 7 x 3908; 28436 is prime. 1080 IS CARRIED BY enumeration_hex4_0438 [HexSpan1.lean],
+    uhd_is_four_times_hd [Editing.lean]. 27356 IS CARRIED BY enumeration_hex4_6adc [HexSpan7.lean],
+    alpine_domain_shell_partitions_28635 [Wave.lean]. 28436 IS CARRIED BY enumeration_hex4_6f14 [HexSpan7.lean],
+    alpine_domain_crypto_partitions_28635 [Wave.lean]. THE OPERATOR, measured by probing it over the corpus's
+    own integers rather than named from a list: + is commutative and not forced on its diagonal. THE SPAN is 2 —
+    no single wing carries all three integers, so this could not have been noticed by reading one wing. It joins
+    Editing.lean, Wave.lean. THE RARITY: the rarest of the three, 1080, appears in 1 wing(s) (Editing.lean) — a
+    characteristic quantity rather than a counting number, which is why the ranking puts it here. NOT CLAIMED:
+    that these domains are related in any sense beyond the integers. Two fields using one number is mostly how
+    small numbers behave; what is claimed is the identity, the carriers, and the span. -/
+theorem cross_editing_wave_sum_28436 : 1080 + 27356 = 28436 := by decide
+
+/-- THE ARITHMETIC: 28436 - 1080 = 27356, decided by the kernel over a finite domain. THE FORMS, computed: 28436
+    is prime; 1080 = 3 x 360; 27356 = 7 x 3908. 28436 IS CARRIED BY enumeration_hex4_6f14 [HexSpan7.lean],
+    alpine_domain_crypto_partitions_28635 [Wave.lean]. 1080 IS CARRIED BY enumeration_hex4_0438 [HexSpan1.lean],
+    uhd_is_four_times_hd [Editing.lean]. 27356 IS CARRIED BY enumeration_hex4_6adc [HexSpan7.lean],
+    alpine_domain_shell_partitions_28635 [Wave.lean]. THE OPERATOR, measured by probing it over the corpus's own
+    integers rather than named from a list: - is not commutative and forced on its diagonal. THE SPAN is 2 — no
+    single wing carries all three integers, so this could not have been noticed by reading one wing. It joins
+    Editing.lean, Wave.lean. THE RARITY: the rarest of the three, 28436, appears in 1 wing(s) (Wave.lean) — a
+    characteristic quantity rather than a counting number, which is why the ranking puts it here. NOT CLAIMED:
+    that these domains are related in any sense beyond the integers. Two fields using one number is mostly how
+    small numbers behave; what is claimed is the identity, the carriers, and the span. -/
+theorem cross_editing_wave_difference_27356 : 28436 - 1080 = 27356 := by decide
+
+/-- THE ARITHMETIC: 7735 + 17265 = 25000, decided by the kernel over a finite domain. THE FORMS, computed: 7735
+    = 5 x 1547; 17265 = 3 x 5755; 25000 = 5 x 5000. 7735 IS CARRIED BY enumeration_hex4_1e37 [HexSpan2.lean],
+    alpine_dom_la_bu_ie_7735 [Wave.lean]. 17265 IS CARRIED BY enumeration_hex4_4371 [HexSpan5.lean],
+    alpine_port_all_partition_28635 [Wave.lean]. 25000 IS CARRIED BY map_scale_one_to_25000 [Topography.lean],
+    enumeration_hex4_61a8 [HexSpan7.lean]. THE OPERATOR, measured by probing it over the corpus's own integers
+    rather than named from a list: + is commutative and not forced on its diagonal. THE SPAN is 2 — no single
+    wing carries all three integers, so this could not have been noticed by reading one wing. It joins
+    Topography.lean, Wave.lean. THE RARITY: the rarest of the three, 7735, appears in 1 wing(s) (Wave.lean) — a
+    characteristic quantity rather than a counting number, which is why the ranking puts it here. NOT CLAIMED:
+    that these domains are related in any sense beyond the integers. Two fields using one number is mostly how
+    small numbers behave; what is claimed is the identity, the carriers, and the span. -/
+theorem cross_topography_wave_sum_25000 : 7735 + 17265 = 25000 := by decide
+
+/-- THE ARITHMETIC: 28633 - 8849 = 19784, decided by the kernel over a finite domain. THE FORMS, computed: 28633
+    = 11 x 2603; 8849 is prime; 19784 is prime. 28633 IS CARRIED BY enumeration_hex4_6fd9 [HexSpan7.lean],
+    alpine_domain_bio_partitions_28635 [Wave.lean]. 8849 IS CARRIED BY bulge_exceeds_relief [Topography.lean],
+    enumeration_hex4_2291 [HexSpan3.lean]. 19784 IS CARRIED BY bulge_exceeds_relief [Topography.lean],
+    enumeration_hex4_4d48 [HexSpan5.lean]. THE OPERATOR, measured by probing it over the corpus's own integers
+    rather than named from a list: - is not commutative and forced on its diagonal. THE SPAN is 2 — no single
+    wing carries all three integers, so this could not have been noticed by reading one wing. It joins
+    Topography.lean, Wave.lean. THE RARITY: the rarest of the three, 28633, appears in 1 wing(s) (Wave.lean) — a
+    characteristic quantity rather than a counting number, which is why the ranking puts it here. NOT CLAIMED:
+    that these domains are related in any sense beyond the integers. Two fields using one number is mostly how
+    small numbers behave; what is claimed is the identity, the carriers, and the span. -/
+theorem cross_topography_wave_difference_19784 : 28633 - 8849 = 19784 := by decide
+
+/-- THE ARITHMETIC: 25000 - 7735 = 17265, decided by the kernel over a finite domain. THE FORMS, computed: 25000
+    = 5 x 5000; 7735 = 5 x 1547; 17265 = 3 x 5755. 25000 IS CARRIED BY map_scale_one_to_25000 [Topography.lean],
+    enumeration_hex4_61a8 [HexSpan7.lean]. 7735 IS CARRIED BY enumeration_hex4_1e37 [HexSpan2.lean],
+    alpine_dom_la_bu_ie_7735 [Wave.lean]. 17265 IS CARRIED BY enumeration_hex4_4371 [HexSpan5.lean],
+    alpine_port_all_partition_28635 [Wave.lean]. THE OPERATOR, measured by probing it over the corpus's own
+    integers rather than named from a list: - is not commutative and forced on its diagonal. THE SPAN is 2 — no
+    single wing carries all three integers, so this could not have been noticed by reading one wing. It joins
+    Topography.lean, Wave.lean. THE RARITY: the rarest of the three, 25000, appears in 1 wing(s)
+    (Topography.lean) — a characteristic quantity rather than a counting number, which is why the ranking puts
+    it here. NOT CLAIMED: that these domains are related in any sense beyond the integers. Two fields using one
+    number is mostly how small numbers behave; what is claimed is the identity, the carriers, and the span. -/
+theorem cross_topography_wave_difference_17265 : 25000 - 7735 = 17265 := by decide

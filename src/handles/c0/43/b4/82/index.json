@@ -1,0 +1,12 @@
+{
+  "handle": "c043b482",
+  "address": "c043b482-01a8-8bbc-b699-6b70d52858c0",
+  "kind": "chunk",
+  "keys": [
+    "cross_topography_wave_sum_25000"
+  ],
+  "statement": "7735 + 17265 = 25000",
+  "files": [
+    "Wave.lean"
+  ]
+}

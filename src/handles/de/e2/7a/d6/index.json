@@ -1,0 +1,12 @@
+{
+  "handle": "dee27ad6",
+  "address": "dee27ad6-e8d2-8ac7-816e-0126d5c6aee5",
+  "kind": "chunk",
+  "keys": [
+    "cross_editing_wave_sum_28436"
+  ],
+  "statement": "1080 + 27356 = 28436",
+  "files": [
+    "Wave.lean"
+  ]
+}

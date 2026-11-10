@@ -1,0 +1,12 @@
+{
+  "handle": "1510d596",
+  "address": "1510d596-3a5b-87a7-8c86-4d0205adbcfd",
+  "statement": "(1281 + 86 - 4 = 1363)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_sh_se_ie_1363"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

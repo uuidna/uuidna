@@ -7,9 +7,9 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 > Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
 
-**Board (computed).** 71,028 distinct theorems · 71,114 keys · 131 skills · 264 Lean files.
+**Board (computed).** 71,151 distinct theorems · 71,237 keys · 131 skills · 264 Lean files.
 
-Receipt `2f781eba-850c-87b0-ab20-852162ddbba1` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
+Receipt `0f6eed17-9583-8167-990f-3c51de44a917` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
 
 ## Illustrations (presence-checked, not a closed set)
 
@@ -55,12 +55,12 @@ Receipt `2f781eba-850c-87b0-ab20-852162ddbba1` · structured form <a href="/lean
 
 | Skill | Keys |
 | --- | ---: |
-| `wave` | 67088 |
+| `wave` | 67208 |
 | `fermat` | 2096 |
 | `z9-ring` | 305 |
 | `z7-rosette` | 150 |
 | `nim` | 93 |
-| `quantum` | 66 |
+| `quantum` | 69 |
 | `vortex` | 41 |
 | `cipher` | 38 |
 | `chess` | 37 |
@@ -96,7 +96,7 @@ Receipt `2f781eba-850c-87b0-ab20-852162ddbba1` · structured form <a href="/lean
 | <a href="/lean/HexSpan7.lean">`HexSpan7.lean`</a> | 4096 |
 | <a href="/lean/HexSpan8.lean">`HexSpan8.lean`</a> | 4096 |
 | <a href="/lean/HexSpan9.lean">`HexSpan9.lean`</a> | 4096 |
-| <a href="/lean/Wave.lean">`Wave.lean`</a> | 968 |
+| <a href="/lean/Wave.lean">`Wave.lean`</a> | 1088 |
 | <a href="/lean/FixedPower.lean">`FixedPower.lean`</a> | 567 |
 | <a href="/lean/Laws.lean">`Laws.lean`</a> | 353 |
 | <a href="/lean/Ring.lean">`Ring.lean`</a> | 234 |

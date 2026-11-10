@@ -1,0 +1,12 @@
+{
+  "handle": "ecb1b661",
+  "address": "ecb1b661-3ac3-8dc0-839a-a17546dbe853",
+  "statement": "(29 + 631 - 0 = 660)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_bl_dr_ie_660"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

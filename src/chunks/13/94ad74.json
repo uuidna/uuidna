@@ -1,0 +1,12 @@
+{
+  "handle": "1394ad74",
+  "address": "1394ad74-178c-8106-823a-d137da4af3d6",
+  "statement": "(215 + 631 - 8 = 838)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_fi_dr_ie_838"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -8,6 +8,7 @@
 import { hologramLattice, sweaterOf } from './hologram-lattice.js'
 import { hologramFanout } from './hologram-fanout.js'
 import { qpuHopOf } from './qpu-hologram.js'
+import { isClifford, cliffordOutcomes } from './quantum/stabilizer.js'
 import { runEvidence } from './run-evidence.js'
 import { auditCall, saveAudit, auditState } from './legal-audit.js'
 import { invitation } from './invitation.js'
@@ -107,6 +108,7 @@ import { sealedKeys, bakedDoor, bakedDoorWhy, ledgerFacts, edgeFacts, RowsNeeded
 import { buildGraph } from './build-graph.js'
 // the program space: a door's hex is derived from its own contract, so the uuid's middle addresses code directly
 import { callOfUuid, hexProgramIndex, doorOfProgram } from './hex-programs.js'
+import { isoPromptPage, isoPromptOf } from './iso-prompts.js'
 import { relatedToTheorems } from './quantum/os/related/index.js' // which packages the theorems relate to, adjudicated
 import { paperBlueprintTheorem } from './paper-blueprint.js'
 import { labOf, labsByFamily } from './school/laboratory/index.js'
@@ -1832,14 +1834,14 @@ const TOOLS: Tool[] = ([
       if (Array.isArray(ops)) {
         const n = Number(a.qubits)
         if (!Number.isInteger(n) || n < 1) throw new Error('qubits must be a positive integer for an ops circuit')
-        if (n > encoder) return { ...qpuHopOf(), circuit: 'custom', qubits: n, gates: ops.length }
+        if (n > encoder) return isClifford(ops) ? stabilizerAnswer('custom', n, ops) : { ...qpuHopOf(), circuit: 'custom', qubits: n, gates: ops.length }
         state = runCircuit(n, ops) // validates gate names + qubit ranges, throws on the unknown
         meta = { circuit: 'custom', gates: ops.length }
       } else {
         const circuit = a.circuit === 'ghz' ? 'ghz' : 'bell'
         const n = a.qubits ? Number(a.qubits) : 3
         if (circuit === 'ghz' && (!Number.isInteger(n) || n < 1)) throw new Error('qubits must be a positive integer')
-        if (circuit === 'ghz' && n > encoder) return { ...qpuHopOf(), circuit, qubits: n }
+        if (circuit === 'ghz' && n > encoder) return stabilizerAnswer('ghz', n, [{ gate: 'h', qubits: [0] }, ...Array.from({ length: n - 1 }, (_, i) => ({ gate: 'cx' as const, qubits: [i, i + 1] }))])
         state = circuit === 'ghz' ? ghzState(n) : bellState()
         meta = { circuit }
       }
@@ -2315,6 +2317,14 @@ export function messagingSession(): { agent: string; payments: readonly CoinPaym
   return { agent: PAYING_AGENT, payments: PAYMENTS, receiptSeq: rSeq, receiptTip: rTip }
 }
 // the dispatch chain — gated calls serialize on it (one writer, one chain; see the dispatch comment)
+/** a Clifford circuit past the dense width, answered exactly by the stabilizer tableau (quantum/stabilizer.ts): the
+ *  outcomes and their one shared probability, no amplitudes. The tableau's local rules are the theorems it cites. */
+const stabilizerAnswer = (circuit: string, n: number, ops: GateOp[]): Record<string, unknown> => {
+  const r = cliffordOutcomes(n, ops)
+  return { circuit, qubits: n, gates: ops.length, representation: 'stabilizer tableau', randomBits: r.randomBits, share: r.share,
+    outcomes: r.outcomes, affine: r.affine, backedBy: ['uuidprog_tableau_h', 'uuidprog_tableau_s', 'uuidprog_tableau_cnot'], receipt: toUuid(JSON.stringify(r)) }
+}
+
 let DISPATCH: Promise<void> = Promise.resolve()
 
 // THE HOST MEASURES ITS OWN HARDWARE for the stdio surface (the captain, 2026-09-14: "the message need to contain the
@@ -2371,7 +2381,7 @@ function handle(msg: RpcMessage) {
   if (method === 'initialize') {
     const protocolVersion = params?.protocolVersion || '2024-11-05'
     PAYING_AGENT = String((params?.clientInfo as { name?: unknown } | undefined)?.name ?? 'anonymous') || 'anonymous'
-    return ok(id, { protocolVersion, capabilities: { tools: {} }, serverInfo: { name: 'uuidna', version: VERSION }, instructions: SERVED_INSTRUCTIONS })
+    return ok(id, { protocolVersion, capabilities: { tools: {}, prompts: {} }, serverInfo: { name: 'uuidna', version: VERSION }, instructions: SERVED_INSTRUCTIONS })
   }
   if (method === 'notifications/initialized' || method === 'initialized') return // notification — no reply
   if (method === 'ping') return ok(id, {})
@@ -2380,6 +2390,8 @@ function handle(msg: RpcMessage) {
   // THE LISTING IS THE DOOR AND WHAT THE INSTRUCTIONS NAME (src/mcp-door.ts), each row carrying the handle of its
   // own contract. `api` folds the listing, `covers` folds every contract the door opens, `door` names the door so
   // a client that learned its toolbox from this list (the terminal) can open the rest without naming a tool itself.
+  if (method === 'prompts/list') return ok(id, isoPromptPage(params?.cursor))
+  if (method === 'prompts/get') { try { return ok(id, isoPromptOf(params?.name)) } catch (e) { return { jsonrpc: '2.0', id, error: { code: -32602, message: e instanceof Error ? e.message : String(e) } } } }
   if (method === 'tools/list') return ok(id, { tools: MCP_LISTED, _meta: { api: apiHandleOf(MCP_LISTED), covers: apiHandleOf(TOOLS), door: DOOR_NAME, useCases: 'dist/**/*.test.js' } })
   if (method === 'tools/call') {
     // THE SERVER RUNS FROM uuidnaOS: the first call boots the verified world (~4 ms, cached) and a DRIFTED

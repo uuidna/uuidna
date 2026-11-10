@@ -1,0 +1,12 @@
+{
+  "handle": "ea777814",
+  "address": "ea777814-7001-8b23-8127-cb06d719929a",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_blockchain_partitions_28664"
+  ],
+  "statement": "(29 + 28635 = 28664)",
+  "files": [
+    "Wave.lean"
+  ]
+}

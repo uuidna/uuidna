@@ -42,6 +42,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-zenodo-seals.js', args: [], note: 'agnostic Zenodo publication seals (manifest + per-id metadata)' },
   { file: 'gen-lines.js', args: [], note: 'the line census' },
   { file: 'gen-configuration.js', args: [], note: 'the consolidation declaration and configuration items, read from the wrangler configs, package.json and workflows' },
+  { file: 'gen-product.js', args: [], note: 'the library as an ISO/IEC 25051 product: identification, Lean-doc test prompts, limits from the lead census' },
   { file: 'gen-legacy-manifest.js', args: [], note: 'the old tree as the Payload installation takes it in: one lead per module, read from git' },
   { file: 'gen-matrix-css.js', args: [], note: 'the design matrix as a stylesheet the site LOADS — it reached the browser only after hydration, and a stale bundle drifted from the door unseen (320 vs 336) because nothing compared the two receipts' },
   { file: 'gen-search-feed.js', args: [], note: 'most-searched queries ring Lean — new /search-feed route, freeze before handles audit' },

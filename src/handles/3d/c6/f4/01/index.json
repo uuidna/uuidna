@@ -1,0 +1,12 @@
+{
+  "handle": "3dc6f401",
+  "address": "3dc6f401-9d71-8198-992a-09d8d7ac10c4",
+  "kind": "chunk",
+  "keys": [
+    "cross_cipher_wave_sum_1048576"
+  ],
+  "statement": "524288 + 524288 = 1048576",
+  "files": [
+    "Wave.lean"
+  ]
+}

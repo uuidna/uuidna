@@ -1,0 +1,12 @@
+{
+  "handle": "fc40bcf2",
+  "address": "fc40bcf2-c052-81dd-bd78-b43caffc8c60",
+  "statement": "1905 + 42195 = 44100",
+  "tactic": "decide",
+  "keys": [
+    "cross_production_wave_sum_44100"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

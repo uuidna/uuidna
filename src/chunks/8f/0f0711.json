@@ -1,0 +1,12 @@
+{
+  "handle": "8f0f0711",
+  "address": "8f0f0711-b0f8-88ee-8f4a-635307b5504b",
+  "statement": "(53 + 28611 = 28664)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_art_partitions_28664"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

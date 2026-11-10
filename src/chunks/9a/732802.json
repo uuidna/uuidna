@@ -1,0 +1,12 @@
+{
+  "handle": "9a732802",
+  "address": "9a732802-b55f-8ed4-8118-0090bb46fa4b",
+  "statement": "13600 + 28595 = 42195",
+  "tactic": "decide",
+  "keys": [
+    "cross_stringtheory_wave_sum_42195"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

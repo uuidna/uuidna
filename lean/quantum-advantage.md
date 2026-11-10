@@ -30,7 +30,7 @@ the sweep is reported live by `uuidna_quantum_advantage`, where a measurement of
 | hexbit tile | 2^4 | declared | 10^0 ns per hexbit tile compiled from an address | 10^9 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | handle | 2^32 | declared | 10^2 ns per handle read to its value and residue | 10^7 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | uuid | 2^128 | declared | 10^3 ns per address folded from a distinct seed | 10^6 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
-| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 71114 | 0 | better than 1 in 71114 | 71 errors |
+| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 71237 | 0 | better than 1 in 71237 | 71 errors |
 
 ### The witness battery
 
@@ -40,14 +40,14 @@ in exact Gaussian integers, with no floating point at any step; each result is c
 kernel sealed. **70 witnesses · 109 sweeps ·
 497476 decisions · 0 disagreements · verdict EXACT.**
 
-**Coverage: 66 of the quantum wing's 66 theorems**, and the 0 this battery
-does not decide are named rather than counted: ``. The battery is a
+**Coverage: 66 of the quantum wing's 69 theorems**, and the 3 this battery
+does not decide are named rather than counted: `uuidprog_tableau_cnot`, `uuidprog_tableau_h`, `uuidprog_tableau_s`. The battery is a
 hand-written list and a hand-written list can only lag the ledger it draws from — one of those keys was sealed by
 another session on the night this was written, and nothing noticed until the denominator was printed. Several of
 the rest state things this exact state-vector arithmetic cannot decide exactly (the W state's √3 normalisation), and a witness that
 half-checks its theorem is worse than none. What the count buys is that the gap is visible and moves.
 
-Better than one disagreement per 497476 executions on this host, across 66 of the wing's 66 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide.
+Better than one disagreement per 497476 executions on this host, across 66 of the wing's 69 theorems — a bound from the count, not a proof of zero, and not a claim about the 3 this battery does not decide.
 
 A witness whose theorem is not sealed in the ledger is refused before it runs, so a shrinking battery shows up
 as a shrinking count and not as an unchanged green verdict. This run refused 0.
@@ -168,9 +168,9 @@ seals that n qubits span 2^n amplitudes.
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `9b2544ea-360a-85aa-acc9-708e04dd3091`.
+*exist* cannot see. Dispatch receipt: `d8af9692-4035-82a9-87a6-a90ea7122f0c`.
 
-Report receipt: `550c5a47-a40d-8d80-b290-2a3234a376a8` · measured-when as its own handle: `550c5a47`.
+Report receipt: `4acda199-d2eb-8bfa-a387-86d3a76c21fa` · measured-when as its own handle: `4acda199`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->

@@ -1,0 +1,12 @@
+{
+  "handle": "21872fec",
+  "address": "21872fec-de71-861d-9f16-11a678822f35",
+  "statement": "(40 + 28624 = 28664)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_math_partitions_28664"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

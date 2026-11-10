@@ -1,0 +1,12 @@
+{
+  "handle": "a7f2e672",
+  "address": "a7f2e672-7114-8905-bdf8-c5ded6a5d255",
+  "kind": "chunk",
+  "keys": [
+    "cross_cipher_handlespan_sum_2097152"
+  ],
+  "statement": "1048576 + 1048576 = 2097152",
+  "files": [
+    "Wave.lean"
+  ]
+}

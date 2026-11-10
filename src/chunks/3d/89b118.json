@@ -1,0 +1,12 @@
+{
+  "handle": "3d89b118",
+  "address": "3d89b118-2c3f-8efa-82b9-2d4466935bfa",
+  "statement": "(25 + 28639 = 28664)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_astronomy_partitions_28664"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

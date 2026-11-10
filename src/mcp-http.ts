@@ -10,6 +10,7 @@
 // worker signs it (env.TRIAL_KEY); a fork recomputes the same result but cannot forge the signature. The tools carry
 // their own honest scope (the aura is art, image provenance is exact-copy not content-truth, the cube is symmetric).
 import { PKG_VERSION } from './package-version.js'
+import { isoPromptPage, isoPromptOf } from './iso-prompts.js'
 import { adjudicate } from './adjudicate.js'
 import { involuteToVerified } from './solution-involution.js'
 import { bootOS } from './quantum/os/index.js'
@@ -239,12 +240,15 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
   const id = msg?.id ?? null
   const method = msg?.method
   const params = msg?.params ?? {}
-  if (method === 'initialize') return rpc(id, { protocolVersion: PROTOCOL_VERSION, capabilities: { tools: { listChanged: false } }, serverInfo: SERVER,
+  if (method === 'initialize') return rpc(id, { protocolVersion: PROTOCOL_VERSION, capabilities: { tools: { listChanged: false }, prompts: { listChanged: false } }, serverInfo: SERVER,
     instructions: edgeInstructions() })
   if (method === 'ping') return rpc(id, {})
   if (typeof method === 'string' && method.startsWith('notifications/')) return null   // a notification carries no reply
   // `api` folds the listing, `covers` every contract the door opens here, `door` names the door (see mcp.ts)
   if (method === 'tools/list') { const listed = listing(); return rpc(id, { tools: listed, _meta: { api: apiHandleOf(listed), covers: apiHandleOf(served()), door: DOOR_NAME, useCases: 'dist/**/*.test.js' } }) }
+  // every sealed theorem is an ISO test prompt whose text is its own Lean (src/iso-prompts.ts)
+  if (method === 'prompts/list') return rpc(id, isoPromptPage(params.cursor))
+  if (method === 'prompts/get') { try { return rpc(id, isoPromptOf(params.name)) } catch (e) { return rpcErr(id, -32602, e instanceof Error ? e.message : String(e)) } }
   if (method === 'tools/call') {
     // THROUGH THE DOOR, THE CALL IT NAMES — unwrapped before the lookup, the argument gate, the audit and the deposit,
     // so every one of them sees the tool itself; `params` is rebound so the dispatch below reads the opened call

@@ -35,6 +35,10 @@ const S: M = (r, c) => (r === c ? (r === 0 ? [1, 0] : [0, 1]) : [0, 0])
 const CNOT = perm((c) => (c === 2 ? 3 : c === 3 ? 2 : c))
 const SWAP = perm((c) => (c === 1 ? 2 : c === 2 ? 1 : c))
 const TOFFOLI = perm((c) => (c === 6 ? 7 : c === 7 ? 6 : c))
+const Y: M = (r, c) => (r === 0 && c === 1 ? [0, -1] : r === 1 && c === 0 ? [0, 1] : [0, 0])
+const kron = (m: number, a: M, b: M): M => (r, c) => gmul(a((r - (r % m)) / m, (c - (c % m)) / m), b(r % m, c % m))
+/** U · P · U† — how a gate carries a Pauli, the step a stabilizer tableau records */
+const conj = (n: number, u: M, p: M): M => mm(n, mm(n, u, p), dag(u))
 
 // the program's own answer, by its UUID: the outcome weights it serves for a named circuit, as the unscaled weights the
 // Lean state carries. Only an exact equal split reads as weights — every served probability exactly 1/k over its k
@@ -85,6 +89,7 @@ def X : Mat := perm fun c => 1 - c
 def Z : Mat := fun r c => if r = c then (if r = 0 then 1 else -1) else 0
 def S : Mat := fun r c => if r = c then (if r = 0 then 1 else GI.i) else 0
 def CNOT : Mat := perm fun c => if c = 2 then 3 else if c = 3 then 2 else c
+def Y : Mat := fun r c => if r = 0 ∧ c = 1 then -GI.i else if r = 1 ∧ c = 0 then GI.i else 0
 def SWAP : Mat := perm fun c => if c = 1 then 2 else if c = 2 then 1 else c
 def TOFFOLI : Mat := perm fun c => if c = 6 then 7 else if c = 7 then 6 else c
 
@@ -126,6 +131,16 @@ const FACTS = [
   { key: 'uuidprog_toffoli', why: 'Toffoli is unitary and its own inverse',
     js: () => same(8, mm(8, TOFFOLI, dag(TOFFOLI)), idm) && same(8, mm(8, TOFFOLI, TOFFOLI), idm),
     lean: 'theorem uuidprog_toffoli : Same 8 (mm 8 TOFFOLI (dag TOFFOLI)) idm ∧ Same 8 (mm 8 TOFFOLI TOFFOLI) idm := by decide +kernel' },
+  { key: 'uuidprog_tableau_h', why: 'conjugating by Hadamard swaps X and Z and negates Y — the stabilizer tableau\'s H rule (swap the x and z bits, flip the phase where both are set)',
+    js: () => same(2, conj(2, H, X), smul(2, Z)) && same(2, conj(2, H, Z), smul(2, X)) && same(2, conj(2, H, Y), smul(-2, Y)),
+    lean: 'theorem uuidprog_tableau_h : Same 2 (mm 2 (mm 2 H X) (dag H)) (smul 2 Z) ∧ Same 2 (mm 2 (mm 2 H Z) (dag H)) (smul 2 X) ∧ Same 2 (mm 2 (mm 2 H Y) (dag H)) (smul (-2) Y) := by decide' },
+  { key: 'uuidprog_tableau_s', why: 'conjugating by S sends X to Y and Y to −X and leaves Z — the stabilizer tableau\'s S rule (z gains x, the phase flips where both are set)',
+    js: () => same(2, conj(2, S, X), Y) && same(2, conj(2, S, Y), smul(-1, X)) && same(2, conj(2, S, Z), Z),
+    lean: 'theorem uuidprog_tableau_s : Same 2 (mm 2 (mm 2 S X) (dag S)) Y ∧ Same 2 (mm 2 (mm 2 S Y) (dag S)) (smul (-1) X) ∧ Same 2 (mm 2 (mm 2 S Z) (dag S)) Z := by decide' },
+  { key: 'uuidprog_tableau_cnot', why: 'conjugating by CNOT copies X from control to target and Z from target to control — the stabilizer tableau\'s CNOT rule (x of the target gains x of the control, z of the control gains z of the target)',
+    js: () => same(4, conj(4, CNOT, kron(2, X, idm)), kron(2, X, X)) && same(4, conj(4, CNOT, kron(2, idm, X)), kron(2, idm, X))
+      && same(4, conj(4, CNOT, kron(2, Z, idm)), kron(2, Z, idm)) && same(4, conj(4, CNOT, kron(2, idm, Z)), kron(2, Z, Z)),
+    lean: 'theorem uuidprog_tableau_cnot : Same 4 (mm 4 (mm 4 CNOT (kron 2 X idm)) (dag CNOT)) (kron 2 X X) ∧ Same 4 (mm 4 (mm 4 CNOT (kron 2 idm X)) (dag CNOT)) (kron 2 idm X) ∧ Same 4 (mm 4 (mm 4 CNOT (kron 2 Z idm)) (dag CNOT)) (kron 2 Z idm) ∧ Same 4 (mm 4 (mm 4 CNOT (kron 2 idm Z)) (dag CNOT)) (kron 2 Z Z) := by decide +kernel' },
   { key: 'uuidprog_bell_runs', why: `the program at ${PROGRAM_UUID}, run on the Bell circuit, puts weight on exactly 00 and 11, in equal shares — the weights its door serves`,
     js: () => served('bell', 2).join() === '1,0,0,1',
     lean: 'theorem uuidprog_bell_runs : (List.range 4).map (fun r => (bell r).normSq) = [1, 0, 0, 1] := by decide' },

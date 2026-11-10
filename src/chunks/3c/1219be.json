@@ -1,0 +1,12 @@
+{
+  "handle": "3c1219be",
+  "address": "3c1219be-1150-8350-9f0f-b9f5fea399a9",
+  "statement": "1048576 - 524288 = 524288",
+  "tactic": "decide",
+  "keys": [
+    "cross_cipher_wave_difference_524288"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -17,7 +17,7 @@
 // PURE OF CLOCK: this module never times anything. It exposes the WORK (LEVEL_PROBES) and the scripts boundary
 // holds the stopwatch — the same split os/host uses, and what lets the whole battery be tested without one.
 import {
-  ket0, hadamard, pauliX, pauliZ, phaseS, phaseSdg, cnot, cz, swap, toffoli,
+  ket0, hadamard, pauliX, pauliY, pauliZ, phaseS, phaseSdg, cnot, cz, swap, toffoli,
   distribution, marginal, amplitude, equalState, isInvolution, bellState, ghzState,
   classicalMap, fraction, bellBornWeights, massGapOnBellBornField, type QState, type Prob,
 } from '../../quantum/index.js'
@@ -96,6 +96,8 @@ const half = (p: Prob): boolean => eqProb(p, 1n, 2n)
 const zero = (p: Prob): boolean => p.num === 0n
 /** count the failures in a list of decisions — the shape every witness reports in */
 const failures = (checks: readonly boolean[]): number => checks.filter((ok) => !ok).length
+/** equal, or equal after a global sign — the one difference no measurement can see */
+const equalUpToSign = (a: QState, b: QState): boolean => equalState(a, b) || equalState(a, timesI(b, 2))
 /** the last integer list a sealed statement names — what a witness must land on, read from the seal, never typed */
 const sealedList = (key: string): number[] => {
   const all = [...(theoremFor(key)?.statement ?? '').matchAll(/\[(\d+(?:,\s*\d+)*)\]/g)]
@@ -690,6 +692,27 @@ export const WITNESSES: readonly Witness[] = [
     run: () => failures([...basis(2), bellState()].flatMap((s) => [isInvolution((x) => cnot(x, 0, 1), s), isInvolution((x) => swap(x, 0, 1), s)])) },
   { theorem: 'uuidprog_toffoli', cases: 9, what: 'Toffoli undoes itself on every 3-qubit basis state and on GHZ(3)',
     run: () => failures([...basis(3), ghzState(3)].map((s) => isInvolution((x) => toffoli(x, 0, 1, 2), s))) },
+  // the tableau's local rules, re-decided by conjugating on QState: U·P·U† applied to a state equals the Pauli the
+  // tableau records, up to the global sign a measurement cannot see (timesI by 2 is the sign)
+  { theorem: 'uuidprog_tableau_h', cases: 12, what: 'H·X·H = Z, H·Z·H = X and H·Y·H = −Y on every 1-qubit basis state and both superposed ones',
+    run: () => failures([...basis(1), hadamard(ket0(1), 0), hadamard(pauliX(ket0(1), 0), 0)].flatMap((s) => [
+      equalState(hadamard(pauliX(hadamard(s, 0), 0), 0), pauliZ(s, 0)),
+      equalState(hadamard(pauliZ(hadamard(s, 0), 0), 0), pauliX(s, 0)),
+      equalUpToSign(hadamard(pauliY(hadamard(s, 0), 0), 0), pauliY(s, 0)),
+    ])) },
+  { theorem: 'uuidprog_tableau_s', cases: 12, what: 'S·X·S† = Y, S·Y·S† = −X and S·Z·S† = Z on every 1-qubit basis state and both superposed ones',
+    run: () => failures([...basis(1), hadamard(ket0(1), 0), hadamard(pauliX(ket0(1), 0), 0)].flatMap((s) => [
+      equalUpToSign(phaseS(pauliX(phaseSdg(s, 0), 0), 0), pauliY(s, 0)),
+      equalUpToSign(phaseS(pauliY(phaseSdg(s, 0), 0), 0), pauliX(s, 0)),
+      equalState(phaseS(pauliZ(phaseSdg(s, 0), 0), 0), pauliZ(s, 0)),
+    ])) },
+  { theorem: 'uuidprog_tableau_cnot', cases: 20, what: 'CNOT carries X⊗I to X⊗X, I⊗X to I⊗X, Z⊗I to Z⊗I and I⊗Z to Z⊗Z on every 2-qubit basis state and the Bell state',
+    run: () => failures([...basis(2), bellState()].flatMap((s) => [
+      equalState(cnot(pauliX(cnot(s, 1, 0), 1), 1, 0), pauliX(pauliX(s, 1), 0)),
+      equalState(cnot(pauliX(cnot(s, 1, 0), 0), 1, 0), pauliX(s, 0)),
+      equalState(cnot(pauliZ(cnot(s, 1, 0), 1), 1, 0), pauliZ(s, 1)),
+      equalState(cnot(pauliZ(cnot(s, 1, 0), 0), 1, 0), pauliZ(pauliZ(s, 0), 1)),
+    ])) },
   { theorem: 'uuidprog_bell_runs', cases: 4, what: 'the Bell circuit run on QState puts weight exactly where the sealed weights do, in equal shares',
     run: () => { const w = sealedList('uuidprog_bell_runs'), d = distribution(bellState())
       return failures(w.map((x, i) => (x === 0 ? zero(d[i]!) : half(d[i]!)))) } },

@@ -1,0 +1,12 @@
+{
+  "handle": "32178418",
+  "address": "32178418-d242-804c-a5be-69e5e20608d2",
+  "statement": "(631 + 25 - 0 = 656)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_dr_as_ie_656"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -29,130 +29,11 @@ Paired doctrine: [sufficiency charter](/doctrine#sufficiency-charter--what-hexbi
 
 | candidate | status |
 |-----------|--------|
-| **alpine bindings partition packages 28664** (not sealed) | awaiting the kernel |
-| **alpine binding origins overcount 16101** (not sealed) | awaiting the kernel |
-| **alpine domain database partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain filesystem partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain blockchain partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain driver partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain driver origins 631** (not sealed) | awaiting the kernel |
-| **alpine domain language partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain language origins 7503** (not sealed) | awaiting the kernel |
-| **alpine domain network partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain science partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain media partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain shell partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain shell origins 1281** (not sealed) | awaiting the kernel |
-| **alpine domain chat partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain crypto partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain security partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain math partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain art partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain bio partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain chemistry partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain neuro partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain astronomy partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain physics partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain geo partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain virtualization partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain font partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain audio partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain build partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain social partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine domain engineering partitions 28664** (not sealed) | awaiting the kernel |
-| **alpine port all partition 28664** (not sealed) | awaiting the kernel |
-| **alpine dom da dr ie 1008** (not sealed) | awaiting the kernel |
-| **alpine dom da la ie 7787** (not sealed) | awaiting the kernel |
-| **alpine dom da sh ie 1718** (not sealed) | awaiting the kernel |
-| **alpine dom fi dr ie 838** (not sealed) | awaiting the kernel |
-| **alpine dom fi la ie 7702** (not sealed) | awaiting the kernel |
-| **alpine dom fi sh ie 1493** (not sealed) | awaiting the kernel |
-| **alpine dom bl dr ie 660** (not sealed) | awaiting the kernel |
-| **alpine dom bl la ie 7525** (not sealed) | awaiting the kernel |
-| **alpine dom bl sh ie 1310** (not sealed) | awaiting the kernel |
-| **alpine dom dr la ie 8073** (not sealed) | awaiting the kernel |
-| **alpine dom dr ne ie 963** (not sealed) | awaiting the kernel |
-| **alpine dom dr sc ie 703** (not sealed) | awaiting the kernel |
-| **alpine dom dr me ie 889** (not sealed) | awaiting the kernel |
-| **alpine dom dr sh ie 1908** (not sealed) | awaiting the kernel |
-| **alpine dom dr ch ie 872** (not sealed) | awaiting the kernel |
-| **alpine dom dr cr ie 830** (not sealed) | awaiting the kernel |
-| **alpine dom dr se ie 717** (not sealed) | awaiting the kernel |
-| **alpine dom dr ma ie 671** (not sealed) | awaiting the kernel |
-| **alpine dom dr ar ie 684** (not sealed) | awaiting the kernel |
-| **alpine dom dr bi ie 633** (not sealed) | awaiting the kernel |
-| **alpine dom dr ch ie 634** (not sealed) | awaiting the kernel |
-| **alpine dom dr ne ie 642** (not sealed) | awaiting the kernel |
-| **alpine dom dr as ie 656** (not sealed) | awaiting the kernel |
-| **alpine dom dr ph ie 638** (not sealed) | awaiting the kernel |
-| **alpine dom dr ge ie 655** (not sealed) | awaiting the kernel |
-| **alpine dom dr vi ie 851** (not sealed) | awaiting the kernel |
-| **alpine dom dr fo ie 713** (not sealed) | awaiting the kernel |
-| **alpine dom dr au ie 740** (not sealed) | awaiting the kernel |
-| **alpine dom dr bu ie 889** (not sealed) | awaiting the kernel |
-| **alpine dom dr so ie 934** (not sealed) | awaiting the kernel |
-| **alpine dom dr en ie 660** (not sealed) | awaiting the kernel |
-| **alpine dom la ne ie 7786** (not sealed) | awaiting the kernel |
-| **alpine dom la sc ie 7561** (not sealed) | awaiting the kernel |
-| **alpine dom la me ie 7695** (not sealed) | awaiting the kernel |
-| **alpine dom la sh ie 8715** (not sealed) | awaiting the kernel |
-| **alpine dom la ch ie 7702** (not sealed) | awaiting the kernel |
-| **alpine dom la cr ie 7656** (not sealed) | awaiting the kernel |
-| **alpine dom la se ie 7580** (not sealed) | awaiting the kernel |
-| **alpine dom la ma ie 7537** (not sealed) | awaiting the kernel |
-| **alpine dom la ar ie 7551** (not sealed) | awaiting the kernel |
-| **alpine dom la bi ie 7503** (not sealed) | awaiting the kernel |
-| **alpine dom la ch ie 7506** (not sealed) | awaiting the kernel |
-| **alpine dom la ne ie 7511** (not sealed) | awaiting the kernel |
-| **alpine dom la as ie 7518** (not sealed) | awaiting the kernel |
-| **alpine dom la ph ie 7510** (not sealed) | awaiting the kernel |
-| **alpine dom la ge ie 7562** (not sealed) | awaiting the kernel |
-| **alpine dom la vi ie 7719** (not sealed) | awaiting the kernel |
-| **alpine dom la ga ie 7528** (not sealed) | awaiting the kernel |
-| **alpine dom la fo ie 7581** (not sealed) | awaiting the kernel |
-| **alpine dom la au ie 7699** (not sealed) | awaiting the kernel |
-| **alpine dom la bu ie 7752** (not sealed) | awaiting the kernel |
-| **alpine dom la so ie 7717** (not sealed) | awaiting the kernel |
-| **alpine dom la en ie 7532** (not sealed) | awaiting the kernel |
-| **alpine dom ne sh ie 1605** (not sealed) | awaiting the kernel |
-| **alpine dom sc sh ie 1355** (not sealed) | awaiting the kernel |
-| **alpine dom me sh ie 1536** (not sealed) | awaiting the kernel |
-| **alpine dom sh ch ie 1519** (not sealed) | awaiting the kernel |
-| **alpine dom sh cr ie 1470** (not sealed) | awaiting the kernel |
-| **alpine dom sh se ie 1363** (not sealed) | awaiting the kernel |
-| **alpine dom sh ma ie 1321** (not sealed) | awaiting the kernel |
-| **alpine dom sh ar ie 1333** (not sealed) | awaiting the kernel |
-| **alpine dom sh bi ie 1283** (not sealed) | awaiting the kernel |
-| **alpine dom sh ch ie 1284** (not sealed) | awaiting the kernel |
-| **alpine dom sh ne ie 1292** (not sealed) | awaiting the kernel |
-| **alpine dom sh as ie 1303** (not sealed) | awaiting the kernel |
-| **alpine dom sh ph ie 1288** (not sealed) | awaiting the kernel |
-| **alpine dom sh ge ie 1342** (not sealed) | awaiting the kernel |
-| **alpine dom sh vi ie 1507** (not sealed) | awaiting the kernel |
-| **alpine dom sh ga ie 1306** (not sealed) | awaiting the kernel |
-| **alpine dom sh fo ie 1363** (not sealed) | awaiting the kernel |
-| **alpine dom sh au ie 1475** (not sealed) | awaiting the kernel |
-| **alpine dom sh bu ie 1535** (not sealed) | awaiting the kernel |
-| **alpine dom sh so ie 1581** (not sealed) | awaiting the kernel |
-| **alpine dom sh en ie 1311** (not sealed) | awaiting the kernel |
-| **cross cipher handlespan sum 2097152** (not sealed) | awaiting the kernel |
-| **cross cipher handlespan difference 1048576** (not sealed) | awaiting the kernel |
-| **cross cipher wave sum 1048576** (not sealed) | awaiting the kernel |
-| **cross cipher wave difference 524288** (not sealed) | awaiting the kernel |
-| **cross production wave sum 44100** (not sealed) | awaiting the kernel |
-| **cross stringtheory wave sum 42195** (not sealed) | awaiting the kernel |
-| **cross production wave difference 42195** (not sealed) | awaiting the kernel |
-| **cross topography wave sum 28633** (not sealed) | awaiting the kernel |
-| **cross stringtheory wave difference 28595** (not sealed) | awaiting the kernel |
-| **cross editing wave sum 28436** (not sealed) | awaiting the kernel |
-| **cross editing wave difference 27356** (not sealed) | awaiting the kernel |
-| **cross topography wave sum 25000** (not sealed) | awaiting the kernel |
-| **cross topography wave difference 19784** (not sealed) | awaiting the kernel |
-| **cross topography wave difference 17265** (not sealed) | awaiting the kernel |
+| — the queue is drained — | |
 
 ## Accepted — the cargo, each with its seal
 
-963 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
+1083 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
 Lean text folded to at acceptance; the seal column is the LEDGER's address once lifted — click through to the
 theorem page and recompute either.
 
@@ -1121,6 +1002,126 @@ theorem page and recompute either.
 | [`mass_comply_nor_tied_inverts`](/theorem/mass_comply_nor_tied_inverts) | [`7b3f0aa0`](/theorem/mass_comply_nor_tied_inverts) | `307723ec` |
 | [`mass_comply_de_morgan_or_to_and`](/theorem/mass_comply_de_morgan_or_to_and) | [`a6d6decb`](/theorem/mass_comply_de_morgan_or_to_and) | `4dc0d973` |
 | [`mass_comply_demux_never_both_hot`](/theorem/mass_comply_demux_never_both_hot) | [`6349a978`](/theorem/mass_comply_demux_never_both_hot) | `1977e68f` |
+| [`alpine_bindings_partition_packages_28664`](/theorem/alpine_bindings_partition_packages_28664) | [`dcca3468`](/theorem/alpine_bindings_partition_packages_28664) | `aa45fb2f` |
+| [`alpine_binding_origins_overcount_16101`](/theorem/alpine_binding_origins_overcount_16101) | [`3b4ce539`](/theorem/alpine_binding_origins_overcount_16101) | `577f04fd` |
+| [`alpine_domain_database_partitions_28664`](/theorem/alpine_domain_database_partitions_28664) | [`48ea2a3b`](/theorem/alpine_domain_database_partitions_28664) | `58185948` |
+| [`alpine_domain_filesystem_partitions_28664`](/theorem/alpine_domain_filesystem_partitions_28664) | [`c36ca067`](/theorem/alpine_domain_filesystem_partitions_28664) | `35782b57` |
+| [`alpine_domain_blockchain_partitions_28664`](/theorem/alpine_domain_blockchain_partitions_28664) | [`7ac7c283`](/theorem/alpine_domain_blockchain_partitions_28664) | `7cd941be` |
+| [`alpine_domain_driver_partitions_28664`](/theorem/alpine_domain_driver_partitions_28664) | [`4da58de7`](/theorem/alpine_domain_driver_partitions_28664) | `fa544800` |
+| [`alpine_domain_driver_origins_631`](/theorem/alpine_domain_driver_origins_631) | [`6af7aa64`](/theorem/alpine_domain_driver_origins_631) | `e81e6bd7` |
+| [`alpine_domain_language_partitions_28664`](/theorem/alpine_domain_language_partitions_28664) | [`e7e66b41`](/theorem/alpine_domain_language_partitions_28664) | `75d16c7a` |
+| [`alpine_domain_language_origins_7503`](/theorem/alpine_domain_language_origins_7503) | [`dd4229de`](/theorem/alpine_domain_language_origins_7503) | `82a754b6` |
+| [`alpine_domain_network_partitions_28664`](/theorem/alpine_domain_network_partitions_28664) | [`dab1e619`](/theorem/alpine_domain_network_partitions_28664) | `438e8f60` |
+| [`alpine_domain_science_partitions_28664`](/theorem/alpine_domain_science_partitions_28664) | [`b890fb73`](/theorem/alpine_domain_science_partitions_28664) | `62e82126` |
+| [`alpine_domain_media_partitions_28664`](/theorem/alpine_domain_media_partitions_28664) | [`813a57c7`](/theorem/alpine_domain_media_partitions_28664) | `6b1b192c` |
+| [`alpine_domain_shell_partitions_28664`](/theorem/alpine_domain_shell_partitions_28664) | [`4e5a6a5b`](/theorem/alpine_domain_shell_partitions_28664) | `f650058d` |
+| [`alpine_domain_shell_origins_1281`](/theorem/alpine_domain_shell_origins_1281) | [`3ce9624d`](/theorem/alpine_domain_shell_origins_1281) | `d3da6926` |
+| [`alpine_domain_chat_partitions_28664`](/theorem/alpine_domain_chat_partitions_28664) | [`985db7c3`](/theorem/alpine_domain_chat_partitions_28664) | `457175f0` |
+| [`alpine_domain_crypto_partitions_28664`](/theorem/alpine_domain_crypto_partitions_28664) | [`3d5d5925`](/theorem/alpine_domain_crypto_partitions_28664) | `21a6cb83` |
+| [`alpine_domain_security_partitions_28664`](/theorem/alpine_domain_security_partitions_28664) | [`c28b97ec`](/theorem/alpine_domain_security_partitions_28664) | `d8844613` |
+| [`alpine_domain_math_partitions_28664`](/theorem/alpine_domain_math_partitions_28664) | [`928df8f1`](/theorem/alpine_domain_math_partitions_28664) | `bca609c6` |
+| [`alpine_domain_art_partitions_28664`](/theorem/alpine_domain_art_partitions_28664) | [`b5af2870`](/theorem/alpine_domain_art_partitions_28664) | `2e4faf7c` |
+| [`alpine_domain_bio_partitions_28664`](/theorem/alpine_domain_bio_partitions_28664) | [`e7b791f5`](/theorem/alpine_domain_bio_partitions_28664) | `978f2ae0` |
+| [`alpine_domain_chemistry_partitions_28664`](/theorem/alpine_domain_chemistry_partitions_28664) | [`058bf6e9`](/theorem/alpine_domain_chemistry_partitions_28664) | `71a4dfd1` |
+| [`alpine_domain_neuro_partitions_28664`](/theorem/alpine_domain_neuro_partitions_28664) | [`dcaa1929`](/theorem/alpine_domain_neuro_partitions_28664) | `f4dc093e` |
+| [`alpine_domain_astronomy_partitions_28664`](/theorem/alpine_domain_astronomy_partitions_28664) | [`b60c902c`](/theorem/alpine_domain_astronomy_partitions_28664) | `541158db` |
+| [`alpine_domain_physics_partitions_28664`](/theorem/alpine_domain_physics_partitions_28664) | [`52e23766`](/theorem/alpine_domain_physics_partitions_28664) | `6abea734` |
+| [`alpine_domain_geo_partitions_28664`](/theorem/alpine_domain_geo_partitions_28664) | [`4b238863`](/theorem/alpine_domain_geo_partitions_28664) | `a8b72eb5` |
+| [`alpine_domain_virtualization_partitions_28664`](/theorem/alpine_domain_virtualization_partitions_28664) | [`77979e82`](/theorem/alpine_domain_virtualization_partitions_28664) | `ec102162` |
+| [`alpine_domain_font_partitions_28664`](/theorem/alpine_domain_font_partitions_28664) | [`bf0df085`](/theorem/alpine_domain_font_partitions_28664) | `f7451caa` |
+| [`alpine_domain_audio_partitions_28664`](/theorem/alpine_domain_audio_partitions_28664) | [`6278f13a`](/theorem/alpine_domain_audio_partitions_28664) | `ae77635a` |
+| [`alpine_domain_build_partitions_28664`](/theorem/alpine_domain_build_partitions_28664) | [`dad0ac6b`](/theorem/alpine_domain_build_partitions_28664) | `d440ef20` |
+| [`alpine_domain_social_partitions_28664`](/theorem/alpine_domain_social_partitions_28664) | [`a6874f9f`](/theorem/alpine_domain_social_partitions_28664) | `e20e7953` |
+| [`alpine_domain_engineering_partitions_28664`](/theorem/alpine_domain_engineering_partitions_28664) | [`d540a2ee`](/theorem/alpine_domain_engineering_partitions_28664) | `8218c25a` |
+| [`alpine_port_all_partition_28664`](/theorem/alpine_port_all_partition_28664) | [`9491cdcb`](/theorem/alpine_port_all_partition_28664) | `85e099bd` |
+| [`alpine_dom_da_dr_ie_1008`](/theorem/alpine_dom_da_dr_ie_1008) | [`1497cce8`](/theorem/alpine_dom_da_dr_ie_1008) | `a11ed534` |
+| [`alpine_dom_da_la_ie_7787`](/theorem/alpine_dom_da_la_ie_7787) | [`e600e16f`](/theorem/alpine_dom_da_la_ie_7787) | `40c07107` |
+| [`alpine_dom_da_sh_ie_1718`](/theorem/alpine_dom_da_sh_ie_1718) | [`01afdfdd`](/theorem/alpine_dom_da_sh_ie_1718) | `6967eb5d` |
+| [`alpine_dom_fi_dr_ie_838`](/theorem/alpine_dom_fi_dr_ie_838) | [`2b56cb8c`](/theorem/alpine_dom_fi_dr_ie_838) | `af22a5bc` |
+| [`alpine_dom_fi_la_ie_7702`](/theorem/alpine_dom_fi_la_ie_7702) | [`6a6f7c5d`](/theorem/alpine_dom_fi_la_ie_7702) | `8b4e6bf4` |
+| [`alpine_dom_fi_sh_ie_1493`](/theorem/alpine_dom_fi_sh_ie_1493) | [`751f183a`](/theorem/alpine_dom_fi_sh_ie_1493) | `5bceae8f` |
+| [`alpine_dom_bl_dr_ie_660`](/theorem/alpine_dom_bl_dr_ie_660) | [`3e64ea9f`](/theorem/alpine_dom_bl_dr_ie_660) | `95a7fc6a` |
+| [`alpine_dom_bl_la_ie_7525`](/theorem/alpine_dom_bl_la_ie_7525) | [`f6c6f856`](/theorem/alpine_dom_bl_la_ie_7525) | `605fad25` |
+| [`alpine_dom_bl_sh_ie_1310`](/theorem/alpine_dom_bl_sh_ie_1310) | [`4bda791a`](/theorem/alpine_dom_bl_sh_ie_1310) | `58ee7c33` |
+| [`alpine_dom_dr_la_ie_8073`](/theorem/alpine_dom_dr_la_ie_8073) | [`903ccdf6`](/theorem/alpine_dom_dr_la_ie_8073) | `87731a48` |
+| [`alpine_dom_dr_ne_ie_963`](/theorem/alpine_dom_dr_ne_ie_963) | [`8bc0617a`](/theorem/alpine_dom_dr_ne_ie_963) | `476e9966` |
+| [`alpine_dom_dr_sc_ie_703`](/theorem/alpine_dom_dr_sc_ie_703) | [`cac8a8d6`](/theorem/alpine_dom_dr_sc_ie_703) | `e9ecbc05` |
+| [`alpine_dom_dr_me_ie_889`](/theorem/alpine_dom_dr_me_ie_889) | [`8655e78a`](/theorem/alpine_dom_dr_me_ie_889) | `add4c371` |
+| [`alpine_dom_dr_sh_ie_1908`](/theorem/alpine_dom_dr_sh_ie_1908) | [`4ea21fb3`](/theorem/alpine_dom_dr_sh_ie_1908) | `da7fd1e4` |
+| [`alpine_dom_dr_ch_ie_872`](/theorem/alpine_dom_dr_ch_ie_872) | [`ab09b580`](/theorem/alpine_dom_dr_ch_ie_872) | `c58367c5` |
+| [`alpine_dom_dr_cr_ie_830`](/theorem/alpine_dom_dr_cr_ie_830) | [`2455d544`](/theorem/alpine_dom_dr_cr_ie_830) | `0d795027` |
+| [`alpine_dom_dr_se_ie_717`](/theorem/alpine_dom_dr_se_ie_717) | [`1ec9aa29`](/theorem/alpine_dom_dr_se_ie_717) | `858922af` |
+| [`alpine_dom_dr_ma_ie_671`](/theorem/alpine_dom_dr_ma_ie_671) | [`d0842b8c`](/theorem/alpine_dom_dr_ma_ie_671) | `395615f4` |
+| [`alpine_dom_dr_ar_ie_684`](/theorem/alpine_dom_dr_ar_ie_684) | [`1bc75d2c`](/theorem/alpine_dom_dr_ar_ie_684) | `8f1dcbb5` |
+| [`alpine_dom_dr_bi_ie_633`](/theorem/alpine_dom_dr_bi_ie_633) | [`f9f591ba`](/theorem/alpine_dom_dr_bi_ie_633) | `475e093f` |
+| [`alpine_dom_dr_ch_ie_634`](/theorem/alpine_dom_dr_ch_ie_634) | [`3b586564`](/theorem/alpine_dom_dr_ch_ie_634) | `4c44a986` |
+| [`alpine_dom_dr_ne_ie_642`](/theorem/alpine_dom_dr_ne_ie_642) | [`9df9db86`](/theorem/alpine_dom_dr_ne_ie_642) | `282b3e88` |
+| [`alpine_dom_dr_as_ie_656`](/theorem/alpine_dom_dr_as_ie_656) | [`39c7b57a`](/theorem/alpine_dom_dr_as_ie_656) | `8ec50b8c` |
+| [`alpine_dom_dr_ph_ie_638`](/theorem/alpine_dom_dr_ph_ie_638) | [`a1082a12`](/theorem/alpine_dom_dr_ph_ie_638) | `9825c858` |
+| [`alpine_dom_dr_ge_ie_655`](/theorem/alpine_dom_dr_ge_ie_655) | [`4a53f132`](/theorem/alpine_dom_dr_ge_ie_655) | `4771c002` |
+| [`alpine_dom_dr_vi_ie_851`](/theorem/alpine_dom_dr_vi_ie_851) | [`cd52de5a`](/theorem/alpine_dom_dr_vi_ie_851) | `2d193e28` |
+| [`alpine_dom_dr_fo_ie_713`](/theorem/alpine_dom_dr_fo_ie_713) | [`bbc0fbfc`](/theorem/alpine_dom_dr_fo_ie_713) | `6cae6954` |
+| [`alpine_dom_dr_au_ie_740`](/theorem/alpine_dom_dr_au_ie_740) | [`a21f0b6d`](/theorem/alpine_dom_dr_au_ie_740) | `1c38228d` |
+| [`alpine_dom_dr_bu_ie_889`](/theorem/alpine_dom_dr_bu_ie_889) | [`dc95de32`](/theorem/alpine_dom_dr_bu_ie_889) | `422d64ee` |
+| [`alpine_dom_dr_so_ie_934`](/theorem/alpine_dom_dr_so_ie_934) | [`50047d09`](/theorem/alpine_dom_dr_so_ie_934) | `56898e85` |
+| [`alpine_dom_dr_en_ie_660`](/theorem/alpine_dom_dr_en_ie_660) | [`e283cb4e`](/theorem/alpine_dom_dr_en_ie_660) | `31d20950` |
+| [`alpine_dom_la_ne_ie_7786`](/theorem/alpine_dom_la_ne_ie_7786) | [`66564393`](/theorem/alpine_dom_la_ne_ie_7786) | `c2f45d0a` |
+| [`alpine_dom_la_sc_ie_7561`](/theorem/alpine_dom_la_sc_ie_7561) | [`b1753f5f`](/theorem/alpine_dom_la_sc_ie_7561) | `b65cfa1b` |
+| [`alpine_dom_la_me_ie_7695`](/theorem/alpine_dom_la_me_ie_7695) | [`6397dca7`](/theorem/alpine_dom_la_me_ie_7695) | `d86f8f51` |
+| [`alpine_dom_la_sh_ie_8715`](/theorem/alpine_dom_la_sh_ie_8715) | [`47fc4a14`](/theorem/alpine_dom_la_sh_ie_8715) | `e1681134` |
+| [`alpine_dom_la_ch_ie_7702`](/theorem/alpine_dom_la_ch_ie_7702) | [`0b1780dc`](/theorem/alpine_dom_la_ch_ie_7702) | `b2270402` |
+| [`alpine_dom_la_cr_ie_7656`](/theorem/alpine_dom_la_cr_ie_7656) | [`71b054b9`](/theorem/alpine_dom_la_cr_ie_7656) | `9eb21fc2` |
+| [`alpine_dom_la_se_ie_7580`](/theorem/alpine_dom_la_se_ie_7580) | [`2b2c5b6f`](/theorem/alpine_dom_la_se_ie_7580) | `1a124c97` |
+| [`alpine_dom_la_ma_ie_7537`](/theorem/alpine_dom_la_ma_ie_7537) | [`15d5a3d7`](/theorem/alpine_dom_la_ma_ie_7537) | `eadead96` |
+| [`alpine_dom_la_ar_ie_7551`](/theorem/alpine_dom_la_ar_ie_7551) | [`dfcf7a6c`](/theorem/alpine_dom_la_ar_ie_7551) | `c51195df` |
+| [`alpine_dom_la_bi_ie_7503`](/theorem/alpine_dom_la_bi_ie_7503) | [`9b85fba1`](/theorem/alpine_dom_la_bi_ie_7503) | `f0786826` |
+| [`alpine_dom_la_ch_ie_7506`](/theorem/alpine_dom_la_ch_ie_7506) | [`88f26cdb`](/theorem/alpine_dom_la_ch_ie_7506) | `ef5dbb45` |
+| [`alpine_dom_la_ne_ie_7511`](/theorem/alpine_dom_la_ne_ie_7511) | [`38573052`](/theorem/alpine_dom_la_ne_ie_7511) | `37f4fe17` |
+| [`alpine_dom_la_as_ie_7518`](/theorem/alpine_dom_la_as_ie_7518) | [`1aac6761`](/theorem/alpine_dom_la_as_ie_7518) | `13fee290` |
+| [`alpine_dom_la_ph_ie_7510`](/theorem/alpine_dom_la_ph_ie_7510) | [`bf06383e`](/theorem/alpine_dom_la_ph_ie_7510) | `02fe6a75` |
+| [`alpine_dom_la_ge_ie_7562`](/theorem/alpine_dom_la_ge_ie_7562) | [`af9d1bd8`](/theorem/alpine_dom_la_ge_ie_7562) | `653c85ee` |
+| [`alpine_dom_la_vi_ie_7719`](/theorem/alpine_dom_la_vi_ie_7719) | [`dc0bda30`](/theorem/alpine_dom_la_vi_ie_7719) | `7becf1a4` |
+| [`alpine_dom_la_ga_ie_7528`](/theorem/alpine_dom_la_ga_ie_7528) | [`a9bd903b`](/theorem/alpine_dom_la_ga_ie_7528) | `ab64222b` |
+| [`alpine_dom_la_fo_ie_7581`](/theorem/alpine_dom_la_fo_ie_7581) | [`dab5669e`](/theorem/alpine_dom_la_fo_ie_7581) | `94251ae1` |
+| [`alpine_dom_la_au_ie_7699`](/theorem/alpine_dom_la_au_ie_7699) | [`93d01182`](/theorem/alpine_dom_la_au_ie_7699) | `2574dd11` |
+| [`alpine_dom_la_bu_ie_7752`](/theorem/alpine_dom_la_bu_ie_7752) | [`1aca08f2`](/theorem/alpine_dom_la_bu_ie_7752) | `fac30b52` |
+| [`alpine_dom_la_so_ie_7717`](/theorem/alpine_dom_la_so_ie_7717) | [`1ea2e09b`](/theorem/alpine_dom_la_so_ie_7717) | `13299d21` |
+| [`alpine_dom_la_en_ie_7532`](/theorem/alpine_dom_la_en_ie_7532) | [`b6145e23`](/theorem/alpine_dom_la_en_ie_7532) | `8bae8e18` |
+| [`alpine_dom_ne_sh_ie_1605`](/theorem/alpine_dom_ne_sh_ie_1605) | [`50d02ef5`](/theorem/alpine_dom_ne_sh_ie_1605) | `7016938a` |
+| [`alpine_dom_sc_sh_ie_1355`](/theorem/alpine_dom_sc_sh_ie_1355) | [`12b3d004`](/theorem/alpine_dom_sc_sh_ie_1355) | `7ad8d6d3` |
+| [`alpine_dom_me_sh_ie_1536`](/theorem/alpine_dom_me_sh_ie_1536) | [`d8ddbcfb`](/theorem/alpine_dom_me_sh_ie_1536) | `b158b40a` |
+| [`alpine_dom_sh_ch_ie_1519`](/theorem/alpine_dom_sh_ch_ie_1519) | [`93357bac`](/theorem/alpine_dom_sh_ch_ie_1519) | `2bc78e6b` |
+| [`alpine_dom_sh_cr_ie_1470`](/theorem/alpine_dom_sh_cr_ie_1470) | [`e77c1a6d`](/theorem/alpine_dom_sh_cr_ie_1470) | `8209d9d8` |
+| [`alpine_dom_sh_se_ie_1363`](/theorem/alpine_dom_sh_se_ie_1363) | [`4986e4ce`](/theorem/alpine_dom_sh_se_ie_1363) | `13e95bdb` |
+| [`alpine_dom_sh_ma_ie_1321`](/theorem/alpine_dom_sh_ma_ie_1321) | [`6c5e1467`](/theorem/alpine_dom_sh_ma_ie_1321) | `9c1e1e62` |
+| [`alpine_dom_sh_ar_ie_1333`](/theorem/alpine_dom_sh_ar_ie_1333) | [`06e21b98`](/theorem/alpine_dom_sh_ar_ie_1333) | `d213a1b5` |
+| [`alpine_dom_sh_bi_ie_1283`](/theorem/alpine_dom_sh_bi_ie_1283) | [`fd739d99`](/theorem/alpine_dom_sh_bi_ie_1283) | `c855211a` |
+| [`alpine_dom_sh_ch_ie_1284`](/theorem/alpine_dom_sh_ch_ie_1284) | [`624a02cc`](/theorem/alpine_dom_sh_ch_ie_1284) | `674d996d` |
+| [`alpine_dom_sh_ne_ie_1292`](/theorem/alpine_dom_sh_ne_ie_1292) | [`98ec61e3`](/theorem/alpine_dom_sh_ne_ie_1292) | `cf82613d` |
+| [`alpine_dom_sh_as_ie_1303`](/theorem/alpine_dom_sh_as_ie_1303) | [`e576cdf2`](/theorem/alpine_dom_sh_as_ie_1303) | `b8a15f39` |
+| [`alpine_dom_sh_ph_ie_1288`](/theorem/alpine_dom_sh_ph_ie_1288) | [`6ba647d1`](/theorem/alpine_dom_sh_ph_ie_1288) | `746dc747` |
+| [`alpine_dom_sh_ge_ie_1342`](/theorem/alpine_dom_sh_ge_ie_1342) | [`717ded94`](/theorem/alpine_dom_sh_ge_ie_1342) | `0aa0eb69` |
+| [`alpine_dom_sh_vi_ie_1507`](/theorem/alpine_dom_sh_vi_ie_1507) | [`de27b9df`](/theorem/alpine_dom_sh_vi_ie_1507) | `39e392be` |
+| [`alpine_dom_sh_ga_ie_1306`](/theorem/alpine_dom_sh_ga_ie_1306) | [`fdd0f0db`](/theorem/alpine_dom_sh_ga_ie_1306) | `4c7c6c8e` |
+| [`alpine_dom_sh_fo_ie_1363`](/theorem/alpine_dom_sh_fo_ie_1363) | [`ec92bff2`](/theorem/alpine_dom_sh_fo_ie_1363) | `02f9a71b` |
+| [`alpine_dom_sh_au_ie_1475`](/theorem/alpine_dom_sh_au_ie_1475) | [`54a2abdf`](/theorem/alpine_dom_sh_au_ie_1475) | `dd9c7a3c` |
+| [`alpine_dom_sh_bu_ie_1535`](/theorem/alpine_dom_sh_bu_ie_1535) | [`cf55f615`](/theorem/alpine_dom_sh_bu_ie_1535) | `2b5d9e4b` |
+| [`alpine_dom_sh_so_ie_1581`](/theorem/alpine_dom_sh_so_ie_1581) | [`366f9732`](/theorem/alpine_dom_sh_so_ie_1581) | `4ee9423c` |
+| [`alpine_dom_sh_en_ie_1311`](/theorem/alpine_dom_sh_en_ie_1311) | [`82fc60dc`](/theorem/alpine_dom_sh_en_ie_1311) | `9fd87be9` |
+| [`cross_cipher_handlespan_sum_2097152`](/theorem/cross_cipher_handlespan_sum_2097152) | [`a3ea0e97`](/theorem/cross_cipher_handlespan_sum_2097152) | `e0eddcb6` |
+| [`cross_cipher_handlespan_difference_1048576`](/theorem/cross_cipher_handlespan_difference_1048576) | [`9d8355b2`](/theorem/cross_cipher_handlespan_difference_1048576) | `5a530913` |
+| [`cross_cipher_wave_sum_1048576`](/theorem/cross_cipher_wave_sum_1048576) | [`cd53c3f6`](/theorem/cross_cipher_wave_sum_1048576) | `63e23287` |
+| [`cross_cipher_wave_difference_524288`](/theorem/cross_cipher_wave_difference_524288) | [`54c52910`](/theorem/cross_cipher_wave_difference_524288) | `fc9672d8` |
+| [`cross_production_wave_sum_44100`](/theorem/cross_production_wave_sum_44100) | [`0cd50599`](/theorem/cross_production_wave_sum_44100) | `f9e703c8` |
+| [`cross_stringtheory_wave_sum_42195`](/theorem/cross_stringtheory_wave_sum_42195) | [`df760501`](/theorem/cross_stringtheory_wave_sum_42195) | `90c39152` |
+| [`cross_production_wave_difference_42195`](/theorem/cross_production_wave_difference_42195) | [`3a3b6a92`](/theorem/cross_production_wave_difference_42195) | `76680755` |
+| [`cross_topography_wave_sum_28633`](/theorem/cross_topography_wave_sum_28633) | [`ca5b4b90`](/theorem/cross_topography_wave_sum_28633) | `ad9f34b8` |
+| [`cross_stringtheory_wave_difference_28595`](/theorem/cross_stringtheory_wave_difference_28595) | [`67945bfd`](/theorem/cross_stringtheory_wave_difference_28595) | `566dc4d3` |
+| [`cross_editing_wave_sum_28436`](/theorem/cross_editing_wave_sum_28436) | [`7fa564a4`](/theorem/cross_editing_wave_sum_28436) | `708a8c2f` |
+| [`cross_editing_wave_difference_27356`](/theorem/cross_editing_wave_difference_27356) | [`3dbc4173`](/theorem/cross_editing_wave_difference_27356) | `e0c41f8a` |
+| [`cross_topography_wave_sum_25000`](/theorem/cross_topography_wave_sum_25000) | [`cbb0e070`](/theorem/cross_topography_wave_sum_25000) | `99b1054f` |
+| [`cross_topography_wave_difference_19784`](/theorem/cross_topography_wave_difference_19784) | [`468f57dc`](/theorem/cross_topography_wave_difference_19784) | `17173128` |
+| [`cross_topography_wave_difference_17265`](/theorem/cross_topography_wave_difference_17265) | [`3040efae`](/theorem/cross_topography_wave_difference_17265) | `b97736bb` |
 
 ## Refused — the law school's enrollment roster
 

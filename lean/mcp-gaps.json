@@ -1,8 +1,8 @@
 {
   "kind": "mcp-gap-census",
-  "records": 2064,
-  "distinct": 1623,
-  "loadBearing": 170,
+  "records": 2142,
+  "distinct": 1696,
+  "loadBearing": 174,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
     {
@@ -419,6 +419,13 @@
       ]
     },
     {
+      "gap": "no door reads qpu-strict source lines for type errors",
+      "hits": 3,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door regenerates and judges a local qpu worktree",
       "hits": 3,
       "forms": [
@@ -678,6 +685,14 @@
       ]
     },
     {
+      "gap": "no door edits qpu's theorems-index generator",
+      "hits": 2,
+      "forms": [
+        "S",
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door edits the harness",
       "hits": 2,
       "forms": [
@@ -925,6 +940,14 @@
       ]
     },
     {
+      "gap": "no door runs qpu's commit-msg hook in qpu-strict",
+      "hits": 2,
+      "forms": [
+        "N",
+        "S"
+      ]
+    },
+    {
       "gap": "no door runs the kernel on a candidate theorem",
       "hits": 2,
       "forms": [
@@ -1004,6 +1027,13 @@
       "hits": 2,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door writes the regenerated theorems-index in qpu-strict",
+      "hits": 2,
+      "forms": [
+        "S"
       ]
     },
     {
@@ -1536,10 +1566,24 @@
       ]
     },
     {
+      "gap": "adds the configuration page to the drain paths",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "adds the ISO simulator and hardware verdict to qc",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "adds the official Payload packages and the D1 template scripts",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -1582,6 +1626,13 @@
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "applies main's tip diff in the qpu merge",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -1827,6 +1878,13 @@
       "hits": 1,
       "forms": [
         "node -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "brings the official Cloudflare D1 template wiring into the ecommerce app",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -2096,6 +2154,13 @@
       ]
     },
     {
+      "gap": "ci/cd: no door lints named files with the laws config",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "claiming the re-issued order and recording the verdict this session already established",
       "hits": 1,
       "forms": [
@@ -2173,6 +2238,20 @@
       ]
     },
     {
+      "gap": "commits the audit session's verified fixes by its pathspec list",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "commits the CI fixes by pathspec",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "commits the court path-reader fix",
       "hits": 1,
       "forms": [
@@ -2194,6 +2273,20 @@
       ]
     },
     {
+      "gap": "commits the existence-check fix and the contract fix by pathspec",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "commits the landing fixes by pathspec",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "commits the re-derived artifacts and cleans the tree for the release",
       "hits": 1,
       "forms": [
@@ -2212,6 +2305,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "commits this session's work by pathspec",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -2768,6 +2868,13 @@
       ]
     },
     {
+      "gap": "debugs the variants hook conditions",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "deciding a statement's ring from what its operands are, not from a word search over its text",
       "hits": 1,
       "forms": [
@@ -3083,7 +3190,35 @@
       ]
     },
     {
+      "gap": "finds every use of the contract identity",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "finds the command that proves one wing",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "finds the ignore rule for the legacy manifest",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "finds the quantum door hex in committed sources",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "finds the theorems whose docs describe the product functions",
       "hits": 1,
       "forms": [
         "export"
@@ -3188,6 +3323,13 @@
       ]
     },
     {
+      "gap": "greps ledger walks in the remaining doors",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "guards and commits the UUID program wing",
       "hits": 1,
       "forms": [
@@ -3199,6 +3341,13 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "hosted get_theorem resolves no key through call_tool until the nested-argument pre-pass ships",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -3280,6 +3429,20 @@
     },
     {
       "gap": "investigator reads leads.json rows",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "ISO 25051 audit: no served door compares site figures with the npm registry and the Zenodo record",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "ISO 25051 audit: no served door compares site figures with the Zenodo twin record and page text",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -3468,6 +3631,13 @@
       ]
     },
     {
+      "gap": "locates the device-reading code in both repos",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "locating runTrial's module",
       "hits": 1,
       "forms": [
@@ -3545,6 +3715,20 @@
       ]
     },
     {
+      "gap": "looks for an existing stabilizer tableau to reuse",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "makes the worker edge walk follow literal dynamic imports",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "making the git door edge-safe",
       "hits": 1,
       "forms": [
@@ -3581,6 +3765,13 @@
     },
     {
       "gap": "measures CPU time of computed versus UUID-served qpu calls",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
+      "gap": "measures duplication against qpu main",
       "hits": 1,
       "forms": [
         "cd"
@@ -3706,10 +3897,24 @@
       ]
     },
     {
+      "gap": "mounts every official plugin and the uuidna MCP tool",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "moves the program resolver beside callOfUuid and wires the public gate",
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "moves worker.js heavy imports behind first-use loaders",
+      "hits": 1,
+      "forms": [
+        "node worker.js"
       ]
     },
     {
@@ -3798,6 +4003,20 @@
     },
     {
       "gap": "no door appends a textbook theorem",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door applies annotation-only type fixes in qpu-strict",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door asks qpu's Lean kernel for axioms from the qpu-strict worktree",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -4287,6 +4506,27 @@
       ]
     },
     {
+      "gap": "no door edits qpu-strict plugins",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
+      "gap": "no door edits qpu-strict scripts",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
+      "gap": "no door edits qpu's verification module",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "no door edits the catalogue",
       "hits": 1,
       "forms": [
@@ -4708,6 +4948,13 @@
     },
     {
       "gap": "no door locates a handle inside lean/ or dist/evidence",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door locates qpu's theorems-index generator",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -5330,6 +5577,20 @@
       ]
     },
     {
+      "gap": "no door reads an upstream framework example (payloadcms/payload examples) from GitHub",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads an upstream framework package (payloadcms/payload packages/sdk) from GitHub",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reads another worktree's Lean files",
       "hits": 1,
       "forms": [
@@ -5359,6 +5620,13 @@
     },
     {
       "gap": "no door reads qpu sources",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads qpu's index Lean script",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -5471,6 +5739,20 @@
     },
     {
       "gap": "no door reads the qpu lakefile",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the qpu repo's Lean module docs",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the qpu repo's Lean theorem statements",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -6863,6 +7145,13 @@
       ]
     },
     {
+      "gap": "no door restores a file from git or merges .gitignore in the qpu-strict worktree (qpu repo, not uuidna)",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door restructures and builds a local qpu worktree's Lean",
       "hits": 1,
       "forms": [
@@ -7227,6 +7516,20 @@
       ]
     },
     {
+      "gap": "no door runs payload scripts in qpu-strict",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
+      "gap": "no door runs qpu's index Lean script",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
       "gap": "no door runs restatedConstants with its file-exemption and shared-word pruning lifted (witness census, lead a5572638)",
       "hits": 1,
       "forms": [
@@ -7361,6 +7664,20 @@
     },
     {
       "gap": "no door searches lean/*.lean source text or src/ for a term (get_lean_index returns statements only; compute_by_lean matches whole identities) — court investigator needs to locate the merkaba m0/m1/m2 construction behind refuted lead a8a8f3ea",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door searches the qpu repo's Lean docs",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door searches the qpu repo's own Lean kernel index for Bell/GHZ theorems",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -8060,6 +8377,41 @@
       ]
     },
     {
+      "gap": "perf fix: no door diffs a regenerated ledger module against its prior bytes",
+      "hits": 1,
+      "forms": [
+        "B"
+      ]
+    },
+    {
+      "gap": "perf fix: no door regenerates the ledger module from lean (lean-ledger generator)",
+      "hits": 1,
+      "forms": [
+        "B"
+      ]
+    },
+    {
+      "gap": "perf: no door lists the lean-ledger generator's outputs",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "perf: no door names the generator of src/theorems/generated.ts",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "perf: no door shows the lean-ledger generator emit code",
+      "hits": 1,
+      "forms": [
+        "git"
+      ]
+    },
+    {
       "gap": "perturbation controls for the UUID program wing",
       "hits": 1,
       "forms": [
@@ -8358,6 +8710,13 @@
       "hits": 1,
       "forms": [
         "cd"
+      ]
+    },
+    {
+      "gap": "read-only SEO audit: no door serves robots.txt source, VitePress head/sitemap config, or SEO generator locations",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -8802,7 +9161,21 @@
       ]
     },
     {
+      "gap": "reads contracts of the refusing hosted doors",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads generated doc conventions",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads lean-all's wing selection",
       "hits": 1,
       "forms": [
         "export"
@@ -8837,6 +9210,13 @@
       ]
     },
     {
+      "gap": "reads the edge package surface",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads the edge test harness and the shard fetchers",
       "hits": 1,
       "forms": [
@@ -8851,10 +9231,45 @@
       ]
     },
     {
+      "gap": "reads the fabricated citation and the port-update output",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the generator's fact shapes",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the guard's last finding on the configuration page",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads the import and type anchors for the search wiring",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "reads the landing log's remaining failure",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the payload entry, seeds and web app config",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -8879,6 +9294,13 @@
       ]
     },
     {
+      "gap": "reads the refusing doors' run bodies",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads the regenerated settlements and the shape of the record diff",
       "hits": 1,
       "forms": [
@@ -8893,10 +9315,31 @@
       ]
     },
     {
+      "gap": "reads the secret-scan finding and the improve spawn",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the sources a product description derives from",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads the trial-record regeneration output",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "reads the UUID program generator to extend it",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -8984,6 +9427,13 @@
       ]
     },
     {
+      "gap": "regenerates gitattributes from the drain paths",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "regenerating a derived surface and reading a door",
       "hits": 1,
       "forms": [
@@ -9030,6 +9480,13 @@
       "hits": 1,
       "forms": [
         "S"
+      ]
+    },
+    {
+      "gap": "removes agreed deletions in the qpu merge",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -9082,6 +9539,20 @@
       ]
     },
     {
+      "gap": "reruns the full local flow on a clean D1",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reruns the local lead flow on a clean D1",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "restore the unit's embedded proof source file from its own embed, byte for byte: no door writes a source file",
       "hits": 1,
       "forms": [
@@ -9093,6 +9564,13 @@
       "hits": 1,
       "forms": [
         "S"
+      ]
+    },
+    {
+      "gap": "rewrites the staged product generator to read Lean docs",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -9180,6 +9658,20 @@
       ]
     },
     {
+      "gap": "SEO audit: no served door maps live SEO surfaces to their generator files",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "sets explicit slugs in the develop script",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "shadowedWingDefs() — wing definitions an evaluator builtin wins, compared by VALUE not by name",
       "hits": 1,
       "forms": [
@@ -9198,6 +9690,13 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "stages the closure products claims and ISO renderer in the scratchpad",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -9436,6 +9935,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "updates the qpu expressions reader and cases",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -11375,6 +11881,13 @@
       "hits": 1,
       "forms": [
         "cd"
+      ]
+    },
+    {
+      "gap": "writes the develop-a-lead script and a path filter for the queue",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {

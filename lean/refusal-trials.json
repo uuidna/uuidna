@@ -9,7 +9,7 @@
  "purged": 0,
  "collisionPairs": 3034,
  "rounds": 0,
- "receipt": "add81da4-32c2-8487-8342-4a637297232c",
+ "receipt": "a5240a5c-2db3-870d-ad86-cf022bc5a1fb",
  "trials": [
   {
    "lead": "KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.",
@@ -97150,8 +97150,8 @@
   "toolchain": "leanprover/lean4:v4.33.0",
   "lean/leads.json": "8b9948f6-b92a-8d1e-9bf5-af246e9e9b9c",
   "lean/wave-queue.json": "ac1e94a7-a8fc-8d72-80cc-10aa748de4c6",
-  "src/theorems/generated.ts": "f047a6b5-2aaf-8c0d-824c-f1be3cf73263",
-  "lean/axioms.json": "5851a00f-a7aa-8274-b7cf-dfc64f48e7b6",
+  "src/theorems/generated.ts": "5a5f98cf-fcce-81af-8dd1-8ee25338120a",
+  "lean/axioms.json": "7d731f91-3012-8e4c-9016-cc454a9c4477",
   "lean-toolchain": "8de5f85e-020b-868f-9a1d-a0dc0bf7066e"
  },
  "kernel": {
@@ -97175,7 +97175,7 @@
   },
   "max_unit_order_mod_7_is_6": {
    "wing": "Wave.lean",
-   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
+   "asked": "0c31a872-24fc-8523-b0f2-613549ecefac",
    "fresh": true,
    "axioms": []
   },
@@ -97337,7 +97337,7 @@
   },
   "involution_b13fd37a": {
    "wing": "Involutionb13fd37a.lean",
-   "asked": "234feffd-655c-891c-8edd-9e14f9311a52",
+   "asked": "15f93a06-dd3c-8e85-b3f0-54c7ad291b71",
    "fresh": true,
    "axioms": []
   },
@@ -97391,31 +97391,31 @@
   },
   "alpine_bindings_partition_packages_28635": {
    "wing": "Wave.lean",
-   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
+   "asked": "0c31a872-24fc-8523-b0f2-613549ecefac",
    "fresh": true,
    "axioms": []
   },
   "alpine_domain_database_partitions_28635": {
    "wing": "Wave.lean",
-   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
+   "asked": "0c31a872-24fc-8523-b0f2-613549ecefac",
    "fresh": true,
    "axioms": []
   },
   "four_wire_sorting_needs_five_comparators": {
    "wing": "Wave.lean",
-   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
+   "asked": "0c31a872-24fc-8523-b0f2-613549ecefac",
    "fresh": true,
    "axioms": []
   },
   "tet_semitone_no_integer_lattice": {
    "wing": "Wave.lean",
-   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
+   "asked": "0c31a872-24fc-8523-b0f2-613549ecefac",
    "fresh": true,
    "axioms": []
   },
   "pluck_preserves_bound": {
    "wing": "Wave.lean",
-   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
+   "asked": "0c31a872-24fc-8523-b0f2-613549ecefac",
    "fresh": true,
    "axioms": []
   },
@@ -97427,16 +97427,16 @@
   },
   "truncated_run_counted_47": {
    "wing": "Wave.lean",
-   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
+   "asked": "0c31a872-24fc-8523-b0f2-613549ecefac",
    "fresh": true,
    "axioms": []
   }
  },
  "unreceipted": [],
- "seal": "d2acfc3a-322b-8068-af7e-b89ee000875e",
+ "seal": "886f6a27-bada-8667-99f1-bacba6d68d8b",
  "crossed": {
-  "sorted": "add81da4-32c2-8487-8342-4a637297232c",
-  "reversed": "add81da4-32c2-8487-8342-4a637297232c",
+  "sorted": "a5240a5c-2db3-870d-ad86-cf022bc5a1fb",
+  "reversed": "a5240a5c-2db3-870d-ad86-cf022bc5a1fb",
   "agrees": true
  }
 }

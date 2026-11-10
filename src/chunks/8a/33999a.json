@@ -1,0 +1,12 @@
+{
+  "handle": "8a33999a",
+  "address": "8a33999a-dcab-8cb0-be59-176c926cd73b",
+  "statement": "(1281 + 30 - 0 = 1311)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_sh_en_ie_1311"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

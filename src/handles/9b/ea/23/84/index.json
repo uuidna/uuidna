@@ -1,0 +1,12 @@
+{
+  "handle": "9bea2384",
+  "address": "9bea2384-7760-8927-850a-b7375bdad2b0",
+  "kind": "chunk",
+  "keys": [
+    "cross_cipher_handlespan_difference_1048576"
+  ],
+  "statement": "2097152 - 1048576 = 1048576",
+  "files": [
+    "Wave.lean"
+  ]
+}

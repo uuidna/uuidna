@@ -1,0 +1,12 @@
+{
+  "handle": "efffe057",
+  "address": "efffe057-e961-8077-9211-f2c0aba6e84c",
+  "statement": "(11 + 28653 = 28664)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_neuro_partitions_28664"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

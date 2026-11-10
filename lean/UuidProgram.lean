@@ -39,6 +39,7 @@ def X : Mat := perm fun c => 1 - c
 def Z : Mat := fun r c => if r = c then (if r = 0 then 1 else -1) else 0
 def S : Mat := fun r c => if r = c then (if r = 0 then 1 else GI.i) else 0
 def CNOT : Mat := perm fun c => if c = 2 then 3 else if c = 3 then 2 else c
+def Y : Mat := fun r c => if r = 0 ∧ c = 1 then -GI.i else if r = 1 ∧ c = 0 then GI.i else 0
 def SWAP : Mat := perm fun c => if c = 1 then 2 else if c = 2 then 1 else c
 def TOFFOLI : Mat := perm fun c => if c = 6 then 7 else if c = 7 then 6 else c
 
@@ -76,6 +77,18 @@ theorem uuidprog_cnot_swap : Same 4 (mm 4 CNOT (dag CNOT)) idm ∧ Same 4 (mm 4 
 
 /-- Toffoli is unitary and its own inverse -/
 theorem uuidprog_toffoli : Same 8 (mm 8 TOFFOLI (dag TOFFOLI)) idm ∧ Same 8 (mm 8 TOFFOLI TOFFOLI) idm := by decide +kernel
+
+/-- conjugating by Hadamard swaps X and Z and negates Y — the stabilizer tableau's H rule (swap the x and z
+    bits, flip the phase where both are set) -/
+theorem uuidprog_tableau_h : Same 2 (mm 2 (mm 2 H X) (dag H)) (smul 2 Z) ∧ Same 2 (mm 2 (mm 2 H Z) (dag H)) (smul 2 X) ∧ Same 2 (mm 2 (mm 2 H Y) (dag H)) (smul (-2) Y) := by decide
+
+/-- conjugating by S sends X to Y and Y to −X and leaves Z — the stabilizer tableau's S rule (z gains x, the
+    phase flips where both are set) -/
+theorem uuidprog_tableau_s : Same 2 (mm 2 (mm 2 S X) (dag S)) Y ∧ Same 2 (mm 2 (mm 2 S Y) (dag S)) (smul (-1) X) ∧ Same 2 (mm 2 (mm 2 S Z) (dag S)) Z := by decide
+
+/-- conjugating by CNOT copies X from control to target and Z from target to control — the stabilizer tableau's
+    CNOT rule (x of the target gains x of the control, z of the control gains z of the target) -/
+theorem uuidprog_tableau_cnot : Same 4 (mm 4 (mm 4 CNOT (kron 2 X idm)) (dag CNOT)) (kron 2 X X) ∧ Same 4 (mm 4 (mm 4 CNOT (kron 2 idm X)) (dag CNOT)) (kron 2 idm X) ∧ Same 4 (mm 4 (mm 4 CNOT (kron 2 Z idm)) (dag CNOT)) (kron 2 Z idm) ∧ Same 4 (mm 4 (mm 4 CNOT (kron 2 idm Z)) (dag CNOT)) (kron 2 Z Z) := by decide +kernel
 
 /-- the program at adb1b053-39db-3a30-0000-000000000000, run on the Bell circuit, puts weight on exactly 00 and
     11, in equal shares — the weights its door serves -/

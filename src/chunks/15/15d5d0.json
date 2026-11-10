@@ -1,0 +1,12 @@
+{
+  "handle": "1515d5d0",
+  "address": "1515d5d0-0e4a-8fbd-bff8-67775285cb66",
+  "statement": "(7503 + 198 - 2 = 7699)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_la_au_ie_7699"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}
