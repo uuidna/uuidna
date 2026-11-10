@@ -13326,7 +13326,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"generators\":84,\"surfaces\":103,\"edges\":111,\"unowned\":[\"lean\"],\"uncoined\":[],\"outsideSpin\":89,\"receipt\":\"8331d4b3-f320-87b3-9c12-dc1e3708da11\",\"handle\":\"8331d4…"
+   "excerpt": "{\"generators\":85,\"surfaces\":104,\"edges\":112,\"unowned\":[\"lean\"],\"uncoined\":[],\"outsideSpin\":90,\"receipt\":\"450fe672-a141-8e52-abf6-1d2e9fd6083a\",\"handle\":\"450fe6…"
   }
  },
  "uuidna_git": {

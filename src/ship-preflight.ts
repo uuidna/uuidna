@@ -224,6 +224,13 @@ export function edgeImports(
       if (next === null) { if (spec.startsWith('.') || spec.startsWith('#')) unresolved.push({ module: mod, spec }); else external.add(spec); continue }
       queue.push(next)
     }
+    // A MODULE LOADED ON FIRST USE IS STILL BUNDLED. worker.js loads its routes' modules through literal import('./…')
+    // (2026-11-10), and the bundler inlines each one; a builtin it imports at module scope refuses the upload all the
+    // same. So a relative dynamic import is walked like a static one; only its own static imports are judged as hits.
+    for (const m of text.matchAll(/\bimport\(\s*(['"])(\.[^'"]+)\1\s*\)/g)) {
+      const next = resolveSpec(mod, m[2]!)
+      if (next === null) unresolved.push({ module: mod, spec: m[2]! }); else queue.push(next)
+    }
   }
   return { hits, unresolved, external: [...external].sort(), modules: [...seen].sort(), reached: seen.size }
 }

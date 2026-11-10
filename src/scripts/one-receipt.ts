@@ -1076,8 +1076,9 @@ export function drainGaps(): Gap[] {
         gaps.push({ what: `${chainName} invokes ${g} but its output map does not declare what it writes`, fix: `add '${g}': ['<the path(s) it writes>'] to the declaration in src/scripts/api.ts — an empty array if it only reports` })
     for (const [g, outs] of Object.entries(declared)) {
       if (!invoked.includes(g)) gaps.push({ what: `the ${chainName} declaration names ${g}, which ${chainName} no longer invokes`, fix: `remove '${g}' from its declaration in src/scripts/api.ts — a declaration for a generator nothing runs is a claim about work that does not happen` })
+      // an output git ignores cannot drift dirty: it is regenerated, never committed, so the drain has nothing to stage
       for (const out of outs)
-        if (!DRAIN_PATHS.some((p) => out === p || out.startsWith(p + '/')))
+        if (!DRAIN_PATHS.some((p) => out === p || out.startsWith(p + '/')) && spawnSync('git', ['check-ignore', '-q', out], { cwd: ROOT }).status !== 0)
           gaps.push({ what: `${g} (${chainName}) writes ${out}, which the drain does not stage (absent from DRAIN_PATHS)`, fix: `add '${out}' to DRAIN_PATHS in src/scripts/api.ts — ${chainName} rewrites it every run, so unstaged it drifts dirty until a human notices` })
     }
   }
