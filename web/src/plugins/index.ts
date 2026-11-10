@@ -5,7 +5,7 @@ import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { FixedToolbarFeature, HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { ecommercePlugin } from '@payloadcms/plugin-ecommerce'
 import { importExportPlugin } from '@payloadcms/plugin-import-export'
-import { defineTool, mcpPlugin } from '@payloadcms/plugin-mcp'
+import { mcpPlugin } from '@payloadcms/plugin-mcp'
 import { multiTenantPlugin } from '@payloadcms/plugin-multi-tenant'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
@@ -24,7 +24,6 @@ import { customerOnlyFieldAccess } from '@/access/customerOnlyFieldAccess'
 import { isAdmin } from '@/access/isAdmin'
 import { isDocumentOwner } from '@/access/isDocumentOwner'
 import { checkRole } from '@/access/utilities'
-import { callUuidna } from '@/utilities/uuidnaDoor'
 
 const generateTitle: GenerateTitle<Product | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | Payload Ecommerce Template` : 'Payload Ecommerce Template'
@@ -141,8 +140,9 @@ export const plugins: Plugin[] = [
   redirectsPlugin({
     collections: ['pages', 'products'],
   }),
+  // the old tree's directories nest as categories, as the official website template nests its categories
   nestedDocsPlugin({
-    collections: ['pages'],
+    collections: ['categories'],
     generateLabel: (_, doc) => String(doc.title ?? ''),
     generateURL: (docs) => docs.reduce((url, doc) => `${url}/${String(doc.slug ?? '')}`, ''),
   }),
@@ -173,25 +173,6 @@ export const plugins: Plugin[] = [
         }),
       ]
     : []),
-  // plugin-mcp v4 exposes every collection at /api/mcp with access running; the uuidna door answers beside them.
-  mcpPlugin({
-    tools: {
-      uuidna: defineTool({
-        description:
-          'Call a uuidna MCP door by name (https://uuidna.com/mcp): trials, decide, quantum programs, the ledger. list_tools lists them.',
-        input: {
-          type: 'object',
-          properties: {
-            name: { type: 'string', description: 'the uuidna tool, e.g. run_trial, decide_expression, get_quantum, list_tools' },
-            arguments: { type: 'object', description: 'that tool\'s arguments' },
-          },
-          required: ['name'],
-        },
-      }).handler(async ({ input }) => {
-        const { name, arguments: args } = input as { name: string; arguments?: Record<string, unknown> }
-        const answer = await callUuidna(name, args ?? {})
-        return { content: [{ type: 'text', text: answer.text }], isError: answer.isError }
-      }),
-    },
-  }),
+  // plugin-mcp v4 exposes every collection at /api/mcp with access running: the catalog is what MCP clients read.
+  mcpPlugin({}),
 ]

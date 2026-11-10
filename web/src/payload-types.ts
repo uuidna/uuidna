@@ -117,25 +117,6 @@ export type LexicalNodes_2459B5A2 =
   | SerializedListItemNode<LexicalNodes_2459B5A2>;
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LexicalNodes_56DA7269".
- */
-export type LexicalNodes_56DA7269 =
-  | SerializedTextNode
-  | SerializedTabNode
-  | SerializedLineBreakNode
-  | SerializedParagraphNode<LexicalNodes_56DA7269>
-  | SerializedHorizontalRuleNode
-  | SerializedBlockNode<BannerBlock_E2BCF839 | CodeBlock | MediaBlock_D6C44817>
-  | SerializedHeadingNode<LexicalNodes_56DA7269, 'h1' | 'h2' | 'h3' | 'h4'>
-  | SerializedTableNode<LexicalNodes_56DA7269>
-  | SerializedTableCellNode<LexicalNodes_56DA7269>
-  | SerializedTableRowNode<LexicalNodes_56DA7269>
-  | SerializedAutoLinkNode<LexicalNodes_56DA7269, LexicalLinkFields>
-  | SerializedLinkNode<LexicalNodes_56DA7269, LexicalLinkFields>
-  | SerializedListNode<LexicalNodes_56DA7269>
-  | SerializedListItemNode<LexicalNodes_56DA7269>;
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "LexicalNodes_9D897FEE".
  */
 export type LexicalNodes_9D897FEE =
@@ -173,7 +154,6 @@ export interface Config {
   collections: {
     users: User;
     pages: Page;
-    posts: Post;
     categories: Category;
     media: Media;
     tenants: Tenant;
@@ -214,7 +194,6 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
-    posts: PostsSelect<false> | PostsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     tenants: TenantsSelect<false> | TenantsSelect<true>;
@@ -268,7 +247,6 @@ export interface Config {
       legacyLead: TaskLegacyLead;
       createCollectionExport: TaskCreateCollectionExport;
       createCollectionImport: TaskCreateCollectionImport;
-      schedulePublish: TaskSchedulePublish;
       inline: {
         input: unknown;
         output: unknown;
@@ -448,7 +426,20 @@ export interface Product {
   };
   categories?: (number | Category)[] | null;
   slug: string;
-  developedFrom?: (number | null) | Page;
+  lead?: {
+    path?: string | null;
+    address?: string | null;
+    exports?: string | null;
+    task?: string | null;
+    version?: string | null;
+    size?: number | null;
+    /**
+     * A sealed theorem key that backs this module’s claim. Changing it re-runs the trial.
+     */
+    evidence?: string | null;
+    verdict?: ('VERIFIED' | 'UNVERIFIED') | null;
+    receipt?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
   deletedAt?: string | null;
@@ -639,32 +630,6 @@ export interface Page {
     description?: string | null;
   };
   slug: string;
-  lead?: {
-    kind?: ('module' | 'directory') | null;
-    path?: string | null;
-    address?: string | null;
-    exports?: string | null;
-    verdict?: ('VERIFIED' | 'UNVERIFIED') | null;
-    receipt?: string | null;
-    developedAs?:
-      | ({
-          relationTo: 'products';
-          value: number | Product;
-        } | null)
-      | ({
-          relationTo: 'posts';
-          value: number | Post;
-        } | null);
-  };
-  parent?: (number | null) | Page;
-  breadcrumbs?:
-    | {
-        doc?: (number | null) | Page;
-        url?: string | null;
-        label?: string | null;
-        id?: string | null;
-      }[]
-    | null;
   createdBy?: {
     relationTo: 'users';
     value: number | User;
@@ -746,6 +711,15 @@ export interface Category {
   id: number;
   title: string;
   slug: string;
+  parent?: (number | null) | Category;
+  breadcrumbs?:
+    | {
+        doc?: (number | null) | Category;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   createdBy?: {
     relationTo: 'users';
     value: number | User;
@@ -985,47 +959,6 @@ export interface Textarea {
   id?: string | null;
   blockName?: string | null;
   blockType: 'textarea';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: number;
-  title: string;
-  heroImage?: (number | null) | Media;
-  content: LexicalRichText<LexicalNodes_56DA7269>;
-  relatedPosts?: (number | Post)[] | null;
-  categories?: (number | Category)[] | null;
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-    description?: string | null;
-  };
-  publishedAt?: string | null;
-  authors?: (number | User)[] | null;
-  populatedAuthors?:
-    | {
-        id?: string | null;
-        name?: string | null;
-      }[]
-    | null;
-  slug: string;
-  developedFrom?: (number | null) | Page;
-  createdBy?: {
-    relationTo: 'users';
-    value: number | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: number | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1439,7 +1372,7 @@ export interface PayloadJob {
     | {
         executedAt: string;
         completedAt: string;
-        taskSlug: 'inline' | 'legacyLead' | 'createCollectionExport' | 'createCollectionImport' | 'schedulePublish';
+        taskSlug: 'inline' | 'legacyLead' | 'createCollectionExport' | 'createCollectionImport';
         taskID: string;
         input:
           | {
@@ -1470,14 +1403,13 @@ export interface PayloadJob {
           | boolean
           | null;
         parent?: {
-          taskSlug?:
-            ('inline' | 'legacyLead' | 'createCollectionExport' | 'createCollectionImport' | 'schedulePublish') | null;
+          taskSlug?: ('inline' | 'legacyLead' | 'createCollectionExport' | 'createCollectionImport') | null;
           taskID?: string | null;
         };
         id?: string | null;
       }[]
     | null;
-  taskSlug?: ('inline' | 'legacyLead' | 'createCollectionExport' | 'createCollectionImport' | 'schedulePublish') | null;
+  taskSlug?: ('inline' | 'legacyLead' | 'createCollectionExport' | 'createCollectionImport') | null;
   queue?: string | null;
   waitUntil?: string | null;
   processingUntil?: string | null;
@@ -1503,10 +1435,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
-      } | null)
-    | ({
-        relationTo: 'posts';
-        value: number | Post;
       } | null)
     | ({
         relationTo: 'categories';
@@ -1723,26 +1651,6 @@ export interface PagesSelect<T extends boolean = true> {
         description?: T;
       };
   slug?: T;
-  lead?:
-    | T
-    | {
-        kind?: T;
-        path?: T;
-        address?: T;
-        exports?: T;
-        verdict?: T;
-        receipt?: T;
-        developedAs?: T;
-      };
-  parent?: T;
-  breadcrumbs?:
-    | T
-    | {
-        doc?: T;
-        url?: T;
-        label?: T;
-        id?: T;
-      };
   createdBy?: T;
   updatedBy?: T;
   updatedAt?: T;
@@ -1869,44 +1777,20 @@ export interface FormBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts_select".
- */
-export interface PostsSelect<T extends boolean = true> {
-  title?: T;
-  heroImage?: T;
-  content?: T;
-  relatedPosts?: T;
-  categories?: T;
-  meta?:
-    | T
-    | {
-        title?: T;
-        image?: T;
-        description?: T;
-      };
-  publishedAt?: T;
-  authors?: T;
-  populatedAuthors?:
-    | T
-    | {
-        id?: T;
-        name?: T;
-      };
-  slug?: T;
-  developedFrom?: T;
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories_select".
  */
 export interface CategoriesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
+      };
   createdBy?: T;
   updatedBy?: T;
   updatedAt?: T;
@@ -2213,7 +2097,19 @@ export interface ProductsSelect<T extends boolean = true> {
       };
   categories?: T;
   slug?: T;
-  developedFrom?: T;
+  lead?:
+    | T
+    | {
+        path?: T;
+        address?: T;
+        exports?: T;
+        task?: T;
+        version?: T;
+        size?: T;
+        evidence?: T;
+        verdict?: T;
+        receipt?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;
@@ -2717,7 +2613,6 @@ export interface CollectionQueryWidget {
     relatedCollection:
       | 'users'
       | 'pages'
-      | 'posts'
       | 'categories'
       | 'media'
       | 'tenants'
@@ -2759,7 +2654,6 @@ export interface ActivityWidget {
       | (
           | 'users'
           | 'pages'
-          | 'posts'
           | 'categories'
           | 'media'
           | 'tenants'
@@ -2800,10 +2694,13 @@ export interface TaskLegacyLead {
     path: string;
     exports?: string | null;
     address: string;
+    task?: string | null;
+    version?: string | null;
+    size?: number | null;
     tenant: number;
   };
   output: {
-    page: number;
+    product: number;
   };
 }
 /**
@@ -2818,7 +2715,6 @@ export interface TaskCreateCollectionExport {
     collectionSlug:
       | 'users'
       | 'pages'
-      | 'posts'
       | 'categories'
       | 'media'
       | 'tenants'
@@ -2875,62 +2771,6 @@ export interface TaskCreateCollectionImport {
     maxLimit?: number | null;
   };
   output?: unknown;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TaskSchedulePublish".
- */
-export interface TaskSchedulePublish {
-  input: {
-    type?: ('publish' | 'unpublish') | null;
-    locale?: string | null;
-    doc?: {
-      relationTo: 'posts';
-      value: number | Post;
-    } | null;
-    global?: string | null;
-    user?: {
-      relationTo: 'users';
-      value: number | User;
-    } | null;
-  };
-  output?: unknown;
-}
-/**
- * Multiple blocks resolve to the `BannerBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BannerBlock_E2BCF839".
- */
-export interface BannerBlock_E2BCF839 {
-  id: string;
-  blockType: 'banner';
-  style: 'info' | 'warning' | 'error' | 'success';
-  content: LexicalRichText<LexicalNodes_2459B5A2>;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CodeBlock".
- */
-export interface CodeBlock {
-  id: string;
-  blockType: 'code';
-  language?: ('typescript' | 'javascript' | 'css') | null;
-  code: string;
-  blockName?: string | null;
-}
-/**
- * Multiple blocks resolve to the `MediaBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock_D6C44817".
- */
-export interface MediaBlock_D6C44817 {
-  id: string;
-  blockType: 'mediaBlock';
-  media: number | Media;
-  blockName?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -3072,20 +2912,6 @@ export interface SerializedHorizontalRuleNode {
   /** @deprecated Ignored when loading. Typed as required only to match Lexical's types: rich text sent through the API, CLI or MCP may not contain it. */
   version: number;
 }
-
-export type SerializedBlockNode<TFields extends { blockType: string }> = TFields extends unknown ? {
-  type: 'block';
-  format: LexicalElementFormat;
-  /** @deprecated Ignored when loading. Typed as required only to match Lexical's types: rich text sent through the API, CLI or MCP may not contain it. */
-  version: number;
-  fields: { id: string; blockName?: string | null } & Omit<TFields, 'id' | 'blockName'>;
-} : never;
-export type SerializedInlineBlockNode<TFields extends { blockType: string }> = TFields extends unknown ? {
-  type: 'inlineBlock';
-  /** @deprecated Ignored when loading. Typed as required only to match Lexical's types: rich text sent through the API, CLI or MCP may not contain it. */
-  version: number;
-  fields: { id: string } & Omit<TFields, 'id'>;
-} : never;
 
 
 declare module 'payload' {

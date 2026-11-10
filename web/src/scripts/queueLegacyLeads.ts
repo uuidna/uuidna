@@ -9,7 +9,7 @@ import config from '@payload-config'
  *  LEGACY_LIMIT takes the first N modules of ../legacy/manifest.json (written by uuidna's gen-legacy-manifest). Every
  *  write runs as an admin user with access on (the v4 Local API default), so hooks and access decide. */
 const manifest = JSON.parse(readFileSync(path.resolve(process.cwd(), '..', 'legacy', 'manifest.json'), 'utf8')) as {
-  entries: { address: string; exports: string[]; path: string }[]
+  entries: { address: string; exports: string[]; path: string; size: number; task: string; version: string }[]
 }
 // LEGACY_PATHS (comma-separated) takes those modules instead of the manifest's head
 const paths = process.env.LEGACY_PATHS?.split(',').map((p) => p.trim()).filter(Boolean)
@@ -43,7 +43,15 @@ const tenant =
 for (const entry of entries.slice(0, limit))
   await payload.jobs.queue({
     task: 'legacyLead',
-    input: { address: entry.address, exports: entry.exports.join(', '), path: entry.path, tenant: tenant.id },
+    input: {
+      address: entry.address,
+      exports: entry.exports.join(', '),
+      path: entry.path,
+      size: entry.size,
+      task: entry.task,
+      tenant: tenant.id,
+      version: entry.version,
+    },
     req,
   })
 // in queue order: a module's directory pages are created by the first module under them, not raced by its siblings

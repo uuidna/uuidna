@@ -20,7 +20,6 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { revalidatePage, revalidateDelete } from './hooks/revalidatePage'
-import { trialLead } from './hooks/trialLead'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -136,25 +135,8 @@ export const Pages: CollectionConfig = {
       type: 'slug',
       useAsSlug: 'title',
     },
-    {
-      // A page that is a lead from the old tree: one module (or directory) of legacy/web or src, to be developed into
-      // this installation. The trial hook fills verdict and receipt before the page is stored.
-      name: 'lead',
-      type: 'group',
-      admin: { position: 'sidebar' },
-      fields: [
-        { name: 'kind', type: 'select', options: ['module', 'directory'] },
-        { name: 'path', type: 'text', index: true, unique: true },
-        { name: 'address', type: 'text' },
-        { name: 'exports', type: 'text' },
-        { name: 'verdict', type: 'select', options: ['VERIFIED', 'UNVERIFIED'], admin: { readOnly: true } },
-        { name: 'receipt', type: 'text', admin: { readOnly: true } },
-        { name: 'developedAs', type: 'relationship', relationTo: ['products', 'posts'], admin: { readOnly: true } },
-      ],
-    },
   ],
   hooks: {
-    beforeChange: [trialLead],
     afterChange: [revalidatePage],
     afterDelete: [revalidateDelete],
   },

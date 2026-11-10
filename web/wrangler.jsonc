@@ -1,7 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
-  "name": "uuidna-site",
+  // the uuidna Worker: deploying this app replaces the current worker.js at uuidna.com (the cutover, on the owner's go)
+  "name": "uuidna",
   "compatibility_date": "2025-08-15",
   "compatibility_flags": [
     // Enable Node.js API

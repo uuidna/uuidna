@@ -21,7 +21,6 @@ import { r2Storage } from '@payloadcms/storage-r2'
 import { Categories } from '@/collections/Categories'
 import { Media } from '@/collections/Media'
 import { Pages } from '@/collections/Pages'
-import { Posts } from '@/collections/Posts'
 import { Tenants } from '@/collections/Tenants'
 import { Users } from '@/collections/Users'
 import { Footer } from '@/globals/Footer'
@@ -92,7 +91,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Pages, Posts, Categories, Media, Tenants],
+  collections: [Users, Pages, Categories, Media, Tenants],
   db: sqliteD1Adapter({
     binding: cloudflare.env.D1,
   }),

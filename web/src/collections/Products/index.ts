@@ -19,7 +19,7 @@ import {
 } from '@payloadcms/richtext-lexical'
 import { DefaultDocumentIDType, Where } from 'payload'
 
-import { developedFromField, markLeadDeveloped } from '@/hooks/markLeadDeveloped'
+import { leadField, leadProduct, leadVariants } from '@/hooks/trialLead'
 
 export const ProductsCollection: CollectionOverride = ({ defaultCollection }) => ({
   ...defaultCollection,
@@ -213,10 +213,11 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
       type: 'slug',
       useAsSlug: 'title',
     },
-    developedFromField,
+    leadField,
   ],
   hooks: {
     ...defaultCollection?.hooks,
-    afterChange: [...(defaultCollection?.hooks?.afterChange ?? []), markLeadDeveloped('products')],
+    beforeChange: [...(defaultCollection?.hooks?.beforeChange ?? []), leadProduct],
+    afterChange: [...(defaultCollection?.hooks?.afterChange ?? []), leadVariants],
   },
 })
