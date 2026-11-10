@@ -36,7 +36,7 @@ test('THE DISCOVERY DOCUMENT IS ONE DECLARATION — two copies would drift, whic
   // the note text is the document's most distinctive line; it must appear exactly once, in the single builder
   const notes = src.match(/POST a JSON-RPC message here/g) ?? []
   assert.equal(notes.length, 1, `the discovery note appears ${notes.length} times — served from two paths, it must still be BUILT once`)
-  assert.match(src, /const discovery = \(\) => \(\{/, 'the one declaration both doors call')
+  assert.match(src, /const discovery = async \(\) => \{/, 'the one declaration both doors call')
 })
 
 test('every static page carries the endpoint in a Link header — "paste any uuidna.com link" means ANY', () => {

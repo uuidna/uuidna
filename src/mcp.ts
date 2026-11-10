@@ -102,7 +102,7 @@ import { unifiedRegistry } from './quantum/os/registry/index.js' // the toolbox 
 import { researchGates, researchEnvironment } from './quantum/os/gates/index.js' // the declared research gates and the experiment install profile
 import { portStatus } from './quantum/os/index.js' // the pinned Alpine port made observable — automate port updates
 // sealedKeys reads the baked root at the edge and the rows on a host — the one accessor a keys-only answer needs
-import { sealedKeys, bakedDoor, bakedDoorWhy, ledgerFacts, edgeFacts, RowsNeeded } from './theorems/index.js'
+import { sealedKeys, bakedDoor, bakedDoorWhy, ledgerFacts, edgeFacts, RowsNeeded, theoremCountByFile, wingRows } from './theorems/index.js'
 // the build's own computation graph, folded — one derivation behind the README, the site page and this door
 import { buildGraph } from './build-graph.js'
 // the program space: a door's hex is derived from its own contract, so the uuid's middle addresses code directly
@@ -941,9 +941,9 @@ const TOOLS: Tool[] = ([
     run: (a) => {
       const asked = String(a.wing ?? '').trim()
       const file = asked.endsWith('.lean') ? asked : `${asked}.lean`
-      const rows = theorems().filter((t) => String(t.file) === file)
+      const rows = theoremCountByFile().has(file) ? wingRows(file) : []
       if (rows.length === 0) {
-        const served = [...new Set(theorems().map((t) => String(t.file)))].sort()
+        const served = [...theoremCountByFile().keys()].sort()
         return { refused: true, why: `unknown wing: ${asked} — ${served.length} wings are served; ask uuidna_reports for the census`, nearest: served.filter((w) => w.toLowerCase().startsWith(asked.slice(0, 3).toLowerCase())).slice(0, 8) }
       }
       let source: string | null = null

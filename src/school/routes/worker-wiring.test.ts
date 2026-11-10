@@ -11,7 +11,8 @@ const worker = (): string => readFileSync(join(ROOT, 'worker.js'), 'utf8')
 
 test('worker.js delegates /school/ to the routes module before the trials and the assets', () => {
   const src = worker()
-  assert.match(src, /import \{ handleSchool \} from '\.\/dist\/school\/routes\/index\.js'/)
+  // loaded on first use (the asset path evaluates no library module), still from the one routes module
+  assert.match(src, /import\('\.\/dist\/school\/routes\/index\.js'\)/)
   const school = src.indexOf("url.pathname.startsWith('/school/')")
   assert.ok(school > 0, 'the school doors are routed')
   assert.ok(school < src.indexOf('// Trial CRUD.'), 'before the trials')

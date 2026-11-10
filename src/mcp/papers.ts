@@ -6,11 +6,11 @@
 import { execFileSync, spawnSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath, pathToFileURL } from 'node:url'
+import { pathToFileURL } from 'node:url'
+import { ROOT } from '../boundary.js'
 import { generateAllBlueprints } from './blueprint-generator.js'
 import { generateAllWhitePapers } from './whitepaper-generator.js'
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 
 const SCRIPTS: readonly { generator: string; writes: readonly string[] }[] = [
   { generator: 'scripts/generate-readme.mjs', writes: ['README.md', 'RELEASE.md', '.zenodo.json'] },

@@ -119,7 +119,8 @@ test('the queue lists queued submissions without the handle; wrong method, statu
 
 test('worker.js reaches both grader doors through the school routes module, with the boundary clock', () => {
   const src = readFileSync(join(ROOT, 'worker.js'), 'utf8')
-  assert.match(src, /import \{ handleSchool \} from '\.\/dist\/school\/routes\/index\.js'/)
+  // loaded on first use (the asset path evaluates no library module), still from the one routes module
+  assert.match(src, /import\('\.\/dist\/school\/routes\/index\.js'\)/)
   assert.doesNotMatch(src, /dist\/school\/grade\//, 'one school import in the Worker; the routes module delegates')
   assert.match(src, /now: Date\.now\(\)/)
   const routes = readFileSync(join(ROOT, 'src', 'school', 'routes', 'index.ts'), 'utf8')

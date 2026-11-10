@@ -2,7 +2,7 @@
   "mcpServers": {
     "uuidna-qpu": {
       "type": "http",
-      "url": "https://qpu.uuidna.com/mcp"
+      "url": "https://qpu.uuidna.com/api/mcp"
     },
     "uuidna": {
       "type": "http",

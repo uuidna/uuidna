@@ -6,7 +6,7 @@
  "dependencySets": {
   "(none)": 71114
  },
- "asked": "463d7ff0-fba6-88db-a4c5-efec48d614f4",
+ "asked": "953632cd-555f-8970-a6e9-a838aef6ff80",
  "toolchain": "leanprover/lean4:v4.33.0",
  "wings": {
   "45bcb8b0.lean": {
@@ -612,7 +612,7 @@
    }
   },
   "CrossFormulas.lean": {
-   "asked": "3d34eaee-d605-8a4a-a9bc-363aa6090c35",
+   "asked": "05ca08d4-cedb-8641-9e2d-556634e12217",
    "verdict": {
     "the_generated_closure_partitions_into_three_kinds": [],
     "the_arithmetic_alphabet_partitions_by_its_own_algebra": [],
@@ -630,7 +630,7 @@
    }
   },
   "Crosslink.lean": {
-   "asked": "4cd262fc-2b30-8c85-9a9b-363fc587c811",
+   "asked": "5758f790-d9ea-82e7-9870-e60faffd5666",
    "verdict": {
     "a_tree_uses_one_link_per_leaf_and_no_more": [],
     "the_measured_store_uses_a_vanishing_share": [],
@@ -671,7 +671,7 @@
    }
   },
   "Cyber.lean": {
-   "asked": "090abb84-adb9-88fd-a24d-fa6932766fa5",
+   "asked": "b4944b00-1073-8ec9-9dce-8a8527e47362",
    "verdict": {
     "the_store_footprint_is_its_folders": [],
     "the_third_level_already_shares": []
@@ -3562,7 +3562,7 @@
    }
   },
   "Forensics.lean": {
-   "asked": "ae349b1a-30bf-8b2f-bdc5-a103e4085429",
+   "asked": "89a4bc5f-2eb0-8e4a-a823-4adde348fcc1",
    "verdict": {
     "forged_address_odds_are_negligible": [],
     "forged_handle_odds_are_small": [],
@@ -3623,7 +3623,7 @@
    }
   },
   "HandleStore.lean": {
-   "asked": "82499855-18f5-8c5f-94a7-fea920581469",
+   "asked": "37cc43a9-ecda-8df1-b0fb-eb059458ac38",
    "verdict": {
     "the_path_spells_the_handle": [],
     "every_level_branches_the_same_way": [],
@@ -69399,7 +69399,7 @@
    }
   },
   "Involutionb13fd37a.lean": {
-   "asked": "965161ea-b587-8b05-a015-682b38c708ac",
+   "asked": "234feffd-655c-891c-8edd-9e14f9311a52",
    "verdict": {
     "reconciled_b13fd37a": [],
     "involution_b13fd37a": []
@@ -69825,7 +69825,7 @@
    }
   },
   "Links.lean": {
-   "asked": "d2899216-7f4b-87ce-a432-05a97951eda5",
+   "asked": "7d4ae07b-5e73-8b65-9692-55a93ac3b5c3",
    "verdict": {
     "not_dvd_of_bound": [],
     "the_untested_hundred_pay_a_third_of_the_wire": [],
@@ -72444,10 +72444,10 @@
    }
   }
  },
- "receipt": "2763f5b5-0126-8b88-b8f1-f106bd1b2182",
+ "receipt": "3a203dc9-a9dc-873c-9f75-9b8db7c5c3fd",
  "crossed": {
-  "sorted": "2763f5b5-0126-8b88-b8f1-f106bd1b2182",
-  "reversed": "2763f5b5-0126-8b88-b8f1-f106bd1b2182",
+  "sorted": "3a203dc9-a9dc-873c-9f75-9b8db7c5c3fd",
+  "reversed": "3a203dc9-a9dc-873c-9f75-9b8db7c5c3fd",
   "agrees": true
  }
 }

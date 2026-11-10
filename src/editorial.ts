@@ -9,7 +9,8 @@
 // born citing its proof. Integrity, not truth — the desk verifies citations, scope and conformance; it never
 // decides what is true. Deterministic offline core; the two ONLINE verbs (searchTrialFor, viesVerify) ride the
 // same named fetch boundary corroborate.ts holds and return evidence, never approval.
-import { theorems, wingRows } from './theorems/index.js'
+import { theorems, wingRows, ledgerResident, sealedAddressOf, theoremFor, theoremByKey } from './theorems/index.js'
+import { shardEntries } from './statement-shards.js'
 import { toUuid } from './address.js'
 import { reveal } from './gate.js'
 import { researchEvidence, evidenceRow } from './corroborate.js'
@@ -85,12 +86,29 @@ export function leanIndex(): LeanIdentity[] {
 /** resolve a theorem BY ITS LEAN IDENTITY — the uuid, or any name that wears it, or the statement itself */
 export function byLean(query: string): LeanIdentity | null {
   const q = query.trim()
+  if (!ledgerResident()) return byLeanAtEdge(q)
   const idx = leanIndex()
   return idx.find((e) => e.leanUuid === q)
     ?? idx.find((e) => e.keys.includes(q))
     ?? idx.find((e) => normStatement(e.statement) === normStatement(q))
     ?? null
 }
+/** byLean where the ledger is not resident: a key or a statement resolves through the one statement shard it falls in,
+ *  and the files come from the rows of the keys found there. A lean uuid is an address of a normalised statement, and
+ *  nothing at the edge maps it back, so that query is refused with its reason rather than answered "not found". */
+function byLeanAtEdge(q: string): LeanIdentity | null {
+  const statement = sealedAddressOf(q) !== undefined ? theoremFor(q)?.statement : q
+  if (statement === undefined) return null
+  const target = normStatement(statement)
+  const keys = shardEntries(statement).filter(([, s]) => normStatement(s) === target).map(([k]) => k)
+  if (keys.length === 0) {
+    if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(q)) throw new Error('a lean uuid resolves where the ledger is resident (npm run mcp -- compute_by_lean --local); the edge holds no index from that address back to its statement')
+    return null
+  }
+  const files = [...new Set(keys.map((k) => theoremByKey().get(k)?.file).filter((f): f is string => !!f))]
+  return { leanUuid: leanUuid(statement), statement, keys, files, entries: keys.length }
+}
+
 export function statementCensus(): StatementCensus {
   const by = groupByStatement()
   const T = [...by.values()].flat()

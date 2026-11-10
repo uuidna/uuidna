@@ -499,8 +499,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000888966",
-   "completionPrice": "0.000001777932"
+   "promptPrice": "0.000000877134",
+   "completionPrice": "0.000001754268"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -2116,8 +2116,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "openai/gpt-oss-20b",
    "name": "OpenAI: gpt-oss-20b",
    "contextTokens": 131072,
-   "promptPrice": "0.000000018",
-   "completionPrice": "0.00000009"
+   "promptPrice": "0.00000003",
+   "completionPrice": "0.00000013"
   },
   {
    "id": "openai/gpt-oss-20b:batch",
@@ -2701,13 +2701,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0"
   },
   {
-   "id": "stealth/crouton-alpha",
-   "name": "Crouton Alpha",
-   "contextTokens": 1048576,
-   "promptPrice": "0",
-   "completionPrice": "0"
-  },
-  {
    "id": "stepfun/step-3.5-flash",
    "name": "StepFun: Step 3.5 Flash",
    "contextTokens": 262144,
@@ -2811,6 +2804,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 524288,
    "promptPrice": "0.000001",
    "completionPrice": "0.00000405"
+  },
+  {
+   "id": "thinkingmachines/inkling-2-small:free",
+   "name": "Thinking Machines: Inkling 2 Small (free)",
+   "contextTokens": 1048576,
+   "promptPrice": "0",
+   "completionPrice": "0"
   },
   {
    "id": "thinkingmachines/inkling-small",
@@ -3194,7 +3194,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000001824",
+   "promptPrice": "0.0000001719",
    "completionPrice": "0.0000093388"
   },
   {

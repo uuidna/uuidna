@@ -6,7 +6,7 @@
 // sent, no payment — the "coins" are the conserved fair-exchange invariant (110 − 108 = 2). Integrity,
 // not truth: the deposit buys a COMPUTATION— a deposited claim can still come back UNVERIFIED.
 import { type Verdict } from '../../../adjudicate.js'
-import { theorems } from '../../../theorems/index.js'
+import { sealedAddressOf } from '../../../theorems/index.js'
 import { verifyStatement } from '../../../verify-statement.js'
 import { coins } from '../../billing/index.js'
 import { toUuid } from '../../../address.js'
@@ -33,16 +33,14 @@ const BUILD: string[] = [
   'Re-deposit: a holding test or a sealed citation seals into your diamond; once ALL parties hold one, parity computes.',
 ]
 
-// the sealed key set — cached once (the ledger is immutable at runtime), so a deposit check is O(1)
-// call. Rebuilding the set every call was non-quantum: correct but slow. Same result, recomputable — just not repeated.
-let _sealedKeys: Set<string> | null = null
-const sealedKeys = (): Set<string> => (_sealedKeys ??= new Set(theorems().map((t) => t.key)))
+// a sealed key is one the baked root addresses: O(1) on a host and at the edge alike, with no set built from the rows
+const isSealedKey = (key: string): boolean => sealedAddressOf(key) !== undefined
 
 /** Is a deposit VALID — did this party actually put in the two coins? A test that holds, or a proof that is sealed. */
 export function depositValid(d: Deposit): boolean {
   if (typeof d.test === 'function') { try { if (d.test() === true) return true } catch { /* a throwing test is no deposit */ } }
   if (typeof d.proof === 'string' && d.proof.length > 0) {
-    if (sealedKeys().has(d.proof)) return true                      // a sealed theorem KEY
+    if (isSealedKey(d.proof)) return true                           // a sealed theorem KEY
     if (verifyStatement(d.proof).verdict === 'VERIFIED') return true // a sealed theorem STATEMENT
   }
   return false

@@ -7,7 +7,7 @@
  */
 import { existsSync, readFileSync, statSync } from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { ROOT } from '../boundary.js'
 import { CombinatoricsFormulas } from '../families/combinatorics/index.js'
 import { PublishingFormulas } from '../families/publishing/index.js'
 import { PrintmakingFormulas } from '../families/printmaking/index.js'
@@ -18,7 +18,6 @@ import { qpuHexUuidOf } from '../quantum/processing/unit/index.js'
 import { printChipsOf } from './print-chips.js'
 import { papersOf } from './papers.js'
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 
 export type Printable = {
   id: string

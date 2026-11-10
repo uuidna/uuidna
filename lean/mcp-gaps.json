@@ -1,8 +1,8 @@
 {
   "kind": "mcp-gap-census",
-  "records": 2041,
-  "distinct": 1607,
-  "loadBearing": 168,
+  "records": 2064,
+  "distinct": 1623,
+  "loadBearing": 170,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
     {
@@ -112,6 +112,13 @@
       ]
     },
     {
+      "gap": "no door edits qpu sources",
+      "hits": 6,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door edits source",
       "hits": 6,
       "forms": [
@@ -129,6 +136,13 @@
     },
     {
       "gap": "no door reads qpu lean modules",
+      "hits": 6,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door searches qpu sources",
       "hits": 6,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -191,13 +205,6 @@
       "hits": 5,
       "forms": [
         "tail"
-      ]
-    },
-    {
-      "gap": "no door searches qpu sources",
-      "hits": 5,
-      "forms": [
-        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -376,13 +383,6 @@
       ]
     },
     {
-      "gap": "no door edits qpu sources",
-      "hits": 3,
-      "forms": [
-        "UUIDNA_MCP_GAP"
-      ]
-    },
-    {
       "gap": "no door finds qpu theorem citations",
       "hits": 3,
       "forms": [
@@ -519,6 +519,13 @@
     },
     {
       "gap": "symbol lookup door missing",
+      "hits": 3,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "tests a git pathspec in qpu",
       "hits": 3,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -1092,6 +1099,13 @@
     },
     {
       "gap": "runs the qpu machine next waves",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "runs the qpu program audit over the tree",
       "hits": 2,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -2047,6 +2061,13 @@
       ]
     },
     {
+      "gap": "checks package.json maps and other roots for unreached modules",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "checks the alpine lint still runs",
       "hits": 1,
       "forms": [
@@ -2062,6 +2083,13 @@
     },
     {
       "gap": "checks whether two changed sources were written by the Lean pipeline",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "checks which consolidation records exist",
       "hits": 1,
       "forms": [
         "export"
@@ -2433,6 +2461,13 @@
     },
     {
       "gap": "counting theorems in one lean wing while the hosted index door is down",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "counts qpu files by program membership",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -3223,6 +3258,13 @@
       ]
     },
     {
+      "gap": "inspects a stalled develop process and deleted school pages",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "install the compiled trial wing in place: the trial door deposits a lead, no door rewrites a wing's proofs",
       "hits": 1,
       "forms": [
@@ -3367,6 +3409,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "lists non-family research leads",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -3531,7 +3580,21 @@
       ]
     },
     {
+      "gap": "measures CPU time of computed versus UUID-served qpu calls",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "measures folded and runs the qpu machine next waves",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "measures folded before staging",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -3542,6 +3605,13 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "measures the research lead population",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -5390,6 +5460,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the qpu clock source or probes the qpu MCP endpoint status",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -8711,6 +8788,13 @@
       ]
     },
     {
+      "gap": "reads a small generator for conventions",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads battery end and uuidprog statements",
       "hits": 1,
       "forms": [
@@ -8718,7 +8802,28 @@
       ]
     },
     {
+      "gap": "reads generated doc conventions",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads leanList, the falsifier ceiling check and a witness entry",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads qpu uuid programs",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "reads small lead sources",
       "hits": 1,
       "forms": [
         "export"
@@ -9037,6 +9142,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "samples research leads and top door gaps",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {

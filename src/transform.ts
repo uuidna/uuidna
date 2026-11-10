@@ -11,7 +11,8 @@
 // The transform CANNOT manufacture truth. There is no fuzzy match: "the moon is made of cheese" shares a word with a
 // lunar theorem but is NOT that theorem, so it stays UNVERIFIED. An overclaim to SOLVE a problem is never admitted —
 // only the sealed REFLECTION (dz(dz k)=k), cited or stated exactly, verifies. Folds to one receipt. Integrity.
-import { theorems } from './theorems/index.js'
+import { theorems, sealedAddressOf } from './theorems/index.js'
+import { shardEntries, viaShards } from './statement-shards.js'
 import { verifyStatement } from './verify-statement.js'
 import { adjudicate } from './adjudicate.js'
 import { toUuid } from './address.js'
@@ -36,9 +37,18 @@ const norm = (s: string): string => s.replace(/\s+/g, ' ').trim()
 let NORM: Map<string, { key: string; address: string }> | null = null
 const normIndex = (): Map<string, { key: string; address: string }> => {
   if (NORM) return NORM
+  if (viaShards()) throw new Error('the normalised index is a host structure; the edge reads one statement shard (normOf)')
   NORM = new Map()
   for (const t of theorems()) NORM.set(norm(t.statement), { key: t.key, address: t.address })
   return NORM
+}
+
+/** the sealed key and address a normalised statement names: the host's index, or at the edge the one statement shard the
+ *  input falls in — a sealed statement already written single-spaced (as the ledger writes them) is found either way */
+const normOf = (input: string): { key: string; address: string } | undefined => {
+  if (!viaShards()) return normIndex().get(input)
+  const entry = shardEntries(input).find(([, statement]) => norm(statement) === input)
+  return entry ? { key: entry[0], address: sealedAddressOf(entry[0]) ?? '' } : undefined
 }
 
 /** Drive one material to a terminal state — VERIFIED only via an EXACT seal (as-is, whitespace-normalized, or a
@@ -52,7 +62,7 @@ export function transformOne(material: string): TransformCell {
     note: `VERIFIED as given — it is the sealed theorem ${exact.key}`,
   }
   // 2) honest transform — whitespace normalization only (the SAME statement, reformatted)
-  const hit = normIndex().get(input)
+  const hit = normOf(input)
   if (hit && toUuid(hit.key + ':' + input) === hit.address) return {
     input, status: 'VERIFIED', verifiedStatement: input, key: hit.key, address: hit.address, transform: 'normalized',
     note: `VERIFIED after whitespace normalization — the same statement as sealed theorem ${hit.key}`,

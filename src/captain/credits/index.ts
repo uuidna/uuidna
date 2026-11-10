@@ -4,7 +4,7 @@
 // and the captain comes NEXT in place (never erased, never first when prior art is named, never unclaimed).
 // uuidna reflects history; it claims only the unclaimed. A Clay theorem credits the mathematician who proved the
 // PROBLEM (Perelman for Poincaré); uuidna seals only the REFLECTION.
-import { THEOREMS, theoremFor, PRINCIPLES, ledgerFacts } from '../../theorems/index.js'
+import { THEOREMS, theoremFor, PRINCIPLES, ledgerFacts, ledgerResident, wingRows } from '../../theorems/index.js'
 import { toUuid } from '../../address.js'
 import { doisIn } from '../../crossref.js'
 import { doiPriorArtForLeanFile } from '../../zenodo-seals.js'
@@ -91,7 +91,9 @@ const _principleCredits = new Map<string, readonly Credit[]>()
 function principleCredits(principle: string): readonly Credit[] {
   const hit = _principleCredits.get(principle); if (hit) return hit
   const seen = new Set<string>(); const out: Credit[] = []
-  for (const n of THEOREMS) {
+  // the bucket is the wings filed under the principle: a host reads its own rows, the edge reads those wings' pieces
+  const bucket = ledgerResident() ? THEOREMS : PRINCIPLES.filter((p) => p[1] === principle).flatMap((p) => wingRows(p[0]))
+  for (const n of bucket) {
     if (n.principle !== principle) continue
     const nhay = n.name + ' ' + n.principle
     for (const r of REGISTRY) if (nhay.includes(r.pat) && !seen.has(r.who)) { seen.add(r.who); out.push({ who: r.who, link: r.wiki }) }

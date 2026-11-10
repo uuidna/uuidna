@@ -3,7 +3,7 @@ title: The ledger symphony
 description: Four movements from four sealed sources, minted in your browser — a432 symphonies are theorems.
 ---
 
-# The ledger symphony <Badge type="tip" text="opus b95cfb93" />
+# The ledger symphony <Badge type="tip" text="opus 97a05799" />
 
 > **A432 symphonies are theorems.** Four movements, four sealed sources, no audio file anywhere on earth — each
 > movement is a state sequence your browser mints at the moment you press play. The form itself is sealed:
@@ -22,9 +22,9 @@ description: Four movements from four sealed sources, minted in your browser —
 
 <HexbitPlayer :states="[15,5,13,10,5,14,8,4,5,7,14,6,8,13,6,3,11,14,9,9,0,2,8,10,2,6,13,6,13,5,2,1]" :ms="504" />
 
-## III. Scherzo — the walk <small>(71 chapters dancing · 126 ms)</small>
+## III. Scherzo — the walk <small>(72 chapters dancing · 126 ms)</small>
 
-<HexbitPlayer :states="[5,9,14,13,13,2,4,1,12,6,11,3,15,9,6,10,13,15,0,5,3,14,7,7,1,6,15,5,11,8,8,4,1,13,7,1,3,9,1,8,12,11,9,12,0,5,5,2,14,5,11,6,13,1,6,11,6,6,9,10,5,5,4,4,15,6,15,13,6,9,10]" :ms="126" />
+<HexbitPlayer :states="[5,9,14,13,13,2,4,1,12,6,11,3,15,9,6,10,13,15,0,5,3,14,7,7,1,6,15,5,11,8,8,4,1,13,7,1,3,9,1,8,12,11,9,12,0,5,5,2,14,5,11,6,13,1,6,8,11,6,6,9,10,5,5,4,4,15,6,15,13,6,9,10]" :ms="126" />
 
 ## IV. Finale — the whole <small>(every sealed theorem, one address · 252 ms)</small>
 

@@ -603,6 +603,8 @@ export const DRAIN_PATHS: readonly string[] = [
   'docs/store.md',
   // the model comparison page — rewritten by gen-models from the committed feed mirror every reconcile
   'docs/models.md',
+  // the consolidation declaration and configuration items (gen-configuration), re-read from the configs every run
+  'docs/configuration.md',
   // the public model feed mirror — lean-models re-pins it under UUIDNA_TRACK_LATEST (reconcile's lean step)
   'src/quantum/models/mirror.ts',
   // ledger slot stamps (<!--L:distinct--> / <!--L:keys-->) — stamp.js runs inside `npm run lean`
@@ -696,6 +698,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'guard': ['quantum-fold.json'],
   'gen-reports': ['reports.json'],
   'gen-lines': ['lean/statement-index.json'],
+  'gen-configuration': ['docs/configuration.md'],
   'gen-matrix-css': ['docs/.vitepress/theme/computed.css'],
   'gen-handle-chunks': ['src/chunks'],
   'gen-handle-store': ['src/handles'],

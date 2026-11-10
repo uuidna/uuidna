@@ -19,35 +19,39 @@
 //
 // The trial logic is imported from the built library's SPECIFIC modules (not index.js — that graph pulls a
 // node:child_process helper unavailable in the Workers runtime); adjudicate/address and their deps are pure.
-import { adjudicate } from './dist/adjudicate.js'
 import { toUuid } from './dist/address.js'
-import { primeCatalogue, cataloguePrimed } from './dist/quantum/os/catalogue/index.js'
-import { packagePage, renderPackagePage } from './dist/quantum/os/pkgpage/index.js'
-import { theoremPage, renderTheoremPage } from './dist/theorem-page.js'
-import { conversationFold } from './dist/conversation.js' // the one fold — worker and library share it (DRY)
 import { hmacSha256 } from './dist/sha256.js'
 import { siteOwns } from './dist/site-mount.js'
 // The HOSTED MCP over HTTP (JSON-RPC 2.0, the MCP Streamable-HTTP transport) at /mcp — the Workers-safe, pure,
 // recomputable tool subset. Imports a SPECIFIC pure module (never index.js — that pulls node:child_process).
-import { handleMcpRpc, mcpHttpToolNames, MCP_HTTP_PROTOCOL } from './dist/mcp-http.js'
 // The LIVE ANALYTICS dashboard at /analytics — real metrics from Cloudflare, AWS, GCP, Azure APIs
-import { handleAnalytics } from './dist/analytics-handler.js'
 // The handle map — first 8 hex of every freeze-map content-address → editorial route (theorem | publication | page),
 // generated at build (gen-handles). /<handle> 301s to that route ON THE SPOT — homepage/pub handles included.
 // Colliding first-8 doors are omitted from this map (birthday past 2^16): unknown → 404, never a wrong page.
-import HANDLES from './handles.js'
 import { mayServe, REDIRECT_TO } from './dist/licence-host.js'
 // THE LEDGER IS READ, NOT BUNDLED: 70,931 rows would put this Worker's global scope over the 1 s and 128 MB an isolate
 // allows, so the rows live in qpu storage under the root baked into the bundle, and a call that needs them primes them
 // once per isolate, every piece's address recomputed from its bytes (src/edge-ledger.ts).
-import { rowsForKeys, rowsForFiles, shardsFor, stationsFor, searchFor, LEDGER_STORAGE, DOOR_FILE_PARSE } from './dist/edge-ledger.js'
-import { slimGate } from './dist/slimgate.js'
-import { sealedAddressOf } from './dist/theorems/index.js'
 // THE SCHOOL'S DOORS — the learner's attempt, progress, certificate and submission, and the kernel grader's queue and
 // OIDC-signed verdict post (src/school/routes delegates those two to src/school/grade). Every learner verdict is the
 // pure evaluator's, recomputed here from the served course file pinned to the bundled seal; all school records live in
 // the SCHOOL KV namespace, stored only with the learner's consent.
-import { handleSchool } from './dist/school/routes/index.js'
+
+// THE ASSET PATH LOADS NOTHING IT DOES NOT USE. run_worker_first sends every request here, static files included, and
+// the modules below evaluated at global scope measured 670 ms and 114 MB of heap under node --conditions=workerd
+// (2026-11-10), against the isolate's 1 s and 128 MB: every request paid the start-up, a constant JSON answered in
+// 1-2 s, and a burst queued about a second apart until 503 1105. Each route now loads its modules on first use and
+// keeps them for the isolate's life; the bundler keeps them in the one bundle and defers their evaluation to that call.
+const once = (load) => { let p; return () => (p ??= load()) }
+const ledgerLib = once(async () => ({ ...(await import('./dist/edge-ledger.js')), slimGate: (await import('./dist/slimgate.js')).slimGate, sealedAddressOf: (await import('./dist/theorems/index.js')).sealedAddressOf }))
+const mcpLib = once(() => import('./dist/mcp-http.js'))
+const trialLib = once(() => import('./dist/adjudicate.js'))
+const schoolLib = once(() => import('./dist/school/routes/index.js'))
+const analyticsLib = once(() => import('./dist/analytics-handler.js'))
+const handlesLib = once(() => import('./handles.js'))
+const conversationLib = once(() => import('./dist/conversation.js'))
+const catalogueLib = once(async () => ({ ...(await import('./dist/quantum/os/catalogue/index.js')), ...(await import('./dist/quantum/os/pkgpage/index.js')) }))
+const theoremPageLib = once(() => import('./dist/theorem-page.js'))
 
 // QPU IS FUSED, NOT FETCHED: with the QPU service binding a call to qpu.uuidna.com rides env.QPU — no public hop, no
 // extra billed request (Cloudflare: "Service bindings don't increase costs"); every other host, or a deploy without
@@ -66,6 +70,7 @@ const ledgerFetchOf = (env, origin) => {
   if (!env.ASSETS) return over
   return async (input, init) => {
     const href = String(input)
+    const { LEDGER_STORAGE } = await ledgerLib()
     if (href.startsWith(LEDGER_STORAGE + '/')) {
       const res = await env.ASSETS.fetch(new Request(new URL(`/ledger/${href.slice(LEDGER_STORAGE.length + 1)}.json`, origin)))
       if (res.ok && (res.headers.get('content-type') || '').includes('json')) return res
@@ -110,7 +115,7 @@ const schoolCtxOf = (url, env) => ({
   deposit: async (run, body) => {
     const qpuFetch = qpuFetchOf(env)
     // no prime: a deposit reads no row, and waiting on rows here is the same bootstrap circularity as on /mcp above
-    const res = await handleMcpRpc({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'uuidna_evidence', arguments: { run, deposit: body } } },
+    const res = await (await mcpLib()).handleMcpRpc({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'uuidna_evidence', arguments: { run, deposit: body } } },
       { origin: url.origin, fetch: qpuFetch, deposit: depositOf(env) })
     const text = (res && res.result && res.result.content && res.result.content[0] && res.result.content[0].text) || ''
     try { return JSON.parse(text) } catch { return { deposited: false, why: text.slice(0, 200) || 'the MCP door answered without a reply' } }
@@ -194,8 +199,9 @@ async function handleTrials(request, url, env) {
     if (!statement) return json({ error: 'POST /trials needs { "statement": "…" } (returns the signed verdict, stores nothing) OR { "sealed": <7-layer onion>, "consent": true } to persist ciphertext' }, 400)
     // the rows the statement CITES, fetched first (the same rule as the MCP pre-pass): the verdict reads each cited row
     // to judge whether the citation is about the claim, and an unfetched row is asked for rather than read as absent
+    const { rowsForKeys, slimGate } = await ledgerLib()
     await rowsForKeys(slimGate(statement).real, ledgerFetchOf(env, url.origin))
-    const verdict = adjudicate(statement)
+    const verdict = (await trialLib()).adjudicate(statement)
     const signature = signTrial(env, statement, verdict.verdict, verdict.receipt)
     return json({
       id: toUuid(statement),
@@ -386,7 +392,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
 
     // The school's learner doors; any other /school/ path (the learn page, a served course file) falls through to the assets.
     if (url.pathname.startsWith('/school/')) {
-      const res = await handleSchool(request, url, env, schoolCtxOf(url, env))
+      const res = await (await schoolLib()).handleSchool(request, url, env, schoolCtxOf(url, env))
       if (res) return res
     }
 
@@ -400,7 +406,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
     // First-party and licensed hosts only. Fetches live data from Cloudflare Analytics Engine, AWS CloudWatch,
     // GCP Cloud Monitoring, Azure Monitor. Shows grouped metrics and dynamic comparison dashboard.
     if (url.pathname === '/analytics') {
-      return await handleAnalytics(request, env)
+      return await (await analyticsLib()).handleAnalytics(request, env)
     }
 
     // THE HOSTED MCP — Model Context Protocol over HTTP (JSON-RPC 2.0, the Streamable-HTTP transport) at /mcp, first-
@@ -414,16 +420,16 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
     // handed uuidna.com, or any of the two thousand published pages, had nothing to follow: /.well-known/mcp.json
     // returned 404 and no response anywhere advertised the endpoint. So the document is declared ONCE here and
     // served from both paths; two copies of it would be the `dry` law's own counterexample, and they would drift.
-    const discovery = () => ({
+    const discovery = async () => { const { MCP_HTTP_PROTOCOL, mcpHttpToolNames } = await mcpLib(); return {
       server: 'uuidna', transport: 'streamable-http (JSON-RPC 2.0)', protocolVersion: MCP_HTTP_PROTOCOL,
       endpoint: `${url.origin}/mcp`, tools: mcpHttpToolNames(),
       note: 'POST a JSON-RPC message here (initialize · tools/list · tools/call · ping). Read-only, stateless, the Workers-safe subset of the full `npx @uuidna/uuidna` stdio catalog. Integrity, not truth.',
-    })
+    } }
 
     // THE WELL-KNOWN DOOR — so pasting the BARE HOST mounts the wire. A client that probes well-known paths finds
     // the same object it would have found at /mcp, and never has to be told the path by a human first.
     if (url.pathname === '/.well-known/mcp.json') {
-      return new Response(JSON.stringify(discovery()), { status: 200, headers: {
+      return new Response(JSON.stringify(await discovery()), { status: 200, headers: {
         'content-type': 'application/json; charset=utf-8',
         'access-control-allow-origin': '*',
         // and the endpoint names itself in a header too, so a client that reads headers and not bodies still finds it
@@ -460,13 +466,15 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
         // rel=mcp link and no cache rule — a second way to answer a built file, which is the thing servedAsset
         // exists to prevent.
         if ((request.headers.get('accept') || '').includes('text/html')) return servedAsset(await env.ASSETS.fetch(request), url.pathname)
-        return mjson(discovery())
+        return mjson(await discovery())
       }
       if (request.method !== 'POST')
         return mjson({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'POST a JSON-RPC message to /mcp (or GET for discovery)' } }, 405)
       let msg
       try { msg = await request.json() } catch { return mjson({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'parse error — expected a JSON-RPC message' } }, 400) }
       const qpuFetch = qpuFetchOf(env)
+      const { rowsForKeys, rowsForFiles, shardsFor, stationsFor, searchFor, DOOR_FILE_PARSE, slimGate, sealedAddressOf } = await ledgerLib()
+      const { handleMcpRpc } = await mcpLib()
       // THE CALL'S OWN KEYS, AND NOTHING ELSE. Priming read all 492 pieces and held every row for the life of the
       // isolate — measured at 40 MB parsed against a 128 MB ceiling — so a door that needed one cited row paid for
       // the whole ledger, and the ones that needed none paid for it too. Every aggregate a door reports is baked
@@ -481,12 +489,19 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
         if (!m || m.method !== 'tools/call') return []
         const args = m.params?.arguments ?? {}
         if (m.params?.name === 'uuidna_evidence' && args.deposit !== undefined) return []   // a deposit reads no row
+        // NESTED ARGUMENTS ARE READ TOO: call_tool carries the door's own arguments under `arguments`, and
+        // deposit_trial carries its proofs inside `deposits[]`, so a walk of the top level alone fetched nothing for
+        // them and every key they cited read as unknown (measured 2026-11-10: get_theorem two_coins answered direct
+        // and refused through call_tool). Strings only, bounded depth.
         const keys = new Set()
-        for (const v of Object.values(args)) {
-          if (typeof v !== 'string' || !v) continue
-          if (sealedAddressOf(v) !== undefined) keys.add(v)
-          for (const k of slimGate(v).real) keys.add(k)
+        const visit = (v, depth) => {
+          if (typeof v === 'string') {
+            if (!v) return
+            if (sealedAddressOf(v) !== undefined) keys.add(v)
+            for (const k of slimGate(v).real) keys.add(k)
+          } else if (v && typeof v === 'object' && depth < 4) for (const w of Object.values(v)) visit(w, depth + 1)
         }
+        visit(args, 0)
         return [...keys]
       }
       const wanted = [...new Set((Array.isArray(msg) ? msg : [msg]).flatMap(wantedKeys))]
@@ -548,7 +563,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
     // (/theorem/<key>, /publications/<slug>, or a static page incl. /). 301 so the handle is a stable citation.
     const m = HANDLE.exec(url.pathname)
     if (m) {
-      const route = HANDLES[m[1]]
+      const route = (await handlesLib()).default[m[1]]
       if (route) return Response.redirect(`${url.origin}${route === '/' ? '/' : route}`, 301)
     }
 
@@ -558,7 +573,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
     // quantum messaging: the fifth handle is the door, storage rides /trials (sealed onion) and the send/receive stream.
     const p = PENTA.exec(url.pathname)
     if (p) {
-      const room = conversationFold([p[1], p[2], p[3], p[4]], request.headers.get('referer') || '')
+      const room = (await conversationLib()).conversationFold([p[1], p[2], p[3], p[4]], request.headers.get('referer') || '')
       return json({ handles: room.handles, referer: room.referer, fifth: room.fifth, address: room.address,
         note: 'the fifth handle folds the four (each part of the next — authenticity) rotated by the Referer — each referrer a distinct room, O(1) to recompute (speed) and un-correlatable (privacy by design)' })
     }
@@ -587,6 +602,8 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
     // themselves.
     const pkgMatch = url.pathname.match(/^\/catalogue\/([A-Za-z0-9][A-Za-z0-9._+-]*)$/)
     if (pkgMatch && request.method === 'GET') {
+      const { primeCatalogue, cataloguePrimed, packagePage, renderPackagePage } = await catalogueLib()
+      const { mcpHttpToolNames } = await mcpLib()
       if (!cataloguePrimed()) {
         primeCatalogue(await (await env.ASSETS.fetch(new Request(new URL('/alpine-catalogue.tsv', url.origin)))).text())
       }
@@ -620,8 +637,17 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
       const alreadyBuilt = await env.ASSETS.fetch(new Request(url, request))
       if (alreadyBuilt.status === 200) return servedAsset(alreadyBuilt, url.pathname)
       // one key, one piece — the page read the whole ledger to render a single theorem
-      await rowsForKeys([thMatch[1]], ledgerFetchOf(env, url.origin))
-      const page = theoremPage(thMatch[1])
+      let page
+      try {
+        const { rowsForKeys } = await ledgerLib()
+        await rowsForKeys([thMatch[1]], ledgerFetchOf(env, url.origin))
+        page = (await theoremPageLib()).theoremPage(thMatch[1])
+      } catch (e) {
+        // A THROW HERE WAS AN UNCAUGHT 1101 for 65,536 pageless theorems (measured 2026-11-10); the reason is answered instead
+        return new Response(`theorem page unavailable: ${e instanceof Error ? e.message : String(e)}`, { status: 503,
+          headers: secured(new Headers({ 'content-type': 'text/plain; charset=utf-8', 'retry-after': '60', 'cache-control': 'no-store' })) })
+      }
+      const { renderTheoremPage } = await theoremPageLib()
       if (page) {
         return new Response(renderTheoremPage(page), {
           headers: secured(new Headers({ 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600, must-revalidate',

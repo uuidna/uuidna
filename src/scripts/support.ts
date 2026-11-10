@@ -55,8 +55,23 @@ const workerReached = ((): string[] => {
   return [...new Set(specs.map((s) => relJoin('src', s.replace(/^\.\/dist\//, '') + '.ts')).filter((c) => existsSync(join(ROOT, c))))]
 })()
 
-const reached = new Set<string>([...roots, ...workerReached])
-const stack = [...roots, ...workerReached]
+// package.json's "exports" and "imports" maps are ENTRY POINTS the same way worker.js is: a Payload site imports
+// @uuidna/uuidna/payload, and #ledger resolves to ledger-edge on workerd and ledger-node everywhere else, without any
+// src module importing either. Every ./dist/X.js target in those maps is src/X.ts, reached by its consumer.
+const packageReached = ((): string[] => {
+  const pf = join(ROOT, 'package.json')
+  if (!existsSync(pf)) return []
+  const pkg = JSON.parse(readFileSync(pf, 'utf8')) as { exports?: unknown; imports?: unknown }
+  const targets = (v: unknown): string[] =>
+    typeof v === 'string' ? [v] : v && typeof v === 'object' ? Object.values(v).flatMap(targets) : []
+  return [...new Set([...targets(pkg.exports), ...targets(pkg.imports)]
+    .filter((t) => /^\.\/dist\/.+\.js$/.test(t))
+    .map((t) => relJoin('src', t.replace(/^\.\/dist\//, '').replace(/\.js$/, '.ts')))
+    .filter((c) => existsSync(join(ROOT, c))))]
+})()
+
+const reached = new Set<string>([...roots, ...workerReached, ...packageReached])
+const stack = [...roots, ...workerReached, ...packageReached]
 while (stack.length) {
   const f = stack.pop() as string
   for (const dep of edges.get(f) || []) if (!reached.has(dep)) { reached.add(dep); stack.push(dep) }

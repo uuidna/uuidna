@@ -29,7 +29,126 @@ Paired doctrine: [sufficiency charter](/doctrine#sufficiency-charter--what-hexbi
 
 | candidate | status |
 |-----------|--------|
-| — the queue is drained — | |
+| **alpine bindings partition packages 28664** (not sealed) | awaiting the kernel |
+| **alpine binding origins overcount 16101** (not sealed) | awaiting the kernel |
+| **alpine domain database partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain filesystem partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain blockchain partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain driver partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain driver origins 631** (not sealed) | awaiting the kernel |
+| **alpine domain language partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain language origins 7503** (not sealed) | awaiting the kernel |
+| **alpine domain network partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain science partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain media partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain shell partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain shell origins 1281** (not sealed) | awaiting the kernel |
+| **alpine domain chat partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain crypto partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain security partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain math partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain art partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain bio partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain chemistry partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain neuro partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain astronomy partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain physics partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain geo partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain virtualization partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain font partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain audio partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain build partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain social partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine domain engineering partitions 28664** (not sealed) | awaiting the kernel |
+| **alpine port all partition 28664** (not sealed) | awaiting the kernel |
+| **alpine dom da dr ie 1008** (not sealed) | awaiting the kernel |
+| **alpine dom da la ie 7787** (not sealed) | awaiting the kernel |
+| **alpine dom da sh ie 1718** (not sealed) | awaiting the kernel |
+| **alpine dom fi dr ie 838** (not sealed) | awaiting the kernel |
+| **alpine dom fi la ie 7702** (not sealed) | awaiting the kernel |
+| **alpine dom fi sh ie 1493** (not sealed) | awaiting the kernel |
+| **alpine dom bl dr ie 660** (not sealed) | awaiting the kernel |
+| **alpine dom bl la ie 7525** (not sealed) | awaiting the kernel |
+| **alpine dom bl sh ie 1310** (not sealed) | awaiting the kernel |
+| **alpine dom dr la ie 8073** (not sealed) | awaiting the kernel |
+| **alpine dom dr ne ie 963** (not sealed) | awaiting the kernel |
+| **alpine dom dr sc ie 703** (not sealed) | awaiting the kernel |
+| **alpine dom dr me ie 889** (not sealed) | awaiting the kernel |
+| **alpine dom dr sh ie 1908** (not sealed) | awaiting the kernel |
+| **alpine dom dr ch ie 872** (not sealed) | awaiting the kernel |
+| **alpine dom dr cr ie 830** (not sealed) | awaiting the kernel |
+| **alpine dom dr se ie 717** (not sealed) | awaiting the kernel |
+| **alpine dom dr ma ie 671** (not sealed) | awaiting the kernel |
+| **alpine dom dr ar ie 684** (not sealed) | awaiting the kernel |
+| **alpine dom dr bi ie 633** (not sealed) | awaiting the kernel |
+| **alpine dom dr ch ie 634** (not sealed) | awaiting the kernel |
+| **alpine dom dr ne ie 642** (not sealed) | awaiting the kernel |
+| **alpine dom dr as ie 656** (not sealed) | awaiting the kernel |
+| **alpine dom dr ph ie 638** (not sealed) | awaiting the kernel |
+| **alpine dom dr ge ie 655** (not sealed) | awaiting the kernel |
+| **alpine dom dr vi ie 851** (not sealed) | awaiting the kernel |
+| **alpine dom dr fo ie 713** (not sealed) | awaiting the kernel |
+| **alpine dom dr au ie 740** (not sealed) | awaiting the kernel |
+| **alpine dom dr bu ie 889** (not sealed) | awaiting the kernel |
+| **alpine dom dr so ie 934** (not sealed) | awaiting the kernel |
+| **alpine dom dr en ie 660** (not sealed) | awaiting the kernel |
+| **alpine dom la ne ie 7786** (not sealed) | awaiting the kernel |
+| **alpine dom la sc ie 7561** (not sealed) | awaiting the kernel |
+| **alpine dom la me ie 7695** (not sealed) | awaiting the kernel |
+| **alpine dom la sh ie 8715** (not sealed) | awaiting the kernel |
+| **alpine dom la ch ie 7702** (not sealed) | awaiting the kernel |
+| **alpine dom la cr ie 7656** (not sealed) | awaiting the kernel |
+| **alpine dom la se ie 7580** (not sealed) | awaiting the kernel |
+| **alpine dom la ma ie 7537** (not sealed) | awaiting the kernel |
+| **alpine dom la ar ie 7551** (not sealed) | awaiting the kernel |
+| **alpine dom la bi ie 7503** (not sealed) | awaiting the kernel |
+| **alpine dom la ch ie 7506** (not sealed) | awaiting the kernel |
+| **alpine dom la ne ie 7511** (not sealed) | awaiting the kernel |
+| **alpine dom la as ie 7518** (not sealed) | awaiting the kernel |
+| **alpine dom la ph ie 7510** (not sealed) | awaiting the kernel |
+| **alpine dom la ge ie 7562** (not sealed) | awaiting the kernel |
+| **alpine dom la vi ie 7719** (not sealed) | awaiting the kernel |
+| **alpine dom la ga ie 7528** (not sealed) | awaiting the kernel |
+| **alpine dom la fo ie 7581** (not sealed) | awaiting the kernel |
+| **alpine dom la au ie 7699** (not sealed) | awaiting the kernel |
+| **alpine dom la bu ie 7752** (not sealed) | awaiting the kernel |
+| **alpine dom la so ie 7717** (not sealed) | awaiting the kernel |
+| **alpine dom la en ie 7532** (not sealed) | awaiting the kernel |
+| **alpine dom ne sh ie 1605** (not sealed) | awaiting the kernel |
+| **alpine dom sc sh ie 1355** (not sealed) | awaiting the kernel |
+| **alpine dom me sh ie 1536** (not sealed) | awaiting the kernel |
+| **alpine dom sh ch ie 1519** (not sealed) | awaiting the kernel |
+| **alpine dom sh cr ie 1470** (not sealed) | awaiting the kernel |
+| **alpine dom sh se ie 1363** (not sealed) | awaiting the kernel |
+| **alpine dom sh ma ie 1321** (not sealed) | awaiting the kernel |
+| **alpine dom sh ar ie 1333** (not sealed) | awaiting the kernel |
+| **alpine dom sh bi ie 1283** (not sealed) | awaiting the kernel |
+| **alpine dom sh ch ie 1284** (not sealed) | awaiting the kernel |
+| **alpine dom sh ne ie 1292** (not sealed) | awaiting the kernel |
+| **alpine dom sh as ie 1303** (not sealed) | awaiting the kernel |
+| **alpine dom sh ph ie 1288** (not sealed) | awaiting the kernel |
+| **alpine dom sh ge ie 1342** (not sealed) | awaiting the kernel |
+| **alpine dom sh vi ie 1507** (not sealed) | awaiting the kernel |
+| **alpine dom sh ga ie 1306** (not sealed) | awaiting the kernel |
+| **alpine dom sh fo ie 1363** (not sealed) | awaiting the kernel |
+| **alpine dom sh au ie 1475** (not sealed) | awaiting the kernel |
+| **alpine dom sh bu ie 1535** (not sealed) | awaiting the kernel |
+| **alpine dom sh so ie 1581** (not sealed) | awaiting the kernel |
+| **alpine dom sh en ie 1311** (not sealed) | awaiting the kernel |
+| **cross cipher handlespan sum 2097152** (not sealed) | awaiting the kernel |
+| **cross cipher handlespan difference 1048576** (not sealed) | awaiting the kernel |
+| **cross cipher wave sum 1048576** (not sealed) | awaiting the kernel |
+| **cross cipher wave difference 524288** (not sealed) | awaiting the kernel |
+| **cross production wave sum 44100** (not sealed) | awaiting the kernel |
+| **cross stringtheory wave sum 42195** (not sealed) | awaiting the kernel |
+| **cross production wave difference 42195** (not sealed) | awaiting the kernel |
+| **cross topography wave sum 28633** (not sealed) | awaiting the kernel |
+| **cross stringtheory wave difference 28595** (not sealed) | awaiting the kernel |
+| **cross editing wave sum 28436** (not sealed) | awaiting the kernel |
+| **cross editing wave difference 27356** (not sealed) | awaiting the kernel |
+| **cross topography wave sum 25000** (not sealed) | awaiting the kernel |
+| **cross topography wave difference 19784** (not sealed) | awaiting the kernel |
+| **cross topography wave difference 17265** (not sealed) | awaiting the kernel |
 
 ## Accepted — the cargo, each with its seal
 

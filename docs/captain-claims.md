@@ -7,7 +7,7 @@
 **Discovery claimed:** 70702 — the other 412 restate a fact a named source found first
 
 *The 412 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 347 of 382 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 22/30 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `3caf78e7-4f21-8a69-93c3-4ceb7dffc7b7`
+**Claim receipt:** `1a5b56f9-00b7-885a-9189-86666f64f6c4`
 
 ### Facts the captain does not claim to have discovered
 
@@ -476,7 +476,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `925a00dd-2c90-8f64-ac4b-35a860c380af`
+- **Sample lineAddress:** `73bcdbfe-7f41-8e56-a2ba-2c9cb43b374c`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -1997,7 +1997,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The involution of lead b13fd37a
 
 - **Theorems:** 2
-- **Sample lineAddress:** `3a713b3d-c77d-8181-98e6-f4d62bfd601e`
+- **Sample lineAddress:** `59e91945-e4eb-8971-85e6-79249538fdd9`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2366,7 +2366,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
 
 - **Theorems:** 5
-- **Sample lineAddress:** `556a8982-2513-8859-865b-e43c1cb6d5c8`
+- **Sample lineAddress:** `40271ff7-3ed1-803d-a04b-d431cb16cf6e`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2446,7 +2446,7 @@ computed, never typed:
 | in trial | count |
 |---|---|
 | sealed propositions | 71028 (71114 entries, 86 re-namings — a theorem is its Lean |
-| prose paragraphs tried | 23176 — 7434 usable, 15742 held open, 0 drained |
+| prose paragraphs tried | 36068 — 7625 usable, 28443 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
 docket keeps its own verdict: a VERIFIED paragraph is backed, an UNVERIFIED one is an open door with nobody's

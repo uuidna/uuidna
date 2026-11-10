@@ -10,7 +10,7 @@
  */
 import { mkdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { ROOT } from '../boundary.js'
 import { SemiconductorFormulas } from '../families/semiconductor/index.js'
 import { SemiconductorsFormulas } from '../families/semiconductors/index.js'
 import { HardwareFormulas } from '../families/hardware/index.js'
@@ -30,7 +30,6 @@ import { generateAllBlueprints } from './blueprint-generator.js'
 import { generateAllWhitePapers } from './whitepaper-generator.js'
 import { chipLicenseMarkdownOf, imprintChipLicenseOf, verifyChipLicenseOf, type ChipLicenseImprint } from './chip-license.js'
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const OUT = path.join(ROOT, 'docs', 'chips')
 
 type Call = { address: string; params: number[]; value: number; holds: boolean; hex: string | null; formula: string }

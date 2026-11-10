@@ -255,6 +255,14 @@ const FALSIFIED: readonly string[] = [
   'majority_vote_is_floor_half',
   'teleportation_costs_two_coins',
   'ym_quantum',
+  'uuidprog_address',
+  'uuidprog_layout',
+  'uuidprog_h_unitary',
+  'uuidprog_paulis_unitary',
+  'uuidprog_cnot_swap',
+  'uuidprog_toffoli',
+  'uuidprog_bell_runs',
+  'uuidprog_ghz_runs',
 ]
 
 test('THE FALSIFIED SET IS NAMED, AND CANNOT DRIFT FROM THE BATTERY IT DESCRIBES', () => {

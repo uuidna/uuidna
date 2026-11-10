@@ -1,0 +1,12 @@
+{
+  "handle": "32c5252e",
+  "address": "32c5252e-8c5e-84ee-a965-ab0fea1e47f2",
+  "statement": "idxOf \"gen-prose-evidence.js\" reconcileRuns = reconcileDirect.length + 34 ∧ idxOf \"gen-prose-evidence.js\" generateManifest + 13 = 47 ∧ idxOf \"gen-prose-evidence.js\" generateManifest - 6 = 28 ∧ idxOf \"gen-readme.js\" generateManifest + 24 = 47 ∧ idxOf \"gen-llm.js\" generateManifest + 22 = 47 ∧ generateManifest.length - 47 = 20",
+  "tactic": "decide",
+  "keys": [
+    "reconciled_generator_sat_inside_the_truncated_run"
+  ],
+  "files": [
+    "Links.lean"
+  ]
+}
