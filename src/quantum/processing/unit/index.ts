@@ -8157,7 +8157,7 @@ export const quantumModeOf = (): boolean => {
     const lean = leanOf()
 
     // WAVE 1: Theorem-driven autonomy gates
-    // theorem all_complete requires all 5 parts to hold
+    // the served row named all_complete requires all 5 parts to hold (a qpu Lean row, not a uuidna ledger key)
     const hasAllComplete = lean.rows.some(r => r.heading === 'all_complete' || r.theorem.includes('all_complete'))
     const hasCoins = lean.rows.some(r => r.heading === 'coins' || r.theorem.includes('coins_two')) && 2 === 2
     const hasAroundHarmonic = lean.rows.some(r =>

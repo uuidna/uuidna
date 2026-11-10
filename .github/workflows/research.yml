@@ -42,6 +42,11 @@ jobs:
           node-version: '26'
       - name: Install deps
         run: npm install --no-audit --no-fund
+      # THE OFFLINE AUDIT FIRST. EDIT ends on the provenance audit, which reads only the built tree; behind a two-hour
+      # SEARCH, one fabricated citation failed three nightly runs after 118 minutes each (2026-11-07…09). Run first,
+      # it fails in a minute, and EDIT runs it again over what the search returned.
+      - name: PRE-FLIGHT — the provenance audit the desk ends on, before the search
+        run: npm run build && node dist/scripts/provenance.js
       - name: SEARCH — quantum scale, every wing, every source, each finding at trial
         run: npm run search:trial:all
       - name: MINE — read the declared public-domain corpus and file every numeric claim it STATES as a candidate
