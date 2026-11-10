@@ -40,7 +40,7 @@
 import { execFileSync } from 'node:child_process'
 import { readFileSync, existsSync, statSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT } from './api.js'
+import { ROOT, GENERATOR_HEAP } from './api.js'
 import { acquire, release, currentWriter } from './one-writer.js'
 import { sha256 } from '../sha256.js'
 
@@ -103,13 +103,19 @@ interface RoundResult { round: number; job: string; moved: string[]; ok: boolean
 const runJob = (job: Job): { ok: boolean; error?: string } => {
   // `node` is spawned as THIS interpreter rather than by name: it is not on PATH on every development host here,
   // and a runner that resolves differently from the one already running is a second opinion about the host.
+  // The heap is the one generate.ts spawns with. Spawned bare, gen-quantum-advantage failed all four rounds of every
+  // scheduled improve run, and the last six lines of stderr kept only V8's native stack, not the out-of-memory line.
   const [, ...argv] = job.cmd.split(/\s+/)
   try {
-    execFileSync(process.execPath, argv.map((a) => join(ROOT, a)), { cwd: ROOT, stdio: 'pipe', encoding: 'utf8' })
+    execFileSync(process.execPath, [GENERATOR_HEAP, ...argv.map((a) => join(ROOT, a))], { cwd: ROOT, stdio: 'pipe', encoding: 'utf8' })
     return { ok: true }
   } catch (e) {
     const err = e as { stdout?: string; stderr?: string; message?: string }
-    return { ok: false, error: (err.stderr || err.stdout || err.message || 'unknown').trim().split('\n').slice(-6).join('\n      ') }
+    const lines = (err.stderr || err.stdout || err.message || 'unknown').trim().split('\n')
+    const tail = lines.slice(-6)
+    // a crash prints its cause first and a native stack after it, so the tail alone can miss the cause
+    const cause = lines.find((l) => /FATAL|Error/.test(l))
+    return { ok: false, error: [...(cause && !tail.includes(cause) ? [cause] : []), ...tail].join('\n      ') }
   }
 }
 

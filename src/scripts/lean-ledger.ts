@@ -323,7 +323,10 @@ const BLOCK = chunkWidth(rows.length)
 const blocks: string[][] = []
 for (let i = 0; i < rows.length; i += BLOCK) blocks.push(rows.slice(i, i + BLOCK))
 const body = blocks.map((b, i) => `const LEDGER_BLOCK_${i}: readonly LeanTheorem[] = [\n${b.join('\n')}\n]`).join('\n\n')
-const blockSpread = blocks.map((_, i) => `...LEDGER_BLOCK_${i}`).join(', ')
+// The blocks are joined by a call marked pure, not by array spread. A bundler may not drop a spread it cannot prove
+// free of effects (spread runs the iterator protocol), so the Worker, which names only WING_DEFS and PRINCIPLES,
+// shipped all of LEAN_LEDGER: 24 MB of its 44 MB bundle, measured 2026-11-10. Marked pure, an unread ledger drops.
+const blockList = blocks.map((_, i) => `LEDGER_BLOCK_${i}`).join(', ')
 
 // THE DEFS EACH WING DECLARES — sealed here because the package ships no lean/ directory, so independence
 // (gravity) must be recomputable from the ledger alone rather than by reading the proofs at runtime.
@@ -344,7 +347,8 @@ export const WING_DEFS: ReadonlyMap<string, readonly string[]> = new Map(Object.
 
 ${body}
 
-export const LEAN_LEDGER: readonly LeanTheorem[] = [${blockSpread}]
+const NO_ROWS: readonly LeanTheorem[] = []
+export const LEAN_LEDGER: readonly LeanTheorem[] = /* @__PURE__ */ NO_ROWS.concat(${blockList})
 
 /** The principles that carry theorems, in derivation order — [file, title, blurb]. */
 export const PRINCIPLES: readonly [string, string, string][] = [

@@ -21,6 +21,9 @@ const hasNodeRegistry = typeof (globalThis as { process?: { getBuiltinModule?: u
 export const HERE = hasNodeRegistry ? pathm().dirname(urlm().fileURLToPath(import.meta.url)) : '/'
 /** the repo root */
 export const ROOT = hasNodeRegistry ? pathm().join(HERE, '..', '..') : '/'
+/** the heap every generator runs under, wherever it is spawned from: gen-quantum-advantage maps the ledger and runs
+ *  out of the default ~4 GiB heap (reproduced 2026-11-10, 4.9 GB RSS, "JavaScript heap out of memory") */
+export const GENERATOR_HEAP = '--max-old-space-size=8192'
 
 // ── THE GUARD JUDGES WHAT GIT WOULD COMMIT (lead 223). An UNTRACKED, UNSTAGED file is somebody's live context:
 // three sessions' pushes were held in one hour by single comment lines in files their authors had not finished,

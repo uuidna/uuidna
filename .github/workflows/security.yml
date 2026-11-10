@@ -15,6 +15,9 @@ on:
       - '.github/workflows/security.yml'
   pull_request:
   workflow_dispatch:
+  # the full-history secret scan runs weekly; a push or PR scans only the commits it adds
+  schedule:
+    - cron: '17 4 * * 1'
 
 concurrency:
   group: security-${{ github.ref }}
@@ -27,6 +30,7 @@ jobs:
   # 1) the RECOMPUTABLE security audit — zero runtime deps, dev-deps bounded, defence theorems sealed, collision
   #    resistance by pigeonhole, the honesty gate biting a fabricated citation, no committed secret, KAT suite present.
   recomputable-audit:
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -40,7 +44,10 @@ jobs:
       - name: npm audit (runtime deps)
         run: npm audit --omit=dev --audit-level=low
 
-  # 2) secret scan — no credential ever enters history. gitleaks over the full tree (free for public repos).
+  # 2) secret scan — no credential ever enters history. gitleaks (free for public repos).
+  #    A push or PR scans the commits it adds; the weekly schedule and a manual run scan all of history. Every push
+  #    used to rescan all 2,706 commits (2.34 GB, 3 min 9 s, measured 2026-11-09), so one old finding turned every
+  #    later push red whatever that push contained.
   secret-scan:
     runs-on: ubuntu-latest
     steps:
@@ -48,9 +55,22 @@ jobs:
         with:
           fetch-depth: 0
       # The action wrapper now demands a paid org license; the gitleaks BINARY stays free — invoke it directly.
+      # The image is pinned: a moving tag changes the rules under an unchanged tree.
       - name: gitleaks (direct binary — no license wall)
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:latest detect --source=/repo --config=/repo/.gitleaks.toml --no-banner --redact --exit-code 1 -v --report-path /repo/gitleaks-report.json
+          range=''
+          if [ "$EVENT" = push ] && [ -n "$BEFORE" ] && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            range="$BEFORE..$GITHUB_SHA"
+          elif [ "$EVENT" = pull_request ]; then
+            range="origin/$BASE_REF..HEAD"
+          fi
+          echo "scanning ${range:-all of history}"
+          docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.30.1 detect --source=/repo --config=/repo/.gitleaks.toml \
+            ${range:+--log-opts="$range"} --no-banner --redact --exit-code 1 -v --report-path /repo/gitleaks-report.json
       - name: findings report (always — the tuning loop reads exact files and rules, never guesses)
         if: always()
         uses: actions/upload-artifact@v7

@@ -13,6 +13,7 @@ import { THEOREMS } from './theorems/index.js'
 import { EDGE_ROOT } from './theorems/edge-root.js'
 import { LEDGER_STORAGE, ledgerAt, storedAt } from './edge-ledger.js'
 import { bakeLedgerAssets } from './scripts/ledger-deposit.js'
+import { ROOT } from './scripts/api.js'
 
 const dir = mkdtempSync(join(tmpdir(), 'uuidna-ledger-assets-'))
 const baked = bakeLedgerAssets(dir)
@@ -44,4 +45,23 @@ test('CONTROL — a document whose bytes do not address to its name is refused b
   writeFileSync(join(dir, `${forged}.json`), JSON.stringify(doc))
   await assert.rejects(storedAt(forged, assetsFetch), /address to .* not .* refused/)
   await assert.rejects(storedAt('00000000-0000-0000-0000-000000000000', assetsFetch), /answered 404/)
+})
+
+// THE ROWS STAY OUT OF THE WORKER BUNDLE. The Worker imports generated.js for WING_DEFS and PRINCIPLES only. A bundler
+// keeps an unread LEAN_LEDGER when it is joined by spread, and joined so it put 24 MB of rows in the 44 MB edge bundle
+// (wrangler dry run, 2026-11-10). Both the source and the emitted JS must join the blocks by a call marked pure.
+const ledgerLine = (text: string): string => text.split('\n').find((l) => l.startsWith('export const LEAN_LEDGER')) ?? ''
+const joinsPure = (line: string): boolean => /=\s*\/\* @__PURE__ \*\/ \w+\.concat\(LEDGER_BLOCK_0\b/.test(line) && !line.includes('...')
+
+test('the ledger joins its blocks by a pure call, in the source and in the emitted JS, so a bundler can drop it', () => {
+  const source = ledgerLine(readFileSync(join(ROOT, 'src', 'theorems', 'generated.ts'), 'utf8'))
+  const emitted = ledgerLine(readFileSync(new URL('./theorems/generated.js', import.meta.url), 'utf8'))
+  assert.ok(joinsPure(source), `src/theorems/generated.ts: ${source.slice(0, 120)}`)
+  assert.ok(joinsPure(emitted), `the compiled generated.js lost the pure join: ${emitted.slice(0, 120)}`)
+  assert.ok(LEAN_LEDGER.length > 0, 'and the joined ledger still holds its rows')
+})
+
+test('CONTROL — a ledger joined by spread is refused by the same predicate', () => {
+  assert.equal(joinsPure('export const LEAN_LEDGER = [...LEDGER_BLOCK_0, ...LEDGER_BLOCK_1]'), false)
+  assert.equal(joinsPure('export const LEAN_LEDGER = NO_ROWS.concat(LEDGER_BLOCK_0, LEDGER_BLOCK_1)'), false, 'unmarked, a call may be kept')
 })
