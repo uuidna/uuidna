@@ -8,6 +8,10 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract,
   toUuid, encrypt, decrypt, imprintTextChain, readImprintTextChain, verifyEnvelope } from './index.js'
+import { legacyContractId } from './contract.js'
+import { encryptKeyed } from './crypt.js'
+import { sealStream } from './stream.js'
+import { sha256 } from './sha256.js'
 import { sealMessage, openMessage, verifyMessage, serializeMessage } from './index.js'
 import { sha256IsFourSixtyfours } from './index.js'
 import { UUID } from './test-api.js'
@@ -18,8 +22,37 @@ const SEALED = sealToContract(PAYLOAD, TERMS)          // one contract seal, rea
 
 test('the domain IS the contract address — the licence is a contract, folded like any other text', () => {
   assert.match(contractId(TERMS), UUID)
-  assert.equal(contractId(TERMS), toUuid(TERMS))       // the same fold as uuidna_address
   assert.equal(contractDomain(TERMS), `${contractId(TERMS)}.uuidna.org`)
+  // THE ID IS NOT A HASH-SPEED ORACLE FOR THE TERMS: toUuid(terms) recovered a private contract's terms from its public
+  // id in 99 guesses and 0.3 ms (2026-11-10). The id is now the address of a PBKDF2-stretched name, and differs from it
+  assert.notEqual(contractId(TERMS), toUuid(TERMS))
+  assert.equal(legacyContractId(TERMS), toUuid(TERMS))
+})
+
+test('a contract seal confirms no guessed plaintext — nothing public is a hash of the plaintext alone', () => {
+  const env = JSON.parse(readImprintTextChain(SEALED.uuids)) as { v: number; salt: string; seq: number }
+  assert.equal(env.v, 4)
+  const enc = new TextEncoder()
+  const b64 = (u: Uint8Array): string => btoa(String.fromCharCode(...u))
+  const saltOf = (pt: string, prefix: string): string => b64(sha256(new Uint8Array([...enc.encode(prefix + env.seq + '|'), ...enc.encode(pt)])).slice(0, 16))
+  // the v2 confirmation that worked on the old seals now matches neither the true plaintext nor a false one
+  assert.notEqual(env.salt, saltOf(PAYLOAD, 'uuidna-crypt-salt-v2|'))
+  // CONTROL: the same check on a v2 envelope does confirm its plaintext, so the instrument can see a leak
+  const v2 = encrypt(PAYLOAD, TERMS, env.seq)
+  assert.equal(v2.salt, saltOf(PAYLOAD, 'uuidna-crypt-salt-v2|'))
+})
+
+test('a repeated step never reuses a keystream, and an edited seq is refused', () => {
+  const a = encryptKeyed('approve', TERMS, 3), b = encryptKeyed('reject', TERMS, 3)
+  assert.notEqual(a.nonce, b.nonce, 'two messages at one step get two nonces (synthetic IV)')
+  assert.equal(encryptKeyed('approve', TERMS, 3).nonce, a.nonce, 'the same message at the same step seals alike')
+  assert.equal(decrypt(a, TERMS), 'approve')
+  assert.throws(() => decrypt({ ...a, seq: 4 }, TERMS), /does not recompute its nonce/)
+})
+
+test('a seal made under the legacy id still opens', () => {
+  const legacy = { ...sealStream(PAYLOAD, [TERMS], 5), contract: legacyContractId(TERMS) }
+  assert.equal(openFromContract(legacy, TERMS), PAYLOAD)
 })
 
 test('seal → open round-trips under the contract, and the tag routes without decrypting', () => {

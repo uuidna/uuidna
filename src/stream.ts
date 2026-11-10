@@ -13,7 +13,7 @@
 //    is forward-linked and every step is fresh. That rotation buys FRESHNESS, LINKAGE and accidental-tamper-
 //    evidence (a dropped/reordered/edited link breaks the referer) — NOT secrecy and NOT a binding commitment
 //    (FNV is not collision-resistant). Secrecy and authentication stay with the ChaCha20-Poly1305 layers + tag.
-import { encrypt, decrypt, type Sealed } from './crypt.js'
+import { encrypt, encryptKeyed, decrypt, type Sealed } from './crypt.js'
 import { imprintTextChain, readImprintTextChain } from './imprint.js'
 import { merkleFold, toUuid } from './address.js'
 import { HEXBIT_STATES, SAFE_HEXBITS, HANDLE_HEXBITS } from './hexbit/index.js'
@@ -38,10 +38,11 @@ const check = (passphrases: readonly string[]): void => {
 /** sealStream(message, passphrases[, step]) → a uuid chain carrying the onion-sealed message. Layer order:
  *  passphrases[0] is the INNERMOST wrap, passphrases[n-1] the OUTERMOST. Pass an advancing `step` (the crypt
  *  salt) so a repeated message seals differently across a stream — the equality leak stays closed. */
-export function sealStream(message: string, passphrases: readonly string[], step?: number): Stream {
+export function sealStream(message: string, passphrases: readonly string[], step?: number, keyed = false): Stream {
   check(passphrases)
   let payload = message
-  for (const p of passphrases) payload = JSON.stringify(encrypt(payload, p, step))
+  // keyed: every layer is the v4 envelope (crypt.ts encryptKeyed), whose public fields confirm no guessed plaintext
+  for (const p of passphrases) payload = JSON.stringify(keyed ? encryptKeyed(payload, p, step ?? 0) : encrypt(payload, p, step))
   const uuids = imprintTextChain(payload)
   return { uuids, layers: passphrases.length, receipt: merkleFold(uuids) }
 }
@@ -103,13 +104,13 @@ const stepOf = (referer: string): number => parseInt(referer.replace(/-/g, '').s
 /** sealChain(messages, passphrases[, genesis]) → a forward-linked (ratcheting) stream. Each message onion-seals
  *  at a step ROTATED from the prior link's receipt (the referer), so every step is fresh and the whole stream is
  *  content-chained. Public rotation: freshness + linkage + accidental-tamper-evidence. */
-export function sealChain(messages: readonly string[], passphrases: readonly string[], genesis = GENESIS): Link[] {
+export function sealChain(messages: readonly string[], passphrases: readonly string[], genesis = GENESIS, keyed = false): Link[] {
   check(passphrases)
   const out: Link[] = []
   let referer = toUuid(genesis)
   for (const m of messages) {
     const step = stepOf(referer)
-    const s = sealStream(m, passphrases, step)
+    const s = sealStream(m, passphrases, step, keyed)
     out.push({ ...s, referer, step })
     referer = s.receipt // this link's receipt hardens the next — the rotation
   }

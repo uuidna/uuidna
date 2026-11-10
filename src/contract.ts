@@ -1,5 +1,5 @@
-// contract — first-class contract-keyed messaging. A CONTRACT is a text (the terms). Its content-address IS its
-// domain: contractId(terms) = toUuid(terms), the [contract-uuid] that names the deployment's subdomain
+// contract — first-class contract-keyed messaging. A CONTRACT is a text (the terms). Its routing id IS its
+// domain: contractId(terms) = toUuid of a PBKDF2-stretched name of the terms, the [contract-uuid] that names the deployment's subdomain
 // (<contract-uuid>.uuidna.org). That address is the PUBLIC identity — it ROUTES (which contract a message is under)
 // and lets a holder PROVE they hold the tagged contract (re-address their terms and compare) — while the contract
 // TEXT is the private KEY. Same addressing as the license's own receipt, so the license itself is a contract.
@@ -17,13 +17,20 @@
 //  · A changed contract → a new address AND a new key → old ciphertext no longer opens: a license change is a new
 //    signature, cryptographically.
 import { toUuid } from './address.js'
+import { keyedIdOf } from './crypt.js'
 import { sealStream, openStream, sealChain, openChain, type Stream, type Link } from './stream.js'
 
-/** The contract's content-address — the [contract-uuid] that names its subdomain. Public identity, recomputable by
- *  anyone who holds the exact terms (so it also proves holding). Same fold as uuidna_address — the license is a contract. */
+/** The contract's routing id — the [contract-uuid] that names its subdomain, recomputable by anyone who holds the
+ *  exact terms (so it proves holding). It is the address of a PBKDF2-stretched name of the terms (crypt.ts keyedIdOf),
+ *  not of the terms themselves: toUuid(terms) let a private contract's terms be recovered from its public id by
+ *  dictionary at hash speed (measured 2026-11-10: 99 guesses, 0.3 ms). Now each guess costs what a decryption costs. */
 export function contractId(terms: string): string {
-  return toUuid(terms)
+  return toUuid('contract-v2:' + keyedIdOf(terms))
 }
+
+/** the id contracts carried before 2026-11-10 — accepted on open, so every seal made under it still opens */
+export const legacyContractId = (terms: string): string => toUuid(terms)
+const holds = (terms: string, tagged: string): boolean => tagged === contractId(terms) || tagged === legacyContractId(terms)
 
 /** The domain the contract addresses to: <contract-uuid>.uuidna.org — the domain IS the contract's address. */
 export function contractDomain(terms: string, base = 'uuidna.org'): string {
@@ -39,13 +46,13 @@ export interface ContractSealed extends Stream {
  *  sealed stream with the public contract-uuid. Only holders of the terms can open it. `step` freshens the salt so a
  *  repeated message never seals alike. Secrecy is exactly the secrecy of the terms (none, if the contract is public). */
 export function sealToContract(message: string, terms: string, step?: number): ContractSealed {
-  return { ...sealStream(message, [terms], step), contract: contractId(terms) }
+  return { ...sealStream(message, [terms], step ?? 0, true), contract: contractId(terms) }
 }
 
 /** Open a contract-sealed message. First checks the holder's terms address to the tagged contract-uuid (a public
  *  proof of holding the right contract), then decrypts. A wrong contract fails the address check or Poly1305 auth. */
 export function openFromContract(sealed: ContractSealed, terms: string): string {
-  if (contractId(terms) !== sealed.contract)
+  if (!holds(terms, sealed.contract))
     throw new Error(`contract: wrong contract — your terms address to ${contractId(terms)}, not ${sealed.contract}`)
   return openStream(sealed.uuids, [terms])
 }
@@ -61,13 +68,13 @@ export interface ContractChain {
  *  Seeded from the public contract-uuid so the same contract's chain is reproducible. */
 export function sealChainToContract(messages: readonly string[], terms: string): ContractChain {
   const contract = contractId(terms)
-  return { contract, links: sealChain(messages, [terms], contract) }
+  return { contract, links: sealChain(messages, [terms], contract, true) }
 }
 
 /** Open a contract-keyed ratchet: verifies the terms address to the tagged contract-uuid and the referer chain
  *  rotates correctly, then decrypts each link. A wrong contract, or a dropped/reordered/edited link, throws. */
 export function openChainFromContract(chain: ContractChain, terms: string): string[] {
-  if (contractId(terms) !== chain.contract)
+  if (!holds(terms, chain.contract))
     throw new Error(`contract: wrong contract — your terms address to ${contractId(terms)}, not ${chain.contract}`)
   return openChain(chain.links, [terms], chain.contract)
 }

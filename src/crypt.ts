@@ -24,7 +24,7 @@
 // ~128-bit and SHA-256 preimages to ~128-bit — still strong. This code has no quantum device and no key exchange;
 // exact classical state-vector arithmetic secures nothing.
 import { toUuid, merkleFold } from './address.js'
-import { pbkdf2Sha256, sha256 } from './sha256.js'
+import { pbkdf2Sha256, sha256, hmacSha256 } from './sha256.js'
 import { aeadEncrypt, aeadDecrypt } from './chacha.js'
 import {
   UUID_HEXBITS, COINS, HEXBIT_BITS, HEXBIT_STATES, HANDLE_HEXBITS,
@@ -135,7 +135,7 @@ export const kdfInstrument = (): 'host' | 'pure' => (hostPbkdf2() ? 'host' : 'pu
 /** A sealed envelope: the ChaCha20-Poly1305 ciphertext + tag, its public parameters, and its 7d-fold address.
  *  `v:2` envelopes carry `seq`, the advancing-sequence step that freshens the salt (closing the equality leak). */
 export interface Sealed {
-  v: 1 | 2 | 3
+  v: 1 | 2 | 3 | 4
   alg: 'ChaCha20-Poly1305'
   kdf: 'PBKDF2-SHA256'
   iter: number
@@ -246,11 +246,47 @@ export function decryptSession(sealed: Sealed, passphrase: string, session: stri
   return openAead(sealed, rotate(root, sealed.seq ?? 0))
 }
 
-/** Decrypt a v:1 / v:2 envelope. v:3 opens only through decryptSession (the referrer). Tamper fails the fold first. */
+// encryptKeyed — THE KEYED ENVELOPE (v4), for secrets whose messages are guessable (a contract's "approve", an amount).
+// v1/v2 derive the public salt from the plaintext alone, so one SHA-256 confirms a guessed plaintext from the envelope
+// without the passphrase (measured 2026-11-10 against uuidna_contract_seal: "approve" confirmed, "reject" refused).
+// Here nothing public is a function of the plaintext alone: one PBKDF2 key per passphrase (a constant salt, so it is
+// derived once and cached), the nonce is HMAC(master, step ‖ plaintext) — a synthetic IV, so equal (plaintext, step)
+// seal alike and anything else gets its own nonce even when a step repeats — and the message key is HMAC(master, nonce).
+// Misuse-resistant: a reused step costs only the equality of identical messages, never a reused keystream.
+export const KEYED_SALT = 'uuidna-keyed-v4'
+const keyedMaster = (passphrase: string, salt: Uint8Array, iter: number): Uint8Array => deriveKey(enc.encode(passphrase), salt, iter)
+const keyedNonce = (master: Uint8Array, step: number, pt: Uint8Array): Uint8Array =>
+  hmacSha256(master, cat(enc.encode('uuidna-keyed-siv-v4|' + intOf(step) + '|'), pt)).slice(0, NONCE_BYTES)
+const keyedKey = (master: Uint8Array, nonce: Uint8Array): Uint8Array =>
+  hmacSha256(master, cat(enc.encode('uuidna-keyed-key-v4|'), nonce)).slice(0, KEY_BYTES)
+export function encryptKeyed(plaintext: string, passphrase: string, step = 0): Sealed {
+  const pt = enc.encode(plaintext), salt = enc.encode(KEYED_SALT).slice(0, SALT_BYTES)
+  const master = keyedMaster(passphrase, salt, ITER)
+  const nonce = keyedNonce(master, step, pt)
+  const { ct, tag } = aeadEncrypt(keyedKey(master, nonce), nonce, pt)
+  const base = { alg: 'ChaCha20-Poly1305' as const, kdf: 'PBKDF2-SHA256' as const, iter: ITER, salt: b64(salt), nonce: b64(nonce), ct: b64(ct), tag: b64(tag) }
+  return { v: 4, ...base, address: foldEnvelope(base.alg, base.salt, base.nonce, base.ct, base.tag), seq: intOf(step) }
+}
+/** keyedIdOf(passphrase) → a public name for the passphrase that costs a full PBKDF2 per guess: the hex of
+ *  HMAC(master, 'id'). A contract's routing id built from it no longer lets its terms be guessed at hash speed. */
+export function keyedIdOf(passphrase: string): string {
+  const master = keyedMaster(passphrase, enc.encode(KEYED_SALT).slice(0, SALT_BYTES), ITER)
+  return Array.from(hmacSha256(master, enc.encode('uuidna-keyed-id-v4')), (b) => b.toString(16).padStart(2, '0')).join('')
+}
+
+/** Decrypt a v:1 / v:2 / v:4 envelope. v:3 opens only through decryptSession (the referrer). Tamper fails the fold first. */
 export function decrypt(sealed: Sealed, passphrase: string): string {
   if (sealed.v === 3) throw new Error('crypt: v3 opens through the referrer (decryptSession)')
   refuseIter(sealed.iter)
   insistEnvelope(sealed)
+  if (sealed.v === 4) {
+    const master = keyedMaster(passphrase, ub64(sealed.salt), sealed.iter)
+    const nonce = ub64(sealed.nonce)
+    const plaintext = openAead(sealed, keyedKey(master, nonce))
+    // the synthetic IV must recompute: an envelope whose seq was edited after sealing is refused, not opened
+    if (!sameBytes(keyedNonce(master, sealed.seq ?? 0, enc.encode(plaintext)), nonce)) throw new Error('crypt: keyed envelope does not recompute its nonce')
+    return plaintext
+  }
   const root = deriveKey(enc.encode(passphrase), ub64(sealed.salt), sealed.iter)
   return openAead(sealed, root)
 }
