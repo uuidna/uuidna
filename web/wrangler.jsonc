@@ -1,8 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
-  // the uuidna Worker: deploying this app replaces the current worker.js at uuidna.com (the cutover, on the owner's go)
-  "name": "uuidna",
+  // uuidna-site for development, builds and migrations; the cutover deploys env "uuidna" below
+  "name": "uuidna-site",
   "compatibility_date": "2025-08-15",
   "compatibility_flags": [
     // Enable Node.js API
@@ -75,5 +75,27 @@
   //       // },
   //     ]
   //   }
-  // }
+  // },
+  // THE CUTOVER: `CLOUDFLARE_ENV=uuidna pnpm run deploy` replaces the current worker.js at uuidna.com with this app,
+  // on the owner's go. Same database and bucket; bindings are not inherited by an environment, so they are restated.
+  "env": {
+    "uuidna": {
+      "name": "uuidna",
+      "services": [],
+      "d1_databases": [
+        {
+          "binding": "D1",
+          "database_id": "26009cdf-da4d-4a71-94b9-1b9949f4966a",
+          "database_name": "uuidna-site",
+          "remote": true,
+        },
+      ],
+      "r2_buckets": [
+        {
+          "binding": "R2",
+          "bucket_name": "uuidna-site",
+        },
+      ],
+    },
+  },
 }
