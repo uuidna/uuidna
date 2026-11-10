@@ -1,42 +1,25 @@
 import type { GlobalConfig } from 'payload'
 
-import { revalidatePath } from 'next/cache'
-
-import { isAdmin } from '../access/isAdmin'
-import link from '../fields/link'
+import { adminOnly } from '@/access/adminOnly'
+import { link } from '@/fields/link'
 
 export const Footer: GlobalConfig = {
   slug: 'footer',
   access: {
     read: () => true,
-    update: isAdmin,
+    update: adminOnly,
   },
   fields: [
     {
-      name: 'columns',
+      name: 'navItems',
       type: 'array',
       fields: [
-        {
-          name: 'label',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'navItems',
-          type: 'array',
-          fields: [
-            link({
-              appearances: false,
-            }),
-          ],
-        },
+        link({
+          appearances: false,
+        }),
       ],
-      maxRows: 3,
-      minRows: 1,
+      maxRows: 6,
     },
   ],
-  hooks: {
-    afterChange: [() => revalidatePath('/', 'layout')],
-  },
   versions: false,
 }

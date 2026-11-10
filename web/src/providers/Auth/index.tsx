@@ -1,54 +1,50 @@
 'use client'
 
-import { ME_QUERY, USER } from '@data/me'
-import React, { createContext, use, useCallback, useEffect, useRef, useState } from 'react'
+import type { User } from '@/payload-types'
 
-import type { User } from '../../payload-cloud-types'
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react'
 
+// eslint-disable-next-line no-unused-vars
 type ResetPassword = (args: {
   password: string
   passwordConfirm: string
   token: string
 }) => Promise<void>
 
-type ForgotPassword = (args: { email: string }) => Promise<void>
+type ForgotPassword = (args: { email: string }) => Promise<void> // eslint-disable-line no-unused-vars
 
-type Create = (args: { email: string; password: string; passwordConfirm: string }) => Promise<void>
+type Create = (args: { email: string; password: string; passwordConfirm: string }) => Promise<void> // eslint-disable-line no-unused-vars
 
-type Login = (args: { email: string; password: string }) => Promise<User>
+type Login = (args: { email: string; password: string }) => Promise<User> // eslint-disable-line no-unused-vars
 
 type Logout = () => Promise<void>
 
 type AuthContext = {
+  create: Create
   forgotPassword: ForgotPassword
   login: Login
   logout: Logout
   resetPassword: ResetPassword
-  setUser: (user: null | User) => void
-  updateUser: (user: Partial<User>) => void
-  user?: null | User
+  setUser: (user: User | null) => void // eslint-disable-line no-unused-vars
+  status: 'loggedIn' | 'loggedOut' | undefined
+  user?: User | null
 }
 
 const Context = createContext({} as AuthContext)
 
-const CLOUD_CONNECTION_ERROR = 'An error occurred while attempting to connect to Payload Cloud'
-
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<null | undefined | User>(undefined)
-  const fetchedMe = useRef(false)
+  const [user, setUser] = useState<User | null>()
 
-  const login = useCallback<Login>(async (args) => {
+  // used to track the single event of logging in or logging out
+  // useful for `useEffect` hooks that should only run once
+  const [status, setStatus] = useState<'loggedIn' | 'loggedOut' | undefined>()
+  const create = useCallback<Create>(async (args) => {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_CLOUD_CMS_URL}/api/graphql`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/create`, {
         body: JSON.stringify({
-          query: `mutation {
-              loginUser(email: "${args.email}", password: "${args.password}") {
-                user {
-                  ${USER}
-                }
-                exp
-              }
-            }`,
+          email: args.email,
+          password: args.password,
+          passwordConfirm: args.passwordConfirm,
         }),
         credentials: 'include',
         headers: {
@@ -57,30 +53,50 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         method: 'POST',
       })
 
-      const { data, errors } = await res.json()
+      if (res.ok) {
+        const { data, errors } = (await res.json()) as { data?: { loginUser?: { user?: User } }; errors?: { message: string }[] }
+        if (errors) throw new Error(errors[0].message)
+        setUser(data?.loginUser?.user)
+        setStatus('loggedIn')
+      } else {
+        throw new Error('Invalid login')
+      }
+    } catch (e) {
+      throw new Error('An error occurred while attempting to login.')
+    }
+  }, [])
+
+  const login = useCallback<Login>(async (args) => {
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/login`, {
+        body: JSON.stringify({
+          email: args.email,
+          password: args.password,
+        }),
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      })
 
       if (res.ok) {
-        if (errors) {
-          throw new Error(errors[0].message)
-        }
-        setUser(data?.loginUser?.user)
-        return data?.loginUser?.user
+        const { errors, user } = (await res.json()) as { errors?: { message: string }[]; user: User }
+        if (errors) throw new Error(errors[0].message)
+        setUser(user)
+        setStatus('loggedIn')
+        return user
       }
 
-      throw new Error(errors?.[0]?.message || 'An error occurred while attempting to login.')
+      throw new Error('Invalid login')
     } catch (e) {
-      throw new Error(`${CLOUD_CONNECTION_ERROR}: ${e.message}`)
+      throw new Error('An error occurred while attempting to login.')
     }
   }, [])
 
   const logout = useCallback<Logout>(async () => {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_CLOUD_CMS_URL}/api/graphql`, {
-        body: JSON.stringify({
-          query: `mutation {
-            logoutUser
-          }`,
-        }),
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/logout`, {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
@@ -90,66 +106,47 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       if (res.ok) {
         setUser(null)
+        setStatus('loggedOut')
       } else {
         throw new Error('An error occurred while attempting to logout.')
       }
     } catch (e) {
-      throw new Error(`${CLOUD_CONNECTION_ERROR}: ${e.message}`)
+      throw new Error('An error occurred while attempting to logout.')
     }
   }, [])
 
   useEffect(() => {
-    if (fetchedMe.current) {
-      return
-    }
-    fetchedMe.current = true
-
     const fetchMe = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_CLOUD_CMS_URL}/api/graphql`, {
-          body: JSON.stringify({
-            query: ME_QUERY,
-          }),
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me`, {
           credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
           },
-          method: 'POST',
+          method: 'GET',
         })
 
-        const { data, errors } = await res.json()
-
         if (res.ok) {
-          setUser(data?.meUser?.user || null)
+          const { user: meUser } = (await res.json()) as { user?: User }
+          setUser(meUser || null)
+          setStatus(meUser ? 'loggedIn' : undefined)
         } else {
-          throw new Error(
-            errors?.[0]?.message || 'An error occurred while attempting to fetch user.',
-          )
+          throw new Error('An error occurred while fetching your account.')
         }
       } catch (e) {
         setUser(null)
-        if (process.env.NEXT_PUBLIC_OMIT_CLOUD_ERRORS === 'true') {
-          return
-        }
-        throw new Error(`${CLOUD_CONNECTION_ERROR}: ${e.message}`)
+        throw new Error('An error occurred while fetching your account.')
       }
     }
 
-    fetchMe()
+    void fetchMe()
   }, [])
 
   const forgotPassword = useCallback<ForgotPassword>(async (args) => {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_CLOUD_CMS_URL}/api/graphql`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/forgot-password`, {
         body: JSON.stringify({
-          query: `mutation {
-              forgotPasswordUser(email: "${args.email}") {
-                user {
-                  ${USER}
-                }
-                exp
-              }
-            }`,
+          email: args.email,
         }),
         credentials: 'include',
         headers: {
@@ -158,34 +155,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         method: 'POST',
       })
 
-      const { data, errors } = await res.json()
-
       if (res.ok) {
-        if (errors) {
-          throw new Error(errors[0].message)
-        }
+        const { data, errors } = (await res.json()) as { data?: { loginUser?: { user?: User } }; errors?: { message: string }[] }
+        if (errors) throw new Error(errors[0].message)
         setUser(data?.loginUser?.user)
       } else {
-        throw new Error(
-          errors?.[0]?.message || 'An error occurred while attempting to reset your password.',
-        )
+        throw new Error('Invalid login')
       }
     } catch (e) {
-      throw new Error(`${CLOUD_CONNECTION_ERROR}: ${e.message}`)
+      throw new Error('An error occurred while attempting to login.')
     }
   }, [])
 
   const resetPassword = useCallback<ResetPassword>(async (args) => {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_CLOUD_CMS_URL}/api/graphql`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/reset-password`, {
         body: JSON.stringify({
-          query: `mutation {
-              resetPasswordUser(password: "${args.password}", token: "${args.token}") {
-                user {
-                  ${USER}
-                }
-              }
-            }`,
+          password: args.password,
+          passwordConfirm: args.passwordConfirm,
+          token: args.token,
         }),
         credentials: 'include',
         headers: {
@@ -194,85 +182,37 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         method: 'POST',
       })
 
-      const { data, errors } = await res.json()
-
       if (res.ok) {
-        if (errors) {
-          throw new Error(errors[0].message)
-        }
-        setUser(data?.resetPasswordUser?.user)
+        const { data, errors } = (await res.json()) as { data?: { loginUser?: { user?: User } }; errors?: { message: string }[] }
+        if (errors) throw new Error(errors[0].message)
+        setUser(data?.loginUser?.user)
+        setStatus(data?.loginUser?.user ? 'loggedIn' : undefined)
       } else {
-        throw new Error(errors?.[0]?.message || 'Invalid login')
+        throw new Error('Invalid login')
       }
     } catch (e) {
-      throw new Error(`${CLOUD_CONNECTION_ERROR}: ${e.message}`)
+      throw new Error('An error occurred while attempting to login.')
     }
   }, [])
 
-  const updateUser = useCallback(
-    async (incomingUser: Partial<User>) => {
-      try {
-        if (!user || !incomingUser) {
-          throw new Error('No user found to update.')
-        }
-
-        const res = await fetch(`${process.env.NEXT_PUBLIC_CLOUD_CMS_URL}/api/graphql`, {
-          body: JSON.stringify({
-            query: `mutation {
-              updateUser(
-                id: "${user?.id}",
-                data: {
-                  ${Object.entries(incomingUser)
-                    .filter(([key, value]) => value !== undefined)
-                    .map(([key, value]) => `${key}: "${value}"`)
-                    .join(', ')}
-                }
-              ) {
-                ${USER}
-              }
-            }`,
-          }),
-          credentials: 'include',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          method: 'POST',
-        })
-
-        const { data, errors } = await res.json()
-
-        if (res.ok) {
-          if (errors) {
-            throw new Error(errors[0].message)
-          }
-          setUser(data?.updateUser)
-        } else {
-          throw new Error(errors?.[0]?.message || 'An error occurred while updating your account.')
-        }
-      } catch (e) {
-        throw new Error(`${CLOUD_CONNECTION_ERROR}: ${e.message}`)
-      }
-    },
-    [user],
-  )
-
   return (
-    <Context
+    <Context.Provider
       value={{
+        create,
         forgotPassword,
         login,
         logout,
         resetPassword,
         setUser,
-        updateUser,
+        status,
         user,
       }}
     >
       {children}
-    </Context>
+    </Context.Provider>
   )
 }
 
-type UseAuth<T = User> = () => AuthContext
+type UseAuth<T = User> = () => AuthContext // eslint-disable-line no-unused-vars
 
-export const useAuth: UseAuth = () => use(Context)
+export const useAuth: UseAuth = () => useContext(Context)

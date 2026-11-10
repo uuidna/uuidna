@@ -1,3 +1,5 @@
-packages:
-  - '.'
-  - 'preview-runtimes/*'
+allowBuilds:
+  '@sentry/cli': false
+  '@vercel/git-hooks': false
+  esbuild: true
+  workerd: true

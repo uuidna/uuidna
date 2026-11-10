@@ -1,10 +1,9 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 
-import { Message } from '../Message/index'
-import classes from './index.module.scss'
+import { Message } from '../Message'
 
 export type Props = {
   className?: string
@@ -31,13 +30,11 @@ export const RenderParamsComponent: React.FC<Props> = ({
     return (
       <div className={className}>
         {paramValues.map((paramValue, index) => {
-          if (!paramValue) {
-            return null
-          }
+          if (!paramValue) return null
 
           return (
             <Message
-              className={classes.renderParams}
+              className="mb-8"
               key={paramValue}
               {...{
                 [params[index]]: paramValue,

@@ -1,46 +1,40 @@
+import clsx from 'clsx'
 import React from 'react'
 
-import classes from './index.module.scss'
-
-// const icons = {
-//   error: () => <div>!</div>,
-//   success: CheckmarkIcon,
-//   warning: () => <div>!</div>,
-// }
+/* [
+          classes.message,
+          className,
+          error && classes.error,
+          success && classes.success,
+          warning && classes.warning,
+          !error && !success && !warning && classes.default,
+        ]
+          .filter(Boolean)
+          .join(' '), */
 
 export const Message: React.FC<{
   className?: string
   error?: React.ReactNode
-  margin?: boolean
   message?: React.ReactNode
   success?: React.ReactNode
   warning?: React.ReactNode
-}> = ({ className, error, margin, message, success, warning }) => {
-  // const type = error ? 'error' : success ? 'success' : 'warning'
-  // const Icon = icons[type]
+}> = ({ className, error, message, success, warning }) => {
+  const messageToRender = message || error || success || warning
 
-  const label = error || success || warning || message
-
-  if (label) {
+  if (messageToRender) {
     return (
       <div
-        className={[
-          classes.message,
-          error && classes.error,
-          success && classes.success,
-          warning && classes.warning,
+        className={clsx(
+          'p-4 my-8 rounded-lg',
+          {
+            'bg-success ': Boolean(success),
+            ' bg-warning': Boolean(warning),
+            'bg-error': Boolean(error),
+          },
           className,
-          margin === false && classes.noMargin,
-        ]
-          .filter(Boolean)
-          .join(' ')}
+        )}
       >
-        {/* {Icon && (
-          <div className={classes.icon}>
-            <Icon />
-          </div>
-        )} */}
-        <p className={classes.label}>{label}</p>
+        {messageToRender}
       </div>
     )
   }

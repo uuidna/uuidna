@@ -1,12 +1,11 @@
 'use client'
 
+import { cn } from '@/utilities/cn'
 import React, { useEffect, useRef } from 'react'
 
-import type { Props } from '../types'
+import type { Props as MediaProps } from '../types'
 
-import classes from './index.module.scss'
-
-export const Video: React.FC<Props> = (props) => {
+export const Video: React.FC<MediaProps> = (props) => {
   const { onClick, resource, videoClassName } = props
 
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -23,10 +22,12 @@ export const Video: React.FC<Props> = (props) => {
   }, [])
 
   if (resource && typeof resource === 'object') {
+    const { filename } = resource
+
     return (
       <video
         autoPlay
-        className={[classes.video, videoClassName].filter(Boolean).join(' ')}
+        className={cn(videoClassName)}
         controls={false}
         loop
         muted
@@ -34,7 +35,7 @@ export const Video: React.FC<Props> = (props) => {
         playsInline
         ref={videoRef}
       >
-        <source src={resource.url || ''} />
+        <source src={`${process.env.NEXT_PUBLIC_SERVER_URL}/media/${filename}`} />
       </video>
     )
   }

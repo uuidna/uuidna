@@ -1,207 +1,67 @@
-'use client'
+import type { Footer } from '@/payload-types'
 
-import type { Theme } from '@root/providers/Theme/types'
-import type { Footer as FooterType } from '@types'
+import { FooterMenu } from '@/components/Footer/menu'
+import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
+import { getCachedGlobal } from '@/utilities/getGlobals'
+import Link from 'next/link'
+import React, { Suspense } from 'react'
+import { LogoIcon } from '@/components/icons/logo'
 
-import { BackgroundGrid } from '@components/BackgroundGrid/index'
-import { CMSLink } from '@components/CMSLink/index'
-import { Gutter } from '@components/Gutter/index'
-import { NewsletterSignUp } from '@components/NewsletterSignUp'
-import Payload3D from '@components/Payload3D/index'
-import { Text } from '@forms/fields/Text/index'
-import FormComponent from '@forms/Form/index'
-import { validateEmail } from '@forms/validations'
-import { ArrowIcon } from '@icons/ArrowIcon/index'
-import { DiscordIcon } from '@root/graphics/DiscordIcon/index'
-import { FacebookIcon } from '@root/graphics/FacebookIcon/index'
-import { InstagramIcon } from '@root/graphics/InstagramIcon/index'
-import { ThemeAutoIcon } from '@root/graphics/ThemeAutoIcon/index'
-import { ThemeDarkIcon } from '@root/graphics/ThemeDarkIcon/index'
-import { ThemeLightIcon } from '@root/graphics/ThemeLightIcon/index'
-import { TwitterIconAlt } from '@root/graphics/TwitterIconAlt/index'
-import { YoutubeIcon } from '@root/graphics/YoutubeIcon/index'
-import { ChevronUpDownIcon } from '@root/icons/ChevronUpDownIcon/index'
-import { useHeaderObserver } from '@root/providers/HeaderIntersectionObserver/index'
-import { useThemePreference } from '@root/providers/Theme/index'
-import { getImplicitPreference, themeLocalStorageKey } from '@root/providers/Theme/shared'
-import { usePathname, useRouter } from 'next/navigation'
-import React, { useId } from 'react'
+const { COMPANY_NAME, SITE_NAME } = process.env
 
-import classes from './index.module.scss'
+export async function Footer() {
+  const footer: Footer = await getCachedGlobal('footer', 1)()
+  const menu = footer.navItems || []
+  const currentYear = new Date().getFullYear()
+  const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : '')
+  const skeleton = 'w-full h-6 animate-pulse rounded bg-neutral-200 dark:bg-neutral-700'
 
-export const Footer: React.FC<FooterType> = (props) => {
-  const { columns } = props
-  const [products, developers, company] = columns ?? []
-  const { setTheme } = useThemePreference()
-  const { setHeaderTheme } = useHeaderObserver()
-  const wrapperRef = React.useRef<HTMLElement>(null)
-  const selectRef = React.useRef<HTMLSelectElement>(null)
-
-  const onThemeChange = (themeToSet: 'auto' & Theme) => {
-    if (themeToSet === 'auto') {
-      const implicitPreference = getImplicitPreference() ?? 'light'
-      setHeaderTheme(implicitPreference)
-      setTheme(implicitPreference)
-      if (selectRef.current) {
-        selectRef.current.value = 'auto'
-      }
-    } else {
-      setTheme(themeToSet)
-      setHeaderTheme(themeToSet)
-    }
-  }
-
-  React.useEffect(() => {
-    const preference = window.localStorage.getItem(themeLocalStorageKey)
-    if (selectRef.current) {
-      selectRef.current.value = preference ?? 'auto'
-    }
-  }, [])
-
-  const pathname = usePathname()
-
-  const allowedSegments = [
-    'cloud',
-    'cloud-terms',
-    'forgot-password',
-    'join-team',
-    'login',
-    'logout',
-    'new',
-    'reset-password',
-    'verify',
-    'signup',
-  ]
-
-  const pathnameSegments = pathname.split('/').filter(Boolean)
-  const isCloudPage = pathnameSegments.some((segment) => allowedSegments.includes(segment))
-
-  const themeId = useId()
+  const copyrightName = COMPANY_NAME || SITE_NAME || ''
 
   return (
-    <footer className={classes.footer} data-theme="dark" ref={wrapperRef}>
-      <BackgroundGrid
-        className={[classes.background, isCloudPage ? classes.topBorder : '']
-          .filter(Boolean)
-          .join(' ')}
-        zIndex={2}
-      />
-      <Gutter className={classes.container}>
-        <div className={[classes.grid, 'grid'].filter(Boolean).join(' ')}>
-          <div className={['cols-4 cols-m-8 cols-s-8'].filter(Boolean).join(' ')}>
-            <p className={classes.colHeader}>{products?.label}</p>
-            <div className={classes.colItems}>
-              {products?.navItems?.map(({ link }, index) => {
-                return (
-                  <React.Fragment key={index}>
-                    <CMSLink className={classes.link} {...link} />
-                  </React.Fragment>
-                )
-              })}
-            </div>
+    <footer className="text-sm text-neutral-500 dark:text-neutral-400">
+      <div className="container">
+        <div className="flex w-full flex-col gap-6 border-t border-neutral-200 py-12 text-sm md:flex-row md:gap-12 dark:border-neutral-700">
+          <div>
+            <Link className="flex items-center gap-2 text-black md:pt-1 dark:text-white" href="/">
+              <LogoIcon className="w-6" />
+              <span className="sr-only">{SITE_NAME}</span>
+            </Link>
           </div>
-
-          <div className={['cols-4 cols-m-8 cols-s-8'].filter(Boolean).join(' ')}>
-            <p className={classes.colHeader}>{developers?.label}</p>
-            <div className={classes.colItems}>
-              {developers?.navItems?.map(({ link }, index) => {
-                return (
-                  <React.Fragment key={index}>
-                    <CMSLink className={classes.link} {...link} />
-                  </React.Fragment>
-                )
-              })}
-            </div>
-          </div>
-
-          <div className={['cols-4 cols-m-8 cols-s-8'].filter(Boolean).join(' ')}>
-            <p className={classes.colHeader}>{company?.label}</p>
-            <div className={classes.colItems}>
-              {company?.navItems?.map(({ link }, index) => {
-                return (
-                  <React.Fragment key={index}>
-                    <CMSLink className={classes.link} {...link} />
-                  </React.Fragment>
-                )
-              })}
-            </div>
-          </div>
-
-          <div className={['cols-4 cols-m-4 cols-s-8'].filter(Boolean).join(' ')}>
-            <p className={`${classes.colHeader} ${classes.thirdColumn}`}>Stay connected</p>
-            <NewsletterSignUp />
-
-            <div className={classes.socialLinks}>
-              <a
-                aria-label="Payload's Twitter page"
-                className={`${classes.socialIconLink} ${classes.twitterIcon}`}
-                href="https://twitter.com/payloadcms"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <TwitterIconAlt />
-              </a>
-              <a
-                aria-label="Payload's Discord"
-                className={classes.socialIconLink}
-                href="https://discord.com/invite/r6sCXqVk3v"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <DiscordIcon />
-              </a>
-              <a
-                aria-label="Payload's YouTube channel"
-                className={classes.socialIconLink}
-                href="https://www.youtube.com/channel/UCyrx4Wpd4SBIpqUKlkb6N1Q"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <YoutubeIcon />
-              </a>
-              <a
-                aria-label="Payload's Instagram page"
-                className={classes.socialIconLink}
-                href="https://www.instagram.com/payloadcms/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <InstagramIcon />
-              </a>
-            </div>
-
-            <div className={classes.selectContainer}>
-              <label className="visually-hidden" htmlFor={themeId}>
-                Switch themes
-              </label>
-              {selectRef?.current && (
-                <div className={`${classes.switcherIcon} ${classes.themeIcon}`}>
-                  {selectRef.current.value === 'auto' && <ThemeAutoIcon />}
-                  {selectRef.current.value === 'light' && <ThemeLightIcon />}
-                  {selectRef.current.value === 'dark' && <ThemeDarkIcon />}
-                </div>
-              )}
-
-              <select
-                id={themeId}
-                onChange={(e) => onThemeChange(e.target.value as 'auto' & Theme)}
-                ref={selectRef}
-              >
-                <option value="auto">Auto</option>
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-              </select>
-
-              <ChevronUpDownIcon
-                className={`${classes.switcherIcon} ${classes.upDownChevronIcon}`}
-              />
-            </div>
+          <Suspense
+            fallback={
+              <div className="flex h-[188px] w-[200px] flex-col gap-2">
+                <div className={skeleton} />
+                <div className={skeleton} />
+                <div className={skeleton} />
+                <div className={skeleton} />
+                <div className={skeleton} />
+                <div className={skeleton} />
+              </div>
+            }
+          >
+            <FooterMenu menu={menu} />
+          </Suspense>
+          <div className="md:ml-auto flex flex-col gap-4 items-end">
+            <ThemeSelector />
           </div>
         </div>
-      </Gutter>
-      <Gutter className={classes.payload3dContainer}>
-        <Payload3D />
-      </Gutter>
+      </div>
+      <div className="border-t border-neutral-200 py-6 text-sm dark:border-neutral-700">
+        <div className="container mx-auto flex w-full flex-col items-center gap-1 md:flex-row md:gap-0">
+          <p>
+            &copy; {copyrightDate} {copyrightName}
+            {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} All rights reserved.
+          </p>
+          <hr className="mx-4 hidden h-4 w-px border-l border-neutral-400 md:inline-block" />
+          <p>Designed in Michigan</p>
+          <p className="md:ml-auto">
+            <a className="text-black dark:text-white" href="https://payloadcms.com">
+              Crafted by Payload
+            </a>
+          </p>
+        </div>
+      </div>
     </footer>
   )
 }

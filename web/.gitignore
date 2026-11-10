@@ -1,13 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-/archive/*
-!/archive/.gitkeep
-
-/src/docs
-/preview-runtimes/v4/src/generated
-/public/docs/v3
-/public/docs/v4
-
 # dependencies
 /node_modules
 /.pnp
@@ -15,18 +7,13 @@
 
 # testing
 /coverage
+.playwright
+playwright-report/
+playwright-report/index.html
 
 # next.js
 /.next/
 /out/
-
-# OpenNext / Cloudflare
-.open-next/
-
-# content-addressed raid
-/.qpu/
-.wrangler/
-.dev.vars
 
 # production
 /build
@@ -42,7 +29,8 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
-.env*.local
+.env*
+!.env.example
 
 # vercel
 .vercel
@@ -51,12 +39,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.env
-# Sentry Config File
-.sentryclirc
+public/media
 
-/.idea/*
-!/.idea/runConfigurations
-!/.idea/payload.iml
-
-/db/*

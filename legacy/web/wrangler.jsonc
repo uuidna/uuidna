@@ -1,0 +1,57 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "uuidna-site",
+  // OpenNext's custom worker: it wraps .open-next/worker.js and exports the ChatRoom Durable Object
+  // (https://opennext.js.org/cloudflare/howtos/custom-worker)
+  "main": "worker.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  // No route or custom domain: uuidna.com's Worker fronts this one through its SITE service binding.
+  "workers_dev": false,
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "D1",
+      "database_name": "qpu",
+      "database_id": "126117f2-95b6-4d63-a3c3-65556ebbfc7a",
+      "remote": true
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "R2",
+      "bucket_name": "qpu-media"
+    }
+  ],
+  "send_email": [{ "name": "EMAIL" }],
+  "durable_objects": {
+    "bindings": [{ "name": "CHAT_ROOM", "class_name": "ChatRoom" }]
+  },
+  // The renamed qpu Worker already holds tags v1 (DocketObject) and v2 (its deletion); ChatRoom is v3.
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["DocketObject"] },
+    { "tag": "v2", "deleted_classes": ["DocketObject"] },
+    { "tag": "v3", "new_sqlite_classes": ["ChatRoom"] }
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 0.1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 0.1,
+      "invocation_logs": true,
+      "persist": true
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.05,
+      "persist": true
+    },
+    "issues": {
+      "enabled": true
+    }
+  }
+}

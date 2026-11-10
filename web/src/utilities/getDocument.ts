@@ -1,8 +1,8 @@
-import type { Config } from '@types'
+import type { Config } from '@/payload-types'
 
 import configPromise from '@payload-config'
-import { unstable_cache } from 'next/cache'
 import { getPayload } from 'payload'
+import { unstable_cache } from 'next/cache'
 
 type Collection = keyof Config['collections']
 
@@ -17,6 +17,7 @@ async function getDocument(collection: Collection, slug: string, depth = 0) {
         equals: slug,
       },
     },
+    overrideAccess: true,
   })
 
   return page.docs[0]

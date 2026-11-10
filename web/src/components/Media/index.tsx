@@ -1,25 +1,24 @@
-import type { ElementType } from 'react'
-
 import React, { Fragment } from 'react'
 
 import type { Props } from './types'
 
-import { Image } from './Image/index'
-import { Video } from './Video/index'
+import { Image } from './Image'
+import { Video } from './Video'
 
-export const Media = ({
-  ref,
-  ...props
-}: {
-  ref?: React.RefObject<HTMLDivElement | HTMLImageElement | HTMLVideoElement | null>
-} & Omit<Props, 'ref'>) => {
+export const Media: React.FC<Props> = (props) => {
   const { className, htmlElement = 'div', resource } = props
 
   const isVideo = typeof resource === 'object' && resource?.mimeType?.includes('video')
-  const Tag = (htmlElement as ElementType) || Fragment
+  const Tag = (htmlElement as any) || Fragment
 
   return (
-    <Tag ref={ref} {...(htmlElement !== null ? { className } : {})}>
+    <Tag
+      {...(htmlElement !== null
+        ? {
+            className,
+          }
+        : {})}
+    >
       {isVideo ? <Video {...props} /> : <Image {...props} />}
     </Tag>
   )

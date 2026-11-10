@@ -67,260 +67,91 @@ export type SupportedTimezones =
   | 'Pacific/Fiji';
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LexicalNodes_50710DDF".
+ * via the `definition` "LexicalNodes_F99D3CCE".
  */
-export type LexicalNodes_50710DDF =
+export type LexicalNodes_F99D3CCE =
   | SerializedTextNode
   | SerializedTabNode
   | SerializedLineBreakNode
-  | SerializedParagraphNode<LexicalNodes_50710DDF>
-  | SerializedHorizontalRuleNode
-  | SerializedUploadNode<'media'>
-  | SerializedUploadNode<'exports'>
-  | SerializedUploadNode<'imports'>
-  | SerializedQuoteNode<LexicalNodes_50710DDF>
-  | SerializedRelationshipNode<
-      | 'case-studies'
-      | 'community-help'
-      | 'docs'
-      | 'docs-feedback'
-      | 'pages'
-      | 'posts'
-      | 'categories'
-      | 'reusable-content'
-      | 'users'
-      | 'partners'
-      | 'industries'
-      | 'specialties'
-      | 'regions'
-      | 'budgets'
-      | 'messages'
-      | 'redirects'
-      | 'tenants'
-      | 'entries'
-      | 'addresses'
-      | 'variants'
-      | 'variantTypes'
-      | 'variantOptions'
-      | 'products'
-      | 'carts'
-      | 'orders'
-      | 'transactions'
-      | 'payload-kv'
-      | 'payload-jobs'
-      | 'payload-locked-documents'
-      | 'payload-preferences'
-      | 'payload-migrations'
-      | 'payload-query-presets'
-    >
-  | SerializedAutoLinkNode<LexicalNodes_50710DDF, LexicalLinkFields>
-  | SerializedLinkNode<LexicalNodes_50710DDF, LexicalLinkFields>
-  | SerializedListNode<LexicalNodes_50710DDF>
-  | SerializedListItemNode<LexicalNodes_50710DDF>
-  | SerializedHeadingNode<LexicalNodes_50710DDF>;
+  | SerializedParagraphNode<LexicalNodes_F99D3CCE>
+  | SerializedHeadingNode<LexicalNodes_F99D3CCE, 'h1' | 'h2' | 'h3' | 'h4'>
+  | SerializedTableNode<LexicalNodes_F99D3CCE>
+  | SerializedTableCellNode<LexicalNodes_F99D3CCE>
+  | SerializedTableRowNode<LexicalNodes_F99D3CCE>
+  | SerializedAutoLinkNode<LexicalNodes_F99D3CCE, LexicalLinkFields>
+  | SerializedLinkNode<LexicalNodes_F99D3CCE, LexicalLinkFields>
+  | SerializedListNode<LexicalNodes_F99D3CCE>
+  | SerializedListItemNode<LexicalNodes_F99D3CCE>;
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LexicalNodes_040088D2".
+ * via the `definition` "LexicalNodes_CC09E899".
  */
-export type LexicalNodes_040088D2 =
+export type LexicalNodes_CC09E899 =
   | SerializedTextNode
   | SerializedTabNode
   | SerializedLineBreakNode
-  | SerializedParagraphNode<LexicalNodes_040088D2>
-  | SerializedBlockNode<
-      | SpotlightBlock
-      | VideoBlock
-      | BrBlock
-      | BannerBlock
-      | VideoDrawerBlock
-      | TemplateCardsBlock
-      | CodeBlock
-      | DownloadBlockType
-      | CommandLineBlock
-    >
-  | SerializedUploadNode<'media', LexicalUploadFields_F19C4182>
-  | SerializedUploadNode<'exports'>
-  | SerializedUploadNode<'imports'>
-  | SerializedTableNode<LexicalNodes_040088D2>
-  | SerializedTableCellNode<LexicalNodes_040088D2>
-  | SerializedTableRowNode<LexicalNodes_040088D2>
-  | SerializedAutoLinkNode<LexicalNodes_040088D2, LexicalLinkFields>
-  | SerializedLinkNode<LexicalNodes_040088D2, LexicalLinkFields>
-  | SerializedHorizontalRuleNode
-  | SerializedQuoteNode<LexicalNodes_040088D2>
-  | SerializedRelationshipNode<
-      | 'case-studies'
-      | 'community-help'
-      | 'docs'
-      | 'docs-feedback'
-      | 'pages'
-      | 'posts'
-      | 'categories'
-      | 'reusable-content'
-      | 'users'
-      | 'partners'
-      | 'industries'
-      | 'specialties'
-      | 'regions'
-      | 'budgets'
-      | 'messages'
-      | 'redirects'
-      | 'tenants'
-      | 'entries'
-      | 'addresses'
-      | 'variants'
-      | 'variantTypes'
-      | 'variantOptions'
-      | 'products'
-      | 'carts'
-      | 'orders'
-      | 'transactions'
-      | 'payload-kv'
-      | 'payload-jobs'
-      | 'payload-locked-documents'
-      | 'payload-preferences'
-      | 'payload-migrations'
-      | 'payload-query-presets'
-    >
-  | SerializedListNode<LexicalNodes_040088D2>
-  | SerializedListItemNode<LexicalNodes_040088D2>
-  | SerializedHeadingNode<LexicalNodes_040088D2>;
+  | SerializedParagraphNode<LexicalNodes_CC09E899>
+  | SerializedHeadingNode<LexicalNodes_CC09E899, 'h2' | 'h3' | 'h4'>
+  | SerializedTableNode<LexicalNodes_CC09E899>
+  | SerializedTableCellNode<LexicalNodes_CC09E899>
+  | SerializedTableRowNode<LexicalNodes_CC09E899>
+  | SerializedAutoLinkNode<LexicalNodes_CC09E899, LexicalLinkFields>
+  | SerializedLinkNode<LexicalNodes_CC09E899, LexicalLinkFields>
+  | SerializedListNode<LexicalNodes_CC09E899>
+  | SerializedListItemNode<LexicalNodes_CC09E899>;
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LexicalNodes_EECE9A51".
+ * via the `definition` "LexicalNodes_2459B5A2".
  */
-export type LexicalNodes_EECE9A51 =
+export type LexicalNodes_2459B5A2 =
   | SerializedTextNode
   | SerializedTabNode
   | SerializedLineBreakNode
-  | SerializedParagraphNode<LexicalNodes_EECE9A51>
-  | SerializedBlockNode<CodeBlock>
-  | SerializedHorizontalRuleNode
-  | SerializedUploadNode<'media'>
-  | SerializedUploadNode<'exports'>
-  | SerializedUploadNode<'imports'>
-  | SerializedQuoteNode<LexicalNodes_EECE9A51>
-  | SerializedRelationshipNode<
-      | 'case-studies'
-      | 'community-help'
-      | 'docs'
-      | 'docs-feedback'
-      | 'pages'
-      | 'posts'
-      | 'categories'
-      | 'reusable-content'
-      | 'users'
-      | 'partners'
-      | 'industries'
-      | 'specialties'
-      | 'regions'
-      | 'budgets'
-      | 'messages'
-      | 'redirects'
-      | 'tenants'
-      | 'entries'
-      | 'addresses'
-      | 'variants'
-      | 'variantTypes'
-      | 'variantOptions'
-      | 'products'
-      | 'carts'
-      | 'orders'
-      | 'transactions'
-      | 'payload-kv'
-      | 'payload-jobs'
-      | 'payload-locked-documents'
-      | 'payload-preferences'
-      | 'payload-migrations'
-      | 'payload-query-presets'
-    >
-  | SerializedAutoLinkNode<LexicalNodes_EECE9A51, LexicalLinkFields>
-  | SerializedLinkNode<LexicalNodes_EECE9A51, LexicalLinkFields>
-  | SerializedListNode<LexicalNodes_EECE9A51>
-  | SerializedListItemNode<LexicalNodes_EECE9A51>
-  | SerializedHeadingNode<LexicalNodes_EECE9A51>;
+  | SerializedParagraphNode<LexicalNodes_2459B5A2>
+  | SerializedTableNode<LexicalNodes_2459B5A2>
+  | SerializedTableCellNode<LexicalNodes_2459B5A2>
+  | SerializedTableRowNode<LexicalNodes_2459B5A2>
+  | SerializedAutoLinkNode<LexicalNodes_2459B5A2, LexicalLinkFields>
+  | SerializedLinkNode<LexicalNodes_2459B5A2, LexicalLinkFields>
+  | SerializedListNode<LexicalNodes_2459B5A2>
+  | SerializedListItemNode<LexicalNodes_2459B5A2>;
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LexicalNodes_FF1259B6".
+ * via the `definition` "LexicalNodes_56DA7269".
  */
-export type LexicalNodes_FF1259B6 =
+export type LexicalNodes_56DA7269 =
   | SerializedTextNode
   | SerializedTabNode
   | SerializedLineBreakNode
-  | SerializedParagraphNode<LexicalNodes_FF1259B6>
-  | SerializedBlockNode<CardBlock>;
+  | SerializedParagraphNode<LexicalNodes_56DA7269>
+  | SerializedHorizontalRuleNode
+  | SerializedBlockNode<BannerBlock_E2BCF839 | CodeBlock | MediaBlock_D6C44817>
+  | SerializedHeadingNode<LexicalNodes_56DA7269, 'h1' | 'h2' | 'h3' | 'h4'>
+  | SerializedTableNode<LexicalNodes_56DA7269>
+  | SerializedTableCellNode<LexicalNodes_56DA7269>
+  | SerializedTableRowNode<LexicalNodes_56DA7269>
+  | SerializedAutoLinkNode<LexicalNodes_56DA7269, LexicalLinkFields>
+  | SerializedLinkNode<LexicalNodes_56DA7269, LexicalLinkFields>
+  | SerializedListNode<LexicalNodes_56DA7269>
+  | SerializedListItemNode<LexicalNodes_56DA7269>;
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LexicalNodes_02419ACA".
+ * via the `definition` "LexicalNodes_9D897FEE".
  */
-export type LexicalNodes_02419ACA =
+export type LexicalNodes_9D897FEE =
   | SerializedTextNode
   | SerializedTabNode
   | SerializedLineBreakNode
-  | SerializedParagraphNode<LexicalNodes_02419ACA>
-  | SerializedBlockNode<
-      | CodeBlock
-      | CodeTabsBlock
-      | BannerBlock
-      | YoutubeBlock
-      | LightDarkImageBlock
-      | PayloadMediaBlock
-      | UploadBlock
-      | RestExamplesBlock
-      | ResourceBlock
-      | TableWithDrawersBlock
-      | VideoDrawerBlock
-      | PillBlock
-      | ArrowBlock
-      | BulletListBlock
-      | CardBlock
-      | CardGroupBlock
-      | ComponentPreviewBlock
-    >
-  | SerializedTableNode<LexicalNodes_02419ACA>
-  | SerializedTableCellNode<LexicalNodes_02419ACA>
-  | SerializedTableRowNode<LexicalNodes_02419ACA>
-  | SerializedAutoLinkNode<LexicalNodes_02419ACA, LexicalLinkFields>
-  | SerializedLinkNode<LexicalNodes_02419ACA, LexicalLinkFields>
+  | SerializedParagraphNode<LexicalNodes_9D897FEE>
   | SerializedHorizontalRuleNode
-  | SerializedQuoteNode<LexicalNodes_02419ACA>
-  | SerializedRelationshipNode<
-      | 'case-studies'
-      | 'community-help'
-      | 'docs'
-      | 'docs-feedback'
-      | 'pages'
-      | 'posts'
-      | 'categories'
-      | 'reusable-content'
-      | 'users'
-      | 'partners'
-      | 'industries'
-      | 'specialties'
-      | 'regions'
-      | 'budgets'
-      | 'messages'
-      | 'redirects'
-      | 'tenants'
-      | 'entries'
-      | 'addresses'
-      | 'variants'
-      | 'variantTypes'
-      | 'variantOptions'
-      | 'products'
-      | 'carts'
-      | 'orders'
-      | 'transactions'
-      | 'payload-kv'
-      | 'payload-jobs'
-      | 'payload-locked-documents'
-      | 'payload-preferences'
-      | 'payload-migrations'
-      | 'payload-query-presets'
-    >
-  | SerializedListNode<LexicalNodes_02419ACA>
-  | SerializedListItemNode<LexicalNodes_02419ACA>
-  | SerializedHeadingNode<LexicalNodes_02419ACA>;
+  | SerializedHeadingNode<LexicalNodes_9D897FEE, 'h1' | 'h2' | 'h3' | 'h4'>
+  | SerializedTableNode<LexicalNodes_9D897FEE>
+  | SerializedTableCellNode<LexicalNodes_9D897FEE>
+  | SerializedTableRowNode<LexicalNodes_9D897FEE>
+  | SerializedAutoLinkNode<LexicalNodes_9D897FEE, LexicalLinkFields>
+  | SerializedLinkNode<LexicalNodes_9D897FEE, LexicalLinkFields>
+  | SerializedListNode<LexicalNodes_9D897FEE>
+  | SerializedListItemNode<LexicalNodes_9D897FEE>;
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "LexicalNodes_3DE324E4".
@@ -338,88 +169,16 @@ export interface Config {
   auth: {
     users: UserAuthOperations;
   };
-  blocks: {
-    blogContent: BlogContent;
-    blogMarkdown: BlogMarkdown;
-    CodeExampleBlock: CodeExampleBlock;
-    MediaExampleBlock: MediaExampleBlock;
-    callout: Callout;
-    cta: Cta;
-    downloadBlock: DownloadBlockType_68EBC190;
-    LightDarkImage: LightDarkImageBlock_6F096CAB;
-    PayloadMedia: PayloadMediaBlock_B98BF7B5;
-    TableWithDrawers: TableWithDrawersBlock_DBA1DB72;
-    YouTube: YoutubeBlock_BD112EEE;
-    Pill: PillBlock_008E1595;
-    Arrow: ArrowBlock_11410E69;
-    BulletList: BulletListBlock_AE6F5703;
-    Card: CardBlock_46CA1B1B;
-    CardGroup: CardGroupBlock_FE8D017C;
-    ComponentPreview: ComponentPreviewBlock_73D29C6B;
-    cardGrid: CardGrid;
-    caseStudyCards: CaseStudyCards;
-    caseStudiesHighlight: CaseStudiesHighlight;
-    Upload: UploadBlock_8A91C712;
-    caseStudyParallax: CaseStudyParallax;
-    codeFeature: CodeFeature;
-    content: Content;
-    contentGrid: ContentGrid;
-    comparisonTable: ComparisonTableType;
-    form: FormBlock;
-    hoverCards: HoverCards;
-    hoverHighlights: HoverHighlights;
-    linkGrid: LinkGrid;
-    logoGrid: LogoGrid;
-    mediaBlock: MediaBlock;
-    mediaContent: MediaContent;
-    mediaContentAccordion: MediaContentAccordion;
-    RestExamples: RestExamplesBlock_825CA7BE;
-    pricing: Pricing;
-    reusableContentBlock: ReusableContentBlock;
-    Resource: ResourceBlock_2EC59281;
-    slider: Slider;
-    statement: Statement;
-    steps: StepsBlock;
-    stickyHighlights: StickyHighlights;
-    exampleTabs: ExampleTabsBlock;
-    spotlight: SpotlightBlock_767E1B2F;
-    video: VideoBlock_80F6FF19;
-    br: BrBlock_A0F59A11;
-    VideoDrawer: VideoDrawerBlock_04DCF3A0;
-    commandLine: CommandLineBlock_3ADB97F5;
-    command: Command;
-    link: Link;
-    templateCards: TemplateCardsBlock_3E55F70A;
-    Banner: BannerBlock_4BF92E7B;
-    Code: CodeBlock_C5DDFB93;
-    CodeTabs: CodeTabsBlock_A085CF0B;
-    code: Code;
-    qpu: QpuBlock;
-  };
+  blocks: {};
   collections: {
-    'case-studies': CaseStudy;
-    'community-help': CommunityHelp;
-    docs: Doc;
-    'docs-feedback': DocsFeedback;
-    media: Media;
+    users: User;
     pages: Page;
     posts: Post;
     categories: Category;
-    'reusable-content': ReusableContent;
-    users: User;
-    partners: Partner;
-    industries: Industry;
-    specialties: Specialty;
-    regions: Region;
-    budgets: Budget;
-    messages: Message1;
+    media: Media;
+    tenants: Tenant;
     forms: Form;
     'form-submissions': FormSubmission;
-    redirects: Redirect;
-    tenants: Tenant;
-    entries: Entry;
-    exports: Export;
-    imports: Import;
     addresses: Address;
     variants: Variant;
     variantTypes: VariantType;
@@ -428,24 +187,22 @@ export interface Config {
     carts: Cart;
     orders: Order;
     transactions: Transaction;
+    redirects: Redirect;
     search: Search;
+    exports: Export;
+    imports: Import;
     'payload-kv': PayloadKv;
     'payload-jobs': PayloadJob;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
-    'payload-query-presets': PayloadQueryPreset;
     'payload-llm-instructions': PayloadLlmInstruction;
   };
   collectionsJoins: {
-    docs: {
-      guides: 'posts';
-    };
-    categories: {
-      posts: 'posts';
-    };
-    entries: {
-      linkedBy: 'entries';
+    users: {
+      orders: 'orders';
+      cart: 'carts';
+      addresses: 'addresses';
     };
     variantTypes: {
       options: 'variantOptions';
@@ -455,29 +212,14 @@ export interface Config {
     };
   };
   collectionsSelect: {
-    'case-studies': CaseStudiesSelect<false> | CaseStudiesSelect<true>;
-    'community-help': CommunityHelpSelect<false> | CommunityHelpSelect<true>;
-    docs: DocsSelect<false> | DocsSelect<true>;
-    'docs-feedback': DocsFeedbackSelect<false> | DocsFeedbackSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
-    'reusable-content': ReusableContentSelect<false> | ReusableContentSelect<true>;
-    users: UsersSelect<false> | UsersSelect<true>;
-    partners: PartnersSelect<false> | PartnersSelect<true>;
-    industries: IndustriesSelect<false> | IndustriesSelect<true>;
-    specialties: SpecialtiesSelect<false> | SpecialtiesSelect<true>;
-    regions: RegionsSelect<false> | RegionsSelect<true>;
-    budgets: BudgetsSelect<false> | BudgetsSelect<true>;
-    messages: MessagesSelect<false> | MessagesSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    tenants: TenantsSelect<false> | TenantsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
-    redirects: RedirectsSelect<false> | RedirectsSelect<true>;
-    tenants: TenantsSelect<false> | TenantsSelect<true>;
-    entries: EntriesSelect<false> | EntriesSelect<true>;
-    exports: ExportsSelect<false> | ExportsSelect<true>;
-    imports: ImportsSelect<false> | ImportsSelect<true>;
     addresses: AddressesSelect<false> | AddressesSelect<true>;
     variants: VariantsSelect<false> | VariantsSelect<true>;
     variantTypes: VariantTypesSelect<false> | VariantTypesSelect<true>;
@@ -486,44 +228,34 @@ export interface Config {
     carts: CartsSelect<false> | CartsSelect<true>;
     orders: OrdersSelect<false> | OrdersSelect<true>;
     transactions: TransactionsSelect<false> | TransactionsSelect<true>;
+    redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     search: SearchSelect<false> | SearchSelect<true>;
+    exports: ExportsSelect<false> | ExportsSelect<true>;
+    imports: ImportsSelect<false> | ImportsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
-    'payload-query-presets': PayloadQueryPresetsSelect<false> | PayloadQueryPresetsSelect<true>;
     'payload-llm-instructions': PayloadLlmInstructionsSelect<false> | PayloadLlmInstructionsSelect<true>;
   };
   db: {
-    defaultIDType: string;
+    defaultIDType: number;
   };
-  fallbackLocale:
-    | ('false' | 'none' | 'null')
-    | false
-    | null
-    | ('en' | 'bg' | 'de' | 'fr' | 'es' | 'it' | 'ru' | 'zh' | 'ja' | 'pt' | 'nl')
-    | ('en' | 'bg' | 'de' | 'fr' | 'es' | 'it' | 'ru' | 'zh' | 'ja' | 'pt' | 'nl')[];
+  fallbackLocale: null;
   globals: {
+    header: Header;
     footer: Footer;
-    'main-menu': MainMenu;
-    'get-started': GetStarted;
-    'partner-program': PartnerProgram;
-    topBar: TopBar;
-    qpu: Qpu;
     'payload-jobs-stats': PayloadJobsStat;
   };
   globalsSelect: {
+    header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
-    'main-menu': MainMenuSelect<false> | MainMenuSelect<true>;
-    'get-started': GetStartedSelect<false> | GetStartedSelect<true>;
-    'partner-program': PartnerProgramSelect<false> | PartnerProgramSelect<true>;
-    topBar: TopBarSelect<false> | TopBarSelect<true>;
-    qpu: QpuSelect<false> | QpuSelect<true>;
     'payload-jobs-stats': PayloadJobsStatsSelect<false> | PayloadJobsStatsSelect<true>;
   };
-  locale: 'en' | 'bg' | 'de' | 'fr' | 'es' | 'it' | 'ru' | 'zh' | 'ja' | 'pt' | 'nl';
+  locale: null;
   widgets: {
+    'getting-started': GettingStartedWidget;
     welcome: WelcomeWidget;
     collections: CollectionsWidget;
     'collection-query': CollectionQueryWidget;
@@ -533,17 +265,10 @@ export interface Config {
   user: User;
   jobs: {
     tasks: {
-      'qpu-lead-run': TaskQpuLeadRun;
-      'qpu-news-solve': TaskQpuNewsSolve;
-      'qpu-machine': TaskQpuMachine;
+      legacyLead: TaskLegacyLead;
       createCollectionExport: TaskCreateCollectionExport;
       createCollectionImport: TaskCreateCollectionImport;
-      'qpu-google-call': TaskQpuGoogleCall;
-      'qpu-cloudflare-call': TaskQpuCloudflareCall;
-      'qpu-cloudflare-observe': TaskQpuCloudflareObserve;
-      'qpu-imagine': TaskQpuImagine;
-      'qpu-mcp-call': TaskQpuMcpCall;
-      'qpu-raid-verify': TaskQpuRaidVerify;
+      schedulePublish: TaskSchedulePublish;
       inline: {
         input: unknown;
         output: unknown;
@@ -588,145 +313,40 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BlogContent".
- */
-export interface BlogContent {
-  blogContentFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    richText: LexicalRichText<LexicalNodes_040088D2>;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'blogContent';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BlogMarkdown".
- */
-export interface BlogMarkdown {
-  blogMarkdownFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    markdown: string;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'blogMarkdown';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CodeExampleBlock".
- */
-export interface CodeExampleBlock {
-  code: string;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'CodeExampleBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaExampleBlock".
- */
-export interface MediaExampleBlock {
-  media: string | Media;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'MediaExampleBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: string;
-  alt: string;
-  /**
-   * Choose an upload to render if the visitor is using dark mode.
-   */
-  darkModeFallback?: (string | null) | Media;
-  /**
-   * a glTF 2.0 asset as Unreal Engine reads it: what the scene holds and its extensions by prefix (seal { gltf })
-   */
-  gltf?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  prefix?: string | null;
-  _objectKey?: string | null;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  original?: {
-    filename?: string | null;
-    url?: string | null;
-    mimeType?: string | null;
-    filesize?: number | null;
-    width?: number | null;
-    height?: number | null;
-    prefix?: string | null;
-    _objectKey?: string | null;
-  };
-  focalX?: number | null;
-  focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
-  /**
-   * Example: `payloadcms`
-   */
-  twitter?: string | null;
-  photo?: (string | null) | Media;
-  roles: ('admin' | 'writer' | 'public')[];
+  id: number;
+  name?: string | null;
+  roles?: ('admin' | 'customer')[] | null;
+  orders?: {
+    docs?: (number | Order)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  cart?: {
+    docs?: (number | Cart)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  addresses?: {
+    docs?: (number | Address)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
   tenants?:
     | {
-        tenant: string | Tenant;
-        roles?: ('tenant-admin' | 'editor' | 'viewer')[] | null;
+        tenant: number | Tenant;
         id?: string | null;
       }[]
     | null;
   createdBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedAt: string;
   createdAt: string;
@@ -755,204 +375,214 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "orders".
+ */
+export interface Order {
+  id: number;
+  items?:
+    | {
+        product?: (number | null) | Product;
+        variant?: (number | null) | Variant;
+        quantity: number;
+        id?: string | null;
+      }[]
+    | null;
+  shippingAddress?: {
+    title?: string | null;
+    firstName?: string | null;
+    lastName?: string | null;
+    company?: string | null;
+    addressLine1?: string | null;
+    addressLine2?: string | null;
+    city?: string | null;
+    state?: string | null;
+    postalCode?: string | null;
+    country?: string | null;
+    phone?: string | null;
+  };
+  customer?: (number | null) | User;
+  customerEmail?: string | null;
+  transactions?: (number | Transaction)[] | null;
+  status?: OrderStatus;
+  amount?: number | null;
+  currency?: 'USD' | null;
+  accessToken?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
+export interface Product {
+  id: number;
+  tenant?: (number | null) | Tenant;
+  title: string;
+  description?: LexicalRichText<LexicalNodes_9D897FEE> | null;
+  gallery?:
+    | {
+        image: number | Media;
+        variantOption?: (number | null) | VariantOption;
+        id?: string | null;
+      }[]
+    | null;
+  layout?: (CallToActionBlock | ContentBlock | MediaBlock)[] | null;
+  inventory?: number | null;
+  enableVariants?: boolean | null;
+  variantTypes?: (number | VariantType)[] | null;
+  variants?: {
+    docs?: (number | Variant)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  priceInUSDEnabled?: boolean | null;
+  priceInUSD?: number | null;
+  relatedProducts?: (number | Product)[] | null;
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  categories?: (number | Category)[] | null;
+  slug: string;
+  developedFrom?: (number | null) | Page;
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "tenants".
  */
 export interface Tenant {
-  id: string;
+  id: number;
   name: string;
+  /**
+   * Used for domain-based tenant handling
+   */
+  domain?: string | null;
+  /**
+   * Used for url paths, example: /tenant-slug/page-slug
+   */
   slug: string;
   /**
-   * the namespace that names the tenant without a domain: the sandbox of an app, chosen by the x-qpu-namespace header; a credential is narrowed to it, never widened
+   * If checked, logging in is not required to read. Useful for building public pages.
    */
-  namespace?: string | null;
-  /**
-   * the hosts that name the tenant; the Worker maps each to the docket
-   */
-  domains?:
-    | {
-        domain: string;
-        id?: string | null;
-      }[]
-    | null;
-  /**
-   * the currency the tenant prices in; required so the tenant states it and nothing is guessed
-   */
-  currency: 'EUR' | 'USD' | 'BGN';
-  /**
-   * the plugin options this tenant configures: { arguments: {...} } is merged into every qpu block call under its hosts; read by the page and by MCP clients through the Payload MCP plugin
-   */
-  settings?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  /**
-   * the bindings this tenant uses, by name: the adapters profile, the connectors it is listed as, the variables it names; values never here — the Worker and the app read them from their environment by these names (the configure tool computes the choice from the names: kinds adapters and bindings)
-   */
-  bindings?: {
-    /**
-     * the adapters profile: database, storage and email chosen by what the environment names
-     */
-    profile?: ('cloudflare' | 'google' | 'vercel' | 'local') | null;
-    /**
-     * what the one /mcp endpoint is listed as: a Claude connector, a Cloudflare remote MCP, an entry of the MCP registry
-     */
-    connectors?: ('claude' | 'cloudflare' | 'registry')[] | null;
-    /**
-     * the variable names this tenant binds (QPU_OAUTH_ISSUER_<TENANT>, MCP_PUBLISHER_TOKEN, ...): names the bindings kind knows; the tenant kind measures which the environment lacks
-     */
-    variables?:
-      | {
-          name: string;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  /**
-   * the branding, and the one theme and template this tenant's site and admin share. Empty branding is computed from the address. Theme and template are saved on this row and read back by GET /api/globals/qpu.
-   */
-  branding?: {
-    name?: string | null;
-    tagline?: string | null;
-    accent?: string | null;
-    /**
-     * the shadcn base colour. One value for the site and the admin. The stylesheet is already loaded.
-     */
-    theme?: ('neutral' | 'stone' | 'zinc' | 'gray' | 'slate') | null;
-    /**
-     * light or dark, for the site and the admin
-     */
-    mode?: ('light' | 'dark') | null;
-    /**
-     * the one template. VitePress is the docs template. The site and the admin both use it. Payload serves the pages.
-     */
-    template?: ('landing' | 'blog' | 'vitepress' | 'dashboard' | 'store' | 'portfolio' | 'auth') | null;
-    logo?: (string | null) | Media;
-    icon?: (string | null) | Media;
-  };
-  /**
-   * the MCP servers this tenant installed from the registry: a name, an https url, and for a bearer host the binding name of its token, never a value
-   */
-  mcps?:
-    | {
-        name: string;
-        url: string;
-        auth?: ('none' | 'bearer') | null;
-        token?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  allowPublicRead?: boolean | null;
   createdBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedAt: string;
   createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Callout".
+ * via the `definition` "media".
  */
-export interface Callout {
-  calloutFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    richText: LexicalRichText<LexicalNodes_040088D2>;
-    logo: string | Media;
-    author?: string | null;
-    role?: string | null;
-    images?:
-      | {
-          image: string | Media;
-          id?: string | null;
-        }[]
-      | null;
+export interface Media {
+  id: number;
+  alt: string;
+  caption?: LexicalRichText<LexicalNodes_2459B5A2> | null;
+  prefix?: string | null;
+  _objectKey?: string | null;
+  createdBy?: {
+    relationTo: 'users';
+    value: number | User;
+  } | null;
+  updatedBy?: {
+    relationTo: 'users';
+    value: number | User;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  original?: {
+    filename?: string | null;
+    url?: string | null;
+    mimeType?: string | null;
+    filesize?: number | null;
+    width?: number | null;
+    height?: number | null;
+    prefix?: string | null;
+    _objectKey?: string | null;
   };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'callout';
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Cta".
+ * via the `definition` "variantOptions".
  */
-export interface Cta {
-  ctaFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    style?: ('buttons' | 'banner') | null;
-    richText: LexicalRichText<LexicalNodes_040088D2>;
-    commandLine?: string | null;
-    links?:
-      | {
-          type?: ('link' | 'npmCta') | null;
-          npmCta?: {
-            label: string;
-          };
-          link?: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    bannerLink?: {
-      type?: ('reference' | 'custom') | null;
-      newTab?: boolean | null;
-      reference?:
-        | ({
-            relationTo: 'pages';
-            value: string | Page;
-          } | null)
-        | ({
-            relationTo: 'posts';
-            value: string | Post;
-          } | null)
-        | ({
-            relationTo: 'case-studies';
-            value: string | CaseStudy;
-          } | null);
-      url?: string | null;
-      label: string;
-      customId?: string | null;
-    };
-    bannerImage?: (string | null) | Media;
-    gradientBackground?: boolean | null;
+export interface VariantOption {
+  id: number;
+  _variantOptions_options_order?: string | null;
+  variantType: number | VariantType;
+  label: string;
+  /**
+   * should be defaulted or dynamic based on label
+   */
+  value: string;
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "variantTypes".
+ */
+export interface VariantType {
+  id: number;
+  label: string;
+  name: string;
+  options?: {
+    docs?: (number | VariantOption)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
   };
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CallToActionBlock".
+ */
+export interface CallToActionBlock {
+  richText?: LexicalRichText<LexicalNodes_F99D3CCE> | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: number | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'cta';
@@ -962,255 +592,86 @@ export interface Cta {
  * via the `definition` "pages".
  */
 export interface Page {
-  id: string;
-  tenant?: (string | null) | Tenant;
+  id: number;
+  tenant?: (number | null) | Tenant;
   title: string;
-  fullTitle?: string | null;
-  noindex?: boolean | null;
+  publishedOn?: string | null;
   hero: {
-    type:
-      | 'default'
-      | 'contentMedia'
-      | 'centeredContent'
-      | 'form'
-      | 'home'
-      | 'homeNew'
-      | 'livestream'
-      | 'gradient'
-      | 'three';
-    fullBackground?: boolean | null;
-    /**
-     * Leave blank for system default
-     */
-    theme?: ('light' | 'dark') | null;
-    enableBreadcrumbsBar?: boolean | null;
-    breadcrumbsBarLinks?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    livestream?: {
-      id?: string | null;
-      date: string;
-      hideBreadcrumbs?: boolean | null;
-      richText?: LexicalRichText<LexicalNodes_040088D2> | null;
-      guests?:
-        | {
-            name?: string | null;
-            link?: string | null;
-            image?: (string | null) | Media;
-            id?: string | null;
-          }[]
-        | null;
-    };
-    enableAnnouncement?: boolean | null;
-    announcementLink?: {
-      type?: ('reference' | 'custom') | null;
-      newTab?: boolean | null;
-      reference?:
-        | ({
-            relationTo: 'pages';
-            value: string | Page;
-          } | null)
-        | ({
-            relationTo: 'posts';
-            value: string | Post;
-          } | null)
-        | ({
-            relationTo: 'case-studies';
-            value: string | CaseStudy;
-          } | null);
-      url?: string | null;
-      label: string;
-      customId?: string | null;
-    };
-    richText?: LexicalRichText<LexicalNodes_040088D2> | null;
-    description?: LexicalRichText<LexicalNodes_040088D2> | null;
-    primaryButtons?:
-      | {
-          type?: ('link' | 'npmCta') | null;
-          npmCta?: {
-            label: string;
-          };
-          link?: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    secondaryHeading?: LexicalRichText<LexicalNodes_040088D2> | null;
-    secondaryDescription?: LexicalRichText<LexicalNodes_040088D2> | null;
+    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    richText?: LexicalRichText<LexicalNodes_F99D3CCE> | null;
     links?:
       | {
           link: {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
+            reference?: {
+              relationTo: 'pages';
+              value: number | Page;
+            } | null;
             url?: string | null;
             label: string;
-            customId?: string | null;
             /**
              * Choose how the link should be rendered.
              */
-            appearance?: ('default' | 'primary' | 'secondary') | null;
+            appearance?: ('default' | 'outline') | null;
           };
           id?: string | null;
         }[]
       | null;
-    threeCTA?: ('newsletter' | 'buttons') | null;
-    newsletter?: {
-      placeholder?: string | null;
-      description?: string | null;
-    };
-    buttons?: (Link | Command)[] | null;
-    secondaryButtons?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    images?:
-      | {
-          image: string | Media;
-          id?: string | null;
-        }[]
-      | null;
-    enableMedia?: boolean | null;
-    media?: (string | null) | Media;
-    secondaryMedia?: (string | null) | Media;
-    featureVideo?: (string | null) | Media;
-    form?: (string | null) | Form;
-    logos?:
-      | {
-          logoMedia: string | Media;
-          id?: string | null;
-        }[]
-      | null;
-    logoShowcaseLabel?: LexicalRichText<LexicalNodes_040088D2> | null;
-    logoShowcase?: (string | Media)[] | null;
+    media?: (number | null) | Media;
   };
   layout: (
-    | Callout
-    | Cta
-    | CardGrid
-    | CaseStudyCards
-    | CaseStudiesHighlight
-    | CaseStudyParallax
-    | CodeFeature
-    | Content
-    | ContentGrid
-    | ComparisonTableType
-    | FormBlock
-    | HoverCards
-    | HoverHighlights
-    | LinkGrid
-    | LogoGrid
+    | CallToActionBlock
+    | ContentBlock
     | MediaBlock
-    | MediaContent
-    | MediaContentAccordion
-    | Pricing
-    | ReusableContentBlock
-    | Slider
-    | Statement
-    | StepsBlock
-    | StickyHighlights
-    | ExampleTabsBlock
-    | QpuBlock
+    | ArchiveBlock
+    | CarouselBlock
+    | ThreeItemGridBlock
+    | BannerBlock
+    | FormBlock
   )[];
-  slug?: string | null;
   meta?: {
     title?: string | null;
-    description?: string | null;
     /**
      * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
      */
-    image?: (string | null) | Media;
+    image?: (number | null) | Media;
+    description?: string | null;
   };
-  parent?: (string | null) | Page;
+  slug: string;
+  lead?: {
+    kind?: ('module' | 'directory') | null;
+    path?: string | null;
+    address?: string | null;
+    exports?: string | null;
+    verdict?: ('VERIFIED' | 'UNVERIFIED') | null;
+    receipt?: string | null;
+    developedAs?:
+      | ({
+          relationTo: 'products';
+          value: number | Product;
+        } | null)
+      | ({
+          relationTo: 'posts';
+          value: number | Post;
+        } | null);
+  };
+  parent?: (number | null) | Page;
   breadcrumbs?:
     | {
-        doc?: (string | null) | Page;
+        doc?: (number | null) | Page;
         url?: string | null;
         label?: string | null;
         id?: string | null;
       }[]
     | null;
-  editBase?: string | null;
   createdBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedAt: string;
   createdAt: string;
@@ -1218,735 +679,160 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
+ * via the `definition` "ContentBlock".
  */
-export interface Post {
-  id: string;
-  title: string;
-  featuredMedia?: ('upload' | 'videoUrl') | null;
-  image?: (string | null) | Media;
-  videoUrl?: string | null;
-  dynamicThumbnail?: boolean | null;
-  thumbnail?: (string | null) | Media;
-  category: string | Category;
-  tags?: string[] | null;
-  excerpt: LexicalRichText<LexicalNodes_040088D2>;
-  content: (Banner | BlogContent | Code | BlogMarkdown | MediaBlock | ReusableContentBlock)[];
-  relatedPosts?: (string | Post)[] | null;
-  /**
-   * Select the docs where you want to link to this guide. Be sure to select the correct version.
-   */
-  relatedDocs?: (string | Doc)[] | null;
-  slug?: string | null;
-  authorType?: ('guest' | 'team') | null;
-  authors?: (string | User)[] | null;
-  guestAuthor?: string | null;
-  guestSocials?: {
-    youtube?: string | null;
-    twitter?: string | null;
-    linkedin?: string | null;
-    website?: string | null;
-  };
-  publishedOn: string;
-  /**
-   * Paste this code into the docs to link to this post
-   */
-  addToDocs?: string | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (string | null) | Media;
-  };
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: string;
-  name: string;
-  slug: string;
-  headline: string;
-  description: string;
-  posts?: {
-    docs?: (string | Post)[];
-    hasNextPage?: boolean;
-    totalDocs?: number;
-  };
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Banner".
- */
-export interface Banner {
-  bannerFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    type?: ('default' | 'success' | 'warning' | 'error') | null;
-    addCheckmark?: boolean | null;
-    content: LexicalRichText<LexicalNodes_040088D2>;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'banner';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Code".
- */
-export interface Code {
-  codeFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    language?: ('none' | 'js' | 'ts') | null;
-    code: string;
-    codeBlips?:
-      | {
-          row: number;
-          label: string;
-          feature: LexicalRichText<LexicalNodes_040088D2>;
-          enableLink?: boolean | null;
-          link?: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'code';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "case-studies".
- */
-export interface CaseStudy {
-  id: string;
-  title: string;
-  introContent: LexicalRichText<LexicalNodes_040088D2>;
-  industry?: string | null;
-  useCase?: string | null;
-  partner?: (string | null) | Partner;
-  featuredImage: string | Media;
-  layout?:
-    | (
-        | Callout
-        | Cta
-        | CardGrid
-        | CaseStudyCards
-        | CaseStudiesHighlight
-        | CaseStudyParallax
-        | CodeFeature
-        | Content
-        | ContentGrid
-        | FormBlock
-        | HoverCards
-        | HoverHighlights
-        | LinkGrid
-        | LogoGrid
-        | MediaBlock
-        | MediaContent
-        | MediaContentAccordion
-        | Pricing
-        | ReusableContentBlock
-        | Slider
-        | Statement
-        | StepsBlock
-        | StickyHighlights
-        | ExampleTabsBlock
-      )[]
-    | null;
-  slug?: string | null;
-  url?: string | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (string | null) | Media;
-  };
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "partners".
- */
-export interface Partner {
-  id: string;
-  name: string;
-  website: string;
-  email: string;
-  slug: string;
-  /**
-   * Set to inactive to hide this partner from the directory.
-   */
-  agency_status?: ('active' | 'inactive') | null;
-  hubspotID?: string | null;
-  logo: string | Media;
-  /**
-   * This field is managed by the Featured Partners field in the Partner Program collection
-   */
-  featured?: boolean | null;
-  topContributor?: boolean | null;
-  content: {
-    /**
-     * 1600 x 800px recommended
-     */
-    bannerImage: string | Media;
-    overview: LexicalRichText<LexicalNodes_040088D2>;
-    services: LexicalRichText<LexicalNodes_040088D2>;
-    idealProject: LexicalRichText<LexicalNodes_040088D2>;
-    caseStudy?: (string | null) | CaseStudy;
-    /**
-     * Contributions to Payload. Must be a valid GitHub issue, pull request, or discussion URL from a repo in the 'payloadcms' organization.
-     */
-    contributions?:
-      | {
-          type: 'discussion' | 'pr' | 'issue';
-          repo: string;
-          number: number;
-          id?: string | null;
-        }[]
-      | null;
-    projects?:
-      | {
-          year: number;
-          name: string;
-          link: string;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  city: string;
-  regions: (string | Region)[];
-  specialties: (string | Specialty)[];
-  budgets: (string | Budget)[];
-  industries: (string | Industry)[];
-  social?:
+export interface ContentBlock {
+  columns?:
     | {
-        platform: 'linkedin' | 'twitter' | 'facebook' | 'instagram' | 'youtube' | 'github';
-        url: string;
+        size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+        richText?: LexicalRichText<LexicalNodes_CC09E899> | null;
+        enableLink?: boolean | null;
+        link?: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: number | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
         id?: string | null;
       }[]
     | null;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "regions".
- */
-export interface Region {
-  id: string;
-  name: string;
-  /**
-   * Must contain only lowercase letters, numbers, hyphens, and underscores
-   */
-  value: string;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "specialties".
- */
-export interface Specialty {
-  id: string;
-  name: string;
-  /**
-   * Must contain only lowercase letters, numbers, hyphens, and underscores
-   */
-  value: string;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "budgets".
- */
-export interface Budget {
-  id: string;
-  name: string;
-  /**
-   * Must contain only lowercase letters, numbers, hyphens, and underscores
-   */
-  value: string;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "industries".
- */
-export interface Industry {
-  id: string;
-  name: string;
-  /**
-   * Must contain only lowercase letters, numbers, hyphens, and underscores
-   */
-  value: string;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CardGrid".
- */
-export interface CardGrid {
-  cardGridFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    richText: LexicalRichText<LexicalNodes_040088D2>;
-    /**
-     * These links will be placed above the card grid as calls-to-action.
-     */
-    links?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    revealDescription?: boolean | null;
-    cards?:
-      | {
-          title: string;
-          description?: string | null;
-          enableLink?: boolean | null;
-          link?: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'cardGrid';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CaseStudyCards".
- */
-export interface CaseStudyCards {
-  caseStudyCardFields?: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    pixels?: boolean | null;
-    cards?:
-      | {
-          richText: LexicalRichText<LexicalNodes_040088D2>;
-          caseStudy: string | CaseStudy;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'caseStudyCards';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CaseStudiesHighlight".
- */
-export interface CaseStudiesHighlight {
-  caseStudiesHighlightFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    richText: LexicalRichText<LexicalNodes_040088D2>;
-    caseStudies: (string | CaseStudy)[];
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'caseStudiesHighlight';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CaseStudyParallax".
- */
-export interface CaseStudyParallax {
-  caseStudyParallaxFields?: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    items?:
-      | {
-          quote: string;
-          author?: string | null;
-          logo: string | Media;
-          images?:
-            | {
-                image: string | Media;
-                id?: string | null;
-              }[]
-            | null;
-          /**
-           * A label for the navigation tab at the bottom of the parallax
-           */
-          tabLabel: string;
-          caseStudy: string | CaseStudy;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'caseStudyParallax';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CodeFeature".
- */
-export interface CodeFeature {
-  codeFeatureFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    /**
-     * Check this box to force this block to have a dark background.
-     */
-    forceDarkBackground?: boolean | null;
-    /**
-     * Choose how to align the content for this block.
-     */
-    alignment?: ('contentCode' | 'codeContent') | null;
-    heading?: string | null;
-    richText: LexicalRichText<LexicalNodes_040088D2>;
-    links?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    codeTabs?:
-      | {
-          language?: ('none' | 'js' | 'ts') | null;
-          label: string;
-          code: string;
-          codeBlips?:
-            | {
-                row: number;
-                label: string;
-                feature: LexicalRichText<LexicalNodes_040088D2>;
-                enableLink?: boolean | null;
-                link?: {
-                  type?: ('reference' | 'custom') | null;
-                  newTab?: boolean | null;
-                  reference?:
-                    | ({
-                        relationTo: 'pages';
-                        value: string | Page;
-                      } | null)
-                    | ({
-                        relationTo: 'posts';
-                        value: string | Post;
-                      } | null)
-                    | ({
-                        relationTo: 'case-studies';
-                        value: string | CaseStudy;
-                      } | null);
-                  url?: string | null;
-                  label: string;
-                  customId?: string | null;
-                };
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'codeFeature';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Content".
- */
-export interface Content {
-  contentFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    useLeadingHeader?: boolean | null;
-    leadingHeader?: LexicalRichText<LexicalNodes_040088D2>;
-    layout?: ('oneColumn' | 'twoColumns' | 'twoThirdsOneThird' | 'halfAndHalf' | 'threeColumns') | null;
-    columnOne: LexicalRichText<LexicalNodes_040088D2>;
-    columnTwo?: LexicalRichText<LexicalNodes_040088D2>;
-    columnThree?: LexicalRichText<LexicalNodes_040088D2>;
-  };
   id?: string | null;
   blockName?: string | null;
   blockType: 'content';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ContentGrid".
+ * via the `definition` "MediaBlock".
  */
-export interface ContentGrid {
-  contentGridFields?: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    style?: ('gridBelow' | 'sideBySide') | null;
-    showNumbers?: boolean | null;
-    content?: LexicalRichText<LexicalNodes_040088D2> | null;
-    links?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    cells?:
-      | {
-          content: LexicalRichText<LexicalNodes_040088D2>;
-          id?: string | null;
-        }[]
-      | null;
-  };
+export interface MediaBlock {
+  media: number | Media;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'contentGrid';
+  blockType: 'mediaBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ArchiveBlock".
+ */
+export interface ArchiveBlock {
+  introContent?: LexicalRichText<LexicalNodes_F99D3CCE> | null;
+  populateBy?: ('collection' | 'selection') | null;
+  relationTo?: 'products' | null;
+  categories?: (number | Category)[] | null;
+  limit?: number | null;
+  selectedDocs?:
+    | {
+        relationTo: 'products';
+        value: number | Product;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'archive';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: number;
+  title: string;
+  slug: string;
+  createdBy?: {
+    relationTo: 'users';
+    value: number | User;
+  } | null;
+  updatedBy?: {
+    relationTo: 'users';
+    value: number | User;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CarouselBlock".
+ */
+export interface CarouselBlock {
+  populateBy?: ('collection' | 'selection') | null;
+  relationTo?: 'products' | null;
+  categories?: (number | Category)[] | null;
+  limit?: number | null;
+  selectedDocs?:
+    | {
+        relationTo: 'products';
+        value: number | Product;
+      }[]
+    | null;
+  /**
+   * This field is auto-populated after-read
+   */
+  populatedDocs?:
+    | {
+        relationTo: 'products';
+        value: number | Product;
+      }[]
+    | null;
+  /**
+   * This field is auto-populated after-read
+   */
+  populatedDocsTotal?: number | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'carousel';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ThreeItemGridBlock".
+ */
+export interface ThreeItemGridBlock {
+  products?: (number | Product)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'threeItemGrid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BannerBlock".
+ */
+export interface BannerBlock {
+  style: 'info' | 'warning' | 'error' | 'success';
+  content: LexicalRichText<LexicalNodes_2459B5A2>;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'banner';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "FormBlock".
  */
 export interface FormBlock {
-  formFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    richText: LexicalRichText<LexicalNodes_040088D2>;
-    form: string | Form;
-  };
+  form: number | Form;
+  enableIntro?: boolean | null;
+  introContent?: LexicalRichText<LexicalNodes_F99D3CCE> | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'form';
+  blockType: 'formBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "forms".
  */
 export interface Form {
-  id: string;
+  id: number;
   title: string;
   fields?: (Checkbox | Country | Email | Message | Number | Select | State | Text | Textarea)[] | null;
   submitButtonLabel?: string | null;
   confirmationType?: ('message' | 'redirect') | null;
-  confirmationMessage?: LexicalRichText<LexicalNodes_040088D2>;
+  confirmationMessage?: LexicalRichText<LexicalNodes_F99D3CCE>;
   redirect?: {
     url: string;
   };
@@ -1958,23 +844,17 @@ export interface Form {
         replyTo?: string | null;
         emailFrom?: string | null;
         subject: string;
-        message?: LexicalRichText<LexicalNodes_040088D2> | null;
+        message?: LexicalRichText<LexicalNodes_2459B5A2> | null;
         id?: string | null;
       }[]
     | null;
-  hubSpotFormID?: string | null;
-  /**
-   * Attached to submission button to track clicks
-   */
-  customID?: string | null;
-  requireTurnstile?: boolean | null;
   createdBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedAt: string;
   createdAt: string;
@@ -2024,7 +904,7 @@ export interface Email {
  * via the `definition` "Message".
  */
 export interface Message {
-  message?: LexicalRichText<LexicalNodes_040088D2> | null;
+  message?: LexicalRichText<LexicalNodes_2459B5A2> | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'message';
@@ -2108,1724 +988,137 @@ export interface Textarea {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HoverCards".
+ * via the `definition` "posts".
  */
-export interface HoverCards {
-  hoverCardsFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    hideBackground?: boolean | null;
-    richText: LexicalRichText<LexicalNodes_040088D2>;
-    cards?:
-      | {
-          title: string;
-          description?: string | null;
-          link?: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'hoverCards';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HoverHighlights".
- */
-export interface HoverHighlights {
-  hoverHighlightsFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    beforeHighlights?: string | null;
-    highlights?:
-      | {
-          text: string;
-          media?: {
-            top?: (string | null) | Media;
-            bottom?: (string | null) | Media;
-          };
-          link?: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    afterHighlights?: string | null;
-    link: {
-      type?: ('reference' | 'custom') | null;
-      newTab?: boolean | null;
-      reference?:
-        | ({
-            relationTo: 'pages';
-            value: string | Page;
-          } | null)
-        | ({
-            relationTo: 'posts';
-            value: string | Post;
-          } | null)
-        | ({
-            relationTo: 'case-studies';
-            value: string | CaseStudy;
-          } | null);
-      url?: string | null;
-      label: string;
-      customId?: string | null;
-    };
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'hoverHighlights';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LinkGrid".
- */
-export interface LinkGrid {
-  linkGridFields?: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    links?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'linkGrid';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LogoGrid".
- */
-export interface LogoGrid {
-  logoGridFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    richText: LexicalRichText<LexicalNodes_040088D2>;
-    enableLink?: boolean | null;
-    link?: {
-      type?: ('reference' | 'custom') | null;
-      newTab?: boolean | null;
-      reference?:
-        | ({
-            relationTo: 'pages';
-            value: string | Page;
-          } | null)
-        | ({
-            relationTo: 'posts';
-            value: string | Post;
-          } | null)
-        | ({
-            relationTo: 'case-studies';
-            value: string | CaseStudy;
-          } | null);
-      url?: string | null;
-      label: string;
-      customId?: string | null;
-    };
-    logos?:
-      | {
-          logoMedia: string | Media;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'logoGrid';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock".
- */
-export interface MediaBlock {
-  mediaBlockFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    position?: ('default' | 'wide') | null;
-    media: string | Media;
-    caption?: LexicalRichText<LexicalNodes_040088D2> | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'mediaBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaContent".
- */
-export interface MediaContent {
-  mediaContentFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    /**
-     * Choose how to align the content for this block.
-     */
-    alignment?: ('contentMedia' | 'mediaContent') | null;
-    /**
-     * Choose how wide the media should be.
-     */
-    mediaWidth?: ('stretch' | 'fit') | null;
-    richText: LexicalRichText<LexicalNodes_040088D2>;
-    enableLink?: boolean | null;
-    link?: {
-      type?: ('reference' | 'custom') | null;
-      newTab?: boolean | null;
-      reference?:
-        | ({
-            relationTo: 'pages';
-            value: string | Page;
-          } | null)
-        | ({
-            relationTo: 'posts';
-            value: string | Post;
-          } | null)
-        | ({
-            relationTo: 'case-studies';
-            value: string | CaseStudy;
-          } | null);
-      url?: string | null;
-      label: string;
-      customId?: string | null;
-    };
-    images?:
-      | {
-          image: string | Media;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'mediaContent';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaContentAccordion".
- */
-export interface MediaContentAccordion {
-  mediaContentAccordionFields?: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    /**
-     * Choose how to align the content for this block.
-     */
-    alignment?: ('contentMedia' | 'mediaContent') | null;
-    leader?: string | null;
-    heading?: string | null;
-    accordion?:
-      | {
-          /**
-           * Choose how to position the media itself.
-           */
-          position?: ('normal' | 'inset' | 'wide') | null;
-          /**
-           * Select the background you want to sit behind the media.
-           */
-          background?: ('none' | 'gradient' | 'scanlines') | null;
-          mediaLabel: string;
-          mediaDescription: LexicalRichText<LexicalNodes_040088D2>;
-          enableLink?: boolean | null;
-          link?: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          media: string | Media;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'mediaContentAccordion';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Pricing".
- */
-export interface Pricing {
-  pricingFields?: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    plans?:
-      | {
-          name: string;
-          hasPrice?: boolean | null;
-          enableCreatePayload?: boolean | null;
-          price?: string | null;
-          title?: string | null;
-          description?: string | null;
-          enableLink?: boolean | null;
-          link?: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          features?:
-            | {
-                icon?: ('check' | 'x') | null;
-                feature?: string | null;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-        }[]
-      | null;
-    disclaimer?: string | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'pricing';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ReusableContentBlock".
- */
-export interface ReusableContentBlock {
-  reusableContentBlockFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    reusableContent: string | ReusableContent;
-    customId?: string | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'reusableContentBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "reusable-content".
- */
-export interface ReusableContent {
-  id: string;
+export interface Post {
+  id: number;
   title: string;
-  layout: (
-    | Banner
-    | BlogContent
-    | BlogMarkdown
-    | Callout
-    | Cta
-    | CardGrid
-    | CaseStudyCards
-    | CaseStudiesHighlight
-    | CaseStudyParallax
-    | Code
-    | CodeFeature
-    | ComparisonTableType
-    | Content
-    | ContentGrid
-    | ExampleTabsBlock
-    | FormBlock
-    | HoverCards
-    | HoverHighlights
-    | LinkGrid
-    | LogoGrid
-    | MediaBlock
-    | MediaContent
-    | MediaContentAccordion
-    | Pricing
-    | Slider
-    | Statement
-    | StepsBlock
-    | StickyHighlights
-  )[];
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ComparisonTableType".
- */
-export interface ComparisonTableType {
-  comparisonTableFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    introContent?: LexicalRichText<LexicalNodes_040088D2> | null;
-    style?: ('default' | 'centered') | null;
-    header: {
-      tableTitle: string;
-      columnOneHeader: string;
-      columnTwoHeader: string;
-    };
-    rows?:
-      | {
-          feature: string;
-          columnOneCheck?: boolean | null;
-          columnOne?: string | null;
-          columnTwoCheck?: boolean | null;
-          columnTwo?: string | null;
-          id?: string | null;
-        }[]
-      | null;
+  heroImage?: (number | null) | Media;
+  content: LexicalRichText<LexicalNodes_56DA7269>;
+  relatedPosts?: (number | Post)[] | null;
+  categories?: (number | Category)[] | null;
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    description?: string | null;
   };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'comparisonTable';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ExampleTabsBlock".
- */
-export interface ExampleTabsBlock {
-  content?: LexicalRichText<LexicalNodes_040088D2> | null;
-  tabs: {
-    label: string;
-    content?: LexicalRichText<LexicalNodes_040088D2> | null;
-    examples: (CodeExampleBlock | MediaExampleBlock)[];
-    id?: string | null;
-  }[];
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'exampleTabs';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Slider".
- */
-export interface Slider {
-  sliderFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    introContent?: LexicalRichText<LexicalNodes_040088D2> | null;
-    links?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-            /**
-             * Choose how the link should be rendered.
-             */
-            appearance?: ('default' | 'primary' | 'secondary') | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    quoteSlides: {
-      quote: string;
-      author: string;
-      role?: string | null;
-      logo?: (string | null) | Media;
-      enableLink?: boolean | null;
-      link?: {
-        type?: ('reference' | 'custom') | null;
-        newTab?: boolean | null;
-        reference?:
-          | ({
-              relationTo: 'pages';
-              value: string | Page;
-            } | null)
-          | ({
-              relationTo: 'posts';
-              value: string | Post;
-            } | null)
-          | ({
-              relationTo: 'case-studies';
-              value: string | CaseStudy;
-            } | null);
-        url?: string | null;
-        label: string;
-        customId?: string | null;
-      };
-      id?: string | null;
-    }[];
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'slider';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Statement".
- */
-export interface Statement {
-  statementFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    richText: LexicalRichText<LexicalNodes_040088D2>;
-    links?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    assetType?: ('media' | 'code') | null;
-    media?: (string | null) | Media;
-    code?: string | null;
-    mediaWidth?: ('small' | 'medium' | 'large' | 'full') | null;
-    backgroundGlow?: ('none' | 'colorful' | 'white') | null;
-    assetCaption?: string | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'statement';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "StepsBlock".
- */
-export interface StepsBlock {
-  stepsFields: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    steps: {
-      content: LexicalRichText<LexicalNodes_040088D2>;
-      media?: (string | null) | Media;
-      id?: string | null;
-    }[];
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'steps';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "StickyHighlights".
- */
-export interface StickyHighlights {
-  stickyHighlightsFields?: {
-    settings?: {
-      /**
-       * Leave blank for system default
-       */
-      theme?: ('light' | 'dark') | null;
-      background?: ('solid' | 'transparent' | 'gradientUp' | 'gradientDown') | null;
-    };
-    highlights?:
-      | {
-          richText: LexicalRichText<LexicalNodes_040088D2>;
-          enableLink?: boolean | null;
-          link?: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          type?: ('code' | 'media') | null;
-          code?: string | null;
-          codeBlips?:
-            | {
-                row: number;
-                label: string;
-                feature: LexicalRichText<LexicalNodes_040088D2>;
-                enableLink?: boolean | null;
-                link?: {
-                  type?: ('reference' | 'custom') | null;
-                  newTab?: boolean | null;
-                  reference?:
-                    | ({
-                        relationTo: 'pages';
-                        value: string | Page;
-                      } | null)
-                    | ({
-                        relationTo: 'posts';
-                        value: string | Post;
-                      } | null)
-                    | ({
-                        relationTo: 'case-studies';
-                        value: string | CaseStudy;
-                      } | null);
-                  url?: string | null;
-                  label: string;
-                  customId?: string | null;
-                };
-                id?: string | null;
-              }[]
-            | null;
-          media?: (string | null) | Media;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'stickyHighlights';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "docs".
- */
-export interface Doc {
-  id: string;
-  content?: LexicalRichText<LexicalNodes_02419ACA> | null;
-  title: string;
-  description?: string | null;
-  keywords?: string | null;
-  headings?:
+  publishedAt?: string | null;
+  authors?: (number | User)[] | null;
+  populatedAuthors?:
     | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
+        id?: string | null;
+        name?: string | null;
+      }[]
     | null;
-  path?: string | null;
-  topic: string;
-  /**
-   * The topic group is displayed on the sidebar, but is not part of the URL
-   */
-  topicGroup: string;
   slug: string;
-  label?: string | null;
-  order?: number | null;
-  version: string;
-  mdx?: string | null;
-  guides?: {
-    docs?: (string | Post)[];
-    hasNextPage?: boolean;
-    totalDocs?: number;
-  };
+  developedFrom?: (number | null) | Page;
   createdBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Link".
+ * via the `definition` "variants".
  */
-export interface Link {
-  link: {
-    type?: ('reference' | 'custom') | null;
-    newTab?: boolean | null;
-    reference?:
-      | ({
-          relationTo: 'pages';
-          value: string | Page;
-        } | null)
-      | ({
-          relationTo: 'posts';
-          value: string | Post;
-        } | null)
-      | ({
-          relationTo: 'case-studies';
-          value: string | CaseStudy;
-        } | null);
-    url?: string | null;
-    label: string;
-    customId?: string | null;
-    /**
-     * Choose how the link should be rendered.
-     */
-    appearance?: ('default' | 'primary' | 'secondary') | null;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'link';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Command".
- */
-export interface Command {
-  command: string;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'command';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "QpuBlock".
- */
-export interface QpuBlock {
+export interface Variant {
+  id: number;
   /**
-   * the block address: a content-addressed RFC 9562 v8 UUID
+   * Used for administrative purposes, not shown to customers. This is populated by default.
    */
-  uuid?: string | null;
-  handle?: string | null;
-  /**
-   * the hex program (the version and variant nibbles rotated)
-   */
-  program?: string | null;
-  tail?: string | null;
-  /**
-   * the tool whose result this block is: one the MCP lists (tools/list)
-   */
-  tool: string;
-  /**
-   * the arguments, so the block recomputes anywhere: checked on save against the schema of the tool
-   */
-  arguments?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  /**
-   * the referer block
-   */
-  prev?: string | null;
-  /**
-   * the program rotated: the next step
-   */
-  next?: string | null;
-  /**
-   * the scannable stream of the address: the frames as a CSS gradient, stepped through by the qpu-scan item; computed by the lexical hook from uuid, never typed
-   */
-  stream?: string | null;
-  /**
-   * the kernel-accepted theorem that makes this block true; written by the QPU as a client of this MCP, read from the textbook
-   */
-  theorem?: string | null;
-  /**
-   * the proof of the block, the digest of its round trip signed twice: an HMAC under the deployment secret, checked by the server, and a signature by the key the deployment holds (alg read from it), checked offline with the published public key
-   */
-  proof?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  /**
-   * the licence the block is served under (SPDX), kept with the content as every result carries it
-   */
-  license?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'qpu';
-}
-/**
- * Multiple blocks resolve to the `DownloadBlockType` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "DownloadBlockType_68EBC190".
- */
-export interface DownloadBlockType_68EBC190 {
-  downloads?:
-    | {
-        name: string;
-        /**
-         * The file to download
-         */
-        file: string | Media;
-        /**
-         * Thumbnail for the download. Defaults to file for images
-         */
-        thumbnail?: (string | null) | Media;
-        thumbnailAppearance: 'cover' | 'contain';
-        background: 'auto' | 'light' | 'dark';
-        copyToClipboard?: boolean | null;
-        copyToClipboardText?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'downloadBlock';
-}
-/**
- * Multiple blocks resolve to the `LightDarkImageBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LightDarkImageBlock_6F096CAB".
- */
-export interface LightDarkImageBlock_6F096CAB {
-  srcLight: string;
-  srcDark: string;
-  alt?: string | null;
-  caption?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'LightDarkImage';
-}
-/**
- * Multiple blocks resolve to the `PayloadMediaBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "PayloadMediaBlock_B98BF7B5".
- */
-export interface PayloadMediaBlock_B98BF7B5 {
-  media: string | Media;
-  caption?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'PayloadMedia';
-}
-/**
- * Multiple blocks resolve to the `TableWithDrawersBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TableWithDrawersBlock_DBA1DB72".
- */
-export interface TableWithDrawersBlock_DBA1DB72 {
-  columns?: string[] | null;
-  rows?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'TableWithDrawers';
-}
-/**
- * Multiple blocks resolve to the `YoutubeBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "YoutubeBlock_BD112EEE".
- */
-export interface YoutubeBlock_BD112EEE {
-  id?: string | null;
   title?: string | null;
-  blockName?: string | null;
-  blockType: 'YouTube';
+  product: number | Product;
+  options: (number | VariantOption)[];
+  inventory?: number | null;
+  priceInUSDEnabled?: boolean | null;
+  priceInUSD?: number | null;
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
+  _status?: ('draft' | 'published') | null;
 }
 /**
- * Multiple blocks resolve to the `PillBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "PillBlock_008E1595".
+ * via the `definition` "transactions".
  */
-export interface PillBlock_008E1595 {
-  /**
-   * E.g., "1. DEFINE WORK" or "2. QUEUE JOBS"
-   */
-  text: string;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'Pill';
-}
-/**
- * Multiple blocks resolve to the `ArrowBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ArrowBlock_11410E69".
- */
-export interface ArrowBlock_11410E69 {
-  direction: 'down' | 'up' | 'left' | 'right';
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'Arrow';
-}
-/**
- * Multiple blocks resolve to the `BulletListBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BulletListBlock_AE6F5703".
- */
-export interface BulletListBlock_AE6F5703 {
-  items: {
-    text: string;
-    icon: 'check' | 'x';
-    id?: string | null;
-  }[];
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'BulletList';
-}
-/**
- * Multiple blocks resolve to the `CardBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CardBlock_46CA1B1B".
- */
-export interface CardBlock_46CA1B1B {
-  title: string;
-  description: string;
-  /**
-   * URL the card links to, e.g. /docs/authentication/overview
-   */
-  link: string;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'Card';
-}
-/**
- * Multiple blocks resolve to the `CardGroupBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CardGroupBlock_FE8D017C".
- */
-export interface CardGroupBlock_FE8D017C {
-  variant: 'default' | 'compact';
-  content?: LexicalRichText<LexicalNodes_FF1259B6> | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'CardGroup';
-}
-/**
- * Multiple blocks resolve to the `ComponentPreviewBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ComponentPreviewBlock_73D29C6B".
- */
-export interface ComponentPreviewBlock_73D29C6B {
-  component:
-    | 'AnimateHeight'
-    | 'Banner'
-    | 'Button'
-    | 'Card'
-    | 'ChoiceInputs'
-    | 'CodeEditor'
-    | 'Collapsible'
-    | 'CopyToClipboard'
-    | 'DatePicker'
-    | 'DocumentActions'
-    | 'DocumentState'
-    | 'DraggableSortable'
-    | 'Dropzone'
-    | 'ErrorPill'
-    | 'FieldChrome'
-    | 'Gutter'
-    | 'Hamburger'
-    | 'Icons'
-    | 'Link'
-    | 'ListAndPagination'
-    | 'ModalsAndDrawers'
-    | 'MotionAndLoading'
-    | 'Pill'
-    | 'PillSelector'
-    | 'Popup'
-    | 'ReactSelect'
-    | 'RelationshipInputs'
-    | 'SearchFilter'
-    | 'ShimmerEffect'
-    | 'StepNavigation'
-    | 'Table'
-    | 'TableCells'
-    | 'TextInputs'
-    | 'Thumbnail'
-    | 'TimezonePicker'
-    | 'Tooltip'
-    | 'UploadHelpers';
-  example:
-    | 'actions'
-    | 'basic'
-    | 'bulk'
-    | 'checkbox'
-    | 'confirmation'
-    | 'counts'
-    | 'custom'
-    | 'customView'
-    | 'defaults'
-    | 'disabled'
-    | 'drawer'
-    | 'editView'
-    | 'error'
-    | 'fallback'
-    | 'fileDetails'
-    | 'gallery'
-    | 'interactive'
-    | 'labels'
-    | 'lockIndicator'
-    | 'lockedDocument'
-    | 'menu'
-    | 'messages'
-    | 'multiple'
-    | 'overlay'
-    | 'pagination'
-    | 'previewSizes'
-    | 'primary'
-    | 'progress'
-    | 'readOnly'
-    | 'relationship'
-    | 'save'
-    | 'select'
-    | 'shapes'
-    | 'sizes'
-    | 'staggered'
-    | 'states'
-    | 'styles'
-    | 'takenOver'
-    | 'text'
-    | 'textarea'
-    | 'upload'
-    | 'uploadEmptyState'
-    | 'variants';
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'ComponentPreview';
-}
-/**
- * Multiple blocks resolve to the `UploadBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "UploadBlock_8A91C712".
- */
-export interface UploadBlock_8A91C712 {
-  src: string;
-  alt?: string | null;
-  caption?: LexicalRichText<LexicalNodes_50710DDF> | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'Upload';
-}
-/**
- * Multiple blocks resolve to the `RestExamplesBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "RestExamplesBlock_825CA7BE".
- */
-export interface RestExamplesBlock_825CA7BE {
-  data?:
+export interface Transaction {
+  id: number;
+  items?:
     | {
-        operation?: string | null;
-        method?: string | null;
-        path?: string | null;
-        description?: string | null;
-        example?: {
-          slug?: string | null;
-          req?:
-            | {
-                [k: string]: unknown;
-              }
-            | unknown[]
-            | string
-            | number
-            | boolean
-            | null;
-          res?:
-            | {
-                [k: string]: unknown;
-              }
-            | unknown[]
-            | string
-            | number
-            | boolean
-            | null;
-          drawerContent?: LexicalRichText<LexicalNodes_EECE9A51> | null;
-        };
+        product?: (number | null) | Product;
+        variant?: (number | null) | Variant;
+        quantity: number;
         id?: string | null;
       }[]
     | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'RestExamples';
+  paymentMethod?: 'stripe' | null;
+  stripe?: {
+    customerID?: string | null;
+    paymentIntentID?: string | null;
+  };
+  billingAddress?: {
+    title?: string | null;
+    firstName?: string | null;
+    lastName?: string | null;
+    company?: string | null;
+    addressLine1?: string | null;
+    addressLine2?: string | null;
+    city?: string | null;
+    state?: string | null;
+    postalCode?: string | null;
+    country?: string | null;
+    phone?: string | null;
+  };
+  status: 'pending' | 'processing' | 'succeeded' | 'failed' | 'cancelled' | 'expired' | 'refunded';
+  customer?: (number | null) | User;
+  customerEmail?: string | null;
+  order?: (number | null) | Order;
+  cart?: (number | null) | Cart;
+  amount?: number | null;
+  currency?: 'USD' | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
- * Multiple blocks resolve to the `ResourceBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ResourceBlock_2EC59281".
+ * via the `definition` "carts".
  */
-export interface ResourceBlock_2EC59281 {
-  post?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'Resource';
-}
-/**
- * Multiple blocks resolve to the `SpotlightBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "SpotlightBlock_767E1B2F".
- */
-export interface SpotlightBlock_767E1B2F {
-  element?: ('h1' | 'h2' | 'h3' | 'p') | null;
-  richText?: LexicalRichText<LexicalNodes_50710DDF> | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'spotlight';
-}
-/**
- * Multiple blocks resolve to the `VideoBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "VideoBlock_80F6FF19".
- */
-export interface VideoBlock_80F6FF19 {
-  url?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'video';
-}
-/**
- * Multiple blocks resolve to the `BrBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BrBlock_A0F59A11".
- */
-export interface BrBlock_A0F59A11 {
-  ignore?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'br';
-}
-/**
- * Multiple blocks resolve to the `VideoDrawerBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "VideoDrawerBlock_04DCF3A0".
- */
-export interface VideoDrawerBlock_04DCF3A0 {
-  id: string | null;
-  label: string;
-  drawerTitle: string;
-  blockName?: string | null;
-  blockType: 'VideoDrawer';
-}
-/**
- * Multiple blocks resolve to the `CommandLineBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CommandLineBlock_3ADB97F5".
- */
-export interface CommandLineBlock_3ADB97F5 {
-  command?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'commandLine';
-}
-/**
- * Multiple blocks resolve to the `TemplateCardsBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TemplateCardsBlock_3E55F70A".
- */
-export interface TemplateCardsBlock_3E55F70A {
-  templates?:
+export interface Cart {
+  id: number;
+  items?:
     | {
-        name: string;
-        description: string;
-        image: string;
-        slug: string;
-        order: number;
+        product?: (number | null) | Product;
+        variant?: (number | null) | Variant;
+        quantity: number;
         id?: string | null;
       }[]
     | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'templateCards';
-}
-/**
- * Multiple blocks resolve to the `BannerBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BannerBlock_4BF92E7B".
- */
-export interface BannerBlock_4BF92E7B {
-  type?: ('alert' | 'default' | 'error' | 'info' | 'success' | 'warning') | null;
-  content?: LexicalRichText<LexicalNodes_50710DDF> | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'Banner';
-}
-/**
- * Multiple blocks resolve to the `CodeBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CodeBlock_C5DDFB93".
- */
-export interface CodeBlock_C5DDFB93 {
-  language?:
-    | (
-        | 'bash'
-        | 'css'
-        | 'diff'
-        | 'dockerfile'
-        | 'env'
-        | 'graphql'
-        | 'html'
-        | 'http'
-        | 'js'
-        | 'json'
-        | 'jsx'
-        | 'markdown'
-        | 'plaintext'
-        | 'scss'
-        | 'sh'
-        | 'text'
-        | 'ts'
-        | 'tsx'
-        | 'vue'
-        | 'yaml'
-        | 'yml'
-      )
-    | null;
-  code?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'Code';
-}
-/**
- * Multiple blocks resolve to the `CodeTabsBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CodeTabsBlock_A085CF0B".
- */
-export interface CodeTabsBlock_A085CF0B {
-  tabs: {
-    label: string;
-    language:
-      | 'bash'
-      | 'css'
-      | 'diff'
-      | 'dockerfile'
-      | 'env'
-      | 'graphql'
-      | 'html'
-      | 'http'
-      | 'js'
-      | 'json'
-      | 'jsx'
-      | 'markdown'
-      | 'plaintext'
-      | 'scss'
-      | 'sh'
-      | 'text'
-      | 'ts'
-      | 'tsx'
-      | 'vue'
-      | 'yaml'
-      | 'yml';
-    code: string;
-    id?: string | null;
-  }[];
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'CodeTabs';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "community-help".
- */
-export interface CommunityHelp {
-  id: string;
-  title?: string | null;
-  communityHelpType?: ('discord' | 'github') | null;
-  githubID?: string | null;
-  discordID?: string | null;
-  communityHelpJSON:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  introDescription?: string | null;
-  slug?: string | null;
-  helpful?: boolean | null;
-  relatedDocs?: (string | Doc)[] | null;
-  threadCreatedAt?: string | null;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
+  secret?: string | null;
+  customer?: (number | null) | User;
+  purchasedAt?: string | null;
+  status?: ('active' | 'purchased' | 'abandoned') | null;
+  subtotal?: number | null;
+  currency?: 'USD' | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "docs-feedback".
- */
-export interface DocsFeedback {
-  id: string;
-  /**
-   * The docs page key, e.g. "getting-started/what-is-payload".
-   */
-  path: string;
-  helpful: number;
-  notHelpful: number;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "messages".
- */
-export interface Message1 {
-  id: string;
-  room: string;
-  from?: string | null;
-  step?: number | null;
-  /**
-   * the UUIDs this message carries
-   */
-  chain?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  receipt?: string | null;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "form-submissions".
- */
-export interface FormSubmission {
-  id: string;
-  form: string | Form;
-  submissionData?:
-    | {
-        field: string;
-        value: string;
-        id?: string | null;
-      }[]
-    | null;
-  turnstile?: string | null;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "redirects".
- */
-export interface Redirect {
-  id: string;
-  from: string;
-  to?: {
-    type?: ('reference' | 'custom') | null;
-    reference?:
-      | ({
-          relationTo: 'case-studies';
-          value: string | CaseStudy;
-        } | null)
-      | ({
-          relationTo: 'pages';
-          value: string | Page;
-        } | null)
-      | ({
-          relationTo: 'posts';
-          value: string | Post;
-        } | null);
-    url?: string | null;
-  };
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "entries".
- */
-export interface Entry {
-  tenant?: (string | null) | Tenant;
-  /**
-   * the content address: computed from kind, from and body
-   */
-  id: string;
-  kind: string;
-  from: string;
-  body?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  sha256?: string | null;
-  /**
-   * kind call: the reply of the tool, computed by the hook from body { tool, arguments }; the API of every tool is this collection
-   */
-  result?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  /**
-   * the entries this one links: a relation of the docket (has many)
-   */
-  links?: (string | Entry)[] | null;
-  /**
-   * the entries that link this one: the inverse, joined by Payload
-   */
-  linkedBy?: {
-    docs?: (string | Entry)[];
-    hasNextPage?: boolean;
-    totalDocs?: number;
-  };
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "exports".
- */
-export interface Export {
-  id: string;
-  name?: string | null;
-  format: 'csv' | 'json';
-  limit?: number | null;
-  page?: number | null;
-  sort?: string | null;
-  sortOrder?: ('asc' | 'desc') | null;
-  drafts?: ('yes' | 'no') | null;
-  selectionToUse?: ('currentSelection' | 'currentFilters' | 'all') | null;
-  fields?: string[] | null;
-  collectionSlug: string;
-  where?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  original?: {
-    filename?: string | null;
-    url?: string | null;
-    mimeType?: string | null;
-    filesize?: number | null;
-    width?: number | null;
-    height?: number | null;
-    prefix?: string | null;
-    _objectKey?: string | null;
-  };
-  focalX?: number | null;
-  focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "imports".
- */
-export interface Import {
-  id: string;
-  collectionSlug: string;
-  importMode?: ('create' | 'update' | 'upsert') | null;
-  matchField?: string | null;
-  status?: ('pending' | 'completed' | 'partial' | 'failed') | null;
-  summary?: {
-    imported?: number | null;
-    updated?: number | null;
-    total?: number | null;
-    issues?: number | null;
-    issueDetails?:
-      | {
-          [k: string]: unknown;
-        }
-      | unknown[]
-      | string
-      | number
-      | boolean
-      | null;
-  };
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  original?: {
-    filename?: string | null;
-    url?: string | null;
-    mimeType?: string | null;
-    filesize?: number | null;
-    width?: number | null;
-    height?: number | null;
-    prefix?: string | null;
-    _objectKey?: string | null;
-  };
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "addresses".
  */
 export interface Address {
-  id: string;
-  customer?: (string | null) | User;
+  id: number;
+  customer?: (number | null) | User;
   title?: string | null;
   firstName?: string | null;
   lastName?: string | null;
@@ -3882,204 +1175,57 @@ export interface Address {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "variants".
+ * via the `definition` "form-submissions".
  */
-export interface Variant {
-  id: string;
-  /**
-   * Used for administrative purposes, not shown to customers. This is populated by default.
-   */
-  title?: string | null;
-  product: string | Product;
-  options: (string | VariantOption)[];
-  inventory?: number | null;
-  priceInEUREnabled?: boolean | null;
-  priceInEUR?: number | null;
-  priceInUSDEnabled?: boolean | null;
-  priceInUSD?: number | null;
-  priceInBGNEnabled?: boolean | null;
-  priceInBGN?: number | null;
-  updatedAt: string;
-  createdAt: string;
-  deletedAt?: string | null;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "products".
- */
-export interface Product {
-  id: string;
-  tenant?: (string | null) | Tenant;
-  title: string;
-  licence?: {
-    product?: string | null;
-    variant?: string | null;
-    unit?: string | null;
-    interval?: string | null;
-    domains?: string | null;
-  };
-  iso?: {
-    standard?: string | null;
-    formula?: string | null;
-    documented?: boolean | null;
-  };
-  inventory?: number | null;
-  enableVariants?: boolean | null;
-  variantTypes?: (string | VariantType)[] | null;
-  variants?: {
-    docs?: (string | Variant)[];
-    hasNextPage?: boolean;
-    totalDocs?: number;
-  };
-  priceInEUREnabled?: boolean | null;
-  priceInEUR?: number | null;
-  priceInUSDEnabled?: boolean | null;
-  priceInUSD?: number | null;
-  priceInBGNEnabled?: boolean | null;
-  priceInBGN?: number | null;
-  updatedAt: string;
-  createdAt: string;
-  deletedAt?: string | null;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "variantTypes".
- */
-export interface VariantType {
-  id: string;
-  label: string;
-  name: string;
-  options?: {
-    docs?: (string | VariantOption)[];
-    hasNextPage?: boolean;
-    totalDocs?: number;
-  };
-  updatedAt: string;
-  createdAt: string;
-  deletedAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "variantOptions".
- */
-export interface VariantOption {
-  id: string;
-  _variantOptions_options_order?: string | null;
-  variantType: string | VariantType;
-  label: string;
-  /**
-   * should be defaulted or dynamic based on label
-   */
-  value: string;
-  updatedAt: string;
-  createdAt: string;
-  deletedAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "carts".
- */
-export interface Cart {
-  id: string;
-  items?:
+export interface FormSubmission {
+  id: number;
+  form: number | Form;
+  submissionData?:
     | {
-        product?: (string | null) | Product;
-        variant?: (string | null) | Variant;
-        quantity: number;
+        field: string;
+        value: string;
         id?: string | null;
       }[]
     | null;
-  secret?: string | null;
-  customer?: (string | null) | User;
-  purchasedAt?: string | null;
-  status?: ('active' | 'purchased' | 'abandoned') | null;
-  subtotal?: number | null;
-  currency?: ('EUR' | 'USD' | 'BGN') | null;
+  createdBy?: {
+    relationTo: 'users';
+    value: number | User;
+  } | null;
+  updatedBy?: {
+    relationTo: 'users';
+    value: number | User;
+  } | null;
   updatedAt: string;
   createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "orders".
+ * via the `definition` "redirects".
  */
-export interface Order {
-  id: string;
-  tenant?: (string | null) | Tenant;
-  items?:
-    | {
-        product?: (string | null) | Product;
-        variant?: (string | null) | Variant;
-        quantity: number;
-        id?: string | null;
-      }[]
-    | null;
-  shippingAddress?: {
-    title?: string | null;
-    firstName?: string | null;
-    lastName?: string | null;
-    company?: string | null;
-    addressLine1?: string | null;
-    addressLine2?: string | null;
-    city?: string | null;
-    state?: string | null;
-    postalCode?: string | null;
-    country?: string | null;
-    phone?: string | null;
+export interface Redirect {
+  id: number;
+  from: string;
+  to?: {
+    type?: ('reference' | 'custom') | null;
+    reference?:
+      | ({
+          relationTo: 'pages';
+          value: number | Page;
+        } | null)
+      | ({
+          relationTo: 'products';
+          value: number | Product;
+        } | null);
+    url?: string | null;
   };
-  customer?: (string | null) | User;
-  customerEmail?: string | null;
-  transactions?: (string | Transaction)[] | null;
-  status?: OrderStatus;
-  amount?: number | null;
-  currency?: ('EUR' | 'USD' | 'BGN') | null;
-  /**
-   * the licence key of the order
-   */
-  accessToken?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "transactions".
- */
-export interface Transaction {
-  id: string;
-  items?:
-    | {
-        product?: (string | null) | Product;
-        variant?: (string | null) | Variant;
-        quantity: number;
-        id?: string | null;
-      }[]
-    | null;
-  paymentMethod?: 'stripe' | null;
-  stripe?: {
-    customerID?: string | null;
-    paymentIntentID?: string | null;
-  };
-  billingAddress?: {
-    title?: string | null;
-    firstName?: string | null;
-    lastName?: string | null;
-    company?: string | null;
-    addressLine1?: string | null;
-    addressLine2?: string | null;
-    city?: string | null;
-    state?: string | null;
-    postalCode?: string | null;
-    country?: string | null;
-    phone?: string | null;
-  };
-  status: 'pending' | 'processing' | 'succeeded' | 'failed' | 'cancelled' | 'expired' | 'refunded';
-  customer?: (string | null) | User;
-  customerEmail?: string | null;
-  order?: (string | null) | Order;
-  cart?: (string | null) | Cart;
-  amount?: number | null;
-  currency?: ('EUR' | 'USD' | 'BGN') | null;
+  createdBy?: {
+    relationTo: 'users';
+    value: number | User;
+  } | null;
+  updatedBy?: {
+    relationTo: 'users';
+    value: number | User;
+  } | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -4090,27 +1236,137 @@ export interface Transaction {
  * via the `definition` "search".
  */
 export interface Search {
-  id: string;
+  id: number;
   title?: string | null;
   priority?: number | null;
   doc:
     | {
-        relationTo: 'pages';
-        value: string | Page;
+        relationTo: 'products';
+        value: number | Product;
       }
     | {
-        relationTo: 'posts';
-        value: string | Post;
+        relationTo: 'pages';
+        value: number | Page;
       };
   updatedAt: string;
   createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "exports".
+ */
+export interface Export {
+  id: number;
+  name?: string | null;
+  format: 'csv' | 'json';
+  limit?: number | null;
+  page?: number | null;
+  sort?: string | null;
+  sortOrder?: ('asc' | 'desc') | null;
+  drafts?: ('yes' | 'no') | null;
+  selectionToUse?: ('currentSelection' | 'currentFilters' | 'all') | null;
+  fields?: string[] | null;
+  collectionSlug: string;
+  where?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  createdBy?: {
+    relationTo: 'users';
+    value: number | User;
+  } | null;
+  updatedBy?: {
+    relationTo: 'users';
+    value: number | User;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  original?: {
+    filename?: string | null;
+    url?: string | null;
+    mimeType?: string | null;
+    filesize?: number | null;
+    width?: number | null;
+    height?: number | null;
+    prefix?: string | null;
+    _objectKey?: string | null;
+  };
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "imports".
+ */
+export interface Import {
+  id: number;
+  collectionSlug: string;
+  importMode?: ('create' | 'update' | 'upsert') | null;
+  matchField?: string | null;
+  status?: ('pending' | 'completed' | 'partial' | 'failed') | null;
+  summary?: {
+    imported?: number | null;
+    updated?: number | null;
+    total?: number | null;
+    issues?: number | null;
+    issueDetails?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
+  };
+  createdBy?: {
+    relationTo: 'users';
+    value: number | User;
+  } | null;
+  updatedBy?: {
+    relationTo: 'users';
+    value: number | User;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  original?: {
+    filename?: string | null;
+    url?: string | null;
+    mimeType?: string | null;
+    filesize?: number | null;
+    width?: number | null;
+    height?: number | null;
+    prefix?: string | null;
+    _objectKey?: string | null;
+  };
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
-  id: string;
+  id: number;
   key: string;
   data:
     | {
@@ -4127,7 +1383,7 @@ export interface PayloadKv {
  * via the `definition` "payload-jobs".
  */
 export interface PayloadJob {
-  id: string;
+  id: number;
   /**
    * Input data provided to the job
    */
@@ -4183,19 +1439,7 @@ export interface PayloadJob {
     | {
         executedAt: string;
         completedAt: string;
-        taskSlug:
-          | 'inline'
-          | 'qpu-lead-run'
-          | 'qpu-news-solve'
-          | 'qpu-machine'
-          | 'createCollectionExport'
-          | 'createCollectionImport'
-          | 'qpu-google-call'
-          | 'qpu-cloudflare-call'
-          | 'qpu-cloudflare-observe'
-          | 'qpu-imagine'
-          | 'qpu-mcp-call'
-          | 'qpu-raid-verify';
+        taskSlug: 'inline' | 'legacyLead' | 'createCollectionExport' | 'createCollectionImport' | 'schedulePublish';
         taskID: string;
         input:
           | {
@@ -4227,42 +1471,13 @@ export interface PayloadJob {
           | null;
         parent?: {
           taskSlug?:
-            | (
-                | 'inline'
-                | 'qpu-lead-run'
-                | 'qpu-news-solve'
-                | 'qpu-machine'
-                | 'createCollectionExport'
-                | 'createCollectionImport'
-                | 'qpu-google-call'
-                | 'qpu-cloudflare-call'
-                | 'qpu-cloudflare-observe'
-                | 'qpu-imagine'
-                | 'qpu-mcp-call'
-                | 'qpu-raid-verify'
-              )
-            | null;
+            ('inline' | 'legacyLead' | 'createCollectionExport' | 'createCollectionImport' | 'schedulePublish') | null;
           taskID?: string | null;
         };
         id?: string | null;
       }[]
     | null;
-  taskSlug?:
-    | (
-        | 'inline'
-        | 'qpu-lead-run'
-        | 'qpu-news-solve'
-        | 'qpu-machine'
-        | 'createCollectionExport'
-        | 'createCollectionImport'
-        | 'qpu-google-call'
-        | 'qpu-cloudflare-call'
-        | 'qpu-cloudflare-observe'
-        | 'qpu-imagine'
-        | 'qpu-mcp-call'
-        | 'qpu-raid-verify'
-      )
-    | null;
+  taskSlug?: ('inline' | 'legacyLead' | 'createCollectionExport' | 'createCollectionImport' | 'schedulePublish') | null;
   queue?: string | null;
   waitUntil?: string | null;
   processingUntil?: string | null;
@@ -4279,132 +1494,84 @@ export interface PayloadJob {
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: string;
+  id: number;
   document?:
     | ({
-        relationTo: 'case-studies';
-        value: string | CaseStudy;
-      } | null)
-    | ({
-        relationTo: 'community-help';
-        value: string | CommunityHelp;
-      } | null)
-    | ({
-        relationTo: 'docs';
-        value: string | Doc;
-      } | null)
-    | ({
-        relationTo: 'docs-feedback';
-        value: string | DocsFeedback;
-      } | null)
-    | ({
-        relationTo: 'media';
-        value: string | Media;
+        relationTo: 'users';
+        value: number | User;
       } | null)
     | ({
         relationTo: 'pages';
-        value: string | Page;
+        value: number | Page;
       } | null)
     | ({
         relationTo: 'posts';
-        value: string | Post;
+        value: number | Post;
       } | null)
     | ({
         relationTo: 'categories';
-        value: string | Category;
+        value: number | Category;
       } | null)
     | ({
-        relationTo: 'reusable-content';
-        value: string | ReusableContent;
-      } | null)
-    | ({
-        relationTo: 'users';
-        value: string | User;
-      } | null)
-    | ({
-        relationTo: 'partners';
-        value: string | Partner;
-      } | null)
-    | ({
-        relationTo: 'industries';
-        value: string | Industry;
-      } | null)
-    | ({
-        relationTo: 'specialties';
-        value: string | Specialty;
-      } | null)
-    | ({
-        relationTo: 'regions';
-        value: string | Region;
-      } | null)
-    | ({
-        relationTo: 'budgets';
-        value: string | Budget;
-      } | null)
-    | ({
-        relationTo: 'messages';
-        value: string | Message1;
-      } | null)
-    | ({
-        relationTo: 'forms';
-        value: string | Form;
-      } | null)
-    | ({
-        relationTo: 'form-submissions';
-        value: string | FormSubmission;
-      } | null)
-    | ({
-        relationTo: 'redirects';
-        value: string | Redirect;
+        relationTo: 'media';
+        value: number | Media;
       } | null)
     | ({
         relationTo: 'tenants';
-        value: string | Tenant;
+        value: number | Tenant;
       } | null)
     | ({
-        relationTo: 'entries';
-        value: string | Entry;
+        relationTo: 'forms';
+        value: number | Form;
+      } | null)
+    | ({
+        relationTo: 'form-submissions';
+        value: number | FormSubmission;
       } | null)
     | ({
         relationTo: 'addresses';
-        value: string | Address;
+        value: number | Address;
       } | null)
     | ({
         relationTo: 'variants';
-        value: string | Variant;
+        value: number | Variant;
       } | null)
     | ({
         relationTo: 'variantTypes';
-        value: string | VariantType;
+        value: number | VariantType;
       } | null)
     | ({
         relationTo: 'variantOptions';
-        value: string | VariantOption;
+        value: number | VariantOption;
       } | null)
     | ({
         relationTo: 'products';
-        value: string | Product;
+        value: number | Product;
       } | null)
     | ({
         relationTo: 'carts';
-        value: string | Cart;
+        value: number | Cart;
       } | null)
     | ({
         relationTo: 'orders';
-        value: string | Order;
+        value: number | Order;
       } | null)
     | ({
         relationTo: 'transactions';
-        value: string | Transaction;
+        value: number | Transaction;
+      } | null)
+    | ({
+        relationTo: 'redirects';
+        value: number | Redirect;
       } | null)
     | ({
         relationTo: 'search';
-        value: string | Search;
+        value: number | Search;
       } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   updatedAt: string;
   createdAt: string;
@@ -4414,10 +1581,10 @@ export interface PayloadLockedDocument {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: string;
+  id: number;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   key?: string | null;
   value?:
@@ -4437,58 +1604,9 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: string;
+  id: number;
   name?: string | null;
   batch?: number | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-query-presets".
- */
-export interface PayloadQueryPreset {
-  id: string;
-  title: string;
-  groupBy?: string | null;
-  columns?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  where?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  isShared?: boolean | null;
-  access?: {
-    read?: {
-      constraint?: ('everyone' | 'onlyMe' | 'specificUsers') | null;
-      users?: (string | User)[] | null;
-    };
-    update?: {
-      constraint?: ('everyone' | 'onlyMe' | 'specificUsers') | null;
-      users?: (string | User)[] | null;
-    };
-    delete?: {
-      constraint?: ('everyone' | 'onlyMe' | 'specificUsers') | null;
-      users?: (string | User)[] | null;
-    };
-  };
-  relatedCollection: 'entries';
-  /**
-   * This is a temporary field used to determine if updating the preset would remove the user's access to it. When `true`, this record will be deleted after running the preset's `validate` function.
-   */
-  isTemp?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -4505,820 +1623,125 @@ export interface PayloadLlmInstruction {
   systemInstructions?: LexicalRichText<LexicalNodes_3DE324E4> | null;
   createdBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedAt: string;
   createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "case-studies_select".
+ * via the `definition` "users_select".
  */
-export interface CaseStudiesSelect<T extends boolean = true> {
+export interface UsersSelect<T extends boolean = true> {
+  name?: T;
+  roles?: T;
+  orders?: T;
+  cart?: T;
+  addresses?: T;
+  tenants?:
+    | T
+    | {
+        tenant?: T;
+        id?: T;
+      };
+  createdBy?: T;
+  updatedBy?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  apiKey?: T;
+  apiKeyLast4?: T;
+  apiKeyIndex?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  resetPasswordRequestedAt?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
+  sessions?:
+    | T
+    | {
+        id?: T;
+        createdAt?: T;
+        expiresAt?: T;
+        refreshCount?: T;
+        refreshedAt?: T;
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  tenant?: T;
   title?: T;
-  introContent?: T;
-  industry?: T;
-  useCase?: T;
-  partner?: T;
-  featuredImage?: T;
+  publishedOn?: T;
+  hero?:
+    | T
+    | {
+        type?: T;
+        richText?: T;
+        links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              id?: T;
+            };
+        media?: T;
+      };
   layout?:
     | T
     | {
-        callout?:
-          | T
-          | {
-              calloutFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    logo?: T;
-                    author?: T;
-                    role?: T;
-                    images?:
-                      | T
-                      | {
-                          image?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        cta?:
-          | T
-          | {
-              ctaFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    style?: T;
-                    richText?: T;
-                    commandLine?: T;
-                    links?:
-                      | T
-                      | {
-                          type?: T;
-                          npmCta?:
-                            | T
-                            | {
-                                label?: T;
-                              };
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    bannerLink?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                    bannerImage?: T;
-                    gradientBackground?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        cardGrid?:
-          | T
-          | {
-              cardGridFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    revealDescription?: T;
-                    cards?:
-                      | T
-                      | {
-                          title?: T;
-                          description?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        caseStudyCards?:
-          | T
-          | {
-              caseStudyCardFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    pixels?: T;
-                    cards?:
-                      | T
-                      | {
-                          richText?: T;
-                          caseStudy?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        caseStudiesHighlight?:
-          | T
-          | {
-              caseStudiesHighlightFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    caseStudies?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        caseStudyParallax?:
-          | T
-          | {
-              caseStudyParallaxFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    items?:
-                      | T
-                      | {
-                          quote?: T;
-                          author?: T;
-                          logo?: T;
-                          images?:
-                            | T
-                            | {
-                                image?: T;
-                                id?: T;
-                              };
-                          tabLabel?: T;
-                          caseStudy?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        codeFeature?:
-          | T
-          | {
-              codeFeatureFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    forceDarkBackground?: T;
-                    alignment?: T;
-                    heading?: T;
-                    richText?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    codeTabs?:
-                      | T
-                      | {
-                          language?: T;
-                          label?: T;
-                          code?: T;
-                          codeBlips?:
-                            | T
-                            | {
-                                row?: T;
-                                label?: T;
-                                feature?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        content?:
-          | T
-          | {
-              contentFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    useLeadingHeader?: T;
-                    leadingHeader?: T;
-                    layout?: T;
-                    columnOne?: T;
-                    columnTwo?: T;
-                    columnThree?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        contentGrid?:
-          | T
-          | {
-              contentGridFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    style?: T;
-                    showNumbers?: T;
-                    content?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    cells?:
-                      | T
-                      | {
-                          content?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        form?: T | FormBlockSelect<T>;
-        hoverCards?:
-          | T
-          | {
-              hoverCardsFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    hideBackground?: T;
-                    richText?: T;
-                    cards?:
-                      | T
-                      | {
-                          title?: T;
-                          description?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        hoverHighlights?:
-          | T
-          | {
-              hoverHighlightsFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    beforeHighlights?: T;
-                    highlights?:
-                      | T
-                      | {
-                          text?: T;
-                          media?:
-                            | T
-                            | {
-                                top?: T;
-                                bottom?: T;
-                              };
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    afterHighlights?: T;
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        linkGrid?:
-          | T
-          | {
-              linkGridFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        logoGrid?:
-          | T
-          | {
-              logoGridFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    enableLink?: T;
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                    logos?:
-                      | T
-                      | {
-                          logoMedia?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        mediaBlock?:
-          | T
-          | {
-              mediaBlockFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    position?: T;
-                    media?: T;
-                    caption?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        mediaContent?:
-          | T
-          | {
-              mediaContentFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    alignment?: T;
-                    mediaWidth?: T;
-                    richText?: T;
-                    enableLink?: T;
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                    images?:
-                      | T
-                      | {
-                          image?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        mediaContentAccordion?:
-          | T
-          | {
-              mediaContentAccordionFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    alignment?: T;
-                    leader?: T;
-                    heading?: T;
-                    accordion?:
-                      | T
-                      | {
-                          position?: T;
-                          background?: T;
-                          mediaLabel?: T;
-                          mediaDescription?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          media?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        pricing?:
-          | T
-          | {
-              pricingFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    plans?:
-                      | T
-                      | {
-                          name?: T;
-                          hasPrice?: T;
-                          enableCreatePayload?: T;
-                          price?: T;
-                          title?: T;
-                          description?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          features?:
-                            | T
-                            | {
-                                icon?: T;
-                                feature?: T;
-                                id?: T;
-                              };
-                          id?: T;
-                        };
-                    disclaimer?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        reusableContentBlock?:
-          | T
-          | {
-              reusableContentBlockFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    reusableContent?: T;
-                    customId?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        slider?:
-          | T
-          | {
-              sliderFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    introContent?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                                appearance?: T;
-                              };
-                          id?: T;
-                        };
-                    quoteSlides?:
-                      | T
-                      | {
-                          quote?: T;
-                          author?: T;
-                          role?: T;
-                          logo?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        statement?:
-          | T
-          | {
-              statementFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    assetType?: T;
-                    media?: T;
-                    code?: T;
-                    mediaWidth?: T;
-                    backgroundGlow?: T;
-                    assetCaption?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        steps?: T | StepsBlockSelect<T>;
-        stickyHighlights?:
-          | T
-          | {
-              stickyHighlightsFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    highlights?:
-                      | T
-                      | {
-                          richText?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          type?: T;
-                          code?: T;
-                          codeBlips?:
-                            | T
-                            | {
-                                row?: T;
-                                label?: T;
-                                feature?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          media?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        exampleTabs?: T | ExampleTabsBlockSelect<T>;
+        cta?: T | CallToActionBlockSelect<T>;
+        content?: T | ContentBlockSelect<T>;
+        mediaBlock?: T | MediaBlockSelect<T>;
+        archive?: T | ArchiveBlockSelect<T>;
+        carousel?: T | CarouselBlockSelect<T>;
+        threeItemGrid?: T | ThreeItemGridBlockSelect<T>;
+        banner?: T | BannerBlockSelect<T>;
+        formBlock?: T | FormBlockSelect<T>;
       };
-  slug?: T;
-  url?: T;
   meta?:
     | T
     | {
         title?: T;
-        description?: T;
         image?: T;
+        description?: T;
+      };
+  slug?: T;
+  lead?:
+    | T
+    | {
+        kind?: T;
+        path?: T;
+        address?: T;
+        exports?: T;
+        verdict?: T;
+        receipt?: T;
+        developedAs?: T;
+      };
+  parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
       };
   createdBy?: T;
   updatedBy?: T;
@@ -5328,65 +1751,22 @@ export interface CaseStudiesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FormBlock_select".
+ * via the `definition` "CallToActionBlock_select".
  */
-export interface FormBlockSelect<T extends boolean = true> {
-  formFields?:
+export interface CallToActionBlockSelect<T extends boolean = true> {
+  richText?: T;
+  links?:
     | T
     | {
-        settings?:
+        link?:
           | T
           | {
-              theme?: T;
-              background?: T;
-            };
-        richText?: T;
-        form?: T;
-      };
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "StepsBlock_select".
- */
-export interface StepsBlockSelect<T extends boolean = true> {
-  stepsFields?:
-    | T
-    | {
-        settings?:
-          | T
-          | {
-              theme?: T;
-              background?: T;
-            };
-        steps?:
-          | T
-          | {
-              content?: T;
-              media?: T;
-              id?: T;
-            };
-      };
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ExampleTabsBlock_select".
- */
-export interface ExampleTabsBlockSelect<T extends boolean = true> {
-  content?: T;
-  tabs?:
-    | T
-    | {
-        label?: T;
-        content?: T;
-        examples?:
-          | T
-          | {
-              CodeExampleBlock?: T | CodeExampleBlockSelect<T>;
-              MediaExampleBlock?: T | MediaExampleBlockSelect<T>;
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
             };
         id?: T;
       };
@@ -5395,74 +1775,138 @@ export interface ExampleTabsBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CodeExampleBlock_select".
+ * via the `definition` "ContentBlock_select".
  */
-export interface CodeExampleBlockSelect<T extends boolean = true> {
-  code?: T;
+export interface ContentBlockSelect<T extends boolean = true> {
+  columns?:
+    | T
+    | {
+        size?: T;
+        richText?: T;
+        enableLink?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaExampleBlock_select".
+ * via the `definition` "MediaBlock_select".
  */
-export interface MediaExampleBlockSelect<T extends boolean = true> {
+export interface MediaBlockSelect<T extends boolean = true> {
   media?: T;
   id?: T;
   blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "community-help_select".
+ * via the `definition` "ArchiveBlock_select".
  */
-export interface CommunityHelpSelect<T extends boolean = true> {
-  title?: T;
-  communityHelpType?: T;
-  githubID?: T;
-  discordID?: T;
-  communityHelpJSON?: T;
-  introDescription?: T;
-  slug?: T;
-  helpful?: T;
-  relatedDocs?: T;
-  threadCreatedAt?: T;
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
+export interface ArchiveBlockSelect<T extends boolean = true> {
+  introContent?: T;
+  populateBy?: T;
+  relationTo?: T;
+  categories?: T;
+  limit?: T;
+  selectedDocs?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "docs_select".
+ * via the `definition` "CarouselBlock_select".
  */
-export interface DocsSelect<T extends boolean = true> {
+export interface CarouselBlockSelect<T extends boolean = true> {
+  populateBy?: T;
+  relationTo?: T;
+  categories?: T;
+  limit?: T;
+  selectedDocs?: T;
+  populatedDocs?: T;
+  populatedDocsTotal?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ThreeItemGridBlock_select".
+ */
+export interface ThreeItemGridBlockSelect<T extends boolean = true> {
+  products?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BannerBlock_select".
+ */
+export interface BannerBlockSelect<T extends boolean = true> {
+  style?: T;
   content?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FormBlock_select".
+ */
+export interface FormBlockSelect<T extends boolean = true> {
+  form?: T;
+  enableIntro?: T;
+  introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
   title?: T;
-  description?: T;
-  keywords?: T;
-  headings?: T;
-  path?: T;
-  topic?: T;
-  topicGroup?: T;
+  heroImage?: T;
+  content?: T;
+  relatedPosts?: T;
+  categories?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        description?: T;
+      };
+  publishedAt?: T;
+  authors?: T;
+  populatedAuthors?:
+    | T
+    | {
+        id?: T;
+        name?: T;
+      };
   slug?: T;
-  label?: T;
-  order?: T;
-  version?: T;
-  mdx?: T;
-  guides?: T;
+  developedFrom?: T;
   createdBy?: T;
   updatedBy?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "docs-feedback_select".
+ * via the `definition` "categories_select".
  */
-export interface DocsFeedbackSelect<T extends boolean = true> {
-  path?: T;
-  helpful?: T;
-  notHelpful?: T;
+export interface CategoriesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
   createdBy?: T;
   updatedBy?: T;
   updatedAt?: T;
@@ -5474,8 +1918,7 @@ export interface DocsFeedbackSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
-  darkModeFallback?: T;
-  gltf?: T;
+  caption?: T;
   prefix?: T;
   _objectKey?: T;
   createdBy?: T;
@@ -5506,2258 +1949,13 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages_select".
+ * via the `definition` "tenants_select".
  */
-export interface PagesSelect<T extends boolean = true> {
-  tenant?: T;
-  title?: T;
-  fullTitle?: T;
-  noindex?: T;
-  hero?:
-    | T
-    | {
-        type?: T;
-        fullBackground?: T;
-        theme?: T;
-        enableBreadcrumbsBar?: T;
-        breadcrumbsBarLinks?:
-          | T
-          | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    customId?: T;
-                  };
-              id?: T;
-            };
-        livestream?:
-          | T
-          | {
-              id?: T;
-              date?: T;
-              hideBreadcrumbs?: T;
-              richText?: T;
-              guests?:
-                | T
-                | {
-                    name?: T;
-                    link?: T;
-                    image?: T;
-                    id?: T;
-                  };
-            };
-        enableAnnouncement?: T;
-        announcementLink?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-              customId?: T;
-            };
-        richText?: T;
-        description?: T;
-        primaryButtons?:
-          | T
-          | {
-              type?: T;
-              npmCta?:
-                | T
-                | {
-                    label?: T;
-                  };
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    customId?: T;
-                  };
-              id?: T;
-            };
-        secondaryHeading?: T;
-        secondaryDescription?: T;
-        links?:
-          | T
-          | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    customId?: T;
-                    appearance?: T;
-                  };
-              id?: T;
-            };
-        threeCTA?: T;
-        newsletter?:
-          | T
-          | {
-              placeholder?: T;
-              description?: T;
-            };
-        buttons?:
-          | T
-          | {
-              link?:
-                | T
-                | {
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                          appearance?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              command?:
-                | T
-                | {
-                    command?: T;
-                    id?: T;
-                    blockName?: T;
-                  };
-            };
-        secondaryButtons?:
-          | T
-          | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    customId?: T;
-                  };
-              id?: T;
-            };
-        images?:
-          | T
-          | {
-              image?: T;
-              id?: T;
-            };
-        enableMedia?: T;
-        media?: T;
-        secondaryMedia?: T;
-        featureVideo?: T;
-        form?: T;
-        logos?:
-          | T
-          | {
-              logoMedia?: T;
-              id?: T;
-            };
-        logoShowcaseLabel?: T;
-        logoShowcase?: T;
-      };
-  layout?:
-    | T
-    | {
-        callout?:
-          | T
-          | {
-              calloutFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    logo?: T;
-                    author?: T;
-                    role?: T;
-                    images?:
-                      | T
-                      | {
-                          image?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        cta?:
-          | T
-          | {
-              ctaFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    style?: T;
-                    richText?: T;
-                    commandLine?: T;
-                    links?:
-                      | T
-                      | {
-                          type?: T;
-                          npmCta?:
-                            | T
-                            | {
-                                label?: T;
-                              };
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    bannerLink?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                    bannerImage?: T;
-                    gradientBackground?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        cardGrid?:
-          | T
-          | {
-              cardGridFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    revealDescription?: T;
-                    cards?:
-                      | T
-                      | {
-                          title?: T;
-                          description?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        caseStudyCards?:
-          | T
-          | {
-              caseStudyCardFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    pixels?: T;
-                    cards?:
-                      | T
-                      | {
-                          richText?: T;
-                          caseStudy?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        caseStudiesHighlight?:
-          | T
-          | {
-              caseStudiesHighlightFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    caseStudies?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        caseStudyParallax?:
-          | T
-          | {
-              caseStudyParallaxFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    items?:
-                      | T
-                      | {
-                          quote?: T;
-                          author?: T;
-                          logo?: T;
-                          images?:
-                            | T
-                            | {
-                                image?: T;
-                                id?: T;
-                              };
-                          tabLabel?: T;
-                          caseStudy?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        codeFeature?:
-          | T
-          | {
-              codeFeatureFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    forceDarkBackground?: T;
-                    alignment?: T;
-                    heading?: T;
-                    richText?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    codeTabs?:
-                      | T
-                      | {
-                          language?: T;
-                          label?: T;
-                          code?: T;
-                          codeBlips?:
-                            | T
-                            | {
-                                row?: T;
-                                label?: T;
-                                feature?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        content?:
-          | T
-          | {
-              contentFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    useLeadingHeader?: T;
-                    leadingHeader?: T;
-                    layout?: T;
-                    columnOne?: T;
-                    columnTwo?: T;
-                    columnThree?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        contentGrid?:
-          | T
-          | {
-              contentGridFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    style?: T;
-                    showNumbers?: T;
-                    content?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    cells?:
-                      | T
-                      | {
-                          content?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        comparisonTable?: T | ComparisonTableTypeSelect<T>;
-        form?: T | FormBlockSelect<T>;
-        hoverCards?:
-          | T
-          | {
-              hoverCardsFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    hideBackground?: T;
-                    richText?: T;
-                    cards?:
-                      | T
-                      | {
-                          title?: T;
-                          description?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        hoverHighlights?:
-          | T
-          | {
-              hoverHighlightsFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    beforeHighlights?: T;
-                    highlights?:
-                      | T
-                      | {
-                          text?: T;
-                          media?:
-                            | T
-                            | {
-                                top?: T;
-                                bottom?: T;
-                              };
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    afterHighlights?: T;
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        linkGrid?:
-          | T
-          | {
-              linkGridFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        logoGrid?:
-          | T
-          | {
-              logoGridFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    enableLink?: T;
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                    logos?:
-                      | T
-                      | {
-                          logoMedia?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        mediaBlock?:
-          | T
-          | {
-              mediaBlockFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    position?: T;
-                    media?: T;
-                    caption?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        mediaContent?:
-          | T
-          | {
-              mediaContentFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    alignment?: T;
-                    mediaWidth?: T;
-                    richText?: T;
-                    enableLink?: T;
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                    images?:
-                      | T
-                      | {
-                          image?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        mediaContentAccordion?:
-          | T
-          | {
-              mediaContentAccordionFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    alignment?: T;
-                    leader?: T;
-                    heading?: T;
-                    accordion?:
-                      | T
-                      | {
-                          position?: T;
-                          background?: T;
-                          mediaLabel?: T;
-                          mediaDescription?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          media?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        pricing?:
-          | T
-          | {
-              pricingFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    plans?:
-                      | T
-                      | {
-                          name?: T;
-                          hasPrice?: T;
-                          enableCreatePayload?: T;
-                          price?: T;
-                          title?: T;
-                          description?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          features?:
-                            | T
-                            | {
-                                icon?: T;
-                                feature?: T;
-                                id?: T;
-                              };
-                          id?: T;
-                        };
-                    disclaimer?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        reusableContentBlock?:
-          | T
-          | {
-              reusableContentBlockFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    reusableContent?: T;
-                    customId?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        slider?:
-          | T
-          | {
-              sliderFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    introContent?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                                appearance?: T;
-                              };
-                          id?: T;
-                        };
-                    quoteSlides?:
-                      | T
-                      | {
-                          quote?: T;
-                          author?: T;
-                          role?: T;
-                          logo?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        statement?:
-          | T
-          | {
-              statementFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    assetType?: T;
-                    media?: T;
-                    code?: T;
-                    mediaWidth?: T;
-                    backgroundGlow?: T;
-                    assetCaption?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        steps?: T | StepsBlockSelect<T>;
-        stickyHighlights?:
-          | T
-          | {
-              stickyHighlightsFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    highlights?:
-                      | T
-                      | {
-                          richText?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          type?: T;
-                          code?: T;
-                          codeBlips?:
-                            | T
-                            | {
-                                row?: T;
-                                label?: T;
-                                feature?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          media?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        exampleTabs?: T | ExampleTabsBlockSelect<T>;
-        qpu?: T | QpuBlockSelect<T>;
-      };
+export interface TenantsSelect<T extends boolean = true> {
+  name?: T;
+  domain?: T;
   slug?: T;
-  meta?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        image?: T;
-      };
-  parent?: T;
-  breadcrumbs?:
-    | T
-    | {
-        doc?: T;
-        url?: T;
-        label?: T;
-        id?: T;
-      };
-  editBase?: T;
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ComparisonTableType_select".
- */
-export interface ComparisonTableTypeSelect<T extends boolean = true> {
-  comparisonTableFields?:
-    | T
-    | {
-        settings?:
-          | T
-          | {
-              theme?: T;
-              background?: T;
-            };
-        introContent?: T;
-        style?: T;
-        header?:
-          | T
-          | {
-              tableTitle?: T;
-              columnOneHeader?: T;
-              columnTwoHeader?: T;
-            };
-        rows?:
-          | T
-          | {
-              feature?: T;
-              columnOneCheck?: T;
-              columnOne?: T;
-              columnTwoCheck?: T;
-              columnTwo?: T;
-              id?: T;
-            };
-      };
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "QpuBlock_select".
- */
-export interface QpuBlockSelect<T extends boolean = true> {
-  uuid?: T;
-  handle?: T;
-  program?: T;
-  tail?: T;
-  tool?: T;
-  arguments?: T;
-  prev?: T;
-  next?: T;
-  stream?: T;
-  theorem?: T;
-  proof?: T;
-  license?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts_select".
- */
-export interface PostsSelect<T extends boolean = true> {
-  title?: T;
-  featuredMedia?: T;
-  image?: T;
-  videoUrl?: T;
-  dynamicThumbnail?: T;
-  thumbnail?: T;
-  category?: T;
-  tags?: T;
-  excerpt?: T;
-  content?:
-    | T
-    | {
-        banner?:
-          | T
-          | {
-              bannerFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    type?: T;
-                    addCheckmark?: T;
-                    content?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        blogContent?:
-          | T
-          | {
-              blogContentFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        code?:
-          | T
-          | {
-              codeFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    language?: T;
-                    code?: T;
-                    codeBlips?:
-                      | T
-                      | {
-                          row?: T;
-                          label?: T;
-                          feature?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        blogMarkdown?:
-          | T
-          | {
-              blogMarkdownFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    markdown?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        mediaBlock?:
-          | T
-          | {
-              mediaBlockFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    position?: T;
-                    media?: T;
-                    caption?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        reusableContentBlock?:
-          | T
-          | {
-              reusableContentBlockFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    reusableContent?: T;
-                    customId?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-      };
-  relatedPosts?: T;
-  relatedDocs?: T;
-  slug?: T;
-  authorType?: T;
-  authors?: T;
-  guestAuthor?: T;
-  guestSocials?:
-    | T
-    | {
-        youtube?: T;
-        twitter?: T;
-        linkedin?: T;
-        website?: T;
-      };
-  publishedOn?: T;
-  addToDocs?: T;
-  meta?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        image?: T;
-      };
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories_select".
- */
-export interface CategoriesSelect<T extends boolean = true> {
-  name?: T;
-  slug?: T;
-  headline?: T;
-  description?: T;
-  posts?: T;
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "reusable-content_select".
- */
-export interface ReusableContentSelect<T extends boolean = true> {
-  title?: T;
-  layout?:
-    | T
-    | {
-        banner?:
-          | T
-          | {
-              bannerFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    type?: T;
-                    addCheckmark?: T;
-                    content?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        blogContent?:
-          | T
-          | {
-              blogContentFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        blogMarkdown?:
-          | T
-          | {
-              blogMarkdownFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    markdown?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        callout?:
-          | T
-          | {
-              calloutFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    logo?: T;
-                    author?: T;
-                    role?: T;
-                    images?:
-                      | T
-                      | {
-                          image?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        cta?:
-          | T
-          | {
-              ctaFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    style?: T;
-                    richText?: T;
-                    commandLine?: T;
-                    links?:
-                      | T
-                      | {
-                          type?: T;
-                          npmCta?:
-                            | T
-                            | {
-                                label?: T;
-                              };
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    bannerLink?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                    bannerImage?: T;
-                    gradientBackground?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        cardGrid?:
-          | T
-          | {
-              cardGridFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    revealDescription?: T;
-                    cards?:
-                      | T
-                      | {
-                          title?: T;
-                          description?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        caseStudyCards?:
-          | T
-          | {
-              caseStudyCardFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    pixels?: T;
-                    cards?:
-                      | T
-                      | {
-                          richText?: T;
-                          caseStudy?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        caseStudiesHighlight?:
-          | T
-          | {
-              caseStudiesHighlightFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    caseStudies?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        caseStudyParallax?:
-          | T
-          | {
-              caseStudyParallaxFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    items?:
-                      | T
-                      | {
-                          quote?: T;
-                          author?: T;
-                          logo?: T;
-                          images?:
-                            | T
-                            | {
-                                image?: T;
-                                id?: T;
-                              };
-                          tabLabel?: T;
-                          caseStudy?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        code?:
-          | T
-          | {
-              codeFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    language?: T;
-                    code?: T;
-                    codeBlips?:
-                      | T
-                      | {
-                          row?: T;
-                          label?: T;
-                          feature?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        codeFeature?:
-          | T
-          | {
-              codeFeatureFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    forceDarkBackground?: T;
-                    alignment?: T;
-                    heading?: T;
-                    richText?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    codeTabs?:
-                      | T
-                      | {
-                          language?: T;
-                          label?: T;
-                          code?: T;
-                          codeBlips?:
-                            | T
-                            | {
-                                row?: T;
-                                label?: T;
-                                feature?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        comparisonTable?: T | ComparisonTableTypeSelect<T>;
-        content?:
-          | T
-          | {
-              contentFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    useLeadingHeader?: T;
-                    leadingHeader?: T;
-                    layout?: T;
-                    columnOne?: T;
-                    columnTwo?: T;
-                    columnThree?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        contentGrid?:
-          | T
-          | {
-              contentGridFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    style?: T;
-                    showNumbers?: T;
-                    content?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    cells?:
-                      | T
-                      | {
-                          content?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        exampleTabs?: T | ExampleTabsBlockSelect<T>;
-        form?: T | FormBlockSelect<T>;
-        hoverCards?:
-          | T
-          | {
-              hoverCardsFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    hideBackground?: T;
-                    richText?: T;
-                    cards?:
-                      | T
-                      | {
-                          title?: T;
-                          description?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        hoverHighlights?:
-          | T
-          | {
-              hoverHighlightsFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    beforeHighlights?: T;
-                    highlights?:
-                      | T
-                      | {
-                          text?: T;
-                          media?:
-                            | T
-                            | {
-                                top?: T;
-                                bottom?: T;
-                              };
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    afterHighlights?: T;
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        linkGrid?:
-          | T
-          | {
-              linkGridFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        logoGrid?:
-          | T
-          | {
-              logoGridFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    enableLink?: T;
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                    logos?:
-                      | T
-                      | {
-                          logoMedia?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        mediaBlock?:
-          | T
-          | {
-              mediaBlockFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    position?: T;
-                    media?: T;
-                    caption?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        mediaContent?:
-          | T
-          | {
-              mediaContentFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    alignment?: T;
-                    mediaWidth?: T;
-                    richText?: T;
-                    enableLink?: T;
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                    images?:
-                      | T
-                      | {
-                          image?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        mediaContentAccordion?:
-          | T
-          | {
-              mediaContentAccordionFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    alignment?: T;
-                    leader?: T;
-                    heading?: T;
-                    accordion?:
-                      | T
-                      | {
-                          position?: T;
-                          background?: T;
-                          mediaLabel?: T;
-                          mediaDescription?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          media?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        pricing?:
-          | T
-          | {
-              pricingFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    plans?:
-                      | T
-                      | {
-                          name?: T;
-                          hasPrice?: T;
-                          enableCreatePayload?: T;
-                          price?: T;
-                          title?: T;
-                          description?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          features?:
-                            | T
-                            | {
-                                icon?: T;
-                                feature?: T;
-                                id?: T;
-                              };
-                          id?: T;
-                        };
-                    disclaimer?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        slider?:
-          | T
-          | {
-              sliderFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    introContent?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                                appearance?: T;
-                              };
-                          id?: T;
-                        };
-                    quoteSlides?:
-                      | T
-                      | {
-                          quote?: T;
-                          author?: T;
-                          role?: T;
-                          logo?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        statement?:
-          | T
-          | {
-              statementFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    richText?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                    assetType?: T;
-                    media?: T;
-                    code?: T;
-                    mediaWidth?: T;
-                    backgroundGlow?: T;
-                    assetCaption?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        steps?: T | StepsBlockSelect<T>;
-        stickyHighlights?:
-          | T
-          | {
-              stickyHighlightsFields?:
-                | T
-                | {
-                    settings?:
-                      | T
-                      | {
-                          theme?: T;
-                          background?: T;
-                        };
-                    highlights?:
-                      | T
-                      | {
-                          richText?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          type?: T;
-                          code?: T;
-                          codeBlips?:
-                            | T
-                            | {
-                                row?: T;
-                                label?: T;
-                                feature?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          media?: T;
-                          id?: T;
-                        };
-                  };
-              id?: T;
-              blockName?: T;
-            };
-      };
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users_select".
- */
-export interface UsersSelect<T extends boolean = true> {
-  firstName?: T;
-  lastName?: T;
-  twitter?: T;
-  photo?: T;
-  roles?: T;
-  tenants?:
-    | T
-    | {
-        tenant?: T;
-        roles?: T;
-        id?: T;
-      };
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  apiKey?: T;
-  apiKeyLast4?: T;
-  apiKeyIndex?: T;
-  email?: T;
-  resetPasswordToken?: T;
-  resetPasswordExpiration?: T;
-  salt?: T;
-  hash?: T;
-  resetPasswordRequestedAt?: T;
-  loginAttempts?: T;
-  lockUntil?: T;
-  sessions?:
-    | T
-    | {
-        id?: T;
-        createdAt?: T;
-        expiresAt?: T;
-        refreshCount?: T;
-        refreshedAt?: T;
-      };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "partners_select".
- */
-export interface PartnersSelect<T extends boolean = true> {
-  name?: T;
-  website?: T;
-  email?: T;
-  slug?: T;
-  agency_status?: T;
-  hubspotID?: T;
-  logo?: T;
-  featured?: T;
-  topContributor?: T;
-  content?:
-    | T
-    | {
-        bannerImage?: T;
-        overview?: T;
-        services?: T;
-        idealProject?: T;
-        caseStudy?: T;
-        contributions?:
-          | T
-          | {
-              type?: T;
-              repo?: T;
-              number?: T;
-              id?: T;
-            };
-        projects?:
-          | T
-          | {
-              year?: T;
-              name?: T;
-              link?: T;
-              id?: T;
-            };
-      };
-  city?: T;
-  regions?: T;
-  specialties?: T;
-  budgets?: T;
-  industries?: T;
-  social?:
-    | T
-    | {
-        platform?: T;
-        url?: T;
-        id?: T;
-      };
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "industries_select".
- */
-export interface IndustriesSelect<T extends boolean = true> {
-  name?: T;
-  value?: T;
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "specialties_select".
- */
-export interface SpecialtiesSelect<T extends boolean = true> {
-  name?: T;
-  value?: T;
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "regions_select".
- */
-export interface RegionsSelect<T extends boolean = true> {
-  name?: T;
-  value?: T;
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "budgets_select".
- */
-export interface BudgetsSelect<T extends boolean = true> {
-  name?: T;
-  value?: T;
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "messages_select".
- */
-export interface MessagesSelect<T extends boolean = true> {
-  room?: T;
-  from?: T;
-  step?: T;
-  chain?: T;
-  receipt?: T;
+  allowPublicRead?: T;
   createdBy?: T;
   updatedBy?: T;
   updatedAt?: T;
@@ -7893,9 +2091,6 @@ export interface FormsSelect<T extends boolean = true> {
         message?: T;
         id?: T;
       };
-  hubSpotFormID?: T;
-  customID?: T;
-  requireTurnstile?: T;
   createdBy?: T;
   updatedBy?: T;
   updatedAt?: T;
@@ -7914,9 +2109,218 @@ export interface FormSubmissionsSelect<T extends boolean = true> {
         value?: T;
         id?: T;
       };
-  turnstile?: T;
   createdBy?: T;
   updatedBy?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "addresses_select".
+ */
+export interface AddressesSelect<T extends boolean = true> {
+  customer?: T;
+  title?: T;
+  firstName?: T;
+  lastName?: T;
+  company?: T;
+  addressLine1?: T;
+  addressLine2?: T;
+  city?: T;
+  state?: T;
+  postalCode?: T;
+  country?: T;
+  phone?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "variants_select".
+ */
+export interface VariantsSelect<T extends boolean = true> {
+  title?: T;
+  product?: T;
+  options?: T;
+  inventory?: T;
+  priceInUSDEnabled?: T;
+  priceInUSD?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "variantTypes_select".
+ */
+export interface VariantTypesSelect<T extends boolean = true> {
+  label?: T;
+  name?: T;
+  options?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "variantOptions_select".
+ */
+export interface VariantOptionsSelect<T extends boolean = true> {
+  _variantOptions_options_order?: T;
+  variantType?: T;
+  label?: T;
+  value?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products_select".
+ */
+export interface ProductsSelect<T extends boolean = true> {
+  tenant?: T;
+  title?: T;
+  description?: T;
+  gallery?:
+    | T
+    | {
+        image?: T;
+        variantOption?: T;
+        id?: T;
+      };
+  layout?:
+    | T
+    | {
+        cta?: T | CallToActionBlockSelect<T>;
+        content?: T | ContentBlockSelect<T>;
+        mediaBlock?: T | MediaBlockSelect<T>;
+      };
+  inventory?: T;
+  enableVariants?: T;
+  variantTypes?: T;
+  variants?: T;
+  priceInUSDEnabled?: T;
+  priceInUSD?: T;
+  relatedProducts?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        description?: T;
+      };
+  categories?: T;
+  slug?: T;
+  developedFrom?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "carts_select".
+ */
+export interface CartsSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        product?: T;
+        variant?: T;
+        quantity?: T;
+        id?: T;
+      };
+  secret?: T;
+  customer?: T;
+  purchasedAt?: T;
+  status?: T;
+  subtotal?: T;
+  currency?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "orders_select".
+ */
+export interface OrdersSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        product?: T;
+        variant?: T;
+        quantity?: T;
+        id?: T;
+      };
+  shippingAddress?:
+    | T
+    | {
+        title?: T;
+        firstName?: T;
+        lastName?: T;
+        company?: T;
+        addressLine1?: T;
+        addressLine2?: T;
+        city?: T;
+        state?: T;
+        postalCode?: T;
+        country?: T;
+        phone?: T;
+      };
+  customer?: T;
+  customerEmail?: T;
+  transactions?: T;
+  status?: T;
+  amount?: T;
+  currency?: T;
+  accessToken?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "transactions_select".
+ */
+export interface TransactionsSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        product?: T;
+        variant?: T;
+        quantity?: T;
+        id?: T;
+      };
+  paymentMethod?: T;
+  stripe?:
+    | T
+    | {
+        customerID?: T;
+        paymentIntentID?: T;
+      };
+  billingAddress?:
+    | T
+    | {
+        title?: T;
+        firstName?: T;
+        lastName?: T;
+        company?: T;
+        addressLine1?: T;
+        addressLine2?: T;
+        city?: T;
+        state?: T;
+        postalCode?: T;
+        country?: T;
+        phone?: T;
+      };
+  status?: T;
+  customer?: T;
+  customerEmail?: T;
+  order?: T;
+  cart?: T;
+  amount?: T;
+  currency?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -7940,74 +2344,12 @@ export interface RedirectsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tenants_select".
+ * via the `definition` "search_select".
  */
-export interface TenantsSelect<T extends boolean = true> {
-  name?: T;
-  slug?: T;
-  namespace?: T;
-  domains?:
-    | T
-    | {
-        domain?: T;
-        id?: T;
-      };
-  currency?: T;
-  settings?: T;
-  bindings?:
-    | T
-    | {
-        profile?: T;
-        connectors?: T;
-        variables?:
-          | T
-          | {
-              name?: T;
-              id?: T;
-            };
-      };
-  branding?:
-    | T
-    | {
-        name?: T;
-        tagline?: T;
-        accent?: T;
-        theme?: T;
-        mode?: T;
-        template?: T;
-        logo?: T;
-        icon?: T;
-      };
-  mcps?:
-    | T
-    | {
-        name?: T;
-        url?: T;
-        auth?: T;
-        token?: T;
-        id?: T;
-      };
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "entries_select".
- */
-export interface EntriesSelect<T extends boolean = true> {
-  tenant?: T;
-  id?: T;
-  kind?: T;
-  from?: T;
-  body?: T;
-  sha256?: T;
-  result?: T;
-  links?: T;
-  linkedBy?: T;
-  createdBy?: T;
-  updatedBy?: T;
+export interface SearchSelect<T extends boolean = true> {
+  title?: T;
+  priority?: T;
+  doc?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -8099,226 +2441,6 @@ export interface ImportsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "addresses_select".
- */
-export interface AddressesSelect<T extends boolean = true> {
-  customer?: T;
-  title?: T;
-  firstName?: T;
-  lastName?: T;
-  company?: T;
-  addressLine1?: T;
-  addressLine2?: T;
-  city?: T;
-  state?: T;
-  postalCode?: T;
-  country?: T;
-  phone?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "variants_select".
- */
-export interface VariantsSelect<T extends boolean = true> {
-  title?: T;
-  product?: T;
-  options?: T;
-  inventory?: T;
-  priceInEUREnabled?: T;
-  priceInEUR?: T;
-  priceInUSDEnabled?: T;
-  priceInUSD?: T;
-  priceInBGNEnabled?: T;
-  priceInBGN?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  deletedAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "variantTypes_select".
- */
-export interface VariantTypesSelect<T extends boolean = true> {
-  label?: T;
-  name?: T;
-  options?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  deletedAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "variantOptions_select".
- */
-export interface VariantOptionsSelect<T extends boolean = true> {
-  _variantOptions_options_order?: T;
-  variantType?: T;
-  label?: T;
-  value?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  deletedAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "products_select".
- */
-export interface ProductsSelect<T extends boolean = true> {
-  tenant?: T;
-  title?: T;
-  licence?:
-    | T
-    | {
-        product?: T;
-        variant?: T;
-        unit?: T;
-        interval?: T;
-        domains?: T;
-      };
-  iso?:
-    | T
-    | {
-        standard?: T;
-        formula?: T;
-        documented?: T;
-      };
-  inventory?: T;
-  enableVariants?: T;
-  variantTypes?: T;
-  variants?: T;
-  priceInEUREnabled?: T;
-  priceInEUR?: T;
-  priceInUSDEnabled?: T;
-  priceInUSD?: T;
-  priceInBGNEnabled?: T;
-  priceInBGN?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  deletedAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "carts_select".
- */
-export interface CartsSelect<T extends boolean = true> {
-  items?:
-    | T
-    | {
-        product?: T;
-        variant?: T;
-        quantity?: T;
-        id?: T;
-      };
-  secret?: T;
-  customer?: T;
-  purchasedAt?: T;
-  status?: T;
-  subtotal?: T;
-  currency?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "orders_select".
- */
-export interface OrdersSelect<T extends boolean = true> {
-  tenant?: T;
-  items?:
-    | T
-    | {
-        product?: T;
-        variant?: T;
-        quantity?: T;
-        id?: T;
-      };
-  shippingAddress?:
-    | T
-    | {
-        title?: T;
-        firstName?: T;
-        lastName?: T;
-        company?: T;
-        addressLine1?: T;
-        addressLine2?: T;
-        city?: T;
-        state?: T;
-        postalCode?: T;
-        country?: T;
-        phone?: T;
-      };
-  customer?: T;
-  customerEmail?: T;
-  transactions?: T;
-  status?: T;
-  amount?: T;
-  currency?: T;
-  accessToken?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "transactions_select".
- */
-export interface TransactionsSelect<T extends boolean = true> {
-  items?:
-    | T
-    | {
-        product?: T;
-        variant?: T;
-        quantity?: T;
-        id?: T;
-      };
-  paymentMethod?: T;
-  stripe?:
-    | T
-    | {
-        customerID?: T;
-        paymentIntentID?: T;
-      };
-  billingAddress?:
-    | T
-    | {
-        title?: T;
-        firstName?: T;
-        lastName?: T;
-        company?: T;
-        addressLine1?: T;
-        addressLine2?: T;
-        city?: T;
-        state?: T;
-        postalCode?: T;
-        country?: T;
-        phone?: T;
-      };
-  status?: T;
-  customer?: T;
-  customerEmail?: T;
-  order?: T;
-  cart?: T;
-  amount?: T;
-  currency?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "search_select".
- */
-export interface SearchSelect<T extends boolean = true> {
-  title?: T;
-  priority?: T;
-  doc?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -8399,43 +2521,6 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-query-presets_select".
- */
-export interface PayloadQueryPresetsSelect<T extends boolean = true> {
-  title?: T;
-  groupBy?: T;
-  columns?: T;
-  where?: T;
-  isShared?: T;
-  access?:
-    | T
-    | {
-        read?:
-          | T
-          | {
-              constraint?: T;
-              users?: T;
-            };
-        update?:
-          | T
-          | {
-              constraint?: T;
-              users?: T;
-            };
-        delete?:
-          | T
-          | {
-              constraint?: T;
-              users?: T;
-            };
-      };
-  relatedCollection?: T;
-  isTemp?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-llm-instructions_select".
  */
 export interface PayloadLlmInstructionsSelect<T extends boolean = true> {
@@ -8452,541 +2537,64 @@ export interface PayloadLlmInstructionsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "footer".
+ * via the `definition` "header".
  */
-export interface Footer {
-  id: string;
-  columns?:
-    | {
-        label: string;
-        navItems?:
-          | {
-              link: {
-                type?: ('reference' | 'custom') | null;
-                newTab?: boolean | null;
-                reference?:
-                  | ({
-                      relationTo: 'pages';
-                      value: string | Page;
-                    } | null)
-                  | ({
-                      relationTo: 'posts';
-                      value: string | Post;
-                    } | null)
-                  | ({
-                      relationTo: 'case-studies';
-                      value: string | CaseStudy;
-                    } | null);
-                url?: string | null;
-                label: string;
-                customId?: string | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "main-menu".
- */
-export interface MainMenu {
-  id: string;
-  tabs?:
-    | {
-        label: string;
-        enableDirectLink?: boolean | null;
-        enableDropdown?: boolean | null;
-        link?: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | ({
-                relationTo: 'pages';
-                value: string | Page;
-              } | null)
-            | ({
-                relationTo: 'posts';
-                value: string | Post;
-              } | null)
-            | ({
-                relationTo: 'case-studies';
-                value: string | CaseStudy;
-              } | null);
-          url?: string | null;
-          customId?: string | null;
-        };
-        description?: string | null;
-        descriptionLinks?:
-          | {
-              link: {
-                type?: ('reference' | 'custom') | null;
-                newTab?: boolean | null;
-                reference?:
-                  | ({
-                      relationTo: 'pages';
-                      value: string | Page;
-                    } | null)
-                  | ({
-                      relationTo: 'posts';
-                      value: string | Post;
-                    } | null)
-                  | ({
-                      relationTo: 'case-studies';
-                      value: string | CaseStudy;
-                    } | null);
-                url?: string | null;
-                label: string;
-                customId?: string | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        navItems?:
-          | {
-              style?: ('default' | 'featured' | 'list') | null;
-              defaultLink?: {
-                link: {
-                  type?: ('reference' | 'custom') | null;
-                  newTab?: boolean | null;
-                  reference?:
-                    | ({
-                        relationTo: 'pages';
-                        value: string | Page;
-                      } | null)
-                    | ({
-                        relationTo: 'posts';
-                        value: string | Post;
-                      } | null)
-                    | ({
-                        relationTo: 'case-studies';
-                        value: string | CaseStudy;
-                      } | null);
-                  url?: string | null;
-                  label: string;
-                  customId?: string | null;
-                };
-                description?: string | null;
-              };
-              featuredLink?: {
-                tag?: string | null;
-                label?: LexicalRichText<LexicalNodes_040088D2> | null;
-                links?:
-                  | {
-                      link: {
-                        type?: ('reference' | 'custom') | null;
-                        newTab?: boolean | null;
-                        reference?:
-                          | ({
-                              relationTo: 'pages';
-                              value: string | Page;
-                            } | null)
-                          | ({
-                              relationTo: 'posts';
-                              value: string | Post;
-                            } | null)
-                          | ({
-                              relationTo: 'case-studies';
-                              value: string | CaseStudy;
-                            } | null);
-                        url?: string | null;
-                        label: string;
-                        customId?: string | null;
-                      };
-                      id?: string | null;
-                    }[]
-                  | null;
-              };
-              listLinks?: {
-                tag?: string | null;
-                links?:
-                  | {
-                      link: {
-                        type?: ('reference' | 'custom') | null;
-                        newTab?: boolean | null;
-                        reference?:
-                          | ({
-                              relationTo: 'pages';
-                              value: string | Page;
-                            } | null)
-                          | ({
-                              relationTo: 'posts';
-                              value: string | Post;
-                            } | null)
-                          | ({
-                              relationTo: 'case-studies';
-                              value: string | CaseStudy;
-                            } | null);
-                        url?: string | null;
-                        label: string;
-                        customId?: string | null;
-                      };
-                      id?: string | null;
-                    }[]
-                  | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
-  menuCta: {
-    type?: ('reference' | 'custom') | null;
-    newTab?: boolean | null;
-    reference?:
-      | ({
-          relationTo: 'pages';
-          value: string | Page;
-        } | null)
-      | ({
-          relationTo: 'posts';
-          value: string | Post;
-        } | null)
-      | ({
-          relationTo: 'case-studies';
-          value: string | CaseStudy;
-        } | null);
-    url?: string | null;
-    label: string;
-    customId?: string | null;
-  };
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "get-started".
- */
-export interface GetStarted {
-  id: string;
-  heading?: string | null;
-  tabs?: RichTextBlock[] | null;
-  sidebar?: LexicalRichText<LexicalNodes_040088D2> | null;
-  sidebarLinks?:
+export interface Header {
+  id: number;
+  navItems?:
     | {
         link: {
           type?: ('reference' | 'custom') | null;
           newTab?: boolean | null;
-          reference?:
-            | ({
-                relationTo: 'pages';
-                value: string | Page;
-              } | null)
-            | ({
-                relationTo: 'posts';
-                value: string | Post;
-              } | null)
-            | ({
-                relationTo: 'case-studies';
-                value: string | CaseStudy;
-              } | null);
+          reference?: {
+            relationTo: 'pages';
+            value: number | Page;
+          } | null;
           url?: string | null;
           label: string;
-          customId?: string | null;
         };
         id?: string | null;
       }[]
     | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (string | null) | Media;
-  };
   createdBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "RichTextBlock".
+ * via the `definition` "footer".
  */
-export interface RichTextBlock {
-  label: string;
-  content: LexicalRichText<LexicalNodes_040088D2>;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'richTextBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "partner-program".
- */
-export interface PartnerProgram {
-  id: string;
-  /**
-   * Select the form that should be used for the contact form.
-   */
-  contactForm: string | Form;
-  hero?: {
-    richText?: LexicalRichText<LexicalNodes_040088D2> | null;
-    breadcrumbBarLinks?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    heroLinks?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null)
-              | ({
-                  relationTo: 'case-studies';
-                  value: string | CaseStudy;
-                } | null);
-            url?: string | null;
-            label: string;
-            customId?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-  };
-  featuredPartners: {
-    description?: string | null;
-    partners: (string | Partner)[];
-  };
-  contentBlocks?: {
-    beforeDirectory?:
-      | (
-          | Callout
-          | Cta
-          | CardGrid
-          | CaseStudyCards
-          | CaseStudiesHighlight
-          | CaseStudyParallax
-          | CodeFeature
-          | Content
-          | ContentGrid
-          | FormBlock
-          | HoverCards
-          | HoverHighlights
-          | LinkGrid
-          | LogoGrid
-          | MediaBlock
-          | MediaContent
-          | MediaContentAccordion
-          | Pricing
-          | ReusableContentBlock
-          | Slider
-          | Statement
-          | StepsBlock
-          | StickyHighlights
-          | ExampleTabsBlock
-        )[]
-      | null;
-    afterDirectory?:
-      | (
-          | Callout
-          | Cta
-          | CardGrid
-          | CaseStudyCards
-          | CaseStudiesHighlight
-          | CaseStudyParallax
-          | CodeFeature
-          | Content
-          | ContentGrid
-          | FormBlock
-          | HoverCards
-          | HoverHighlights
-          | LinkGrid
-          | LogoGrid
-          | MediaBlock
-          | MediaContent
-          | MediaContentAccordion
-          | Pricing
-          | ReusableContentBlock
-          | Slider
-          | Statement
-          | StepsBlock
-          | StickyHighlights
-          | ExampleTabsBlock
-        )[]
-      | null;
-  };
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "topBar".
- */
-export interface TopBar {
-  id: string;
-  enableTopBar?: boolean | null;
-  message?: string | null;
-  link?: {
-    type?: ('reference' | 'custom') | null;
-    newTab?: boolean | null;
-    reference?:
-      | ({
-          relationTo: 'pages';
-          value: string | Page;
-        } | null)
-      | ({
-          relationTo: 'posts';
-          value: string | Post;
-        } | null)
-      | ({
-          relationTo: 'case-studies';
-          value: string | CaseStudy;
-        } | null);
-    url?: string | null;
-    label: string;
-    customId?: string | null;
-  };
-  createdBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedBy?: {
-    relationTo: 'users';
-    value: string | User;
-  } | null;
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "qpu".
- */
-export interface Qpu {
-  id: string;
-  /**
-   * the origin the discovery document names
-   */
-  origin?: string | null;
-  /**
-   * the discovery document: computed on every read, never stored
-   */
-  document?:
+export interface Footer {
+  id: number;
+  navItems?:
     | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  /**
-   * the branding of the tenant that asked, and the one theme and template its site and its admin share. Computed on this read from the tenants row.
-   */
-  branding?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  google?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  /**
-   * Payload, Cloudflare, Google and shadcn admin APIs as one UUID program: the doors, the merged operation index, the coverage of Payload's own surface with the next gap, the Cloudflare meters and their bill
-   */
-  apis?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  /**
-   * the latest imagination: the open leads imagined, their verdicts, the verify requests and the leads it opened, each written once as an entry of kind lead from qpu-imagine
-   */
-  imagination?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: number | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
     | null;
   createdBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedBy?: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   } | null;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -8996,7 +2604,7 @@ export interface Qpu {
  * via the `definition` "payload-jobs-stats".
  */
 export interface PayloadJobsStat {
-  id: string;
+  id: number;
   stats?:
     | {
         [k: string]: unknown;
@@ -9011,172 +2619,35 @@ export interface PayloadJobsStat {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header_select".
+ */
+export interface HeaderSelect<T extends boolean = true> {
+  navItems?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
+        id?: T;
+      };
+  createdBy?: T;
+  updatedBy?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  columns?:
-    | T
-    | {
-        label?: T;
-        navItems?:
-          | T
-          | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    customId?: T;
-                  };
-              id?: T;
-            };
-        id?: T;
-      };
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "main-menu_select".
- */
-export interface MainMenuSelect<T extends boolean = true> {
-  tabs?:
-    | T
-    | {
-        label?: T;
-        enableDirectLink?: T;
-        enableDropdown?: T;
-        link?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              customId?: T;
-            };
-        description?: T;
-        descriptionLinks?:
-          | T
-          | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    customId?: T;
-                  };
-              id?: T;
-            };
-        navItems?:
-          | T
-          | {
-              style?: T;
-              defaultLink?:
-                | T
-                | {
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          customId?: T;
-                        };
-                    description?: T;
-                  };
-              featuredLink?:
-                | T
-                | {
-                    tag?: T;
-                    label?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              listLinks?:
-                | T
-                | {
-                    tag?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          id?: T;
-                        };
-                  };
-              id?: T;
-            };
-        id?: T;
-      };
-  menuCta?:
-    | T
-    | {
-        type?: T;
-        newTab?: T;
-        reference?: T;
-        url?: T;
-        label?: T;
-        customId?: T;
-      };
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "get-started_select".
- */
-export interface GetStartedSelect<T extends boolean = true> {
-  heading?: T;
-  tabs?:
-    | T
-    | {
-        richTextBlock?:
-          | T
-          | {
-              label?: T;
-              content?: T;
-              id?: T;
-              blockName?: T;
-            };
-      };
-  sidebar?: T;
-  sidebarLinks?:
+  navItems?:
     | T
     | {
         link?:
@@ -9187,1686 +2658,9 @@ export interface GetStartedSelect<T extends boolean = true> {
               reference?: T;
               url?: T;
               label?: T;
-              customId?: T;
             };
         id?: T;
       };
-  meta?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        image?: T;
-      };
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "partner-program_select".
- */
-export interface PartnerProgramSelect<T extends boolean = true> {
-  contactForm?: T;
-  hero?:
-    | T
-    | {
-        richText?: T;
-        breadcrumbBarLinks?:
-          | T
-          | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    customId?: T;
-                  };
-              id?: T;
-            };
-        heroLinks?:
-          | T
-          | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    customId?: T;
-                  };
-              id?: T;
-            };
-      };
-  featuredPartners?:
-    | T
-    | {
-        description?: T;
-        partners?: T;
-      };
-  contentBlocks?:
-    | T
-    | {
-        beforeDirectory?:
-          | T
-          | {
-              callout?:
-                | T
-                | {
-                    calloutFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          richText?: T;
-                          logo?: T;
-                          author?: T;
-                          role?: T;
-                          images?:
-                            | T
-                            | {
-                                image?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              cta?:
-                | T
-                | {
-                    ctaFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          style?: T;
-                          richText?: T;
-                          commandLine?: T;
-                          links?:
-                            | T
-                            | {
-                                type?: T;
-                                npmCta?:
-                                  | T
-                                  | {
-                                      label?: T;
-                                    };
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          bannerLink?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          bannerImage?: T;
-                          gradientBackground?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              cardGrid?:
-                | T
-                | {
-                    cardGridFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          richText?: T;
-                          links?:
-                            | T
-                            | {
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          revealDescription?: T;
-                          cards?:
-                            | T
-                            | {
-                                title?: T;
-                                description?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              caseStudyCards?:
-                | T
-                | {
-                    caseStudyCardFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          pixels?: T;
-                          cards?:
-                            | T
-                            | {
-                                richText?: T;
-                                caseStudy?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              caseStudiesHighlight?:
-                | T
-                | {
-                    caseStudiesHighlightFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          richText?: T;
-                          caseStudies?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              caseStudyParallax?:
-                | T
-                | {
-                    caseStudyParallaxFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          items?:
-                            | T
-                            | {
-                                quote?: T;
-                                author?: T;
-                                logo?: T;
-                                images?:
-                                  | T
-                                  | {
-                                      image?: T;
-                                      id?: T;
-                                    };
-                                tabLabel?: T;
-                                caseStudy?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              codeFeature?:
-                | T
-                | {
-                    codeFeatureFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          forceDarkBackground?: T;
-                          alignment?: T;
-                          heading?: T;
-                          richText?: T;
-                          links?:
-                            | T
-                            | {
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          codeTabs?:
-                            | T
-                            | {
-                                language?: T;
-                                label?: T;
-                                code?: T;
-                                codeBlips?:
-                                  | T
-                                  | {
-                                      row?: T;
-                                      label?: T;
-                                      feature?: T;
-                                      enableLink?: T;
-                                      link?:
-                                        | T
-                                        | {
-                                            type?: T;
-                                            newTab?: T;
-                                            reference?: T;
-                                            url?: T;
-                                            label?: T;
-                                            customId?: T;
-                                          };
-                                      id?: T;
-                                    };
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              content?:
-                | T
-                | {
-                    contentFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          useLeadingHeader?: T;
-                          leadingHeader?: T;
-                          layout?: T;
-                          columnOne?: T;
-                          columnTwo?: T;
-                          columnThree?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              contentGrid?:
-                | T
-                | {
-                    contentGridFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          style?: T;
-                          showNumbers?: T;
-                          content?: T;
-                          links?:
-                            | T
-                            | {
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          cells?:
-                            | T
-                            | {
-                                content?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              form?: T | FormBlockSelect<T>;
-              hoverCards?:
-                | T
-                | {
-                    hoverCardsFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          hideBackground?: T;
-                          richText?: T;
-                          cards?:
-                            | T
-                            | {
-                                title?: T;
-                                description?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              hoverHighlights?:
-                | T
-                | {
-                    hoverHighlightsFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          beforeHighlights?: T;
-                          highlights?:
-                            | T
-                            | {
-                                text?: T;
-                                media?:
-                                  | T
-                                  | {
-                                      top?: T;
-                                      bottom?: T;
-                                    };
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          afterHighlights?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              linkGrid?:
-                | T
-                | {
-                    linkGridFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          links?:
-                            | T
-                            | {
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              logoGrid?:
-                | T
-                | {
-                    logoGridFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          richText?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          logos?:
-                            | T
-                            | {
-                                logoMedia?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              mediaBlock?:
-                | T
-                | {
-                    mediaBlockFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          position?: T;
-                          media?: T;
-                          caption?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              mediaContent?:
-                | T
-                | {
-                    mediaContentFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          alignment?: T;
-                          mediaWidth?: T;
-                          richText?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          images?:
-                            | T
-                            | {
-                                image?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              mediaContentAccordion?:
-                | T
-                | {
-                    mediaContentAccordionFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          alignment?: T;
-                          leader?: T;
-                          heading?: T;
-                          accordion?:
-                            | T
-                            | {
-                                position?: T;
-                                background?: T;
-                                mediaLabel?: T;
-                                mediaDescription?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                media?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              pricing?:
-                | T
-                | {
-                    pricingFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          plans?:
-                            | T
-                            | {
-                                name?: T;
-                                hasPrice?: T;
-                                enableCreatePayload?: T;
-                                price?: T;
-                                title?: T;
-                                description?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                features?:
-                                  | T
-                                  | {
-                                      icon?: T;
-                                      feature?: T;
-                                      id?: T;
-                                    };
-                                id?: T;
-                              };
-                          disclaimer?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              reusableContentBlock?:
-                | T
-                | {
-                    reusableContentBlockFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          reusableContent?: T;
-                          customId?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              slider?:
-                | T
-                | {
-                    sliderFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          introContent?: T;
-                          links?:
-                            | T
-                            | {
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                      appearance?: T;
-                                    };
-                                id?: T;
-                              };
-                          quoteSlides?:
-                            | T
-                            | {
-                                quote?: T;
-                                author?: T;
-                                role?: T;
-                                logo?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              statement?:
-                | T
-                | {
-                    statementFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          richText?: T;
-                          links?:
-                            | T
-                            | {
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          assetType?: T;
-                          media?: T;
-                          code?: T;
-                          mediaWidth?: T;
-                          backgroundGlow?: T;
-                          assetCaption?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              steps?: T | StepsBlockSelect<T>;
-              stickyHighlights?:
-                | T
-                | {
-                    stickyHighlightsFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          highlights?:
-                            | T
-                            | {
-                                richText?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                type?: T;
-                                code?: T;
-                                codeBlips?:
-                                  | T
-                                  | {
-                                      row?: T;
-                                      label?: T;
-                                      feature?: T;
-                                      enableLink?: T;
-                                      link?:
-                                        | T
-                                        | {
-                                            type?: T;
-                                            newTab?: T;
-                                            reference?: T;
-                                            url?: T;
-                                            label?: T;
-                                            customId?: T;
-                                          };
-                                      id?: T;
-                                    };
-                                media?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              exampleTabs?: T | ExampleTabsBlockSelect<T>;
-            };
-        afterDirectory?:
-          | T
-          | {
-              callout?:
-                | T
-                | {
-                    calloutFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          richText?: T;
-                          logo?: T;
-                          author?: T;
-                          role?: T;
-                          images?:
-                            | T
-                            | {
-                                image?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              cta?:
-                | T
-                | {
-                    ctaFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          style?: T;
-                          richText?: T;
-                          commandLine?: T;
-                          links?:
-                            | T
-                            | {
-                                type?: T;
-                                npmCta?:
-                                  | T
-                                  | {
-                                      label?: T;
-                                    };
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          bannerLink?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          bannerImage?: T;
-                          gradientBackground?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              cardGrid?:
-                | T
-                | {
-                    cardGridFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          richText?: T;
-                          links?:
-                            | T
-                            | {
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          revealDescription?: T;
-                          cards?:
-                            | T
-                            | {
-                                title?: T;
-                                description?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              caseStudyCards?:
-                | T
-                | {
-                    caseStudyCardFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          pixels?: T;
-                          cards?:
-                            | T
-                            | {
-                                richText?: T;
-                                caseStudy?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              caseStudiesHighlight?:
-                | T
-                | {
-                    caseStudiesHighlightFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          richText?: T;
-                          caseStudies?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              caseStudyParallax?:
-                | T
-                | {
-                    caseStudyParallaxFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          items?:
-                            | T
-                            | {
-                                quote?: T;
-                                author?: T;
-                                logo?: T;
-                                images?:
-                                  | T
-                                  | {
-                                      image?: T;
-                                      id?: T;
-                                    };
-                                tabLabel?: T;
-                                caseStudy?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              codeFeature?:
-                | T
-                | {
-                    codeFeatureFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          forceDarkBackground?: T;
-                          alignment?: T;
-                          heading?: T;
-                          richText?: T;
-                          links?:
-                            | T
-                            | {
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          codeTabs?:
-                            | T
-                            | {
-                                language?: T;
-                                label?: T;
-                                code?: T;
-                                codeBlips?:
-                                  | T
-                                  | {
-                                      row?: T;
-                                      label?: T;
-                                      feature?: T;
-                                      enableLink?: T;
-                                      link?:
-                                        | T
-                                        | {
-                                            type?: T;
-                                            newTab?: T;
-                                            reference?: T;
-                                            url?: T;
-                                            label?: T;
-                                            customId?: T;
-                                          };
-                                      id?: T;
-                                    };
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              content?:
-                | T
-                | {
-                    contentFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          useLeadingHeader?: T;
-                          leadingHeader?: T;
-                          layout?: T;
-                          columnOne?: T;
-                          columnTwo?: T;
-                          columnThree?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              contentGrid?:
-                | T
-                | {
-                    contentGridFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          style?: T;
-                          showNumbers?: T;
-                          content?: T;
-                          links?:
-                            | T
-                            | {
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          cells?:
-                            | T
-                            | {
-                                content?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              form?: T | FormBlockSelect<T>;
-              hoverCards?:
-                | T
-                | {
-                    hoverCardsFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          hideBackground?: T;
-                          richText?: T;
-                          cards?:
-                            | T
-                            | {
-                                title?: T;
-                                description?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              hoverHighlights?:
-                | T
-                | {
-                    hoverHighlightsFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          beforeHighlights?: T;
-                          highlights?:
-                            | T
-                            | {
-                                text?: T;
-                                media?:
-                                  | T
-                                  | {
-                                      top?: T;
-                                      bottom?: T;
-                                    };
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          afterHighlights?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              linkGrid?:
-                | T
-                | {
-                    linkGridFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          links?:
-                            | T
-                            | {
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              logoGrid?:
-                | T
-                | {
-                    logoGridFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          richText?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          logos?:
-                            | T
-                            | {
-                                logoMedia?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              mediaBlock?:
-                | T
-                | {
-                    mediaBlockFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          position?: T;
-                          media?: T;
-                          caption?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              mediaContent?:
-                | T
-                | {
-                    mediaContentFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          alignment?: T;
-                          mediaWidth?: T;
-                          richText?: T;
-                          enableLink?: T;
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                customId?: T;
-                              };
-                          images?:
-                            | T
-                            | {
-                                image?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              mediaContentAccordion?:
-                | T
-                | {
-                    mediaContentAccordionFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          alignment?: T;
-                          leader?: T;
-                          heading?: T;
-                          accordion?:
-                            | T
-                            | {
-                                position?: T;
-                                background?: T;
-                                mediaLabel?: T;
-                                mediaDescription?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                media?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              pricing?:
-                | T
-                | {
-                    pricingFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          plans?:
-                            | T
-                            | {
-                                name?: T;
-                                hasPrice?: T;
-                                enableCreatePayload?: T;
-                                price?: T;
-                                title?: T;
-                                description?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                features?:
-                                  | T
-                                  | {
-                                      icon?: T;
-                                      feature?: T;
-                                      id?: T;
-                                    };
-                                id?: T;
-                              };
-                          disclaimer?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              reusableContentBlock?:
-                | T
-                | {
-                    reusableContentBlockFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          reusableContent?: T;
-                          customId?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              slider?:
-                | T
-                | {
-                    sliderFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          introContent?: T;
-                          links?:
-                            | T
-                            | {
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                      appearance?: T;
-                                    };
-                                id?: T;
-                              };
-                          quoteSlides?:
-                            | T
-                            | {
-                                quote?: T;
-                                author?: T;
-                                role?: T;
-                                logo?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              statement?:
-                | T
-                | {
-                    statementFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          richText?: T;
-                          links?:
-                            | T
-                            | {
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                id?: T;
-                              };
-                          assetType?: T;
-                          media?: T;
-                          code?: T;
-                          mediaWidth?: T;
-                          backgroundGlow?: T;
-                          assetCaption?: T;
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              steps?: T | StepsBlockSelect<T>;
-              stickyHighlights?:
-                | T
-                | {
-                    stickyHighlightsFields?:
-                      | T
-                      | {
-                          settings?:
-                            | T
-                            | {
-                                theme?: T;
-                                background?: T;
-                              };
-                          highlights?:
-                            | T
-                            | {
-                                richText?: T;
-                                enableLink?: T;
-                                link?:
-                                  | T
-                                  | {
-                                      type?: T;
-                                      newTab?: T;
-                                      reference?: T;
-                                      url?: T;
-                                      label?: T;
-                                      customId?: T;
-                                    };
-                                type?: T;
-                                code?: T;
-                                codeBlips?:
-                                  | T
-                                  | {
-                                      row?: T;
-                                      label?: T;
-                                      feature?: T;
-                                      enableLink?: T;
-                                      link?:
-                                        | T
-                                        | {
-                                            type?: T;
-                                            newTab?: T;
-                                            reference?: T;
-                                            url?: T;
-                                            label?: T;
-                                            customId?: T;
-                                          };
-                                      id?: T;
-                                    };
-                                media?: T;
-                                id?: T;
-                              };
-                        };
-                    id?: T;
-                    blockName?: T;
-                  };
-              exampleTabs?: T | ExampleTabsBlockSelect<T>;
-            };
-      };
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "topBar_select".
- */
-export interface TopBarSelect<T extends boolean = true> {
-  enableTopBar?: T;
-  message?: T;
-  link?:
-    | T
-    | {
-        type?: T;
-        newTab?: T;
-        reference?: T;
-        url?: T;
-        label?: T;
-        customId?: T;
-      };
-  createdBy?: T;
-  updatedBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "qpu_select".
- */
-export interface QpuSelect<T extends boolean = true> {
-  origin?: T;
-  document?: T;
-  branding?: T;
-  google?: T;
-  apis?: T;
-  imagination?: T;
   createdBy?: T;
   updatedBy?: T;
   updatedAt?: T;
@@ -10882,6 +2676,16 @@ export interface PayloadJobsStatsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "getting-started_widget".
+ */
+export interface GettingStartedWidget {
+  data?: {
+    [k: string]: unknown;
+  };
+  width: 'full';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -10911,29 +2715,14 @@ export interface CollectionQueryWidget {
   data?: {
     title?: string | null;
     relatedCollection:
-      | 'case-studies'
-      | 'community-help'
-      | 'docs'
-      | 'docs-feedback'
-      | 'media'
+      | 'users'
       | 'pages'
       | 'posts'
       | 'categories'
-      | 'reusable-content'
-      | 'users'
-      | 'partners'
-      | 'industries'
-      | 'specialties'
-      | 'regions'
-      | 'budgets'
-      | 'messages'
+      | 'media'
+      | 'tenants'
       | 'forms'
       | 'form-submissions'
-      | 'redirects'
-      | 'tenants'
-      | 'entries'
-      | 'exports'
-      | 'imports'
       | 'variants'
       | 'variantTypes'
       | 'variantOptions'
@@ -10941,7 +2730,10 @@ export interface CollectionQueryWidget {
       | 'carts'
       | 'orders'
       | 'transactions'
-      | 'search';
+      | 'redirects'
+      | 'search'
+      | 'exports'
+      | 'imports';
     where?:
       | {
           [k: string]: unknown;
@@ -10965,29 +2757,14 @@ export interface ActivityWidget {
   data?: {
     excludedCollections?:
       | (
-          | 'case-studies'
-          | 'community-help'
-          | 'docs'
-          | 'docs-feedback'
-          | 'media'
+          | 'users'
           | 'pages'
           | 'posts'
           | 'categories'
-          | 'reusable-content'
-          | 'users'
-          | 'partners'
-          | 'industries'
-          | 'specialties'
-          | 'regions'
-          | 'budgets'
-          | 'messages'
+          | 'media'
+          | 'tenants'
           | 'forms'
           | 'form-submissions'
-          | 'redirects'
-          | 'tenants'
-          | 'entries'
-          | 'exports'
-          | 'imports'
           | 'variants'
           | 'variantTypes'
           | 'variantOptions'
@@ -10995,7 +2772,10 @@ export interface ActivityWidget {
           | 'carts'
           | 'orders'
           | 'transactions'
+          | 'redirects'
           | 'search'
+          | 'exports'
+          | 'imports'
         )[]
       | null;
   };
@@ -11013,51 +2793,17 @@ export interface UploadDropzoneWidget {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TaskQpu-lead-run".
+ * via the `definition` "TaskLegacyLead".
  */
-export interface TaskQpuLeadRun {
+export interface TaskLegacyLead {
   input: {
-    lead?: string | null;
-    request?: string | null;
+    path: string;
+    exports?: string | null;
+    address: string;
+    tenant: number;
   };
   output: {
-    entry?: string | null;
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TaskQpu-news-solve".
- */
-export interface TaskQpuNewsSolve {
-  input: {
-    tenant?: string | null;
-    news?:
-      | {
-          [k: string]: unknown;
-        }
-      | unknown[]
-      | string
-      | number
-      | boolean
-      | null;
-  };
-  output: {
-    entry?: string | null;
-    posts?: number | null;
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TaskQpu-machine".
- */
-export interface TaskQpuMachine {
-  input: {
-    action: string;
-    args?: string | null;
-  };
-  output: {
-    entry?: string | null;
-    ok?: boolean | null;
+    page: number;
   };
 }
 /**
@@ -11070,27 +2816,24 @@ export interface TaskCreateCollectionExport {
     name: string;
     batchSize?: number | null;
     collectionSlug:
-      | 'case-studies'
-      | 'community-help'
-      | 'docs'
-      | 'docs-feedback'
-      | 'media'
+      | 'users'
       | 'pages'
       | 'posts'
       | 'categories'
-      | 'reusable-content'
-      | 'users'
-      | 'partners'
-      | 'industries'
-      | 'specialties'
-      | 'regions'
-      | 'budgets'
-      | 'messages'
+      | 'media'
+      | 'tenants'
       | 'forms'
       | 'form-submissions'
+      | 'addresses'
+      | 'variants'
+      | 'variantTypes'
+      | 'variantOptions'
+      | 'products'
+      | 'carts'
+      | 'orders'
+      | 'transactions'
       | 'redirects'
-      | 'tenants'
-      | 'entries'
+      | 'search'
       | 'exports'
       | 'imports';
     drafts?: ('yes' | 'no') | null;
@@ -11135,217 +2878,35 @@ export interface TaskCreateCollectionImport {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TaskQpu-google-call".
+ * via the `definition` "TaskSchedulePublish".
  */
-export interface TaskQpuGoogleCall {
+export interface TaskSchedulePublish {
   input: {
-    api?: string | null;
-    version?: string | null;
-    method?: string | null;
-    url?: string | null;
-    httpMethod?: string | null;
-    endpoint?: string | null;
-    request?: string | null;
-    tenant?: string | null;
-    params?:
-      | {
-          [k: string]: unknown;
-        }
-      | unknown[]
-      | string
-      | number
-      | boolean
-      | null;
-    body?:
-      | {
-          [k: string]: unknown;
-        }
-      | unknown[]
-      | string
-      | number
-      | boolean
-      | null;
+    type?: ('publish' | 'unpublish') | null;
+    locale?: string | null;
+    doc?: {
+      relationTo: 'posts';
+      value: number | Post;
+    } | null;
+    global?: string | null;
+    user?: {
+      relationTo: 'users';
+      value: number | User;
+    } | null;
   };
-  output: {
-    entry?: string | null;
-  };
+  output?: unknown;
 }
 /**
+ * Multiple blocks resolve to the `BannerBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
+ *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TaskQpu-cloudflare-call".
+ * via the `definition` "BannerBlock_E2BCF839".
  */
-export interface TaskQpuCloudflareCall {
-  input: {
-    method?: string | null;
-    path?: string | null;
-    request?: string | null;
-    tenant?: string | null;
-    body?:
-      | {
-          [k: string]: unknown;
-        }
-      | unknown[]
-      | string
-      | number
-      | boolean
-      | null;
-  };
-  output: {
-    entry?: string | null;
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TaskQpu-cloudflare-observe".
- */
-export interface TaskQpuCloudflareObserve {
-  input: {
-    request?: string | null;
-    tenant?: string | null;
-    zone?: string | null;
-  };
-  output: {
-    entry?: string | null;
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TaskQpu-imagine".
- */
-export interface TaskQpuImagine {
-  input: {
-    open?: number | null;
-    request?: string | null;
-    tenant?: string | null;
-    leads?:
-      | {
-          [k: string]: unknown;
-        }
-      | unknown[]
-      | string
-      | number
-      | boolean
-      | null;
-    statements?:
-      | {
-          [k: string]: unknown;
-        }
-      | unknown[]
-      | string
-      | number
-      | boolean
-      | null;
-  };
-  output: {
-    entry?: string | null;
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TaskQpu-mcp-call".
- */
-export interface TaskQpuMcpCall {
-  input: {
-    url?: string | null;
-    method?: string | null;
-    params?:
-      | {
-          [k: string]: unknown;
-        }
-      | unknown[]
-      | string
-      | number
-      | boolean
-      | null;
-    request?: string | null;
-    tenant?: string | null;
-  };
-  output: {
-    entry?: string | null;
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TaskQpu-raid-verify".
- */
-export interface TaskQpuRaidVerify {
-  input: {
-    collection?: string | null;
-  };
-  output: {
-    entry?: string | null;
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "SpotlightBlock".
- */
-export interface SpotlightBlock {
+export interface BannerBlock_E2BCF839 {
   id: string;
-  blockType: 'spotlight';
-  element?: ('h1' | 'h2' | 'h3' | 'p') | null;
-  richText?: LexicalRichText<LexicalNodes_50710DDF> | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "VideoBlock".
- */
-export interface VideoBlock {
-  id: string;
-  blockType: 'video';
-  url?: string | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BrBlock".
- */
-export interface BrBlock {
-  id: string;
-  blockType: 'br';
-  ignore?: string | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BannerBlock".
- */
-export interface BannerBlock {
-  id: string;
-  blockType: 'Banner';
-  type?: ('alert' | 'default' | 'error' | 'info' | 'success' | 'warning') | null;
-  content?: LexicalRichText<LexicalNodes_50710DDF> | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "VideoDrawerBlock".
- */
-export interface VideoDrawerBlock {
-  id: string;
-  blockType: 'VideoDrawer';
-  label: string;
-  drawerTitle: string;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TemplateCardsBlock".
- */
-export interface TemplateCardsBlock {
-  id: string;
-  blockType: 'templateCards';
-  templates?:
-    | {
-        name: string;
-        description: string;
-        image: string;
-        slug: string;
-        order: number;
-        id?: string | null;
-      }[]
-    | null;
+  blockType: 'banner';
+  style: 'info' | 'warning' | 'error' | 'success';
+  content: LexicalRichText<LexicalNodes_2459B5A2>;
   blockName?: string | null;
 }
 /**
@@ -11354,401 +2915,21 @@ export interface TemplateCardsBlock {
  */
 export interface CodeBlock {
   id: string;
-  blockType: 'Code';
-  language?:
-    | (
-        | 'bash'
-        | 'css'
-        | 'diff'
-        | 'dockerfile'
-        | 'env'
-        | 'graphql'
-        | 'html'
-        | 'http'
-        | 'js'
-        | 'json'
-        | 'jsx'
-        | 'markdown'
-        | 'plaintext'
-        | 'scss'
-        | 'sh'
-        | 'text'
-        | 'ts'
-        | 'tsx'
-        | 'vue'
-        | 'yaml'
-        | 'yml'
-      )
-    | null;
-  code?: string | null;
+  blockType: 'code';
+  language?: ('typescript' | 'javascript' | 'css') | null;
+  code: string;
   blockName?: string | null;
 }
 /**
+ * Multiple blocks resolve to the `MediaBlock` interface with different fields, so a content hash is appended to keep the generated types stable and unambiguous. Set a unique `interfaceName` on the block to choose the name yourself. See https://payloadcms.com/docs/typescript/generating-types#block-interface-name-collisions
+ *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "DownloadBlockType".
+ * via the `definition` "MediaBlock_D6C44817".
  */
-export interface DownloadBlockType {
+export interface MediaBlock_D6C44817 {
   id: string;
-  blockType: 'downloadBlock';
-  downloads?:
-    | {
-        name: string;
-        /**
-         * The file to download
-         */
-        file: string | Media;
-        /**
-         * Thumbnail for the download. Defaults to file for images
-         */
-        thumbnail?: (string | null) | Media;
-        thumbnailAppearance: 'cover' | 'contain';
-        background: 'auto' | 'light' | 'dark';
-        copyToClipboard?: boolean | null;
-        copyToClipboardText?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CommandLineBlock".
- */
-export interface CommandLineBlock {
-  id: string;
-  blockType: 'commandLine';
-  command?: string | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LexicalUploadFields_F19C4182".
- */
-export interface LexicalUploadFields_F19C4182 {
-  enableLink?: boolean | null;
-  link?: {
-    type?: ('reference' | 'custom') | null;
-    newTab?: boolean | null;
-    reference?:
-      | ({
-          relationTo: 'pages';
-          value: string | Page;
-        } | null)
-      | ({
-          relationTo: 'posts';
-          value: string | Post;
-        } | null)
-      | ({
-          relationTo: 'case-studies';
-          value: string | CaseStudy;
-        } | null);
-    url?: string | null;
-    customId?: string | null;
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CodeTabsBlock".
- */
-export interface CodeTabsBlock {
-  id: string;
-  blockType: 'CodeTabs';
-  tabs: {
-    label: string;
-    language:
-      | 'bash'
-      | 'css'
-      | 'diff'
-      | 'dockerfile'
-      | 'env'
-      | 'graphql'
-      | 'html'
-      | 'http'
-      | 'js'
-      | 'json'
-      | 'jsx'
-      | 'markdown'
-      | 'plaintext'
-      | 'scss'
-      | 'sh'
-      | 'text'
-      | 'ts'
-      | 'tsx'
-      | 'vue'
-      | 'yaml'
-      | 'yml';
-    code: string;
-    id?: string | null;
-  }[];
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "YoutubeBlock".
- */
-export interface YoutubeBlock {
-  id: string;
-  blockType: 'YouTube';
-  title?: string | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LightDarkImageBlock".
- */
-export interface LightDarkImageBlock {
-  id: string;
-  blockType: 'LightDarkImage';
-  srcLight: string;
-  srcDark: string;
-  alt?: string | null;
-  caption?: string | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "PayloadMediaBlock".
- */
-export interface PayloadMediaBlock {
-  id: string;
-  blockType: 'PayloadMedia';
-  media: string | Media;
-  caption?: string | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "UploadBlock".
- */
-export interface UploadBlock {
-  id: string;
-  blockType: 'Upload';
-  src: string;
-  alt?: string | null;
-  caption?: LexicalRichText<LexicalNodes_50710DDF> | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "RestExamplesBlock".
- */
-export interface RestExamplesBlock {
-  id: string;
-  blockType: 'RestExamples';
-  data?:
-    | {
-        operation?: string | null;
-        method?: string | null;
-        path?: string | null;
-        description?: string | null;
-        example?: {
-          slug?: string | null;
-          req?:
-            | {
-                [k: string]: unknown;
-              }
-            | unknown[]
-            | string
-            | number
-            | boolean
-            | null;
-          res?:
-            | {
-                [k: string]: unknown;
-              }
-            | unknown[]
-            | string
-            | number
-            | boolean
-            | null;
-          drawerContent?: LexicalRichText<LexicalNodes_EECE9A51> | null;
-        };
-        id?: string | null;
-      }[]
-    | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ResourceBlock".
- */
-export interface ResourceBlock {
-  id: string;
-  blockType: 'Resource';
-  post?: string | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TableWithDrawersBlock".
- */
-export interface TableWithDrawersBlock {
-  id: string;
-  blockType: 'TableWithDrawers';
-  columns?: string[] | null;
-  rows?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "PillBlock".
- */
-export interface PillBlock {
-  id: string;
-  blockType: 'Pill';
-  /**
-   * E.g., "1. DEFINE WORK" or "2. QUEUE JOBS"
-   */
-  text: string;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ArrowBlock".
- */
-export interface ArrowBlock {
-  id: string;
-  blockType: 'Arrow';
-  direction: 'down' | 'up' | 'left' | 'right';
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BulletListBlock".
- */
-export interface BulletListBlock {
-  id: string;
-  blockType: 'BulletList';
-  items: {
-    text: string;
-    icon: 'check' | 'x';
-    id?: string | null;
-  }[];
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CardBlock".
- */
-export interface CardBlock {
-  id: string;
-  blockType: 'Card';
-  title: string;
-  description: string;
-  /**
-   * URL the card links to, e.g. /docs/authentication/overview
-   */
-  link: string;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CardGroupBlock".
- */
-export interface CardGroupBlock {
-  id: string;
-  blockType: 'CardGroup';
-  variant: 'default' | 'compact';
-  content?: LexicalRichText<LexicalNodes_FF1259B6> | null;
-  blockName?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ComponentPreviewBlock".
- */
-export interface ComponentPreviewBlock {
-  id: string;
-  blockType: 'ComponentPreview';
-  component:
-    | 'AnimateHeight'
-    | 'Banner'
-    | 'Button'
-    | 'Card'
-    | 'ChoiceInputs'
-    | 'CodeEditor'
-    | 'Collapsible'
-    | 'CopyToClipboard'
-    | 'DatePicker'
-    | 'DocumentActions'
-    | 'DocumentState'
-    | 'DraggableSortable'
-    | 'Dropzone'
-    | 'ErrorPill'
-    | 'FieldChrome'
-    | 'Gutter'
-    | 'Hamburger'
-    | 'Icons'
-    | 'Link'
-    | 'ListAndPagination'
-    | 'ModalsAndDrawers'
-    | 'MotionAndLoading'
-    | 'Pill'
-    | 'PillSelector'
-    | 'Popup'
-    | 'ReactSelect'
-    | 'RelationshipInputs'
-    | 'SearchFilter'
-    | 'ShimmerEffect'
-    | 'StepNavigation'
-    | 'Table'
-    | 'TableCells'
-    | 'TextInputs'
-    | 'Thumbnail'
-    | 'TimezonePicker'
-    | 'Tooltip'
-    | 'UploadHelpers';
-  example:
-    | 'actions'
-    | 'basic'
-    | 'bulk'
-    | 'checkbox'
-    | 'confirmation'
-    | 'counts'
-    | 'custom'
-    | 'customView'
-    | 'defaults'
-    | 'disabled'
-    | 'drawer'
-    | 'editView'
-    | 'error'
-    | 'fallback'
-    | 'fileDetails'
-    | 'gallery'
-    | 'interactive'
-    | 'labels'
-    | 'lockIndicator'
-    | 'lockedDocument'
-    | 'menu'
-    | 'messages'
-    | 'multiple'
-    | 'overlay'
-    | 'pagination'
-    | 'previewSizes'
-    | 'primary'
-    | 'progress'
-    | 'readOnly'
-    | 'relationship'
-    | 'save'
-    | 'select'
-    | 'shapes'
-    | 'sizes'
-    | 'staggered'
-    | 'states'
-    | 'styles'
-    | 'takenOver'
-    | 'text'
-    | 'textarea'
-    | 'upload'
-    | 'uploadEmptyState'
-    | 'variants';
+  blockType: 'mediaBlock';
+  media: number | Media;
   blockName?: string | null;
 }
 /**
@@ -11810,55 +2991,34 @@ export interface SerializedParagraphNode<TChildren> extends SerializedLexicalEle
   textStyle: string;
 }
 
-export type SerializedBlockNode<TFields extends { blockType: string }> = TFields extends unknown ? {
-  type: 'block';
-  format: LexicalElementFormat;
-  /** @deprecated Ignored when loading. Typed as required only to match Lexical's types: rich text sent through the API, CLI or MCP may not contain it. */
-  version: number;
-  fields: { id: string; blockName?: string | null } & Omit<TFields, 'id' | 'blockName'>;
-} : never;
-export type SerializedInlineBlockNode<TFields extends { blockType: string }> = TFields extends unknown ? {
-  type: 'inlineBlock';
-  /** @deprecated Ignored when loading. Typed as required only to match Lexical's types: rich text sent through the API, CLI or MCP may not contain it. */
-  version: number;
-  fields: { id: string } & Omit<TFields, 'id'>;
-} : never;
-
-export interface SerializedHorizontalRuleNode {
-  type: 'horizontalrule';
-  /** @deprecated Ignored when loading. Typed as required only to match Lexical's types: rich text sent through the API, CLI or MCP may not contain it. */
-  version: number;
+export interface SerializedHeadingNode<
+  TChildren,
+  TTag extends 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6',
+> extends SerializedLexicalElementBase<TChildren> {
+  type: 'heading';
+  tag: TTag;
 }
 
-export type SerializedUploadNode<TSlugs extends keyof Config['collections'], TFields = { [k: string]: unknown }> = {
-  type: 'upload';
-  format: LexicalElementFormat;
-  id: string;
-  /** @deprecated Ignored when loading. Typed as required only to match Lexical's types: rich text sent through the API, CLI or MCP may not contain it. */
-  version: number;
-  fields: TFields;
-} & {
-  [TSlug in TSlugs]: {
-    relationTo: TSlug;
-    value: Config['collections'][TSlug]['id'] | Config['collections'][TSlug];
-  };
-}[TSlugs];
-
-export interface SerializedQuoteNode<TChildren> extends SerializedLexicalElementBase<TChildren> {
-  type: 'quote';
+export interface SerializedTableNode<TChildren> extends SerializedLexicalElementBase<TChildren> {
+  type: 'table';
+  colWidths?: number[];
+  frozenColumnCount?: number;
+  frozenRowCount?: number;
+  rowStriping?: boolean;
 }
-
-export type SerializedRelationshipNode<TSlugs extends keyof Config['collections']> = {
-  type: 'relationship';
-  format: LexicalElementFormat;
-  /** @deprecated Ignored when loading. Typed as required only to match Lexical's types: rich text sent through the API, CLI or MCP may not contain it. */
-  version: number;
-} & {
-  [TSlug in TSlugs]: {
-    relationTo: TSlug;
-    value: Config['collections'][TSlug]['id'] | Config['collections'][TSlug];
-  };
-}[TSlugs];
+export interface SerializedTableRowNode<TChildren> extends SerializedLexicalElementBase<TChildren> {
+  type: 'tablerow';
+  height?: number;
+}
+export interface SerializedTableCellNode<TChildren> extends SerializedLexicalElementBase<TChildren> {
+  type: 'tablecell';
+  backgroundColor?: string | null;
+  colSpan?: number;
+  headerState: number;
+  rowSpan?: number;
+  verticalAlign?: string;
+  width?: number;
+}
 
 export interface LexicalLinkFields {
   [k: string]: unknown;
@@ -11894,14 +3054,6 @@ export interface SerializedListItemNode<TChildren> extends SerializedLexicalElem
   value: number;
 }
 
-export interface SerializedHeadingNode<
-  TChildren,
-  TTag extends 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6',
-> extends SerializedLexicalElementBase<TChildren> {
-  type: 'heading';
-  tag: TTag;
-}
-
 /** Shape of a Lexical `richText` field. */
 export interface LexicalRichText<TNode> {
   root: {
@@ -11915,26 +3067,25 @@ export interface LexicalRichText<TNode> {
   };
 }
 
-export interface SerializedTableNode<TChildren> extends SerializedLexicalElementBase<TChildren> {
-  type: 'table';
-  colWidths?: number[];
-  frozenColumnCount?: number;
-  frozenRowCount?: number;
-  rowStriping?: boolean;
+export interface SerializedHorizontalRuleNode {
+  type: 'horizontalrule';
+  /** @deprecated Ignored when loading. Typed as required only to match Lexical's types: rich text sent through the API, CLI or MCP may not contain it. */
+  version: number;
 }
-export interface SerializedTableRowNode<TChildren> extends SerializedLexicalElementBase<TChildren> {
-  type: 'tablerow';
-  height?: number;
-}
-export interface SerializedTableCellNode<TChildren> extends SerializedLexicalElementBase<TChildren> {
-  type: 'tablecell';
-  backgroundColor?: string | null;
-  colSpan?: number;
-  headerState: number;
-  rowSpan?: number;
-  verticalAlign?: string;
-  width?: number;
-}
+
+export type SerializedBlockNode<TFields extends { blockType: string }> = TFields extends unknown ? {
+  type: 'block';
+  format: LexicalElementFormat;
+  /** @deprecated Ignored when loading. Typed as required only to match Lexical's types: rich text sent through the API, CLI or MCP may not contain it. */
+  version: number;
+  fields: { id: string; blockName?: string | null } & Omit<TFields, 'id' | 'blockName'>;
+} : never;
+export type SerializedInlineBlockNode<TFields extends { blockType: string }> = TFields extends unknown ? {
+  type: 'inlineBlock';
+  /** @deprecated Ignored when loading. Typed as required only to match Lexical's types: rich text sent through the API, CLI or MCP may not contain it. */
+  version: number;
+  fields: { id: string } & Omit<TFields, 'id'>;
+} : never;
 
 
 declare module 'payload' {

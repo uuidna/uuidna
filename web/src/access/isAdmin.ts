@@ -1,11 +1,16 @@
-import type { Access, FieldAccess } from 'payload'
+import type { Access } from 'payload'
 
-export const isAdmin: Access = ({ req: { user } }) => {
-  // Return true or false based on if the user has an admin role
-  return Boolean(user?.roles?.includes('admin'))
-}
+import { checkRole } from '@/access/utilities'
 
-export const isAdminFieldLevel: FieldAccess = ({ req: { user } }) => {
-  // Return true or false based on if the user has an admin role
-  return Boolean(user?.roles?.includes('admin'))
+/**
+ * Atomic access checker that verifies if the user has the admin role.
+ *
+ * @returns true if user is an admin, false otherwise
+ */
+export const isAdmin: Access = ({ req }) => {
+  if (req.user) {
+    return checkRole(['admin'], req.user)
+  }
+
+  return false
 }

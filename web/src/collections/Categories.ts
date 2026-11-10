@@ -1,81 +1,30 @@
 import type { CollectionConfig } from 'payload'
 
-import { isAdmin } from '@root/access/isAdmin'
-import { revalidatePath, revalidateTag } from 'next/cache'
+import { adminOnly } from '@/access/adminOnly'
 
 export const Categories: CollectionConfig = {
   slug: 'categories',
   access: {
-    create: isAdmin,
-    delete: isAdmin,
+    create: adminOnly,
+    delete: adminOnly,
     read: () => true,
-    update: isAdmin,
+    update: adminOnly,
   },
   admin: {
-    useAsTitle: 'name',
+    useAsTitle: 'title',
+    group: 'Content',
   },
   fields: [
     {
-      type: 'row',
-      fields: [
-        {
-          name: 'name',
-          type: 'text',
-          admin: {
-            width: '50%',
-          },
-          label: 'Name',
-          required: true,
-        },
-        {
-          name: 'slug',
-          type: 'text',
-          admin: {
-            width: '50%',
-          },
-          label: 'Slug',
-          required: true,
-        },
-      ],
-    },
-    {
-      name: 'headline',
+      name: 'title',
       type: 'text',
-      label: 'Headline',
       required: true,
     },
     {
-      name: 'description',
-      type: 'textarea',
-      label: 'Description',
-      required: true,
-    },
-    {
-      name: 'posts',
-      type: 'join',
-      collection: 'posts',
-      defaultLimit: 0,
-      label: 'Posts',
-      maxDepth: 2,
-      on: 'category',
+      name: 'slug',
+      type: 'slug',
+      useAsSlug: 'title',
+      admin: { position: undefined },
     },
   ],
-  hooks: {
-    afterChange: [
-      async ({ doc, previousDoc }) => {
-        revalidatePath(`/posts/${doc.slug}`)
-        revalidateTag('archives', { expire: 0 })
-
-        if (doc.slug !== previousDoc?.slug) {
-          revalidatePath(`/posts/${previousDoc?.slug}`)
-        }
-      },
-    ],
-    afterDelete: [
-      async ({ doc }) => {
-        revalidatePath(`/posts/${doc.slug}`)
-        revalidateTag('archives', { expire: 0 })
-      },
-    ],
-  },
 }
