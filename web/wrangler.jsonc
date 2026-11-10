@@ -18,7 +18,7 @@
   "d1_databases": [
     {
       "binding": "D1",
-      "database_id": "DATABASE_ID",
+      "database_id": "26009cdf-da4d-4a71-94b9-1b9949f4966a",
       "database_name": "uuidna-site",
       "remote": true,
     },
