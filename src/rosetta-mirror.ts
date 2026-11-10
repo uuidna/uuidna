@@ -70337,9 +70337,9 @@ uuidprog_h_unitary 27
 uuidprog_paulis_unitary 27
 uuidprog_cnot_swap 27
 uuidprog_toffoli 27
-uuidprog_tableau_h 19
-uuidprog_tableau_s 19
-uuidprog_tableau_cnot 19
+uuidprog_tableau_h 27
+uuidprog_tableau_s 27
+uuidprog_tableau_cnot 27
 uuidprog_bell_runs 27
 uuidprog_ghz_runs 27
 #Uuidna.lean

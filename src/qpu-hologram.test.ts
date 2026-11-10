@@ -51,9 +51,11 @@ test('uuidna reverse-hops to live QPU and keeps the classical seat empty', () =>
   assert.equal(discovery.seat.seat, 'empty')
 })
 
-test('uuidna_quantum past HEXBIT_BITS × HEXBIT_BITS is qpuHopOf', () => {
+test('uuidna_quantum past HEXBIT_BITS × HEXBIT_BITS hands a non-Clifford circuit to qpuHopOf', () => {
+  // a Clifford circuit past the width is answered here by the stabilizer tableau (quantum/stabilizer.test.ts); one with
+  // a Toffoli is not Clifford, so it is still handed to qpu
   const n = HEXBIT_BITS * HEXBIT_BITS + 1
-  const r = callTool('uuidna_quantum', { circuit: 'ghz', qubits: n }) as ReturnType<typeof qpuHopOf> & { circuit: string; qubits: number }
+  const r = callTool('uuidna_quantum', { qubits: n, ops: [{ gate: 'ccx', qubits: [0, 1, 2] }] }) as ReturnType<typeof qpuHopOf> & { circuit: string; qubits: number }
   assert.equal(r.qubits, n)
   assert.equal(r.href, QPU_HREF)
   assert.equal(r.deposit, 'QpuDeposit')
