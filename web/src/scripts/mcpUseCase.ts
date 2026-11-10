@@ -3,11 +3,17 @@ import { getPayload } from 'payload'
 
 import config from '@payload-config'
 
-/** The ecommerce catalog as an MCP use case, against a running app: `pnpm payload run src/scripts/mcpUseCase.ts`
- *  (MCP_URL defaults to http://localhost:3000/api/mcp). The admin from queueLegacyLeads gets a user API key, which the
- *  script keeps in memory only, and plugin-mcp is asked as a client asks: tools/list, a product read, a uuidna door. */
+/** The ecommerce catalog as MCP use cases, against a running app: `pnpm payload run src/scripts/mcpUseCase.ts`
+ *  (MCP_URL defaults to http://localhost:3000/api/mcp). The admin from queueLegacyLeads gets a user API key, kept in
+ *  memory only, and plugin-mcp's own tools are asked as a client asks them:
+ *  - find a lead by path, count by verdict, list a category, read the schema;
+ *  - a publish attempt the ISO/IEC 25051 guard must refuse;
+ *  - development: the lead gets evidence (LEAD_EVIDENCE, a sealed theorem key), the trial re-runs, and a VERIFIED lead
+ *    publishes with its variants. */
 const url = process.env.MCP_URL || 'http://localhost:3000/api/mcp'
 const email = process.env.LEGACY_ADMIN_EMAIL || 'legacy-leads@uuidna.localhost'
+const leadPath = process.env.LEAD_PATH || 'src/quantum/index.ts'
+const evidence = process.env.LEAD_EVIDENCE || 'uuidprog_bell_runs'
 const payload = await getPayload({ config })
 
 const admin = (await payload.find({ collection: 'users', limit: 1, overrideAccess: true, where: { email: { equals: email } } })).docs[0]
@@ -34,26 +40,50 @@ const rpc = async (method: string, params: Record<string, unknown> = {}) => {
   })
   const text = await res.text()
   const json = text.trimStart().startsWith('{') ? text : (text.split('\n').filter((l) => l.startsWith('data:')).pop()?.slice(5) ?? '{}')
-  return { status: res.status, body: JSON.parse(json) as { error?: { message?: string }; result?: Record<string, unknown> } }
+  return JSON.parse(json) as {
+    error?: { message?: string }
+    result?: { content?: { text?: string }[]; isError?: boolean; tools?: { name: string }[] }
+  }
+}
+const call = async (name: string, args: Record<string, unknown>) => {
+  const r = await rpc('tools/call', { arguments: args, name })
+  const text = r.error?.message ?? r.result?.content?.map((c) => c.text ?? '').join(' ') ?? ''
+  return { error: Boolean(r.error || r.result?.isError), text }
+}
+/** the JSON document a find tool prints after its header */
+const docOf = (text: string) => {
+  const m = /```json\n([\s\S]*?)\n```/.exec(text)
+  return m ? (JSON.parse(m[1]!) as { id: number; lead?: Record<string, unknown> & { verdict?: string } }) : null
 }
 
-const init = await rpc('initialize', { capabilities: {}, clientInfo: { name: 'uuidna-mcp-use-case', version: '1' }, protocolVersion: '2025-06-18' })
-const list = await rpc('tools/list')
-const tools = ((list.body.result?.tools as { name: string }[] | undefined) ?? []).map((t) => t.name)
-const find = tools.find((n) => /^find/i.test(n) && /product/i.test(n)) ?? tools.find((n) => n === 'findDocuments')
-const products = find ? await rpc('tools/call', { arguments: find === 'findDocuments' ? { slug: 'products' } : {}, name: find }) : null
-const door = await rpc('tools/call', { arguments: { arguments: { input: '2 + 2 = 4' }, name: 'decide_expression' }, name: 'uuidna' })
-const textOf = (r: typeof door | null) =>
-  ((r?.body.result?.content as { text?: string }[] | undefined) ?? []).map((c) => c.text ?? '').join(' ').slice(0, 240)
+await rpc('initialize', { capabilities: {}, clientInfo: { name: 'uuidna-catalog-use-cases', version: '1' }, protocolVersion: '2025-06-18' })
+const tools = ((await rpc('tools/list')).result?.tools ?? []).map((t) => t.name)
+const byPath = await call('findDocuments', { slug: 'products', draft: true, where: { 'lead.path': { equals: leadPath } } })
+const lead = docOf(byPath.text)
+const unverified = await call('countDocuments', { slug: 'products', where: { 'lead.verdict': { equals: 'UNVERIFIED' } } })
+const category = await call('findDocuments', { slug: 'categories', limit: 1, where: { slug: { equals: 'src-quantum' } } })
+const schema = await call('getCollectionSchema', { slug: 'products' })
+const refused = lead ? await call('updateDocument', { id: lead.id, slug: 'products', data: { _status: 'published' } }) : null
+const developed = lead
+  ? await call('updateDocument', { id: lead.id, slug: 'products', draft: true, data: { lead: { ...lead.lead, evidence } } })
+  : null
+const after = lead ? docOf((await call('findDocuments', { slug: 'products', draft: true, where: { id: { equals: lead.id } } })).text) : null
+const published =
+  lead && after?.lead?.verdict === 'VERIFIED' ? await call('updateDocument', { id: lead.id, slug: 'products', data: { _status: 'published' } }) : null
+const variants = lead ? await call('countDocuments', { slug: 'variants', where: { product: { equals: lead.id } } }) : null
 
+const line = (r: { error: boolean; text: string } | null) => (r ? `${r.error ? 'ERROR ' : ''}${r.text.replace(/\s+/g, ' ').slice(0, 220)}` : 'not run')
 payload.logger.info({
-  msg: 'mcp use case',
-  initialize: init.status,
+  msg: 'catalog mcp use cases',
   tools: tools.length,
-  toolNames: tools.slice(0, 40),
-  productsTool: find,
-  products: textOf(products),
-  uuidnaDoor: textOf(door),
-  errors: [list, products, door].map((r) => r?.body.error?.message).filter(Boolean),
+  findByPath: lead ? `product ${lead.id}, ${lead.lead?.verdict}` : line(byPath),
+  countUnverified: line(unverified),
+  category: line(category),
+  schema: schema.error ? line(schema) : `${schema.text.length} chars`,
+  publishUnverified: line(refused),
+  giveEvidence: line(developed),
+  verdictAfterEvidence: after?.lead?.verdict,
+  publishVerified: line(published),
+  variants: line(variants),
 })
 process.exit(0)

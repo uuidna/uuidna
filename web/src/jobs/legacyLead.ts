@@ -21,6 +21,8 @@ export const legacyLeadTask: TaskConfig<{
     { name: 'tenant', type: 'number', required: true },
   ],
   outputSchema: [{ name: 'product', type: 'number', required: true }],
+  // the trial door can be busy (503); a lead with no verdict is refused, so the task tries again rather than skip it
+  retries: 3,
   handler: async ({ input, req }) => {
     const { payload } = req
     const context = { disableRevalidate: true }

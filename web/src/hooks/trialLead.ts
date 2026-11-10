@@ -38,8 +38,11 @@ const paragraph = (text: string) => ({
   version: 1,
 })
 
+/** the claim the product advertises: its work task, in the module's own words (25051 5.1.3.4). Its identification
+ *  (address, exports) is description, not claim. */
 const statementOf = (lead: Lead) =>
-  `${lead.path} exports ${lead.exports || 'nothing'} at ${lead.address}` + (lead.evidence ? `, backed by theorem ${lead.evidence}` : '')
+  `${lead.path}: ${(lead.task || 'a module of the old tree').replace(/[.!?]+$/, '')}` +
+  (lead.evidence ? `, backed by theorem ${lead.evidence}` : '')
 
 /** The trial, the ISO/IEC 25051 description, and the publish guard, computed before a lead product is stored.
  *  - The module's claim goes to the uuidna trial door first, and again whenever its evidence changes.
@@ -53,9 +56,14 @@ export const leadProduct: CollectionBeforeChangeHook<Product> = async ({ data, o
   let { receipt, verdict } = lead
   if (!receipt || originalDoc?.lead?.evidence !== lead.evidence) {
     const answer = await callUuidna('run_trial', { statement: statementOf(lead) })
-    if (answer.isError) throw new APIError(`the trial door refused ${lead.path}: ${answer.text}`, 502)
-    // the door's structured answer; its text carries the gate's receipt line after the JSON
-    const trial = (answer.structured ?? JSON.parse(answer.text.split('\n')[0] ?? '{}')) as { receipt?: string; verdict?: string }
+    // the door's structured answer; its text carries the gate's receipt line after the JSON. A drained citation comes
+    // back flagged as an error and still carries its verdict (UNVERIFIED): that is recorded, not refused.
+    let trial: { receipt?: string; verdict?: string } = {}
+    try {
+      trial = (answer.structured ?? JSON.parse(answer.text.split('\n')[0] ?? '{}')) as typeof trial
+    } catch {
+      throw new APIError(`the trial door answered ${lead.path} without a verdict: ${answer.text.slice(0, 200)}`, 502)
+    }
     if (!trial.receipt || (trial.verdict !== 'VERIFIED' && trial.verdict !== 'UNVERIFIED'))
       throw new APIError(`the trial door answered ${lead.path} without a verdict and receipt`, 502)
     receipt = trial.receipt
@@ -86,9 +94,13 @@ export const leadProduct: CollectionBeforeChangeHook<Product> = async ({ data, o
 
 /** A lead that turns VERIFIED develops its capabilities as variants: one variant type for the lead, one option and one
  *  variant per export. Runs once, inside the request that verified it. */
-export const leadVariants: CollectionAfterChangeHook<Product> = async ({ context, doc, req }) => {
+export const leadVariants: CollectionAfterChangeHook<Product> = async ({ context, doc: saved, req }) => {
+  if (context.leadVariants) return saved
+  // a caller may save with a narrow select (plugin-mcp's updateDocument returns only the id), so the hook reads the
+  // saved document itself rather than trust the fields it was handed
+  const doc = await req.payload.findByID({ id: saved.id, collection: 'products', depth: 0, draft: true, req })
   const lead = doc.lead
-  if (context.leadVariants || lead?.verdict !== 'VERIFIED' || doc.enableVariants || !lead.exports) return doc
+  if (lead?.verdict !== 'VERIFIED' || doc.enableVariants || !lead.exports) return saved
   const { payload } = req
   const type = await payload.create({ collection: 'variantTypes', data: { label: `${doc.title} exports`, name: `lead-${doc.id}` }, req })
   const options = []
@@ -108,5 +120,5 @@ export const leadVariants: CollectionAfterChangeHook<Product> = async ({ context
       data: { options: [option.id], product: doc.id, title: `${doc.title}: ${option.label}` },
       req,
     })
-  return doc
+  return saved
 }
