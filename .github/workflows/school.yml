@@ -57,7 +57,7 @@ jobs:
           "$HOME/.elan/bin/lean" --version
       - name: 'LEAN GREEN — the development pass: walk the gate, cure what is deterministic'
         run: |
-          npm run -s mcp -- uuidna_ci '{"step":"npm:develop"}' --local
+          npm run build && npm run -s mcp -- uuidna_ci '{"step":"npm:develop"}' --local
       - name: 'WAVE — the conveyor lifts sealable candidates, the kernel adjudicating'
         run: |
           npm run -s mcp -- uuidna_ci '{"step":"queue-wave"}' --local

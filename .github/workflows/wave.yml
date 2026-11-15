@@ -59,7 +59,7 @@ jobs:
           DRY: ${{ inputs.dry }}
         run: |
           if [ "$DRY" = "true" ]; then npm run state; echo "::notice::dry wave — state reported, nothing conveyed"; exit 0; fi
-          npm run -s mcp -- uuidna_ci '{"step":"npm:wave"}' --local
+          npm run build && npm run -s mcp -- uuidna_ci '{"step":"npm:wave"}' --local
       - name: name the outcome (a silent runner is a runner nobody can audit)
         if: always()
         run: npm run -s mcp -- uuidna_ci '{"step":"npm:state"}' --local || echo "::warning::state unreadable — the wave stopped before the tree settled"

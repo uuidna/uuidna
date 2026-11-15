@@ -47,7 +47,7 @@ jobs:
       - name: "the full gate — kernel re-proof, audit chain, the 1024-subset dimensional census"
         # gate-all: SAME chain as scripts.audit, concurrent checks + receipt O(1) where sealed
         # (verify_beats_recompute_by_magnitudes). prove-all inside the chain forces UUIDNA_PROVE_ALL=1.
-        run: npm run -s mcp -- uuidna_ci '{"step":"npm:gate-all"}' --local
+        run: npm run build && npm run -s mcp -- uuidna_ci '{"step":"npm:gate-all"}' --local
         env:
           # the docs build inside gate-all died at the default heap (2026-09-02, 'Ineffective mark-compacts'); 10 minutes billed for nothing
           NODE_OPTIONS: --max-old-space-size=6144
@@ -74,7 +74,7 @@ jobs:
         with: { node-version: 22, cache: npm }
       - run: npm ci
       - name: build the site
-        run: npm run -s mcp -- uuidna_ci '{"step":"npm:docs:build"}' --local
+        run: npm run build && npm run -s mcp -- uuidna_ci '{"step":"npm:docs:build"}' --local
       # secrets are not readable in `if:` — the lawful door is env (an expression over secrets IS allowed there)
       - name: deploy to Cloudflare (runs only when the secrets exist)
         env:

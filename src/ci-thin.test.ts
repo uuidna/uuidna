@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './boundary.js'
-import { commandsOf, thinCiGaps } from './ci-thin.js'
+import { commandsOf, thinCiGaps, unbuiltDoorGaps } from './ci-thin.js'
 import { callTool } from './mcp.js'
 
 const WF = join(ROOT, '.github', 'workflows')
@@ -39,4 +39,15 @@ test('the uuidna_ci door: refuses an undeclared step, passes a step that exits 0
   const ok = callTool('uuidna_ci', { step: 'mcp-call', args: ['--help'] }) as { ok: boolean; step: string; exit: number }
   assert.deepEqual([ok.ok, ok.step, ok.exit], [true, 'mcp-call', 0])
   assert.throws(() => callTool('uuidna_ci', { step: 'mcp-call', args: ['x', '{'] }), /ci: mcp-call exited [1-9]/)
+})
+
+test('every job builds before its first door call — the door is dist, and a fresh runner has none', () => {
+  const gaps = readdirSync(WF).filter((f) => f.endsWith('.yml')).flatMap((f) => unbuiltDoorGaps(f, readFileSync(join(WF, f), 'utf8')))
+  assert.deepEqual(gaps, [])
+})
+
+test('control: a job that calls the door unbuilt is named; a build earlier in the job, or on the same line, passes', () => {
+  const door = "npm run -s mcp -- uuidna_ci '{\"step\":\"npm:security\"}' --local"
+  const text = ['jobs:', '  a:', '    steps:', `      - run: ${door}`, '  b:', '    steps:', '      - run: npm run build', `      - run: ${door}`, '  c:', '    steps:', `      - run: npm run build && ${door}`].join('\n')
+  assert.deepEqual(unbuiltDoorGaps('w.yml', text), ['w.yml:4'])
 })

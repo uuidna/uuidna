@@ -55,7 +55,7 @@ jobs:
       - name: Install deps
         run: npm install --no-audit --no-fund
       - name: The editorial desk — all editorial skills and procedures, or no publication
-        run: npm run -s mcp -- uuidna_ci '{"step":"npm:editorial"}' --local
+        run: npm run build && npm run -s mcp -- uuidna_ci '{"step":"npm:editorial"}' --local
       - name: Pre-publish seal — thesis audit · Lean format · VE involutions · finite infinities
         run: npm run -s mcp -- uuidna_ci '{"step":"npm:prepublish-seal"}' --local
 

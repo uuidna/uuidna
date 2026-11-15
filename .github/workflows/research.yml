@@ -152,7 +152,7 @@ jobs:
       - name: Install deps
         run: npm install --no-audit --no-fund
       - name: GUARD before reconcile — the law
-        run: npm run -s mcp -- uuidna_ci '{"step":"npm:guard"}' --local
+        run: npm run build && npm run -s mcp -- uuidna_ci '{"step":"npm:guard"}' --local
       - name: RECONCILE — the fold; re-derive, re-prove, re-seal, push
         run: |
           git config user.name "uuidna-research"

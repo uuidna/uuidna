@@ -39,7 +39,7 @@ jobs:
           node-version: '26'
       - run: npm ci
       - name: Recomputable security audit (npm run security)
-        run: npm run -s mcp -- uuidna_ci '{"step":"npm:security"}' --local
+        run: npm run build && npm run -s mcp -- uuidna_ci '{"step":"npm:security"}' --local
       # 0 runtime deps → npm audit is trivially clean; run it as a belt-and-braces informational check.
       - name: npm audit (runtime deps)
         run: npm audit --omit=dev --audit-level=low

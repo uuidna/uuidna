@@ -52,7 +52,7 @@ jobs:
           FULL: ${{ inputs.full }}
         run: |
           if [ "$FULL" = "true" ]; then
-            npm run -s mcp -- uuidna_ci '{"step":"npm:next:full"}' --local
+            npm run build && npm run -s mcp -- uuidna_ci '{"step":"npm:next:full"}' --local
           else
             npm run -s mcp -- uuidna_ci '{"step":"npm:next"}' --local
           fi

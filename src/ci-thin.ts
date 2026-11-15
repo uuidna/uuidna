@@ -35,3 +35,21 @@ export function thinCiGaps(file: string, text: string): string[] {
   })
   return gaps
 }
+
+/** unbuiltDoorGaps(file, text) → "file:line" for each job whose first door call comes before any build: the door is
+ *  dist/scripts/mcp-call.js, so a job that reaches it unbuilt fails with MODULE_NOT_FOUND on a fresh runner — the
+ *  scripts it replaced built for themselves, the door cannot */
+export function unbuiltDoorGaps(file: string, text: string): string[] {
+  const gaps: string[] = []
+  let inJobs = false, built = true
+  text.split('\n').forEach((line, n) => {
+    if (/^jobs:\s*$/.test(line)) { inJobs = true; return }
+    if (inJobs && /^ {2}[A-Za-z0-9_-]+:\s*$/.test(line)) { built = false; return }
+    if (!inJobs || line.trimStart().startsWith('#')) return
+    for (const cmd of commandsOf(line)) {
+      if (/^npm\s+run\s+build(?:\s|$)/.test(cmd)) built = true
+      else if (/^npm\s+run\s+-s\s+mcp\s+--\s+uuidna_ci\b/.test(cmd)) { if (!built) gaps.push(`${file}:${n + 1}`); built = true }
+    }
+  })
+  return gaps
+}
