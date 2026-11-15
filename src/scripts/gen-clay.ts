@@ -13,7 +13,10 @@
 // counting argument…", "Riemann, through Mertens…"), so the problem is the text before the first comma, never a
 // hand-kept map from key to problem.
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { join } from 'node:path'
 import { theorems } from '../index.js'
+import { sealedAddressOf } from '../theorems/index.js'
+import { ROOT } from './api.js'
 
 interface ClayRow { key: string; problem: string; name: string; tactic: string }
 
@@ -77,7 +80,7 @@ function clayFragment(): string {
   }
   for (const r of rows) {
     const own = sentencesOf(r.name).filter((sen) => !sharedSet.has(sen)).join(' ')
-    lines.push(`- \`${r.key}\` — ${own || '(its scope is entirely shared above)'}`)
+    lines.push(`- [\`${r.key}\`](${THEOREM_PAGE}${r.key}) — ${own || '(its scope is entirely shared above)'}`)
   }
   lines.push('')
   lines.push('None of these claims a Millennium problem. A verified theorem proves its exact statement — no less than it says,')
@@ -86,6 +89,8 @@ function clayFragment(): string {
 }
 
 const CLAY_BEGIN = '<!-- clay:begin -->'
+/** where a theorem's page lives — every Clay key in the block links to its own */
+const THEOREM_PAGE = 'https://uuidna.com/theorem/'
 export const CLAY_END = '<!-- clay:end -->'
 
 /** clayBlock(text) → the text with the Clay block replaced between its markers, or appended once if it has none.
@@ -94,6 +99,26 @@ export const CLAY_END = '<!-- clay:end -->'
  *  writers — gen-readme and gen-unlocks already own them — and the drain refuses that: two owners is drift waiting
  *  to happen, because each will one day overwrite what the other put there. So this composes the block and the
  *  owners inject it, the way gen-unlocks already injects its own (2026-09-18). */
+/** clayGaps(readme) → every Clay theorem the README does not carry as verified and linked: missing from the block, not
+ *  linked to its own page, not sealed in the ledger, or not kernel-only in lean/axioms.json. The theorems are this
+ *  generator's own selection (clayRows), so the gate and the block can never disagree about which ones count. */
+export function clayGaps(readme: string): string[] {
+  const begin = readme.indexOf(CLAY_BEGIN), end = readme.indexOf(CLAY_END)
+  if (begin < 0 || end < begin) return ['the README carries no Clay block']
+  const block = readme.slice(begin, end)
+  // offenders is keyed by theorem: a key present there depends on an axiom
+  const axioms = existsSync(join(ROOT, 'lean', 'axioms.json')) ? JSON.parse(readFileSync(join(ROOT, 'lean', 'axioms.json'), 'utf8')) as { offenders?: Record<string, unknown> } : { offenders: {} }
+  const offenders = new Set(Object.keys(axioms.offenders ?? {}))
+  const gaps: string[] = []
+  for (const r of clayRows()) {
+    if (!block.includes(`\`${r.key}\``)) gaps.push(`${r.key}: absent from the README's Clay block`)
+    else if (!block.includes(`](${THEOREM_PAGE}${r.key})`)) gaps.push(`${r.key}: in the block but not linked to ${THEOREM_PAGE}${r.key}`)
+    if (sealedAddressOf(r.key) === undefined) gaps.push(`${r.key}: not sealed in the ledger`)
+    if (offenders.has(r.key)) gaps.push(`${r.key}: depends on an axiom (lean/axioms.json)`)
+  }
+  return gaps
+}
+
 export function clayBlock(text: string): string {
   const block = `${CLAY_BEGIN}\n${clayFragment()}\n${CLAY_END}`
   return text.includes(CLAY_BEGIN) && text.includes(CLAY_END)
