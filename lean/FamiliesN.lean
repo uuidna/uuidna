@@ -1,6 +1,15 @@
--- lean/FamiliesN.lean — GENERATED. THE FAMILIES, N — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as Nat arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/FamiliesN.lean — GENERATED. THE FAMILIES, N — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
-def fmax (a b : Nat) : Nat := if a ≤ b then b else a
+def fmax (a b : Int) : Int := if a ≤ b then b else a
+def ffact : Nat → Nat
+  | 0 => 1
+  | n + 1 => (n + 1) * ffact n
+def fchoose (n : Nat) : Nat → Nat
+  | 0 => 1
+  | k + 1 => fchoose n k * (n - k) / (k + 1)
+def fgcd : Nat → Nat → Nat → Nat
+  | 0, a, _ => a
+  | fuel + 1, a, b => if b = 0 then a else fgcd fuel b (a % b)
 
 /-- nanomaterials: surfacearea(1000, 6) = 6000 — NANOMATERIALS — THE NANOSCALE AS ARITHMETIC (chosen by the
     materials registry, not by hand). A nanoparticle is numbers: the surface it exposes, the aspect ratio of a
@@ -14,37 +23,246 @@ def fmax (a b : Nat) : Nat := if a ≤ b then b else a
     Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanomaterials', dst: 'materials',
     formula, value, proof: PROOF, ...extra }, holds, { name: `nanomaterials.${name}`, params }) export class
     NanomaterialsFormulas { /** SURFACE AREA: particles at an area each. value particles · perParticle. -/
-theorem fam_nanomaterials_surfacearea_1 : (1000 * 6) = 6000 := by decide
+theorem fam_nanomaterials_surfacearea_1 : ((1000 : Int) * (6 : Int)) = (6000 : Int) := by decide
 
-/-- nanomaterials: aspectratio(100, 5) = 20 — ASPECT RATIO: length over diameter. value ⌊length / diameter⌋. -/
-theorem fam_nanomaterials_aspectratio_1 : (100 / 5) = 20 := by decide
+/-- nanomaterials: aspectratio(100, 5) = 20 — NANOMATERIALS — THE NANOSCALE AS ARITHMETIC (chosen by the
+    materials registry, not by hand). A nanoparticle is numbers: the surface it exposes, the aspect ratio of a
+    tube, the band gap widened by confinement, the quantum yield of a dot, the drug a carrier loads, the
+    fraction of atoms dispersed on the surface, surface-to-volume, and the confinement energy. Crosses to
+    `materials` — a nanomaterial is a material taken to the nanoscale. A measure. */ const PROOF =
+    'nanomaterials arithmetic (surface area, aspect ratio, confinement band gap, quantum yield, drug loading,
+    dispersion, surface-to-volume, confinement energy); the nanoscale of the materials domain; a measure crossed
+    to materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanomaterials', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanomaterials.${name}`, params }) export class
+    NanomaterialsFormulas { /** SURFACE AREA: particles at an area each. value particles · perParticle. */
+    static surfacearea(particles: number, perParticle: number): CrossFormula { return
+    c('nanomaterials-surfacearea', 'surfacearea(particles, perParticle) = particles · perParticle', particles *
+    perParticle, nat(particles, perParticle), 'surfacearea', [particles, perParticle]) } /** ASPECT RATIO:
+    length over diameter. value ⌊length / diameter⌋. -/
+theorem fam_nanomaterials_aspectratio_1 : ((100 : Int) / (5 : Int)) = (20 : Int) := by decide
 
-/-- nanomaterials: bandgap(1120, 300) = 1420 — BAND GAP: bulk gap widened by the confinement shift. value bulk +
-    shift. -/
-theorem fam_nanomaterials_bandgap_1 : (1120 + 300) = 1420 := by decide
+/-- nanomaterials: bandgap(1120, 300) = 1420 — NANOMATERIALS — THE NANOSCALE AS ARITHMETIC (chosen by the
+    materials registry, not by hand). A nanoparticle is numbers: the surface it exposes, the aspect ratio of a
+    tube, the band gap widened by confinement, the quantum yield of a dot, the drug a carrier loads, the
+    fraction of atoms dispersed on the surface, surface-to-volume, and the confinement energy. Crosses to
+    `materials` — a nanomaterial is a material taken to the nanoscale. A measure. */ const PROOF =
+    'nanomaterials arithmetic (surface area, aspect ratio, confinement band gap, quantum yield, drug loading,
+    dispersion, surface-to-volume, confinement energy); the nanoscale of the materials domain; a measure crossed
+    to materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanomaterials', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanomaterials.${name}`, params }) export class
+    NanomaterialsFormulas { /** SURFACE AREA: particles at an area each. value particles · perParticle. */
+    static surfacearea(particles: number, perParticle: number): CrossFormula { return
+    c('nanomaterials-surfacearea', 'surfacearea(particles, perParticle) = particles · perParticle', particles *
+    perParticle, nat(particles, perParticle), 'surfacearea', [particles, perParticle]) } /** ASPECT RATIO:
+    length over diameter. value ⌊length / diameter⌋. */ static aspectratio(length: number, diameter: number):
+    CrossFormula { return c('nanomaterials-aspectratio', 'aspectratio(length, diameter) = ⌊length / diameter⌋',
+    diameter > 0 ? Math.floor(length / diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio',
+    [length, diameter]) } /** BAND GAP: bulk gap widened by the confinement shift. value bulk + shift. -/
+theorem fam_nanomaterials_bandgap_1 : ((1120 : Int) + (300 : Int)) = (1420 : Int) := by decide
 
-/-- nanomaterials: quantumyield(80, 100) = 80 — QUANTUM YIELD: photons emitted over absorbed, as a percentage.
-    value ⌊emitted · 100 / absorbed⌋. -/
-theorem fam_nanomaterials_quantumyield_1 : ((80 * 100) / 100) = 80 := by decide
+/-- nanomaterials: quantumyield(80, 100) = 80 — NANOMATERIALS — THE NANOSCALE AS ARITHMETIC (chosen by the
+    materials registry, not by hand). A nanoparticle is numbers: the surface it exposes, the aspect ratio of a
+    tube, the band gap widened by confinement, the quantum yield of a dot, the drug a carrier loads, the
+    fraction of atoms dispersed on the surface, surface-to-volume, and the confinement energy. Crosses to
+    `materials` — a nanomaterial is a material taken to the nanoscale. A measure. */ const PROOF =
+    'nanomaterials arithmetic (surface area, aspect ratio, confinement band gap, quantum yield, drug loading,
+    dispersion, surface-to-volume, confinement energy); the nanoscale of the materials domain; a measure crossed
+    to materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanomaterials', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanomaterials.${name}`, params }) export class
+    NanomaterialsFormulas { /** SURFACE AREA: particles at an area each. value particles · perParticle. */
+    static surfacearea(particles: number, perParticle: number): CrossFormula { return
+    c('nanomaterials-surfacearea', 'surfacearea(particles, perParticle) = particles · perParticle', particles *
+    perParticle, nat(particles, perParticle), 'surfacearea', [particles, perParticle]) } /** ASPECT RATIO:
+    length over diameter. value ⌊length / diameter⌋. */ static aspectratio(length: number, diameter: number):
+    CrossFormula { return c('nanomaterials-aspectratio', 'aspectratio(length, diameter) = ⌊length / diameter⌋',
+    diameter > 0 ? Math.floor(length / diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio',
+    [length, diameter]) } /** BAND GAP: bulk gap widened by the confinement shift. value bulk + shift. */ static
+    bandgap(bulk: number, shift: number): CrossFormula { return c('nanomaterials-bandgap', 'bandgap(bulk, shift)
+    = bulk + shift', bulk + shift, nat(bulk, shift), 'bandgap', [bulk, shift]) } /** QUANTUM YIELD: photons
+    emitted over absorbed, as a percentage. value ⌊emitted · 100 / absorbed⌋. -/
+theorem fam_nanomaterials_quantumyield_1 : (((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int) := by decide
 
-/-- nanomaterials: loading(20, 80) = 20 — DRUG LOADING: payload over the whole carrier, as a percentage. value
-    ⌊drug · 100 / (drug + carrier)⌋. -/
-theorem fam_nanomaterials_loading_1 : ((20 * 100) / (20 + 80)) = 20 := by decide
+/-- nanomaterials: loading(20, 80) = 20 — NANOMATERIALS — THE NANOSCALE AS ARITHMETIC (chosen by the materials
+    registry, not by hand). A nanoparticle is numbers: the surface it exposes, the aspect ratio of a tube, the
+    band gap widened by confinement, the quantum yield of a dot, the drug a carrier loads, the fraction of atoms
+    dispersed on the surface, surface-to-volume, and the confinement energy. Crosses to `materials` — a
+    nanomaterial is a material taken to the nanoscale. A measure. */ const PROOF = 'nanomaterials arithmetic
+    (surface area, aspect ratio, confinement band gap, quantum yield, drug loading, dispersion,
+    surface-to-volume, confinement energy); the nanoscale of the materials domain; a measure crossed to
+    materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanomaterials', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanomaterials.${name}`, params }) export class
+    NanomaterialsFormulas { /** SURFACE AREA: particles at an area each. value particles · perParticle. */
+    static surfacearea(particles: number, perParticle: number): CrossFormula { return
+    c('nanomaterials-surfacearea', 'surfacearea(particles, perParticle) = particles · perParticle', particles *
+    perParticle, nat(particles, perParticle), 'surfacearea', [particles, perParticle]) } /** ASPECT RATIO:
+    length over diameter. value ⌊length / diameter⌋. */ static aspectratio(length: number, diameter: number):
+    CrossFormula { return c('nanomaterials-aspectratio', 'aspectratio(length, diameter) = ⌊length / diameter⌋',
+    diameter > 0 ? Math.floor(length / diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio',
+    [length, diameter]) } /** BAND GAP: bulk gap widened by the confinement shift. value bulk + shift. */ static
+    bandgap(bulk: number, shift: number): CrossFormula { return c('nanomaterials-bandgap', 'bandgap(bulk, shift)
+    = bulk + shift', bulk + shift, nat(bulk, shift), 'bandgap', [bulk, shift]) } /** QUANTUM YIELD: photons
+    emitted over absorbed, as a percentage. value ⌊emitted · 100 / absorbed⌋. */ static quantumyield(emitted:
+    number, absorbed: number): CrossFormula { return c('nanomaterials-quantumyield', 'quantumyield(emitted,
+    absorbed) = ⌊emitted · 100 / absorbed⌋', absorbed > 0 ? Math.floor((emitted * 100) / absorbed) : 0,
+    nat(emitted, absorbed) && absorbed > 0 && emitted <= absorbed, 'quantumyield', [emitted, absorbed]) } /**
+    DRUG LOADING: payload over the whole carrier, as a percentage. value ⌊drug · 100 / (drug + carrier)⌋. -/
+theorem fam_nanomaterials_loading_1 : (((20 : Int) * (100 : Int)) / ((20 : Int) + (80 : Int))) = (20 : Int) := by decide
 
-/-- nanomaterials: dispersion(600, 1000) = 60 — DISPERSION: surface atoms over total atoms, as a percentage.
-    value ⌊surface · 100 / total⌋. -/
-theorem fam_nanomaterials_dispersion_1 : ((600 * 100) / 1000) = 60 := by decide
+/-- nanomaterials: dispersion(600, 1000) = 60 — NANOMATERIALS — THE NANOSCALE AS ARITHMETIC (chosen by the
+    materials registry, not by hand). A nanoparticle is numbers: the surface it exposes, the aspect ratio of a
+    tube, the band gap widened by confinement, the quantum yield of a dot, the drug a carrier loads, the
+    fraction of atoms dispersed on the surface, surface-to-volume, and the confinement energy. Crosses to
+    `materials` — a nanomaterial is a material taken to the nanoscale. A measure. */ const PROOF =
+    'nanomaterials arithmetic (surface area, aspect ratio, confinement band gap, quantum yield, drug loading,
+    dispersion, surface-to-volume, confinement energy); the nanoscale of the materials domain; a measure crossed
+    to materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanomaterials', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanomaterials.${name}`, params }) export class
+    NanomaterialsFormulas { /** SURFACE AREA: particles at an area each. value particles · perParticle. */
+    static surfacearea(particles: number, perParticle: number): CrossFormula { return
+    c('nanomaterials-surfacearea', 'surfacearea(particles, perParticle) = particles · perParticle', particles *
+    perParticle, nat(particles, perParticle), 'surfacearea', [particles, perParticle]) } /** ASPECT RATIO:
+    length over diameter. value ⌊length / diameter⌋. */ static aspectratio(length: number, diameter: number):
+    CrossFormula { return c('nanomaterials-aspectratio', 'aspectratio(length, diameter) = ⌊length / diameter⌋',
+    diameter > 0 ? Math.floor(length / diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio',
+    [length, diameter]) } /** BAND GAP: bulk gap widened by the confinement shift. value bulk + shift. */ static
+    bandgap(bulk: number, shift: number): CrossFormula { return c('nanomaterials-bandgap', 'bandgap(bulk, shift)
+    = bulk + shift', bulk + shift, nat(bulk, shift), 'bandgap', [bulk, shift]) } /** QUANTUM YIELD: photons
+    emitted over absorbed, as a percentage. value ⌊emitted · 100 / absorbed⌋. */ static quantumyield(emitted:
+    number, absorbed: number): CrossFormula { return c('nanomaterials-quantumyield', 'quantumyield(emitted,
+    absorbed) = ⌊emitted · 100 / absorbed⌋', absorbed > 0 ? Math.floor((emitted * 100) / absorbed) : 0,
+    nat(emitted, absorbed) && absorbed > 0 && emitted <= absorbed, 'quantumyield', [emitted, absorbed]) } /**
+    DRUG LOADING: payload over the whole carrier, as a percentage. value ⌊drug · 100 / (drug + carrier)⌋. */
+    static loading(drug: number, carrier: number): CrossFormula { return c('nanomaterials-loading',
+    'loading(drug, carrier) = ⌊drug · 100 / (drug + carrier)⌋', (drug + carrier) > 0 ? Math.floor((drug * 100) /
+    (drug + carrier)) : 0, nat(drug, carrier) && (drug + carrier) > 0, 'loading', [drug, carrier]) } /**
+    DISPERSION: surface atoms over total atoms, as a percentage. value ⌊surface · 100 / total⌋. -/
+theorem fam_nanomaterials_dispersion_1 : (((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int) := by decide
 
-/-- nanomaterials: surfacevolume(600, 100) = 6 — SURFACE-TO-VOLUME: area over volume. value ⌊area / volume⌋. -/
-theorem fam_nanomaterials_surfacevolume_1 : (600 / 100) = 6 := by decide
+/-- nanomaterials: surfacevolume(600, 100) = 6 — NANOMATERIALS — THE NANOSCALE AS ARITHMETIC (chosen by the
+    materials registry, not by hand). A nanoparticle is numbers: the surface it exposes, the aspect ratio of a
+    tube, the band gap widened by confinement, the quantum yield of a dot, the drug a carrier loads, the
+    fraction of atoms dispersed on the surface, surface-to-volume, and the confinement energy. Crosses to
+    `materials` — a nanomaterial is a material taken to the nanoscale. A measure. */ const PROOF =
+    'nanomaterials arithmetic (surface area, aspect ratio, confinement band gap, quantum yield, drug loading,
+    dispersion, surface-to-volume, confinement energy); the nanoscale of the materials domain; a measure crossed
+    to materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanomaterials', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanomaterials.${name}`, params }) export class
+    NanomaterialsFormulas { /** SURFACE AREA: particles at an area each. value particles · perParticle. */
+    static surfacearea(particles: number, perParticle: number): CrossFormula { return
+    c('nanomaterials-surfacearea', 'surfacearea(particles, perParticle) = particles · perParticle', particles *
+    perParticle, nat(particles, perParticle), 'surfacearea', [particles, perParticle]) } /** ASPECT RATIO:
+    length over diameter. value ⌊length / diameter⌋. */ static aspectratio(length: number, diameter: number):
+    CrossFormula { return c('nanomaterials-aspectratio', 'aspectratio(length, diameter) = ⌊length / diameter⌋',
+    diameter > 0 ? Math.floor(length / diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio',
+    [length, diameter]) } /** BAND GAP: bulk gap widened by the confinement shift. value bulk + shift. */ static
+    bandgap(bulk: number, shift: number): CrossFormula { return c('nanomaterials-bandgap', 'bandgap(bulk, shift)
+    = bulk + shift', bulk + shift, nat(bulk, shift), 'bandgap', [bulk, shift]) } /** QUANTUM YIELD: photons
+    emitted over absorbed, as a percentage. value ⌊emitted · 100 / absorbed⌋. */ static quantumyield(emitted:
+    number, absorbed: number): CrossFormula { return c('nanomaterials-quantumyield', 'quantumyield(emitted,
+    absorbed) = ⌊emitted · 100 / absorbed⌋', absorbed > 0 ? Math.floor((emitted * 100) / absorbed) : 0,
+    nat(emitted, absorbed) && absorbed > 0 && emitted <= absorbed, 'quantumyield', [emitted, absorbed]) } /**
+    DRUG LOADING: payload over the whole carrier, as a percentage. value ⌊drug · 100 / (drug + carrier)⌋. */
+    static loading(drug: number, carrier: number): CrossFormula { return c('nanomaterials-loading',
+    'loading(drug, carrier) = ⌊drug · 100 / (drug + carrier)⌋', (drug + carrier) > 0 ? Math.floor((drug * 100) /
+    (drug + carrier)) : 0, nat(drug, carrier) && (drug + carrier) > 0, 'loading', [drug, carrier]) } /**
+    DISPERSION: surface atoms over total atoms, as a percentage. value ⌊surface · 100 / total⌋. */ static
+    dispersion(surface: number, total: number): CrossFormula { return c('nanomaterials-dispersion',
+    'dispersion(surface, total) = ⌊surface · 100 / total⌋', total > 0 ? Math.floor((surface * 100) / total) : 0,
+    nat(surface, total) && total > 0 && surface <= total, 'dispersion', [surface, total]) } /**
+    SURFACE-TO-VOLUME: area over volume. value ⌊area / volume⌋. -/
+theorem fam_nanomaterials_surfacevolume_1 : ((600 : Int) / (100 : Int)) = (6 : Int) := by decide
 
-/-- nanomaterials: confinement(3600, 6) = 100 — CONFINEMENT ENERGY: a constant over the radius squared. value
-    ⌊constant / (radius · radius)⌋. -/
-theorem fam_nanomaterials_confinement_1 : (3600 / (6 * 6)) = 100 := by decide
+/-- nanomaterials: confinement(3600, 6) = 100 — NANOMATERIALS — THE NANOSCALE AS ARITHMETIC (chosen by the
+    materials registry, not by hand). A nanoparticle is numbers: the surface it exposes, the aspect ratio of a
+    tube, the band gap widened by confinement, the quantum yield of a dot, the drug a carrier loads, the
+    fraction of atoms dispersed on the surface, surface-to-volume, and the confinement energy. Crosses to
+    `materials` — a nanomaterial is a material taken to the nanoscale. A measure. */ const PROOF =
+    'nanomaterials arithmetic (surface area, aspect ratio, confinement band gap, quantum yield, drug loading,
+    dispersion, surface-to-volume, confinement energy); the nanoscale of the materials domain; a measure crossed
+    to materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanomaterials', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanomaterials.${name}`, params }) export class
+    NanomaterialsFormulas { /** SURFACE AREA: particles at an area each. value particles · perParticle. */
+    static surfacearea(particles: number, perParticle: number): CrossFormula { return
+    c('nanomaterials-surfacearea', 'surfacearea(particles, perParticle) = particles · perParticle', particles *
+    perParticle, nat(particles, perParticle), 'surfacearea', [particles, perParticle]) } /** ASPECT RATIO:
+    length over diameter. value ⌊length / diameter⌋. */ static aspectratio(length: number, diameter: number):
+    CrossFormula { return c('nanomaterials-aspectratio', 'aspectratio(length, diameter) = ⌊length / diameter⌋',
+    diameter > 0 ? Math.floor(length / diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio',
+    [length, diameter]) } /** BAND GAP: bulk gap widened by the confinement shift. value bulk + shift. */ static
+    bandgap(bulk: number, shift: number): CrossFormula { return c('nanomaterials-bandgap', 'bandgap(bulk, shift)
+    = bulk + shift', bulk + shift, nat(bulk, shift), 'bandgap', [bulk, shift]) } /** QUANTUM YIELD: photons
+    emitted over absorbed, as a percentage. value ⌊emitted · 100 / absorbed⌋. */ static quantumyield(emitted:
+    number, absorbed: number): CrossFormula { return c('nanomaterials-quantumyield', 'quantumyield(emitted,
+    absorbed) = ⌊emitted · 100 / absorbed⌋', absorbed > 0 ? Math.floor((emitted * 100) / absorbed) : 0,
+    nat(emitted, absorbed) && absorbed > 0 && emitted <= absorbed, 'quantumyield', [emitted, absorbed]) } /**
+    DRUG LOADING: payload over the whole carrier, as a percentage. value ⌊drug · 100 / (drug + carrier)⌋. */
+    static loading(drug: number, carrier: number): CrossFormula { return c('nanomaterials-loading',
+    'loading(drug, carrier) = ⌊drug · 100 / (drug + carrier)⌋', (drug + carrier) > 0 ? Math.floor((drug * 100) /
+    (drug + carrier)) : 0, nat(drug, carrier) && (drug + carrier) > 0, 'loading', [drug, carrier]) } /**
+    DISPERSION: surface atoms over total atoms, as a percentage. value ⌊surface · 100 / total⌋. */ static
+    dispersion(surface: number, total: number): CrossFormula { return c('nanomaterials-dispersion',
+    'dispersion(surface, total) = ⌊surface · 100 / total⌋', total > 0 ? Math.floor((surface * 100) / total) : 0,
+    nat(surface, total) && total > 0 && surface <= total, 'dispersion', [surface, total]) } /**
+    SURFACE-TO-VOLUME: area over volume. value ⌊area / volume⌋. */ static surfacevolume(area: number, volume:
+    number): CrossFormula { return c('nanomaterials-surfacevolume', 'surfacevolume(area, volume) = ⌊area /
+    volume⌋', volume > 0 ? Math.floor(area / volume) : 0, nat(area, volume) && volume > 0, 'surfacevolume',
+    [area, volume]) } /** CONFINEMENT ENERGY: a constant over the radius squared. value ⌊constant / (radius ·
+    radius)⌋. -/
+theorem fam_nanomaterials_confinement_1 : ((3600 : Int) / ((6 : Int) * (6 : Int))) = (100 : Int) := by decide
 
-/-- nanomaterials: confinement(3600, 0) = 0 — CONFINEMENT ENERGY: a constant over the radius squared. value
-    ⌊constant / (radius · radius)⌋. -/
-theorem fam_nanomaterials_confinement_2 : (3600 / (0 * 0)) = 0 := by decide
+/-- nanomaterials: confinement(3600, 0) = 0 — NANOMATERIALS — THE NANOSCALE AS ARITHMETIC (chosen by the
+    materials registry, not by hand). A nanoparticle is numbers: the surface it exposes, the aspect ratio of a
+    tube, the band gap widened by confinement, the quantum yield of a dot, the drug a carrier loads, the
+    fraction of atoms dispersed on the surface, surface-to-volume, and the confinement energy. Crosses to
+    `materials` — a nanomaterial is a material taken to the nanoscale. A measure. */ const PROOF =
+    'nanomaterials arithmetic (surface area, aspect ratio, confinement band gap, quantum yield, drug loading,
+    dispersion, surface-to-volume, confinement energy); the nanoscale of the materials domain; a measure crossed
+    to materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanomaterials', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanomaterials.${name}`, params }) export class
+    NanomaterialsFormulas { /** SURFACE AREA: particles at an area each. value particles · perParticle. */
+    static surfacearea(particles: number, perParticle: number): CrossFormula { return
+    c('nanomaterials-surfacearea', 'surfacearea(particles, perParticle) = particles · perParticle', particles *
+    perParticle, nat(particles, perParticle), 'surfacearea', [particles, perParticle]) } /** ASPECT RATIO:
+    length over diameter. value ⌊length / diameter⌋. */ static aspectratio(length: number, diameter: number):
+    CrossFormula { return c('nanomaterials-aspectratio', 'aspectratio(length, diameter) = ⌊length / diameter⌋',
+    diameter > 0 ? Math.floor(length / diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio',
+    [length, diameter]) } /** BAND GAP: bulk gap widened by the confinement shift. value bulk + shift. */ static
+    bandgap(bulk: number, shift: number): CrossFormula { return c('nanomaterials-bandgap', 'bandgap(bulk, shift)
+    = bulk + shift', bulk + shift, nat(bulk, shift), 'bandgap', [bulk, shift]) } /** QUANTUM YIELD: photons
+    emitted over absorbed, as a percentage. value ⌊emitted · 100 / absorbed⌋. */ static quantumyield(emitted:
+    number, absorbed: number): CrossFormula { return c('nanomaterials-quantumyield', 'quantumyield(emitted,
+    absorbed) = ⌊emitted · 100 / absorbed⌋', absorbed > 0 ? Math.floor((emitted * 100) / absorbed) : 0,
+    nat(emitted, absorbed) && absorbed > 0 && emitted <= absorbed, 'quantumyield', [emitted, absorbed]) } /**
+    DRUG LOADING: payload over the whole carrier, as a percentage. value ⌊drug · 100 / (drug + carrier)⌋. */
+    static loading(drug: number, carrier: number): CrossFormula { return c('nanomaterials-loading',
+    'loading(drug, carrier) = ⌊drug · 100 / (drug + carrier)⌋', (drug + carrier) > 0 ? Math.floor((drug * 100) /
+    (drug + carrier)) : 0, nat(drug, carrier) && (drug + carrier) > 0, 'loading', [drug, carrier]) } /**
+    DISPERSION: surface atoms over total atoms, as a percentage. value ⌊surface · 100 / total⌋. */ static
+    dispersion(surface: number, total: number): CrossFormula { return c('nanomaterials-dispersion',
+    'dispersion(surface, total) = ⌊surface · 100 / total⌋', total > 0 ? Math.floor((surface * 100) / total) : 0,
+    nat(surface, total) && total > 0 && surface <= total, 'dispersion', [surface, total]) } /**
+    SURFACE-TO-VOLUME: area over volume. value ⌊area / volume⌋. */ static surfacevolume(area: number, volume:
+    number): CrossFormula { return c('nanomaterials-surfacevolume', 'surfacevolume(area, volume) = ⌊area /
+    volume⌋', volume > 0 ? Math.floor(area / volume) : 0, nat(area, volume) && volume > 0, 'surfacevolume',
+    [area, volume]) } /** CONFINEMENT ENERGY: a constant over the radius squared. value ⌊constant / (radius ·
+    radius)⌋. -/
+theorem fam_nanomaterials_confinement_2 : ((3600 : Int) / ((0 : Int) * (0 : Int))) = (0 : Int) := by decide
 
 /-- nanotechnology: aspectratio(1000, 10) = 10000 — NANOTECHNOLOGY — THE VERY SMALL, AS ARITHMETIC (chosen by
     the public-API registry, not by hand). Working at the nanoscale is numbers: surface-to-volume ratio, aspect
@@ -57,55 +275,551 @@ theorem fam_nanomaterials_confinement_2 : (3600 / (0 * 0)) = 0 := by decide
     Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanotechnology', dst: 'materials',
     formula, value, proof: PROOF, ...extra }, holds, { name: `nanotechnology.${name}`, params }) export class
     NanotechnologyFormulas { /** ASPECT RATIO: length over diameter, scaled. value ⌊length · 100 / diameter⌋. -/
-theorem fam_nanotechnology_aspectratio_1 : ((1000 * 100) / 10) = 10000 := by decide
+theorem fam_nanotechnology_aspectratio_1 : (((1000 : Int) * (100 : Int)) / (10 : Int)) = (10000 : Int) := by decide
 
-/-- nanotechnology: bandgap(500, 5) = 100 — BAND GAP: bulk energy scaled down by size. value ⌊energy / size⌋. -/
-theorem fam_nanotechnology_bandgap_1 : (500 / 5) = 100 := by decide
+/-- nanotechnology: bandgap(500, 5) = 100 — NANOTECHNOLOGY — THE VERY SMALL, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Working at the nanoscale is numbers: surface-to-volume ratio, aspect
+    ratio, how many particles a mass holds, quantum confinement, reaction yield, band gap, coating mass, and how
+    well a dispersion spreads. Crosses to `materials` — nanotechnology is materials at the limit. A measure. */
+    const PROOF = 'nanotechnology arithmetic (surface-to-volume, aspect ratio, particle count, quantum
+    confinement, yield, band gap, coating, dispersion); the very small as integers; a measure crossed to
+    materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanotechnology', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanotechnology.${name}`, params }) export class
+    NanotechnologyFormulas { /** ASPECT RATIO: length over diameter, scaled. value ⌊length · 100 / diameter⌋. */
+    static aspectratio(length: number, diameter: number): CrossFormula { return c('nanotechnology-aspectratio',
+    'aspectratio(length, diameter) = ⌊length · 100 / diameter⌋', diameter > 0 ? Math.floor((length * 100) /
+    diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio', [length, diameter]) } /** BAND GAP:
+    bulk energy scaled down by size. value ⌊energy / size⌋. -/
+theorem fam_nanotechnology_bandgap_1 : ((500 : Int) / (5 : Int)) = (100 : Int) := by decide
 
-/-- nanotechnology: coating(3, 4) = 12 — COATING: mass of a shell at a thickness over so many layers. value
-    thickness · layers. -/
-theorem fam_nanotechnology_coating_1 : (3 * 4) = 12 := by decide
+/-- nanotechnology: coating(3, 4) = 12 — NANOTECHNOLOGY — THE VERY SMALL, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Working at the nanoscale is numbers: surface-to-volume ratio, aspect
+    ratio, how many particles a mass holds, quantum confinement, reaction yield, band gap, coating mass, and how
+    well a dispersion spreads. Crosses to `materials` — nanotechnology is materials at the limit. A measure. */
+    const PROOF = 'nanotechnology arithmetic (surface-to-volume, aspect ratio, particle count, quantum
+    confinement, yield, band gap, coating, dispersion); the very small as integers; a measure crossed to
+    materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanotechnology', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanotechnology.${name}`, params }) export class
+    NanotechnologyFormulas { /** ASPECT RATIO: length over diameter, scaled. value ⌊length · 100 / diameter⌋. */
+    static aspectratio(length: number, diameter: number): CrossFormula { return c('nanotechnology-aspectratio',
+    'aspectratio(length, diameter) = ⌊length · 100 / diameter⌋', diameter > 0 ? Math.floor((length * 100) /
+    diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio', [length, diameter]) } /** BAND GAP:
+    bulk energy scaled down by size. value ⌊energy / size⌋. */ static bandgap(energy: number, size: number):
+    CrossFormula { return c('nanotechnology-bandgap', 'bandgap(energy, size) = ⌊energy / size⌋', size > 0 ?
+    Math.floor(energy / size) : 0, nat(energy, size) && size > 0, 'bandgap', [energy, size]) } /** COATING: mass
+    of a shell at a thickness over so many layers. value thickness · layers. -/
+theorem fam_nanotechnology_coating_1 : ((3 : Int) * (4 : Int)) = (12 : Int) := by decide
 
-/-- nanotechnology: dispersion(80, 100) = 80 — DISPERSION: how much of the total is dispersed, scaled. value
-    ⌊dispersed · 100 / total⌋. -/
-theorem fam_nanotechnology_dispersion_1 : ((80 * 100) / 100) = 80 := by decide
+/-- nanotechnology: dispersion(80, 100) = 80 — NANOTECHNOLOGY — THE VERY SMALL, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Working at the nanoscale is numbers: surface-to-volume ratio, aspect
+    ratio, how many particles a mass holds, quantum confinement, reaction yield, band gap, coating mass, and how
+    well a dispersion spreads. Crosses to `materials` — nanotechnology is materials at the limit. A measure. */
+    const PROOF = 'nanotechnology arithmetic (surface-to-volume, aspect ratio, particle count, quantum
+    confinement, yield, band gap, coating, dispersion); the very small as integers; a measure crossed to
+    materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanotechnology', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanotechnology.${name}`, params }) export class
+    NanotechnologyFormulas { /** ASPECT RATIO: length over diameter, scaled. value ⌊length · 100 / diameter⌋. */
+    static aspectratio(length: number, diameter: number): CrossFormula { return c('nanotechnology-aspectratio',
+    'aspectratio(length, diameter) = ⌊length · 100 / diameter⌋', diameter > 0 ? Math.floor((length * 100) /
+    diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio', [length, diameter]) } /** BAND GAP:
+    bulk energy scaled down by size. value ⌊energy / size⌋. */ static bandgap(energy: number, size: number):
+    CrossFormula { return c('nanotechnology-bandgap', 'bandgap(energy, size) = ⌊energy / size⌋', size > 0 ?
+    Math.floor(energy / size) : 0, nat(energy, size) && size > 0, 'bandgap', [energy, size]) } /** COATING: mass
+    of a shell at a thickness over so many layers. value thickness · layers. */ static coating(thickness:
+    number, layers: number): CrossFormula { return c('nanotechnology-coating', 'coating(thickness, layers) =
+    thickness · layers', thickness * layers, nat(thickness, layers), 'coating', [thickness, layers]) } /**
+    DISPERSION: how much of the total is dispersed, scaled. value ⌊dispersed · 100 / total⌋. -/
+theorem fam_nanotechnology_dispersion_1 : (((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int) := by decide
 
-/-- nanotechnology: particlecount(1000, 5) = 200 — PARTICLE COUNT: how many particles a mass holds. value ⌊mass
-    / particlemass⌋. -/
-theorem fam_nanotechnology_particlecount_1 : (1000 / 5) = 200 := by decide
+/-- nanotechnology: particlecount(1000, 5) = 200 — NANOTECHNOLOGY — THE VERY SMALL, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Working at the nanoscale is numbers: surface-to-volume ratio, aspect
+    ratio, how many particles a mass holds, quantum confinement, reaction yield, band gap, coating mass, and how
+    well a dispersion spreads. Crosses to `materials` — nanotechnology is materials at the limit. A measure. */
+    const PROOF = 'nanotechnology arithmetic (surface-to-volume, aspect ratio, particle count, quantum
+    confinement, yield, band gap, coating, dispersion); the very small as integers; a measure crossed to
+    materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanotechnology', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanotechnology.${name}`, params }) export class
+    NanotechnologyFormulas { /** ASPECT RATIO: length over diameter, scaled. value ⌊length · 100 / diameter⌋. */
+    static aspectratio(length: number, diameter: number): CrossFormula { return c('nanotechnology-aspectratio',
+    'aspectratio(length, diameter) = ⌊length · 100 / diameter⌋', diameter > 0 ? Math.floor((length * 100) /
+    diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio', [length, diameter]) } /** BAND GAP:
+    bulk energy scaled down by size. value ⌊energy / size⌋. */ static bandgap(energy: number, size: number):
+    CrossFormula { return c('nanotechnology-bandgap', 'bandgap(energy, size) = ⌊energy / size⌋', size > 0 ?
+    Math.floor(energy / size) : 0, nat(energy, size) && size > 0, 'bandgap', [energy, size]) } /** COATING: mass
+    of a shell at a thickness over so many layers. value thickness · layers. */ static coating(thickness:
+    number, layers: number): CrossFormula { return c('nanotechnology-coating', 'coating(thickness, layers) =
+    thickness · layers', thickness * layers, nat(thickness, layers), 'coating', [thickness, layers]) } /**
+    DISPERSION: how much of the total is dispersed, scaled. value ⌊dispersed · 100 / total⌋. */ static
+    dispersion(dispersed: number, total: number): CrossFormula { return c('nanotechnology-dispersion',
+    'dispersion(dispersed, total) = ⌊dispersed · 100 / total⌋', total > 0 ? Math.floor((dispersed * 100) /
+    total) : 0, nat(dispersed, total) && total > 0 && dispersed <= total, 'dispersion', [dispersed, total]) }
+    /** PARTICLE COUNT: how many particles a mass holds. value ⌊mass / particlemass⌋. -/
+theorem fam_nanotechnology_particlecount_1 : ((1000 : Int) / (5 : Int)) = (200 : Int) := by decide
 
-/-- nanotechnology: quantumconfinement(600, 3) = 200 — QUANTUM CONFINEMENT: bulk property over the confining
-    size. value ⌊bulk / size⌋. -/
-theorem fam_nanotechnology_quantumconfinement_1 : (600 / 3) = 200 := by decide
+/-- nanotechnology: quantumconfinement(600, 3) = 200 — NANOTECHNOLOGY — THE VERY SMALL, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). Working at the nanoscale is numbers: surface-to-volume ratio, aspect
+    ratio, how many particles a mass holds, quantum confinement, reaction yield, band gap, coating mass, and how
+    well a dispersion spreads. Crosses to `materials` — nanotechnology is materials at the limit. A measure. */
+    const PROOF = 'nanotechnology arithmetic (surface-to-volume, aspect ratio, particle count, quantum
+    confinement, yield, band gap, coating, dispersion); the very small as integers; a measure crossed to
+    materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanotechnology', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanotechnology.${name}`, params }) export class
+    NanotechnologyFormulas { /** ASPECT RATIO: length over diameter, scaled. value ⌊length · 100 / diameter⌋. */
+    static aspectratio(length: number, diameter: number): CrossFormula { return c('nanotechnology-aspectratio',
+    'aspectratio(length, diameter) = ⌊length · 100 / diameter⌋', diameter > 0 ? Math.floor((length * 100) /
+    diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio', [length, diameter]) } /** BAND GAP:
+    bulk energy scaled down by size. value ⌊energy / size⌋. */ static bandgap(energy: number, size: number):
+    CrossFormula { return c('nanotechnology-bandgap', 'bandgap(energy, size) = ⌊energy / size⌋', size > 0 ?
+    Math.floor(energy / size) : 0, nat(energy, size) && size > 0, 'bandgap', [energy, size]) } /** COATING: mass
+    of a shell at a thickness over so many layers. value thickness · layers. */ static coating(thickness:
+    number, layers: number): CrossFormula { return c('nanotechnology-coating', 'coating(thickness, layers) =
+    thickness · layers', thickness * layers, nat(thickness, layers), 'coating', [thickness, layers]) } /**
+    DISPERSION: how much of the total is dispersed, scaled. value ⌊dispersed · 100 / total⌋. */ static
+    dispersion(dispersed: number, total: number): CrossFormula { return c('nanotechnology-dispersion',
+    'dispersion(dispersed, total) = ⌊dispersed · 100 / total⌋', total > 0 ? Math.floor((dispersed * 100) /
+    total) : 0, nat(dispersed, total) && total > 0 && dispersed <= total, 'dispersion', [dispersed, total]) }
+    /** PARTICLE COUNT: how many particles a mass holds. value ⌊mass / particlemass⌋. */ static
+    particlecount(mass: number, particlemass: number): CrossFormula { return c('nanotechnology-particlecount',
+    'particlecount(mass, particlemass) = ⌊mass / particlemass⌋', particlemass > 0 ? Math.floor(mass /
+    particlemass) : 0, nat(mass, particlemass) && particlemass > 0, 'particlecount', [mass, particlemass]) } /**
+    QUANTUM CONFINEMENT: bulk property over the confining size. value ⌊bulk / size⌋. -/
+theorem fam_nanotechnology_quantumconfinement_1 : ((600 : Int) / (3 : Int)) = (200 : Int) := by decide
 
-/-- nanotechnology: surfacevolume(600, 100) = 600 — SURFACE-TO-VOLUME RATIO, scaled. value ⌊surface · 100 /
+/-- nanotechnology: surfacevolume(600, 100) = 600 — NANOTECHNOLOGY — THE VERY SMALL, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). Working at the nanoscale is numbers: surface-to-volume ratio, aspect
+    ratio, how many particles a mass holds, quantum confinement, reaction yield, band gap, coating mass, and how
+    well a dispersion spreads. Crosses to `materials` — nanotechnology is materials at the limit. A measure. */
+    const PROOF = 'nanotechnology arithmetic (surface-to-volume, aspect ratio, particle count, quantum
+    confinement, yield, band gap, coating, dispersion); the very small as integers; a measure crossed to
+    materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanotechnology', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanotechnology.${name}`, params }) export class
+    NanotechnologyFormulas { /** ASPECT RATIO: length over diameter, scaled. value ⌊length · 100 / diameter⌋. */
+    static aspectratio(length: number, diameter: number): CrossFormula { return c('nanotechnology-aspectratio',
+    'aspectratio(length, diameter) = ⌊length · 100 / diameter⌋', diameter > 0 ? Math.floor((length * 100) /
+    diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio', [length, diameter]) } /** BAND GAP:
+    bulk energy scaled down by size. value ⌊energy / size⌋. */ static bandgap(energy: number, size: number):
+    CrossFormula { return c('nanotechnology-bandgap', 'bandgap(energy, size) = ⌊energy / size⌋', size > 0 ?
+    Math.floor(energy / size) : 0, nat(energy, size) && size > 0, 'bandgap', [energy, size]) } /** COATING: mass
+    of a shell at a thickness over so many layers. value thickness · layers. */ static coating(thickness:
+    number, layers: number): CrossFormula { return c('nanotechnology-coating', 'coating(thickness, layers) =
+    thickness · layers', thickness * layers, nat(thickness, layers), 'coating', [thickness, layers]) } /**
+    DISPERSION: how much of the total is dispersed, scaled. value ⌊dispersed · 100 / total⌋. */ static
+    dispersion(dispersed: number, total: number): CrossFormula { return c('nanotechnology-dispersion',
+    'dispersion(dispersed, total) = ⌊dispersed · 100 / total⌋', total > 0 ? Math.floor((dispersed * 100) /
+    total) : 0, nat(dispersed, total) && total > 0 && dispersed <= total, 'dispersion', [dispersed, total]) }
+    /** PARTICLE COUNT: how many particles a mass holds. value ⌊mass / particlemass⌋. */ static
+    particlecount(mass: number, particlemass: number): CrossFormula { return c('nanotechnology-particlecount',
+    'particlecount(mass, particlemass) = ⌊mass / particlemass⌋', particlemass > 0 ? Math.floor(mass /
+    particlemass) : 0, nat(mass, particlemass) && particlemass > 0, 'particlecount', [mass, particlemass]) } /**
+    QUANTUM CONFINEMENT: bulk property over the confining size. value ⌊bulk / size⌋. */ static
+    quantumconfinement(bulk: number, size: number): CrossFormula { return c('nanotechnology-quantumconfinement',
+    'quantumconfinement(bulk, size) = ⌊bulk / size⌋', size > 0 ? Math.floor(bulk / size) : 0, nat(bulk, size) &&
+    size > 0, 'quantumconfinement', [bulk, size]) } /** SURFACE-TO-VOLUME RATIO, scaled. value ⌊surface · 100 /
     volume⌋. -/
-theorem fam_nanotechnology_surfacevolume_1 : ((600 * 100) / 100) = 600 := by decide
+theorem fam_nanotechnology_surfacevolume_1 : (((600 : Int) * (100 : Int)) / (100 : Int)) = (600 : Int) := by decide
 
-/-- nanotechnology: yieldrate(90, 100) = 90 — YIELD RATE: produced over theoretical, as a percentage. value
-    ⌊produced · 100 / theoretical⌋. -/
-theorem fam_nanotechnology_yieldrate_1 : ((90 * 100) / 100) = 90 := by decide
+/-- nanotechnology: yieldrate(90, 100) = 90 — NANOTECHNOLOGY — THE VERY SMALL, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Working at the nanoscale is numbers: surface-to-volume ratio, aspect
+    ratio, how many particles a mass holds, quantum confinement, reaction yield, band gap, coating mass, and how
+    well a dispersion spreads. Crosses to `materials` — nanotechnology is materials at the limit. A measure. */
+    const PROOF = 'nanotechnology arithmetic (surface-to-volume, aspect ratio, particle count, quantum
+    confinement, yield, band gap, coating, dispersion); the very small as integers; a measure crossed to
+    materials' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nanotechnology', dst: 'materials',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nanotechnology.${name}`, params }) export class
+    NanotechnologyFormulas { /** ASPECT RATIO: length over diameter, scaled. value ⌊length · 100 / diameter⌋. */
+    static aspectratio(length: number, diameter: number): CrossFormula { return c('nanotechnology-aspectratio',
+    'aspectratio(length, diameter) = ⌊length · 100 / diameter⌋', diameter > 0 ? Math.floor((length * 100) /
+    diameter) : 0, nat(length, diameter) && diameter > 0, 'aspectratio', [length, diameter]) } /** BAND GAP:
+    bulk energy scaled down by size. value ⌊energy / size⌋. */ static bandgap(energy: number, size: number):
+    CrossFormula { return c('nanotechnology-bandgap', 'bandgap(energy, size) = ⌊energy / size⌋', size > 0 ?
+    Math.floor(energy / size) : 0, nat(energy, size) && size > 0, 'bandgap', [energy, size]) } /** COATING: mass
+    of a shell at a thickness over so many layers. value thickness · layers. */ static coating(thickness:
+    number, layers: number): CrossFormula { return c('nanotechnology-coating', 'coating(thickness, layers) =
+    thickness · layers', thickness * layers, nat(thickness, layers), 'coating', [thickness, layers]) } /**
+    DISPERSION: how much of the total is dispersed, scaled. value ⌊dispersed · 100 / total⌋. */ static
+    dispersion(dispersed: number, total: number): CrossFormula { return c('nanotechnology-dispersion',
+    'dispersion(dispersed, total) = ⌊dispersed · 100 / total⌋', total > 0 ? Math.floor((dispersed * 100) /
+    total) : 0, nat(dispersed, total) && total > 0 && dispersed <= total, 'dispersion', [dispersed, total]) }
+    /** PARTICLE COUNT: how many particles a mass holds. value ⌊mass / particlemass⌋. */ static
+    particlecount(mass: number, particlemass: number): CrossFormula { return c('nanotechnology-particlecount',
+    'particlecount(mass, particlemass) = ⌊mass / particlemass⌋', particlemass > 0 ? Math.floor(mass /
+    particlemass) : 0, nat(mass, particlemass) && particlemass > 0, 'particlecount', [mass, particlemass]) } /**
+    QUANTUM CONFINEMENT: bulk property over the confining size. value ⌊bulk / size⌋. */ static
+    quantumconfinement(bulk: number, size: number): CrossFormula { return c('nanotechnology-quantumconfinement',
+    'quantumconfinement(bulk, size) = ⌊bulk / size⌋', size > 0 ? Math.floor(bulk / size) : 0, nat(bulk, size) &&
+    size > 0, 'quantumconfinement', [bulk, size]) } /** SURFACE-TO-VOLUME RATIO, scaled. value ⌊surface · 100 /
+    volume⌋. */ static surfacevolume(surface: number, volume: number): CrossFormula { return
+    c('nanotechnology-surfacevolume', 'surfacevolume(surface, volume) = ⌊surface · 100 / volume⌋', volume > 0 ?
+    Math.floor((surface * 100) / volume) : 0, nat(surface, volume) && volume > 0, 'surfacevolume', [surface,
+    volume]) } /** YIELD RATE: produced over theoretical, as a percentage. value ⌊produced · 100 / theoretical⌋. -/
+theorem fam_nanotechnology_yieldrate_1 : (((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int) := by decide
 
-/-- navigation: distance(60, 3) = 180 — DISTANCE covered at a speed over a time. value speed · time. -/
-theorem fam_navigation_distance_1 : (60 * 3) = 180 := by decide
+/-- navigation: bearing(450) = 90 — NAVIGATION — FINDING THE WAY, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Getting there is numbers: the bearing to steer, the distance covered, the time still
+    to run, how far off the planned line, the geometry of the fix, the fraction of the route done, the heading
+    once drift is taken out, and how often a fix holds. Crosses to `transport` — navigation is what moving
+    things depends on. A measure. */ const PROOF = 'navigation arithmetic (bearing, distance, eta, crosstrack,
+    dilution, waypoint, heading, accuracy); a registry domain; a measure crossed to transport' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'navigation', dst: 'transport', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `navigation.${name}`, params }) export class NavigationFormulas { /** BEARING
+    normalised to a compass circle. value ((degrees mod 360) + 360) mod 360. -/
+theorem fam_navigation_bearing_1 : ((((450 : Int) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (90 : Int) := by decide
 
-/-- navigation: eta(180, 60) = 3 — ETA: the time still to run at a speed. value ⌊distance / speed⌋. -/
-theorem fam_navigation_eta_1 : (180 / 60) = 3 := by decide
+/-- navigation: distance(60, 3) = 180 — NAVIGATION — FINDING THE WAY, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Getting there is numbers: the bearing to steer, the distance covered, the time still
+    to run, how far off the planned line, the geometry of the fix, the fraction of the route done, the heading
+    once drift is taken out, and how often a fix holds. Crosses to `transport` — navigation is what moving
+    things depends on. A measure. */ const PROOF = 'navigation arithmetic (bearing, distance, eta, crosstrack,
+    dilution, waypoint, heading, accuracy); a registry domain; a measure crossed to transport' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'navigation', dst: 'transport', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `navigation.${name}`, params }) export class NavigationFormulas { /** BEARING
+    normalised to a compass circle. value ((degrees mod 360) + 360) mod 360. */ static bearing(degrees: number):
+    CrossFormula { return c('navigation-bearing', 'bearing(degrees) = ((degrees mod 360) + 360) mod 360',
+    ((degrees % fullTurn) + fullTurn) % fullTurn, nat(degrees), 'bearing', [degrees]) } /** DISTANCE covered at
+    a speed over a time. value speed · time. -/
+theorem fam_navigation_distance_1 : ((60 : Int) * (3 : Int)) = (180 : Int) := by decide
 
-/-- navigation: crosstrack(5, 100) = 5 — CROSSTRACK: how far off the planned line, as a fraction of the leg.
-    value ⌊offset · 100 / leg⌋. -/
-theorem fam_navigation_crosstrack_1 : ((5 * 100) / 100) = 5 := by decide
+/-- navigation: eta(180, 60) = 3 — NAVIGATION — FINDING THE WAY, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Getting there is numbers: the bearing to steer, the distance covered, the time still
+    to run, how far off the planned line, the geometry of the fix, the fraction of the route done, the heading
+    once drift is taken out, and how often a fix holds. Crosses to `transport` — navigation is what moving
+    things depends on. A measure. */ const PROOF = 'navigation arithmetic (bearing, distance, eta, crosstrack,
+    dilution, waypoint, heading, accuracy); a registry domain; a measure crossed to transport' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'navigation', dst: 'transport', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `navigation.${name}`, params }) export class NavigationFormulas { /** BEARING
+    normalised to a compass circle. value ((degrees mod 360) + 360) mod 360. */ static bearing(degrees: number):
+    CrossFormula { return c('navigation-bearing', 'bearing(degrees) = ((degrees mod 360) + 360) mod 360',
+    ((degrees % fullTurn) + fullTurn) % fullTurn, nat(degrees), 'bearing', [degrees]) } /** DISTANCE covered at
+    a speed over a time. value speed · time. */ static distance(speed: number, time: number): CrossFormula {
+    return c('navigation-distance', 'distance(speed, time) = speed · time', speed * time, nat(speed, time),
+    'distance', [speed, time]) } /** ETA: the time still to run at a speed. value ⌊distance / speed⌋. -/
+theorem fam_navigation_eta_1 : ((180 : Int) / (60 : Int)) = (3 : Int) := by decide
 
-/-- navigation: dilution(12, 4) = 3 — DILUTION: the fix geometry, error spread over the satellites in view (a
-    GDOP proxy). value ⌊error / satellites⌋. -/
-theorem fam_navigation_dilution_1 : (12 / 4) = 3 := by decide
+/-- navigation: crosstrack(5, 100) = 5 — NAVIGATION — FINDING THE WAY, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Getting there is numbers: the bearing to steer, the distance covered, the time still
+    to run, how far off the planned line, the geometry of the fix, the fraction of the route done, the heading
+    once drift is taken out, and how often a fix holds. Crosses to `transport` — navigation is what moving
+    things depends on. A measure. */ const PROOF = 'navigation arithmetic (bearing, distance, eta, crosstrack,
+    dilution, waypoint, heading, accuracy); a registry domain; a measure crossed to transport' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'navigation', dst: 'transport', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `navigation.${name}`, params }) export class NavigationFormulas { /** BEARING
+    normalised to a compass circle. value ((degrees mod 360) + 360) mod 360. */ static bearing(degrees: number):
+    CrossFormula { return c('navigation-bearing', 'bearing(degrees) = ((degrees mod 360) + 360) mod 360',
+    ((degrees % fullTurn) + fullTurn) % fullTurn, nat(degrees), 'bearing', [degrees]) } /** DISTANCE covered at
+    a speed over a time. value speed · time. */ static distance(speed: number, time: number): CrossFormula {
+    return c('navigation-distance', 'distance(speed, time) = speed · time', speed * time, nat(speed, time),
+    'distance', [speed, time]) } /** ETA: the time still to run at a speed. value ⌊distance / speed⌋. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('navigation-eta', 'eta(distance, speed) =
+    ⌊distance / speed⌋', speed > 0 ? Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CROSSTRACK: how far off the planned line, as a fraction of the leg. value ⌊offset ·
+    100 / leg⌋. -/
+theorem fam_navigation_crosstrack_1 : (((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int) := by decide
 
-/-- navigation: waypoint(3, 10) = 30 — WAYPOINT: the fraction of the route done. value ⌊completed · 100 /
-    total⌋. -/
-theorem fam_navigation_waypoint_1 : ((3 * 100) / 10) = 30 := by decide
+/-- navigation: dilution(12, 4) = 3 — NAVIGATION — FINDING THE WAY, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Getting there is numbers: the bearing to steer, the distance covered, the time still
+    to run, how far off the planned line, the geometry of the fix, the fraction of the route done, the heading
+    once drift is taken out, and how often a fix holds. Crosses to `transport` — navigation is what moving
+    things depends on. A measure. */ const PROOF = 'navigation arithmetic (bearing, distance, eta, crosstrack,
+    dilution, waypoint, heading, accuracy); a registry domain; a measure crossed to transport' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'navigation', dst: 'transport', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `navigation.${name}`, params }) export class NavigationFormulas { /** BEARING
+    normalised to a compass circle. value ((degrees mod 360) + 360) mod 360. */ static bearing(degrees: number):
+    CrossFormula { return c('navigation-bearing', 'bearing(degrees) = ((degrees mod 360) + 360) mod 360',
+    ((degrees % fullTurn) + fullTurn) % fullTurn, nat(degrees), 'bearing', [degrees]) } /** DISTANCE covered at
+    a speed over a time. value speed · time. */ static distance(speed: number, time: number): CrossFormula {
+    return c('navigation-distance', 'distance(speed, time) = speed · time', speed * time, nat(speed, time),
+    'distance', [speed, time]) } /** ETA: the time still to run at a speed. value ⌊distance / speed⌋. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('navigation-eta', 'eta(distance, speed) =
+    ⌊distance / speed⌋', speed > 0 ? Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CROSSTRACK: how far off the planned line, as a fraction of the leg. value ⌊offset ·
+    100 / leg⌋. */ static crosstrack(offset: number, leg: number): CrossFormula { return
+    c('navigation-crosstrack', 'crosstrack(offset, leg) = ⌊offset · 100 / leg⌋', leg > 0 ? Math.floor((offset *
+    100) / leg) : 0, nat(offset, leg) && leg > 0, 'crosstrack', [offset, leg]) } /** DILUTION: the fix geometry,
+    error spread over the satellites in view (a GDOP proxy). value ⌊error / satellites⌋. -/
+theorem fam_navigation_dilution_1 : ((12 : Int) / (4 : Int)) = (3 : Int) := by decide
 
-/-- navigation: accuracy(95, 100) = 95 — ACCURACY: how often a fix holds. value ⌊fixes · 100 / attempts⌋. -/
-theorem fam_navigation_accuracy_1 : ((95 * 100) / 100) = 95 := by decide
+/-- navigation: waypoint(3, 10) = 30 — NAVIGATION — FINDING THE WAY, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Getting there is numbers: the bearing to steer, the distance covered, the time still
+    to run, how far off the planned line, the geometry of the fix, the fraction of the route done, the heading
+    once drift is taken out, and how often a fix holds. Crosses to `transport` — navigation is what moving
+    things depends on. A measure. */ const PROOF = 'navigation arithmetic (bearing, distance, eta, crosstrack,
+    dilution, waypoint, heading, accuracy); a registry domain; a measure crossed to transport' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'navigation', dst: 'transport', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `navigation.${name}`, params }) export class NavigationFormulas { /** BEARING
+    normalised to a compass circle. value ((degrees mod 360) + 360) mod 360. */ static bearing(degrees: number):
+    CrossFormula { return c('navigation-bearing', 'bearing(degrees) = ((degrees mod 360) + 360) mod 360',
+    ((degrees % fullTurn) + fullTurn) % fullTurn, nat(degrees), 'bearing', [degrees]) } /** DISTANCE covered at
+    a speed over a time. value speed · time. */ static distance(speed: number, time: number): CrossFormula {
+    return c('navigation-distance', 'distance(speed, time) = speed · time', speed * time, nat(speed, time),
+    'distance', [speed, time]) } /** ETA: the time still to run at a speed. value ⌊distance / speed⌋. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('navigation-eta', 'eta(distance, speed) =
+    ⌊distance / speed⌋', speed > 0 ? Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CROSSTRACK: how far off the planned line, as a fraction of the leg. value ⌊offset ·
+    100 / leg⌋. */ static crosstrack(offset: number, leg: number): CrossFormula { return
+    c('navigation-crosstrack', 'crosstrack(offset, leg) = ⌊offset · 100 / leg⌋', leg > 0 ? Math.floor((offset *
+    100) / leg) : 0, nat(offset, leg) && leg > 0, 'crosstrack', [offset, leg]) } /** DILUTION: the fix geometry,
+    error spread over the satellites in view (a GDOP proxy). value ⌊error / satellites⌋. */ static
+    dilution(error: number, satellites: number): CrossFormula { return c('navigation-dilution', 'dilution(error,
+    satellites) = ⌊error / satellites⌋', satellites > 0 ? Math.floor(error / satellites) : 0, nat(error,
+    satellites) && satellites > 0, 'dilution', [error, satellites]) } /** WAYPOINT: the fraction of the route
+    done. value ⌊completed · 100 / total⌋. -/
+theorem fam_navigation_waypoint_1 : (((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int) := by decide
+
+/-- navigation: heading(350, 20) = 10 — NAVIGATION — FINDING THE WAY, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Getting there is numbers: the bearing to steer, the distance covered, the time still
+    to run, how far off the planned line, the geometry of the fix, the fraction of the route done, the heading
+    once drift is taken out, and how often a fix holds. Crosses to `transport` — navigation is what moving
+    things depends on. A measure. */ const PROOF = 'navigation arithmetic (bearing, distance, eta, crosstrack,
+    dilution, waypoint, heading, accuracy); a registry domain; a measure crossed to transport' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'navigation', dst: 'transport', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `navigation.${name}`, params }) export class NavigationFormulas { /** BEARING
+    normalised to a compass circle. value ((degrees mod 360) + 360) mod 360. */ static bearing(degrees: number):
+    CrossFormula { return c('navigation-bearing', 'bearing(degrees) = ((degrees mod 360) + 360) mod 360',
+    ((degrees % fullTurn) + fullTurn) % fullTurn, nat(degrees), 'bearing', [degrees]) } /** DISTANCE covered at
+    a speed over a time. value speed · time. */ static distance(speed: number, time: number): CrossFormula {
+    return c('navigation-distance', 'distance(speed, time) = speed · time', speed * time, nat(speed, time),
+    'distance', [speed, time]) } /** ETA: the time still to run at a speed. value ⌊distance / speed⌋. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('navigation-eta', 'eta(distance, speed) =
+    ⌊distance / speed⌋', speed > 0 ? Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CROSSTRACK: how far off the planned line, as a fraction of the leg. value ⌊offset ·
+    100 / leg⌋. */ static crosstrack(offset: number, leg: number): CrossFormula { return
+    c('navigation-crosstrack', 'crosstrack(offset, leg) = ⌊offset · 100 / leg⌋', leg > 0 ? Math.floor((offset *
+    100) / leg) : 0, nat(offset, leg) && leg > 0, 'crosstrack', [offset, leg]) } /** DILUTION: the fix geometry,
+    error spread over the satellites in view (a GDOP proxy). value ⌊error / satellites⌋. */ static
+    dilution(error: number, satellites: number): CrossFormula { return c('navigation-dilution', 'dilution(error,
+    satellites) = ⌊error / satellites⌋', satellites > 0 ? Math.floor(error / satellites) : 0, nat(error,
+    satellites) && satellites > 0, 'dilution', [error, satellites]) } /** WAYPOINT: the fraction of the route
+    done. value ⌊completed · 100 / total⌋. */ static waypoint(completed: number, total: number): CrossFormula {
+    return c('navigation-waypoint', 'waypoint(completed, total) = ⌊completed · 100 / total⌋', total > 0 ?
+    Math.floor((completed * 100) / total) : 0, nat(completed, total) && total > 0 && completed <= total,
+    'waypoint', [completed, total]) } /** HEADING: the course once drift is taken out, normalised. value
+    ((course + drift) mod 360 + 360) mod 360. -/
+theorem fam_navigation_heading_1 : (((((350 : Int) + (20 : Int)) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (10 : Int) := by decide
+
+/-- navigation: accuracy(95, 100) = 95 — NAVIGATION — FINDING THE WAY, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Getting there is numbers: the bearing to steer, the distance covered, the time still
+    to run, how far off the planned line, the geometry of the fix, the fraction of the route done, the heading
+    once drift is taken out, and how often a fix holds. Crosses to `transport` — navigation is what moving
+    things depends on. A measure. */ const PROOF = 'navigation arithmetic (bearing, distance, eta, crosstrack,
+    dilution, waypoint, heading, accuracy); a registry domain; a measure crossed to transport' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'navigation', dst: 'transport', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `navigation.${name}`, params }) export class NavigationFormulas { /** BEARING
+    normalised to a compass circle. value ((degrees mod 360) + 360) mod 360. */ static bearing(degrees: number):
+    CrossFormula { return c('navigation-bearing', 'bearing(degrees) = ((degrees mod 360) + 360) mod 360',
+    ((degrees % fullTurn) + fullTurn) % fullTurn, nat(degrees), 'bearing', [degrees]) } /** DISTANCE covered at
+    a speed over a time. value speed · time. */ static distance(speed: number, time: number): CrossFormula {
+    return c('navigation-distance', 'distance(speed, time) = speed · time', speed * time, nat(speed, time),
+    'distance', [speed, time]) } /** ETA: the time still to run at a speed. value ⌊distance / speed⌋. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('navigation-eta', 'eta(distance, speed) =
+    ⌊distance / speed⌋', speed > 0 ? Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CROSSTRACK: how far off the planned line, as a fraction of the leg. value ⌊offset ·
+    100 / leg⌋. */ static crosstrack(offset: number, leg: number): CrossFormula { return
+    c('navigation-crosstrack', 'crosstrack(offset, leg) = ⌊offset · 100 / leg⌋', leg > 0 ? Math.floor((offset *
+    100) / leg) : 0, nat(offset, leg) && leg > 0, 'crosstrack', [offset, leg]) } /** DILUTION: the fix geometry,
+    error spread over the satellites in view (a GDOP proxy). value ⌊error / satellites⌋. */ static
+    dilution(error: number, satellites: number): CrossFormula { return c('navigation-dilution', 'dilution(error,
+    satellites) = ⌊error / satellites⌋', satellites > 0 ? Math.floor(error / satellites) : 0, nat(error,
+    satellites) && satellites > 0, 'dilution', [error, satellites]) } /** WAYPOINT: the fraction of the route
+    done. value ⌊completed · 100 / total⌋. */ static waypoint(completed: number, total: number): CrossFormula {
+    return c('navigation-waypoint', 'waypoint(completed, total) = ⌊completed · 100 / total⌋', total > 0 ?
+    Math.floor((completed * 100) / total) : 0, nat(completed, total) && total > 0 && completed <= total,
+    'waypoint', [completed, total]) } /** HEADING: the course once drift is taken out, normalised. value
+    ((course + drift) mod 360 + 360) mod 360. */ static heading(course: number, drift: number): CrossFormula {
+    return c('navigation-heading', 'heading(course, drift) = ((course + drift) mod 360 + 360) mod 360',
+    (((course + drift) % fullTurn) + fullTurn) % fullTurn, nat(course, drift), 'heading', [course, drift]) } /**
+    ACCURACY: how often a fix holds. value ⌊fixes · 100 / attempts⌋. -/
+theorem fam_navigation_accuracy_1 : (((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int) := by decide
+
+/-- nebula: radius(10, 1) = 10 — NebulaFormulas — 8 exact-integer formulas of the nebula domain, each at a hex
+    address crossing to cross; develops the nebula leads. */ const PROOF = "nebula counts: radius(x, y) = x · y;
+    density(x, y) = x · y; types(x, y) = x + y; temperature(x, y) = x · y; ionization(x, y) = x · 100 / y;
+    lightyears(x, y) = x · y; stars(x, y) = x · y; combos(x, y) = C(x, y)" const factOf = (x: number): number =>
+    { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'nebula', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `nebula.${name}`, params }) export
+    class NebulaFormulas { /** radius(x, y) = x · y. -/
+theorem fam_nebula_radius_1 : ((10 : Int) * (1 : Int)) = (10 : Int) := by decide
+
+/-- nebula: density(100, 1) = 100 — NebulaFormulas — 8 exact-integer formulas of the nebula domain, each at a
+    hex address crossing to cross; develops the nebula leads. */ const PROOF = "nebula counts: radius(x, y) = x
+    · y; density(x, y) = x · y; types(x, y) = x + y; temperature(x, y) = x · y; ionization(x, y) = x · 100 / y;
+    lightyears(x, y) = x · y; stars(x, y) = x · y; combos(x, y) = C(x, y)" const factOf = (x: number): number =>
+    { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'nebula', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `nebula.${name}`, params }) export
+    class NebulaFormulas { /** radius(x, y) = x · y. */ static radius(x: number, y: number): CrossFormula {
+    return f('nebula-radius', 'radius(x, y) = x · y', x * y, nat(x, y), 'radius', [x, y]) } /** density(x, y) =
+    x · y. -/
+theorem fam_nebula_density_1 : ((100 : Int) * (1 : Int)) = (100 : Int) := by decide
+
+/-- nebula: types(4, 0) = 4 — NebulaFormulas — 8 exact-integer formulas of the nebula domain, each at a hex
+    address crossing to cross; develops the nebula leads. */ const PROOF = "nebula counts: radius(x, y) = x · y;
+    density(x, y) = x · y; types(x, y) = x + y; temperature(x, y) = x · y; ionization(x, y) = x · 100 / y;
+    lightyears(x, y) = x · y; stars(x, y) = x · y; combos(x, y) = C(x, y)" const factOf = (x: number): number =>
+    { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'nebula', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `nebula.${name}`, params }) export
+    class NebulaFormulas { /** radius(x, y) = x · y. */ static radius(x: number, y: number): CrossFormula {
+    return f('nebula-radius', 'radius(x, y) = x · y', x * y, nat(x, y), 'radius', [x, y]) } /** density(x, y) =
+    x · y. */ static density(x: number, y: number): CrossFormula { return f('nebula-density', 'density(x, y) = x
+    · y', x * y, nat(x, y), 'density', [x, y]) } /** types(x, y) = x + y. -/
+theorem fam_nebula_types_1 : ((4 : Int) + (0 : Int)) = (4 : Int) := by decide
+
+/-- nebula: temperature(10, 1000) = 10000 — NebulaFormulas — 8 exact-integer formulas of the nebula domain, each
+    at a hex address crossing to cross; develops the nebula leads. */ const PROOF = "nebula counts: radius(x, y)
+    = x · y; density(x, y) = x · y; types(x, y) = x + y; temperature(x, y) = x · y; ionization(x, y) = x · 100 /
+    y; lightyears(x, y) = x · y; stars(x, y) = x · y; combos(x, y) = C(x, y)" const factOf = (x: number): number
+    => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'nebula', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `nebula.${name}`, params }) export
+    class NebulaFormulas { /** radius(x, y) = x · y. */ static radius(x: number, y: number): CrossFormula {
+    return f('nebula-radius', 'radius(x, y) = x · y', x * y, nat(x, y), 'radius', [x, y]) } /** density(x, y) =
+    x · y. */ static density(x: number, y: number): CrossFormula { return f('nebula-density', 'density(x, y) = x
+    · y', x * y, nat(x, y), 'density', [x, y]) } /** types(x, y) = x + y. */ static types(x: number, y: number):
+    CrossFormula { return f('nebula-types', 'types(x, y) = x + y', x + y, nat(x, y), 'types', [x, y]) } /**
+    temperature(x, y) = x · y. -/
+theorem fam_nebula_temperature_1 : ((10 : Int) * (1000 : Int)) = (10000 : Int) := by decide
+
+/-- nebula: ionization(80, 100) = 80 — NebulaFormulas — 8 exact-integer formulas of the nebula domain, each at a
+    hex address crossing to cross; develops the nebula leads. */ const PROOF = "nebula counts: radius(x, y) = x
+    · y; density(x, y) = x · y; types(x, y) = x + y; temperature(x, y) = x · y; ionization(x, y) = x · 100 / y;
+    lightyears(x, y) = x · y; stars(x, y) = x · y; combos(x, y) = C(x, y)" const factOf = (x: number): number =>
+    { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'nebula', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `nebula.${name}`, params }) export
+    class NebulaFormulas { /** radius(x, y) = x · y. */ static radius(x: number, y: number): CrossFormula {
+    return f('nebula-radius', 'radius(x, y) = x · y', x * y, nat(x, y), 'radius', [x, y]) } /** density(x, y) =
+    x · y. */ static density(x: number, y: number): CrossFormula { return f('nebula-density', 'density(x, y) = x
+    · y', x * y, nat(x, y), 'density', [x, y]) } /** types(x, y) = x + y. */ static types(x: number, y: number):
+    CrossFormula { return f('nebula-types', 'types(x, y) = x + y', x + y, nat(x, y), 'types', [x, y]) } /**
+    temperature(x, y) = x · y. */ static temperature(x: number, y: number): CrossFormula { return
+    f('nebula-temperature', 'temperature(x, y) = x · y', x * y, nat(x, y), 'temperature', [x, y]) } /**
+    ionization(x, y) = x · 100 / y. -/
+theorem fam_nebula_ionization_1 : (((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int) := by decide
+
+/-- nebula: lightyears(5, 1) = 5 — NebulaFormulas — 8 exact-integer formulas of the nebula domain, each at a hex
+    address crossing to cross; develops the nebula leads. */ const PROOF = "nebula counts: radius(x, y) = x · y;
+    density(x, y) = x · y; types(x, y) = x + y; temperature(x, y) = x · y; ionization(x, y) = x · 100 / y;
+    lightyears(x, y) = x · y; stars(x, y) = x · y; combos(x, y) = C(x, y)" const factOf = (x: number): number =>
+    { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'nebula', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `nebula.${name}`, params }) export
+    class NebulaFormulas { /** radius(x, y) = x · y. */ static radius(x: number, y: number): CrossFormula {
+    return f('nebula-radius', 'radius(x, y) = x · y', x * y, nat(x, y), 'radius', [x, y]) } /** density(x, y) =
+    x · y. */ static density(x: number, y: number): CrossFormula { return f('nebula-density', 'density(x, y) = x
+    · y', x * y, nat(x, y), 'density', [x, y]) } /** types(x, y) = x + y. */ static types(x: number, y: number):
+    CrossFormula { return f('nebula-types', 'types(x, y) = x + y', x + y, nat(x, y), 'types', [x, y]) } /**
+    temperature(x, y) = x · y. */ static temperature(x: number, y: number): CrossFormula { return
+    f('nebula-temperature', 'temperature(x, y) = x · y', x * y, nat(x, y), 'temperature', [x, y]) } /**
+    ionization(x, y) = x · 100 / y. */ static ionization(x: number, y: number): CrossFormula { return
+    f('nebula-ionization', 'ionization(x, y) = x · 100 / y', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) &&
+    y > 0, 'ionization', [x, y]) } /** lightyears(x, y) = x · y. -/
+theorem fam_nebula_lightyears_1 : ((5 : Int) * (1 : Int)) = (5 : Int) := by decide
+
+/-- nebula: stars(100, 1) = 100 — NebulaFormulas — 8 exact-integer formulas of the nebula domain, each at a hex
+    address crossing to cross; develops the nebula leads. */ const PROOF = "nebula counts: radius(x, y) = x · y;
+    density(x, y) = x · y; types(x, y) = x + y; temperature(x, y) = x · y; ionization(x, y) = x · 100 / y;
+    lightyears(x, y) = x · y; stars(x, y) = x · y; combos(x, y) = C(x, y)" const factOf = (x: number): number =>
+    { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'nebula', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `nebula.${name}`, params }) export
+    class NebulaFormulas { /** radius(x, y) = x · y. */ static radius(x: number, y: number): CrossFormula {
+    return f('nebula-radius', 'radius(x, y) = x · y', x * y, nat(x, y), 'radius', [x, y]) } /** density(x, y) =
+    x · y. */ static density(x: number, y: number): CrossFormula { return f('nebula-density', 'density(x, y) = x
+    · y', x * y, nat(x, y), 'density', [x, y]) } /** types(x, y) = x + y. */ static types(x: number, y: number):
+    CrossFormula { return f('nebula-types', 'types(x, y) = x + y', x + y, nat(x, y), 'types', [x, y]) } /**
+    temperature(x, y) = x · y. */ static temperature(x: number, y: number): CrossFormula { return
+    f('nebula-temperature', 'temperature(x, y) = x · y', x * y, nat(x, y), 'temperature', [x, y]) } /**
+    ionization(x, y) = x · 100 / y. */ static ionization(x: number, y: number): CrossFormula { return
+    f('nebula-ionization', 'ionization(x, y) = x · 100 / y', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) &&
+    y > 0, 'ionization', [x, y]) } /** lightyears(x, y) = x · y. */ static lightyears(x: number, y: number):
+    CrossFormula { return f('nebula-lightyears', 'lightyears(x, y) = x · y', x * y, nat(x, y), 'lightyears', [x,
+    y]) } /** stars(x, y) = x · y. -/
+theorem fam_nebula_stars_1 : ((100 : Int) * (1 : Int)) = (100 : Int) := by decide
+
+/-- nebula: combos(6, 2) = 15 — NebulaFormulas — 8 exact-integer formulas of the nebula domain, each at a hex
+    address crossing to cross; develops the nebula leads. */ const PROOF = "nebula counts: radius(x, y) = x · y;
+    density(x, y) = x · y; types(x, y) = x + y; temperature(x, y) = x · y; ionization(x, y) = x · 100 / y;
+    lightyears(x, y) = x · y; stars(x, y) = x · y; combos(x, y) = C(x, y)" const factOf = (x: number): number =>
+    { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'nebula', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `nebula.${name}`, params }) export
+    class NebulaFormulas { /** radius(x, y) = x · y. */ static radius(x: number, y: number): CrossFormula {
+    return f('nebula-radius', 'radius(x, y) = x · y', x * y, nat(x, y), 'radius', [x, y]) } /** density(x, y) =
+    x · y. */ static density(x: number, y: number): CrossFormula { return f('nebula-density', 'density(x, y) = x
+    · y', x * y, nat(x, y), 'density', [x, y]) } /** types(x, y) = x + y. */ static types(x: number, y: number):
+    CrossFormula { return f('nebula-types', 'types(x, y) = x + y', x + y, nat(x, y), 'types', [x, y]) } /**
+    temperature(x, y) = x · y. */ static temperature(x: number, y: number): CrossFormula { return
+    f('nebula-temperature', 'temperature(x, y) = x · y', x * y, nat(x, y), 'temperature', [x, y]) } /**
+    ionization(x, y) = x · 100 / y. */ static ionization(x: number, y: number): CrossFormula { return
+    f('nebula-ionization', 'ionization(x, y) = x · 100 / y', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) &&
+    y > 0, 'ionization', [x, y]) } /** lightyears(x, y) = x · y. */ static lightyears(x: number, y: number):
+    CrossFormula { return f('nebula-lightyears', 'lightyears(x, y) = x · y', x * y, nat(x, y), 'lightyears', [x,
+    y]) } /** stars(x, y) = x · y. */ static stars(x: number, y: number): CrossFormula { return
+    f('nebula-stars', 'stars(x, y) = x · y', x * y, nat(x, y), 'stars', [x, y]) } /** combos(x, y) = C(x, y). -/
+theorem fam_nebula_combos_1 : (Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int) := by decide
 
 /-- nephrology: gfr(12000, 100) = 120 — NEPHROLOGY — THE KIDNEY, AS ARITHMETIC (chosen by the medical registry,
     not by hand). Renal function is numbers: filtration rate, clearance, creatinine, the filtration fraction,
@@ -118,34 +832,194 @@ theorem fam_navigation_accuracy_1 : ((95 * 100) / 100) = 95 := by decide
     formula, value, proof: PROOF, ...extra }, holds, { name: `nephrology.${name}`, params }) export class
     NephrologyFormulas { /** GFR: glomerular filtration rate, filtrate volume over minutes. value ⌊filtrate /
     minutes⌋. -/
-theorem fam_nephrology_gfr_1 : (12000 / 100) = 120 := by decide
+theorem fam_nephrology_gfr_1 : ((12000 : Int) / (100 : Int)) = (120 : Int) := by decide
 
-/-- nephrology: clearance(1000, 10) = 100 — CLEARANCE: a substance cleared, urine over plasma. value ⌊urine /
-    plasma⌋. -/
-theorem fam_nephrology_clearance_1 : (1000 / 10) = 100 := by decide
+/-- nephrology: clearance(1000, 10) = 100 — NEPHROLOGY — THE KIDNEY, AS ARITHMETIC (chosen by the medical
+    registry, not by hand). Renal function is numbers: filtration rate, clearance, creatinine, the filtration
+    fraction, dialysis removal, protein in the urine, electrolyte concentration, and tubular reabsorption.
+    Crosses to `med` — nephrology is one of medicine's measures. A measure. */ const PROOF = 'nephrology
+    arithmetic (gfr, clearance, creatinine, filtration fraction, dialysis, proteinuria, electrolyte,
+    reabsorption); a renal measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nephrology', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `nephrology.${name}`, params }) export class NephrologyFormulas { /** GFR: glomerular filtration rate,
+    filtrate volume over minutes. value ⌊filtrate / minutes⌋. */ static gfr(filtrate: number, minutes: number):
+    CrossFormula { return c('nephrology-gfr', 'gfr(filtrate, minutes) = ⌊filtrate / minutes⌋', minutes > 0 ?
+    Math.floor(filtrate / minutes) : 0, nat(filtrate, minutes) && minutes > 0, 'gfr', [filtrate, minutes]) } /**
+    CLEARANCE: a substance cleared, urine over plasma. value ⌊urine / plasma⌋. -/
+theorem fam_nephrology_clearance_1 : ((1000 : Int) / (10 : Int)) = (100 : Int) := by decide
 
-/-- nephrology: creatinine(1200, 120) = 10 — CREATININE: serum level, production over the filtration rate. value
-    ⌊production / gfr⌋. -/
-theorem fam_nephrology_creatinine_1 : (1200 / 120) = 10 := by decide
+/-- nephrology: creatinine(1200, 120) = 10 — NEPHROLOGY — THE KIDNEY, AS ARITHMETIC (chosen by the medical
+    registry, not by hand). Renal function is numbers: filtration rate, clearance, creatinine, the filtration
+    fraction, dialysis removal, protein in the urine, electrolyte concentration, and tubular reabsorption.
+    Crosses to `med` — nephrology is one of medicine's measures. A measure. */ const PROOF = 'nephrology
+    arithmetic (gfr, clearance, creatinine, filtration fraction, dialysis, proteinuria, electrolyte,
+    reabsorption); a renal measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nephrology', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `nephrology.${name}`, params }) export class NephrologyFormulas { /** GFR: glomerular filtration rate,
+    filtrate volume over minutes. value ⌊filtrate / minutes⌋. */ static gfr(filtrate: number, minutes: number):
+    CrossFormula { return c('nephrology-gfr', 'gfr(filtrate, minutes) = ⌊filtrate / minutes⌋', minutes > 0 ?
+    Math.floor(filtrate / minutes) : 0, nat(filtrate, minutes) && minutes > 0, 'gfr', [filtrate, minutes]) } /**
+    CLEARANCE: a substance cleared, urine over plasma. value ⌊urine / plasma⌋. */ static clearance(urine:
+    number, plasma: number): CrossFormula { return c('nephrology-clearance', 'clearance(urine, plasma) = ⌊urine
+    / plasma⌋', plasma > 0 ? Math.floor(urine / plasma) : 0, nat(urine, plasma) && plasma > 0, 'clearance',
+    [urine, plasma]) } /** CREATININE: serum level, production over the filtration rate. value ⌊production /
+    gfr⌋. -/
+theorem fam_nephrology_creatinine_1 : ((1200 : Int) / (120 : Int)) = (10 : Int) := by decide
 
-/-- nephrology: filtration(20, 100) = 20 — FILTRATION FRACTION: filtered of renal flow, as a percentage. value
-    ⌊filtered · 100 / renal⌋. -/
-theorem fam_nephrology_filtration_1 : ((20 * 100) / 100) = 20 := by decide
+/-- nephrology: filtration(20, 100) = 20 — NEPHROLOGY — THE KIDNEY, AS ARITHMETIC (chosen by the medical
+    registry, not by hand). Renal function is numbers: filtration rate, clearance, creatinine, the filtration
+    fraction, dialysis removal, protein in the urine, electrolyte concentration, and tubular reabsorption.
+    Crosses to `med` — nephrology is one of medicine's measures. A measure. */ const PROOF = 'nephrology
+    arithmetic (gfr, clearance, creatinine, filtration fraction, dialysis, proteinuria, electrolyte,
+    reabsorption); a renal measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nephrology', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `nephrology.${name}`, params }) export class NephrologyFormulas { /** GFR: glomerular filtration rate,
+    filtrate volume over minutes. value ⌊filtrate / minutes⌋. */ static gfr(filtrate: number, minutes: number):
+    CrossFormula { return c('nephrology-gfr', 'gfr(filtrate, minutes) = ⌊filtrate / minutes⌋', minutes > 0 ?
+    Math.floor(filtrate / minutes) : 0, nat(filtrate, minutes) && minutes > 0, 'gfr', [filtrate, minutes]) } /**
+    CLEARANCE: a substance cleared, urine over plasma. value ⌊urine / plasma⌋. */ static clearance(urine:
+    number, plasma: number): CrossFormula { return c('nephrology-clearance', 'clearance(urine, plasma) = ⌊urine
+    / plasma⌋', plasma > 0 ? Math.floor(urine / plasma) : 0, nat(urine, plasma) && plasma > 0, 'clearance',
+    [urine, plasma]) } /** CREATININE: serum level, production over the filtration rate. value ⌊production /
+    gfr⌋. */ static creatinine(production: number, gfr_: number): CrossFormula { return
+    c('nephrology-creatinine', 'creatinine(production, gfr) = ⌊production / gfr⌋', gfr_ > 0 ?
+    Math.floor(production / gfr_) : 0, nat(production, gfr_) && gfr_ > 0, 'creatinine', [production, gfr_]) }
+    /** FILTRATION FRACTION: filtered of renal flow, as a percentage. value ⌊filtered · 100 / renal⌋. -/
+theorem fam_nephrology_filtration_1 : (((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int) := by decide
 
-/-- nephrology: dialysis(70, 100) = 70 — DIALYSIS: removed of the load, as a percentage. value ⌊removed · 100 /
-    load⌋. -/
-theorem fam_nephrology_dialysis_1 : ((70 * 100) / 100) = 70 := by decide
+/-- nephrology: dialysis(70, 100) = 70 — NEPHROLOGY — THE KIDNEY, AS ARITHMETIC (chosen by the medical registry,
+    not by hand). Renal function is numbers: filtration rate, clearance, creatinine, the filtration fraction,
+    dialysis removal, protein in the urine, electrolyte concentration, and tubular reabsorption. Crosses to
+    `med` — nephrology is one of medicine's measures. A measure. */ const PROOF = 'nephrology arithmetic (gfr,
+    clearance, creatinine, filtration fraction, dialysis, proteinuria, electrolyte, reabsorption); a renal
+    measure crossed to med' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nephrology', dst: 'med',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nephrology.${name}`, params }) export class
+    NephrologyFormulas { /** GFR: glomerular filtration rate, filtrate volume over minutes. value ⌊filtrate /
+    minutes⌋. */ static gfr(filtrate: number, minutes: number): CrossFormula { return c('nephrology-gfr',
+    'gfr(filtrate, minutes) = ⌊filtrate / minutes⌋', minutes > 0 ? Math.floor(filtrate / minutes) : 0,
+    nat(filtrate, minutes) && minutes > 0, 'gfr', [filtrate, minutes]) } /** CLEARANCE: a substance cleared,
+    urine over plasma. value ⌊urine / plasma⌋. */ static clearance(urine: number, plasma: number): CrossFormula
+    { return c('nephrology-clearance', 'clearance(urine, plasma) = ⌊urine / plasma⌋', plasma > 0 ?
+    Math.floor(urine / plasma) : 0, nat(urine, plasma) && plasma > 0, 'clearance', [urine, plasma]) } /**
+    CREATININE: serum level, production over the filtration rate. value ⌊production / gfr⌋. */ static
+    creatinine(production: number, gfr_: number): CrossFormula { return c('nephrology-creatinine',
+    'creatinine(production, gfr) = ⌊production / gfr⌋', gfr_ > 0 ? Math.floor(production / gfr_) : 0,
+    nat(production, gfr_) && gfr_ > 0, 'creatinine', [production, gfr_]) } /** FILTRATION FRACTION: filtered of
+    renal flow, as a percentage. value ⌊filtered · 100 / renal⌋. */ static filtration(filtered: number, renal:
+    number): CrossFormula { return c('nephrology-filtration', 'filtration(filtered, renal) = ⌊filtered · 100 /
+    renal⌋', renal > 0 ? Math.floor((filtered * 100) / renal) : 0, nat(filtered, renal) && renal > 0 && filtered
+    <= renal, 'filtration', [filtered, renal]) } /** DIALYSIS: removed of the load, as a percentage. value
+    ⌊removed · 100 / load⌋. -/
+theorem fam_nephrology_dialysis_1 : (((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int) := by decide
 
-/-- nephrology: proteinuria(300, 2) = 150 — PROTEINURIA: protein over urine volume. value ⌊protein / volume⌋. -/
-theorem fam_nephrology_proteinuria_1 : (300 / 2) = 150 := by decide
+/-- nephrology: proteinuria(300, 2) = 150 — NEPHROLOGY — THE KIDNEY, AS ARITHMETIC (chosen by the medical
+    registry, not by hand). Renal function is numbers: filtration rate, clearance, creatinine, the filtration
+    fraction, dialysis removal, protein in the urine, electrolyte concentration, and tubular reabsorption.
+    Crosses to `med` — nephrology is one of medicine's measures. A measure. */ const PROOF = 'nephrology
+    arithmetic (gfr, clearance, creatinine, filtration fraction, dialysis, proteinuria, electrolyte,
+    reabsorption); a renal measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nephrology', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `nephrology.${name}`, params }) export class NephrologyFormulas { /** GFR: glomerular filtration rate,
+    filtrate volume over minutes. value ⌊filtrate / minutes⌋. */ static gfr(filtrate: number, minutes: number):
+    CrossFormula { return c('nephrology-gfr', 'gfr(filtrate, minutes) = ⌊filtrate / minutes⌋', minutes > 0 ?
+    Math.floor(filtrate / minutes) : 0, nat(filtrate, minutes) && minutes > 0, 'gfr', [filtrate, minutes]) } /**
+    CLEARANCE: a substance cleared, urine over plasma. value ⌊urine / plasma⌋. */ static clearance(urine:
+    number, plasma: number): CrossFormula { return c('nephrology-clearance', 'clearance(urine, plasma) = ⌊urine
+    / plasma⌋', plasma > 0 ? Math.floor(urine / plasma) : 0, nat(urine, plasma) && plasma > 0, 'clearance',
+    [urine, plasma]) } /** CREATININE: serum level, production over the filtration rate. value ⌊production /
+    gfr⌋. */ static creatinine(production: number, gfr_: number): CrossFormula { return
+    c('nephrology-creatinine', 'creatinine(production, gfr) = ⌊production / gfr⌋', gfr_ > 0 ?
+    Math.floor(production / gfr_) : 0, nat(production, gfr_) && gfr_ > 0, 'creatinine', [production, gfr_]) }
+    /** FILTRATION FRACTION: filtered of renal flow, as a percentage. value ⌊filtered · 100 / renal⌋. */ static
+    filtration(filtered: number, renal: number): CrossFormula { return c('nephrology-filtration',
+    'filtration(filtered, renal) = ⌊filtered · 100 / renal⌋', renal > 0 ? Math.floor((filtered * 100) / renal) :
+    0, nat(filtered, renal) && renal > 0 && filtered <= renal, 'filtration', [filtered, renal]) } /** DIALYSIS:
+    removed of the load, as a percentage. value ⌊removed · 100 / load⌋. */ static dialysis(removed: number,
+    load: number): CrossFormula { return c('nephrology-dialysis', 'dialysis(removed, load) = ⌊removed · 100 /
+    load⌋', load > 0 ? Math.floor((removed * 100) / load) : 0, nat(removed, load) && load > 0 && removed <=
+    load, 'dialysis', [removed, load]) } /** PROTEINURIA: protein over urine volume. value ⌊protein / volume⌋. -/
+theorem fam_nephrology_proteinuria_1 : ((300 : Int) / (2 : Int)) = (150 : Int) := by decide
 
-/-- nephrology: electrolyte(140, 1) = 140 — ELECTROLYTE: ions over volume, a concentration. value ⌊ions /
-    volume⌋. -/
-theorem fam_nephrology_electrolyte_1 : (140 / 1) = 140 := by decide
+/-- nephrology: electrolyte(140, 1) = 140 — NEPHROLOGY — THE KIDNEY, AS ARITHMETIC (chosen by the medical
+    registry, not by hand). Renal function is numbers: filtration rate, clearance, creatinine, the filtration
+    fraction, dialysis removal, protein in the urine, electrolyte concentration, and tubular reabsorption.
+    Crosses to `med` — nephrology is one of medicine's measures. A measure. */ const PROOF = 'nephrology
+    arithmetic (gfr, clearance, creatinine, filtration fraction, dialysis, proteinuria, electrolyte,
+    reabsorption); a renal measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nephrology', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `nephrology.${name}`, params }) export class NephrologyFormulas { /** GFR: glomerular filtration rate,
+    filtrate volume over minutes. value ⌊filtrate / minutes⌋. */ static gfr(filtrate: number, minutes: number):
+    CrossFormula { return c('nephrology-gfr', 'gfr(filtrate, minutes) = ⌊filtrate / minutes⌋', minutes > 0 ?
+    Math.floor(filtrate / minutes) : 0, nat(filtrate, minutes) && minutes > 0, 'gfr', [filtrate, minutes]) } /**
+    CLEARANCE: a substance cleared, urine over plasma. value ⌊urine / plasma⌋. */ static clearance(urine:
+    number, plasma: number): CrossFormula { return c('nephrology-clearance', 'clearance(urine, plasma) = ⌊urine
+    / plasma⌋', plasma > 0 ? Math.floor(urine / plasma) : 0, nat(urine, plasma) && plasma > 0, 'clearance',
+    [urine, plasma]) } /** CREATININE: serum level, production over the filtration rate. value ⌊production /
+    gfr⌋. */ static creatinine(production: number, gfr_: number): CrossFormula { return
+    c('nephrology-creatinine', 'creatinine(production, gfr) = ⌊production / gfr⌋', gfr_ > 0 ?
+    Math.floor(production / gfr_) : 0, nat(production, gfr_) && gfr_ > 0, 'creatinine', [production, gfr_]) }
+    /** FILTRATION FRACTION: filtered of renal flow, as a percentage. value ⌊filtered · 100 / renal⌋. */ static
+    filtration(filtered: number, renal: number): CrossFormula { return c('nephrology-filtration',
+    'filtration(filtered, renal) = ⌊filtered · 100 / renal⌋', renal > 0 ? Math.floor((filtered * 100) / renal) :
+    0, nat(filtered, renal) && renal > 0 && filtered <= renal, 'filtration', [filtered, renal]) } /** DIALYSIS:
+    removed of the load, as a percentage. value ⌊removed · 100 / load⌋. */ static dialysis(removed: number,
+    load: number): CrossFormula { return c('nephrology-dialysis', 'dialysis(removed, load) = ⌊removed · 100 /
+    load⌋', load > 0 ? Math.floor((removed * 100) / load) : 0, nat(removed, load) && load > 0 && removed <=
+    load, 'dialysis', [removed, load]) } /** PROTEINURIA: protein over urine volume. value ⌊protein / volume⌋.
+    */ static proteinuria(protein: number, volume: number): CrossFormula { return c('nephrology-proteinuria',
+    'proteinuria(protein, volume) = ⌊protein / volume⌋', volume > 0 ? Math.floor(protein / volume) : 0,
+    nat(protein, volume) && volume > 0, 'proteinuria', [protein, volume]) } /** ELECTROLYTE: ions over volume, a
+    concentration. value ⌊ions / volume⌋. -/
+theorem fam_nephrology_electrolyte_1 : ((140 : Int) / (1 : Int)) = (140 : Int) := by decide
 
-/-- nephrology: reabsorption(99, 100) = 99 — REABSORPTION: reabsorbed of filtered, as a percentage. value
-    ⌊reabsorbed · 100 / filtered⌋. -/
-theorem fam_nephrology_reabsorption_1 : ((99 * 100) / 100) = 99 := by decide
+/-- nephrology: reabsorption(99, 100) = 99 — NEPHROLOGY — THE KIDNEY, AS ARITHMETIC (chosen by the medical
+    registry, not by hand). Renal function is numbers: filtration rate, clearance, creatinine, the filtration
+    fraction, dialysis removal, protein in the urine, electrolyte concentration, and tubular reabsorption.
+    Crosses to `med` — nephrology is one of medicine's measures. A measure. */ const PROOF = 'nephrology
+    arithmetic (gfr, clearance, creatinine, filtration fraction, dialysis, proteinuria, electrolyte,
+    reabsorption); a renal measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nephrology', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `nephrology.${name}`, params }) export class NephrologyFormulas { /** GFR: glomerular filtration rate,
+    filtrate volume over minutes. value ⌊filtrate / minutes⌋. */ static gfr(filtrate: number, minutes: number):
+    CrossFormula { return c('nephrology-gfr', 'gfr(filtrate, minutes) = ⌊filtrate / minutes⌋', minutes > 0 ?
+    Math.floor(filtrate / minutes) : 0, nat(filtrate, minutes) && minutes > 0, 'gfr', [filtrate, minutes]) } /**
+    CLEARANCE: a substance cleared, urine over plasma. value ⌊urine / plasma⌋. */ static clearance(urine:
+    number, plasma: number): CrossFormula { return c('nephrology-clearance', 'clearance(urine, plasma) = ⌊urine
+    / plasma⌋', plasma > 0 ? Math.floor(urine / plasma) : 0, nat(urine, plasma) && plasma > 0, 'clearance',
+    [urine, plasma]) } /** CREATININE: serum level, production over the filtration rate. value ⌊production /
+    gfr⌋. */ static creatinine(production: number, gfr_: number): CrossFormula { return
+    c('nephrology-creatinine', 'creatinine(production, gfr) = ⌊production / gfr⌋', gfr_ > 0 ?
+    Math.floor(production / gfr_) : 0, nat(production, gfr_) && gfr_ > 0, 'creatinine', [production, gfr_]) }
+    /** FILTRATION FRACTION: filtered of renal flow, as a percentage. value ⌊filtered · 100 / renal⌋. */ static
+    filtration(filtered: number, renal: number): CrossFormula { return c('nephrology-filtration',
+    'filtration(filtered, renal) = ⌊filtered · 100 / renal⌋', renal > 0 ? Math.floor((filtered * 100) / renal) :
+    0, nat(filtered, renal) && renal > 0 && filtered <= renal, 'filtration', [filtered, renal]) } /** DIALYSIS:
+    removed of the load, as a percentage. value ⌊removed · 100 / load⌋. */ static dialysis(removed: number,
+    load: number): CrossFormula { return c('nephrology-dialysis', 'dialysis(removed, load) = ⌊removed · 100 /
+    load⌋', load > 0 ? Math.floor((removed * 100) / load) : 0, nat(removed, load) && load > 0 && removed <=
+    load, 'dialysis', [removed, load]) } /** PROTEINURIA: protein over urine volume. value ⌊protein / volume⌋.
+    */ static proteinuria(protein: number, volume: number): CrossFormula { return c('nephrology-proteinuria',
+    'proteinuria(protein, volume) = ⌊protein / volume⌋', volume > 0 ? Math.floor(protein / volume) : 0,
+    nat(protein, volume) && volume > 0, 'proteinuria', [protein, volume]) } /** ELECTROLYTE: ions over volume, a
+    concentration. value ⌊ions / volume⌋. */ static electrolyte(ions: number, volume: number): CrossFormula {
+    return c('nephrology-electrolyte', 'electrolyte(ions, volume) = ⌊ions / volume⌋', volume > 0 ?
+    Math.floor(ions / volume) : 0, nat(ions, volume) && volume > 0, 'electrolyte', [ions, volume]) } /**
+    REABSORPTION: reabsorbed of filtered, as a percentage. value ⌊reabsorbed · 100 / filtered⌋. -/
+theorem fam_nephrology_reabsorption_1 : (((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int) := by decide
 
 /-- networking: bandwidth(1000, 8) = 125 — NETWORKING — THE MOVEMENT OF PACKETS, AS ARITHMETIC (chosen by the
     public-API registry, not by hand). Moving data is numbers: bandwidth per second, propagation latency, packet
@@ -158,32 +1032,203 @@ theorem fam_nephrology_reabsorption_1 : ((99 * 100) / 100) = 99 := by decide
     src: 'networking', dst: 'logistics', formula, value, proof: PROOF, ...extra }, holds, { name:
     `networking.${name}`, params }) export class NetworkingFormulas { /** BANDWIDTH: bits over seconds. value
     ⌊bits / seconds⌋. -/
-theorem fam_networking_bandwidth_1 : (1000 / 8) = 125 := by decide
+theorem fam_networking_bandwidth_1 : ((1000 : Int) / (8 : Int)) = (125 : Int) := by decide
 
-/-- networking: latency(3000, 200) = 15 — LATENCY: distance over propagation speed. value ⌊distance / speed⌋. -/
-theorem fam_networking_latency_1 : (3000 / 200) = 15 := by decide
+/-- networking: latency(3000, 200) = 15 — NETWORKING — THE MOVEMENT OF PACKETS, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Moving data is numbers: bandwidth per second, propagation latency, packet
+    throughput, loss rate, the hops a path takes, link utilization, delay jitter, and the hosts a subnet holds.
+    Crosses to `logistics` — networking is logistics for bits. A measure. */ const PROOF = 'networking
+    arithmetic (bandwidth, latency, throughput, loss, hops, utilization, jitter, subnet); the registry\'s
+    packet-movement domain; a measure crossed to logistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'networking', dst: 'logistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `networking.${name}`, params }) export class NetworkingFormulas { /** BANDWIDTH: bits over seconds. value
+    ⌊bits / seconds⌋. */ static bandwidth(bits: number, seconds: number): CrossFormula { return
+    c('networking-bandwidth', 'bandwidth(bits, seconds) = ⌊bits / seconds⌋', seconds > 0 ? Math.floor(bits /
+    seconds) : 0, nat(bits, seconds) && seconds > 0, 'bandwidth', [bits, seconds]) } /** LATENCY: distance over
+    propagation speed. value ⌊distance / speed⌋. -/
+theorem fam_networking_latency_1 : ((3000 : Int) / (200 : Int)) = (15 : Int) := by decide
 
-/-- networking: throughput(6000, 60) = 100 — THROUGHPUT: packets over a window. value ⌊packets / window⌋. -/
-theorem fam_networking_throughput_1 : (6000 / 60) = 100 := by decide
+/-- networking: throughput(6000, 60) = 100 — NETWORKING — THE MOVEMENT OF PACKETS, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Moving data is numbers: bandwidth per second, propagation latency, packet
+    throughput, loss rate, the hops a path takes, link utilization, delay jitter, and the hosts a subnet holds.
+    Crosses to `logistics` — networking is logistics for bits. A measure. */ const PROOF = 'networking
+    arithmetic (bandwidth, latency, throughput, loss, hops, utilization, jitter, subnet); the registry\'s
+    packet-movement domain; a measure crossed to logistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'networking', dst: 'logistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `networking.${name}`, params }) export class NetworkingFormulas { /** BANDWIDTH: bits over seconds. value
+    ⌊bits / seconds⌋. */ static bandwidth(bits: number, seconds: number): CrossFormula { return
+    c('networking-bandwidth', 'bandwidth(bits, seconds) = ⌊bits / seconds⌋', seconds > 0 ? Math.floor(bits /
+    seconds) : 0, nat(bits, seconds) && seconds > 0, 'bandwidth', [bits, seconds]) } /** LATENCY: distance over
+    propagation speed. value ⌊distance / speed⌋. */ static latency(distance: number, speed: number):
+    CrossFormula { return c('networking-latency', 'latency(distance, speed) = ⌊distance / speed⌋', speed > 0 ?
+    Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'latency', [distance, speed]) } /**
+    THROUGHPUT: packets over a window. value ⌊packets / window⌋. -/
+theorem fam_networking_throughput_1 : ((6000 : Int) / (60 : Int)) = (100 : Int) := by decide
 
-/-- networking: loss(5, 1000) = 0 — LOSS as a percentage. value ⌊dropped · 100 / sent⌋. -/
-theorem fam_networking_loss_1 : ((5 * 100) / 1000) = 0 := by decide
+/-- networking: loss(5, 1000) = 0 — NETWORKING — THE MOVEMENT OF PACKETS, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Moving data is numbers: bandwidth per second, propagation latency, packet
+    throughput, loss rate, the hops a path takes, link utilization, delay jitter, and the hosts a subnet holds.
+    Crosses to `logistics` — networking is logistics for bits. A measure. */ const PROOF = 'networking
+    arithmetic (bandwidth, latency, throughput, loss, hops, utilization, jitter, subnet); the registry\'s
+    packet-movement domain; a measure crossed to logistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'networking', dst: 'logistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `networking.${name}`, params }) export class NetworkingFormulas { /** BANDWIDTH: bits over seconds. value
+    ⌊bits / seconds⌋. */ static bandwidth(bits: number, seconds: number): CrossFormula { return
+    c('networking-bandwidth', 'bandwidth(bits, seconds) = ⌊bits / seconds⌋', seconds > 0 ? Math.floor(bits /
+    seconds) : 0, nat(bits, seconds) && seconds > 0, 'bandwidth', [bits, seconds]) } /** LATENCY: distance over
+    propagation speed. value ⌊distance / speed⌋. */ static latency(distance: number, speed: number):
+    CrossFormula { return c('networking-latency', 'latency(distance, speed) = ⌊distance / speed⌋', speed > 0 ?
+    Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'latency', [distance, speed]) } /**
+    THROUGHPUT: packets over a window. value ⌊packets / window⌋. */ static throughput(packets: number, window:
+    number): CrossFormula { return c('networking-throughput', 'throughput(packets, window) = ⌊packets /
+    window⌋', window > 0 ? Math.floor(packets / window) : 0, nat(packets, window) && window > 0, 'throughput',
+    [packets, window]) } /** LOSS as a percentage. value ⌊dropped · 100 / sent⌋. -/
+theorem fam_networking_loss_1 : (((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int) := by decide
 
-/-- networking: loss(30, 1000) = 3 — LOSS as a percentage. value ⌊dropped · 100 / sent⌋. -/
-theorem fam_networking_loss_2 : ((30 * 100) / 1000) = 3 := by decide
+/-- networking: loss(30, 1000) = 3 — NETWORKING — THE MOVEMENT OF PACKETS, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Moving data is numbers: bandwidth per second, propagation latency, packet
+    throughput, loss rate, the hops a path takes, link utilization, delay jitter, and the hosts a subnet holds.
+    Crosses to `logistics` — networking is logistics for bits. A measure. */ const PROOF = 'networking
+    arithmetic (bandwidth, latency, throughput, loss, hops, utilization, jitter, subnet); the registry\'s
+    packet-movement domain; a measure crossed to logistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'networking', dst: 'logistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `networking.${name}`, params }) export class NetworkingFormulas { /** BANDWIDTH: bits over seconds. value
+    ⌊bits / seconds⌋. */ static bandwidth(bits: number, seconds: number): CrossFormula { return
+    c('networking-bandwidth', 'bandwidth(bits, seconds) = ⌊bits / seconds⌋', seconds > 0 ? Math.floor(bits /
+    seconds) : 0, nat(bits, seconds) && seconds > 0, 'bandwidth', [bits, seconds]) } /** LATENCY: distance over
+    propagation speed. value ⌊distance / speed⌋. */ static latency(distance: number, speed: number):
+    CrossFormula { return c('networking-latency', 'latency(distance, speed) = ⌊distance / speed⌋', speed > 0 ?
+    Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'latency', [distance, speed]) } /**
+    THROUGHPUT: packets over a window. value ⌊packets / window⌋. */ static throughput(packets: number, window:
+    number): CrossFormula { return c('networking-throughput', 'throughput(packets, window) = ⌊packets /
+    window⌋', window > 0 ? Math.floor(packets / window) : 0, nat(packets, window) && window > 0, 'throughput',
+    [packets, window]) } /** LOSS as a percentage. value ⌊dropped · 100 / sent⌋. -/
+theorem fam_networking_loss_2 : (((30 : Int) * (100 : Int)) / (1000 : Int)) = (3 : Int) := by decide
 
-/-- networking: hops(5) = 4 — HOPS on a path of nodes. value nodes − 1. -/
-theorem fam_networking_hops_1 : (5 - 1) = 4 := by decide
+/-- networking: hops(5) = 4 — NETWORKING — THE MOVEMENT OF PACKETS, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Moving data is numbers: bandwidth per second, propagation latency, packet
+    throughput, loss rate, the hops a path takes, link utilization, delay jitter, and the hosts a subnet holds.
+    Crosses to `logistics` — networking is logistics for bits. A measure. */ const PROOF = 'networking
+    arithmetic (bandwidth, latency, throughput, loss, hops, utilization, jitter, subnet); the registry\'s
+    packet-movement domain; a measure crossed to logistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'networking', dst: 'logistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `networking.${name}`, params }) export class NetworkingFormulas { /** BANDWIDTH: bits over seconds. value
+    ⌊bits / seconds⌋. */ static bandwidth(bits: number, seconds: number): CrossFormula { return
+    c('networking-bandwidth', 'bandwidth(bits, seconds) = ⌊bits / seconds⌋', seconds > 0 ? Math.floor(bits /
+    seconds) : 0, nat(bits, seconds) && seconds > 0, 'bandwidth', [bits, seconds]) } /** LATENCY: distance over
+    propagation speed. value ⌊distance / speed⌋. */ static latency(distance: number, speed: number):
+    CrossFormula { return c('networking-latency', 'latency(distance, speed) = ⌊distance / speed⌋', speed > 0 ?
+    Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'latency', [distance, speed]) } /**
+    THROUGHPUT: packets over a window. value ⌊packets / window⌋. */ static throughput(packets: number, window:
+    number): CrossFormula { return c('networking-throughput', 'throughput(packets, window) = ⌊packets /
+    window⌋', window > 0 ? Math.floor(packets / window) : 0, nat(packets, window) && window > 0, 'throughput',
+    [packets, window]) } /** LOSS as a percentage. value ⌊dropped · 100 / sent⌋. */ static loss(dropped: number,
+    sent: number): CrossFormula { return c('networking-loss', 'loss(dropped, sent) = ⌊dropped · 100 / sent⌋',
+    sent > 0 ? Math.floor((dropped * 100) / sent) : 0, nat(dropped, sent) && sent > 0 && dropped <= sent,
+    'loss', [dropped, sent]) } /** HOPS on a path of nodes. value nodes − 1. -/
+theorem fam_networking_hops_1 : ((5 : Int) - (1 : Int)) = (4 : Int) := by decide
 
-/-- networking: utilization(750, 1000) = 75 — UTILIZATION as a percentage. value ⌊used · 100 / capacity⌋. -/
-theorem fam_networking_utilization_1 : ((750 * 100) / 1000) = 75 := by decide
+/-- networking: utilization(750, 1000) = 75 — NETWORKING — THE MOVEMENT OF PACKETS, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Moving data is numbers: bandwidth per second, propagation latency, packet
+    throughput, loss rate, the hops a path takes, link utilization, delay jitter, and the hosts a subnet holds.
+    Crosses to `logistics` — networking is logistics for bits. A measure. */ const PROOF = 'networking
+    arithmetic (bandwidth, latency, throughput, loss, hops, utilization, jitter, subnet); the registry\'s
+    packet-movement domain; a measure crossed to logistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'networking', dst: 'logistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `networking.${name}`, params }) export class NetworkingFormulas { /** BANDWIDTH: bits over seconds. value
+    ⌊bits / seconds⌋. */ static bandwidth(bits: number, seconds: number): CrossFormula { return
+    c('networking-bandwidth', 'bandwidth(bits, seconds) = ⌊bits / seconds⌋', seconds > 0 ? Math.floor(bits /
+    seconds) : 0, nat(bits, seconds) && seconds > 0, 'bandwidth', [bits, seconds]) } /** LATENCY: distance over
+    propagation speed. value ⌊distance / speed⌋. */ static latency(distance: number, speed: number):
+    CrossFormula { return c('networking-latency', 'latency(distance, speed) = ⌊distance / speed⌋', speed > 0 ?
+    Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'latency', [distance, speed]) } /**
+    THROUGHPUT: packets over a window. value ⌊packets / window⌋. */ static throughput(packets: number, window:
+    number): CrossFormula { return c('networking-throughput', 'throughput(packets, window) = ⌊packets /
+    window⌋', window > 0 ? Math.floor(packets / window) : 0, nat(packets, window) && window > 0, 'throughput',
+    [packets, window]) } /** LOSS as a percentage. value ⌊dropped · 100 / sent⌋. */ static loss(dropped: number,
+    sent: number): CrossFormula { return c('networking-loss', 'loss(dropped, sent) = ⌊dropped · 100 / sent⌋',
+    sent > 0 ? Math.floor((dropped * 100) / sent) : 0, nat(dropped, sent) && sent > 0 && dropped <= sent,
+    'loss', [dropped, sent]) } /** HOPS on a path of nodes. value nodes − 1. */ static hops(nodes: number):
+    CrossFormula { return c('networking-hops', 'hops(nodes) = nodes − 1', nodes > 0 ? nodes - 1 : 0, nat(nodes),
+    'hops', [nodes]) } /** UTILIZATION as a percentage. value ⌊used · 100 / capacity⌋. -/
+theorem fam_networking_utilization_1 : (((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int) := by decide
 
-/-- networking: jitter(50, 12) = 38 — JITTER: the spread between the largest and smallest delay. value max(0,
-    max_ − min_). -/
-theorem fam_networking_jitter_1 : (fmax 0 (50 - 12)) = 38 := by decide
+/-- networking: jitter(50, 12) = 38 — NETWORKING — THE MOVEMENT OF PACKETS, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Moving data is numbers: bandwidth per second, propagation latency, packet
+    throughput, loss rate, the hops a path takes, link utilization, delay jitter, and the hosts a subnet holds.
+    Crosses to `logistics` — networking is logistics for bits. A measure. */ const PROOF = 'networking
+    arithmetic (bandwidth, latency, throughput, loss, hops, utilization, jitter, subnet); the registry\'s
+    packet-movement domain; a measure crossed to logistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'networking', dst: 'logistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `networking.${name}`, params }) export class NetworkingFormulas { /** BANDWIDTH: bits over seconds. value
+    ⌊bits / seconds⌋. */ static bandwidth(bits: number, seconds: number): CrossFormula { return
+    c('networking-bandwidth', 'bandwidth(bits, seconds) = ⌊bits / seconds⌋', seconds > 0 ? Math.floor(bits /
+    seconds) : 0, nat(bits, seconds) && seconds > 0, 'bandwidth', [bits, seconds]) } /** LATENCY: distance over
+    propagation speed. value ⌊distance / speed⌋. */ static latency(distance: number, speed: number):
+    CrossFormula { return c('networking-latency', 'latency(distance, speed) = ⌊distance / speed⌋', speed > 0 ?
+    Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'latency', [distance, speed]) } /**
+    THROUGHPUT: packets over a window. value ⌊packets / window⌋. */ static throughput(packets: number, window:
+    number): CrossFormula { return c('networking-throughput', 'throughput(packets, window) = ⌊packets /
+    window⌋', window > 0 ? Math.floor(packets / window) : 0, nat(packets, window) && window > 0, 'throughput',
+    [packets, window]) } /** LOSS as a percentage. value ⌊dropped · 100 / sent⌋. */ static loss(dropped: number,
+    sent: number): CrossFormula { return c('networking-loss', 'loss(dropped, sent) = ⌊dropped · 100 / sent⌋',
+    sent > 0 ? Math.floor((dropped * 100) / sent) : 0, nat(dropped, sent) && sent > 0 && dropped <= sent,
+    'loss', [dropped, sent]) } /** HOPS on a path of nodes. value nodes − 1. */ static hops(nodes: number):
+    CrossFormula { return c('networking-hops', 'hops(nodes) = nodes − 1', nodes > 0 ? nodes - 1 : 0, nat(nodes),
+    'hops', [nodes]) } /** UTILIZATION as a percentage. value ⌊used · 100 / capacity⌋. */ static
+    utilization(used: number, capacity: number): CrossFormula { return c('networking-utilization',
+    'utilization(used, capacity) = ⌊used · 100 / capacity⌋', capacity > 0 ? Math.floor((used * 100) / capacity)
+    : 0, nat(used, capacity) && capacity > 0 && used <= capacity, 'utilization', [used, capacity]) } /** JITTER:
+    the spread between the largest and smallest delay. value max(0, max_ − min_). -/
+theorem fam_networking_jitter_1 : (fmax (0 : Int) ((50 : Int) - (12 : Int))) = (38 : Int) := by decide
 
-/-- networking: subnet(1, 8) = 256 — SUBNET: the hosts a block holds. value hosts · 2^bits. -/
-theorem fam_networking_subnet_1 : (1 * (2 ^ 8)) = 256 := by decide
+/-- networking: subnet(1, 8) = 256 — NETWORKING — THE MOVEMENT OF PACKETS, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Moving data is numbers: bandwidth per second, propagation latency, packet
+    throughput, loss rate, the hops a path takes, link utilization, delay jitter, and the hosts a subnet holds.
+    Crosses to `logistics` — networking is logistics for bits. A measure. */ const PROOF = 'networking
+    arithmetic (bandwidth, latency, throughput, loss, hops, utilization, jitter, subnet); the registry\'s
+    packet-movement domain; a measure crossed to logistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'networking', dst: 'logistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `networking.${name}`, params }) export class NetworkingFormulas { /** BANDWIDTH: bits over seconds. value
+    ⌊bits / seconds⌋. */ static bandwidth(bits: number, seconds: number): CrossFormula { return
+    c('networking-bandwidth', 'bandwidth(bits, seconds) = ⌊bits / seconds⌋', seconds > 0 ? Math.floor(bits /
+    seconds) : 0, nat(bits, seconds) && seconds > 0, 'bandwidth', [bits, seconds]) } /** LATENCY: distance over
+    propagation speed. value ⌊distance / speed⌋. */ static latency(distance: number, speed: number):
+    CrossFormula { return c('networking-latency', 'latency(distance, speed) = ⌊distance / speed⌋', speed > 0 ?
+    Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'latency', [distance, speed]) } /**
+    THROUGHPUT: packets over a window. value ⌊packets / window⌋. */ static throughput(packets: number, window:
+    number): CrossFormula { return c('networking-throughput', 'throughput(packets, window) = ⌊packets /
+    window⌋', window > 0 ? Math.floor(packets / window) : 0, nat(packets, window) && window > 0, 'throughput',
+    [packets, window]) } /** LOSS as a percentage. value ⌊dropped · 100 / sent⌋. */ static loss(dropped: number,
+    sent: number): CrossFormula { return c('networking-loss', 'loss(dropped, sent) = ⌊dropped · 100 / sent⌋',
+    sent > 0 ? Math.floor((dropped * 100) / sent) : 0, nat(dropped, sent) && sent > 0 && dropped <= sent,
+    'loss', [dropped, sent]) } /** HOPS on a path of nodes. value nodes − 1. */ static hops(nodes: number):
+    CrossFormula { return c('networking-hops', 'hops(nodes) = nodes − 1', nodes > 0 ? nodes - 1 : 0, nat(nodes),
+    'hops', [nodes]) } /** UTILIZATION as a percentage. value ⌊used · 100 / capacity⌋. */ static
+    utilization(used: number, capacity: number): CrossFormula { return c('networking-utilization',
+    'utilization(used, capacity) = ⌊used · 100 / capacity⌋', capacity > 0 ? Math.floor((used * 100) / capacity)
+    : 0, nat(used, capacity) && capacity > 0 && used <= capacity, 'utilization', [used, capacity]) } /** JITTER:
+    the spread between the largest and smallest delay. value max(0, max_ − min_). */ static jitter(max_: number,
+    min_: number): CrossFormula { return c('networking-jitter', 'jitter(max_, min_) = max(0, max_ − min_)',
+    Math.max(0, max_ - min_), nat(max_, min_), 'jitter', [max_, min_]) } /** SUBNET: the hosts a block holds.
+    value hosts · 2^bits. -/
+theorem fam_networking_subnet_1 : ((1 : Int) * ((2 : Int) ^ (8 : Nat))) = (256 : Int) := by decide
 
 /-- neuralnet: parameters(100, 10) = 1010 — NEURALNET — A FEEDFORWARD NETWORK AS ARITHMETIC (chosen by the
     public-API registry, not by hand). A trained net is numbers: the parameters a dense layer carries, the
@@ -197,32 +1242,204 @@ theorem fam_networking_subnet_1 : (1 * (2 ^ 8)) = 256 := by decide
     src: 'neuralnet', dst: 'neuroscience', formula, value, proof: PROOF, ...extra }, holds, { name:
     `neuralnet.${name}`, params }) export class NeuralnetFormulas { /** PARAMETERS: a dense layer's weights plus
     its biases. value inputs · outputs + outputs. -/
-theorem fam_neuralnet_parameters_1 : ((100 * 10) + 10) = 1010 := by decide
+theorem fam_neuralnet_parameters_1 : (((100 : Int) * (10 : Int)) + (10 : Int)) = (1010 : Int) := by decide
 
-/-- neuralnet: layers(3) = 5 — LAYERS: the hidden layers plus the input and output layers. value hidden + 2. -/
-theorem fam_neuralnet_layers_1 : (3 + 2) = 5 := by decide
+/-- neuralnet: layers(3) = 5 — NEURALNET — A FEEDFORWARD NETWORK AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A trained net is numbers: the parameters a dense layer carries, the layers a stack
+    has, the neurons across a depth, the weights of a connection, the rectified activation, the average fan-in,
+    the flops of a forward pass, and the capacity in bits. Crosses to `neuroscience` — the artificial network is
+    the model of the biological one. A measure. */ const PROOF = 'neuralnet arithmetic (parameters, layers,
+    neurons, weights, relu, fanin, flops, capacity); the registry\'s uncovered learning domain; a measure
+    crossed to neuroscience' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuralnet', dst:
+    'neuroscience', formula, value, proof: PROOF, ...extra }, holds, { name: `neuralnet.${name}`, params })
+    export class NeuralnetFormulas { /** PARAMETERS: a dense layer's weights plus its biases. value inputs ·
+    outputs + outputs. */ static parameters(inputs: number, outputs: number): CrossFormula { return
+    c('neuralnet-parameters', 'parameters(inputs, outputs) = inputs · outputs + outputs', inputs * outputs +
+    outputs, nat(inputs, outputs), 'parameters', [inputs, outputs]) } /** LAYERS: the hidden layers plus the
+    input and output layers. value hidden + 2. -/
+theorem fam_neuralnet_layers_1 : ((3 : Int) + (2 : Int)) = (5 : Int) := by decide
 
-/-- neuralnet: neurons(4, 128) = 512 — NEURONS: a uniform stack's units across its depth. value depth ·
-    perLayer. -/
-theorem fam_neuralnet_neurons_1 : (4 * 128) = 512 := by decide
+/-- neuralnet: neurons(4, 128) = 512 — NEURALNET — A FEEDFORWARD NETWORK AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A trained net is numbers: the parameters a dense layer carries, the layers a stack
+    has, the neurons across a depth, the weights of a connection, the rectified activation, the average fan-in,
+    the flops of a forward pass, and the capacity in bits. Crosses to `neuroscience` — the artificial network is
+    the model of the biological one. A measure. */ const PROOF = 'neuralnet arithmetic (parameters, layers,
+    neurons, weights, relu, fanin, flops, capacity); the registry\'s uncovered learning domain; a measure
+    crossed to neuroscience' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuralnet', dst:
+    'neuroscience', formula, value, proof: PROOF, ...extra }, holds, { name: `neuralnet.${name}`, params })
+    export class NeuralnetFormulas { /** PARAMETERS: a dense layer's weights plus its biases. value inputs ·
+    outputs + outputs. */ static parameters(inputs: number, outputs: number): CrossFormula { return
+    c('neuralnet-parameters', 'parameters(inputs, outputs) = inputs · outputs + outputs', inputs * outputs +
+    outputs, nat(inputs, outputs), 'parameters', [inputs, outputs]) } /** LAYERS: the hidden layers plus the
+    input and output layers. value hidden + 2. */ static layers(hidden: number): CrossFormula { return
+    c('neuralnet-layers', 'layers(hidden) = hidden + 2', hidden + 2, nat(hidden), 'layers', [hidden]) } /**
+    NEURONS: a uniform stack's units across its depth. value depth · perLayer. -/
+theorem fam_neuralnet_neurons_1 : ((4 : Int) * (128 : Int)) = (512 : Int) := by decide
 
-/-- neuralnet: weights(128, 64) = 8192 — WEIGHTS: a fully-connected edge count between two layers. value inDim ·
-    outDim. -/
-theorem fam_neuralnet_weights_1 : (128 * 64) = 8192 := by decide
+/-- neuralnet: weights(128, 64) = 8192 — NEURALNET — A FEEDFORWARD NETWORK AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). A trained net is numbers: the parameters a dense layer carries, the
+    layers a stack has, the neurons across a depth, the weights of a connection, the rectified activation, the
+    average fan-in, the flops of a forward pass, and the capacity in bits. Crosses to `neuroscience` — the
+    artificial network is the model of the biological one. A measure. */ const PROOF = 'neuralnet arithmetic
+    (parameters, layers, neurons, weights, relu, fanin, flops, capacity); the registry\'s uncovered learning
+    domain; a measure crossed to neuroscience' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'neuralnet', dst: 'neuroscience', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `neuralnet.${name}`, params }) export class NeuralnetFormulas { /** PARAMETERS: a dense layer's weights plus
+    its biases. value inputs · outputs + outputs. */ static parameters(inputs: number, outputs: number):
+    CrossFormula { return c('neuralnet-parameters', 'parameters(inputs, outputs) = inputs · outputs + outputs',
+    inputs * outputs + outputs, nat(inputs, outputs), 'parameters', [inputs, outputs]) } /** LAYERS: the hidden
+    layers plus the input and output layers. value hidden + 2. */ static layers(hidden: number): CrossFormula {
+    return c('neuralnet-layers', 'layers(hidden) = hidden + 2', hidden + 2, nat(hidden), 'layers', [hidden]) }
+    /** NEURONS: a uniform stack's units across its depth. value depth · perLayer. */ static neurons(depth:
+    number, perLayer: number): CrossFormula { return c('neuralnet-neurons', 'neurons(depth, perLayer) = depth ·
+    perLayer', depth * perLayer, nat(depth, perLayer), 'neurons', [depth, perLayer]) } /** WEIGHTS: a
+    fully-connected edge count between two layers. value inDim · outDim. -/
+theorem fam_neuralnet_weights_1 : ((128 : Int) * (64 : Int)) = (8192 : Int) := by decide
 
-/-- neuralnet: relu(42) = 42 — RELU: the rectified linear unit. value max(0, x). -/
-theorem fam_neuralnet_relu_1 : (fmax 0 42) = 42 := by decide
+/-- neuralnet: relu(42) = 42 — NEURALNET — A FEEDFORWARD NETWORK AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A trained net is numbers: the parameters a dense layer carries, the layers a stack
+    has, the neurons across a depth, the weights of a connection, the rectified activation, the average fan-in,
+    the flops of a forward pass, and the capacity in bits. Crosses to `neuroscience` — the artificial network is
+    the model of the biological one. A measure. */ const PROOF = 'neuralnet arithmetic (parameters, layers,
+    neurons, weights, relu, fanin, flops, capacity); the registry\'s uncovered learning domain; a measure
+    crossed to neuroscience' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuralnet', dst:
+    'neuroscience', formula, value, proof: PROOF, ...extra }, holds, { name: `neuralnet.${name}`, params })
+    export class NeuralnetFormulas { /** PARAMETERS: a dense layer's weights plus its biases. value inputs ·
+    outputs + outputs. */ static parameters(inputs: number, outputs: number): CrossFormula { return
+    c('neuralnet-parameters', 'parameters(inputs, outputs) = inputs · outputs + outputs', inputs * outputs +
+    outputs, nat(inputs, outputs), 'parameters', [inputs, outputs]) } /** LAYERS: the hidden layers plus the
+    input and output layers. value hidden + 2. */ static layers(hidden: number): CrossFormula { return
+    c('neuralnet-layers', 'layers(hidden) = hidden + 2', hidden + 2, nat(hidden), 'layers', [hidden]) } /**
+    NEURONS: a uniform stack's units across its depth. value depth · perLayer. */ static neurons(depth: number,
+    perLayer: number): CrossFormula { return c('neuralnet-neurons', 'neurons(depth, perLayer) = depth ·
+    perLayer', depth * perLayer, nat(depth, perLayer), 'neurons', [depth, perLayer]) } /** WEIGHTS: a
+    fully-connected edge count between two layers. value inDim · outDim. */ static weights(inDim: number,
+    outDim: number): CrossFormula { return c('neuralnet-weights', 'weights(inDim, outDim) = inDim · outDim',
+    inDim * outDim, nat(inDim, outDim), 'weights', [inDim, outDim]) } /** RELU: the rectified linear unit. value
+    max(0, x). -/
+theorem fam_neuralnet_relu_1 : (fmax (0 : Int) (42 : Int)) = (42 : Int) := by decide
 
-/-- neuralnet: fanin(8192, 64) = 128 — FANIN: the average incoming edges per node. value ⌊edges / nodes⌋. -/
-theorem fam_neuralnet_fanin_1 : (8192 / 64) = 128 := by decide
+/-- neuralnet: relu(-5) = 0 — NEURALNET — A FEEDFORWARD NETWORK AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A trained net is numbers: the parameters a dense layer carries, the layers a stack
+    has, the neurons across a depth, the weights of a connection, the rectified activation, the average fan-in,
+    the flops of a forward pass, and the capacity in bits. Crosses to `neuroscience` — the artificial network is
+    the model of the biological one. A measure. */ const PROOF = 'neuralnet arithmetic (parameters, layers,
+    neurons, weights, relu, fanin, flops, capacity); the registry\'s uncovered learning domain; a measure
+    crossed to neuroscience' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuralnet', dst:
+    'neuroscience', formula, value, proof: PROOF, ...extra }, holds, { name: `neuralnet.${name}`, params })
+    export class NeuralnetFormulas { /** PARAMETERS: a dense layer's weights plus its biases. value inputs ·
+    outputs + outputs. */ static parameters(inputs: number, outputs: number): CrossFormula { return
+    c('neuralnet-parameters', 'parameters(inputs, outputs) = inputs · outputs + outputs', inputs * outputs +
+    outputs, nat(inputs, outputs), 'parameters', [inputs, outputs]) } /** LAYERS: the hidden layers plus the
+    input and output layers. value hidden + 2. */ static layers(hidden: number): CrossFormula { return
+    c('neuralnet-layers', 'layers(hidden) = hidden + 2', hidden + 2, nat(hidden), 'layers', [hidden]) } /**
+    NEURONS: a uniform stack's units across its depth. value depth · perLayer. */ static neurons(depth: number,
+    perLayer: number): CrossFormula { return c('neuralnet-neurons', 'neurons(depth, perLayer) = depth ·
+    perLayer', depth * perLayer, nat(depth, perLayer), 'neurons', [depth, perLayer]) } /** WEIGHTS: a
+    fully-connected edge count between two layers. value inDim · outDim. */ static weights(inDim: number,
+    outDim: number): CrossFormula { return c('neuralnet-weights', 'weights(inDim, outDim) = inDim · outDim',
+    inDim * outDim, nat(inDim, outDim), 'weights', [inDim, outDim]) } /** RELU: the rectified linear unit. value
+    max(0, x). -/
+theorem fam_neuralnet_relu_2 : (fmax (0 : Int) (-5 : Int)) = (0 : Int) := by decide
 
-/-- neuralnet: flops(8192, 512) = 16896 — FLOPS: a forward pass, two per multiply-accumulate plus one activation
-    per node. value 2 · edges + nodes. -/
-theorem fam_neuralnet_flops_1 : ((2 * 8192) + 512) = 16896 := by decide
+/-- neuralnet: fanin(8192, 64) = 128 — NEURALNET — A FEEDFORWARD NETWORK AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A trained net is numbers: the parameters a dense layer carries, the layers a stack
+    has, the neurons across a depth, the weights of a connection, the rectified activation, the average fan-in,
+    the flops of a forward pass, and the capacity in bits. Crosses to `neuroscience` — the artificial network is
+    the model of the biological one. A measure. */ const PROOF = 'neuralnet arithmetic (parameters, layers,
+    neurons, weights, relu, fanin, flops, capacity); the registry\'s uncovered learning domain; a measure
+    crossed to neuroscience' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuralnet', dst:
+    'neuroscience', formula, value, proof: PROOF, ...extra }, holds, { name: `neuralnet.${name}`, params })
+    export class NeuralnetFormulas { /** PARAMETERS: a dense layer's weights plus its biases. value inputs ·
+    outputs + outputs. */ static parameters(inputs: number, outputs: number): CrossFormula { return
+    c('neuralnet-parameters', 'parameters(inputs, outputs) = inputs · outputs + outputs', inputs * outputs +
+    outputs, nat(inputs, outputs), 'parameters', [inputs, outputs]) } /** LAYERS: the hidden layers plus the
+    input and output layers. value hidden + 2. */ static layers(hidden: number): CrossFormula { return
+    c('neuralnet-layers', 'layers(hidden) = hidden + 2', hidden + 2, nat(hidden), 'layers', [hidden]) } /**
+    NEURONS: a uniform stack's units across its depth. value depth · perLayer. */ static neurons(depth: number,
+    perLayer: number): CrossFormula { return c('neuralnet-neurons', 'neurons(depth, perLayer) = depth ·
+    perLayer', depth * perLayer, nat(depth, perLayer), 'neurons', [depth, perLayer]) } /** WEIGHTS: a
+    fully-connected edge count between two layers. value inDim · outDim. */ static weights(inDim: number,
+    outDim: number): CrossFormula { return c('neuralnet-weights', 'weights(inDim, outDim) = inDim · outDim',
+    inDim * outDim, nat(inDim, outDim), 'weights', [inDim, outDim]) } /** RELU: the rectified linear unit. value
+    max(0, x). */ static relu(x: number): CrossFormula { return c('neuralnet-relu', 'relu(x) = max(0, x)',
+    Math.max(0, x), nat(x), 'relu', [x]) } /** FANIN: the average incoming edges per node. value ⌊edges /
+    nodes⌋. -/
+theorem fam_neuralnet_fanin_1 : ((8192 : Int) / (64 : Int)) = (128 : Int) := by decide
 
-/-- neuralnet: capacity(512, 32) = 16384 — CAPACITY: the memory a parameter set occupies, in bits. value units ·
-    bits. -/
-theorem fam_neuralnet_capacity_1 : (512 * 32) = 16384 := by decide
+/-- neuralnet: flops(8192, 512) = 16896 — NEURALNET — A FEEDFORWARD NETWORK AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). A trained net is numbers: the parameters a dense layer carries, the
+    layers a stack has, the neurons across a depth, the weights of a connection, the rectified activation, the
+    average fan-in, the flops of a forward pass, and the capacity in bits. Crosses to `neuroscience` — the
+    artificial network is the model of the biological one. A measure. */ const PROOF = 'neuralnet arithmetic
+    (parameters, layers, neurons, weights, relu, fanin, flops, capacity); the registry\'s uncovered learning
+    domain; a measure crossed to neuroscience' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'neuralnet', dst: 'neuroscience', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `neuralnet.${name}`, params }) export class NeuralnetFormulas { /** PARAMETERS: a dense layer's weights plus
+    its biases. value inputs · outputs + outputs. */ static parameters(inputs: number, outputs: number):
+    CrossFormula { return c('neuralnet-parameters', 'parameters(inputs, outputs) = inputs · outputs + outputs',
+    inputs * outputs + outputs, nat(inputs, outputs), 'parameters', [inputs, outputs]) } /** LAYERS: the hidden
+    layers plus the input and output layers. value hidden + 2. */ static layers(hidden: number): CrossFormula {
+    return c('neuralnet-layers', 'layers(hidden) = hidden + 2', hidden + 2, nat(hidden), 'layers', [hidden]) }
+    /** NEURONS: a uniform stack's units across its depth. value depth · perLayer. */ static neurons(depth:
+    number, perLayer: number): CrossFormula { return c('neuralnet-neurons', 'neurons(depth, perLayer) = depth ·
+    perLayer', depth * perLayer, nat(depth, perLayer), 'neurons', [depth, perLayer]) } /** WEIGHTS: a
+    fully-connected edge count between two layers. value inDim · outDim. */ static weights(inDim: number,
+    outDim: number): CrossFormula { return c('neuralnet-weights', 'weights(inDim, outDim) = inDim · outDim',
+    inDim * outDim, nat(inDim, outDim), 'weights', [inDim, outDim]) } /** RELU: the rectified linear unit. value
+    max(0, x). */ static relu(x: number): CrossFormula { return c('neuralnet-relu', 'relu(x) = max(0, x)',
+    Math.max(0, x), nat(x), 'relu', [x]) } /** FANIN: the average incoming edges per node. value ⌊edges /
+    nodes⌋. */ static fanin(edges: number, nodes: number): CrossFormula { return c('neuralnet-fanin',
+    'fanin(edges, nodes) = ⌊edges / nodes⌋', nodes > 0 ? Math.floor(edges / nodes) : 0, nat(edges, nodes) &&
+    nodes > 0, 'fanin', [edges, nodes]) } /** FLOPS: a forward pass, two per multiply-accumulate plus one
+    activation per node. value 2 · edges + nodes. -/
+theorem fam_neuralnet_flops_1 : (((2 : Int) * (8192 : Int)) + (512 : Int)) = (16896 : Int) := by decide
+
+/-- neuralnet: capacity(512, 32) = 16384 — NEURALNET — A FEEDFORWARD NETWORK AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). A trained net is numbers: the parameters a dense layer carries, the
+    layers a stack has, the neurons across a depth, the weights of a connection, the rectified activation, the
+    average fan-in, the flops of a forward pass, and the capacity in bits. Crosses to `neuroscience` — the
+    artificial network is the model of the biological one. A measure. */ const PROOF = 'neuralnet arithmetic
+    (parameters, layers, neurons, weights, relu, fanin, flops, capacity); the registry\'s uncovered learning
+    domain; a measure crossed to neuroscience' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'neuralnet', dst: 'neuroscience', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `neuralnet.${name}`, params }) export class NeuralnetFormulas { /** PARAMETERS: a dense layer's weights plus
+    its biases. value inputs · outputs + outputs. */ static parameters(inputs: number, outputs: number):
+    CrossFormula { return c('neuralnet-parameters', 'parameters(inputs, outputs) = inputs · outputs + outputs',
+    inputs * outputs + outputs, nat(inputs, outputs), 'parameters', [inputs, outputs]) } /** LAYERS: the hidden
+    layers plus the input and output layers. value hidden + 2. */ static layers(hidden: number): CrossFormula {
+    return c('neuralnet-layers', 'layers(hidden) = hidden + 2', hidden + 2, nat(hidden), 'layers', [hidden]) }
+    /** NEURONS: a uniform stack's units across its depth. value depth · perLayer. */ static neurons(depth:
+    number, perLayer: number): CrossFormula { return c('neuralnet-neurons', 'neurons(depth, perLayer) = depth ·
+    perLayer', depth * perLayer, nat(depth, perLayer), 'neurons', [depth, perLayer]) } /** WEIGHTS: a
+    fully-connected edge count between two layers. value inDim · outDim. */ static weights(inDim: number,
+    outDim: number): CrossFormula { return c('neuralnet-weights', 'weights(inDim, outDim) = inDim · outDim',
+    inDim * outDim, nat(inDim, outDim), 'weights', [inDim, outDim]) } /** RELU: the rectified linear unit. value
+    max(0, x). */ static relu(x: number): CrossFormula { return c('neuralnet-relu', 'relu(x) = max(0, x)',
+    Math.max(0, x), nat(x), 'relu', [x]) } /** FANIN: the average incoming edges per node. value ⌊edges /
+    nodes⌋. */ static fanin(edges: number, nodes: number): CrossFormula { return c('neuralnet-fanin',
+    'fanin(edges, nodes) = ⌊edges / nodes⌋', nodes > 0 ? Math.floor(edges / nodes) : 0, nat(edges, nodes) &&
+    nodes > 0, 'fanin', [edges, nodes]) } /** FLOPS: a forward pass, two per multiply-accumulate plus one
+    activation per node. value 2 · edges + nodes. */ static flops(edges: number, nodes: number): CrossFormula {
+    return c('neuralnet-flops', 'flops(edges, nodes) = 2 · edges + nodes', 2 * edges + nodes, nat(edges, nodes),
+    'flops', [edges, nodes]) } /** CAPACITY: the memory a parameter set occupies, in bits. value units · bits. -/
+theorem fam_neuralnet_capacity_1 : ((512 : Int) * (32 : Int)) = (16384 : Int) := by decide
 
 /-- neurology: glasgow(4, 5, 6) = 15 — NEUROLOGY — THE NERVOUS SYSTEM, AS ARITHMETIC (chosen by the public-API
     registry, not by hand). Clinical neurology is numbers: the Glasgow coma scale, a reflex grade, nerve
@@ -235,31 +1452,349 @@ theorem fam_neuralnet_capacity_1 : (512 * 32) = 16384 := by decide
     CrossFormula => crossFormulaOf({ id, src: 'neurology', dst: 'med', formula, value, proof: PROOF, ...extra },
     holds, { name: `neurology.${name}`, params }) export class NeurologyFormulas { /** GLASGOW COMA SCALE: eye,
     verbal and motor response. value eye + verbal + motor. -/
-theorem fam_neurology_glasgow_1 : ((4 + 5) + 6) = 15 := by decide
+theorem fam_neurology_glasgow_1 : (((4 : Int) + (5 : Int)) + (6 : Int)) = (15 : Int) := by decide
 
-/-- neurology: reflex(2) = 2 — REFLEX GRADE: the 0..4 deep-tendon reflex scale. value score. -/
-theorem fam_neurology_reflex_1 : 2 = 2 := by decide
+/-- neurology: reflex(2) = 2 — NEUROLOGY — THE NERVOUS SYSTEM, AS ARITHMETIC (chosen by the public-API registry,
+    not by hand). Clinical neurology is numbers: the Glasgow coma scale, a reflex grade, nerve conduction
+    velocity, seizure frequency, an NIHSS stroke proxy, evoked latency, cerebral perfusion, and recovery.
+    Crosses to `med` — neurology is a branch of medicine. A measure. */ const PROOF = 'neurology arithmetic
+    (Glasgow coma scale, reflex grade, nerve conduction velocity, seizure frequency, NIHSS stroke proxy, evoked
+    latency, cerebral perfusion, recovery); a measure crossed to med' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'neurology', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `neurology.${name}`, params }) export class NeurologyFormulas { /** GLASGOW COMA SCALE: eye, verbal and
+    motor response. value eye + verbal + motor. */ static glasgow(eye: number, verbal: number, motor: number):
+    CrossFormula { return c('neurology-glasgow', 'glasgow(eye, verbal, motor) = eye + verbal + motor', eye +
+    verbal + motor, nat(eye, verbal, motor) && eye >= 1 && eye <= 4 && verbal >= 1 && verbal <= 5 && motor >= 1
+    && motor <= 6, 'glasgow', [eye, verbal, motor]) } /** REFLEX GRADE: the 0..4 deep-tendon reflex scale. value
+    score. -/
+theorem fam_neurology_reflex_1 : (2 : Int) = (2 : Int) := by decide
 
-/-- neurology: conduction(60, 2) = 30 — NERVE CONDUCTION VELOCITY: distance over time. value ⌊distance / time⌋. -/
-theorem fam_neurology_conduction_1 : (60 / 2) = 30 := by decide
+/-- neurology: conduction(60, 2) = 30 — NEUROLOGY — THE NERVOUS SYSTEM, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Clinical neurology is numbers: the Glasgow coma scale, a reflex grade, nerve
+    conduction velocity, seizure frequency, an NIHSS stroke proxy, evoked latency, cerebral perfusion, and
+    recovery. Crosses to `med` — neurology is a branch of medicine. A measure. */ const PROOF = 'neurology
+    arithmetic (Glasgow coma scale, reflex grade, nerve conduction velocity, seizure frequency, NIHSS stroke
+    proxy, evoked latency, cerebral perfusion, recovery); a measure crossed to med' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'neurology', dst: 'med', formula, value, proof: PROOF, ...extra },
+    holds, { name: `neurology.${name}`, params }) export class NeurologyFormulas { /** GLASGOW COMA SCALE: eye,
+    verbal and motor response. value eye + verbal + motor. */ static glasgow(eye: number, verbal: number, motor:
+    number): CrossFormula { return c('neurology-glasgow', 'glasgow(eye, verbal, motor) = eye + verbal + motor',
+    eye + verbal + motor, nat(eye, verbal, motor) && eye >= 1 && eye <= 4 && verbal >= 1 && verbal <= 5 && motor
+    >= 1 && motor <= 6, 'glasgow', [eye, verbal, motor]) } /** REFLEX GRADE: the 0..4 deep-tendon reflex scale.
+    value score. */ static reflex(score: number): CrossFormula { return c('neurology-reflex', 'reflex(score) =
+    score', score, nat(score) && score <= 4, 'reflex', [score]) } /** NERVE CONDUCTION VELOCITY: distance over
+    time. value ⌊distance / time⌋. -/
+theorem fam_neurology_conduction_1 : ((60 : Int) / (2 : Int)) = (30 : Int) := by decide
 
-/-- neurology: seizure(3, 30) = 10 — SEIZURE FREQUENCY: episodes over a period, as a percentage. value ⌊episodes
-    · 100 / period⌋. -/
-theorem fam_neurology_seizure_1 : ((3 * 100) / 30) = 10 := by decide
+/-- neurology: seizure(3, 30) = 10 — NEUROLOGY — THE NERVOUS SYSTEM, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Clinical neurology is numbers: the Glasgow coma scale, a reflex grade, nerve
+    conduction velocity, seizure frequency, an NIHSS stroke proxy, evoked latency, cerebral perfusion, and
+    recovery. Crosses to `med` — neurology is a branch of medicine. A measure. */ const PROOF = 'neurology
+    arithmetic (Glasgow coma scale, reflex grade, nerve conduction velocity, seizure frequency, NIHSS stroke
+    proxy, evoked latency, cerebral perfusion, recovery); a measure crossed to med' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'neurology', dst: 'med', formula, value, proof: PROOF, ...extra },
+    holds, { name: `neurology.${name}`, params }) export class NeurologyFormulas { /** GLASGOW COMA SCALE: eye,
+    verbal and motor response. value eye + verbal + motor. */ static glasgow(eye: number, verbal: number, motor:
+    number): CrossFormula { return c('neurology-glasgow', 'glasgow(eye, verbal, motor) = eye + verbal + motor',
+    eye + verbal + motor, nat(eye, verbal, motor) && eye >= 1 && eye <= 4 && verbal >= 1 && verbal <= 5 && motor
+    >= 1 && motor <= 6, 'glasgow', [eye, verbal, motor]) } /** REFLEX GRADE: the 0..4 deep-tendon reflex scale.
+    value score. */ static reflex(score: number): CrossFormula { return c('neurology-reflex', 'reflex(score) =
+    score', score, nat(score) && score <= 4, 'reflex', [score]) } /** NERVE CONDUCTION VELOCITY: distance over
+    time. value ⌊distance / time⌋. */ static conduction(distance: number, time: number): CrossFormula { return
+    c('neurology-conduction', 'conduction(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'conduction', [distance, time]) } /** SEIZURE FREQUENCY:
+    episodes over a period, as a percentage. value ⌊episodes · 100 / period⌋. -/
+theorem fam_neurology_seizure_1 : (((3 : Int) * (100 : Int)) / (30 : Int)) = (10 : Int) := by decide
 
-/-- neurology: stroke(8, 40) = 20 — STROKE (NIHSS proxy): deficits over total, as a percentage. value ⌊deficits
-    · 100 / total⌋. -/
-theorem fam_neurology_stroke_1 : ((8 * 100) / 40) = 20 := by decide
+/-- neurology: stroke(8, 40) = 20 — NEUROLOGY — THE NERVOUS SYSTEM, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Clinical neurology is numbers: the Glasgow coma scale, a reflex grade, nerve
+    conduction velocity, seizure frequency, an NIHSS stroke proxy, evoked latency, cerebral perfusion, and
+    recovery. Crosses to `med` — neurology is a branch of medicine. A measure. */ const PROOF = 'neurology
+    arithmetic (Glasgow coma scale, reflex grade, nerve conduction velocity, seizure frequency, NIHSS stroke
+    proxy, evoked latency, cerebral perfusion, recovery); a measure crossed to med' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'neurology', dst: 'med', formula, value, proof: PROOF, ...extra },
+    holds, { name: `neurology.${name}`, params }) export class NeurologyFormulas { /** GLASGOW COMA SCALE: eye,
+    verbal and motor response. value eye + verbal + motor. */ static glasgow(eye: number, verbal: number, motor:
+    number): CrossFormula { return c('neurology-glasgow', 'glasgow(eye, verbal, motor) = eye + verbal + motor',
+    eye + verbal + motor, nat(eye, verbal, motor) && eye >= 1 && eye <= 4 && verbal >= 1 && verbal <= 5 && motor
+    >= 1 && motor <= 6, 'glasgow', [eye, verbal, motor]) } /** REFLEX GRADE: the 0..4 deep-tendon reflex scale.
+    value score. */ static reflex(score: number): CrossFormula { return c('neurology-reflex', 'reflex(score) =
+    score', score, nat(score) && score <= 4, 'reflex', [score]) } /** NERVE CONDUCTION VELOCITY: distance over
+    time. value ⌊distance / time⌋. */ static conduction(distance: number, time: number): CrossFormula { return
+    c('neurology-conduction', 'conduction(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'conduction', [distance, time]) } /** SEIZURE FREQUENCY:
+    episodes over a period, as a percentage. value ⌊episodes · 100 / period⌋. */ static seizure(episodes:
+    number, period: number): CrossFormula { return c('neurology-seizure', 'seizure(episodes, period) = ⌊episodes
+    · 100 / period⌋', period > 0 ? Math.floor((episodes * 100) / period) : 0, nat(episodes, period) && period >
+    0, 'seizure', [episodes, period]) } /** STROKE (NIHSS proxy): deficits over total, as a percentage. value
+    ⌊deficits · 100 / total⌋. -/
+theorem fam_neurology_stroke_1 : (((8 : Int) * (100 : Int)) / (40 : Int)) = (20 : Int) := by decide
 
-/-- neurology: latency(100) = 100 — EVOKED LATENCY: the response time in milliseconds. value ms. -/
-theorem fam_neurology_latency_1 : 100 = 100 := by decide
+/-- neurology: latency(100) = 100 — NEUROLOGY — THE NERVOUS SYSTEM, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Clinical neurology is numbers: the Glasgow coma scale, a reflex grade, nerve
+    conduction velocity, seizure frequency, an NIHSS stroke proxy, evoked latency, cerebral perfusion, and
+    recovery. Crosses to `med` — neurology is a branch of medicine. A measure. */ const PROOF = 'neurology
+    arithmetic (Glasgow coma scale, reflex grade, nerve conduction velocity, seizure frequency, NIHSS stroke
+    proxy, evoked latency, cerebral perfusion, recovery); a measure crossed to med' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'neurology', dst: 'med', formula, value, proof: PROOF, ...extra },
+    holds, { name: `neurology.${name}`, params }) export class NeurologyFormulas { /** GLASGOW COMA SCALE: eye,
+    verbal and motor response. value eye + verbal + motor. */ static glasgow(eye: number, verbal: number, motor:
+    number): CrossFormula { return c('neurology-glasgow', 'glasgow(eye, verbal, motor) = eye + verbal + motor',
+    eye + verbal + motor, nat(eye, verbal, motor) && eye >= 1 && eye <= 4 && verbal >= 1 && verbal <= 5 && motor
+    >= 1 && motor <= 6, 'glasgow', [eye, verbal, motor]) } /** REFLEX GRADE: the 0..4 deep-tendon reflex scale.
+    value score. */ static reflex(score: number): CrossFormula { return c('neurology-reflex', 'reflex(score) =
+    score', score, nat(score) && score <= 4, 'reflex', [score]) } /** NERVE CONDUCTION VELOCITY: distance over
+    time. value ⌊distance / time⌋. */ static conduction(distance: number, time: number): CrossFormula { return
+    c('neurology-conduction', 'conduction(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'conduction', [distance, time]) } /** SEIZURE FREQUENCY:
+    episodes over a period, as a percentage. value ⌊episodes · 100 / period⌋. */ static seizure(episodes:
+    number, period: number): CrossFormula { return c('neurology-seizure', 'seizure(episodes, period) = ⌊episodes
+    · 100 / period⌋', period > 0 ? Math.floor((episodes * 100) / period) : 0, nat(episodes, period) && period >
+    0, 'seizure', [episodes, period]) } /** STROKE (NIHSS proxy): deficits over total, as a percentage. value
+    ⌊deficits · 100 / total⌋. */ static stroke(deficits: number, total: number): CrossFormula { return
+    c('neurology-stroke', 'stroke(deficits, total) = ⌊deficits · 100 / total⌋', total > 0 ? Math.floor((deficits
+    * 100) / total) : 0, nat(deficits, total) && total > 0 && deficits <= total, 'stroke', [deficits, total]) }
+    /** EVOKED LATENCY: the response time in milliseconds. value ms. -/
+theorem fam_neurology_latency_1 : (100 : Int) = (100 : Int) := by decide
 
-/-- neurology: perfusion(900, 18) = 50 — CEREBRAL PERFUSION: flow over tissue mass. value ⌊flow / mass⌋. -/
-theorem fam_neurology_perfusion_1 : (900 / 18) = 50 := by decide
+/-- neurology: perfusion(900, 18) = 50 — NEUROLOGY — THE NERVOUS SYSTEM, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Clinical neurology is numbers: the Glasgow coma scale, a reflex grade, nerve
+    conduction velocity, seizure frequency, an NIHSS stroke proxy, evoked latency, cerebral perfusion, and
+    recovery. Crosses to `med` — neurology is a branch of medicine. A measure. */ const PROOF = 'neurology
+    arithmetic (Glasgow coma scale, reflex grade, nerve conduction velocity, seizure frequency, NIHSS stroke
+    proxy, evoked latency, cerebral perfusion, recovery); a measure crossed to med' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'neurology', dst: 'med', formula, value, proof: PROOF, ...extra },
+    holds, { name: `neurology.${name}`, params }) export class NeurologyFormulas { /** GLASGOW COMA SCALE: eye,
+    verbal and motor response. value eye + verbal + motor. */ static glasgow(eye: number, verbal: number, motor:
+    number): CrossFormula { return c('neurology-glasgow', 'glasgow(eye, verbal, motor) = eye + verbal + motor',
+    eye + verbal + motor, nat(eye, verbal, motor) && eye >= 1 && eye <= 4 && verbal >= 1 && verbal <= 5 && motor
+    >= 1 && motor <= 6, 'glasgow', [eye, verbal, motor]) } /** REFLEX GRADE: the 0..4 deep-tendon reflex scale.
+    value score. */ static reflex(score: number): CrossFormula { return c('neurology-reflex', 'reflex(score) =
+    score', score, nat(score) && score <= 4, 'reflex', [score]) } /** NERVE CONDUCTION VELOCITY: distance over
+    time. value ⌊distance / time⌋. */ static conduction(distance: number, time: number): CrossFormula { return
+    c('neurology-conduction', 'conduction(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'conduction', [distance, time]) } /** SEIZURE FREQUENCY:
+    episodes over a period, as a percentage. value ⌊episodes · 100 / period⌋. */ static seizure(episodes:
+    number, period: number): CrossFormula { return c('neurology-seizure', 'seizure(episodes, period) = ⌊episodes
+    · 100 / period⌋', period > 0 ? Math.floor((episodes * 100) / period) : 0, nat(episodes, period) && period >
+    0, 'seizure', [episodes, period]) } /** STROKE (NIHSS proxy): deficits over total, as a percentage. value
+    ⌊deficits · 100 / total⌋. */ static stroke(deficits: number, total: number): CrossFormula { return
+    c('neurology-stroke', 'stroke(deficits, total) = ⌊deficits · 100 / total⌋', total > 0 ? Math.floor((deficits
+    * 100) / total) : 0, nat(deficits, total) && total > 0 && deficits <= total, 'stroke', [deficits, total]) }
+    /** EVOKED LATENCY: the response time in milliseconds. value ms. */ static latency(ms: number): CrossFormula
+    { return c('neurology-latency', 'latency(ms) = ms', ms, nat(ms), 'latency', [ms]) } /** CEREBRAL PERFUSION:
+    flow over tissue mass. value ⌊flow / mass⌋. -/
+theorem fam_neurology_perfusion_1 : ((900 : Int) / (18 : Int)) = (50 : Int) := by decide
 
-/-- neurology: recovery(3, 4) = 75 — RECOVERY: function regained over function lost, as a percentage. value
-    ⌊regained · 100 / lost⌋. -/
-theorem fam_neurology_recovery_1 : ((3 * 100) / 4) = 75 := by decide
+/-- neurology: recovery(3, 4) = 75 — NEUROLOGY — THE NERVOUS SYSTEM, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Clinical neurology is numbers: the Glasgow coma scale, a reflex grade, nerve
+    conduction velocity, seizure frequency, an NIHSS stroke proxy, evoked latency, cerebral perfusion, and
+    recovery. Crosses to `med` — neurology is a branch of medicine. A measure. */ const PROOF = 'neurology
+    arithmetic (Glasgow coma scale, reflex grade, nerve conduction velocity, seizure frequency, NIHSS stroke
+    proxy, evoked latency, cerebral perfusion, recovery); a measure crossed to med' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'neurology', dst: 'med', formula, value, proof: PROOF, ...extra },
+    holds, { name: `neurology.${name}`, params }) export class NeurologyFormulas { /** GLASGOW COMA SCALE: eye,
+    verbal and motor response. value eye + verbal + motor. */ static glasgow(eye: number, verbal: number, motor:
+    number): CrossFormula { return c('neurology-glasgow', 'glasgow(eye, verbal, motor) = eye + verbal + motor',
+    eye + verbal + motor, nat(eye, verbal, motor) && eye >= 1 && eye <= 4 && verbal >= 1 && verbal <= 5 && motor
+    >= 1 && motor <= 6, 'glasgow', [eye, verbal, motor]) } /** REFLEX GRADE: the 0..4 deep-tendon reflex scale.
+    value score. */ static reflex(score: number): CrossFormula { return c('neurology-reflex', 'reflex(score) =
+    score', score, nat(score) && score <= 4, 'reflex', [score]) } /** NERVE CONDUCTION VELOCITY: distance over
+    time. value ⌊distance / time⌋. */ static conduction(distance: number, time: number): CrossFormula { return
+    c('neurology-conduction', 'conduction(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'conduction', [distance, time]) } /** SEIZURE FREQUENCY:
+    episodes over a period, as a percentage. value ⌊episodes · 100 / period⌋. */ static seizure(episodes:
+    number, period: number): CrossFormula { return c('neurology-seizure', 'seizure(episodes, period) = ⌊episodes
+    · 100 / period⌋', period > 0 ? Math.floor((episodes * 100) / period) : 0, nat(episodes, period) && period >
+    0, 'seizure', [episodes, period]) } /** STROKE (NIHSS proxy): deficits over total, as a percentage. value
+    ⌊deficits · 100 / total⌋. */ static stroke(deficits: number, total: number): CrossFormula { return
+    c('neurology-stroke', 'stroke(deficits, total) = ⌊deficits · 100 / total⌋', total > 0 ? Math.floor((deficits
+    * 100) / total) : 0, nat(deficits, total) && total > 0 && deficits <= total, 'stroke', [deficits, total]) }
+    /** EVOKED LATENCY: the response time in milliseconds. value ms. */ static latency(ms: number): CrossFormula
+    { return c('neurology-latency', 'latency(ms) = ms', ms, nat(ms), 'latency', [ms]) } /** CEREBRAL PERFUSION:
+    flow over tissue mass. value ⌊flow / mass⌋. */ static perfusion(flow: number, mass: number): CrossFormula {
+    return c('neurology-perfusion', 'perfusion(flow, mass) = ⌊flow / mass⌋', mass > 0 ? Math.floor(flow / mass)
+    : 0, nat(flow, mass) && mass > 0, 'perfusion', [flow, mass]) } /** RECOVERY: function regained over function
+    lost, as a percentage. value ⌊regained · 100 / lost⌋. -/
+theorem fam_neurology_recovery_1 : (((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int) := by decide
+
+/-- neuron: synapses(1000, 7) = 7000 — NeuronFormulas — 8 exact-integer formulas of the neuron domain, each at a
+    hex address crossing to cross; develops the neuron leads. */ const PROOF = "neuron counts: synapses(x, y) =
+    x · y; dendrites(x, y) = x + y; threshold(x, y) = max(0, x − y); spikes(x, y) = x · y; axonlength(x, y) = x
+    · y; refractory(x, y) = max(0, x − y); layers(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x:
+    number): number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const
+    combOf = (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k :
+    k, v = 1; for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf =
+    (nn: number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'neuron', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `neuron.${name}`, params })
+    export class NeuronFormulas { /** synapses(x, y) = x · y. -/
+theorem fam_neuron_synapses_1 : ((1000 : Int) * (7 : Int)) = (7000 : Int) := by decide
+
+/-- neuron: dendrites(1000, 0) = 1000 — NeuronFormulas — 8 exact-integer formulas of the neuron domain, each at
+    a hex address crossing to cross; develops the neuron leads. */ const PROOF = "neuron counts: synapses(x, y)
+    = x · y; dendrites(x, y) = x + y; threshold(x, y) = max(0, x − y); spikes(x, y) = x · y; axonlength(x, y) =
+    x · y; refractory(x, y) = max(0, x − y); layers(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x:
+    number): number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const
+    combOf = (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k :
+    k, v = 1; for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf =
+    (nn: number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'neuron', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `neuron.${name}`, params })
+    export class NeuronFormulas { /** synapses(x, y) = x · y. */ static synapses(x: number, y: number):
+    CrossFormula { return f('neuron-synapses', 'synapses(x, y) = x · y', x * y, nat(x, y), 'synapses', [x, y]) }
+    /** dendrites(x, y) = x + y. -/
+theorem fam_neuron_dendrites_1 : ((1000 : Int) + (0 : Int)) = (1000 : Int) := by decide
+
+/-- neuron: threshold(70, 55) = 15 — NeuronFormulas — 8 exact-integer formulas of the neuron domain, each at a
+    hex address crossing to cross; develops the neuron leads. */ const PROOF = "neuron counts: synapses(x, y) =
+    x · y; dendrites(x, y) = x + y; threshold(x, y) = max(0, x − y); spikes(x, y) = x · y; axonlength(x, y) = x
+    · y; refractory(x, y) = max(0, x − y); layers(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x:
+    number): number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const
+    combOf = (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k :
+    k, v = 1; for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf =
+    (nn: number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'neuron', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `neuron.${name}`, params })
+    export class NeuronFormulas { /** synapses(x, y) = x · y. */ static synapses(x: number, y: number):
+    CrossFormula { return f('neuron-synapses', 'synapses(x, y) = x · y', x * y, nat(x, y), 'synapses', [x, y]) }
+    /** dendrites(x, y) = x + y. */ static dendrites(x: number, y: number): CrossFormula { return
+    f('neuron-dendrites', 'dendrites(x, y) = x + y', x + y, nat(x, y), 'dendrites', [x, y]) } /** threshold(x,
+    y) = max(0, x − y). -/
+theorem fam_neuron_threshold_1 : (fmax (0 : Int) ((70 : Int) - (55 : Int))) = (15 : Int) := by decide
+
+/-- neuron: spikes(100, 10) = 1000 — NeuronFormulas — 8 exact-integer formulas of the neuron domain, each at a
+    hex address crossing to cross; develops the neuron leads. */ const PROOF = "neuron counts: synapses(x, y) =
+    x · y; dendrites(x, y) = x + y; threshold(x, y) = max(0, x − y); spikes(x, y) = x · y; axonlength(x, y) = x
+    · y; refractory(x, y) = max(0, x − y); layers(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x:
+    number): number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const
+    combOf = (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k :
+    k, v = 1; for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf =
+    (nn: number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'neuron', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `neuron.${name}`, params })
+    export class NeuronFormulas { /** synapses(x, y) = x · y. */ static synapses(x: number, y: number):
+    CrossFormula { return f('neuron-synapses', 'synapses(x, y) = x · y', x * y, nat(x, y), 'synapses', [x, y]) }
+    /** dendrites(x, y) = x + y. */ static dendrites(x: number, y: number): CrossFormula { return
+    f('neuron-dendrites', 'dendrites(x, y) = x + y', x + y, nat(x, y), 'dendrites', [x, y]) } /** threshold(x,
+    y) = max(0, x − y). */ static threshold(x: number, y: number): CrossFormula { return f('neuron-threshold',
+    'threshold(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x, y), 'threshold', [x, y]) } /** spikes(x, y) =
+    x · y. -/
+theorem fam_neuron_spikes_1 : ((100 : Int) * (10 : Int)) = (1000 : Int) := by decide
+
+/-- neuron: axonlength(100, 1) = 100 — NeuronFormulas — 8 exact-integer formulas of the neuron domain, each at a
+    hex address crossing to cross; develops the neuron leads. */ const PROOF = "neuron counts: synapses(x, y) =
+    x · y; dendrites(x, y) = x + y; threshold(x, y) = max(0, x − y); spikes(x, y) = x · y; axonlength(x, y) = x
+    · y; refractory(x, y) = max(0, x − y); layers(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x:
+    number): number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const
+    combOf = (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k :
+    k, v = 1; for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf =
+    (nn: number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'neuron', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `neuron.${name}`, params })
+    export class NeuronFormulas { /** synapses(x, y) = x · y. */ static synapses(x: number, y: number):
+    CrossFormula { return f('neuron-synapses', 'synapses(x, y) = x · y', x * y, nat(x, y), 'synapses', [x, y]) }
+    /** dendrites(x, y) = x + y. */ static dendrites(x: number, y: number): CrossFormula { return
+    f('neuron-dendrites', 'dendrites(x, y) = x + y', x + y, nat(x, y), 'dendrites', [x, y]) } /** threshold(x,
+    y) = max(0, x − y). */ static threshold(x: number, y: number): CrossFormula { return f('neuron-threshold',
+    'threshold(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x, y), 'threshold', [x, y]) } /** spikes(x, y) =
+    x · y. */ static spikes(x: number, y: number): CrossFormula { return f('neuron-spikes', 'spikes(x, y) = x ·
+    y', x * y, nat(x, y), 'spikes', [x, y]) } /** axonlength(x, y) = x · y. -/
+theorem fam_neuron_axonlength_1 : ((100 : Int) * (1 : Int)) = (100 : Int) := by decide
+
+/-- neuron: refractory(20, 2) = 18 — NeuronFormulas — 8 exact-integer formulas of the neuron domain, each at a
+    hex address crossing to cross; develops the neuron leads. */ const PROOF = "neuron counts: synapses(x, y) =
+    x · y; dendrites(x, y) = x + y; threshold(x, y) = max(0, x − y); spikes(x, y) = x · y; axonlength(x, y) = x
+    · y; refractory(x, y) = max(0, x − y); layers(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x:
+    number): number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const
+    combOf = (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k :
+    k, v = 1; for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf =
+    (nn: number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'neuron', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `neuron.${name}`, params })
+    export class NeuronFormulas { /** synapses(x, y) = x · y. */ static synapses(x: number, y: number):
+    CrossFormula { return f('neuron-synapses', 'synapses(x, y) = x · y', x * y, nat(x, y), 'synapses', [x, y]) }
+    /** dendrites(x, y) = x + y. */ static dendrites(x: number, y: number): CrossFormula { return
+    f('neuron-dendrites', 'dendrites(x, y) = x + y', x + y, nat(x, y), 'dendrites', [x, y]) } /** threshold(x,
+    y) = max(0, x − y). */ static threshold(x: number, y: number): CrossFormula { return f('neuron-threshold',
+    'threshold(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x, y), 'threshold', [x, y]) } /** spikes(x, y) =
+    x · y. */ static spikes(x: number, y: number): CrossFormula { return f('neuron-spikes', 'spikes(x, y) = x ·
+    y', x * y, nat(x, y), 'spikes', [x, y]) } /** axonlength(x, y) = x · y. */ static axonlength(x: number, y:
+    number): CrossFormula { return f('neuron-axonlength', 'axonlength(x, y) = x · y', x * y, nat(x, y),
+    'axonlength', [x, y]) } /** refractory(x, y) = max(0, x − y). -/
+theorem fam_neuron_refractory_1 : (fmax (0 : Int) ((20 : Int) - (2 : Int))) = (18 : Int) := by decide
+
+/-- neuron: layers(6, 0) = 6 — NeuronFormulas — 8 exact-integer formulas of the neuron domain, each at a hex
+    address crossing to cross; develops the neuron leads. */ const PROOF = "neuron counts: synapses(x, y) = x ·
+    y; dendrites(x, y) = x + y; threshold(x, y) = max(0, x − y); spikes(x, y) = x · y; axonlength(x, y) = x · y;
+    refractory(x, y) = max(0, x − y); layers(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number):
+    number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf =
+    (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1;
+    for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn:
+    number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'neuron', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `neuron.${name}`, params })
+    export class NeuronFormulas { /** synapses(x, y) = x · y. */ static synapses(x: number, y: number):
+    CrossFormula { return f('neuron-synapses', 'synapses(x, y) = x · y', x * y, nat(x, y), 'synapses', [x, y]) }
+    /** dendrites(x, y) = x + y. */ static dendrites(x: number, y: number): CrossFormula { return
+    f('neuron-dendrites', 'dendrites(x, y) = x + y', x + y, nat(x, y), 'dendrites', [x, y]) } /** threshold(x,
+    y) = max(0, x − y). */ static threshold(x: number, y: number): CrossFormula { return f('neuron-threshold',
+    'threshold(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x, y), 'threshold', [x, y]) } /** spikes(x, y) =
+    x · y. */ static spikes(x: number, y: number): CrossFormula { return f('neuron-spikes', 'spikes(x, y) = x ·
+    y', x * y, nat(x, y), 'spikes', [x, y]) } /** axonlength(x, y) = x · y. */ static axonlength(x: number, y:
+    number): CrossFormula { return f('neuron-axonlength', 'axonlength(x, y) = x · y', x * y, nat(x, y),
+    'axonlength', [x, y]) } /** refractory(x, y) = max(0, x − y). */ static refractory(x: number, y: number):
+    CrossFormula { return f('neuron-refractory', 'refractory(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x,
+    y), 'refractory', [x, y]) } /** layers(x, y) = x + y. -/
+theorem fam_neuron_layers_1 : ((6 : Int) + (0 : Int)) = (6 : Int) := by decide
+
+/-- neuron: combos(6, 2) = 15 — NeuronFormulas — 8 exact-integer formulas of the neuron domain, each at a hex
+    address crossing to cross; develops the neuron leads. */ const PROOF = "neuron counts: synapses(x, y) = x ·
+    y; dendrites(x, y) = x + y; threshold(x, y) = max(0, x − y); spikes(x, y) = x · y; axonlength(x, y) = x · y;
+    refractory(x, y) = max(0, x − y); layers(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number):
+    number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf =
+    (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1;
+    for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn:
+    number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'neuron', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `neuron.${name}`, params })
+    export class NeuronFormulas { /** synapses(x, y) = x · y. */ static synapses(x: number, y: number):
+    CrossFormula { return f('neuron-synapses', 'synapses(x, y) = x · y', x * y, nat(x, y), 'synapses', [x, y]) }
+    /** dendrites(x, y) = x + y. */ static dendrites(x: number, y: number): CrossFormula { return
+    f('neuron-dendrites', 'dendrites(x, y) = x + y', x + y, nat(x, y), 'dendrites', [x, y]) } /** threshold(x,
+    y) = max(0, x − y). */ static threshold(x: number, y: number): CrossFormula { return f('neuron-threshold',
+    'threshold(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x, y), 'threshold', [x, y]) } /** spikes(x, y) =
+    x · y. */ static spikes(x: number, y: number): CrossFormula { return f('neuron-spikes', 'spikes(x, y) = x ·
+    y', x * y, nat(x, y), 'spikes', [x, y]) } /** axonlength(x, y) = x · y. */ static axonlength(x: number, y:
+    number): CrossFormula { return f('neuron-axonlength', 'axonlength(x, y) = x · y', x * y, nat(x, y),
+    'axonlength', [x, y]) } /** refractory(x, y) = max(0, x − y). */ static refractory(x: number, y: number):
+    CrossFormula { return f('neuron-refractory', 'refractory(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x,
+    y), 'refractory', [x, y]) } /** layers(x, y) = x + y. */ static layers(x: number, y: number): CrossFormula {
+    return f('neuron-layers', 'layers(x, y) = x + y', x + y, nat(x, y), 'layers', [x, y]) } /** combos(x, y) =
+    C(x, y). -/
+theorem fam_neuron_combos_1 : (Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int) := by decide
 
 /-- neuropsychology: iq(12, 10) = 120 — NEUROPSYCHOLOGY — THE MIND MEASURED, AS ARITHMETIC. The clinic's scores
     are numbers: the intelligence quotient from mental and chronological age, the memory quotient against
@@ -273,39 +1808,237 @@ theorem fam_neurology_recovery_1 : ((3 * 100) / 4) = 75 := by decide
     src: 'neuropsychology', dst: 'neurology', formula, value, proof: PROOF, ...extra }, holds, { name:
     `neuropsychology.${name}`, params }) export class NeuropsychologyFormulas { /** THE INTELLIGENCE QUOTIENT:
     mental age over chronological age, scaled by 100. value ⌊mental · 100 / chrono⌋. -/
-theorem fam_neuropsychology_iq_1 : ((12 * 100) / 10) = 120 := by decide
+theorem fam_neuropsychology_iq_1 : (((12 : Int) * (100 : Int)) / (10 : Int)) = (120 : Int) := by decide
 
-/-- neuropsychology: memoryquotient(85, 100) = 85 — MEMORY QUOTIENT: the raw score against what was expected,
-    scaled by 100. value ⌊raw · 100 / expected⌋. -/
-theorem fam_neuropsychology_memoryquotient_1 : ((85 * 100) / 100) = 85 := by decide
+/-- neuropsychology: memoryquotient(85, 100) = 85 — NEUROPSYCHOLOGY — THE MIND MEASURED, AS ARITHMETIC. The
+    clinic's scores are numbers: the intelligence quotient from mental and chronological age, the memory
+    quotient against expectation, hemispheric lateralization, the deficit from a baseline, recovery after
+    injury, working-memory span, processing speed, and executive function net of errors. Crosses to `neurology`
+    — neuropsychology is the behaviour the brain's wiring produces. A measure. */ const PROOF = 'neuropsychology
+    arithmetic (iq, memory quotient, lateralization, deficit, recovery, span, processing speed, executive
+    function); the mind scored from counts and ages; a measure crossed to neurology' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'neuropsychology', dst: 'neurology', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `neuropsychology.${name}`, params }) export class NeuropsychologyFormulas { /**
+    THE INTELLIGENCE QUOTIENT: mental age over chronological age, scaled by 100. value ⌊mental · 100 / chrono⌋.
+    */ static iq(mental: number, chrono: number): CrossFormula { return c('neuropsychology-iq', 'iq(mental,
+    chrono) = ⌊mental · 100 / chrono⌋', chrono > 0 ? Math.floor((mental * 100) / chrono) : 0, nat(mental,
+    chrono) && chrono > 0, 'iq', [mental, chrono]) } /** MEMORY QUOTIENT: the raw score against what was
+    expected, scaled by 100. value ⌊raw · 100 / expected⌋. -/
+theorem fam_neuropsychology_memoryquotient_1 : (((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int) := by decide
 
-/-- neuropsychology: lateralization(60, 40) = 20 — LATERALIZATION: the right–left difference over the total,
-    scaled by 100. value ⌊(right − left) · 100 / (right + left)⌋. -/
-theorem fam_neuropsychology_lateralization_1 : (((fmax 0 (60 - 40)) * 100) / (60 + 40)) = 20 := by decide
+/-- neuropsychology: lateralization(60, 40) = 20 — NEUROPSYCHOLOGY — THE MIND MEASURED, AS ARITHMETIC. The
+    clinic's scores are numbers: the intelligence quotient from mental and chronological age, the memory
+    quotient against expectation, hemispheric lateralization, the deficit from a baseline, recovery after
+    injury, working-memory span, processing speed, and executive function net of errors. Crosses to `neurology`
+    — neuropsychology is the behaviour the brain's wiring produces. A measure. */ const PROOF = 'neuropsychology
+    arithmetic (iq, memory quotient, lateralization, deficit, recovery, span, processing speed, executive
+    function); the mind scored from counts and ages; a measure crossed to neurology' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'neuropsychology', dst: 'neurology', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `neuropsychology.${name}`, params }) export class NeuropsychologyFormulas { /**
+    THE INTELLIGENCE QUOTIENT: mental age over chronological age, scaled by 100. value ⌊mental · 100 / chrono⌋.
+    */ static iq(mental: number, chrono: number): CrossFormula { return c('neuropsychology-iq', 'iq(mental,
+    chrono) = ⌊mental · 100 / chrono⌋', chrono > 0 ? Math.floor((mental * 100) / chrono) : 0, nat(mental,
+    chrono) && chrono > 0, 'iq', [mental, chrono]) } /** MEMORY QUOTIENT: the raw score against what was
+    expected, scaled by 100. value ⌊raw · 100 / expected⌋. */ static memoryquotient(raw: number, expected:
+    number): CrossFormula { return c('neuropsychology-memoryquotient', 'memoryquotient(raw, expected) = ⌊raw ·
+    100 / expected⌋', expected > 0 ? Math.floor((raw * 100) / expected) : 0, nat(raw, expected) && expected > 0,
+    'memoryquotient', [raw, expected]) } /** LATERALIZATION: the right–left difference over the total, scaled by
+    100. value ⌊(right − left) · 100 / (right + left)⌋. -/
+theorem fam_neuropsychology_lateralization_1 : (((fmax (0 : Int) ((60 : Int) - (40 : Int))) * (100 : Int)) / ((60 : Int) + (40 : Int))) = (20 : Int) := by decide
 
-/-- neuropsychology: deficit(100, 75) = 25 — DEFICIT: the points lost from a baseline. value max(0, baseline −
-    current). -/
-theorem fam_neuropsychology_deficit_1 : (fmax 0 (100 - 75)) = 25 := by decide
+/-- neuropsychology: deficit(100, 75) = 25 — NEUROPSYCHOLOGY — THE MIND MEASURED, AS ARITHMETIC. The clinic's
+    scores are numbers: the intelligence quotient from mental and chronological age, the memory quotient against
+    expectation, hemispheric lateralization, the deficit from a baseline, recovery after injury, working-memory
+    span, processing speed, and executive function net of errors. Crosses to `neurology` — neuropsychology is
+    the behaviour the brain's wiring produces. A measure. */ const PROOF = 'neuropsychology arithmetic (iq,
+    memory quotient, lateralization, deficit, recovery, span, processing speed, executive function); the mind
+    scored from counts and ages; a measure crossed to neurology' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'neuropsychology', dst: 'neurology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `neuropsychology.${name}`, params }) export class NeuropsychologyFormulas { /** THE INTELLIGENCE QUOTIENT:
+    mental age over chronological age, scaled by 100. value ⌊mental · 100 / chrono⌋. */ static iq(mental:
+    number, chrono: number): CrossFormula { return c('neuropsychology-iq', 'iq(mental, chrono) = ⌊mental · 100 /
+    chrono⌋', chrono > 0 ? Math.floor((mental * 100) / chrono) : 0, nat(mental, chrono) && chrono > 0, 'iq',
+    [mental, chrono]) } /** MEMORY QUOTIENT: the raw score against what was expected, scaled by 100. value ⌊raw
+    · 100 / expected⌋. */ static memoryquotient(raw: number, expected: number): CrossFormula { return
+    c('neuropsychology-memoryquotient', 'memoryquotient(raw, expected) = ⌊raw · 100 / expected⌋', expected > 0 ?
+    Math.floor((raw * 100) / expected) : 0, nat(raw, expected) && expected > 0, 'memoryquotient', [raw,
+    expected]) } /** LATERALIZATION: the right–left difference over the total, scaled by 100. value ⌊(right −
+    left) · 100 / (right + left)⌋. */ static lateralization(right: number, left: number): CrossFormula { return
+    c('neuropsychology-lateralization', 'lateralization(right, left) = ⌊max(0, right − left) · 100 / (right +
+    left)⌋', (right + left) > 0 ? Math.floor((Math.max(0, right - left) * 100) / (right + left)) : 0, nat(right,
+    left) && (right + left) > 0, 'lateralization', [right, left]) } /** DEFICIT: the points lost from a
+    baseline. value max(0, baseline − current). -/
+theorem fam_neuropsychology_deficit_1 : (fmax (0 : Int) ((100 : Int) - (75 : Int))) = (25 : Int) := by decide
 
-/-- neuropsychology: deficit(50, 80) = 0 — DEFICIT: the points lost from a baseline. value max(0, baseline −
-    current). -/
-theorem fam_neuropsychology_deficit_2 : (fmax 0 (50 - 80)) = 0 := by decide
+/-- neuropsychology: deficit(50, 80) = 0 — NEUROPSYCHOLOGY — THE MIND MEASURED, AS ARITHMETIC. The clinic's
+    scores are numbers: the intelligence quotient from mental and chronological age, the memory quotient against
+    expectation, hemispheric lateralization, the deficit from a baseline, recovery after injury, working-memory
+    span, processing speed, and executive function net of errors. Crosses to `neurology` — neuropsychology is
+    the behaviour the brain's wiring produces. A measure. */ const PROOF = 'neuropsychology arithmetic (iq,
+    memory quotient, lateralization, deficit, recovery, span, processing speed, executive function); the mind
+    scored from counts and ages; a measure crossed to neurology' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'neuropsychology', dst: 'neurology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `neuropsychology.${name}`, params }) export class NeuropsychologyFormulas { /** THE INTELLIGENCE QUOTIENT:
+    mental age over chronological age, scaled by 100. value ⌊mental · 100 / chrono⌋. */ static iq(mental:
+    number, chrono: number): CrossFormula { return c('neuropsychology-iq', 'iq(mental, chrono) = ⌊mental · 100 /
+    chrono⌋', chrono > 0 ? Math.floor((mental * 100) / chrono) : 0, nat(mental, chrono) && chrono > 0, 'iq',
+    [mental, chrono]) } /** MEMORY QUOTIENT: the raw score against what was expected, scaled by 100. value ⌊raw
+    · 100 / expected⌋. */ static memoryquotient(raw: number, expected: number): CrossFormula { return
+    c('neuropsychology-memoryquotient', 'memoryquotient(raw, expected) = ⌊raw · 100 / expected⌋', expected > 0 ?
+    Math.floor((raw * 100) / expected) : 0, nat(raw, expected) && expected > 0, 'memoryquotient', [raw,
+    expected]) } /** LATERALIZATION: the right–left difference over the total, scaled by 100. value ⌊(right −
+    left) · 100 / (right + left)⌋. */ static lateralization(right: number, left: number): CrossFormula { return
+    c('neuropsychology-lateralization', 'lateralization(right, left) = ⌊max(0, right − left) · 100 / (right +
+    left)⌋', (right + left) > 0 ? Math.floor((Math.max(0, right - left) * 100) / (right + left)) : 0, nat(right,
+    left) && (right + left) > 0, 'lateralization', [right, left]) } /** DEFICIT: the points lost from a
+    baseline. value max(0, baseline − current). -/
+theorem fam_neuropsychology_deficit_2 : (fmax (0 : Int) ((50 : Int) - (80 : Int))) = (0 : Int) := by decide
 
-/-- neuropsychology: recovery(30, 50) = 60 — RECOVERY: how much was regained of what was lost, scaled by 100.
-    value ⌊regained · 100 / lost⌋. -/
-theorem fam_neuropsychology_recovery_1 : ((30 * 100) / 50) = 60 := by decide
+/-- neuropsychology: recovery(30, 50) = 60 — NEUROPSYCHOLOGY — THE MIND MEASURED, AS ARITHMETIC. The clinic's
+    scores are numbers: the intelligence quotient from mental and chronological age, the memory quotient against
+    expectation, hemispheric lateralization, the deficit from a baseline, recovery after injury, working-memory
+    span, processing speed, and executive function net of errors. Crosses to `neurology` — neuropsychology is
+    the behaviour the brain's wiring produces. A measure. */ const PROOF = 'neuropsychology arithmetic (iq,
+    memory quotient, lateralization, deficit, recovery, span, processing speed, executive function); the mind
+    scored from counts and ages; a measure crossed to neurology' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'neuropsychology', dst: 'neurology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `neuropsychology.${name}`, params }) export class NeuropsychologyFormulas { /** THE INTELLIGENCE QUOTIENT:
+    mental age over chronological age, scaled by 100. value ⌊mental · 100 / chrono⌋. */ static iq(mental:
+    number, chrono: number): CrossFormula { return c('neuropsychology-iq', 'iq(mental, chrono) = ⌊mental · 100 /
+    chrono⌋', chrono > 0 ? Math.floor((mental * 100) / chrono) : 0, nat(mental, chrono) && chrono > 0, 'iq',
+    [mental, chrono]) } /** MEMORY QUOTIENT: the raw score against what was expected, scaled by 100. value ⌊raw
+    · 100 / expected⌋. */ static memoryquotient(raw: number, expected: number): CrossFormula { return
+    c('neuropsychology-memoryquotient', 'memoryquotient(raw, expected) = ⌊raw · 100 / expected⌋', expected > 0 ?
+    Math.floor((raw * 100) / expected) : 0, nat(raw, expected) && expected > 0, 'memoryquotient', [raw,
+    expected]) } /** LATERALIZATION: the right–left difference over the total, scaled by 100. value ⌊(right −
+    left) · 100 / (right + left)⌋. */ static lateralization(right: number, left: number): CrossFormula { return
+    c('neuropsychology-lateralization', 'lateralization(right, left) = ⌊max(0, right − left) · 100 / (right +
+    left)⌋', (right + left) > 0 ? Math.floor((Math.max(0, right - left) * 100) / (right + left)) : 0, nat(right,
+    left) && (right + left) > 0, 'lateralization', [right, left]) } /** DEFICIT: the points lost from a
+    baseline. value max(0, baseline − current). */ static deficit(baseline: number, current: number):
+    CrossFormula { return c('neuropsychology-deficit', 'deficit(baseline, current) = max(0, baseline −
+    current)', Math.max(0, baseline - current), nat(baseline, current), 'deficit', [baseline, current]) } /**
+    RECOVERY: how much was regained of what was lost, scaled by 100. value ⌊regained · 100 / lost⌋. -/
+theorem fam_neuropsychology_recovery_1 : (((30 : Int) * (100 : Int)) / (50 : Int)) = (60 : Int) := by decide
 
-/-- neuropsychology: span(49, 7) = 7 — SPAN: the average working-memory span over the trials. value ⌊items /
-    trials⌋. -/
-theorem fam_neuropsychology_span_1 : (49 / 7) = 7 := by decide
+/-- neuropsychology: span(49, 7) = 7 — NEUROPSYCHOLOGY — THE MIND MEASURED, AS ARITHMETIC. The clinic's scores
+    are numbers: the intelligence quotient from mental and chronological age, the memory quotient against
+    expectation, hemispheric lateralization, the deficit from a baseline, recovery after injury, working-memory
+    span, processing speed, and executive function net of errors. Crosses to `neurology` — neuropsychology is
+    the behaviour the brain's wiring produces. A measure. */ const PROOF = 'neuropsychology arithmetic (iq,
+    memory quotient, lateralization, deficit, recovery, span, processing speed, executive function); the mind
+    scored from counts and ages; a measure crossed to neurology' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'neuropsychology', dst: 'neurology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `neuropsychology.${name}`, params }) export class NeuropsychologyFormulas { /** THE INTELLIGENCE QUOTIENT:
+    mental age over chronological age, scaled by 100. value ⌊mental · 100 / chrono⌋. */ static iq(mental:
+    number, chrono: number): CrossFormula { return c('neuropsychology-iq', 'iq(mental, chrono) = ⌊mental · 100 /
+    chrono⌋', chrono > 0 ? Math.floor((mental * 100) / chrono) : 0, nat(mental, chrono) && chrono > 0, 'iq',
+    [mental, chrono]) } /** MEMORY QUOTIENT: the raw score against what was expected, scaled by 100. value ⌊raw
+    · 100 / expected⌋. */ static memoryquotient(raw: number, expected: number): CrossFormula { return
+    c('neuropsychology-memoryquotient', 'memoryquotient(raw, expected) = ⌊raw · 100 / expected⌋', expected > 0 ?
+    Math.floor((raw * 100) / expected) : 0, nat(raw, expected) && expected > 0, 'memoryquotient', [raw,
+    expected]) } /** LATERALIZATION: the right–left difference over the total, scaled by 100. value ⌊(right −
+    left) · 100 / (right + left)⌋. */ static lateralization(right: number, left: number): CrossFormula { return
+    c('neuropsychology-lateralization', 'lateralization(right, left) = ⌊max(0, right − left) · 100 / (right +
+    left)⌋', (right + left) > 0 ? Math.floor((Math.max(0, right - left) * 100) / (right + left)) : 0, nat(right,
+    left) && (right + left) > 0, 'lateralization', [right, left]) } /** DEFICIT: the points lost from a
+    baseline. value max(0, baseline − current). */ static deficit(baseline: number, current: number):
+    CrossFormula { return c('neuropsychology-deficit', 'deficit(baseline, current) = max(0, baseline −
+    current)', Math.max(0, baseline - current), nat(baseline, current), 'deficit', [baseline, current]) } /**
+    RECOVERY: how much was regained of what was lost, scaled by 100. value ⌊regained · 100 / lost⌋. */ static
+    recovery(regained: number, lost: number): CrossFormula { return c('neuropsychology-recovery',
+    'recovery(regained, lost) = ⌊regained · 100 / lost⌋', lost > 0 ? Math.floor((regained * 100) / lost) : 0,
+    nat(regained, lost) && lost > 0, 'recovery', [regained, lost]) } /** SPAN: the average working-memory span
+    over the trials. value ⌊items / trials⌋. -/
+theorem fam_neuropsychology_span_1 : ((49 : Int) / (7 : Int)) = (7 : Int) := by decide
 
-/-- neuropsychology: processingspeed(120, 60) = 120 — PROCESSING SPEED: items per minute. value ⌊items · 60 /
-    seconds⌋. -/
-theorem fam_neuropsychology_processingspeed_1 : ((120 * 60) / 60) = 120 := by decide
+/-- neuropsychology: processingspeed(120, 60) = 120 — NEUROPSYCHOLOGY — THE MIND MEASURED, AS ARITHMETIC. The
+    clinic's scores are numbers: the intelligence quotient from mental and chronological age, the memory
+    quotient against expectation, hemispheric lateralization, the deficit from a baseline, recovery after
+    injury, working-memory span, processing speed, and executive function net of errors. Crosses to `neurology`
+    — neuropsychology is the behaviour the brain's wiring produces. A measure. */ const PROOF = 'neuropsychology
+    arithmetic (iq, memory quotient, lateralization, deficit, recovery, span, processing speed, executive
+    function); the mind scored from counts and ages; a measure crossed to neurology' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'neuropsychology', dst: 'neurology', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `neuropsychology.${name}`, params }) export class NeuropsychologyFormulas { /**
+    THE INTELLIGENCE QUOTIENT: mental age over chronological age, scaled by 100. value ⌊mental · 100 / chrono⌋.
+    */ static iq(mental: number, chrono: number): CrossFormula { return c('neuropsychology-iq', 'iq(mental,
+    chrono) = ⌊mental · 100 / chrono⌋', chrono > 0 ? Math.floor((mental * 100) / chrono) : 0, nat(mental,
+    chrono) && chrono > 0, 'iq', [mental, chrono]) } /** MEMORY QUOTIENT: the raw score against what was
+    expected, scaled by 100. value ⌊raw · 100 / expected⌋. */ static memoryquotient(raw: number, expected:
+    number): CrossFormula { return c('neuropsychology-memoryquotient', 'memoryquotient(raw, expected) = ⌊raw ·
+    100 / expected⌋', expected > 0 ? Math.floor((raw * 100) / expected) : 0, nat(raw, expected) && expected > 0,
+    'memoryquotient', [raw, expected]) } /** LATERALIZATION: the right–left difference over the total, scaled by
+    100. value ⌊(right − left) · 100 / (right + left)⌋. */ static lateralization(right: number, left: number):
+    CrossFormula { return c('neuropsychology-lateralization', 'lateralization(right, left) = ⌊max(0, right −
+    left) · 100 / (right + left)⌋', (right + left) > 0 ? Math.floor((Math.max(0, right - left) * 100) / (right +
+    left)) : 0, nat(right, left) && (right + left) > 0, 'lateralization', [right, left]) } /** DEFICIT: the
+    points lost from a baseline. value max(0, baseline − current). */ static deficit(baseline: number, current:
+    number): CrossFormula { return c('neuropsychology-deficit', 'deficit(baseline, current) = max(0, baseline −
+    current)', Math.max(0, baseline - current), nat(baseline, current), 'deficit', [baseline, current]) } /**
+    RECOVERY: how much was regained of what was lost, scaled by 100. value ⌊regained · 100 / lost⌋. */ static
+    recovery(regained: number, lost: number): CrossFormula { return c('neuropsychology-recovery',
+    'recovery(regained, lost) = ⌊regained · 100 / lost⌋', lost > 0 ? Math.floor((regained * 100) / lost) : 0,
+    nat(regained, lost) && lost > 0, 'recovery', [regained, lost]) } /** SPAN: the average working-memory span
+    over the trials. value ⌊items / trials⌋. */ static span(items: number, trials: number): CrossFormula {
+    return c('neuropsychology-span', 'span(items, trials) = ⌊items / trials⌋', trials > 0 ? Math.floor(items /
+    trials) : 0, nat(items, trials) && trials > 0, 'span', [items, trials]) } /** PROCESSING SPEED: items per
+    minute. value ⌊items · 60 / seconds⌋. -/
+theorem fam_neuropsychology_processingspeed_1 : (((120 : Int) * (60 : Int)) / (60 : Int)) = (120 : Int) := by decide
 
-/-- neuropsychology: executivefunction(48, 8) = 40 — EXECUTIVE FUNCTION: correct responses net of errors. value
-    max(0, correct − errors). -/
-theorem fam_neuropsychology_executivefunction_1 : (fmax 0 (48 - 8)) = 40 := by decide
+/-- neuropsychology: executivefunction(48, 8) = 40 — NEUROPSYCHOLOGY — THE MIND MEASURED, AS ARITHMETIC. The
+    clinic's scores are numbers: the intelligence quotient from mental and chronological age, the memory
+    quotient against expectation, hemispheric lateralization, the deficit from a baseline, recovery after
+    injury, working-memory span, processing speed, and executive function net of errors. Crosses to `neurology`
+    — neuropsychology is the behaviour the brain's wiring produces. A measure. */ const PROOF = 'neuropsychology
+    arithmetic (iq, memory quotient, lateralization, deficit, recovery, span, processing speed, executive
+    function); the mind scored from counts and ages; a measure crossed to neurology' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'neuropsychology', dst: 'neurology', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `neuropsychology.${name}`, params }) export class NeuropsychologyFormulas { /**
+    THE INTELLIGENCE QUOTIENT: mental age over chronological age, scaled by 100. value ⌊mental · 100 / chrono⌋.
+    */ static iq(mental: number, chrono: number): CrossFormula { return c('neuropsychology-iq', 'iq(mental,
+    chrono) = ⌊mental · 100 / chrono⌋', chrono > 0 ? Math.floor((mental * 100) / chrono) : 0, nat(mental,
+    chrono) && chrono > 0, 'iq', [mental, chrono]) } /** MEMORY QUOTIENT: the raw score against what was
+    expected, scaled by 100. value ⌊raw · 100 / expected⌋. */ static memoryquotient(raw: number, expected:
+    number): CrossFormula { return c('neuropsychology-memoryquotient', 'memoryquotient(raw, expected) = ⌊raw ·
+    100 / expected⌋', expected > 0 ? Math.floor((raw * 100) / expected) : 0, nat(raw, expected) && expected > 0,
+    'memoryquotient', [raw, expected]) } /** LATERALIZATION: the right–left difference over the total, scaled by
+    100. value ⌊(right − left) · 100 / (right + left)⌋. */ static lateralization(right: number, left: number):
+    CrossFormula { return c('neuropsychology-lateralization', 'lateralization(right, left) = ⌊max(0, right −
+    left) · 100 / (right + left)⌋', (right + left) > 0 ? Math.floor((Math.max(0, right - left) * 100) / (right +
+    left)) : 0, nat(right, left) && (right + left) > 0, 'lateralization', [right, left]) } /** DEFICIT: the
+    points lost from a baseline. value max(0, baseline − current). */ static deficit(baseline: number, current:
+    number): CrossFormula { return c('neuropsychology-deficit', 'deficit(baseline, current) = max(0, baseline −
+    current)', Math.max(0, baseline - current), nat(baseline, current), 'deficit', [baseline, current]) } /**
+    RECOVERY: how much was regained of what was lost, scaled by 100. value ⌊regained · 100 / lost⌋. */ static
+    recovery(regained: number, lost: number): CrossFormula { return c('neuropsychology-recovery',
+    'recovery(regained, lost) = ⌊regained · 100 / lost⌋', lost > 0 ? Math.floor((regained * 100) / lost) : 0,
+    nat(regained, lost) && lost > 0, 'recovery', [regained, lost]) } /** SPAN: the average working-memory span
+    over the trials. value ⌊items / trials⌋. */ static span(items: number, trials: number): CrossFormula {
+    return c('neuropsychology-span', 'span(items, trials) = ⌊items / trials⌋', trials > 0 ? Math.floor(items /
+    trials) : 0, nat(items, trials) && trials > 0, 'span', [items, trials]) } /** PROCESSING SPEED: items per
+    minute. value ⌊items · 60 / seconds⌋. */ static processingspeed(items: number, seconds: number):
+    CrossFormula { return c('neuropsychology-processingspeed', 'processingspeed(items, seconds) = ⌊items · 60 /
+    seconds⌋', seconds > 0 ? Math.floor((items * 60) / seconds) : 0, nat(items, seconds) && seconds > 0,
+    'processingspeed', [items, seconds]) } /** EXECUTIVE FUNCTION: correct responses net of errors. value max(0,
+    correct − errors). -/
+theorem fam_neuropsychology_executivefunction_1 : (fmax (0 : Int) ((48 : Int) - (8 : Int))) = (40 : Int) := by decide
 
 /-- neuroscience: firing(1000, 10) = 100 — NEUROSCIENCE — THE BRAIN AS ARITHMETIC. The nervous system is
     numbers: spikes per second, the membrane potential across the cell, synapses per neuron, conduction speed
@@ -318,32 +2051,213 @@ theorem fam_neuropsychology_executivefunction_1 : (fmax 0 (48 - 8)) = 40 := by d
     unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuroscience', dst: 'neurology', formula, value,
     proof: PROOF, ...extra }, holds, { name: `neuroscience.${name}`, params }) export class NeuroscienceFormulas
     { /** FIRING RATE: spikes over the seconds observed. value ⌊spikes / seconds⌋. -/
-theorem fam_neuroscience_firing_1 : (1000 / 10) = 100 := by decide
+theorem fam_neuroscience_firing_1 : ((1000 : Int) / (10 : Int)) = (100 : Int) := by decide
 
-/-- neuroscience: potential(90, 20) = 70 — MEMBRANE POTENTIAL: the difference across the cell (may be negative).
-    value sodium − potassium. -/
-theorem fam_neuroscience_potential_1 : (90 - 20) = 70 := by decide
+/-- neuroscience: potential(50, 70) = -20 — NEUROSCIENCE — THE BRAIN AS ARITHMETIC. The nervous system is
+    numbers: spikes per second, the membrane potential across the cell, synapses per neuron, conduction speed
+    along an axon, the share of synapses strengthened, the refractory window, the connectivity of a network, and
+    the firing threshold. Crosses to `neurology` — neuroscience is what neurology reasons about. A measure. */
+    const PROOF = 'neuroscience arithmetic (firing rate, membrane potential, synapses per neuron, conduction
+    speed, plasticity, refractory window, connectivity, threshold); the brain as a measure crossed to neurology'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuroscience', dst: 'neurology', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `neuroscience.${name}`, params }) export class NeuroscienceFormulas
+    { /** FIRING RATE: spikes over the seconds observed. value ⌊spikes / seconds⌋. */ static firing(spikes:
+    number, seconds: number): CrossFormula { return c('neuroscience-firing', 'firing(spikes, seconds) = ⌊spikes
+    / seconds⌋', seconds > 0 ? Math.floor(spikes / seconds) : 0, nat(spikes, seconds) && seconds > 0, 'firing',
+    [spikes, seconds]) } /** MEMBRANE POTENTIAL: the difference across the cell (may be negative). value sodium
+    − potassium. -/
+theorem fam_neuroscience_potential_1 : ((50 : Int) - (70 : Int)) = (-20 : Int) := by decide
 
-/-- neuroscience: synapse(10000, 100) = 100 — SYNAPSES PER NEURON: connections over neurons. value ⌊connections
-    / neurons⌋. -/
-theorem fam_neuroscience_synapse_1 : (10000 / 100) = 100 := by decide
+/-- neuroscience: potential(90, 20) = 70 — NEUROSCIENCE — THE BRAIN AS ARITHMETIC. The nervous system is
+    numbers: spikes per second, the membrane potential across the cell, synapses per neuron, conduction speed
+    along an axon, the share of synapses strengthened, the refractory window, the connectivity of a network, and
+    the firing threshold. Crosses to `neurology` — neuroscience is what neurology reasons about. A measure. */
+    const PROOF = 'neuroscience arithmetic (firing rate, membrane potential, synapses per neuron, conduction
+    speed, plasticity, refractory window, connectivity, threshold); the brain as a measure crossed to neurology'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuroscience', dst: 'neurology', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `neuroscience.${name}`, params }) export class NeuroscienceFormulas
+    { /** FIRING RATE: spikes over the seconds observed. value ⌊spikes / seconds⌋. */ static firing(spikes:
+    number, seconds: number): CrossFormula { return c('neuroscience-firing', 'firing(spikes, seconds) = ⌊spikes
+    / seconds⌋', seconds > 0 ? Math.floor(spikes / seconds) : 0, nat(spikes, seconds) && seconds > 0, 'firing',
+    [spikes, seconds]) } /** MEMBRANE POTENTIAL: the difference across the cell (may be negative). value sodium
+    − potassium. -/
+theorem fam_neuroscience_potential_2 : ((90 : Int) - (20 : Int)) = (70 : Int) := by decide
 
-/-- neuroscience: conduction(1200, 10) = 120 — CONDUCTION SPEED: distance over time. value ⌊distance / time⌋. -/
-theorem fam_neuroscience_conduction_1 : (1200 / 10) = 120 := by decide
+/-- neuroscience: synapse(10000, 100) = 100 — NEUROSCIENCE — THE BRAIN AS ARITHMETIC. The nervous system is
+    numbers: spikes per second, the membrane potential across the cell, synapses per neuron, conduction speed
+    along an axon, the share of synapses strengthened, the refractory window, the connectivity of a network, and
+    the firing threshold. Crosses to `neurology` — neuroscience is what neurology reasons about. A measure. */
+    const PROOF = 'neuroscience arithmetic (firing rate, membrane potential, synapses per neuron, conduction
+    speed, plasticity, refractory window, connectivity, threshold); the brain as a measure crossed to neurology'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuroscience', dst: 'neurology', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `neuroscience.${name}`, params }) export class NeuroscienceFormulas
+    { /** FIRING RATE: spikes over the seconds observed. value ⌊spikes / seconds⌋. */ static firing(spikes:
+    number, seconds: number): CrossFormula { return c('neuroscience-firing', 'firing(spikes, seconds) = ⌊spikes
+    / seconds⌋', seconds > 0 ? Math.floor(spikes / seconds) : 0, nat(spikes, seconds) && seconds > 0, 'firing',
+    [spikes, seconds]) } /** MEMBRANE POTENTIAL: the difference across the cell (may be negative). value sodium
+    − potassium. */ static potential(sodium: number, potassium: number): CrossFormula { return
+    c('neuroscience-potential', 'potential(sodium, potassium) = sodium − potassium', sodium - potassium,
+    nat(sodium, potassium), 'potential', [sodium, potassium]) } /** SYNAPSES PER NEURON: connections over
+    neurons. value ⌊connections / neurons⌋. -/
+theorem fam_neuroscience_synapse_1 : ((10000 : Int) / (100 : Int)) = (100 : Int) := by decide
 
-/-- neuroscience: plasticity(30, 100) = 30 — PLASTICITY: the share of synapses strengthened. value ⌊strengthened
-    · 100 / synapses⌋. -/
-theorem fam_neuroscience_plasticity_1 : ((30 * 100) / 100) = 30 := by decide
+/-- neuroscience: conduction(1200, 10) = 120 — NEUROSCIENCE — THE BRAIN AS ARITHMETIC. The nervous system is
+    numbers: spikes per second, the membrane potential across the cell, synapses per neuron, conduction speed
+    along an axon, the share of synapses strengthened, the refractory window, the connectivity of a network, and
+    the firing threshold. Crosses to `neurology` — neuroscience is what neurology reasons about. A measure. */
+    const PROOF = 'neuroscience arithmetic (firing rate, membrane potential, synapses per neuron, conduction
+    speed, plasticity, refractory window, connectivity, threshold); the brain as a measure crossed to neurology'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuroscience', dst: 'neurology', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `neuroscience.${name}`, params }) export class NeuroscienceFormulas
+    { /** FIRING RATE: spikes over the seconds observed. value ⌊spikes / seconds⌋. */ static firing(spikes:
+    number, seconds: number): CrossFormula { return c('neuroscience-firing', 'firing(spikes, seconds) = ⌊spikes
+    / seconds⌋', seconds > 0 ? Math.floor(spikes / seconds) : 0, nat(spikes, seconds) && seconds > 0, 'firing',
+    [spikes, seconds]) } /** MEMBRANE POTENTIAL: the difference across the cell (may be negative). value sodium
+    − potassium. */ static potential(sodium: number, potassium: number): CrossFormula { return
+    c('neuroscience-potential', 'potential(sodium, potassium) = sodium − potassium', sodium - potassium,
+    nat(sodium, potassium), 'potential', [sodium, potassium]) } /** SYNAPSES PER NEURON: connections over
+    neurons. value ⌊connections / neurons⌋. */ static synapse(connections: number, neurons: number):
+    CrossFormula { return c('neuroscience-synapse', 'synapse(connections, neurons) = ⌊connections / neurons⌋',
+    neurons > 0 ? Math.floor(connections / neurons) : 0, nat(connections, neurons) && neurons > 0, 'synapse',
+    [connections, neurons]) } /** CONDUCTION SPEED: distance over time. value ⌊distance / time⌋. -/
+theorem fam_neuroscience_conduction_1 : ((1200 : Int) / (10 : Int)) = (120 : Int) := by decide
 
-/-- neuroscience: refractory(2) = 2 — REFRACTORY WINDOW: the milliseconds a neuron cannot fire — the membrane
-    has not recovered. value milliseconds. -/
-theorem fam_neuroscience_refractory_1 : 2 = 2 := by decide
+/-- neuroscience: plasticity(30, 100) = 30 — NEUROSCIENCE — THE BRAIN AS ARITHMETIC. The nervous system is
+    numbers: spikes per second, the membrane potential across the cell, synapses per neuron, conduction speed
+    along an axon, the share of synapses strengthened, the refractory window, the connectivity of a network, and
+    the firing threshold. Crosses to `neurology` — neuroscience is what neurology reasons about. A measure. */
+    const PROOF = 'neuroscience arithmetic (firing rate, membrane potential, synapses per neuron, conduction
+    speed, plasticity, refractory window, connectivity, threshold); the brain as a measure crossed to neurology'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuroscience', dst: 'neurology', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `neuroscience.${name}`, params }) export class NeuroscienceFormulas
+    { /** FIRING RATE: spikes over the seconds observed. value ⌊spikes / seconds⌋. */ static firing(spikes:
+    number, seconds: number): CrossFormula { return c('neuroscience-firing', 'firing(spikes, seconds) = ⌊spikes
+    / seconds⌋', seconds > 0 ? Math.floor(spikes / seconds) : 0, nat(spikes, seconds) && seconds > 0, 'firing',
+    [spikes, seconds]) } /** MEMBRANE POTENTIAL: the difference across the cell (may be negative). value sodium
+    − potassium. */ static potential(sodium: number, potassium: number): CrossFormula { return
+    c('neuroscience-potential', 'potential(sodium, potassium) = sodium − potassium', sodium - potassium,
+    nat(sodium, potassium), 'potential', [sodium, potassium]) } /** SYNAPSES PER NEURON: connections over
+    neurons. value ⌊connections / neurons⌋. */ static synapse(connections: number, neurons: number):
+    CrossFormula { return c('neuroscience-synapse', 'synapse(connections, neurons) = ⌊connections / neurons⌋',
+    neurons > 0 ? Math.floor(connections / neurons) : 0, nat(connections, neurons) && neurons > 0, 'synapse',
+    [connections, neurons]) } /** CONDUCTION SPEED: distance over time. value ⌊distance / time⌋. */ static
+    conduction(distance: number, time: number): CrossFormula { return c('neuroscience-conduction',
+    'conduction(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance / time) : 0, nat(distance,
+    time) && time > 0, 'conduction', [distance, time]) } /** PLASTICITY: the share of synapses strengthened.
+    value ⌊strengthened · 100 / synapses⌋. -/
+theorem fam_neuroscience_plasticity_1 : (((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int) := by decide
 
-/-- neuroscience: connectivity(5000, 100) = 50 — CONNECTIVITY: edges over nodes. value ⌊edges / nodes⌋. -/
-theorem fam_neuroscience_connectivity_1 : (5000 / 100) = 50 := by decide
+/-- neuroscience: refractory(2) = 2 — NEUROSCIENCE — THE BRAIN AS ARITHMETIC. The nervous system is numbers:
+    spikes per second, the membrane potential across the cell, synapses per neuron, conduction speed along an
+    axon, the share of synapses strengthened, the refractory window, the connectivity of a network, and the
+    firing threshold. Crosses to `neurology` — neuroscience is what neurology reasons about. A measure. */ const
+    PROOF = 'neuroscience arithmetic (firing rate, membrane potential, synapses per neuron, conduction speed,
+    plasticity, refractory window, connectivity, threshold); the brain as a measure crossed to neurology' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuroscience', dst: 'neurology', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `neuroscience.${name}`, params }) export class NeuroscienceFormulas
+    { /** FIRING RATE: spikes over the seconds observed. value ⌊spikes / seconds⌋. */ static firing(spikes:
+    number, seconds: number): CrossFormula { return c('neuroscience-firing', 'firing(spikes, seconds) = ⌊spikes
+    / seconds⌋', seconds > 0 ? Math.floor(spikes / seconds) : 0, nat(spikes, seconds) && seconds > 0, 'firing',
+    [spikes, seconds]) } /** MEMBRANE POTENTIAL: the difference across the cell (may be negative). value sodium
+    − potassium. */ static potential(sodium: number, potassium: number): CrossFormula { return
+    c('neuroscience-potential', 'potential(sodium, potassium) = sodium − potassium', sodium - potassium,
+    nat(sodium, potassium), 'potential', [sodium, potassium]) } /** SYNAPSES PER NEURON: connections over
+    neurons. value ⌊connections / neurons⌋. */ static synapse(connections: number, neurons: number):
+    CrossFormula { return c('neuroscience-synapse', 'synapse(connections, neurons) = ⌊connections / neurons⌋',
+    neurons > 0 ? Math.floor(connections / neurons) : 0, nat(connections, neurons) && neurons > 0, 'synapse',
+    [connections, neurons]) } /** CONDUCTION SPEED: distance over time. value ⌊distance / time⌋. */ static
+    conduction(distance: number, time: number): CrossFormula { return c('neuroscience-conduction',
+    'conduction(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance / time) : 0, nat(distance,
+    time) && time > 0, 'conduction', [distance, time]) } /** PLASTICITY: the share of synapses strengthened.
+    value ⌊strengthened · 100 / synapses⌋. */ static plasticity(strengthened: number, synapses: number):
+    CrossFormula { return c('neuroscience-plasticity', 'plasticity(strengthened, synapses) = ⌊strengthened · 100
+    / synapses⌋', synapses > 0 ? Math.floor((strengthened * 100) / synapses) : 0, nat(strengthened, synapses) &&
+    synapses > 0 && strengthened <= synapses, 'plasticity', [strengthened, synapses]) } /** REFRACTORY WINDOW:
+    the milliseconds a neuron cannot fire — the membrane has not recovered. value milliseconds. -/
+theorem fam_neuroscience_refractory_1 : (2 : Int) = (2 : Int) := by decide
 
-/-- neuroscience: threshold(55) = 55 — FIRING THRESHOLD: the millivolts needed to fire. value millivolts. -/
-theorem fam_neuroscience_threshold_1 : 55 = 55 := by decide
+/-- neuroscience: connectivity(5000, 100) = 50 — NEUROSCIENCE — THE BRAIN AS ARITHMETIC. The nervous system is
+    numbers: spikes per second, the membrane potential across the cell, synapses per neuron, conduction speed
+    along an axon, the share of synapses strengthened, the refractory window, the connectivity of a network, and
+    the firing threshold. Crosses to `neurology` — neuroscience is what neurology reasons about. A measure. */
+    const PROOF = 'neuroscience arithmetic (firing rate, membrane potential, synapses per neuron, conduction
+    speed, plasticity, refractory window, connectivity, threshold); the brain as a measure crossed to neurology'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuroscience', dst: 'neurology', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `neuroscience.${name}`, params }) export class NeuroscienceFormulas
+    { /** FIRING RATE: spikes over the seconds observed. value ⌊spikes / seconds⌋. */ static firing(spikes:
+    number, seconds: number): CrossFormula { return c('neuroscience-firing', 'firing(spikes, seconds) = ⌊spikes
+    / seconds⌋', seconds > 0 ? Math.floor(spikes / seconds) : 0, nat(spikes, seconds) && seconds > 0, 'firing',
+    [spikes, seconds]) } /** MEMBRANE POTENTIAL: the difference across the cell (may be negative). value sodium
+    − potassium. */ static potential(sodium: number, potassium: number): CrossFormula { return
+    c('neuroscience-potential', 'potential(sodium, potassium) = sodium − potassium', sodium - potassium,
+    nat(sodium, potassium), 'potential', [sodium, potassium]) } /** SYNAPSES PER NEURON: connections over
+    neurons. value ⌊connections / neurons⌋. */ static synapse(connections: number, neurons: number):
+    CrossFormula { return c('neuroscience-synapse', 'synapse(connections, neurons) = ⌊connections / neurons⌋',
+    neurons > 0 ? Math.floor(connections / neurons) : 0, nat(connections, neurons) && neurons > 0, 'synapse',
+    [connections, neurons]) } /** CONDUCTION SPEED: distance over time. value ⌊distance / time⌋. */ static
+    conduction(distance: number, time: number): CrossFormula { return c('neuroscience-conduction',
+    'conduction(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance / time) : 0, nat(distance,
+    time) && time > 0, 'conduction', [distance, time]) } /** PLASTICITY: the share of synapses strengthened.
+    value ⌊strengthened · 100 / synapses⌋. */ static plasticity(strengthened: number, synapses: number):
+    CrossFormula { return c('neuroscience-plasticity', 'plasticity(strengthened, synapses) = ⌊strengthened · 100
+    / synapses⌋', synapses > 0 ? Math.floor((strengthened * 100) / synapses) : 0, nat(strengthened, synapses) &&
+    synapses > 0 && strengthened <= synapses, 'plasticity', [strengthened, synapses]) } /** REFRACTORY WINDOW:
+    the milliseconds a neuron cannot fire — the membrane has not recovered. value milliseconds. */ static
+    refractory(milliseconds: number): CrossFormula { return c('neuroscience-refractory',
+    'refractory(milliseconds) = milliseconds', milliseconds, nat(milliseconds), 'refractory', [milliseconds]) }
+    /** CONNECTIVITY: edges over nodes. value ⌊edges / nodes⌋. -/
+theorem fam_neuroscience_connectivity_1 : ((5000 : Int) / (100 : Int)) = (50 : Int) := by decide
+
+/-- neuroscience: threshold(55) = 55 — NEUROSCIENCE — THE BRAIN AS ARITHMETIC. The nervous system is numbers:
+    spikes per second, the membrane potential across the cell, synapses per neuron, conduction speed along an
+    axon, the share of synapses strengthened, the refractory window, the connectivity of a network, and the
+    firing threshold. Crosses to `neurology` — neuroscience is what neurology reasons about. A measure. */ const
+    PROOF = 'neuroscience arithmetic (firing rate, membrane potential, synapses per neuron, conduction speed,
+    plasticity, refractory window, connectivity, threshold); the brain as a measure crossed to neurology' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'neuroscience', dst: 'neurology', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `neuroscience.${name}`, params }) export class NeuroscienceFormulas
+    { /** FIRING RATE: spikes over the seconds observed. value ⌊spikes / seconds⌋. */ static firing(spikes:
+    number, seconds: number): CrossFormula { return c('neuroscience-firing', 'firing(spikes, seconds) = ⌊spikes
+    / seconds⌋', seconds > 0 ? Math.floor(spikes / seconds) : 0, nat(spikes, seconds) && seconds > 0, 'firing',
+    [spikes, seconds]) } /** MEMBRANE POTENTIAL: the difference across the cell (may be negative). value sodium
+    − potassium. */ static potential(sodium: number, potassium: number): CrossFormula { return
+    c('neuroscience-potential', 'potential(sodium, potassium) = sodium − potassium', sodium - potassium,
+    nat(sodium, potassium), 'potential', [sodium, potassium]) } /** SYNAPSES PER NEURON: connections over
+    neurons. value ⌊connections / neurons⌋. */ static synapse(connections: number, neurons: number):
+    CrossFormula { return c('neuroscience-synapse', 'synapse(connections, neurons) = ⌊connections / neurons⌋',
+    neurons > 0 ? Math.floor(connections / neurons) : 0, nat(connections, neurons) && neurons > 0, 'synapse',
+    [connections, neurons]) } /** CONDUCTION SPEED: distance over time. value ⌊distance / time⌋. */ static
+    conduction(distance: number, time: number): CrossFormula { return c('neuroscience-conduction',
+    'conduction(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance / time) : 0, nat(distance,
+    time) && time > 0, 'conduction', [distance, time]) } /** PLASTICITY: the share of synapses strengthened.
+    value ⌊strengthened · 100 / synapses⌋. */ static plasticity(strengthened: number, synapses: number):
+    CrossFormula { return c('neuroscience-plasticity', 'plasticity(strengthened, synapses) = ⌊strengthened · 100
+    / synapses⌋', synapses > 0 ? Math.floor((strengthened * 100) / synapses) : 0, nat(strengthened, synapses) &&
+    synapses > 0 && strengthened <= synapses, 'plasticity', [strengthened, synapses]) } /** REFRACTORY WINDOW:
+    the milliseconds a neuron cannot fire — the membrane has not recovered. value milliseconds. */ static
+    refractory(milliseconds: number): CrossFormula { return c('neuroscience-refractory',
+    'refractory(milliseconds) = milliseconds', milliseconds, nat(milliseconds), 'refractory', [milliseconds]) }
+    /** CONNECTIVITY: edges over nodes. value ⌊edges / nodes⌋. */ static connectivity(edges: number, nodes:
+    number): CrossFormula { return c('neuroscience-connectivity', 'connectivity(edges, nodes) = ⌊edges /
+    nodes⌋', nodes > 0 ? Math.floor(edges / nodes) : 0, nat(edges, nodes) && nodes > 0, 'connectivity', [edges,
+    nodes]) } /** FIRING THRESHOLD: the millivolts needed to fire. value millivolts. -/
+theorem fam_neuroscience_threshold_1 : (55 : Int) = (55 : Int) := by decide
 
 /-- ngram: count(1000, 3) = 998 — NGRAM — LANGUAGE-MODEL COUNTING, AS ARITHMETIC (the n-gram model is counts
     over a corpus, nothing else). How many n-grams a token stream holds, the maximum-likelihood probability of
@@ -357,55 +2271,544 @@ theorem fam_neuroscience_threshold_1 : 55 = 55 := by decide
     crossFormulaOf({ id, src: 'ngram', dst: 'statistics', formula, value, proof: PROOF, ...extra }, holds, {
     name: `ngram.${name}`, params }) export class NgramFormulas { /** NGRAM COUNT: the n-grams in a token
     stream. value max(0, tokens − n + 1). -/
-theorem fam_ngram_count_1 : (fmax 0 ((1000 - 3) + 1)) = 998 := by decide
+theorem fam_ngram_count_1 : (fmax (0 : Int) (((1000 : Int) - (3 : Int)) + (1 : Int))) = (998 : Int) := by decide
 
-/-- ngram: probability(5, 1000) = 5 — MLE PROBABILITY in per-mille. value ⌊occurrences · 1000 / total⌋. -/
-theorem fam_ngram_probability_1 : ((5 * 1000) / 1000) = 5 := by decide
+/-- ngram: probability(5, 1000) = 5 — NGRAM — LANGUAGE-MODEL COUNTING, AS ARITHMETIC (the n-gram model is counts
+    over a corpus, nothing else). How many n-grams a token stream holds, the maximum-likelihood probability of
+    one, add-one smoothing, a perplexity proxy, vocabulary coverage, the backoff weight, the pruned vocabulary
+    size, and an absolutely-discounted conditional count. Crosses to `statistics` — an n-gram model is a
+    frequency distribution. A measure. */ const PROOF = 'ngram arithmetic (n-gram count, MLE probability,
+    Laplace smoothing, perplexity proxy, coverage, backoff weight, vocabulary size, conditional count); the
+    language-model counts of a corpus; a measure crossed to statistics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'ngram', dst: 'statistics', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `ngram.${name}`, params }) export class NgramFormulas { /** NGRAM COUNT: the n-grams in a token
+    stream. value max(0, tokens − n + 1). */ static count(tokens: number, n: number): CrossFormula { return
+    c('ngram-count', 'count(tokens, n) = max(0, tokens − n + 1)', Math.max(0, tokens - n + 1), nat(tokens, n) &&
+    n >= 1, 'count', [tokens, n]) } /** MLE PROBABILITY in per-mille. value ⌊occurrences · 1000 / total⌋. -/
+theorem fam_ngram_probability_1 : (((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int) := by decide
 
-/-- ngram: probability(3, 0) = 0 — MLE PROBABILITY in per-mille. value ⌊occurrences · 1000 / total⌋. -/
-theorem fam_ngram_probability_2 : ((3 * 1000) / 0) = 0 := by decide
+/-- ngram: probability(3, 0) = 0 — NGRAM — LANGUAGE-MODEL COUNTING, AS ARITHMETIC (the n-gram model is counts
+    over a corpus, nothing else). How many n-grams a token stream holds, the maximum-likelihood probability of
+    one, add-one smoothing, a perplexity proxy, vocabulary coverage, the backoff weight, the pruned vocabulary
+    size, and an absolutely-discounted conditional count. Crosses to `statistics` — an n-gram model is a
+    frequency distribution. A measure. */ const PROOF = 'ngram arithmetic (n-gram count, MLE probability,
+    Laplace smoothing, perplexity proxy, coverage, backoff weight, vocabulary size, conditional count); the
+    language-model counts of a corpus; a measure crossed to statistics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'ngram', dst: 'statistics', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `ngram.${name}`, params }) export class NgramFormulas { /** NGRAM COUNT: the n-grams in a token
+    stream. value max(0, tokens − n + 1). */ static count(tokens: number, n: number): CrossFormula { return
+    c('ngram-count', 'count(tokens, n) = max(0, tokens − n + 1)', Math.max(0, tokens - n + 1), nat(tokens, n) &&
+    n >= 1, 'count', [tokens, n]) } /** MLE PROBABILITY in per-mille. value ⌊occurrences · 1000 / total⌋. -/
+theorem fam_ngram_probability_2 : (((3 : Int) * (1000 : Int)) / (0 : Int)) = (0 : Int) := by decide
 
-/-- ngram: perplexityproxy(1000, 8) = 125 — ADD-ONE (LAPLACE) SMOOTHED probability in per-mille. value ⌊(count +
-    1) · 1000 / (total + vocab)⌋. */ static laplacesmoothing(count: number, total: number, vocab: number):
-    CrossFormula { const d = total + vocab; return c('ngram-laplacesmoothing', 'laplacesmoothing(count, total,
-    vocab) = ⌊(count + 1) · 1000 / (total + vocab)⌋', d > 0 ? Math.floor(((count + 1) * 1000) / d) : 0,
+/-- ngram: laplacesmoothing(4, 1000, 1000) = 2 — NGRAM — LANGUAGE-MODEL COUNTING, AS ARITHMETIC (the n-gram
+    model is counts over a corpus, nothing else). How many n-grams a token stream holds, the maximum-likelihood
+    probability of one, add-one smoothing, a perplexity proxy, vocabulary coverage, the backoff weight, the
+    pruned vocabulary size, and an absolutely-discounted conditional count. Crosses to `statistics` — an n-gram
+    model is a frequency distribution. A measure. */ const PROOF = 'ngram arithmetic (n-gram count, MLE
+    probability, Laplace smoothing, perplexity proxy, coverage, backoff weight, vocabulary size, conditional
+    count); the language-model counts of a corpus; a measure crossed to statistics' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'ngram', dst: 'statistics', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `ngram.${name}`, params }) export class NgramFormulas { /** NGRAM COUNT: the n-grams in a
+    token stream. value max(0, tokens − n + 1). */ static count(tokens: number, n: number): CrossFormula {
+    return c('ngram-count', 'count(tokens, n) = max(0, tokens − n + 1)', Math.max(0, tokens - n + 1),
+    nat(tokens, n) && n >= 1, 'count', [tokens, n]) } /** MLE PROBABILITY in per-mille. value ⌊occurrences ·
+    1000 / total⌋. */ static probability(occurrences: number, total: number): CrossFormula { return
+    c('ngram-probability', 'probability(occurrences, total) = ⌊occurrences · 1000 / total⌋', total > 0 ?
+    Math.floor((occurrences * 1000) / total) : 0, nat(occurrences, total) && total > 0 && occurrences <= total,
+    'probability', [occurrences, total]) } /** ADD-ONE (LAPLACE) SMOOTHED probability in per-mille. value
+    ⌊(count + 1) · 1000 / (total + vocab)⌋. -/
+theorem fam_ngram_laplacesmoothing_1 : ((((4 : Int) + (1 : Int)) * (1000 : Int)) / ((1000 : Int) + (1000 : Int))) = (2 : Int) := by decide
+
+/-- ngram: perplexityproxy(1000, 8) = 125 — NGRAM — LANGUAGE-MODEL COUNTING, AS ARITHMETIC (the n-gram model is
+    counts over a corpus, nothing else). How many n-grams a token stream holds, the maximum-likelihood
+    probability of one, add-one smoothing, a perplexity proxy, vocabulary coverage, the backoff weight, the
+    pruned vocabulary size, and an absolutely-discounted conditional count. Crosses to `statistics` — an n-gram
+    model is a frequency distribution. A measure. */ const PROOF = 'ngram arithmetic (n-gram count, MLE
+    probability, Laplace smoothing, perplexity proxy, coverage, backoff weight, vocabulary size, conditional
+    count); the language-model counts of a corpus; a measure crossed to statistics' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'ngram', dst: 'statistics', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `ngram.${name}`, params }) export class NgramFormulas { /** NGRAM COUNT: the n-grams in a
+    token stream. value max(0, tokens − n + 1). */ static count(tokens: number, n: number): CrossFormula {
+    return c('ngram-count', 'count(tokens, n) = max(0, tokens − n + 1)', Math.max(0, tokens - n + 1),
+    nat(tokens, n) && n >= 1, 'count', [tokens, n]) } /** MLE PROBABILITY in per-mille. value ⌊occurrences ·
+    1000 / total⌋. */ static probability(occurrences: number, total: number): CrossFormula { return
+    c('ngram-probability', 'probability(occurrences, total) = ⌊occurrences · 1000 / total⌋', total > 0 ?
+    Math.floor((occurrences * 1000) / total) : 0, nat(occurrences, total) && total > 0 && occurrences <= total,
+    'probability', [occurrences, total]) } /** ADD-ONE (LAPLACE) SMOOTHED probability in per-mille. value
+    ⌊(count + 1) · 1000 / (total + vocab)⌋. */ static laplacesmoothing(count: number, total: number, vocab:
+    number): CrossFormula { const d = total + vocab; return c('ngram-laplacesmoothing', 'laplacesmoothing(count,
+    total, vocab) = ⌊(count + 1) · 1000 / (total + vocab)⌋', d > 0 ? Math.floor(((count + 1) * 1000) / d) : 0,
     nat(count, total, vocab) && d > 0, 'laplacesmoothing', [count, total, vocab]) } /** PERPLEXITY PROXY: tokens
     per occurrence (inverse likelihood). value ⌊total / occurrences⌋. -/
-theorem fam_ngram_perplexityproxy_1 : (1000 / 8) = 125 := by decide
+theorem fam_ngram_perplexityproxy_1 : ((1000 : Int) / (8 : Int)) = (125 : Int) := by decide
 
-/-- ngram: coverage(90, 100) = 90 — VOCABULARY COVERAGE as a percentage. value ⌊seen · 100 / vocab⌋. -/
-theorem fam_ngram_coverage_1 : ((90 * 100) / 100) = 90 := by decide
+/-- ngram: coverage(90, 100) = 90 — NGRAM — LANGUAGE-MODEL COUNTING, AS ARITHMETIC (the n-gram model is counts
+    over a corpus, nothing else). How many n-grams a token stream holds, the maximum-likelihood probability of
+    one, add-one smoothing, a perplexity proxy, vocabulary coverage, the backoff weight, the pruned vocabulary
+    size, and an absolutely-discounted conditional count. Crosses to `statistics` — an n-gram model is a
+    frequency distribution. A measure. */ const PROOF = 'ngram arithmetic (n-gram count, MLE probability,
+    Laplace smoothing, perplexity proxy, coverage, backoff weight, vocabulary size, conditional count); the
+    language-model counts of a corpus; a measure crossed to statistics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'ngram', dst: 'statistics', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `ngram.${name}`, params }) export class NgramFormulas { /** NGRAM COUNT: the n-grams in a token
+    stream. value max(0, tokens − n + 1). */ static count(tokens: number, n: number): CrossFormula { return
+    c('ngram-count', 'count(tokens, n) = max(0, tokens − n + 1)', Math.max(0, tokens - n + 1), nat(tokens, n) &&
+    n >= 1, 'count', [tokens, n]) } /** MLE PROBABILITY in per-mille. value ⌊occurrences · 1000 / total⌋. */
+    static probability(occurrences: number, total: number): CrossFormula { return c('ngram-probability',
+    'probability(occurrences, total) = ⌊occurrences · 1000 / total⌋', total > 0 ? Math.floor((occurrences *
+    1000) / total) : 0, nat(occurrences, total) && total > 0 && occurrences <= total, 'probability',
+    [occurrences, total]) } /** ADD-ONE (LAPLACE) SMOOTHED probability in per-mille. value ⌊(count + 1) · 1000 /
+    (total + vocab)⌋. */ static laplacesmoothing(count: number, total: number, vocab: number): CrossFormula {
+    const d = total + vocab; return c('ngram-laplacesmoothing', 'laplacesmoothing(count, total, vocab) = ⌊(count
+    + 1) · 1000 / (total + vocab)⌋', d > 0 ? Math.floor(((count + 1) * 1000) / d) : 0, nat(count, total, vocab)
+    && d > 0, 'laplacesmoothing', [count, total, vocab]) } /** PERPLEXITY PROXY: tokens per occurrence (inverse
+    likelihood). value ⌊total / occurrences⌋. */ static perplexityproxy(total: number, occurrences: number):
+    CrossFormula { return c('ngram-perplexityproxy', 'perplexityproxy(total, occurrences) = ⌊total /
+    occurrences⌋', occurrences > 0 ? Math.floor(total / occurrences) : 0, nat(total, occurrences) && occurrences
+    > 0, 'perplexityproxy', [total, occurrences]) } /** VOCABULARY COVERAGE as a percentage. value ⌊seen · 100 /
+    vocab⌋. -/
+theorem fam_ngram_coverage_1 : (((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int) := by decide
 
-/-- ngram: backoffweight(400, 1000) = 400 — BACKOFF WEIGHT: the higher-order mass over the lower, in per-mille.
-    value ⌊higher · 1000 / lower⌋. -/
-theorem fam_ngram_backoffweight_1 : ((400 * 1000) / 1000) = 400 := by decide
+/-- ngram: backoffweight(400, 1000) = 400 — NGRAM — LANGUAGE-MODEL COUNTING, AS ARITHMETIC (the n-gram model is
+    counts over a corpus, nothing else). How many n-grams a token stream holds, the maximum-likelihood
+    probability of one, add-one smoothing, a perplexity proxy, vocabulary coverage, the backoff weight, the
+    pruned vocabulary size, and an absolutely-discounted conditional count. Crosses to `statistics` — an n-gram
+    model is a frequency distribution. A measure. */ const PROOF = 'ngram arithmetic (n-gram count, MLE
+    probability, Laplace smoothing, perplexity proxy, coverage, backoff weight, vocabulary size, conditional
+    count); the language-model counts of a corpus; a measure crossed to statistics' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'ngram', dst: 'statistics', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `ngram.${name}`, params }) export class NgramFormulas { /** NGRAM COUNT: the n-grams in a
+    token stream. value max(0, tokens − n + 1). */ static count(tokens: number, n: number): CrossFormula {
+    return c('ngram-count', 'count(tokens, n) = max(0, tokens − n + 1)', Math.max(0, tokens - n + 1),
+    nat(tokens, n) && n >= 1, 'count', [tokens, n]) } /** MLE PROBABILITY in per-mille. value ⌊occurrences ·
+    1000 / total⌋. */ static probability(occurrences: number, total: number): CrossFormula { return
+    c('ngram-probability', 'probability(occurrences, total) = ⌊occurrences · 1000 / total⌋', total > 0 ?
+    Math.floor((occurrences * 1000) / total) : 0, nat(occurrences, total) && total > 0 && occurrences <= total,
+    'probability', [occurrences, total]) } /** ADD-ONE (LAPLACE) SMOOTHED probability in per-mille. value
+    ⌊(count + 1) · 1000 / (total + vocab)⌋. */ static laplacesmoothing(count: number, total: number, vocab:
+    number): CrossFormula { const d = total + vocab; return c('ngram-laplacesmoothing', 'laplacesmoothing(count,
+    total, vocab) = ⌊(count + 1) · 1000 / (total + vocab)⌋', d > 0 ? Math.floor(((count + 1) * 1000) / d) : 0,
+    nat(count, total, vocab) && d > 0, 'laplacesmoothing', [count, total, vocab]) } /** PERPLEXITY PROXY: tokens
+    per occurrence (inverse likelihood). value ⌊total / occurrences⌋. */ static perplexityproxy(total: number,
+    occurrences: number): CrossFormula { return c('ngram-perplexityproxy', 'perplexityproxy(total, occurrences)
+    = ⌊total / occurrences⌋', occurrences > 0 ? Math.floor(total / occurrences) : 0, nat(total, occurrences) &&
+    occurrences > 0, 'perplexityproxy', [total, occurrences]) } /** VOCABULARY COVERAGE as a percentage. value
+    ⌊seen · 100 / vocab⌋. */ static coverage(seen: number, vocab: number): CrossFormula { return
+    c('ngram-coverage', 'coverage(seen, vocab) = ⌊seen · 100 / vocab⌋', vocab > 0 ? Math.floor((seen * 100) /
+    vocab) : 0, nat(seen, vocab) && vocab > 0 && seen <= vocab, 'coverage', [seen, vocab]) } /** BACKOFF WEIGHT:
+    the higher-order mass over the lower, in per-mille. value ⌊higher · 1000 / lower⌋. -/
+theorem fam_ngram_backoffweight_1 : (((400 : Int) * (1000 : Int)) / (1000 : Int)) = (400 : Int) := by decide
 
-/-- ngram: vocabularysize(5000, 1200) = 3800 — VOCABULARY SIZE after pruning the hapax legomena. value max(0,
-    unique − hapax). -/
-theorem fam_ngram_vocabularysize_1 : (fmax 0 (5000 - 1200)) = 3800 := by decide
+/-- ngram: vocabularysize(5000, 1200) = 3800 — NGRAM — LANGUAGE-MODEL COUNTING, AS ARITHMETIC (the n-gram model
+    is counts over a corpus, nothing else). How many n-grams a token stream holds, the maximum-likelihood
+    probability of one, add-one smoothing, a perplexity proxy, vocabulary coverage, the backoff weight, the
+    pruned vocabulary size, and an absolutely-discounted conditional count. Crosses to `statistics` — an n-gram
+    model is a frequency distribution. A measure. */ const PROOF = 'ngram arithmetic (n-gram count, MLE
+    probability, Laplace smoothing, perplexity proxy, coverage, backoff weight, vocabulary size, conditional
+    count); the language-model counts of a corpus; a measure crossed to statistics' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'ngram', dst: 'statistics', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `ngram.${name}`, params }) export class NgramFormulas { /** NGRAM COUNT: the n-grams in a
+    token stream. value max(0, tokens − n + 1). */ static count(tokens: number, n: number): CrossFormula {
+    return c('ngram-count', 'count(tokens, n) = max(0, tokens − n + 1)', Math.max(0, tokens - n + 1),
+    nat(tokens, n) && n >= 1, 'count', [tokens, n]) } /** MLE PROBABILITY in per-mille. value ⌊occurrences ·
+    1000 / total⌋. */ static probability(occurrences: number, total: number): CrossFormula { return
+    c('ngram-probability', 'probability(occurrences, total) = ⌊occurrences · 1000 / total⌋', total > 0 ?
+    Math.floor((occurrences * 1000) / total) : 0, nat(occurrences, total) && total > 0 && occurrences <= total,
+    'probability', [occurrences, total]) } /** ADD-ONE (LAPLACE) SMOOTHED probability in per-mille. value
+    ⌊(count + 1) · 1000 / (total + vocab)⌋. */ static laplacesmoothing(count: number, total: number, vocab:
+    number): CrossFormula { const d = total + vocab; return c('ngram-laplacesmoothing', 'laplacesmoothing(count,
+    total, vocab) = ⌊(count + 1) · 1000 / (total + vocab)⌋', d > 0 ? Math.floor(((count + 1) * 1000) / d) : 0,
+    nat(count, total, vocab) && d > 0, 'laplacesmoothing', [count, total, vocab]) } /** PERPLEXITY PROXY: tokens
+    per occurrence (inverse likelihood). value ⌊total / occurrences⌋. */ static perplexityproxy(total: number,
+    occurrences: number): CrossFormula { return c('ngram-perplexityproxy', 'perplexityproxy(total, occurrences)
+    = ⌊total / occurrences⌋', occurrences > 0 ? Math.floor(total / occurrences) : 0, nat(total, occurrences) &&
+    occurrences > 0, 'perplexityproxy', [total, occurrences]) } /** VOCABULARY COVERAGE as a percentage. value
+    ⌊seen · 100 / vocab⌋. */ static coverage(seen: number, vocab: number): CrossFormula { return
+    c('ngram-coverage', 'coverage(seen, vocab) = ⌊seen · 100 / vocab⌋', vocab > 0 ? Math.floor((seen * 100) /
+    vocab) : 0, nat(seen, vocab) && vocab > 0 && seen <= vocab, 'coverage', [seen, vocab]) } /** BACKOFF WEIGHT:
+    the higher-order mass over the lower, in per-mille. value ⌊higher · 1000 / lower⌋. */ static
+    backoffweight(higher: number, lower: number): CrossFormula { return c('ngram-backoffweight',
+    'backoffweight(higher, lower) = ⌊higher · 1000 / lower⌋', lower > 0 ? Math.floor((higher * 1000) / lower) :
+    0, nat(higher, lower) && lower > 0, 'backoffweight', [higher, lower]) } /** VOCABULARY SIZE after pruning
+    the hapax legomena. value max(0, unique − hapax). -/
+theorem fam_ngram_vocabularysize_1 : (fmax (0 : Int) ((5000 : Int) - (1200 : Int))) = (3800 : Int) := by decide
 
-/-- ngram: conditionalcount(100, 1) = 99 — CONDITIONAL COUNT with absolute discounting. value max(0, joint −
-    discount). -/
-theorem fam_ngram_conditionalcount_1 : (fmax 0 (100 - 1)) = 99 := by decide
+/-- ngram: conditionalcount(100, 1) = 99 — NGRAM — LANGUAGE-MODEL COUNTING, AS ARITHMETIC (the n-gram model is
+    counts over a corpus, nothing else). How many n-grams a token stream holds, the maximum-likelihood
+    probability of one, add-one smoothing, a perplexity proxy, vocabulary coverage, the backoff weight, the
+    pruned vocabulary size, and an absolutely-discounted conditional count. Crosses to `statistics` — an n-gram
+    model is a frequency distribution. A measure. */ const PROOF = 'ngram arithmetic (n-gram count, MLE
+    probability, Laplace smoothing, perplexity proxy, coverage, backoff weight, vocabulary size, conditional
+    count); the language-model counts of a corpus; a measure crossed to statistics' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'ngram', dst: 'statistics', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `ngram.${name}`, params }) export class NgramFormulas { /** NGRAM COUNT: the n-grams in a
+    token stream. value max(0, tokens − n + 1). */ static count(tokens: number, n: number): CrossFormula {
+    return c('ngram-count', 'count(tokens, n) = max(0, tokens − n + 1)', Math.max(0, tokens - n + 1),
+    nat(tokens, n) && n >= 1, 'count', [tokens, n]) } /** MLE PROBABILITY in per-mille. value ⌊occurrences ·
+    1000 / total⌋. */ static probability(occurrences: number, total: number): CrossFormula { return
+    c('ngram-probability', 'probability(occurrences, total) = ⌊occurrences · 1000 / total⌋', total > 0 ?
+    Math.floor((occurrences * 1000) / total) : 0, nat(occurrences, total) && total > 0 && occurrences <= total,
+    'probability', [occurrences, total]) } /** ADD-ONE (LAPLACE) SMOOTHED probability in per-mille. value
+    ⌊(count + 1) · 1000 / (total + vocab)⌋. */ static laplacesmoothing(count: number, total: number, vocab:
+    number): CrossFormula { const d = total + vocab; return c('ngram-laplacesmoothing', 'laplacesmoothing(count,
+    total, vocab) = ⌊(count + 1) · 1000 / (total + vocab)⌋', d > 0 ? Math.floor(((count + 1) * 1000) / d) : 0,
+    nat(count, total, vocab) && d > 0, 'laplacesmoothing', [count, total, vocab]) } /** PERPLEXITY PROXY: tokens
+    per occurrence (inverse likelihood). value ⌊total / occurrences⌋. */ static perplexityproxy(total: number,
+    occurrences: number): CrossFormula { return c('ngram-perplexityproxy', 'perplexityproxy(total, occurrences)
+    = ⌊total / occurrences⌋', occurrences > 0 ? Math.floor(total / occurrences) : 0, nat(total, occurrences) &&
+    occurrences > 0, 'perplexityproxy', [total, occurrences]) } /** VOCABULARY COVERAGE as a percentage. value
+    ⌊seen · 100 / vocab⌋. */ static coverage(seen: number, vocab: number): CrossFormula { return
+    c('ngram-coverage', 'coverage(seen, vocab) = ⌊seen · 100 / vocab⌋', vocab > 0 ? Math.floor((seen * 100) /
+    vocab) : 0, nat(seen, vocab) && vocab > 0 && seen <= vocab, 'coverage', [seen, vocab]) } /** BACKOFF WEIGHT:
+    the higher-order mass over the lower, in per-mille. value ⌊higher · 1000 / lower⌋. */ static
+    backoffweight(higher: number, lower: number): CrossFormula { return c('ngram-backoffweight',
+    'backoffweight(higher, lower) = ⌊higher · 1000 / lower⌋', lower > 0 ? Math.floor((higher * 1000) / lower) :
+    0, nat(higher, lower) && lower > 0, 'backoffweight', [higher, lower]) } /** VOCABULARY SIZE after pruning
+    the hapax legomena. value max(0, unique − hapax). */ static vocabularysize(unique: number, hapax: number):
+    CrossFormula { return c('ngram-vocabularysize', 'vocabularysize(unique, hapax) = max(0, unique − hapax)',
+    Math.max(0, unique - hapax), nat(unique, hapax) && hapax <= unique, 'vocabularysize', [unique, hapax]) } /**
+    CONDITIONAL COUNT with absolute discounting. value max(0, joint − discount). -/
+theorem fam_ngram_conditionalcount_1 : (fmax (0 : Int) ((100 : Int) - (1 : Int))) = (99 : Int) := by decide
 
-/-- ngram: conditionalcount(0, 5) = 0 — CONDITIONAL COUNT with absolute discounting. value max(0, joint −
-    discount). -/
-theorem fam_ngram_conditionalcount_2 : (fmax 0 (0 - 5)) = 0 := by decide
+/-- ngram: conditionalcount(0, 5) = 0 — NGRAM — LANGUAGE-MODEL COUNTING, AS ARITHMETIC (the n-gram model is
+    counts over a corpus, nothing else). How many n-grams a token stream holds, the maximum-likelihood
+    probability of one, add-one smoothing, a perplexity proxy, vocabulary coverage, the backoff weight, the
+    pruned vocabulary size, and an absolutely-discounted conditional count. Crosses to `statistics` — an n-gram
+    model is a frequency distribution. A measure. */ const PROOF = 'ngram arithmetic (n-gram count, MLE
+    probability, Laplace smoothing, perplexity proxy, coverage, backoff weight, vocabulary size, conditional
+    count); the language-model counts of a corpus; a measure crossed to statistics' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'ngram', dst: 'statistics', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `ngram.${name}`, params }) export class NgramFormulas { /** NGRAM COUNT: the n-grams in a
+    token stream. value max(0, tokens − n + 1). */ static count(tokens: number, n: number): CrossFormula {
+    return c('ngram-count', 'count(tokens, n) = max(0, tokens − n + 1)', Math.max(0, tokens - n + 1),
+    nat(tokens, n) && n >= 1, 'count', [tokens, n]) } /** MLE PROBABILITY in per-mille. value ⌊occurrences ·
+    1000 / total⌋. */ static probability(occurrences: number, total: number): CrossFormula { return
+    c('ngram-probability', 'probability(occurrences, total) = ⌊occurrences · 1000 / total⌋', total > 0 ?
+    Math.floor((occurrences * 1000) / total) : 0, nat(occurrences, total) && total > 0 && occurrences <= total,
+    'probability', [occurrences, total]) } /** ADD-ONE (LAPLACE) SMOOTHED probability in per-mille. value
+    ⌊(count + 1) · 1000 / (total + vocab)⌋. */ static laplacesmoothing(count: number, total: number, vocab:
+    number): CrossFormula { const d = total + vocab; return c('ngram-laplacesmoothing', 'laplacesmoothing(count,
+    total, vocab) = ⌊(count + 1) · 1000 / (total + vocab)⌋', d > 0 ? Math.floor(((count + 1) * 1000) / d) : 0,
+    nat(count, total, vocab) && d > 0, 'laplacesmoothing', [count, total, vocab]) } /** PERPLEXITY PROXY: tokens
+    per occurrence (inverse likelihood). value ⌊total / occurrences⌋. */ static perplexityproxy(total: number,
+    occurrences: number): CrossFormula { return c('ngram-perplexityproxy', 'perplexityproxy(total, occurrences)
+    = ⌊total / occurrences⌋', occurrences > 0 ? Math.floor(total / occurrences) : 0, nat(total, occurrences) &&
+    occurrences > 0, 'perplexityproxy', [total, occurrences]) } /** VOCABULARY COVERAGE as a percentage. value
+    ⌊seen · 100 / vocab⌋. */ static coverage(seen: number, vocab: number): CrossFormula { return
+    c('ngram-coverage', 'coverage(seen, vocab) = ⌊seen · 100 / vocab⌋', vocab > 0 ? Math.floor((seen * 100) /
+    vocab) : 0, nat(seen, vocab) && vocab > 0 && seen <= vocab, 'coverage', [seen, vocab]) } /** BACKOFF WEIGHT:
+    the higher-order mass over the lower, in per-mille. value ⌊higher · 1000 / lower⌋. */ static
+    backoffweight(higher: number, lower: number): CrossFormula { return c('ngram-backoffweight',
+    'backoffweight(higher, lower) = ⌊higher · 1000 / lower⌋', lower > 0 ? Math.floor((higher * 1000) / lower) :
+    0, nat(higher, lower) && lower > 0, 'backoffweight', [higher, lower]) } /** VOCABULARY SIZE after pruning
+    the hapax legomena. value max(0, unique − hapax). */ static vocabularysize(unique: number, hapax: number):
+    CrossFormula { return c('ngram-vocabularysize', 'vocabularysize(unique, hapax) = max(0, unique − hapax)',
+    Math.max(0, unique - hapax), nat(unique, hapax) && hapax <= unique, 'vocabularysize', [unique, hapax]) } /**
+    CONDITIONAL COUNT with absolute discounting. value max(0, joint − discount). -/
+theorem fam_ngram_conditionalcount_2 : (fmax (0 : Int) ((0 : Int) - (5 : Int))) = (0 : Int) := by decide
+
+/-- nic: linerate(100) = 100 — NIC — THE NETWORK INTERFACE CARD, AS ARITHMETIC. A network adapter is numbers by
+    the book: the line rate, goodput after efficiency, packets per second from the frame size, the MTU,
+    per-frame overhead, the full-duplex aggregate, the RSS receive queues, interrupts after coalescing, path
+    latency across hops, and lane-aggregated bandwidth. Deterministic integer identities, standard Ethernet/PCIe
+    networking. Crosses to `hardware`. A measure, not advice. */ const PROOF = 'NIC arithmetic by the book (line
+    rate Gb/s, goodput = ⌊Gb/s · efficiency / 100⌋, packets = ⌊Gb/s · 125e6 / frame-bytes⌋, MTU bytes, overhead
+    = frame − payload, full-duplex = Gb/s · 2, RSS queues = cores · per-core, interrupts = ⌈packets / coalesce⌉,
+    latency = hops · per-hop-µs, bandwidth = lanes · per-lane-Gb/s); deterministic integer identities crossed to
+    hardware; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const n = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nic', dst: 'hardware',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nic.${name}`, params }) export class NicFormulas {
+    /** LINERATE — the nominal line rate of the link. value gbps (Gb/s); holds nat. -/
+theorem fam_nic_linerate_1 : (100 : Int) = (100 : Int) := by decide
+
+/-- nic: throughput(100, 90) = 90 — NIC — THE NETWORK INTERFACE CARD, AS ARITHMETIC. A network adapter is
+    numbers by the book: the line rate, goodput after efficiency, packets per second from the frame size, the
+    MTU, per-frame overhead, the full-duplex aggregate, the RSS receive queues, interrupts after coalescing,
+    path latency across hops, and lane-aggregated bandwidth. Deterministic integer identities, standard
+    Ethernet/PCIe networking. Crosses to `hardware`. A measure, not advice. */ const PROOF = 'NIC arithmetic by
+    the book (line rate Gb/s, goodput = ⌊Gb/s · efficiency / 100⌋, packets = ⌊Gb/s · 125e6 / frame-bytes⌋, MTU
+    bytes, overhead = frame − payload, full-duplex = Gb/s · 2, RSS queues = cores · per-core, interrupts =
+    ⌈packets / coalesce⌉, latency = hops · per-hop-µs, bandwidth = lanes · per-lane-Gb/s); deterministic integer
+    identities crossed to hardware; a measure' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const n = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nic', dst: 'hardware', formula, value, proof: PROOF, ...extra }, holds, { name: `nic.${name}`, params
+    }) export class NicFormulas { /** LINERATE — the nominal line rate of the link. value gbps (Gb/s); holds
+    nat. */ static linerate(gbps: number): CrossFormula { return n('nic-linerate', 'linerate(gbps) = gbps
+    (Gb/s)', gbps, nat(gbps), 'linerate', [gbps]) } /** THROUGHPUT — goodput: the line rate scaled by the
+    efficiency percentage. value ⌊gbps · efficiencyPct / 100⌋; holds efficiencyPct ≤ 100. -/
+theorem fam_nic_throughput_1 : (((100 : Int) * (90 : Int)) / (100 : Int)) = (90 : Int) := by decide
+
+/-- nic: packets(10, 1500) = 833333 — NIC — THE NETWORK INTERFACE CARD, AS ARITHMETIC. A network adapter is
+    numbers by the book: the line rate, goodput after efficiency, packets per second from the frame size, the
+    MTU, per-frame overhead, the full-duplex aggregate, the RSS receive queues, interrupts after coalescing,
+    path latency across hops, and lane-aggregated bandwidth. Deterministic integer identities, standard
+    Ethernet/PCIe networking. Crosses to `hardware`. A measure, not advice. */ const PROOF = 'NIC arithmetic by
+    the book (line rate Gb/s, goodput = ⌊Gb/s · efficiency / 100⌋, packets = ⌊Gb/s · 125e6 / frame-bytes⌋, MTU
+    bytes, overhead = frame − payload, full-duplex = Gb/s · 2, RSS queues = cores · per-core, interrupts =
+    ⌈packets / coalesce⌉, latency = hops · per-hop-µs, bandwidth = lanes · per-lane-Gb/s); deterministic integer
+    identities crossed to hardware; a measure' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const n = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nic', dst: 'hardware', formula, value, proof: PROOF, ...extra }, holds, { name: `nic.${name}`, params
+    }) export class NicFormulas { /** LINERATE — the nominal line rate of the link. value gbps (Gb/s); holds
+    nat. */ static linerate(gbps: number): CrossFormula { return n('nic-linerate', 'linerate(gbps) = gbps
+    (Gb/s)', gbps, nat(gbps), 'linerate', [gbps]) } /** THROUGHPUT — goodput: the line rate scaled by the
+    efficiency percentage. value ⌊gbps · efficiencyPct / 100⌋; holds efficiencyPct ≤ 100. */ static
+    throughput(gbps: number, efficiencyPct: number): CrossFormula { return n('nic-throughput', 'throughput(gbps,
+    efficiencyPct) = ⌊gbps · efficiencyPct / 100⌋', Math.floor((gbps * efficiencyPct) / 100), nat(gbps,
+    efficiencyPct) && efficiencyPct <= 100, 'throughput', [gbps, efficiencyPct]) } /** PACKETS — packets per
+    second the line rate carries at a given frame size. value ⌊gbps · 125000000 / frameBytes⌋; holds frameBytes
+    > 0. -/
+theorem fam_nic_packets_1 : (((10 : Int) * (125000000 : Int)) / (1500 : Int)) = (833333 : Int) := by decide
+
+/-- nic: mtu(9000) = 9000 — NIC — THE NETWORK INTERFACE CARD, AS ARITHMETIC. A network adapter is numbers by the
+    book: the line rate, goodput after efficiency, packets per second from the frame size, the MTU, per-frame
+    overhead, the full-duplex aggregate, the RSS receive queues, interrupts after coalescing, path latency
+    across hops, and lane-aggregated bandwidth. Deterministic integer identities, standard Ethernet/PCIe
+    networking. Crosses to `hardware`. A measure, not advice. */ const PROOF = 'NIC arithmetic by the book (line
+    rate Gb/s, goodput = ⌊Gb/s · efficiency / 100⌋, packets = ⌊Gb/s · 125e6 / frame-bytes⌋, MTU bytes, overhead
+    = frame − payload, full-duplex = Gb/s · 2, RSS queues = cores · per-core, interrupts = ⌈packets / coalesce⌉,
+    latency = hops · per-hop-µs, bandwidth = lanes · per-lane-Gb/s); deterministic integer identities crossed to
+    hardware; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const n = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nic', dst: 'hardware',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nic.${name}`, params }) export class NicFormulas {
+    /** LINERATE — the nominal line rate of the link. value gbps (Gb/s); holds nat. */ static linerate(gbps:
+    number): CrossFormula { return n('nic-linerate', 'linerate(gbps) = gbps (Gb/s)', gbps, nat(gbps),
+    'linerate', [gbps]) } /** THROUGHPUT — goodput: the line rate scaled by the efficiency percentage. value
+    ⌊gbps · efficiencyPct / 100⌋; holds efficiencyPct ≤ 100. */ static throughput(gbps: number, efficiencyPct:
+    number): CrossFormula { return n('nic-throughput', 'throughput(gbps, efficiencyPct) = ⌊gbps · efficiencyPct
+    / 100⌋', Math.floor((gbps * efficiencyPct) / 100), nat(gbps, efficiencyPct) && efficiencyPct <= 100,
+    'throughput', [gbps, efficiencyPct]) } /** PACKETS — packets per second the line rate carries at a given
+    frame size. value ⌊gbps · 125000000 / frameBytes⌋; holds frameBytes > 0. */ static packets(gbps: number,
+    frameBytes: number): CrossFormula { return n('nic-packets', 'packets(gbps, frameBytes) = ⌊gbps · 125000000 /
+    frameBytes⌋ (pps)', frameBytes > 0 ? Math.floor((gbps * 125000000) / frameBytes) : 0, nat(gbps, frameBytes)
+    && frameBytes > 0, 'packets', [gbps, frameBytes]) } /** MTU — the maximum transmission unit in bytes. value
+    bytes; holds nat. -/
+theorem fam_nic_mtu_1 : (9000 : Int) = (9000 : Int) := by decide
+
+/-- nic: overhead(1518, 1500) = 18 — NIC — THE NETWORK INTERFACE CARD, AS ARITHMETIC. A network adapter is
+    numbers by the book: the line rate, goodput after efficiency, packets per second from the frame size, the
+    MTU, per-frame overhead, the full-duplex aggregate, the RSS receive queues, interrupts after coalescing,
+    path latency across hops, and lane-aggregated bandwidth. Deterministic integer identities, standard
+    Ethernet/PCIe networking. Crosses to `hardware`. A measure, not advice. */ const PROOF = 'NIC arithmetic by
+    the book (line rate Gb/s, goodput = ⌊Gb/s · efficiency / 100⌋, packets = ⌊Gb/s · 125e6 / frame-bytes⌋, MTU
+    bytes, overhead = frame − payload, full-duplex = Gb/s · 2, RSS queues = cores · per-core, interrupts =
+    ⌈packets / coalesce⌉, latency = hops · per-hop-µs, bandwidth = lanes · per-lane-Gb/s); deterministic integer
+    identities crossed to hardware; a measure' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const n = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nic', dst: 'hardware', formula, value, proof: PROOF, ...extra }, holds, { name: `nic.${name}`, params
+    }) export class NicFormulas { /** LINERATE — the nominal line rate of the link. value gbps (Gb/s); holds
+    nat. */ static linerate(gbps: number): CrossFormula { return n('nic-linerate', 'linerate(gbps) = gbps
+    (Gb/s)', gbps, nat(gbps), 'linerate', [gbps]) } /** THROUGHPUT — goodput: the line rate scaled by the
+    efficiency percentage. value ⌊gbps · efficiencyPct / 100⌋; holds efficiencyPct ≤ 100. */ static
+    throughput(gbps: number, efficiencyPct: number): CrossFormula { return n('nic-throughput', 'throughput(gbps,
+    efficiencyPct) = ⌊gbps · efficiencyPct / 100⌋', Math.floor((gbps * efficiencyPct) / 100), nat(gbps,
+    efficiencyPct) && efficiencyPct <= 100, 'throughput', [gbps, efficiencyPct]) } /** PACKETS — packets per
+    second the line rate carries at a given frame size. value ⌊gbps · 125000000 / frameBytes⌋; holds frameBytes
+    > 0. */ static packets(gbps: number, frameBytes: number): CrossFormula { return n('nic-packets',
+    'packets(gbps, frameBytes) = ⌊gbps · 125000000 / frameBytes⌋ (pps)', frameBytes > 0 ? Math.floor((gbps *
+    125000000) / frameBytes) : 0, nat(gbps, frameBytes) && frameBytes > 0, 'packets', [gbps, frameBytes]) } /**
+    MTU — the maximum transmission unit in bytes. value bytes; holds nat. */ static mtu(bytes: number):
+    CrossFormula { return n('nic-mtu', 'mtu(bytes) = bytes', bytes, nat(bytes), 'mtu', [bytes]) } /** OVERHEAD —
+    the framing overhead: the frame bytes beyond the payload. value frameBytes − payloadBytes; holds
+    payloadBytes ≤ frameBytes. -/
+theorem fam_nic_overhead_1 : ((1518 : Int) - (1500 : Int)) = (18 : Int) := by decide
+
+/-- nic: duplex(100) = 200 — NIC — THE NETWORK INTERFACE CARD, AS ARITHMETIC. A network adapter is numbers by
+    the book: the line rate, goodput after efficiency, packets per second from the frame size, the MTU,
+    per-frame overhead, the full-duplex aggregate, the RSS receive queues, interrupts after coalescing, path
+    latency across hops, and lane-aggregated bandwidth. Deterministic integer identities, standard Ethernet/PCIe
+    networking. Crosses to `hardware`. A measure, not advice. */ const PROOF = 'NIC arithmetic by the book (line
+    rate Gb/s, goodput = ⌊Gb/s · efficiency / 100⌋, packets = ⌊Gb/s · 125e6 / frame-bytes⌋, MTU bytes, overhead
+    = frame − payload, full-duplex = Gb/s · 2, RSS queues = cores · per-core, interrupts = ⌈packets / coalesce⌉,
+    latency = hops · per-hop-µs, bandwidth = lanes · per-lane-Gb/s); deterministic integer identities crossed to
+    hardware; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const n = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nic', dst: 'hardware',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nic.${name}`, params }) export class NicFormulas {
+    /** LINERATE — the nominal line rate of the link. value gbps (Gb/s); holds nat. */ static linerate(gbps:
+    number): CrossFormula { return n('nic-linerate', 'linerate(gbps) = gbps (Gb/s)', gbps, nat(gbps),
+    'linerate', [gbps]) } /** THROUGHPUT — goodput: the line rate scaled by the efficiency percentage. value
+    ⌊gbps · efficiencyPct / 100⌋; holds efficiencyPct ≤ 100. */ static throughput(gbps: number, efficiencyPct:
+    number): CrossFormula { return n('nic-throughput', 'throughput(gbps, efficiencyPct) = ⌊gbps · efficiencyPct
+    / 100⌋', Math.floor((gbps * efficiencyPct) / 100), nat(gbps, efficiencyPct) && efficiencyPct <= 100,
+    'throughput', [gbps, efficiencyPct]) } /** PACKETS — packets per second the line rate carries at a given
+    frame size. value ⌊gbps · 125000000 / frameBytes⌋; holds frameBytes > 0. */ static packets(gbps: number,
+    frameBytes: number): CrossFormula { return n('nic-packets', 'packets(gbps, frameBytes) = ⌊gbps · 125000000 /
+    frameBytes⌋ (pps)', frameBytes > 0 ? Math.floor((gbps * 125000000) / frameBytes) : 0, nat(gbps, frameBytes)
+    && frameBytes > 0, 'packets', [gbps, frameBytes]) } /** MTU — the maximum transmission unit in bytes. value
+    bytes; holds nat. */ static mtu(bytes: number): CrossFormula { return n('nic-mtu', 'mtu(bytes) = bytes',
+    bytes, nat(bytes), 'mtu', [bytes]) } /** OVERHEAD — the framing overhead: the frame bytes beyond the
+    payload. value frameBytes − payloadBytes; holds payloadBytes ≤ frameBytes. */ static overhead(frameBytes:
+    number, payloadBytes: number): CrossFormula { return n('nic-overhead', 'overhead(frameBytes, payloadBytes) =
+    frameBytes − payloadBytes', frameBytes - payloadBytes, nat(frameBytes, payloadBytes) && payloadBytes <=
+    frameBytes, 'overhead', [frameBytes, payloadBytes]) } /** DUPLEX — the full-duplex aggregate: send and
+    receive at the line rate together. value gbps · 2 (Gb/s). -/
+theorem fam_nic_duplex_1 : ((100 : Int) * (2 : Int)) = (200 : Int) := by decide
+
+/-- nic: queues(8, 4) = 32 — NIC — THE NETWORK INTERFACE CARD, AS ARITHMETIC. A network adapter is numbers by
+    the book: the line rate, goodput after efficiency, packets per second from the frame size, the MTU,
+    per-frame overhead, the full-duplex aggregate, the RSS receive queues, interrupts after coalescing, path
+    latency across hops, and lane-aggregated bandwidth. Deterministic integer identities, standard Ethernet/PCIe
+    networking. Crosses to `hardware`. A measure, not advice. */ const PROOF = 'NIC arithmetic by the book (line
+    rate Gb/s, goodput = ⌊Gb/s · efficiency / 100⌋, packets = ⌊Gb/s · 125e6 / frame-bytes⌋, MTU bytes, overhead
+    = frame − payload, full-duplex = Gb/s · 2, RSS queues = cores · per-core, interrupts = ⌈packets / coalesce⌉,
+    latency = hops · per-hop-µs, bandwidth = lanes · per-lane-Gb/s); deterministic integer identities crossed to
+    hardware; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const n = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nic', dst: 'hardware',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nic.${name}`, params }) export class NicFormulas {
+    /** LINERATE — the nominal line rate of the link. value gbps (Gb/s); holds nat. */ static linerate(gbps:
+    number): CrossFormula { return n('nic-linerate', 'linerate(gbps) = gbps (Gb/s)', gbps, nat(gbps),
+    'linerate', [gbps]) } /** THROUGHPUT — goodput: the line rate scaled by the efficiency percentage. value
+    ⌊gbps · efficiencyPct / 100⌋; holds efficiencyPct ≤ 100. */ static throughput(gbps: number, efficiencyPct:
+    number): CrossFormula { return n('nic-throughput', 'throughput(gbps, efficiencyPct) = ⌊gbps · efficiencyPct
+    / 100⌋', Math.floor((gbps * efficiencyPct) / 100), nat(gbps, efficiencyPct) && efficiencyPct <= 100,
+    'throughput', [gbps, efficiencyPct]) } /** PACKETS — packets per second the line rate carries at a given
+    frame size. value ⌊gbps · 125000000 / frameBytes⌋; holds frameBytes > 0. */ static packets(gbps: number,
+    frameBytes: number): CrossFormula { return n('nic-packets', 'packets(gbps, frameBytes) = ⌊gbps · 125000000 /
+    frameBytes⌋ (pps)', frameBytes > 0 ? Math.floor((gbps * 125000000) / frameBytes) : 0, nat(gbps, frameBytes)
+    && frameBytes > 0, 'packets', [gbps, frameBytes]) } /** MTU — the maximum transmission unit in bytes. value
+    bytes; holds nat. */ static mtu(bytes: number): CrossFormula { return n('nic-mtu', 'mtu(bytes) = bytes',
+    bytes, nat(bytes), 'mtu', [bytes]) } /** OVERHEAD — the framing overhead: the frame bytes beyond the
+    payload. value frameBytes − payloadBytes; holds payloadBytes ≤ frameBytes. */ static overhead(frameBytes:
+    number, payloadBytes: number): CrossFormula { return n('nic-overhead', 'overhead(frameBytes, payloadBytes) =
+    frameBytes − payloadBytes', frameBytes - payloadBytes, nat(frameBytes, payloadBytes) && payloadBytes <=
+    frameBytes, 'overhead', [frameBytes, payloadBytes]) } /** DUPLEX — the full-duplex aggregate: send and
+    receive at the line rate together. value gbps · 2 (Gb/s). */ static duplex(gbps: number): CrossFormula {
+    return n('nic-duplex', 'duplex(gbps) = gbps · 2 (full-duplex aggregate)', gbps * 2, nat(gbps), 'duplex',
+    [gbps]) } /** QUEUES — the receive-side scaling queues: cores times the queues each core drives. value cores
+    · perCore. -/
+theorem fam_nic_queues_1 : ((8 : Int) * (4 : Int)) = (32 : Int) := by decide
+
+/-- nic: interrupts(1000, 64) = 16 — NIC — THE NETWORK INTERFACE CARD, AS ARITHMETIC. A network adapter is
+    numbers by the book: the line rate, goodput after efficiency, packets per second from the frame size, the
+    MTU, per-frame overhead, the full-duplex aggregate, the RSS receive queues, interrupts after coalescing,
+    path latency across hops, and lane-aggregated bandwidth. Deterministic integer identities, standard
+    Ethernet/PCIe networking. Crosses to `hardware`. A measure, not advice. */ const PROOF = 'NIC arithmetic by
+    the book (line rate Gb/s, goodput = ⌊Gb/s · efficiency / 100⌋, packets = ⌊Gb/s · 125e6 / frame-bytes⌋, MTU
+    bytes, overhead = frame − payload, full-duplex = Gb/s · 2, RSS queues = cores · per-core, interrupts =
+    ⌈packets / coalesce⌉, latency = hops · per-hop-µs, bandwidth = lanes · per-lane-Gb/s); deterministic integer
+    identities crossed to hardware; a measure' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const n = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nic', dst: 'hardware', formula, value, proof: PROOF, ...extra }, holds, { name: `nic.${name}`, params
+    }) export class NicFormulas { /** LINERATE — the nominal line rate of the link. value gbps (Gb/s); holds
+    nat. */ static linerate(gbps: number): CrossFormula { return n('nic-linerate', 'linerate(gbps) = gbps
+    (Gb/s)', gbps, nat(gbps), 'linerate', [gbps]) } /** THROUGHPUT — goodput: the line rate scaled by the
+    efficiency percentage. value ⌊gbps · efficiencyPct / 100⌋; holds efficiencyPct ≤ 100. */ static
+    throughput(gbps: number, efficiencyPct: number): CrossFormula { return n('nic-throughput', 'throughput(gbps,
+    efficiencyPct) = ⌊gbps · efficiencyPct / 100⌋', Math.floor((gbps * efficiencyPct) / 100), nat(gbps,
+    efficiencyPct) && efficiencyPct <= 100, 'throughput', [gbps, efficiencyPct]) } /** PACKETS — packets per
+    second the line rate carries at a given frame size. value ⌊gbps · 125000000 / frameBytes⌋; holds frameBytes
+    > 0. */ static packets(gbps: number, frameBytes: number): CrossFormula { return n('nic-packets',
+    'packets(gbps, frameBytes) = ⌊gbps · 125000000 / frameBytes⌋ (pps)', frameBytes > 0 ? Math.floor((gbps *
+    125000000) / frameBytes) : 0, nat(gbps, frameBytes) && frameBytes > 0, 'packets', [gbps, frameBytes]) } /**
+    MTU — the maximum transmission unit in bytes. value bytes; holds nat. */ static mtu(bytes: number):
+    CrossFormula { return n('nic-mtu', 'mtu(bytes) = bytes', bytes, nat(bytes), 'mtu', [bytes]) } /** OVERHEAD —
+    the framing overhead: the frame bytes beyond the payload. value frameBytes − payloadBytes; holds
+    payloadBytes ≤ frameBytes. */ static overhead(frameBytes: number, payloadBytes: number): CrossFormula {
+    return n('nic-overhead', 'overhead(frameBytes, payloadBytes) = frameBytes − payloadBytes', frameBytes -
+    payloadBytes, nat(frameBytes, payloadBytes) && payloadBytes <= frameBytes, 'overhead', [frameBytes,
+    payloadBytes]) } /** DUPLEX — the full-duplex aggregate: send and receive at the line rate together. value
+    gbps · 2 (Gb/s). */ static duplex(gbps: number): CrossFormula { return n('nic-duplex', 'duplex(gbps) = gbps
+    · 2 (full-duplex aggregate)', gbps * 2, nat(gbps), 'duplex', [gbps]) } /** QUEUES — the receive-side scaling
+    queues: cores times the queues each core drives. value cores · perCore. */ static queues(cores: number,
+    perCore: number): CrossFormula { return n('nic-queues', 'queues(cores, perCore) = cores · perCore (RSS)',
+    cores * perCore, nat(cores, perCore), 'queues', [cores, perCore]) } /** INTERRUPTS — the interrupts raised
+    after coalescing a count of packets. value ⌈packets / coalesce⌉; holds coalesce > 0. -/
+theorem fam_nic_interrupts_1 : (-((-(1000 : Int)) / (64 : Int))) = (16 : Int) := by decide
+
+/-- nic: bandwidth(16, 32) = 512 — NIC — THE NETWORK INTERFACE CARD, AS ARITHMETIC. A network adapter is numbers
+    by the book: the line rate, goodput after efficiency, packets per second from the frame size, the MTU,
+    per-frame overhead, the full-duplex aggregate, the RSS receive queues, interrupts after coalescing, path
+    latency across hops, and lane-aggregated bandwidth. Deterministic integer identities, standard Ethernet/PCIe
+    networking. Crosses to `hardware`. A measure, not advice. */ const PROOF = 'NIC arithmetic by the book (line
+    rate Gb/s, goodput = ⌊Gb/s · efficiency / 100⌋, packets = ⌊Gb/s · 125e6 / frame-bytes⌋, MTU bytes, overhead
+    = frame − payload, full-duplex = Gb/s · 2, RSS queues = cores · per-core, interrupts = ⌈packets / coalesce⌉,
+    latency = hops · per-hop-µs, bandwidth = lanes · per-lane-Gb/s); deterministic integer identities crossed to
+    hardware; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const n = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nic', dst: 'hardware',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `nic.${name}`, params }) export class NicFormulas {
+    /** LINERATE — the nominal line rate of the link. value gbps (Gb/s); holds nat. */ static linerate(gbps:
+    number): CrossFormula { return n('nic-linerate', 'linerate(gbps) = gbps (Gb/s)', gbps, nat(gbps),
+    'linerate', [gbps]) } /** THROUGHPUT — goodput: the line rate scaled by the efficiency percentage. value
+    ⌊gbps · efficiencyPct / 100⌋; holds efficiencyPct ≤ 100. */ static throughput(gbps: number, efficiencyPct:
+    number): CrossFormula { return n('nic-throughput', 'throughput(gbps, efficiencyPct) = ⌊gbps · efficiencyPct
+    / 100⌋', Math.floor((gbps * efficiencyPct) / 100), nat(gbps, efficiencyPct) && efficiencyPct <= 100,
+    'throughput', [gbps, efficiencyPct]) } /** PACKETS — packets per second the line rate carries at a given
+    frame size. value ⌊gbps · 125000000 / frameBytes⌋; holds frameBytes > 0. */ static packets(gbps: number,
+    frameBytes: number): CrossFormula { return n('nic-packets', 'packets(gbps, frameBytes) = ⌊gbps · 125000000 /
+    frameBytes⌋ (pps)', frameBytes > 0 ? Math.floor((gbps * 125000000) / frameBytes) : 0, nat(gbps, frameBytes)
+    && frameBytes > 0, 'packets', [gbps, frameBytes]) } /** MTU — the maximum transmission unit in bytes. value
+    bytes; holds nat. */ static mtu(bytes: number): CrossFormula { return n('nic-mtu', 'mtu(bytes) = bytes',
+    bytes, nat(bytes), 'mtu', [bytes]) } /** OVERHEAD — the framing overhead: the frame bytes beyond the
+    payload. value frameBytes − payloadBytes; holds payloadBytes ≤ frameBytes. */ static overhead(frameBytes:
+    number, payloadBytes: number): CrossFormula { return n('nic-overhead', 'overhead(frameBytes, payloadBytes) =
+    frameBytes − payloadBytes', frameBytes - payloadBytes, nat(frameBytes, payloadBytes) && payloadBytes <=
+    frameBytes, 'overhead', [frameBytes, payloadBytes]) } /** DUPLEX — the full-duplex aggregate: send and
+    receive at the line rate together. value gbps · 2 (Gb/s). */ static duplex(gbps: number): CrossFormula {
+    return n('nic-duplex', 'duplex(gbps) = gbps · 2 (full-duplex aggregate)', gbps * 2, nat(gbps), 'duplex',
+    [gbps]) } /** QUEUES — the receive-side scaling queues: cores times the queues each core drives. value cores
+    · perCore. */ static queues(cores: number, perCore: number): CrossFormula { return n('nic-queues',
+    'queues(cores, perCore) = cores · perCore (RSS)', cores * perCore, nat(cores, perCore), 'queues', [cores,
+    perCore]) } /** INTERRUPTS — the interrupts raised after coalescing a count of packets. value ⌈packets /
+    coalesce⌉; holds coalesce > 0. */ static interrupts(packets: number, coalesce: number): CrossFormula {
+    return n('nic-interrupts', 'interrupts(packets, coalesce) = ⌈packets / coalesce⌉', coalesce > 0 ?
+    Math.ceil(packets / coalesce) : 0, nat(packets, coalesce) && coalesce > 0, 'interrupts', [packets,
+    coalesce]) } /** LATENCY — path latency: the per-hop delay across the hops, in microseconds. value hops ·
+    perHopUs (µs). */ static latency(hops: number, perHopUs: number): CrossFormula { return n('nic-latency',
+    'latency(hops, perHopUs) = hops · perHopUs (µs)', hops * perHopUs, nat(hops, perHopUs), 'latency', [hops,
+    perHopUs]) } /** BANDWIDTH — aggregate bandwidth across the link's lanes. value lanes · perLaneGbps (Gb/s). -/
+theorem fam_nic_bandwidth_1 : ((16 : Int) * (32 : Int)) = (512 : Int) := by decide
 
 /-- nim: heaps(3, 0) = 3 -/
-theorem fam_nim_heaps_1 : (3 + 0) = 3 := by decide
+theorem fam_nim_heaps_1 : ((3 : Int) + (0 : Int)) = (3 : Int) := by decide
 
 /-- nim: totalstones(3, 5, 7) = 15 -/
-theorem fam_nim_totalstones_1 : ((3 + 5) + 7) = 15 := by decide
+theorem fam_nim_totalstones_1 : (((3 : Int) + (5 : Int)) + (7 : Int)) = (15 : Int) := by decide
+
+/-- nim: movecombos(15, 2) = 105 -/
+theorem fam_nim_movecombos_1 : (Int.ofNat (fchoose (Int.toNat (15 : Int)) (Int.toNat (2 : Int)))) = (105 : Int) := by decide
 
 /-- nim: positionsubsets(6) = 64 -/
-theorem fam_nim_positionsubsets_1 : (2 ^ 6) = 64 := by decide
+theorem fam_nim_positionsubsets_1 : ((2 : Int) ^ (6 : Nat)) = (64 : Int) := by decide
+
+/-- nim: grundyvalue(15, 4) = 3 -/
+theorem fam_nim_grundyvalue_1 : ((15 : Int) % (4 : Int)) = (3 : Int) := by decide
 
 /-- nim: winningmoves(2, 1) = 3 -/
-theorem fam_nim_winningmoves_1 : (2 + 1) = 3 := by decide
+theorem fam_nim_winningmoves_1 : ((2 : Int) + (1 : Int)) = (3 : Int) := by decide
 
 /-- nim: heapmax(7, 5) = 7 -/
-theorem fam_nim_heapmax_1 : (fmax 7 5) = 7 := by decide
+theorem fam_nim_heapmax_1 : (fmax (7 : Int) (5 : Int)) = (7 : Int) := by decide
+
+/-- nim: parity(15, 2) = 1 -/
+theorem fam_nim_parity_1 : ((15 : Int) % (2 : Int)) = (1 : Int) := by decide
 
 /-- noise: snr(90, 30) = 60 — NOISE — ACOUSTIC LEVELS AS ARITHMETIC (chosen by the registry, not by hand). Sound
     is numbers: signal over noise, two sources combined, loss over distance, the dose an exposure carries, what
@@ -419,33 +2822,181 @@ theorem fam_nim_heapmax_1 : (fmax 7 5) = 7 := by decide
     formula, value, proof: PROOF, ...extra }, holds, { name: `noise.${name}`, params }) export class
     NoiseFormulas { /** SIGNAL-TO-NOISE: the signal level above the noise level, in dB. value max(0, signal −
     noise). -/
-theorem fam_noise_snr_1 : (fmax 0 (90 - 30)) = 60 := by decide
+theorem fam_noise_snr_1 : (fmax (0 : Int) ((90 : Int) - (30 : Int))) = (60 : Int) := by decide
 
-/-- noise: sumlevels(60, 40) = 100 — SUMMED LEVELS: two sources combined as an energy proxy. value a + b. -/
-theorem fam_noise_sumlevels_1 : (60 + 40) = 100 := by decide
+/-- noise: sumlevels(60, 40) = 100 — NOISE — ACOUSTIC LEVELS AS ARITHMETIC (chosen by the registry, not by
+    hand). Sound is numbers: signal over noise, two sources combined, loss over distance, the dose an exposure
+    carries, what a barrier removes, the threshold a masker raises, the average floor, and the range between
+    peak and floor. Decibels as integer proxies, no logs. Crosses to `acoustics` — noise is the acoustics the
+    world measures. A measure. */ const PROOF = 'noise arithmetic (snr, summed levels, attenuation, exposure
+    dose, noise reduction, masking threshold, floor, dynamic range); decibels as integer proxies with no logs; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noise', dst: 'acoustics',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `noise.${name}`, params }) export class
+    NoiseFormulas { /** SIGNAL-TO-NOISE: the signal level above the noise level, in dB. value max(0, signal −
+    noise). */ static snr(signal: number, noise: number): CrossFormula { return c('noise-snr', 'snr(signal,
+    noise) = max(0, signal − noise)', Math.max(0, signal - noise), nat(signal, noise), 'snr', [signal, noise]) }
+    /** SUMMED LEVELS: two sources combined as an energy proxy. value a + b. -/
+theorem fam_noise_sumlevels_1 : ((60 : Int) + (40 : Int)) = (100 : Int) := by decide
 
-/-- noise: attenuation(80, 25) = 55 — ATTENUATION: a level after a propagation loss, in dB. value max(0, level −
-    loss). -/
-theorem fam_noise_attenuation_1 : (fmax 0 (80 - 25)) = 55 := by decide
+/-- noise: attenuation(80, 25) = 55 — NOISE — ACOUSTIC LEVELS AS ARITHMETIC (chosen by the registry, not by
+    hand). Sound is numbers: signal over noise, two sources combined, loss over distance, the dose an exposure
+    carries, what a barrier removes, the threshold a masker raises, the average floor, and the range between
+    peak and floor. Decibels as integer proxies, no logs. Crosses to `acoustics` — noise is the acoustics the
+    world measures. A measure. */ const PROOF = 'noise arithmetic (snr, summed levels, attenuation, exposure
+    dose, noise reduction, masking threshold, floor, dynamic range); decibels as integer proxies with no logs; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noise', dst: 'acoustics',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `noise.${name}`, params }) export class
+    NoiseFormulas { /** SIGNAL-TO-NOISE: the signal level above the noise level, in dB. value max(0, signal −
+    noise). */ static snr(signal: number, noise: number): CrossFormula { return c('noise-snr', 'snr(signal,
+    noise) = max(0, signal − noise)', Math.max(0, signal - noise), nat(signal, noise), 'snr', [signal, noise]) }
+    /** SUMMED LEVELS: two sources combined as an energy proxy. value a + b. */ static sumlevels(a: number, b:
+    number): CrossFormula { return c('noise-sumlevels', 'sumlevels(a, b) = a + b', a + b, nat(a, b),
+    'sumlevels', [a, b]) } /** ATTENUATION: a level after a propagation loss, in dB. value max(0, level − loss). -/
+theorem fam_noise_attenuation_1 : (fmax (0 : Int) ((80 : Int) - (25 : Int))) = (55 : Int) := by decide
 
-/-- noise: exposuredose(85, 8) = 680 — EXPOSURE DOSE: a level sustained over hours. value level · hours. -/
-theorem fam_noise_exposuredose_1 : (85 * 8) = 680 := by decide
+/-- noise: exposuredose(85, 8) = 680 — NOISE — ACOUSTIC LEVELS AS ARITHMETIC (chosen by the registry, not by
+    hand). Sound is numbers: signal over noise, two sources combined, loss over distance, the dose an exposure
+    carries, what a barrier removes, the threshold a masker raises, the average floor, and the range between
+    peak and floor. Decibels as integer proxies, no logs. Crosses to `acoustics` — noise is the acoustics the
+    world measures. A measure. */ const PROOF = 'noise arithmetic (snr, summed levels, attenuation, exposure
+    dose, noise reduction, masking threshold, floor, dynamic range); decibels as integer proxies with no logs; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noise', dst: 'acoustics',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `noise.${name}`, params }) export class
+    NoiseFormulas { /** SIGNAL-TO-NOISE: the signal level above the noise level, in dB. value max(0, signal −
+    noise). */ static snr(signal: number, noise: number): CrossFormula { return c('noise-snr', 'snr(signal,
+    noise) = max(0, signal − noise)', Math.max(0, signal - noise), nat(signal, noise), 'snr', [signal, noise]) }
+    /** SUMMED LEVELS: two sources combined as an energy proxy. value a + b. */ static sumlevels(a: number, b:
+    number): CrossFormula { return c('noise-sumlevels', 'sumlevels(a, b) = a + b', a + b, nat(a, b),
+    'sumlevels', [a, b]) } /** ATTENUATION: a level after a propagation loss, in dB. value max(0, level − loss).
+    */ static attenuation(level: number, loss: number): CrossFormula { return c('noise-attenuation',
+    'attenuation(level, loss) = max(0, level − loss)', Math.max(0, level - loss), nat(level, loss),
+    'attenuation', [level, loss]) } /** EXPOSURE DOSE: a level sustained over hours. value level · hours. -/
+theorem fam_noise_exposuredose_1 : ((85 : Int) * (8 : Int)) = (680 : Int) := by decide
 
-/-- noise: nr(100, 35) = 65 — NOISE REDUCTION: what a barrier removes from the outside level, in dB. value
-    max(0, outside − barrier). -/
-theorem fam_noise_nr_1 : (fmax 0 (100 - 35)) = 65 := by decide
+/-- noise: nr(100, 35) = 65 — NOISE — ACOUSTIC LEVELS AS ARITHMETIC (chosen by the registry, not by hand). Sound
+    is numbers: signal over noise, two sources combined, loss over distance, the dose an exposure carries, what
+    a barrier removes, the threshold a masker raises, the average floor, and the range between peak and floor.
+    Decibels as integer proxies, no logs. Crosses to `acoustics` — noise is the acoustics the world measures. A
+    measure. */ const PROOF = 'noise arithmetic (snr, summed levels, attenuation, exposure dose, noise
+    reduction, masking threshold, floor, dynamic range); decibels as integer proxies with no logs; a measure
+    crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noise', dst: 'acoustics',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `noise.${name}`, params }) export class
+    NoiseFormulas { /** SIGNAL-TO-NOISE: the signal level above the noise level, in dB. value max(0, signal −
+    noise). */ static snr(signal: number, noise: number): CrossFormula { return c('noise-snr', 'snr(signal,
+    noise) = max(0, signal − noise)', Math.max(0, signal - noise), nat(signal, noise), 'snr', [signal, noise]) }
+    /** SUMMED LEVELS: two sources combined as an energy proxy. value a + b. */ static sumlevels(a: number, b:
+    number): CrossFormula { return c('noise-sumlevels', 'sumlevels(a, b) = a + b', a + b, nat(a, b),
+    'sumlevels', [a, b]) } /** ATTENUATION: a level after a propagation loss, in dB. value max(0, level − loss).
+    */ static attenuation(level: number, loss: number): CrossFormula { return c('noise-attenuation',
+    'attenuation(level, loss) = max(0, level − loss)', Math.max(0, level - loss), nat(level, loss),
+    'attenuation', [level, loss]) } /** EXPOSURE DOSE: a level sustained over hours. value level · hours. */
+    static exposuredose(level: number, hours: number): CrossFormula { return c('noise-exposuredose',
+    'exposuredose(level, hours) = level · hours', level * hours, nat(level, hours), 'exposuredose', [level,
+    hours]) } /** NOISE REDUCTION: what a barrier removes from the outside level, in dB. value max(0, outside −
+    barrier). -/
+theorem fam_noise_nr_1 : (fmax (0 : Int) ((100 : Int) - (35 : Int))) = (65 : Int) := by decide
 
-/-- noise: maskingthreshold(80, 50) = 40 — MASKING THRESHOLD: a masker raises the threshold to a percentage of
-    its level. value ⌊masker · ratio / 100⌋. -/
-theorem fam_noise_maskingthreshold_1 : ((80 * 50) / 100) = 40 := by decide
+/-- noise: maskingthreshold(80, 50) = 40 — NOISE — ACOUSTIC LEVELS AS ARITHMETIC (chosen by the registry, not by
+    hand). Sound is numbers: signal over noise, two sources combined, loss over distance, the dose an exposure
+    carries, what a barrier removes, the threshold a masker raises, the average floor, and the range between
+    peak and floor. Decibels as integer proxies, no logs. Crosses to `acoustics` — noise is the acoustics the
+    world measures. A measure. */ const PROOF = 'noise arithmetic (snr, summed levels, attenuation, exposure
+    dose, noise reduction, masking threshold, floor, dynamic range); decibels as integer proxies with no logs; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noise', dst: 'acoustics',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `noise.${name}`, params }) export class
+    NoiseFormulas { /** SIGNAL-TO-NOISE: the signal level above the noise level, in dB. value max(0, signal −
+    noise). */ static snr(signal: number, noise: number): CrossFormula { return c('noise-snr', 'snr(signal,
+    noise) = max(0, signal − noise)', Math.max(0, signal - noise), nat(signal, noise), 'snr', [signal, noise]) }
+    /** SUMMED LEVELS: two sources combined as an energy proxy. value a + b. */ static sumlevels(a: number, b:
+    number): CrossFormula { return c('noise-sumlevels', 'sumlevels(a, b) = a + b', a + b, nat(a, b),
+    'sumlevels', [a, b]) } /** ATTENUATION: a level after a propagation loss, in dB. value max(0, level − loss).
+    */ static attenuation(level: number, loss: number): CrossFormula { return c('noise-attenuation',
+    'attenuation(level, loss) = max(0, level − loss)', Math.max(0, level - loss), nat(level, loss),
+    'attenuation', [level, loss]) } /** EXPOSURE DOSE: a level sustained over hours. value level · hours. */
+    static exposuredose(level: number, hours: number): CrossFormula { return c('noise-exposuredose',
+    'exposuredose(level, hours) = level · hours', level * hours, nat(level, hours), 'exposuredose', [level,
+    hours]) } /** NOISE REDUCTION: what a barrier removes from the outside level, in dB. value max(0, outside −
+    barrier). */ static nr(outside: number, barrier: number): CrossFormula { return c('noise-nr', 'nr(outside,
+    barrier) = max(0, outside − barrier)', Math.max(0, outside - barrier), nat(outside, barrier), 'nr',
+    [outside, barrier]) } /** MASKING THRESHOLD: a masker raises the threshold to a percentage of its level.
+    value ⌊masker · ratio / 100⌋. -/
+theorem fam_noise_maskingthreshold_1 : (((80 : Int) * (50 : Int)) / (100 : Int)) = (40 : Int) := by decide
 
-/-- noise: floor(600, 12) = 50 — NOISE FLOOR: the average ambient level over the samples taken. value ⌊total /
-    samples⌋. -/
-theorem fam_noise_floor_1 : (600 / 12) = 50 := by decide
+/-- noise: floor(600, 12) = 50 — NOISE — ACOUSTIC LEVELS AS ARITHMETIC (chosen by the registry, not by hand).
+    Sound is numbers: signal over noise, two sources combined, loss over distance, the dose an exposure carries,
+    what a barrier removes, the threshold a masker raises, the average floor, and the range between peak and
+    floor. Decibels as integer proxies, no logs. Crosses to `acoustics` — noise is the acoustics the world
+    measures. A measure. */ const PROOF = 'noise arithmetic (snr, summed levels, attenuation, exposure dose,
+    noise reduction, masking threshold, floor, dynamic range); decibels as integer proxies with no logs; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noise', dst: 'acoustics',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `noise.${name}`, params }) export class
+    NoiseFormulas { /** SIGNAL-TO-NOISE: the signal level above the noise level, in dB. value max(0, signal −
+    noise). */ static snr(signal: number, noise: number): CrossFormula { return c('noise-snr', 'snr(signal,
+    noise) = max(0, signal − noise)', Math.max(0, signal - noise), nat(signal, noise), 'snr', [signal, noise]) }
+    /** SUMMED LEVELS: two sources combined as an energy proxy. value a + b. */ static sumlevels(a: number, b:
+    number): CrossFormula { return c('noise-sumlevels', 'sumlevels(a, b) = a + b', a + b, nat(a, b),
+    'sumlevels', [a, b]) } /** ATTENUATION: a level after a propagation loss, in dB. value max(0, level − loss).
+    */ static attenuation(level: number, loss: number): CrossFormula { return c('noise-attenuation',
+    'attenuation(level, loss) = max(0, level − loss)', Math.max(0, level - loss), nat(level, loss),
+    'attenuation', [level, loss]) } /** EXPOSURE DOSE: a level sustained over hours. value level · hours. */
+    static exposuredose(level: number, hours: number): CrossFormula { return c('noise-exposuredose',
+    'exposuredose(level, hours) = level · hours', level * hours, nat(level, hours), 'exposuredose', [level,
+    hours]) } /** NOISE REDUCTION: what a barrier removes from the outside level, in dB. value max(0, outside −
+    barrier). */ static nr(outside: number, barrier: number): CrossFormula { return c('noise-nr', 'nr(outside,
+    barrier) = max(0, outside − barrier)', Math.max(0, outside - barrier), nat(outside, barrier), 'nr',
+    [outside, barrier]) } /** MASKING THRESHOLD: a masker raises the threshold to a percentage of its level.
+    value ⌊masker · ratio / 100⌋. */ static maskingthreshold(masker: number, ratio: number): CrossFormula {
+    return c('noise-maskingthreshold', 'maskingthreshold(masker, ratio) = ⌊masker · ratio / 100⌋',
+    Math.floor((masker * ratio) / 100), nat(masker, ratio), 'maskingthreshold', [masker, ratio]) } /** NOISE
+    FLOOR: the average ambient level over the samples taken. value ⌊total / samples⌋. -/
+theorem fam_noise_floor_1 : ((600 : Int) / (12 : Int)) = (50 : Int) := by decide
 
-/-- noise: dynamicrange(120, 20) = 100 — DYNAMIC RANGE: the span from peak down to the floor, in dB. value
-    max(0, peak − floor). -/
-theorem fam_noise_dynamicrange_1 : (fmax 0 (120 - 20)) = 100 := by decide
+/-- noise: dynamicrange(120, 20) = 100 — NOISE — ACOUSTIC LEVELS AS ARITHMETIC (chosen by the registry, not by
+    hand). Sound is numbers: signal over noise, two sources combined, loss over distance, the dose an exposure
+    carries, what a barrier removes, the threshold a masker raises, the average floor, and the range between
+    peak and floor. Decibels as integer proxies, no logs. Crosses to `acoustics` — noise is the acoustics the
+    world measures. A measure. */ const PROOF = 'noise arithmetic (snr, summed levels, attenuation, exposure
+    dose, noise reduction, masking threshold, floor, dynamic range); decibels as integer proxies with no logs; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noise', dst: 'acoustics',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `noise.${name}`, params }) export class
+    NoiseFormulas { /** SIGNAL-TO-NOISE: the signal level above the noise level, in dB. value max(0, signal −
+    noise). */ static snr(signal: number, noise: number): CrossFormula { return c('noise-snr', 'snr(signal,
+    noise) = max(0, signal − noise)', Math.max(0, signal - noise), nat(signal, noise), 'snr', [signal, noise]) }
+    /** SUMMED LEVELS: two sources combined as an energy proxy. value a + b. */ static sumlevels(a: number, b:
+    number): CrossFormula { return c('noise-sumlevels', 'sumlevels(a, b) = a + b', a + b, nat(a, b),
+    'sumlevels', [a, b]) } /** ATTENUATION: a level after a propagation loss, in dB. value max(0, level − loss).
+    */ static attenuation(level: number, loss: number): CrossFormula { return c('noise-attenuation',
+    'attenuation(level, loss) = max(0, level − loss)', Math.max(0, level - loss), nat(level, loss),
+    'attenuation', [level, loss]) } /** EXPOSURE DOSE: a level sustained over hours. value level · hours. */
+    static exposuredose(level: number, hours: number): CrossFormula { return c('noise-exposuredose',
+    'exposuredose(level, hours) = level · hours', level * hours, nat(level, hours), 'exposuredose', [level,
+    hours]) } /** NOISE REDUCTION: what a barrier removes from the outside level, in dB. value max(0, outside −
+    barrier). */ static nr(outside: number, barrier: number): CrossFormula { return c('noise-nr', 'nr(outside,
+    barrier) = max(0, outside − barrier)', Math.max(0, outside - barrier), nat(outside, barrier), 'nr',
+    [outside, barrier]) } /** MASKING THRESHOLD: a masker raises the threshold to a percentage of its level.
+    value ⌊masker · ratio / 100⌋. */ static maskingthreshold(masker: number, ratio: number): CrossFormula {
+    return c('noise-maskingthreshold', 'maskingthreshold(masker, ratio) = ⌊masker · ratio / 100⌋',
+    Math.floor((masker * ratio) / 100), nat(masker, ratio), 'maskingthreshold', [masker, ratio]) } /** NOISE
+    FLOOR: the average ambient level over the samples taken. value ⌊total / samples⌋. */ static floor(total:
+    number, samples: number): CrossFormula { return c('noise-floor', 'floor(total, samples) = ⌊total /
+    samples⌋', samples > 0 ? Math.floor(total / samples) : 0, nat(total, samples) && samples > 0, 'floor',
+    [total, samples]) } /** DYNAMIC RANGE: the span from peak down to the floor, in dB. value max(0, peak −
+    floor). -/
+theorem fam_noise_dynamicrange_1 : (fmax (0 : Int) ((120 : Int) - (20 : Int))) = (100 : Int) := by decide
 
 /-- noise: snr(30, 90) = 0 — NOISE — ACOUSTIC LEVELS AS ARITHMETIC (chosen by the registry, not by hand). Sound
     is numbers: signal over noise, two sources combined, loss over distance, the dose an exposure carries, what
@@ -459,7 +3010,7 @@ theorem fam_noise_dynamicrange_1 : (fmax 0 (120 - 20)) = 100 := by decide
     formula, value, proof: PROOF, ...extra }, holds, { name: `noise.${name}`, params }) export class
     NoiseFormulas { /** SIGNAL-TO-NOISE: the signal level above the noise level, in dB. value max(0, signal −
     noise). -/
-theorem fam_noise_snr_2 : (fmax 0 (30 - 90)) = 0 := by decide
+theorem fam_noise_snr_2 : (fmax (0 : Int) ((30 : Int) - (90 : Int))) = (0 : Int) := by decide
 
 /-- noisepollution: leq(3600, 60) = 60 — NOISEPOLLUTION — ENVIRONMENTAL NOISE, AS ARITHMETIC (chosen by the
     public-API registry, not by hand). Unwanted sound is numbers: the equivalent level over a window, the
@@ -474,35 +3025,224 @@ theorem fam_noise_snr_2 : (fmax 0 (30 - 90)) = 0 := by decide
     'acoustics', formula, value, proof: PROOF, ...extra }, holds, { name: `noisepollution.${name}`, params })
     export class NoisepollutionFormulas { /** EQUIVALENT LEVEL: the summed energy proxy over the window. value
     ⌊total / time⌋. -/
-theorem fam_noisepollution_leq_1 : (3600 / 60) = 60 := by decide
+theorem fam_noisepollution_leq_1 : ((3600 : Int) / (60 : Int)) = (60 : Int) := by decide
 
-/-- noisepollution: daynight(60, 50) = 60 — DAY-NIGHT AVERAGE: 12 day hours and 12 night hours, night penalised
-    by 10. value ⌊(12 · day + 12 · (night + 10)) / 24⌋. -/
-theorem fam_noisepollution_daynight_1 : (((12 * 60) + (12 * (50 + 10))) / 24) = 60 := by decide
+/-- noisepollution: daynight(60, 50) = 60 — NOISEPOLLUTION — ENVIRONMENTAL NOISE, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Unwanted sound is numbers: the equivalent level over a window, the
+    day-night average with its night penalty, how far a reading exceeds a limit, the dose a shift accumulates,
+    how a point source drops with distance, a barrier's insertion loss, the margin left under a limit, and an
+    annoyance index over a population. Crosses to `acoustics` — noise pollution is acoustics felt as harm. A
+    measure. */ const PROOF = 'noisepollution arithmetic (equivalent level, day-night average, exceedance,
+    exposure dose, distance attenuation, barrier loss, limit margin, annoyance index); a registry domain; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noisepollution', dst:
+    'acoustics', formula, value, proof: PROOF, ...extra }, holds, { name: `noisepollution.${name}`, params })
+    export class NoisepollutionFormulas { /** EQUIVALENT LEVEL: the summed energy proxy over the window. value
+    ⌊total / time⌋. */ static leq(total: number, time: number): CrossFormula { return c('noisepollution-leq',
+    'leq(total, time) = ⌊total / time⌋', time > 0 ? Math.floor(total / time) : 0, nat(total, time) && time > 0,
+    'leq', [total, time]) } /** DAY-NIGHT AVERAGE: 12 day hours and 12 night hours, night penalised by 10. value
+    ⌊(12 · day + 12 · (night + 10)) / 24⌋. -/
+theorem fam_noisepollution_daynight_1 : ((((12 : Int) * (60 : Int)) + ((12 : Int) * ((50 : Int) + (10 : Int)))) / (24 : Int)) = (60 : Int) := by decide
 
-/-- noisepollution: exceedance(75, 65) = 10 — EXCEEDANCE: how far a reading tops the limit. value max(0,
-    measured − limit). -/
-theorem fam_noisepollution_exceedance_1 : (fmax 0 (75 - 65)) = 10 := by decide
+/-- noisepollution: exceedance(75, 65) = 10 — NOISEPOLLUTION — ENVIRONMENTAL NOISE, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Unwanted sound is numbers: the equivalent level over a window, the
+    day-night average with its night penalty, how far a reading exceeds a limit, the dose a shift accumulates,
+    how a point source drops with distance, a barrier's insertion loss, the margin left under a limit, and an
+    annoyance index over a population. Crosses to `acoustics` — noise pollution is acoustics felt as harm. A
+    measure. */ const PROOF = 'noisepollution arithmetic (equivalent level, day-night average, exceedance,
+    exposure dose, distance attenuation, barrier loss, limit margin, annoyance index); a registry domain; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noisepollution', dst:
+    'acoustics', formula, value, proof: PROOF, ...extra }, holds, { name: `noisepollution.${name}`, params })
+    export class NoisepollutionFormulas { /** EQUIVALENT LEVEL: the summed energy proxy over the window. value
+    ⌊total / time⌋. */ static leq(total: number, time: number): CrossFormula { return c('noisepollution-leq',
+    'leq(total, time) = ⌊total / time⌋', time > 0 ? Math.floor(total / time) : 0, nat(total, time) && time > 0,
+    'leq', [total, time]) } /** DAY-NIGHT AVERAGE: 12 day hours and 12 night hours, night penalised by 10. value
+    ⌊(12 · day + 12 · (night + 10)) / 24⌋. */ static daynight(day: number, night: number): CrossFormula { return
+    c('noisepollution-daynight', 'daynight(day, night) = ⌊(12 · day + 12 · (night + 10)) / 24⌋', Math.floor((12
+    * day + 12 * (night + 10)) / 24), nat(day, night), 'daynight', [day, night]) } /** EXCEEDANCE: how far a
+    reading tops the limit. value max(0, measured − limit). -/
+theorem fam_noisepollution_exceedance_1 : (fmax (0 : Int) ((75 : Int) - (65 : Int))) = (10 : Int) := by decide
 
-/-- noisepollution: exceedance(60, 65) = 0 — EXCEEDANCE: how far a reading tops the limit. value max(0, measured
-    − limit). -/
-theorem fam_noisepollution_exceedance_2 : (fmax 0 (60 - 65)) = 0 := by decide
+/-- noisepollution: exceedance(60, 65) = 0 — NOISEPOLLUTION — ENVIRONMENTAL NOISE, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Unwanted sound is numbers: the equivalent level over a window, the
+    day-night average with its night penalty, how far a reading exceeds a limit, the dose a shift accumulates,
+    how a point source drops with distance, a barrier's insertion loss, the margin left under a limit, and an
+    annoyance index over a population. Crosses to `acoustics` — noise pollution is acoustics felt as harm. A
+    measure. */ const PROOF = 'noisepollution arithmetic (equivalent level, day-night average, exceedance,
+    exposure dose, distance attenuation, barrier loss, limit margin, annoyance index); a registry domain; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noisepollution', dst:
+    'acoustics', formula, value, proof: PROOF, ...extra }, holds, { name: `noisepollution.${name}`, params })
+    export class NoisepollutionFormulas { /** EQUIVALENT LEVEL: the summed energy proxy over the window. value
+    ⌊total / time⌋. */ static leq(total: number, time: number): CrossFormula { return c('noisepollution-leq',
+    'leq(total, time) = ⌊total / time⌋', time > 0 ? Math.floor(total / time) : 0, nat(total, time) && time > 0,
+    'leq', [total, time]) } /** DAY-NIGHT AVERAGE: 12 day hours and 12 night hours, night penalised by 10. value
+    ⌊(12 · day + 12 · (night + 10)) / 24⌋. */ static daynight(day: number, night: number): CrossFormula { return
+    c('noisepollution-daynight', 'daynight(day, night) = ⌊(12 · day + 12 · (night + 10)) / 24⌋', Math.floor((12
+    * day + 12 * (night + 10)) / 24), nat(day, night), 'daynight', [day, night]) } /** EXCEEDANCE: how far a
+    reading tops the limit. value max(0, measured − limit). -/
+theorem fam_noisepollution_exceedance_2 : (fmax (0 : Int) ((60 : Int) - (65 : Int))) = (0 : Int) := by decide
 
-/-- noisepollution: exposuredose(85, 8) = 680 — EXPOSURE DOSE: level held for a number of hours. value level ·
-    hours. -/
-theorem fam_noisepollution_exposuredose_1 : (85 * 8) = 680 := by decide
+/-- noisepollution: exposuredose(85, 8) = 680 — NOISEPOLLUTION — ENVIRONMENTAL NOISE, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). Unwanted sound is numbers: the equivalent level over a window, the
+    day-night average with its night penalty, how far a reading exceeds a limit, the dose a shift accumulates,
+    how a point source drops with distance, a barrier's insertion loss, the margin left under a limit, and an
+    annoyance index over a population. Crosses to `acoustics` — noise pollution is acoustics felt as harm. A
+    measure. */ const PROOF = 'noisepollution arithmetic (equivalent level, day-night average, exceedance,
+    exposure dose, distance attenuation, barrier loss, limit margin, annoyance index); a registry domain; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noisepollution', dst:
+    'acoustics', formula, value, proof: PROOF, ...extra }, holds, { name: `noisepollution.${name}`, params })
+    export class NoisepollutionFormulas { /** EQUIVALENT LEVEL: the summed energy proxy over the window. value
+    ⌊total / time⌋. */ static leq(total: number, time: number): CrossFormula { return c('noisepollution-leq',
+    'leq(total, time) = ⌊total / time⌋', time > 0 ? Math.floor(total / time) : 0, nat(total, time) && time > 0,
+    'leq', [total, time]) } /** DAY-NIGHT AVERAGE: 12 day hours and 12 night hours, night penalised by 10. value
+    ⌊(12 · day + 12 · (night + 10)) / 24⌋. */ static daynight(day: number, night: number): CrossFormula { return
+    c('noisepollution-daynight', 'daynight(day, night) = ⌊(12 · day + 12 · (night + 10)) / 24⌋', Math.floor((12
+    * day + 12 * (night + 10)) / 24), nat(day, night), 'daynight', [day, night]) } /** EXCEEDANCE: how far a
+    reading tops the limit. value max(0, measured − limit). */ static exceedance(measured: number, limit:
+    number): CrossFormula { return c('noisepollution-exceedance', 'exceedance(measured, limit) = max(0, measured
+    − limit)', Math.max(0, measured - limit), nat(measured, limit), 'exceedance', [measured, limit]) } /**
+    EXPOSURE DOSE: level held for a number of hours. value level · hours. -/
+theorem fam_noisepollution_exposuredose_1 : ((85 : Int) * (8 : Int)) = (680 : Int) := by decide
 
-/-- noisepollution: distanceattenuation(100, 3) = 82 — DISTANCE ATTENUATION: a point source drops 6 per distance
+/-- noisepollution: distanceattenuation(100, 3) = 82 — NOISEPOLLUTION — ENVIRONMENTAL NOISE, AS ARITHMETIC
+    (chosen by the public-API registry, not by hand). Unwanted sound is numbers: the equivalent level over a
+    window, the day-night average with its night penalty, how far a reading exceeds a limit, the dose a shift
+    accumulates, how a point source drops with distance, a barrier's insertion loss, the margin left under a
+    limit, and an annoyance index over a population. Crosses to `acoustics` — noise pollution is acoustics felt
+    as harm. A measure. */ const PROOF = 'noisepollution arithmetic (equivalent level, day-night average,
+    exceedance, exposure dose, distance attenuation, barrier loss, limit margin, annoyance index); a registry
+    domain; a measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'noisepollution', dst: 'acoustics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `noisepollution.${name}`, params }) export class NoisepollutionFormulas { /** EQUIVALENT LEVEL: the summed
+    energy proxy over the window. value ⌊total / time⌋. */ static leq(total: number, time: number): CrossFormula
+    { return c('noisepollution-leq', 'leq(total, time) = ⌊total / time⌋', time > 0 ? Math.floor(total / time) :
+    0, nat(total, time) && time > 0, 'leq', [total, time]) } /** DAY-NIGHT AVERAGE: 12 day hours and 12 night
+    hours, night penalised by 10. value ⌊(12 · day + 12 · (night + 10)) / 24⌋. */ static daynight(day: number,
+    night: number): CrossFormula { return c('noisepollution-daynight', 'daynight(day, night) = ⌊(12 · day + 12 ·
+    (night + 10)) / 24⌋', Math.floor((12 * day + 12 * (night + 10)) / 24), nat(day, night), 'daynight', [day,
+    night]) } /** EXCEEDANCE: how far a reading tops the limit. value max(0, measured − limit). */ static
+    exceedance(measured: number, limit: number): CrossFormula { return c('noisepollution-exceedance',
+    'exceedance(measured, limit) = max(0, measured − limit)', Math.max(0, measured - limit), nat(measured,
+    limit), 'exceedance', [measured, limit]) } /** EXPOSURE DOSE: level held for a number of hours. value level
+    · hours. */ static exposuredose(level: number, hours: number): CrossFormula { return
+    c('noisepollution-exposuredose', 'exposuredose(level, hours) = level · hours', level * hours, nat(level,
+    hours), 'exposuredose', [level, hours]) } /** DISTANCE ATTENUATION: a point source drops 6 per distance
     doubling. value max(0, ref − 6 · doublings). -/
-theorem fam_noisepollution_distanceattenuation_1 : (fmax 0 (100 - (6 * 3))) = 82 := by decide
+theorem fam_noisepollution_distanceattenuation_1 : (fmax (0 : Int) ((100 : Int) - ((6 : Int) * (3 : Int)))) = (82 : Int) := by decide
 
-/-- noisepollution: limitmargin(65, 50) = 15 — LIMIT MARGIN: the headroom left under the limit. value max(0,
-    limit − measured). -/
-theorem fam_noisepollution_limitmargin_1 : (fmax 0 (65 - 50)) = 15 := by decide
+/-- noisepollution: barrierloss(12, 8) = 18 — NOISEPOLLUTION — ENVIRONMENTAL NOISE, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Unwanted sound is numbers: the equivalent level over a window, the
+    day-night average with its night penalty, how far a reading exceeds a limit, the dose a shift accumulates,
+    how a point source drops with distance, a barrier's insertion loss, the margin left under a limit, and an
+    annoyance index over a population. Crosses to `acoustics` — noise pollution is acoustics felt as harm. A
+    measure. */ const PROOF = 'noisepollution arithmetic (equivalent level, day-night average, exceedance,
+    exposure dose, distance attenuation, barrier loss, limit margin, annoyance index); a registry domain; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noisepollution', dst:
+    'acoustics', formula, value, proof: PROOF, ...extra }, holds, { name: `noisepollution.${name}`, params })
+    export class NoisepollutionFormulas { /** EQUIVALENT LEVEL: the summed energy proxy over the window. value
+    ⌊total / time⌋. */ static leq(total: number, time: number): CrossFormula { return c('noisepollution-leq',
+    'leq(total, time) = ⌊total / time⌋', time > 0 ? Math.floor(total / time) : 0, nat(total, time) && time > 0,
+    'leq', [total, time]) } /** DAY-NIGHT AVERAGE: 12 day hours and 12 night hours, night penalised by 10. value
+    ⌊(12 · day + 12 · (night + 10)) / 24⌋. */ static daynight(day: number, night: number): CrossFormula { return
+    c('noisepollution-daynight', 'daynight(day, night) = ⌊(12 · day + 12 · (night + 10)) / 24⌋', Math.floor((12
+    * day + 12 * (night + 10)) / 24), nat(day, night), 'daynight', [day, night]) } /** EXCEEDANCE: how far a
+    reading tops the limit. value max(0, measured − limit). */ static exceedance(measured: number, limit:
+    number): CrossFormula { return c('noisepollution-exceedance', 'exceedance(measured, limit) = max(0, measured
+    − limit)', Math.max(0, measured - limit), nat(measured, limit), 'exceedance', [measured, limit]) } /**
+    EXPOSURE DOSE: level held for a number of hours. value level · hours. */ static exposuredose(level: number,
+    hours: number): CrossFormula { return c('noisepollution-exposuredose', 'exposuredose(level, hours) = level ·
+    hours', level * hours, nat(level, hours), 'exposuredose', [level, hours]) } /** DISTANCE ATTENUATION: a
+    point source drops 6 per distance doubling. value max(0, ref − 6 · doublings). */ static
+    distanceattenuation(ref: number, doublings: number): CrossFormula { return
+    c('noisepollution-distanceattenuation', 'distanceattenuation(ref, doublings) = max(0, ref − 6 · doublings)',
+    Math.max(0, ref - 6 * doublings), nat(ref, doublings), 'distanceattenuation', [ref, doublings]) } /**
+    BARRIER LOSS: insertion loss grows with the path difference over the distance. value ⌊height² / distance⌋. -/
+theorem fam_noisepollution_barrierloss_1 : (((12 : Int) ^ (2 : Nat)) / (8 : Int)) = (18 : Int) := by decide
 
-/-- noisepollution: annoyanceindex(70, 1000) = 700 — ANNOYANCE INDEX: the fraction of a population annoyed at a
-    level, per hundred. value ⌊level · population / 100⌋. -/
-theorem fam_noisepollution_annoyanceindex_1 : ((70 * 1000) / 100) = 700 := by decide
+/-- noisepollution: limitmargin(65, 50) = 15 — NOISEPOLLUTION — ENVIRONMENTAL NOISE, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). Unwanted sound is numbers: the equivalent level over a window, the
+    day-night average with its night penalty, how far a reading exceeds a limit, the dose a shift accumulates,
+    how a point source drops with distance, a barrier's insertion loss, the margin left under a limit, and an
+    annoyance index over a population. Crosses to `acoustics` — noise pollution is acoustics felt as harm. A
+    measure. */ const PROOF = 'noisepollution arithmetic (equivalent level, day-night average, exceedance,
+    exposure dose, distance attenuation, barrier loss, limit margin, annoyance index); a registry domain; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noisepollution', dst:
+    'acoustics', formula, value, proof: PROOF, ...extra }, holds, { name: `noisepollution.${name}`, params })
+    export class NoisepollutionFormulas { /** EQUIVALENT LEVEL: the summed energy proxy over the window. value
+    ⌊total / time⌋. */ static leq(total: number, time: number): CrossFormula { return c('noisepollution-leq',
+    'leq(total, time) = ⌊total / time⌋', time > 0 ? Math.floor(total / time) : 0, nat(total, time) && time > 0,
+    'leq', [total, time]) } /** DAY-NIGHT AVERAGE: 12 day hours and 12 night hours, night penalised by 10. value
+    ⌊(12 · day + 12 · (night + 10)) / 24⌋. */ static daynight(day: number, night: number): CrossFormula { return
+    c('noisepollution-daynight', 'daynight(day, night) = ⌊(12 · day + 12 · (night + 10)) / 24⌋', Math.floor((12
+    * day + 12 * (night + 10)) / 24), nat(day, night), 'daynight', [day, night]) } /** EXCEEDANCE: how far a
+    reading tops the limit. value max(0, measured − limit). */ static exceedance(measured: number, limit:
+    number): CrossFormula { return c('noisepollution-exceedance', 'exceedance(measured, limit) = max(0, measured
+    − limit)', Math.max(0, measured - limit), nat(measured, limit), 'exceedance', [measured, limit]) } /**
+    EXPOSURE DOSE: level held for a number of hours. value level · hours. */ static exposuredose(level: number,
+    hours: number): CrossFormula { return c('noisepollution-exposuredose', 'exposuredose(level, hours) = level ·
+    hours', level * hours, nat(level, hours), 'exposuredose', [level, hours]) } /** DISTANCE ATTENUATION: a
+    point source drops 6 per distance doubling. value max(0, ref − 6 · doublings). */ static
+    distanceattenuation(ref: number, doublings: number): CrossFormula { return
+    c('noisepollution-distanceattenuation', 'distanceattenuation(ref, doublings) = max(0, ref − 6 · doublings)',
+    Math.max(0, ref - 6 * doublings), nat(ref, doublings), 'distanceattenuation', [ref, doublings]) } /**
+    BARRIER LOSS: insertion loss grows with the path difference over the distance. value ⌊height² / distance⌋.
+    */ static barrierloss(height: number, distance: number): CrossFormula { return
+    c('noisepollution-barrierloss', 'barrierloss(height, distance) = ⌊height² / distance⌋', distance > 0 ?
+    Math.floor((height * height) / distance) : 0, nat(height, distance) && distance > 0, 'barrierloss', [height,
+    distance]) } /** LIMIT MARGIN: the headroom left under the limit. value max(0, limit − measured). -/
+theorem fam_noisepollution_limitmargin_1 : (fmax (0 : Int) ((65 : Int) - (50 : Int))) = (15 : Int) := by decide
+
+/-- noisepollution: annoyanceindex(70, 1000) = 700 — NOISEPOLLUTION — ENVIRONMENTAL NOISE, AS ARITHMETIC (chosen
+    by the public-API registry, not by hand). Unwanted sound is numbers: the equivalent level over a window, the
+    day-night average with its night penalty, how far a reading exceeds a limit, the dose a shift accumulates,
+    how a point source drops with distance, a barrier's insertion loss, the margin left under a limit, and an
+    annoyance index over a population. Crosses to `acoustics` — noise pollution is acoustics felt as harm. A
+    measure. */ const PROOF = 'noisepollution arithmetic (equivalent level, day-night average, exceedance,
+    exposure dose, distance attenuation, barrier loss, limit margin, annoyance index); a registry domain; a
+    measure crossed to acoustics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'noisepollution', dst:
+    'acoustics', formula, value, proof: PROOF, ...extra }, holds, { name: `noisepollution.${name}`, params })
+    export class NoisepollutionFormulas { /** EQUIVALENT LEVEL: the summed energy proxy over the window. value
+    ⌊total / time⌋. */ static leq(total: number, time: number): CrossFormula { return c('noisepollution-leq',
+    'leq(total, time) = ⌊total / time⌋', time > 0 ? Math.floor(total / time) : 0, nat(total, time) && time > 0,
+    'leq', [total, time]) } /** DAY-NIGHT AVERAGE: 12 day hours and 12 night hours, night penalised by 10. value
+    ⌊(12 · day + 12 · (night + 10)) / 24⌋. */ static daynight(day: number, night: number): CrossFormula { return
+    c('noisepollution-daynight', 'daynight(day, night) = ⌊(12 · day + 12 · (night + 10)) / 24⌋', Math.floor((12
+    * day + 12 * (night + 10)) / 24), nat(day, night), 'daynight', [day, night]) } /** EXCEEDANCE: how far a
+    reading tops the limit. value max(0, measured − limit). */ static exceedance(measured: number, limit:
+    number): CrossFormula { return c('noisepollution-exceedance', 'exceedance(measured, limit) = max(0, measured
+    − limit)', Math.max(0, measured - limit), nat(measured, limit), 'exceedance', [measured, limit]) } /**
+    EXPOSURE DOSE: level held for a number of hours. value level · hours. */ static exposuredose(level: number,
+    hours: number): CrossFormula { return c('noisepollution-exposuredose', 'exposuredose(level, hours) = level ·
+    hours', level * hours, nat(level, hours), 'exposuredose', [level, hours]) } /** DISTANCE ATTENUATION: a
+    point source drops 6 per distance doubling. value max(0, ref − 6 · doublings). */ static
+    distanceattenuation(ref: number, doublings: number): CrossFormula { return
+    c('noisepollution-distanceattenuation', 'distanceattenuation(ref, doublings) = max(0, ref − 6 · doublings)',
+    Math.max(0, ref - 6 * doublings), nat(ref, doublings), 'distanceattenuation', [ref, doublings]) } /**
+    BARRIER LOSS: insertion loss grows with the path difference over the distance. value ⌊height² / distance⌋.
+    */ static barrierloss(height: number, distance: number): CrossFormula { return
+    c('noisepollution-barrierloss', 'barrierloss(height, distance) = ⌊height² / distance⌋', distance > 0 ?
+    Math.floor((height * height) / distance) : 0, nat(height, distance) && distance > 0, 'barrierloss', [height,
+    distance]) } /** LIMIT MARGIN: the headroom left under the limit. value max(0, limit − measured). */ static
+    limitmargin(limit: number, measured: number): CrossFormula { return c('noisepollution-limitmargin',
+    'limitmargin(limit, measured) = max(0, limit − measured)', Math.max(0, limit - measured), nat(limit,
+    measured), 'limitmargin', [limit, measured]) } /** ANNOYANCE INDEX: the fraction of a population annoyed at
+    a level, per hundred. value ⌊level · population / 100⌋. -/
+theorem fam_noisepollution_annoyanceindex_1 : (((70 : Int) * (1000 : Int)) / (100 : Int)) = (700 : Int) := by decide
 
 /-- notice: severity(3) = 3 — NOTICE — THE BANNER/CALLOUT/STATEMENT NOTICE USE CASE (payloadcms/website), AS
     ARITHMETIC. A notice shown to a reader is numbers: its severity level, how often it is dismissed, how often
@@ -515,25 +3255,198 @@ theorem fam_noisepollution_annoyanceindex_1 : ((70 * 1000) / 100) = 700 := by de
     extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'notice', dst: 'frontend',
     formula, value, proof: PROOF, ...extra }, holds, { name: `notice.${name}`, params }) export class
     NoticeFormulas { /** SEVERITY: the notice level itself. value level. -/
-theorem fam_notice_severity_1 : 3 = 3 := by decide
+theorem fam_notice_severity_1 : (3 : Int) = (3 : Int) := by decide
 
-/-- notice: dismiss(30, 120) = 25 — DISMISS RATE as a percentage. value ⌊dismissed · 100 / shown⌋. -/
-theorem fam_notice_dismiss_1 : ((30 * 100) / 120) = 25 := by decide
+/-- notice: dismiss(30, 120) = 25 — NOTICE — THE BANNER/CALLOUT/STATEMENT NOTICE USE CASE (payloadcms/website),
+    AS ARITHMETIC. A notice shown to a reader is numbers: its severity level, how often it is dismissed, how
+    often its call-to-action is clicked, how long it stays, how many stack at once, which of two notices wins,
+    impressions per user, and the auto-hide delay. Crosses to `frontend` — a notice is what the frontend
+    renders. A measure. */ const PROOF = 'notice arithmetic (severity, dismiss rate, cta rate, duration, stack,
+    priority, impressions, autohide); the Banner/Callout/Statement notice use case from payloadcms/website; a
+    measure crossed to frontend' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'notice', dst: 'frontend',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `notice.${name}`, params }) export class
+    NoticeFormulas { /** SEVERITY: the notice level itself. value level. */ static severity(level: number):
+    CrossFormula { return c('notice-severity', 'severity(level) = level', level, nat(level) && level <= 5,
+    'severity', [level]) } /** DISMISS RATE as a percentage. value ⌊dismissed · 100 / shown⌋. -/
+theorem fam_notice_dismiss_1 : (((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int) := by decide
 
-/-- notice: cta(45, 300) = 15 — CTA RATE as a percentage. value ⌊clicks · 100 / views⌋. -/
-theorem fam_notice_cta_1 : ((45 * 100) / 300) = 15 := by decide
+/-- notice: cta(45, 300) = 15 — NOTICE — THE BANNER/CALLOUT/STATEMENT NOTICE USE CASE (payloadcms/website), AS
+    ARITHMETIC. A notice shown to a reader is numbers: its severity level, how often it is dismissed, how often
+    its call-to-action is clicked, how long it stays, how many stack at once, which of two notices wins,
+    impressions per user, and the auto-hide delay. Crosses to `frontend` — a notice is what the frontend
+    renders. A measure. */ const PROOF = 'notice arithmetic (severity, dismiss rate, cta rate, duration, stack,
+    priority, impressions, autohide); the Banner/Callout/Statement notice use case from payloadcms/website; a
+    measure crossed to frontend' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'notice', dst: 'frontend',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `notice.${name}`, params }) export class
+    NoticeFormulas { /** SEVERITY: the notice level itself. value level. */ static severity(level: number):
+    CrossFormula { return c('notice-severity', 'severity(level) = level', level, nat(level) && level <= 5,
+    'severity', [level]) } /** DISMISS RATE as a percentage. value ⌊dismissed · 100 / shown⌋. */ static
+    dismiss(dismissed: number, shown: number): CrossFormula { return c('notice-dismiss', 'dismiss(dismissed,
+    shown) = ⌊dismissed · 100 / shown⌋', shown > 0 ? Math.floor((dismissed * 100) / shown) : 0, nat(dismissed,
+    shown) && shown > 0 && dismissed <= shown, 'dismiss', [dismissed, shown]) } /** CTA RATE as a percentage.
+    value ⌊clicks · 100 / views⌋. -/
+theorem fam_notice_cta_1 : (((45 : Int) * (100 : Int)) / (300 : Int)) = (15 : Int) := by decide
 
-/-- notice: duration(5000) = 5000 — DURATION the notice stays, in milliseconds. value ms. -/
-theorem fam_notice_duration_1 : 5000 = 5000 := by decide
+/-- notice: duration(5000) = 5000 — NOTICE — THE BANNER/CALLOUT/STATEMENT NOTICE USE CASE (payloadcms/website),
+    AS ARITHMETIC. A notice shown to a reader is numbers: its severity level, how often it is dismissed, how
+    often its call-to-action is clicked, how long it stays, how many stack at once, which of two notices wins,
+    impressions per user, and the auto-hide delay. Crosses to `frontend` — a notice is what the frontend
+    renders. A measure. */ const PROOF = 'notice arithmetic (severity, dismiss rate, cta rate, duration, stack,
+    priority, impressions, autohide); the Banner/Callout/Statement notice use case from payloadcms/website; a
+    measure crossed to frontend' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'notice', dst: 'frontend',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `notice.${name}`, params }) export class
+    NoticeFormulas { /** SEVERITY: the notice level itself. value level. */ static severity(level: number):
+    CrossFormula { return c('notice-severity', 'severity(level) = level', level, nat(level) && level <= 5,
+    'severity', [level]) } /** DISMISS RATE as a percentage. value ⌊dismissed · 100 / shown⌋. */ static
+    dismiss(dismissed: number, shown: number): CrossFormula { return c('notice-dismiss', 'dismiss(dismissed,
+    shown) = ⌊dismissed · 100 / shown⌋', shown > 0 ? Math.floor((dismissed * 100) / shown) : 0, nat(dismissed,
+    shown) && shown > 0 && dismissed <= shown, 'dismiss', [dismissed, shown]) } /** CTA RATE as a percentage.
+    value ⌊clicks · 100 / views⌋. */ static cta(clicks: number, views: number): CrossFormula { return
+    c('notice-cta', 'cta(clicks, views) = ⌊clicks · 100 / views⌋', views > 0 ? Math.floor((clicks * 100) /
+    views) : 0, nat(clicks, views) && views > 0 && clicks <= views, 'cta', [clicks, views]) } /** DURATION the
+    notice stays, in milliseconds. value ms. -/
+theorem fam_notice_duration_1 : (5000 : Int) = (5000 : Int) := by decide
 
-/-- notice: stack(4) = 4 — STACK: how many notices stack at once. value count. -/
-theorem fam_notice_stack_1 : 4 = 4 := by decide
+/-- notice: stack(4) = 4 — NOTICE — THE BANNER/CALLOUT/STATEMENT NOTICE USE CASE (payloadcms/website), AS
+    ARITHMETIC. A notice shown to a reader is numbers: its severity level, how often it is dismissed, how often
+    its call-to-action is clicked, how long it stays, how many stack at once, which of two notices wins,
+    impressions per user, and the auto-hide delay. Crosses to `frontend` — a notice is what the frontend
+    renders. A measure. */ const PROOF = 'notice arithmetic (severity, dismiss rate, cta rate, duration, stack,
+    priority, impressions, autohide); the Banner/Callout/Statement notice use case from payloadcms/website; a
+    measure crossed to frontend' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'notice', dst: 'frontend',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `notice.${name}`, params }) export class
+    NoticeFormulas { /** SEVERITY: the notice level itself. value level. */ static severity(level: number):
+    CrossFormula { return c('notice-severity', 'severity(level) = level', level, nat(level) && level <= 5,
+    'severity', [level]) } /** DISMISS RATE as a percentage. value ⌊dismissed · 100 / shown⌋. */ static
+    dismiss(dismissed: number, shown: number): CrossFormula { return c('notice-dismiss', 'dismiss(dismissed,
+    shown) = ⌊dismissed · 100 / shown⌋', shown > 0 ? Math.floor((dismissed * 100) / shown) : 0, nat(dismissed,
+    shown) && shown > 0 && dismissed <= shown, 'dismiss', [dismissed, shown]) } /** CTA RATE as a percentage.
+    value ⌊clicks · 100 / views⌋. */ static cta(clicks: number, views: number): CrossFormula { return
+    c('notice-cta', 'cta(clicks, views) = ⌊clicks · 100 / views⌋', views > 0 ? Math.floor((clicks * 100) /
+    views) : 0, nat(clicks, views) && views > 0 && clicks <= views, 'cta', [clicks, views]) } /** DURATION the
+    notice stays, in milliseconds. value ms. */ static duration(ms: number): CrossFormula { return
+    c('notice-duration', 'duration(ms) = ms', ms, nat(ms), 'duration', [ms]) } /** STACK: how many notices stack
+    at once. value count. -/
+theorem fam_notice_stack_1 : (4 : Int) = (4 : Int) := by decide
 
-/-- notice: impressions(80, 100) = 80 — IMPRESSIONS per user as a percentage. value ⌊shown · 100 / users⌋. -/
-theorem fam_notice_impressions_1 : ((80 * 100) / 100) = 80 := by decide
+/-- notice: priority(7, 3) = 1 — NOTICE — THE BANNER/CALLOUT/STATEMENT NOTICE USE CASE (payloadcms/website), AS
+    ARITHMETIC. A notice shown to a reader is numbers: its severity level, how often it is dismissed, how often
+    its call-to-action is clicked, how long it stays, how many stack at once, which of two notices wins,
+    impressions per user, and the auto-hide delay. Crosses to `frontend` — a notice is what the frontend
+    renders. A measure. */ const PROOF = 'notice arithmetic (severity, dismiss rate, cta rate, duration, stack,
+    priority, impressions, autohide); the Banner/Callout/Statement notice use case from payloadcms/website; a
+    measure crossed to frontend' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'notice', dst: 'frontend',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `notice.${name}`, params }) export class
+    NoticeFormulas { /** SEVERITY: the notice level itself. value level. */ static severity(level: number):
+    CrossFormula { return c('notice-severity', 'severity(level) = level', level, nat(level) && level <= 5,
+    'severity', [level]) } /** DISMISS RATE as a percentage. value ⌊dismissed · 100 / shown⌋. */ static
+    dismiss(dismissed: number, shown: number): CrossFormula { return c('notice-dismiss', 'dismiss(dismissed,
+    shown) = ⌊dismissed · 100 / shown⌋', shown > 0 ? Math.floor((dismissed * 100) / shown) : 0, nat(dismissed,
+    shown) && shown > 0 && dismissed <= shown, 'dismiss', [dismissed, shown]) } /** CTA RATE as a percentage.
+    value ⌊clicks · 100 / views⌋. */ static cta(clicks: number, views: number): CrossFormula { return
+    c('notice-cta', 'cta(clicks, views) = ⌊clicks · 100 / views⌋', views > 0 ? Math.floor((clicks * 100) /
+    views) : 0, nat(clicks, views) && views > 0 && clicks <= views, 'cta', [clicks, views]) } /** DURATION the
+    notice stays, in milliseconds. value ms. */ static duration(ms: number): CrossFormula { return
+    c('notice-duration', 'duration(ms) = ms', ms, nat(ms), 'duration', [ms]) } /** STACK: how many notices stack
+    at once. value count. */ static stack(count: number): CrossFormula { return c('notice-stack', 'stack(count)
+    = count', count, nat(count), 'stack', [count]) } /** PRIORITY: 1 when the first notice wins over the second.
+    value [a ≥ b]. -/
+theorem fam_notice_priority_1 : (if (if (7 : Int) ≥ (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
 
-/-- notice: autohide(10) = 10 — AUTOHIDE delay, in seconds. value seconds. -/
-theorem fam_notice_autohide_1 : 10 = 10 := by decide
+/-- notice: priority(3, 7) = 0 — NOTICE — THE BANNER/CALLOUT/STATEMENT NOTICE USE CASE (payloadcms/website), AS
+    ARITHMETIC. A notice shown to a reader is numbers: its severity level, how often it is dismissed, how often
+    its call-to-action is clicked, how long it stays, how many stack at once, which of two notices wins,
+    impressions per user, and the auto-hide delay. Crosses to `frontend` — a notice is what the frontend
+    renders. A measure. */ const PROOF = 'notice arithmetic (severity, dismiss rate, cta rate, duration, stack,
+    priority, impressions, autohide); the Banner/Callout/Statement notice use case from payloadcms/website; a
+    measure crossed to frontend' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'notice', dst: 'frontend',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `notice.${name}`, params }) export class
+    NoticeFormulas { /** SEVERITY: the notice level itself. value level. */ static severity(level: number):
+    CrossFormula { return c('notice-severity', 'severity(level) = level', level, nat(level) && level <= 5,
+    'severity', [level]) } /** DISMISS RATE as a percentage. value ⌊dismissed · 100 / shown⌋. */ static
+    dismiss(dismissed: number, shown: number): CrossFormula { return c('notice-dismiss', 'dismiss(dismissed,
+    shown) = ⌊dismissed · 100 / shown⌋', shown > 0 ? Math.floor((dismissed * 100) / shown) : 0, nat(dismissed,
+    shown) && shown > 0 && dismissed <= shown, 'dismiss', [dismissed, shown]) } /** CTA RATE as a percentage.
+    value ⌊clicks · 100 / views⌋. */ static cta(clicks: number, views: number): CrossFormula { return
+    c('notice-cta', 'cta(clicks, views) = ⌊clicks · 100 / views⌋', views > 0 ? Math.floor((clicks * 100) /
+    views) : 0, nat(clicks, views) && views > 0 && clicks <= views, 'cta', [clicks, views]) } /** DURATION the
+    notice stays, in milliseconds. value ms. */ static duration(ms: number): CrossFormula { return
+    c('notice-duration', 'duration(ms) = ms', ms, nat(ms), 'duration', [ms]) } /** STACK: how many notices stack
+    at once. value count. */ static stack(count: number): CrossFormula { return c('notice-stack', 'stack(count)
+    = count', count, nat(count), 'stack', [count]) } /** PRIORITY: 1 when the first notice wins over the second.
+    value [a ≥ b]. -/
+theorem fam_notice_priority_2 : (if (if (3 : Int) ≥ (7 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
+
+/-- notice: impressions(80, 100) = 80 — NOTICE — THE BANNER/CALLOUT/STATEMENT NOTICE USE CASE
+    (payloadcms/website), AS ARITHMETIC. A notice shown to a reader is numbers: its severity level, how often it
+    is dismissed, how often its call-to-action is clicked, how long it stays, how many stack at once, which of
+    two notices wins, impressions per user, and the auto-hide delay. Crosses to `frontend` — a notice is what
+    the frontend renders. A measure. */ const PROOF = 'notice arithmetic (severity, dismiss rate, cta rate,
+    duration, stack, priority, impressions, autohide); the Banner/Callout/Statement notice use case from
+    payloadcms/website; a measure crossed to frontend' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'notice', dst: 'frontend', formula, value, proof: PROOF, ...extra }, holds, { name: `notice.${name}`,
+    params }) export class NoticeFormulas { /** SEVERITY: the notice level itself. value level. */ static
+    severity(level: number): CrossFormula { return c('notice-severity', 'severity(level) = level', level,
+    nat(level) && level <= 5, 'severity', [level]) } /** DISMISS RATE as a percentage. value ⌊dismissed · 100 /
+    shown⌋. */ static dismiss(dismissed: number, shown: number): CrossFormula { return c('notice-dismiss',
+    'dismiss(dismissed, shown) = ⌊dismissed · 100 / shown⌋', shown > 0 ? Math.floor((dismissed * 100) / shown) :
+    0, nat(dismissed, shown) && shown > 0 && dismissed <= shown, 'dismiss', [dismissed, shown]) } /** CTA RATE
+    as a percentage. value ⌊clicks · 100 / views⌋. */ static cta(clicks: number, views: number): CrossFormula {
+    return c('notice-cta', 'cta(clicks, views) = ⌊clicks · 100 / views⌋', views > 0 ? Math.floor((clicks * 100)
+    / views) : 0, nat(clicks, views) && views > 0 && clicks <= views, 'cta', [clicks, views]) } /** DURATION the
+    notice stays, in milliseconds. value ms. */ static duration(ms: number): CrossFormula { return
+    c('notice-duration', 'duration(ms) = ms', ms, nat(ms), 'duration', [ms]) } /** STACK: how many notices stack
+    at once. value count. */ static stack(count: number): CrossFormula { return c('notice-stack', 'stack(count)
+    = count', count, nat(count), 'stack', [count]) } /** PRIORITY: 1 when the first notice wins over the second.
+    value [a ≥ b]. */ static priority(a: number, b: number): CrossFormula { return c('notice-priority',
+    'priority(a, b) = [a ≥ b]', a >= b ? 1 : 0, nat(a, b), 'priority', [a, b]) } /** IMPRESSIONS per user as a
+    percentage. value ⌊shown · 100 / users⌋. -/
+theorem fam_notice_impressions_1 : (((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int) := by decide
+
+/-- notice: autohide(10) = 10 — NOTICE — THE BANNER/CALLOUT/STATEMENT NOTICE USE CASE (payloadcms/website), AS
+    ARITHMETIC. A notice shown to a reader is numbers: its severity level, how often it is dismissed, how often
+    its call-to-action is clicked, how long it stays, how many stack at once, which of two notices wins,
+    impressions per user, and the auto-hide delay. Crosses to `frontend` — a notice is what the frontend
+    renders. A measure. */ const PROOF = 'notice arithmetic (severity, dismiss rate, cta rate, duration, stack,
+    priority, impressions, autohide); the Banner/Callout/Statement notice use case from payloadcms/website; a
+    measure crossed to frontend' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'notice', dst: 'frontend',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `notice.${name}`, params }) export class
+    NoticeFormulas { /** SEVERITY: the notice level itself. value level. */ static severity(level: number):
+    CrossFormula { return c('notice-severity', 'severity(level) = level', level, nat(level) && level <= 5,
+    'severity', [level]) } /** DISMISS RATE as a percentage. value ⌊dismissed · 100 / shown⌋. */ static
+    dismiss(dismissed: number, shown: number): CrossFormula { return c('notice-dismiss', 'dismiss(dismissed,
+    shown) = ⌊dismissed · 100 / shown⌋', shown > 0 ? Math.floor((dismissed * 100) / shown) : 0, nat(dismissed,
+    shown) && shown > 0 && dismissed <= shown, 'dismiss', [dismissed, shown]) } /** CTA RATE as a percentage.
+    value ⌊clicks · 100 / views⌋. */ static cta(clicks: number, views: number): CrossFormula { return
+    c('notice-cta', 'cta(clicks, views) = ⌊clicks · 100 / views⌋', views > 0 ? Math.floor((clicks * 100) /
+    views) : 0, nat(clicks, views) && views > 0 && clicks <= views, 'cta', [clicks, views]) } /** DURATION the
+    notice stays, in milliseconds. value ms. */ static duration(ms: number): CrossFormula { return
+    c('notice-duration', 'duration(ms) = ms', ms, nat(ms), 'duration', [ms]) } /** STACK: how many notices stack
+    at once. value count. */ static stack(count: number): CrossFormula { return c('notice-stack', 'stack(count)
+    = count', count, nat(count), 'stack', [count]) } /** PRIORITY: 1 when the first notice wins over the second.
+    value [a ≥ b]. */ static priority(a: number, b: number): CrossFormula { return c('notice-priority',
+    'priority(a, b) = [a ≥ b]', a >= b ? 1 : 0, nat(a, b), 'priority', [a, b]) } /** IMPRESSIONS per user as a
+    percentage. value ⌊shown · 100 / users⌋. */ static impressions(shown: number, users: number): CrossFormula {
+    return c('notice-impressions', 'impressions(shown, users) = ⌊shown · 100 / users⌋', users > 0 ?
+    Math.floor((shown * 100) / users) : 0, nat(shown, users) && users > 0 && shown <= users, 'impressions',
+    [shown, users]) } /** AUTOHIDE delay, in seconds. value seconds. -/
+theorem fam_notice_autohide_1 : (10 : Int) = (10 : Int) := by decide
 
 /-- nuclear: decay(1000, 3) = 125 — NUCLEAR — THE PHYSICS OF THE REACTOR CORE, AS ARITHMETIC. Nuclei are
     numbers: atoms left after a run of half-lives, the decay rate, binding energy per nucleon, the chain's
@@ -546,33 +3459,191 @@ theorem fam_notice_autohide_1 : 10 = 10 := by decide
     src: 'nuclear', dst: 'energy', formula, value, proof: PROOF, ...extra }, holds, { name: `nuclear.${name}`,
     params }) export class NuclearFormulas { /** DECAY: atoms remaining after a run of half-lives. value
     ⌊initial / 2^halflives⌋. -/
-theorem fam_nuclear_decay_1 : (1000 / (2 ^ 3)) = 125 := by decide
+theorem fam_nuclear_decay_1 : ((1000 : Int) / ((2 : Int) ^ (3 : Nat))) = (125 : Int) := by decide
 
-/-- nuclear: activity(5000, 2) = 10 — ACTIVITY: decay rate proxy from atoms at a decay constant. value ⌊atoms ·
-    constant / 1000⌋. -/
-theorem fam_nuclear_activity_1 : ((5000 * 2) / 1000) = 10 := by decide
+/-- nuclear: activity(5000, 2) = 10 — NUCLEAR — THE PHYSICS OF THE REACTOR CORE, AS ARITHMETIC. Nuclei are
+    numbers: atoms left after a run of half-lives, the decay rate, binding energy per nucleon, the chain's
+    k-factor, enrichment, fission yield, dose at a distance, and what the shielding stops. Crosses to `energy` —
+    nuclear is where energy is released. A measure. */ const PROOF = 'nuclear arithmetic (decay, activity,
+    binding energy per nucleon, criticality k-factor, enrichment, fission yield, dose by inverse square,
+    shielding attenuation); a measure crossed to energy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nuclear', dst: 'energy', formula, value, proof: PROOF, ...extra }, holds, { name: `nuclear.${name}`,
+    params }) export class NuclearFormulas { /** DECAY: atoms remaining after a run of half-lives. value
+    ⌊initial / 2^halflives⌋. */ static decay(initial: number, halflives: number): CrossFormula { return
+    c('nuclear-decay', 'decay(initial, halflives) = ⌊initial / 2^halflives⌋', halflives >= 0 ?
+    Math.floor(initial / (2 ** halflives)) : 0, nat(initial, halflives), 'decay', [initial, halflives]) } /**
+    ACTIVITY: decay rate proxy from atoms at a decay constant. value ⌊atoms · constant / 1000⌋. -/
+theorem fam_nuclear_activity_1 : (((5000 : Int) * (2 : Int)) / (1000 : Int)) = (10 : Int) := by decide
 
-/-- nuclear: binding(1600, 200) = 8 — BINDING: binding energy per nucleon. value ⌊mass / nucleons⌋. -/
-theorem fam_nuclear_binding_1 : (1600 / 200) = 8 := by decide
+/-- nuclear: binding(1600, 200) = 8 — NUCLEAR — THE PHYSICS OF THE REACTOR CORE, AS ARITHMETIC. Nuclei are
+    numbers: atoms left after a run of half-lives, the decay rate, binding energy per nucleon, the chain's
+    k-factor, enrichment, fission yield, dose at a distance, and what the shielding stops. Crosses to `energy` —
+    nuclear is where energy is released. A measure. */ const PROOF = 'nuclear arithmetic (decay, activity,
+    binding energy per nucleon, criticality k-factor, enrichment, fission yield, dose by inverse square,
+    shielding attenuation); a measure crossed to energy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nuclear', dst: 'energy', formula, value, proof: PROOF, ...extra }, holds, { name: `nuclear.${name}`,
+    params }) export class NuclearFormulas { /** DECAY: atoms remaining after a run of half-lives. value
+    ⌊initial / 2^halflives⌋. */ static decay(initial: number, halflives: number): CrossFormula { return
+    c('nuclear-decay', 'decay(initial, halflives) = ⌊initial / 2^halflives⌋', halflives >= 0 ?
+    Math.floor(initial / (2 ** halflives)) : 0, nat(initial, halflives), 'decay', [initial, halflives]) } /**
+    ACTIVITY: decay rate proxy from atoms at a decay constant. value ⌊atoms · constant / 1000⌋. */ static
+    activity(atoms: number, constant: number): CrossFormula { return c('nuclear-activity', 'activity(atoms,
+    constant) = ⌊atoms · constant / 1000⌋', Math.floor((atoms * constant) / 1000), nat(atoms, constant),
+    'activity', [atoms, constant]) } /** BINDING: binding energy per nucleon. value ⌊mass / nucleons⌋. -/
+theorem fam_nuclear_binding_1 : ((1600 : Int) / (200 : Int)) = (8 : Int) := by decide
 
-/-- nuclear: criticality(105, 100) = 105 — CRITICALITY: the chain's k-factor ×100. value ⌊neutrons · 100 /
+/-- nuclear: criticality(105, 100) = 105 — NUCLEAR — THE PHYSICS OF THE REACTOR CORE, AS ARITHMETIC. Nuclei are
+    numbers: atoms left after a run of half-lives, the decay rate, binding energy per nucleon, the chain's
+    k-factor, enrichment, fission yield, dose at a distance, and what the shielding stops. Crosses to `energy` —
+    nuclear is where energy is released. A measure. */ const PROOF = 'nuclear arithmetic (decay, activity,
+    binding energy per nucleon, criticality k-factor, enrichment, fission yield, dose by inverse square,
+    shielding attenuation); a measure crossed to energy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nuclear', dst: 'energy', formula, value, proof: PROOF, ...extra }, holds, { name: `nuclear.${name}`,
+    params }) export class NuclearFormulas { /** DECAY: atoms remaining after a run of half-lives. value
+    ⌊initial / 2^halflives⌋. */ static decay(initial: number, halflives: number): CrossFormula { return
+    c('nuclear-decay', 'decay(initial, halflives) = ⌊initial / 2^halflives⌋', halflives >= 0 ?
+    Math.floor(initial / (2 ** halflives)) : 0, nat(initial, halflives), 'decay', [initial, halflives]) } /**
+    ACTIVITY: decay rate proxy from atoms at a decay constant. value ⌊atoms · constant / 1000⌋. */ static
+    activity(atoms: number, constant: number): CrossFormula { return c('nuclear-activity', 'activity(atoms,
+    constant) = ⌊atoms · constant / 1000⌋', Math.floor((atoms * constant) / 1000), nat(atoms, constant),
+    'activity', [atoms, constant]) } /** BINDING: binding energy per nucleon. value ⌊mass / nucleons⌋. */ static
+    binding(mass: number, nucleons: number): CrossFormula { return c('nuclear-binding', 'binding(mass, nucleons)
+    = ⌊mass / nucleons⌋', nucleons > 0 ? Math.floor(mass / nucleons) : 0, nat(mass, nucleons) && nucleons > 0,
+    'binding', [mass, nucleons]) } /** CRITICALITY: the chain's k-factor ×100. value ⌊neutrons · 100 /
     previous⌋. -/
-theorem fam_nuclear_criticality_1 : ((105 * 100) / 100) = 105 := by decide
+theorem fam_nuclear_criticality_1 : (((105 : Int) * (100 : Int)) / (100 : Int)) = (105 : Int) := by decide
 
-/-- nuclear: enrichment(5, 100) = 5 — ENRICHMENT: the U-235 fraction as a percentage. value ⌊u235 · 100 /
-    total⌋. -/
-theorem fam_nuclear_enrichment_1 : ((5 * 100) / 100) = 5 := by decide
+/-- nuclear: enrichment(5, 100) = 5 — NUCLEAR — THE PHYSICS OF THE REACTOR CORE, AS ARITHMETIC. Nuclei are
+    numbers: atoms left after a run of half-lives, the decay rate, binding energy per nucleon, the chain's
+    k-factor, enrichment, fission yield, dose at a distance, and what the shielding stops. Crosses to `energy` —
+    nuclear is where energy is released. A measure. */ const PROOF = 'nuclear arithmetic (decay, activity,
+    binding energy per nucleon, criticality k-factor, enrichment, fission yield, dose by inverse square,
+    shielding attenuation); a measure crossed to energy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nuclear', dst: 'energy', formula, value, proof: PROOF, ...extra }, holds, { name: `nuclear.${name}`,
+    params }) export class NuclearFormulas { /** DECAY: atoms remaining after a run of half-lives. value
+    ⌊initial / 2^halflives⌋. */ static decay(initial: number, halflives: number): CrossFormula { return
+    c('nuclear-decay', 'decay(initial, halflives) = ⌊initial / 2^halflives⌋', halflives >= 0 ?
+    Math.floor(initial / (2 ** halflives)) : 0, nat(initial, halflives), 'decay', [initial, halflives]) } /**
+    ACTIVITY: decay rate proxy from atoms at a decay constant. value ⌊atoms · constant / 1000⌋. */ static
+    activity(atoms: number, constant: number): CrossFormula { return c('nuclear-activity', 'activity(atoms,
+    constant) = ⌊atoms · constant / 1000⌋', Math.floor((atoms * constant) / 1000), nat(atoms, constant),
+    'activity', [atoms, constant]) } /** BINDING: binding energy per nucleon. value ⌊mass / nucleons⌋. */ static
+    binding(mass: number, nucleons: number): CrossFormula { return c('nuclear-binding', 'binding(mass, nucleons)
+    = ⌊mass / nucleons⌋', nucleons > 0 ? Math.floor(mass / nucleons) : 0, nat(mass, nucleons) && nucleons > 0,
+    'binding', [mass, nucleons]) } /** CRITICALITY: the chain's k-factor ×100. value ⌊neutrons · 100 /
+    previous⌋. */ static criticality(neutrons: number, previous: number): CrossFormula { return
+    c('nuclear-criticality', 'criticality(neutrons, previous) = ⌊neutrons · 100 / previous⌋', previous > 0 ?
+    Math.floor((neutrons * 100) / previous) : 0, nat(neutrons, previous) && previous > 0, 'criticality',
+    [neutrons, previous]) } /** ENRICHMENT: the U-235 fraction as a percentage. value ⌊u235 · 100 / total⌋. -/
+theorem fam_nuclear_enrichment_1 : (((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int) := by decide
 
-/-- nuclear: fission(2000, 10) = 200 — FISSION: energy yield over the input. value ⌊released / input⌋. -/
-theorem fam_nuclear_fission_1 : (2000 / 10) = 200 := by decide
+/-- nuclear: fission(2000, 10) = 200 — NUCLEAR — THE PHYSICS OF THE REACTOR CORE, AS ARITHMETIC. Nuclei are
+    numbers: atoms left after a run of half-lives, the decay rate, binding energy per nucleon, the chain's
+    k-factor, enrichment, fission yield, dose at a distance, and what the shielding stops. Crosses to `energy` —
+    nuclear is where energy is released. A measure. */ const PROOF = 'nuclear arithmetic (decay, activity,
+    binding energy per nucleon, criticality k-factor, enrichment, fission yield, dose by inverse square,
+    shielding attenuation); a measure crossed to energy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nuclear', dst: 'energy', formula, value, proof: PROOF, ...extra }, holds, { name: `nuclear.${name}`,
+    params }) export class NuclearFormulas { /** DECAY: atoms remaining after a run of half-lives. value
+    ⌊initial / 2^halflives⌋. */ static decay(initial: number, halflives: number): CrossFormula { return
+    c('nuclear-decay', 'decay(initial, halflives) = ⌊initial / 2^halflives⌋', halflives >= 0 ?
+    Math.floor(initial / (2 ** halflives)) : 0, nat(initial, halflives), 'decay', [initial, halflives]) } /**
+    ACTIVITY: decay rate proxy from atoms at a decay constant. value ⌊atoms · constant / 1000⌋. */ static
+    activity(atoms: number, constant: number): CrossFormula { return c('nuclear-activity', 'activity(atoms,
+    constant) = ⌊atoms · constant / 1000⌋', Math.floor((atoms * constant) / 1000), nat(atoms, constant),
+    'activity', [atoms, constant]) } /** BINDING: binding energy per nucleon. value ⌊mass / nucleons⌋. */ static
+    binding(mass: number, nucleons: number): CrossFormula { return c('nuclear-binding', 'binding(mass, nucleons)
+    = ⌊mass / nucleons⌋', nucleons > 0 ? Math.floor(mass / nucleons) : 0, nat(mass, nucleons) && nucleons > 0,
+    'binding', [mass, nucleons]) } /** CRITICALITY: the chain's k-factor ×100. value ⌊neutrons · 100 /
+    previous⌋. */ static criticality(neutrons: number, previous: number): CrossFormula { return
+    c('nuclear-criticality', 'criticality(neutrons, previous) = ⌊neutrons · 100 / previous⌋', previous > 0 ?
+    Math.floor((neutrons * 100) / previous) : 0, nat(neutrons, previous) && previous > 0, 'criticality',
+    [neutrons, previous]) } /** ENRICHMENT: the U-235 fraction as a percentage. value ⌊u235 · 100 / total⌋. */
+    static enrichment(u235: number, total: number): CrossFormula { return c('nuclear-enrichment',
+    'enrichment(u235, total) = ⌊u235 · 100 / total⌋', total > 0 ? Math.floor((u235 * 100) / total) : 0,
+    nat(u235, total) && total > 0 && u235 <= total, 'enrichment', [u235, total]) } /** FISSION: energy yield
+    over the input. value ⌊released / input⌋. -/
+theorem fam_nuclear_fission_1 : ((2000 : Int) / (10 : Int)) = (200 : Int) := by decide
 
-/-- nuclear: dose(900, 3) = 100 — DOSE: radiation by the inverse square of distance. value ⌊activity /
-    distance^2⌋. -/
-theorem fam_nuclear_dose_1 : (900 / (3 ^ 2)) = 100 := by decide
+/-- nuclear: dose(900, 3) = 100 — NUCLEAR — THE PHYSICS OF THE REACTOR CORE, AS ARITHMETIC. Nuclei are numbers:
+    atoms left after a run of half-lives, the decay rate, binding energy per nucleon, the chain's k-factor,
+    enrichment, fission yield, dose at a distance, and what the shielding stops. Crosses to `energy` — nuclear
+    is where energy is released. A measure. */ const PROOF = 'nuclear arithmetic (decay, activity, binding
+    energy per nucleon, criticality k-factor, enrichment, fission yield, dose by inverse square, shielding
+    attenuation); a measure crossed to energy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nuclear', dst: 'energy', formula, value, proof: PROOF, ...extra }, holds, { name: `nuclear.${name}`,
+    params }) export class NuclearFormulas { /** DECAY: atoms remaining after a run of half-lives. value
+    ⌊initial / 2^halflives⌋. */ static decay(initial: number, halflives: number): CrossFormula { return
+    c('nuclear-decay', 'decay(initial, halflives) = ⌊initial / 2^halflives⌋', halflives >= 0 ?
+    Math.floor(initial / (2 ** halflives)) : 0, nat(initial, halflives), 'decay', [initial, halflives]) } /**
+    ACTIVITY: decay rate proxy from atoms at a decay constant. value ⌊atoms · constant / 1000⌋. */ static
+    activity(atoms: number, constant: number): CrossFormula { return c('nuclear-activity', 'activity(atoms,
+    constant) = ⌊atoms · constant / 1000⌋', Math.floor((atoms * constant) / 1000), nat(atoms, constant),
+    'activity', [atoms, constant]) } /** BINDING: binding energy per nucleon. value ⌊mass / nucleons⌋. */ static
+    binding(mass: number, nucleons: number): CrossFormula { return c('nuclear-binding', 'binding(mass, nucleons)
+    = ⌊mass / nucleons⌋', nucleons > 0 ? Math.floor(mass / nucleons) : 0, nat(mass, nucleons) && nucleons > 0,
+    'binding', [mass, nucleons]) } /** CRITICALITY: the chain's k-factor ×100. value ⌊neutrons · 100 /
+    previous⌋. */ static criticality(neutrons: number, previous: number): CrossFormula { return
+    c('nuclear-criticality', 'criticality(neutrons, previous) = ⌊neutrons · 100 / previous⌋', previous > 0 ?
+    Math.floor((neutrons * 100) / previous) : 0, nat(neutrons, previous) && previous > 0, 'criticality',
+    [neutrons, previous]) } /** ENRICHMENT: the U-235 fraction as a percentage. value ⌊u235 · 100 / total⌋. */
+    static enrichment(u235: number, total: number): CrossFormula { return c('nuclear-enrichment',
+    'enrichment(u235, total) = ⌊u235 · 100 / total⌋', total > 0 ? Math.floor((u235 * 100) / total) : 0,
+    nat(u235, total) && total > 0 && u235 <= total, 'enrichment', [u235, total]) } /** FISSION: energy yield
+    over the input. value ⌊released / input⌋. */ static fission(released: number, input: number): CrossFormula {
+    return c('nuclear-fission', 'fission(released, input) = ⌊released / input⌋', input > 0 ? Math.floor(released
+    / input) : 0, nat(released, input) && input > 0, 'fission', [released, input]) } /** DOSE: radiation by the
+    inverse square of distance. value ⌊activity / distance^2⌋. -/
+theorem fam_nuclear_dose_1 : ((900 : Int) / ((3 : Int) ^ (2 : Nat))) = (100 : Int) := by decide
 
-/-- nuclear: shielding(800, 2) = 200 — SHIELDING: what gets through after layers of attenuation. value ⌊incident
-    / 2^layers⌋. -/
-theorem fam_nuclear_shielding_1 : (800 / (2 ^ 2)) = 200 := by decide
+/-- nuclear: shielding(800, 2) = 200 — NUCLEAR — THE PHYSICS OF THE REACTOR CORE, AS ARITHMETIC. Nuclei are
+    numbers: atoms left after a run of half-lives, the decay rate, binding energy per nucleon, the chain's
+    k-factor, enrichment, fission yield, dose at a distance, and what the shielding stops. Crosses to `energy` —
+    nuclear is where energy is released. A measure. */ const PROOF = 'nuclear arithmetic (decay, activity,
+    binding energy per nucleon, criticality k-factor, enrichment, fission yield, dose by inverse square,
+    shielding attenuation); a measure crossed to energy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nuclear', dst: 'energy', formula, value, proof: PROOF, ...extra }, holds, { name: `nuclear.${name}`,
+    params }) export class NuclearFormulas { /** DECAY: atoms remaining after a run of half-lives. value
+    ⌊initial / 2^halflives⌋. */ static decay(initial: number, halflives: number): CrossFormula { return
+    c('nuclear-decay', 'decay(initial, halflives) = ⌊initial / 2^halflives⌋', halflives >= 0 ?
+    Math.floor(initial / (2 ** halflives)) : 0, nat(initial, halflives), 'decay', [initial, halflives]) } /**
+    ACTIVITY: decay rate proxy from atoms at a decay constant. value ⌊atoms · constant / 1000⌋. */ static
+    activity(atoms: number, constant: number): CrossFormula { return c('nuclear-activity', 'activity(atoms,
+    constant) = ⌊atoms · constant / 1000⌋', Math.floor((atoms * constant) / 1000), nat(atoms, constant),
+    'activity', [atoms, constant]) } /** BINDING: binding energy per nucleon. value ⌊mass / nucleons⌋. */ static
+    binding(mass: number, nucleons: number): CrossFormula { return c('nuclear-binding', 'binding(mass, nucleons)
+    = ⌊mass / nucleons⌋', nucleons > 0 ? Math.floor(mass / nucleons) : 0, nat(mass, nucleons) && nucleons > 0,
+    'binding', [mass, nucleons]) } /** CRITICALITY: the chain's k-factor ×100. value ⌊neutrons · 100 /
+    previous⌋. */ static criticality(neutrons: number, previous: number): CrossFormula { return
+    c('nuclear-criticality', 'criticality(neutrons, previous) = ⌊neutrons · 100 / previous⌋', previous > 0 ?
+    Math.floor((neutrons * 100) / previous) : 0, nat(neutrons, previous) && previous > 0, 'criticality',
+    [neutrons, previous]) } /** ENRICHMENT: the U-235 fraction as a percentage. value ⌊u235 · 100 / total⌋. */
+    static enrichment(u235: number, total: number): CrossFormula { return c('nuclear-enrichment',
+    'enrichment(u235, total) = ⌊u235 · 100 / total⌋', total > 0 ? Math.floor((u235 * 100) / total) : 0,
+    nat(u235, total) && total > 0 && u235 <= total, 'enrichment', [u235, total]) } /** FISSION: energy yield
+    over the input. value ⌊released / input⌋. */ static fission(released: number, input: number): CrossFormula {
+    return c('nuclear-fission', 'fission(released, input) = ⌊released / input⌋', input > 0 ? Math.floor(released
+    / input) : 0, nat(released, input) && input > 0, 'fission', [released, input]) } /** DOSE: radiation by the
+    inverse square of distance. value ⌊activity / distance^2⌋. */ static dose(activity: number, distance:
+    number): CrossFormula { return c('nuclear-dose', 'dose(activity, distance) = ⌊activity / distance^2⌋',
+    distance > 0 ? Math.floor(activity / (distance * distance)) : 0, nat(activity, distance) && distance > 0,
+    'dose', [activity, distance]) } /** SHIELDING: what gets through after layers of attenuation. value
+    ⌊incident / 2^layers⌋. -/
+theorem fam_nuclear_shielding_1 : ((800 : Int) / ((2 : Int) ^ (2 : Nat))) = (200 : Int) := by decide
 
 /-- nuclearphysics: halflife(1000, 3) = 125 — NUCLEARPHYSICS — THE NUCLEUS AS ARITHMETIC (chosen by the
     registry, not by hand). A nucleus is numbers: how much is left after whole half-lives, how much has decayed,
@@ -585,54 +3656,327 @@ theorem fam_nuclear_shielding_1 : (800 / (2 ^ 2)) = 200 := by decide
     CrossFormula => crossFormulaOf({ id, src: 'nuclearphysics', dst: 'thermodynamics', formula, value, proof:
     PROOF, ...extra }, holds, { name: `nuclearphysics.${name}`, params }) export class NuclearphysicsFormulas {
     /** HALF-LIFE REMAINING: the amount left after whole half-lives. value ⌊initial / 2^periods⌋. -/
-theorem fam_nuclearphysics_halflife_1 : (1000 / (2 ^ 3)) = 125 := by decide
+theorem fam_nuclearphysics_halflife_1 : ((1000 : Int) / ((2 : Int) ^ (3 : Nat))) = (125 : Int) := by decide
 
-/-- nuclearphysics: decay(1000, 3) = 875 — DECAY: the amount gone after whole half-lives. value initial −
-    ⌊initial / 2^periods⌋. -/
-theorem fam_nuclearphysics_decay_1 : (1000 - (1000 / (2 ^ 3))) = 875 := by decide
+/-- nuclearphysics: decay(1000, 3) = 875 — NUCLEARPHYSICS — THE NUCLEUS AS ARITHMETIC (chosen by the registry,
+    not by hand). A nucleus is numbers: how much is left after whole half-lives, how much has decayed, the
+    binding energy that holds the nucleons, the mass defect, whether a chain stays critical, the activity, the
+    absorbed dose, and the energy a fission releases. Crosses to `thermodynamics` — every nuclear process is
+    heat. A measure. */ const PROOF = 'nuclearphysics arithmetic (half-life remaining, decay, binding energy,
+    mass defect, criticality, activity, dose, fission energy); a measure crossed to thermodynamics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'nuclearphysics', dst: 'thermodynamics', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nuclearphysics.${name}`, params }) export class NuclearphysicsFormulas {
+    /** HALF-LIFE REMAINING: the amount left after whole half-lives. value ⌊initial / 2^periods⌋. */ static
+    halflife(initial: number, periods: number): CrossFormula { return c('nuclearphysics-halflife',
+    'halflife(initial, periods) = ⌊initial / 2^periods⌋', Math.floor(initial / (2 ** periods)), nat(initial,
+    periods), 'halflife', [initial, periods]) } /** DECAY: the amount gone after whole half-lives. value initial
+    − ⌊initial / 2^periods⌋. -/
+theorem fam_nuclearphysics_decay_1 : ((1000 : Int) - ((1000 : Int) / ((2 : Int) ^ (3 : Nat)))) = (875 : Int) := by decide
 
-/-- nuclearphysics: bindingenergy(56, 8) = 448 — BINDING ENERGY: the energy holding every nucleon. value
-    nucleons · perNucleon. -/
-theorem fam_nuclearphysics_bindingenergy_1 : (56 * 8) = 448 := by decide
+/-- nuclearphysics: bindingenergy(56, 8) = 448 — NUCLEARPHYSICS — THE NUCLEUS AS ARITHMETIC (chosen by the
+    registry, not by hand). A nucleus is numbers: how much is left after whole half-lives, how much has decayed,
+    the binding energy that holds the nucleons, the mass defect, whether a chain stays critical, the activity,
+    the absorbed dose, and the energy a fission releases. Crosses to `thermodynamics` — every nuclear process is
+    heat. A measure. */ const PROOF = 'nuclearphysics arithmetic (half-life remaining, decay, binding energy,
+    mass defect, criticality, activity, dose, fission energy); a measure crossed to thermodynamics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'nuclearphysics', dst: 'thermodynamics', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nuclearphysics.${name}`, params }) export class NuclearphysicsFormulas {
+    /** HALF-LIFE REMAINING: the amount left after whole half-lives. value ⌊initial / 2^periods⌋. */ static
+    halflife(initial: number, periods: number): CrossFormula { return c('nuclearphysics-halflife',
+    'halflife(initial, periods) = ⌊initial / 2^periods⌋', Math.floor(initial / (2 ** periods)), nat(initial,
+    periods), 'halflife', [initial, periods]) } /** DECAY: the amount gone after whole half-lives. value initial
+    − ⌊initial / 2^periods⌋. */ static decay(initial: number, periods: number): CrossFormula { return
+    c('nuclearphysics-decay', 'decay(initial, periods) = initial − ⌊initial / 2^periods⌋', Math.max(0, initial -
+    Math.floor(initial / (2 ** periods))), nat(initial, periods), 'decay', [initial, periods]) } /** BINDING
+    ENERGY: the energy holding every nucleon. value nucleons · perNucleon. -/
+theorem fam_nuclearphysics_bindingenergy_1 : ((56 : Int) * (8 : Int)) = (448 : Int) := by decide
 
-/-- nuclearphysics: massdefect(940, 931) = 9 — MASS DEFECT: the mass of the parts less the bound mass. value
-    max(0, parts − bound). -/
-theorem fam_nuclearphysics_massdefect_1 : (fmax 0 (940 - 931)) = 9 := by decide
+/-- nuclearphysics: massdefect(940, 931) = 9 — NUCLEARPHYSICS — THE NUCLEUS AS ARITHMETIC (chosen by the
+    registry, not by hand). A nucleus is numbers: how much is left after whole half-lives, how much has decayed,
+    the binding energy that holds the nucleons, the mass defect, whether a chain stays critical, the activity,
+    the absorbed dose, and the energy a fission releases. Crosses to `thermodynamics` — every nuclear process is
+    heat. A measure. */ const PROOF = 'nuclearphysics arithmetic (half-life remaining, decay, binding energy,
+    mass defect, criticality, activity, dose, fission energy); a measure crossed to thermodynamics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'nuclearphysics', dst: 'thermodynamics', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nuclearphysics.${name}`, params }) export class NuclearphysicsFormulas {
+    /** HALF-LIFE REMAINING: the amount left after whole half-lives. value ⌊initial / 2^periods⌋. */ static
+    halflife(initial: number, periods: number): CrossFormula { return c('nuclearphysics-halflife',
+    'halflife(initial, periods) = ⌊initial / 2^periods⌋', Math.floor(initial / (2 ** periods)), nat(initial,
+    periods), 'halflife', [initial, periods]) } /** DECAY: the amount gone after whole half-lives. value initial
+    − ⌊initial / 2^periods⌋. */ static decay(initial: number, periods: number): CrossFormula { return
+    c('nuclearphysics-decay', 'decay(initial, periods) = initial − ⌊initial / 2^periods⌋', Math.max(0, initial -
+    Math.floor(initial / (2 ** periods))), nat(initial, periods), 'decay', [initial, periods]) } /** BINDING
+    ENERGY: the energy holding every nucleon. value nucleons · perNucleon. */ static bindingenergy(nucleons:
+    number, perNucleon: number): CrossFormula { return c('nuclearphysics-bindingenergy',
+    'bindingenergy(nucleons, perNucleon) = nucleons · perNucleon', nucleons * perNucleon, nat(nucleons,
+    perNucleon), 'bindingenergy', [nucleons, perNucleon]) } /** MASS DEFECT: the mass of the parts less the
+    bound mass. value max(0, parts − bound). -/
+theorem fam_nuclearphysics_massdefect_1 : (fmax (0 : Int) ((940 : Int) - (931 : Int))) = (9 : Int) := by decide
 
-/-- nuclearphysics: activity(6000, 60) = 100 — ACTIVITY: decays over the seconds observed. value ⌊decays /
-    seconds⌋. -/
-theorem fam_nuclearphysics_activity_1 : (6000 / 60) = 100 := by decide
+/-- nuclearphysics: criticality(100, 95) = 1 — NUCLEARPHYSICS — THE NUCLEUS AS ARITHMETIC (chosen by the
+    registry, not by hand). A nucleus is numbers: how much is left after whole half-lives, how much has decayed,
+    the binding energy that holds the nucleons, the mass defect, whether a chain stays critical, the activity,
+    the absorbed dose, and the energy a fission releases. Crosses to `thermodynamics` — every nuclear process is
+    heat. A measure. */ const PROOF = 'nuclearphysics arithmetic (half-life remaining, decay, binding energy,
+    mass defect, criticality, activity, dose, fission energy); a measure crossed to thermodynamics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'nuclearphysics', dst: 'thermodynamics', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nuclearphysics.${name}`, params }) export class NuclearphysicsFormulas {
+    /** HALF-LIFE REMAINING: the amount left after whole half-lives. value ⌊initial / 2^periods⌋. */ static
+    halflife(initial: number, periods: number): CrossFormula { return c('nuclearphysics-halflife',
+    'halflife(initial, periods) = ⌊initial / 2^periods⌋', Math.floor(initial / (2 ** periods)), nat(initial,
+    periods), 'halflife', [initial, periods]) } /** DECAY: the amount gone after whole half-lives. value initial
+    − ⌊initial / 2^periods⌋. */ static decay(initial: number, periods: number): CrossFormula { return
+    c('nuclearphysics-decay', 'decay(initial, periods) = initial − ⌊initial / 2^periods⌋', Math.max(0, initial -
+    Math.floor(initial / (2 ** periods))), nat(initial, periods), 'decay', [initial, periods]) } /** BINDING
+    ENERGY: the energy holding every nucleon. value nucleons · perNucleon. */ static bindingenergy(nucleons:
+    number, perNucleon: number): CrossFormula { return c('nuclearphysics-bindingenergy',
+    'bindingenergy(nucleons, perNucleon) = nucleons · perNucleon', nucleons * perNucleon, nat(nucleons,
+    perNucleon), 'bindingenergy', [nucleons, perNucleon]) } /** MASS DEFECT: the mass of the parts less the
+    bound mass. value max(0, parts − bound). */ static massdefect(parts: number, bound: number): CrossFormula {
+    return c('nuclearphysics-massdefect', 'massdefect(parts, bound) = max(0, parts − bound)', Math.max(0, parts
+    - bound), nat(parts, bound), 'massdefect', [parts, bound]) } /** CRITICALITY: 1 when the neutrons produced
+    meet the neutrons lost. value [produced ≥ lost]. -/
+theorem fam_nuclearphysics_criticality_1 : (if (if (100 : Int) ≥ (95 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
 
-/-- nuclearphysics: dose(1000, 50) = 20 — DOSE: energy absorbed per unit mass. value ⌊energy / mass⌋. -/
-theorem fam_nuclearphysics_dose_1 : (1000 / 50) = 20 := by decide
+/-- nuclearphysics: criticality(90, 95) = 0 — NUCLEARPHYSICS — THE NUCLEUS AS ARITHMETIC (chosen by the
+    registry, not by hand). A nucleus is numbers: how much is left after whole half-lives, how much has decayed,
+    the binding energy that holds the nucleons, the mass defect, whether a chain stays critical, the activity,
+    the absorbed dose, and the energy a fission releases. Crosses to `thermodynamics` — every nuclear process is
+    heat. A measure. */ const PROOF = 'nuclearphysics arithmetic (half-life remaining, decay, binding energy,
+    mass defect, criticality, activity, dose, fission energy); a measure crossed to thermodynamics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'nuclearphysics', dst: 'thermodynamics', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nuclearphysics.${name}`, params }) export class NuclearphysicsFormulas {
+    /** HALF-LIFE REMAINING: the amount left after whole half-lives. value ⌊initial / 2^periods⌋. */ static
+    halflife(initial: number, periods: number): CrossFormula { return c('nuclearphysics-halflife',
+    'halflife(initial, periods) = ⌊initial / 2^periods⌋', Math.floor(initial / (2 ** periods)), nat(initial,
+    periods), 'halflife', [initial, periods]) } /** DECAY: the amount gone after whole half-lives. value initial
+    − ⌊initial / 2^periods⌋. */ static decay(initial: number, periods: number): CrossFormula { return
+    c('nuclearphysics-decay', 'decay(initial, periods) = initial − ⌊initial / 2^periods⌋', Math.max(0, initial -
+    Math.floor(initial / (2 ** periods))), nat(initial, periods), 'decay', [initial, periods]) } /** BINDING
+    ENERGY: the energy holding every nucleon. value nucleons · perNucleon. */ static bindingenergy(nucleons:
+    number, perNucleon: number): CrossFormula { return c('nuclearphysics-bindingenergy',
+    'bindingenergy(nucleons, perNucleon) = nucleons · perNucleon', nucleons * perNucleon, nat(nucleons,
+    perNucleon), 'bindingenergy', [nucleons, perNucleon]) } /** MASS DEFECT: the mass of the parts less the
+    bound mass. value max(0, parts − bound). */ static massdefect(parts: number, bound: number): CrossFormula {
+    return c('nuclearphysics-massdefect', 'massdefect(parts, bound) = max(0, parts − bound)', Math.max(0, parts
+    - bound), nat(parts, bound), 'massdefect', [parts, bound]) } /** CRITICALITY: 1 when the neutrons produced
+    meet the neutrons lost. value [produced ≥ lost]. -/
+theorem fam_nuclearphysics_criticality_2 : (if (if (90 : Int) ≥ (95 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
 
-/-- nuclearphysics: fission(100, 200) = 20000 — FISSION ENERGY: the energy released over every event. value
-    events · perEvent. -/
-theorem fam_nuclearphysics_fission_1 : (100 * 200) = 20000 := by decide
+/-- nuclearphysics: activity(6000, 60) = 100 — NUCLEARPHYSICS — THE NUCLEUS AS ARITHMETIC (chosen by the
+    registry, not by hand). A nucleus is numbers: how much is left after whole half-lives, how much has decayed,
+    the binding energy that holds the nucleons, the mass defect, whether a chain stays critical, the activity,
+    the absorbed dose, and the energy a fission releases. Crosses to `thermodynamics` — every nuclear process is
+    heat. A measure. */ const PROOF = 'nuclearphysics arithmetic (half-life remaining, decay, binding energy,
+    mass defect, criticality, activity, dose, fission energy); a measure crossed to thermodynamics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'nuclearphysics', dst: 'thermodynamics', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nuclearphysics.${name}`, params }) export class NuclearphysicsFormulas {
+    /** HALF-LIFE REMAINING: the amount left after whole half-lives. value ⌊initial / 2^periods⌋. */ static
+    halflife(initial: number, periods: number): CrossFormula { return c('nuclearphysics-halflife',
+    'halflife(initial, periods) = ⌊initial / 2^periods⌋', Math.floor(initial / (2 ** periods)), nat(initial,
+    periods), 'halflife', [initial, periods]) } /** DECAY: the amount gone after whole half-lives. value initial
+    − ⌊initial / 2^periods⌋. */ static decay(initial: number, periods: number): CrossFormula { return
+    c('nuclearphysics-decay', 'decay(initial, periods) = initial − ⌊initial / 2^periods⌋', Math.max(0, initial -
+    Math.floor(initial / (2 ** periods))), nat(initial, periods), 'decay', [initial, periods]) } /** BINDING
+    ENERGY: the energy holding every nucleon. value nucleons · perNucleon. */ static bindingenergy(nucleons:
+    number, perNucleon: number): CrossFormula { return c('nuclearphysics-bindingenergy',
+    'bindingenergy(nucleons, perNucleon) = nucleons · perNucleon', nucleons * perNucleon, nat(nucleons,
+    perNucleon), 'bindingenergy', [nucleons, perNucleon]) } /** MASS DEFECT: the mass of the parts less the
+    bound mass. value max(0, parts − bound). */ static massdefect(parts: number, bound: number): CrossFormula {
+    return c('nuclearphysics-massdefect', 'massdefect(parts, bound) = max(0, parts − bound)', Math.max(0, parts
+    - bound), nat(parts, bound), 'massdefect', [parts, bound]) } /** CRITICALITY: 1 when the neutrons produced
+    meet the neutrons lost. value [produced ≥ lost]. */ static criticality(produced: number, lost: number):
+    CrossFormula { return c('nuclearphysics-criticality', 'criticality(produced, lost) = [produced ≥ lost]',
+    produced >= lost ? 1 : 0, nat(produced, lost), 'criticality', [produced, lost]) } /** ACTIVITY: decays over
+    the seconds observed. value ⌊decays / seconds⌋. -/
+theorem fam_nuclearphysics_activity_1 : ((6000 : Int) / (60 : Int)) = (100 : Int) := by decide
+
+/-- nuclearphysics: dose(1000, 50) = 20 — NUCLEARPHYSICS — THE NUCLEUS AS ARITHMETIC (chosen by the registry,
+    not by hand). A nucleus is numbers: how much is left after whole half-lives, how much has decayed, the
+    binding energy that holds the nucleons, the mass defect, whether a chain stays critical, the activity, the
+    absorbed dose, and the energy a fission releases. Crosses to `thermodynamics` — every nuclear process is
+    heat. A measure. */ const PROOF = 'nuclearphysics arithmetic (half-life remaining, decay, binding energy,
+    mass defect, criticality, activity, dose, fission energy); a measure crossed to thermodynamics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'nuclearphysics', dst: 'thermodynamics', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nuclearphysics.${name}`, params }) export class NuclearphysicsFormulas {
+    /** HALF-LIFE REMAINING: the amount left after whole half-lives. value ⌊initial / 2^periods⌋. */ static
+    halflife(initial: number, periods: number): CrossFormula { return c('nuclearphysics-halflife',
+    'halflife(initial, periods) = ⌊initial / 2^periods⌋', Math.floor(initial / (2 ** periods)), nat(initial,
+    periods), 'halflife', [initial, periods]) } /** DECAY: the amount gone after whole half-lives. value initial
+    − ⌊initial / 2^periods⌋. */ static decay(initial: number, periods: number): CrossFormula { return
+    c('nuclearphysics-decay', 'decay(initial, periods) = initial − ⌊initial / 2^periods⌋', Math.max(0, initial -
+    Math.floor(initial / (2 ** periods))), nat(initial, periods), 'decay', [initial, periods]) } /** BINDING
+    ENERGY: the energy holding every nucleon. value nucleons · perNucleon. */ static bindingenergy(nucleons:
+    number, perNucleon: number): CrossFormula { return c('nuclearphysics-bindingenergy',
+    'bindingenergy(nucleons, perNucleon) = nucleons · perNucleon', nucleons * perNucleon, nat(nucleons,
+    perNucleon), 'bindingenergy', [nucleons, perNucleon]) } /** MASS DEFECT: the mass of the parts less the
+    bound mass. value max(0, parts − bound). */ static massdefect(parts: number, bound: number): CrossFormula {
+    return c('nuclearphysics-massdefect', 'massdefect(parts, bound) = max(0, parts − bound)', Math.max(0, parts
+    - bound), nat(parts, bound), 'massdefect', [parts, bound]) } /** CRITICALITY: 1 when the neutrons produced
+    meet the neutrons lost. value [produced ≥ lost]. */ static criticality(produced: number, lost: number):
+    CrossFormula { return c('nuclearphysics-criticality', 'criticality(produced, lost) = [produced ≥ lost]',
+    produced >= lost ? 1 : 0, nat(produced, lost), 'criticality', [produced, lost]) } /** ACTIVITY: decays over
+    the seconds observed. value ⌊decays / seconds⌋. */ static activity(decays: number, seconds: number):
+    CrossFormula { return c('nuclearphysics-activity', 'activity(decays, seconds) = ⌊decays / seconds⌋', seconds
+    > 0 ? Math.floor(decays / seconds) : 0, nat(decays, seconds) && seconds > 0, 'activity', [decays, seconds])
+    } /** DOSE: energy absorbed per unit mass. value ⌊energy / mass⌋. -/
+theorem fam_nuclearphysics_dose_1 : ((1000 : Int) / (50 : Int)) = (20 : Int) := by decide
+
+/-- nuclearphysics: fission(100, 200) = 20000 — NUCLEARPHYSICS — THE NUCLEUS AS ARITHMETIC (chosen by the
+    registry, not by hand). A nucleus is numbers: how much is left after whole half-lives, how much has decayed,
+    the binding energy that holds the nucleons, the mass defect, whether a chain stays critical, the activity,
+    the absorbed dose, and the energy a fission releases. Crosses to `thermodynamics` — every nuclear process is
+    heat. A measure. */ const PROOF = 'nuclearphysics arithmetic (half-life remaining, decay, binding energy,
+    mass defect, criticality, activity, dose, fission energy); a measure crossed to thermodynamics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'nuclearphysics', dst: 'thermodynamics', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nuclearphysics.${name}`, params }) export class NuclearphysicsFormulas {
+    /** HALF-LIFE REMAINING: the amount left after whole half-lives. value ⌊initial / 2^periods⌋. */ static
+    halflife(initial: number, periods: number): CrossFormula { return c('nuclearphysics-halflife',
+    'halflife(initial, periods) = ⌊initial / 2^periods⌋', Math.floor(initial / (2 ** periods)), nat(initial,
+    periods), 'halflife', [initial, periods]) } /** DECAY: the amount gone after whole half-lives. value initial
+    − ⌊initial / 2^periods⌋. */ static decay(initial: number, periods: number): CrossFormula { return
+    c('nuclearphysics-decay', 'decay(initial, periods) = initial − ⌊initial / 2^periods⌋', Math.max(0, initial -
+    Math.floor(initial / (2 ** periods))), nat(initial, periods), 'decay', [initial, periods]) } /** BINDING
+    ENERGY: the energy holding every nucleon. value nucleons · perNucleon. */ static bindingenergy(nucleons:
+    number, perNucleon: number): CrossFormula { return c('nuclearphysics-bindingenergy',
+    'bindingenergy(nucleons, perNucleon) = nucleons · perNucleon', nucleons * perNucleon, nat(nucleons,
+    perNucleon), 'bindingenergy', [nucleons, perNucleon]) } /** MASS DEFECT: the mass of the parts less the
+    bound mass. value max(0, parts − bound). */ static massdefect(parts: number, bound: number): CrossFormula {
+    return c('nuclearphysics-massdefect', 'massdefect(parts, bound) = max(0, parts − bound)', Math.max(0, parts
+    - bound), nat(parts, bound), 'massdefect', [parts, bound]) } /** CRITICALITY: 1 when the neutrons produced
+    meet the neutrons lost. value [produced ≥ lost]. */ static criticality(produced: number, lost: number):
+    CrossFormula { return c('nuclearphysics-criticality', 'criticality(produced, lost) = [produced ≥ lost]',
+    produced >= lost ? 1 : 0, nat(produced, lost), 'criticality', [produced, lost]) } /** ACTIVITY: decays over
+    the seconds observed. value ⌊decays / seconds⌋. */ static activity(decays: number, seconds: number):
+    CrossFormula { return c('nuclearphysics-activity', 'activity(decays, seconds) = ⌊decays / seconds⌋', seconds
+    > 0 ? Math.floor(decays / seconds) : 0, nat(decays, seconds) && seconds > 0, 'activity', [decays, seconds])
+    } /** DOSE: energy absorbed per unit mass. value ⌊energy / mass⌋. */ static dose(energy: number, mass:
+    number): CrossFormula { return c('nuclearphysics-dose', 'dose(energy, mass) = ⌊energy / mass⌋', mass > 0 ?
+    Math.floor(energy / mass) : 0, nat(energy, mass) && mass > 0, 'dose', [energy, mass]) } /** FISSION ENERGY:
+    the energy released over every event. value events · perEvent. -/
+theorem fam_nuclearphysics_fission_1 : ((100 : Int) * (200 : Int)) = (20000 : Int) := by decide
 
 /-- nuclearpower: thermaloutput(3, 1000) = 3000 -/
-theorem fam_nuclearpower_thermaloutput_1 : (3 * 1000) = 3000 := by decide
+theorem fam_nuclearpower_thermaloutput_1 : ((3 : Int) * (1000 : Int)) = (3000 : Int) := by decide
 
 /-- nuclearpower: electricaloutput(3000, 3) = 1000 -/
-theorem fam_nuclearpower_electricaloutput_1 : (3000 / 3) = 1000 := by decide
+theorem fam_nuclearpower_electricaloutput_1 : ((3000 : Int) / (3 : Int)) = (1000 : Int) := by decide
 
 /-- nuclearpower: efficiency(33, 100) = 33 -/
-theorem fam_nuclearpower_efficiency_1 : ((33 * 100) / 100) = 33 := by decide
+theorem fam_nuclearpower_efficiency_1 : (((33 : Int) * (100 : Int)) / (100 : Int)) = (33 : Int) := by decide
 
 /-- nuclearpower: fuelburnup(45, 1) = 45 -/
-theorem fam_nuclearpower_fuelburnup_1 : (45 * 1) = 45 := by decide
+theorem fam_nuclearpower_fuelburnup_1 : ((45 : Int) * (1 : Int)) = (45 : Int) := by decide
 
 /-- nuclearpower: capacityfactor(90, 100) = 90 -/
-theorem fam_nuclearpower_capacityfactor_1 : ((90 * 100) / 100) = 90 := by decide
+theorem fam_nuclearpower_capacityfactor_1 : (((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int) := by decide
 
 /-- nuclearpower: halflifecycles(3, 0) = 3 -/
-theorem fam_nuclearpower_halflifecycles_1 : (3 + 0) = 3 := by decide
+theorem fam_nuclearpower_halflifecycles_1 : ((3 : Int) + (0 : Int)) = (3 : Int) := by decide
 
 /-- nuclearpower: coolingloops(4, 0) = 4 -/
-theorem fam_nuclearpower_coolingloops_1 : (4 + 0) = 4 := by decide
+theorem fam_nuclearpower_coolingloops_1 : ((4 : Int) + (0 : Int)) = (4 : Int) := by decide
 
 /-- nuclearpower: decayheat(7, 100) = 7 -/
-theorem fam_nuclearpower_decayheat_1 : ((7 * 100) / 100) = 7 := by decide
+theorem fam_nuclearpower_decayheat_1 : (((7 : Int) * (100 : Int)) / (100 : Int)) = (7 : Int) := by decide
+
+/-- numbertheory: lcm(4, 6) = 12 — NUMBERTHEORY — THE ARITHMETIC OF THE WHOLE NUMBERS, AS EXACT INTEGERS. The
+    oldest formulas: the greatest common divisor and the least common multiple, Euler's totient, how many
+    divisors a number has, whether it is prime, a power taken under a modulus, the sum of a number's digits, and
+    a factorial under a modulus. Crosses to `algebra` — number theory is the arithmetic algebra reasons over.
+    Every value a finite integer; every division guarded; every input hex-addressable. */ const PROOF = 'number
+    theory as exact integers (gcd by Euclid, lcm, Euler totient, divisor count, primality, modular
+    exponentiation by squaring, digit sum, factorial mod); a measure crossed to algebra' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'numbertheory', dst: 'algebra', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `numbertheory.${name}`, params }) export class NumbertheoryFormulas { /**
+    GREATEST COMMON DIVISOR by Euclid's algorithm. value gcd(a, b). */ static gcd(a: number, b: number):
+    CrossFormula { return c('numbertheory-gcd', 'gcd(a, b) = Euclid(a, b)', gcdOf(a, b), nat(a, b), 'gcd', [a,
+    b]) } /** LEAST COMMON MULTIPLE: the product over the gcd. value a · b / gcd(a, b). -/
+theorem fam_numbertheory_lcm_1 : (((4 : Int) * (6 : Int)) / (Int.ofNat (fgcd 100 (Int.toNat (4 : Int)) (Int.toNat (6 : Int))))) = (12 : Int) := by decide
+
+/-- numen: nine(18) = 9 — NUMEROLOGY, DECODED — EXACT MATH, UNVERIFIED MEANING. Every operation here is a
+    deterministic function of a natural (digit sums, reductions, mirrors): the arithmetic is verified, the
+    *significance* numerology claims for it is not. So these are leads, fed to the discovery: a value a numen
+    formula reaches that a Lean family, an OEIS sequence or a live reading also reaches is a real cross (and
+    interesting precisely because it was found, not assumed); a value nothing else reaches stays UNVERIFIED and
+    gate.crossed tags it "a manipulation until crossed." The unit computes the number; it never asserts the
+    omen. */ const PROOF = 'exact digit arithmetic; the significance is UNVERIFIED and fed to the discovery as a
+    lead, never asserted' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const f = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'numen', dst: 'cross',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `numen.${name}`, params }) const digits = (n:
+    number) => String(n).split('').map(Number) const sum = (n: number) => digits(n).reduce((a, b) => a + b, 0)
+    export class NumenFormulas { /** The digital root reduced to a single digit, but a master number (11, 22,
+    33) along the way is kept, as numerology keeps it. Exact; the meaning is a lead. */ static root(n: number):
+    CrossFormula { let x = n; while (x > 9 && ![11, 22, 33].includes(x)) x = sum(x); return f('numen-root',
+    'root(n): reduce by digit sum, keeping a master number', x, nat(n), 'root', [n], { master: [11, 22,
+    33].includes(x) }) } /** 1 when n, reduced by digit sums, passes through a master number (11, 22, 33). */
+    static master(n: number): CrossFormula { let x = n, hit = false; while (x > 9) { if ([11, 22,
+    33].includes(x)) hit = true; x = sum(x) }; return f('numen-master', 'master(n) = [the reduction of n passes
+    11, 22 or 33]', hit ? 1 : 0, nat(n), 'master', [n]) } /** The plain single-digit reduction (0–9): the
+    repeated digit sum, no exception. */ static reduce(n: number): CrossFormula { let x = n; while (x > 9) x =
+    sum(x); return f('numen-reduce', 'reduce(n): repeated digit sum to one digit', x, nat(n), 'reduce', [n]) }
+    /** How many digit-sum steps reduce n to a single digit — the reduction depth. */ static depth(n: number):
+    CrossFormula { let x = n, d = 0; while (x > 9) { x = sum(x); d++ }; return f('numen-depth', 'depth(n) =
+    |digit-sum steps to one digit|', d, nat(n), 'depth', [n]) } /** n with its digits reversed. */ static
+    mirror(n: number): CrossFormula { return f('numen-mirror', 'mirror(n) = n’s digits reversed',
+    Number(digits(n).reverse().join('')), nat(n), 'mirror', [n]) } /** 1 when n reads the same reversed — a
+    palindrome. */ static palindrome(n: number): CrossFormula { return f('numen-palindrome', 'palindrome(n) = [n
+    = mirror(n)]', String(n) === digits(n).reverse().join('') ? 1 : 0, nat(n), 'palindrome', [n]) } /** n mod 9
+    mapped to the 1–9 wheel (9 for multiples of 9, n>0): the enneadic cycle numerology and the 3-6-9 reading
+    use. -/
+theorem fam_numen_nine_1 : ((((18 : Int) - (1 : Int)) % (9 : Int)) + (1 : Int)) = (9 : Int) := by decide
+
+/-- numen: nine(10) = 1 — NUMEROLOGY, DECODED — EXACT MATH, UNVERIFIED MEANING. Every operation here is a
+    deterministic function of a natural (digit sums, reductions, mirrors): the arithmetic is verified, the
+    *significance* numerology claims for it is not. So these are leads, fed to the discovery: a value a numen
+    formula reaches that a Lean family, an OEIS sequence or a live reading also reaches is a real cross (and
+    interesting precisely because it was found, not assumed); a value nothing else reaches stays UNVERIFIED and
+    gate.crossed tags it "a manipulation until crossed." The unit computes the number; it never asserts the
+    omen. */ const PROOF = 'exact digit arithmetic; the significance is UNVERIFIED and fed to the discovery as a
+    lead, never asserted' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const f = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'numen', dst: 'cross',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `numen.${name}`, params }) const digits = (n:
+    number) => String(n).split('').map(Number) const sum = (n: number) => digits(n).reduce((a, b) => a + b, 0)
+    export class NumenFormulas { /** The digital root reduced to a single digit, but a master number (11, 22,
+    33) along the way is kept, as numerology keeps it. Exact; the meaning is a lead. */ static root(n: number):
+    CrossFormula { let x = n; while (x > 9 && ![11, 22, 33].includes(x)) x = sum(x); return f('numen-root',
+    'root(n): reduce by digit sum, keeping a master number', x, nat(n), 'root', [n], { master: [11, 22,
+    33].includes(x) }) } /** 1 when n, reduced by digit sums, passes through a master number (11, 22, 33). */
+    static master(n: number): CrossFormula { let x = n, hit = false; while (x > 9) { if ([11, 22,
+    33].includes(x)) hit = true; x = sum(x) }; return f('numen-master', 'master(n) = [the reduction of n passes
+    11, 22 or 33]', hit ? 1 : 0, nat(n), 'master', [n]) } /** The plain single-digit reduction (0–9): the
+    repeated digit sum, no exception. */ static reduce(n: number): CrossFormula { let x = n; while (x > 9) x =
+    sum(x); return f('numen-reduce', 'reduce(n): repeated digit sum to one digit', x, nat(n), 'reduce', [n]) }
+    /** How many digit-sum steps reduce n to a single digit — the reduction depth. */ static depth(n: number):
+    CrossFormula { let x = n, d = 0; while (x > 9) { x = sum(x); d++ }; return f('numen-depth', 'depth(n) =
+    |digit-sum steps to one digit|', d, nat(n), 'depth', [n]) } /** n with its digits reversed. */ static
+    mirror(n: number): CrossFormula { return f('numen-mirror', 'mirror(n) = n’s digits reversed',
+    Number(digits(n).reverse().join('')), nat(n), 'mirror', [n]) } /** 1 when n reads the same reversed — a
+    palindrome. */ static palindrome(n: number): CrossFormula { return f('numen-palindrome', 'palindrome(n) = [n
+    = mirror(n)]', String(n) === digits(n).reverse().join('') ? 1 : 0, nat(n), 'palindrome', [n]) } /** n mod 9
+    mapped to the 1–9 wheel (9 for multiples of 9, n>0): the enneadic cycle numerology and the 3-6-9 reading
+    use. -/
+theorem fam_numen_nine_2 : ((((10 : Int) - (1 : Int)) % (9 : Int)) + (1 : Int)) = (1 : Int) := by decide
 
 /-- numeracy: problemsolved(20, 15) = 300 — NUMERACY — EARLY-NUMBER LEARNING, AS ARITHMETIC (chosen by the
     curriculum registry, not by hand). Learning number is numbers: problems solved, accuracy, fact fluency,
@@ -645,68 +3989,275 @@ theorem fam_nuclearpower_decayheat_1 : ((7 * 100) / 100) = 7 := by decide
     src: 'numeracy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
     `numeracy.${name}`, params }) export class NumeracyFormulas { /** PROBLEMS SOLVED: problems per session over
     the sessions worked. value sessions · perSession. -/
-theorem fam_numeracy_problemsolved_1 : (20 * 15) = 300 := by decide
+theorem fam_numeracy_problemsolved_1 : ((20 : Int) * (15 : Int)) = (300 : Int) := by decide
 
-/-- numeracy: accuracy(45, 50) = 90 — ACCURACY as a percentage. value ⌊correct · 100 / total⌋. -/
-theorem fam_numeracy_accuracy_1 : ((45 * 100) / 50) = 90 := by decide
+/-- numeracy: accuracy(45, 50) = 90 — NUMERACY — EARLY-NUMBER LEARNING, AS ARITHMETIC (chosen by the curriculum
+    registry, not by hand). Learning number is numbers: problems solved, accuracy, fact fluency, place value,
+    operation speed, error rate, mastery, and the growth from a start to an end. Crosses to `pedagogy` —
+    numeracy is what pedagogy teaches. A measure. */ const PROOF = 'numeracy arithmetic (problems solved,
+    accuracy, fact fluency, place value, operation speed, error rate, mastery, growth); the curriculum
+    registry\'s uncovered domain; a measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'numeracy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `numeracy.${name}`, params }) export class NumeracyFormulas { /** PROBLEMS SOLVED: problems per session over
+    the sessions worked. value sessions · perSession. */ static problemsolved(sessions: number, perSession:
+    number): CrossFormula { return c('numeracy-problemsolved', 'problemsolved(sessions, perSession) = sessions ·
+    perSession', sessions * perSession, nat(sessions, perSession), 'problemsolved', [sessions, perSession]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. -/
+theorem fam_numeracy_accuracy_1 : (((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int) := by decide
 
-/-- numeracy: factfluency(40, 60) = 40 — FACT FLUENCY: facts recalled per minute. value ⌊facts · 60 / seconds⌋. -/
-theorem fam_numeracy_factfluency_1 : ((40 * 60) / 60) = 40 := by decide
+/-- numeracy: factfluency(40, 60) = 40 — NUMERACY — EARLY-NUMBER LEARNING, AS ARITHMETIC (chosen by the
+    curriculum registry, not by hand). Learning number is numbers: problems solved, accuracy, fact fluency,
+    place value, operation speed, error rate, mastery, and the growth from a start to an end. Crosses to
+    `pedagogy` — numeracy is what pedagogy teaches. A measure. */ const PROOF = 'numeracy arithmetic (problems
+    solved, accuracy, fact fluency, place value, operation speed, error rate, mastery, growth); the curriculum
+    registry\'s uncovered domain; a measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'numeracy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `numeracy.${name}`, params }) export class NumeracyFormulas { /** PROBLEMS SOLVED: problems per session over
+    the sessions worked. value sessions · perSession. */ static problemsolved(sessions: number, perSession:
+    number): CrossFormula { return c('numeracy-problemsolved', 'problemsolved(sessions, perSession) = sessions ·
+    perSession', sessions * perSession, nat(sessions, perSession), 'problemsolved', [sessions, perSession]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('numeracy-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** FACT FLUENCY: facts recalled per minute. value ⌊facts · 60 / seconds⌋. -/
+theorem fam_numeracy_factfluency_1 : (((40 : Int) * (60 : Int)) / (60 : Int)) = (40 : Int) := by decide
 
-/-- numeracy: placevalue(7, 100) = 700 — PLACE VALUE: a digit worth its place. value digit · place. -/
-theorem fam_numeracy_placevalue_1 : (7 * 100) = 700 := by decide
+/-- numeracy: placevalue(7, 100) = 700 — NUMERACY — EARLY-NUMBER LEARNING, AS ARITHMETIC (chosen by the
+    curriculum registry, not by hand). Learning number is numbers: problems solved, accuracy, fact fluency,
+    place value, operation speed, error rate, mastery, and the growth from a start to an end. Crosses to
+    `pedagogy` — numeracy is what pedagogy teaches. A measure. */ const PROOF = 'numeracy arithmetic (problems
+    solved, accuracy, fact fluency, place value, operation speed, error rate, mastery, growth); the curriculum
+    registry\'s uncovered domain; a measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'numeracy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `numeracy.${name}`, params }) export class NumeracyFormulas { /** PROBLEMS SOLVED: problems per session over
+    the sessions worked. value sessions · perSession. */ static problemsolved(sessions: number, perSession:
+    number): CrossFormula { return c('numeracy-problemsolved', 'problemsolved(sessions, perSession) = sessions ·
+    perSession', sessions * perSession, nat(sessions, perSession), 'problemsolved', [sessions, perSession]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('numeracy-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** FACT FLUENCY: facts recalled per minute. value ⌊facts · 60 / seconds⌋.
+    */ static factfluency(facts: number, seconds: number): CrossFormula { return c('numeracy-factfluency',
+    'factfluency(facts, seconds) = ⌊facts · 60 / seconds⌋', seconds > 0 ? Math.floor((facts * 60) / seconds) :
+    0, nat(facts, seconds) && seconds > 0, 'factfluency', [facts, seconds]) } /** PLACE VALUE: a digit worth its
+    place. value digit · place. -/
+theorem fam_numeracy_placevalue_1 : ((7 : Int) * (100 : Int)) = (700 : Int) := by decide
 
-/-- numeracy: operationspeed(120, 4) = 30 — OPERATION SPEED: operations over minutes. value ⌊operations /
-    minutes⌋. -/
-theorem fam_numeracy_operationspeed_1 : (120 / 4) = 30 := by decide
+/-- numeracy: operationspeed(120, 4) = 30 — NUMERACY — EARLY-NUMBER LEARNING, AS ARITHMETIC (chosen by the
+    curriculum registry, not by hand). Learning number is numbers: problems solved, accuracy, fact fluency,
+    place value, operation speed, error rate, mastery, and the growth from a start to an end. Crosses to
+    `pedagogy` — numeracy is what pedagogy teaches. A measure. */ const PROOF = 'numeracy arithmetic (problems
+    solved, accuracy, fact fluency, place value, operation speed, error rate, mastery, growth); the curriculum
+    registry\'s uncovered domain; a measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'numeracy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `numeracy.${name}`, params }) export class NumeracyFormulas { /** PROBLEMS SOLVED: problems per session over
+    the sessions worked. value sessions · perSession. */ static problemsolved(sessions: number, perSession:
+    number): CrossFormula { return c('numeracy-problemsolved', 'problemsolved(sessions, perSession) = sessions ·
+    perSession', sessions * perSession, nat(sessions, perSession), 'problemsolved', [sessions, perSession]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('numeracy-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** FACT FLUENCY: facts recalled per minute. value ⌊facts · 60 / seconds⌋.
+    */ static factfluency(facts: number, seconds: number): CrossFormula { return c('numeracy-factfluency',
+    'factfluency(facts, seconds) = ⌊facts · 60 / seconds⌋', seconds > 0 ? Math.floor((facts * 60) / seconds) :
+    0, nat(facts, seconds) && seconds > 0, 'factfluency', [facts, seconds]) } /** PLACE VALUE: a digit worth its
+    place. value digit · place. */ static placevalue(digit: number, place: number): CrossFormula { return
+    c('numeracy-placevalue', 'placevalue(digit, place) = digit · place', digit * place, nat(digit, place) &&
+    digit <= 9, 'placevalue', [digit, place]) } /** OPERATION SPEED: operations over minutes. value ⌊operations
+    / minutes⌋. -/
+theorem fam_numeracy_operationspeed_1 : ((120 : Int) / (4 : Int)) = (30 : Int) := by decide
 
-/-- numeracy: errorrate(3, 60) = 5 — ERROR RATE as a percentage. value ⌊errors · 100 / total⌋. -/
-theorem fam_numeracy_errorrate_1 : ((3 * 100) / 60) = 5 := by decide
+/-- numeracy: errorrate(3, 60) = 5 — NUMERACY — EARLY-NUMBER LEARNING, AS ARITHMETIC (chosen by the curriculum
+    registry, not by hand). Learning number is numbers: problems solved, accuracy, fact fluency, place value,
+    operation speed, error rate, mastery, and the growth from a start to an end. Crosses to `pedagogy` —
+    numeracy is what pedagogy teaches. A measure. */ const PROOF = 'numeracy arithmetic (problems solved,
+    accuracy, fact fluency, place value, operation speed, error rate, mastery, growth); the curriculum
+    registry\'s uncovered domain; a measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'numeracy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `numeracy.${name}`, params }) export class NumeracyFormulas { /** PROBLEMS SOLVED: problems per session over
+    the sessions worked. value sessions · perSession. */ static problemsolved(sessions: number, perSession:
+    number): CrossFormula { return c('numeracy-problemsolved', 'problemsolved(sessions, perSession) = sessions ·
+    perSession', sessions * perSession, nat(sessions, perSession), 'problemsolved', [sessions, perSession]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('numeracy-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** FACT FLUENCY: facts recalled per minute. value ⌊facts · 60 / seconds⌋.
+    */ static factfluency(facts: number, seconds: number): CrossFormula { return c('numeracy-factfluency',
+    'factfluency(facts, seconds) = ⌊facts · 60 / seconds⌋', seconds > 0 ? Math.floor((facts * 60) / seconds) :
+    0, nat(facts, seconds) && seconds > 0, 'factfluency', [facts, seconds]) } /** PLACE VALUE: a digit worth its
+    place. value digit · place. */ static placevalue(digit: number, place: number): CrossFormula { return
+    c('numeracy-placevalue', 'placevalue(digit, place) = digit · place', digit * place, nat(digit, place) &&
+    digit <= 9, 'placevalue', [digit, place]) } /** OPERATION SPEED: operations over minutes. value ⌊operations
+    / minutes⌋. */ static operationspeed(operations: number, minutes: number): CrossFormula { return
+    c('numeracy-operationspeed', 'operationspeed(operations, minutes) = ⌊operations / minutes⌋', minutes > 0 ?
+    Math.floor(operations / minutes) : 0, nat(operations, minutes) && minutes > 0, 'operationspeed',
+    [operations, minutes]) } /** ERROR RATE as a percentage. value ⌊errors · 100 / total⌋. -/
+theorem fam_numeracy_errorrate_1 : (((3 : Int) * (100 : Int)) / (60 : Int)) = (5 : Int) := by decide
 
-/-- numeracy: masterypercent(18, 24) = 75 — MASTERY: goals mastered as a percentage. value ⌊mastered · 100 /
-    goals⌋. -/
-theorem fam_numeracy_masterypercent_1 : ((18 * 100) / 24) = 75 := by decide
+/-- numeracy: masterypercent(18, 24) = 75 — NUMERACY — EARLY-NUMBER LEARNING, AS ARITHMETIC (chosen by the
+    curriculum registry, not by hand). Learning number is numbers: problems solved, accuracy, fact fluency,
+    place value, operation speed, error rate, mastery, and the growth from a start to an end. Crosses to
+    `pedagogy` — numeracy is what pedagogy teaches. A measure. */ const PROOF = 'numeracy arithmetic (problems
+    solved, accuracy, fact fluency, place value, operation speed, error rate, mastery, growth); the curriculum
+    registry\'s uncovered domain; a measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'numeracy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `numeracy.${name}`, params }) export class NumeracyFormulas { /** PROBLEMS SOLVED: problems per session over
+    the sessions worked. value sessions · perSession. */ static problemsolved(sessions: number, perSession:
+    number): CrossFormula { return c('numeracy-problemsolved', 'problemsolved(sessions, perSession) = sessions ·
+    perSession', sessions * perSession, nat(sessions, perSession), 'problemsolved', [sessions, perSession]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('numeracy-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** FACT FLUENCY: facts recalled per minute. value ⌊facts · 60 / seconds⌋.
+    */ static factfluency(facts: number, seconds: number): CrossFormula { return c('numeracy-factfluency',
+    'factfluency(facts, seconds) = ⌊facts · 60 / seconds⌋', seconds > 0 ? Math.floor((facts * 60) / seconds) :
+    0, nat(facts, seconds) && seconds > 0, 'factfluency', [facts, seconds]) } /** PLACE VALUE: a digit worth its
+    place. value digit · place. */ static placevalue(digit: number, place: number): CrossFormula { return
+    c('numeracy-placevalue', 'placevalue(digit, place) = digit · place', digit * place, nat(digit, place) &&
+    digit <= 9, 'placevalue', [digit, place]) } /** OPERATION SPEED: operations over minutes. value ⌊operations
+    / minutes⌋. */ static operationspeed(operations: number, minutes: number): CrossFormula { return
+    c('numeracy-operationspeed', 'operationspeed(operations, minutes) = ⌊operations / minutes⌋', minutes > 0 ?
+    Math.floor(operations / minutes) : 0, nat(operations, minutes) && minutes > 0, 'operationspeed',
+    [operations, minutes]) } /** ERROR RATE as a percentage. value ⌊errors · 100 / total⌋. */ static
+    errorrate(errors: number, total: number): CrossFormula { return c('numeracy-errorrate', 'errorrate(errors,
+    total) = ⌊errors · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0, nat(errors, total) &&
+    total > 0 && errors <= total, 'errorrate', [errors, total]) } /** MASTERY: goals mastered as a percentage.
+    value ⌊mastered · 100 / goals⌋. -/
+theorem fam_numeracy_masterypercent_1 : (((18 : Int) * (100 : Int)) / (24 : Int)) = (75 : Int) := by decide
 
-/-- numeracy: growth(85, 60) = 25 — GROWTH: the gain from a start score to an end score. value max(0, end −
-    start). -/
-theorem fam_numeracy_growth_1 : (fmax 0 (85 - 60)) = 25 := by decide
+/-- numeracy: growth(85, 60) = 25 — NUMERACY — EARLY-NUMBER LEARNING, AS ARITHMETIC (chosen by the curriculum
+    registry, not by hand). Learning number is numbers: problems solved, accuracy, fact fluency, place value,
+    operation speed, error rate, mastery, and the growth from a start to an end. Crosses to `pedagogy` —
+    numeracy is what pedagogy teaches. A measure. */ const PROOF = 'numeracy arithmetic (problems solved,
+    accuracy, fact fluency, place value, operation speed, error rate, mastery, growth); the curriculum
+    registry\'s uncovered domain; a measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'numeracy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `numeracy.${name}`, params }) export class NumeracyFormulas { /** PROBLEMS SOLVED: problems per session over
+    the sessions worked. value sessions · perSession. */ static problemsolved(sessions: number, perSession:
+    number): CrossFormula { return c('numeracy-problemsolved', 'problemsolved(sessions, perSession) = sessions ·
+    perSession', sessions * perSession, nat(sessions, perSession), 'problemsolved', [sessions, perSession]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('numeracy-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** FACT FLUENCY: facts recalled per minute. value ⌊facts · 60 / seconds⌋.
+    */ static factfluency(facts: number, seconds: number): CrossFormula { return c('numeracy-factfluency',
+    'factfluency(facts, seconds) = ⌊facts · 60 / seconds⌋', seconds > 0 ? Math.floor((facts * 60) / seconds) :
+    0, nat(facts, seconds) && seconds > 0, 'factfluency', [facts, seconds]) } /** PLACE VALUE: a digit worth its
+    place. value digit · place. */ static placevalue(digit: number, place: number): CrossFormula { return
+    c('numeracy-placevalue', 'placevalue(digit, place) = digit · place', digit * place, nat(digit, place) &&
+    digit <= 9, 'placevalue', [digit, place]) } /** OPERATION SPEED: operations over minutes. value ⌊operations
+    / minutes⌋. */ static operationspeed(operations: number, minutes: number): CrossFormula { return
+    c('numeracy-operationspeed', 'operationspeed(operations, minutes) = ⌊operations / minutes⌋', minutes > 0 ?
+    Math.floor(operations / minutes) : 0, nat(operations, minutes) && minutes > 0, 'operationspeed',
+    [operations, minutes]) } /** ERROR RATE as a percentage. value ⌊errors · 100 / total⌋. */ static
+    errorrate(errors: number, total: number): CrossFormula { return c('numeracy-errorrate', 'errorrate(errors,
+    total) = ⌊errors · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0, nat(errors, total) &&
+    total > 0 && errors <= total, 'errorrate', [errors, total]) } /** MASTERY: goals mastered as a percentage.
+    value ⌊mastered · 100 / goals⌋. */ static masterypercent(mastered: number, goals: number): CrossFormula {
+    return c('numeracy-masterypercent', 'masterypercent(mastered, goals) = ⌊mastered · 100 / goals⌋', goals > 0
+    ? Math.floor((mastered * 100) / goals) : 0, nat(mastered, goals) && goals > 0 && mastered <= goals,
+    'masterypercent', [mastered, goals]) } /** GROWTH: the gain from a start score to an end score. value max(0,
+    end − start). -/
+theorem fam_numeracy_growth_1 : (fmax (0 : Int) ((85 : Int) - (60 : Int))) = (25 : Int) := by decide
 
-/-- numeracy: growth(50, 70) = 0 — GROWTH: the gain from a start score to an end score. value max(0, end −
-    start). -/
-theorem fam_numeracy_growth_2 : (fmax 0 (50 - 70)) = 0 := by decide
+/-- numeracy: growth(50, 70) = 0 — NUMERACY — EARLY-NUMBER LEARNING, AS ARITHMETIC (chosen by the curriculum
+    registry, not by hand). Learning number is numbers: problems solved, accuracy, fact fluency, place value,
+    operation speed, error rate, mastery, and the growth from a start to an end. Crosses to `pedagogy` —
+    numeracy is what pedagogy teaches. A measure. */ const PROOF = 'numeracy arithmetic (problems solved,
+    accuracy, fact fluency, place value, operation speed, error rate, mastery, growth); the curriculum
+    registry\'s uncovered domain; a measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'numeracy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `numeracy.${name}`, params }) export class NumeracyFormulas { /** PROBLEMS SOLVED: problems per session over
+    the sessions worked. value sessions · perSession. */ static problemsolved(sessions: number, perSession:
+    number): CrossFormula { return c('numeracy-problemsolved', 'problemsolved(sessions, perSession) = sessions ·
+    perSession', sessions * perSession, nat(sessions, perSession), 'problemsolved', [sessions, perSession]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('numeracy-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** FACT FLUENCY: facts recalled per minute. value ⌊facts · 60 / seconds⌋.
+    */ static factfluency(facts: number, seconds: number): CrossFormula { return c('numeracy-factfluency',
+    'factfluency(facts, seconds) = ⌊facts · 60 / seconds⌋', seconds > 0 ? Math.floor((facts * 60) / seconds) :
+    0, nat(facts, seconds) && seconds > 0, 'factfluency', [facts, seconds]) } /** PLACE VALUE: a digit worth its
+    place. value digit · place. */ static placevalue(digit: number, place: number): CrossFormula { return
+    c('numeracy-placevalue', 'placevalue(digit, place) = digit · place', digit * place, nat(digit, place) &&
+    digit <= 9, 'placevalue', [digit, place]) } /** OPERATION SPEED: operations over minutes. value ⌊operations
+    / minutes⌋. */ static operationspeed(operations: number, minutes: number): CrossFormula { return
+    c('numeracy-operationspeed', 'operationspeed(operations, minutes) = ⌊operations / minutes⌋', minutes > 0 ?
+    Math.floor(operations / minutes) : 0, nat(operations, minutes) && minutes > 0, 'operationspeed',
+    [operations, minutes]) } /** ERROR RATE as a percentage. value ⌊errors · 100 / total⌋. */ static
+    errorrate(errors: number, total: number): CrossFormula { return c('numeracy-errorrate', 'errorrate(errors,
+    total) = ⌊errors · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0, nat(errors, total) &&
+    total > 0 && errors <= total, 'errorrate', [errors, total]) } /** MASTERY: goals mastered as a percentage.
+    value ⌊mastered · 100 / goals⌋. */ static masterypercent(mastered: number, goals: number): CrossFormula {
+    return c('numeracy-masterypercent', 'masterypercent(mastered, goals) = ⌊mastered · 100 / goals⌋', goals > 0
+    ? Math.floor((mastered * 100) / goals) : 0, nat(mastered, goals) && goals > 0 && mastered <= goals,
+    'masterypercent', [mastered, goals]) } /** GROWTH: the gain from a start score to an end score. value max(0,
+    end − start). -/
+theorem fam_numeracy_growth_2 : (fmax (0 : Int) ((50 : Int) - (70 : Int))) = (0 : Int) := by decide
 
 /-- numerology: digitsum(3, 6, 9) = 18 -/
-theorem fam_numerology_digitsum_1 : ((3 + 6) + 9) = 18 := by decide
+theorem fam_numerology_digitsum_1 : (((3 : Int) + (6 : Int)) + (9 : Int)) = (18 : Int) := by decide
+
+/-- numerology: numbercombos(10, 3) = 120 -/
+theorem fam_numerology_numbercombos_1 : (Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int) := by decide
+
+/-- numerology: cyclewheel(26, 9) = 8 -/
+theorem fam_numerology_cyclewheel_1 : ((26 : Int) % (9 : Int)) = (8 : Int) := by decide
 
 /-- numerology: gematriatotal(22, 10) = 220 -/
-theorem fam_numerology_gematriatotal_1 : (22 * 10) = 220 := by decide
+theorem fam_numerology_gematriatotal_1 : ((22 : Int) * (10 : Int)) = (220 : Int) := by decide
 
 /-- numerology: masternumbers(11, 22) = 33 -/
-theorem fam_numerology_masternumbers_1 : (11 + 22) = 33 := by decide
+theorem fam_numerology_masternumbers_1 : ((11 : Int) + (22 : Int)) = (33 : Int) := by decide
 
 /-- numerology: repetitions(100, 7) = 14 -/
-theorem fam_numerology_repetitions_1 : (100 / 7) = 14 := by decide
+theorem fam_numerology_repetitions_1 : ((100 : Int) / (7 : Int)) = (14 : Int) := by decide
 
 /-- numerology: harmonicsum(1, 2, 3) = 6 -/
-theorem fam_numerology_harmonicsum_1 : ((1 + 2) + 3) = 6 := by decide
+theorem fam_numerology_harmonicsum_1 : (((1 : Int) + (2 : Int)) + (3 : Int)) = (6 : Int) := by decide
+
+/-- numerology: permutationcount(5, 3) = 60 -/
+theorem fam_numerology_permutationcount_1 : ((Int.ofNat (ffact (Int.toNat (5 : Int)))) / (Int.ofNat (ffact (Int.toNat ((5 : Int) - (3 : Int)))))) = (60 : Int) := by decide
 
 /-- numismatics: coincount(500, 10) = 5000 -/
-theorem fam_numismatics_coincount_1 : (500 * 10) = 5000 := by decide
+theorem fam_numismatics_coincount_1 : ((500 : Int) * (10 : Int)) = (5000 : Int) := by decide
+
+/-- numismatics: mintcombos(12, 3) = 220 -/
+theorem fam_numismatics_mintcombos_1 : (Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int) := by decide
+
+/-- numismatics: denominationorderings(5) = 120 -/
+theorem fam_numismatics_denominationorderings_1 : (Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int) := by decide
 
 /-- numismatics: hoardsize(400, 100) = 500 -/
-theorem fam_numismatics_hoardsize_1 : (400 + 100) = 500 := by decide
+theorem fam_numismatics_hoardsize_1 : ((400 : Int) + (100 : Int)) = (500 : Int) := by decide
 
 /-- numismatics: weightgrains(60, 4) = 240 -/
-theorem fam_numismatics_weightgrains_1 : (60 * 4) = 240 := by decide
+theorem fam_numismatics_weightgrains_1 : ((60 : Int) * (4 : Int)) = (240 : Int) := by decide
 
 /-- numismatics: purity(900, 1000) = 90 -/
-theorem fam_numismatics_purity_1 : ((900 * 100) / 1000) = 90 := by decide
+theorem fam_numismatics_purity_1 : (((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int) := by decide
 
 /-- numismatics: dierotations(360, 12) = 30 -/
-theorem fam_numismatics_dierotations_1 : (360 / 12) = 30 := by decide
+theorem fam_numismatics_dierotations_1 : ((360 : Int) / (12 : Int)) = (30 : Int) := by decide
 
 /-- numismatics: varietysubsets(6) = 64 -/
-theorem fam_numismatics_varietysubsets_1 : (2 ^ 6) = 64 := by decide
+theorem fam_numismatics_varietysubsets_1 : ((2 : Int) ^ (6 : Nat)) = (64 : Int) := by decide
 
 /-- nursing: dosage(70, 5) = 350 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry, not by
     hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the patients each
@@ -719,54 +4270,341 @@ theorem fam_numismatics_varietysubsets_1 : (2 ^ 6) = 64 := by decide
     unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula, value, proof:
     PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas { /** DOSAGE: a
     weight-based dose at a per-kilogram amount. value weight · perkg. -/
-theorem fam_nursing_dosage_1 : (70 * 5) = 350 := by decide
+theorem fam_nursing_dosage_1 : ((70 : Int) * (5 : Int)) = (350 : Int) := by decide
 
-/-- nursing: droprate(1000, 480) = 2 — DROP RATE: an infusion volume over the minutes it runs. value ⌊volume /
-    minutes⌋. -/
-theorem fam_nursing_droprate_1 : (1000 / 480) = 2 := by decide
+/-- nursing: droprate(1000, 480) = 2 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry,
+    not by hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the
+    patients each nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on
+    time, and the tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the
+    bedside. A measure. */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand
+    hygiene, fluid balance, medication timeliness, workload); the clinical registry\'s bedside domain; a measure
+    crossed to med' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c
+    = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas {
+    /** DOSAGE: a weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight:
+    number, perkg: number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg',
+    weight * perkg, nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the
+    minutes it runs. value ⌊volume / minutes⌋. -/
+theorem fam_nursing_droprate_1 : ((1000 : Int) / (480 : Int)) = (2 : Int) := by decide
 
-/-- nursing: droprate(1000, 0) = 0 — DROP RATE: an infusion volume over the minutes it runs. value ⌊volume /
-    minutes⌋. -/
-theorem fam_nursing_droprate_2 : (1000 / 0) = 0 := by decide
+/-- nursing: droprate(1000, 0) = 0 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry, not
+    by hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the patients
+    each nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on time, and
+    the tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the bedside. A
+    measure. */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand hygiene, fluid
+    balance, medication timeliness, workload); the clinical registry\'s bedside domain; a measure crossed to
+    med' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas {
+    /** DOSAGE: a weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight:
+    number, perkg: number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg',
+    weight * perkg, nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the
+    minutes it runs. value ⌊volume / minutes⌋. -/
+theorem fam_nursing_droprate_2 : ((1000 : Int) / (0 : Int)) = (0 : Int) := by decide
 
-/-- nursing: ratio(24, 6) = 4 — RATIO: the patients each nurse holds. value ⌊patients / nurses⌋. -/
-theorem fam_nursing_ratio_1 : (24 / 6) = 4 := by decide
+/-- nursing: ratio(24, 6) = 4 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry, not by
+    hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the patients each
+    nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on time, and the
+    tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the bedside. A measure.
+    */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand hygiene, fluid balance,
+    medication timeliness, workload); the clinical registry\'s bedside domain; a measure crossed to med' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas { /** DOSAGE: a
+    weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight: number, perkg:
+    number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg', weight * perkg,
+    nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the minutes it runs.
+    value ⌊volume / minutes⌋. */ static droprate(volume: number, minutes: number): CrossFormula { return
+    c('nursing-droprate', 'droprate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ? Math.floor(volume /
+    minutes) : 0, nat(volume, minutes) && minutes > 0, 'droprate', [volume, minutes]) } /** RATIO: the patients
+    each nurse holds. value ⌊patients / nurses⌋. -/
+theorem fam_nursing_ratio_1 : ((24 : Int) / (6 : Int)) = (4 : Int) := by decide
 
-/-- nursing: ratio(24, 0) = 0 — RATIO: the patients each nurse holds. value ⌊patients / nurses⌋. -/
-theorem fam_nursing_ratio_2 : (24 / 0) = 0 := by decide
+/-- nursing: ratio(24, 0) = 0 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry, not by
+    hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the patients each
+    nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on time, and the
+    tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the bedside. A measure.
+    */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand hygiene, fluid balance,
+    medication timeliness, workload); the clinical registry\'s bedside domain; a measure crossed to med' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas { /** DOSAGE: a
+    weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight: number, perkg:
+    number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg', weight * perkg,
+    nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the minutes it runs.
+    value ⌊volume / minutes⌋. */ static droprate(volume: number, minutes: number): CrossFormula { return
+    c('nursing-droprate', 'droprate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ? Math.floor(volume /
+    minutes) : 0, nat(volume, minutes) && minutes > 0, 'droprate', [volume, minutes]) } /** RATIO: the patients
+    each nurse holds. value ⌊patients / nurses⌋. -/
+theorem fam_nursing_ratio_2 : ((24 : Int) / (0 : Int)) = (0 : Int) := by decide
 
-/-- nursing: acuity(7) = 7 — ACUITY: a patient's acuity score. value score. -/
-theorem fam_nursing_acuity_1 : 7 = 7 := by decide
+/-- nursing: acuity(7) = 7 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry, not by
+    hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the patients each
+    nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on time, and the
+    tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the bedside. A measure.
+    */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand hygiene, fluid balance,
+    medication timeliness, workload); the clinical registry\'s bedside domain; a measure crossed to med' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas { /** DOSAGE: a
+    weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight: number, perkg:
+    number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg', weight * perkg,
+    nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the minutes it runs.
+    value ⌊volume / minutes⌋. */ static droprate(volume: number, minutes: number): CrossFormula { return
+    c('nursing-droprate', 'droprate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ? Math.floor(volume /
+    minutes) : 0, nat(volume, minutes) && minutes > 0, 'droprate', [volume, minutes]) } /** RATIO: the patients
+    each nurse holds. value ⌊patients / nurses⌋. */ static ratio(patients: number, nurses: number): CrossFormula
+    { return c('nursing-ratio', 'ratio(patients, nurses) = ⌊patients / nurses⌋', nurses > 0 ?
+    Math.floor(patients / nurses) : 0, nat(patients, nurses) && nurses > 0, 'ratio', [patients, nurses]) } /**
+    ACUITY: a patient's acuity score. value score. -/
+theorem fam_nursing_acuity_1 : (7 : Int) = (7 : Int) := by decide
 
-/-- nursing: handwash(90, 100) = 90 — HAND HYGIENE: compliant moments as a percentage of opportunities. value
-    ⌊compliant · 100 / opportunities⌋. -/
-theorem fam_nursing_handwash_1 : ((90 * 100) / 100) = 90 := by decide
+/-- nursing: handwash(90, 100) = 90 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry, not
+    by hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the patients
+    each nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on time, and
+    the tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the bedside. A
+    measure. */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand hygiene, fluid
+    balance, medication timeliness, workload); the clinical registry\'s bedside domain; a measure crossed to
+    med' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas {
+    /** DOSAGE: a weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight:
+    number, perkg: number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg',
+    weight * perkg, nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the
+    minutes it runs. value ⌊volume / minutes⌋. */ static droprate(volume: number, minutes: number): CrossFormula
+    { return c('nursing-droprate', 'droprate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ?
+    Math.floor(volume / minutes) : 0, nat(volume, minutes) && minutes > 0, 'droprate', [volume, minutes]) } /**
+    RATIO: the patients each nurse holds. value ⌊patients / nurses⌋. */ static ratio(patients: number, nurses:
+    number): CrossFormula { return c('nursing-ratio', 'ratio(patients, nurses) = ⌊patients / nurses⌋', nurses >
+    0 ? Math.floor(patients / nurses) : 0, nat(patients, nurses) && nurses > 0, 'ratio', [patients, nurses]) }
+    /** ACUITY: a patient's acuity score. value score. */ static acuity(score: number): CrossFormula { return
+    c('nursing-acuity', 'acuity(score) = score', score, nat(score), 'acuity', [score]) } /** HAND HYGIENE:
+    compliant moments as a percentage of opportunities. value ⌊compliant · 100 / opportunities⌋. -/
+theorem fam_nursing_handwash_1 : (((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int) := by decide
 
-/-- nursing: handwash(5, 0) = 0 — HAND HYGIENE: compliant moments as a percentage of opportunities. value
-    ⌊compliant · 100 / opportunities⌋. -/
-theorem fam_nursing_handwash_2 : ((5 * 100) / 0) = 0 := by decide
+/-- nursing: handwash(5, 0) = 0 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry, not by
+    hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the patients each
+    nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on time, and the
+    tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the bedside. A measure.
+    */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand hygiene, fluid balance,
+    medication timeliness, workload); the clinical registry\'s bedside domain; a measure crossed to med' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas { /** DOSAGE: a
+    weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight: number, perkg:
+    number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg', weight * perkg,
+    nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the minutes it runs.
+    value ⌊volume / minutes⌋. */ static droprate(volume: number, minutes: number): CrossFormula { return
+    c('nursing-droprate', 'droprate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ? Math.floor(volume /
+    minutes) : 0, nat(volume, minutes) && minutes > 0, 'droprate', [volume, minutes]) } /** RATIO: the patients
+    each nurse holds. value ⌊patients / nurses⌋. */ static ratio(patients: number, nurses: number): CrossFormula
+    { return c('nursing-ratio', 'ratio(patients, nurses) = ⌊patients / nurses⌋', nurses > 0 ?
+    Math.floor(patients / nurses) : 0, nat(patients, nurses) && nurses > 0, 'ratio', [patients, nurses]) } /**
+    ACUITY: a patient's acuity score. value score. */ static acuity(score: number): CrossFormula { return
+    c('nursing-acuity', 'acuity(score) = score', score, nat(score), 'acuity', [score]) } /** HAND HYGIENE:
+    compliant moments as a percentage of opportunities. value ⌊compliant · 100 / opportunities⌋. -/
+theorem fam_nursing_handwash_2 : (((5 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int) := by decide
 
-/-- nursing: fluid(2000, 1500) = 500 — FLUID BALANCE: intake over output, never negative. value max(0, intake −
-    output). -/
-theorem fam_nursing_fluid_1 : (fmax 0 (2000 - 1500)) = 500 := by decide
+/-- nursing: fluid(2000, 1500) = 500 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry,
+    not by hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the
+    patients each nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on
+    time, and the tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the
+    bedside. A measure. */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand
+    hygiene, fluid balance, medication timeliness, workload); the clinical registry\'s bedside domain; a measure
+    crossed to med' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c
+    = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas {
+    /** DOSAGE: a weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight:
+    number, perkg: number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg',
+    weight * perkg, nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the
+    minutes it runs. value ⌊volume / minutes⌋. */ static droprate(volume: number, minutes: number): CrossFormula
+    { return c('nursing-droprate', 'droprate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ?
+    Math.floor(volume / minutes) : 0, nat(volume, minutes) && minutes > 0, 'droprate', [volume, minutes]) } /**
+    RATIO: the patients each nurse holds. value ⌊patients / nurses⌋. */ static ratio(patients: number, nurses:
+    number): CrossFormula { return c('nursing-ratio', 'ratio(patients, nurses) = ⌊patients / nurses⌋', nurses >
+    0 ? Math.floor(patients / nurses) : 0, nat(patients, nurses) && nurses > 0, 'ratio', [patients, nurses]) }
+    /** ACUITY: a patient's acuity score. value score. */ static acuity(score: number): CrossFormula { return
+    c('nursing-acuity', 'acuity(score) = score', score, nat(score), 'acuity', [score]) } /** HAND HYGIENE:
+    compliant moments as a percentage of opportunities. value ⌊compliant · 100 / opportunities⌋. */ static
+    handwash(compliant: number, opportunities: number): CrossFormula { return c('nursing-handwash',
+    'handwash(compliant, opportunities) = ⌊compliant · 100 / opportunities⌋', opportunities > 0 ?
+    Math.floor((compliant * 100) / opportunities) : 0, nat(compliant, opportunities) && opportunities > 0 &&
+    compliant <= opportunities, 'handwash', [compliant, opportunities]) } /** FLUID BALANCE: intake over output,
+    never negative. value max(0, intake − output). -/
+theorem fam_nursing_fluid_1 : (fmax (0 : Int) ((2000 : Int) - (1500 : Int))) = (500 : Int) := by decide
 
-/-- nursing: fluid(1000, 1500) = 0 — FLUID BALANCE: intake over output, never negative. value max(0, intake −
-    output). -/
-theorem fam_nursing_fluid_2 : (fmax 0 (1000 - 1500)) = 0 := by decide
+/-- nursing: fluid(1000, 1500) = 0 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry, not
+    by hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the patients
+    each nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on time, and
+    the tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the bedside. A
+    measure. */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand hygiene, fluid
+    balance, medication timeliness, workload); the clinical registry\'s bedside domain; a measure crossed to
+    med' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas {
+    /** DOSAGE: a weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight:
+    number, perkg: number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg',
+    weight * perkg, nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the
+    minutes it runs. value ⌊volume / minutes⌋. */ static droprate(volume: number, minutes: number): CrossFormula
+    { return c('nursing-droprate', 'droprate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ?
+    Math.floor(volume / minutes) : 0, nat(volume, minutes) && minutes > 0, 'droprate', [volume, minutes]) } /**
+    RATIO: the patients each nurse holds. value ⌊patients / nurses⌋. */ static ratio(patients: number, nurses:
+    number): CrossFormula { return c('nursing-ratio', 'ratio(patients, nurses) = ⌊patients / nurses⌋', nurses >
+    0 ? Math.floor(patients / nurses) : 0, nat(patients, nurses) && nurses > 0, 'ratio', [patients, nurses]) }
+    /** ACUITY: a patient's acuity score. value score. */ static acuity(score: number): CrossFormula { return
+    c('nursing-acuity', 'acuity(score) = score', score, nat(score), 'acuity', [score]) } /** HAND HYGIENE:
+    compliant moments as a percentage of opportunities. value ⌊compliant · 100 / opportunities⌋. */ static
+    handwash(compliant: number, opportunities: number): CrossFormula { return c('nursing-handwash',
+    'handwash(compliant, opportunities) = ⌊compliant · 100 / opportunities⌋', opportunities > 0 ?
+    Math.floor((compliant * 100) / opportunities) : 0, nat(compliant, opportunities) && opportunities > 0 &&
+    compliant <= opportunities, 'handwash', [compliant, opportunities]) } /** FLUID BALANCE: intake over output,
+    never negative. value max(0, intake − output). -/
+theorem fam_nursing_fluid_2 : (fmax (0 : Int) ((1000 : Int) - (1500 : Int))) = (0 : Int) := by decide
 
-/-- nursing: medication(95, 100) = 95 — MEDICATION TIMELINESS: doses administered as a percentage of those due.
-    value ⌊administered · 100 / due⌋. -/
-theorem fam_nursing_medication_1 : ((95 * 100) / 100) = 95 := by decide
+/-- nursing: medication(95, 100) = 95 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry,
+    not by hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the
+    patients each nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on
+    time, and the tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the
+    bedside. A measure. */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand
+    hygiene, fluid balance, medication timeliness, workload); the clinical registry\'s bedside domain; a measure
+    crossed to med' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c
+    = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas {
+    /** DOSAGE: a weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight:
+    number, perkg: number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg',
+    weight * perkg, nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the
+    minutes it runs. value ⌊volume / minutes⌋. */ static droprate(volume: number, minutes: number): CrossFormula
+    { return c('nursing-droprate', 'droprate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ?
+    Math.floor(volume / minutes) : 0, nat(volume, minutes) && minutes > 0, 'droprate', [volume, minutes]) } /**
+    RATIO: the patients each nurse holds. value ⌊patients / nurses⌋. */ static ratio(patients: number, nurses:
+    number): CrossFormula { return c('nursing-ratio', 'ratio(patients, nurses) = ⌊patients / nurses⌋', nurses >
+    0 ? Math.floor(patients / nurses) : 0, nat(patients, nurses) && nurses > 0, 'ratio', [patients, nurses]) }
+    /** ACUITY: a patient's acuity score. value score. */ static acuity(score: number): CrossFormula { return
+    c('nursing-acuity', 'acuity(score) = score', score, nat(score), 'acuity', [score]) } /** HAND HYGIENE:
+    compliant moments as a percentage of opportunities. value ⌊compliant · 100 / opportunities⌋. */ static
+    handwash(compliant: number, opportunities: number): CrossFormula { return c('nursing-handwash',
+    'handwash(compliant, opportunities) = ⌊compliant · 100 / opportunities⌋', opportunities > 0 ?
+    Math.floor((compliant * 100) / opportunities) : 0, nat(compliant, opportunities) && opportunities > 0 &&
+    compliant <= opportunities, 'handwash', [compliant, opportunities]) } /** FLUID BALANCE: intake over output,
+    never negative. value max(0, intake − output). */ static fluid(intake: number, output: number): CrossFormula
+    { return c('nursing-fluid', 'fluid(intake, output) = max(0, intake − output)', Math.max(0, intake - output),
+    nat(intake, output), 'fluid', [intake, output]) } /** MEDICATION TIMELINESS: doses administered as a
+    percentage of those due. value ⌊administered · 100 / due⌋. -/
+theorem fam_nursing_medication_1 : (((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int) := by decide
 
-/-- nursing: medication(5, 0) = 0 — MEDICATION TIMELINESS: doses administered as a percentage of those due.
-    value ⌊administered · 100 / due⌋. -/
-theorem fam_nursing_medication_2 : ((5 * 100) / 0) = 0 := by decide
+/-- nursing: medication(5, 0) = 0 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry, not
+    by hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the patients
+    each nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on time, and
+    the tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the bedside. A
+    measure. */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand hygiene, fluid
+    balance, medication timeliness, workload); the clinical registry\'s bedside domain; a measure crossed to
+    med' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas {
+    /** DOSAGE: a weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight:
+    number, perkg: number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg',
+    weight * perkg, nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the
+    minutes it runs. value ⌊volume / minutes⌋. */ static droprate(volume: number, minutes: number): CrossFormula
+    { return c('nursing-droprate', 'droprate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ?
+    Math.floor(volume / minutes) : 0, nat(volume, minutes) && minutes > 0, 'droprate', [volume, minutes]) } /**
+    RATIO: the patients each nurse holds. value ⌊patients / nurses⌋. */ static ratio(patients: number, nurses:
+    number): CrossFormula { return c('nursing-ratio', 'ratio(patients, nurses) = ⌊patients / nurses⌋', nurses >
+    0 ? Math.floor(patients / nurses) : 0, nat(patients, nurses) && nurses > 0, 'ratio', [patients, nurses]) }
+    /** ACUITY: a patient's acuity score. value score. */ static acuity(score: number): CrossFormula { return
+    c('nursing-acuity', 'acuity(score) = score', score, nat(score), 'acuity', [score]) } /** HAND HYGIENE:
+    compliant moments as a percentage of opportunities. value ⌊compliant · 100 / opportunities⌋. */ static
+    handwash(compliant: number, opportunities: number): CrossFormula { return c('nursing-handwash',
+    'handwash(compliant, opportunities) = ⌊compliant · 100 / opportunities⌋', opportunities > 0 ?
+    Math.floor((compliant * 100) / opportunities) : 0, nat(compliant, opportunities) && opportunities > 0 &&
+    compliant <= opportunities, 'handwash', [compliant, opportunities]) } /** FLUID BALANCE: intake over output,
+    never negative. value max(0, intake − output). */ static fluid(intake: number, output: number): CrossFormula
+    { return c('nursing-fluid', 'fluid(intake, output) = max(0, intake − output)', Math.max(0, intake - output),
+    nat(intake, output), 'fluid', [intake, output]) } /** MEDICATION TIMELINESS: doses administered as a
+    percentage of those due. value ⌊administered · 100 / due⌋. -/
+theorem fam_nursing_medication_2 : (((5 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int) := by decide
 
-/-- nursing: workload(12, 8) = 1 — WORKLOAD: tasks packed into the hours worked. value ⌊tasks / hours⌋. -/
-theorem fam_nursing_workload_1 : (12 / 8) = 1 := by decide
+/-- nursing: workload(12, 8) = 1 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry, not by
+    hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the patients each
+    nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on time, and the
+    tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the bedside. A measure.
+    */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand hygiene, fluid balance,
+    medication timeliness, workload); the clinical registry\'s bedside domain; a measure crossed to med' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas { /** DOSAGE: a
+    weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight: number, perkg:
+    number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg', weight * perkg,
+    nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the minutes it runs.
+    value ⌊volume / minutes⌋. */ static droprate(volume: number, minutes: number): CrossFormula { return
+    c('nursing-droprate', 'droprate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ? Math.floor(volume /
+    minutes) : 0, nat(volume, minutes) && minutes > 0, 'droprate', [volume, minutes]) } /** RATIO: the patients
+    each nurse holds. value ⌊patients / nurses⌋. */ static ratio(patients: number, nurses: number): CrossFormula
+    { return c('nursing-ratio', 'ratio(patients, nurses) = ⌊patients / nurses⌋', nurses > 0 ?
+    Math.floor(patients / nurses) : 0, nat(patients, nurses) && nurses > 0, 'ratio', [patients, nurses]) } /**
+    ACUITY: a patient's acuity score. value score. */ static acuity(score: number): CrossFormula { return
+    c('nursing-acuity', 'acuity(score) = score', score, nat(score), 'acuity', [score]) } /** HAND HYGIENE:
+    compliant moments as a percentage of opportunities. value ⌊compliant · 100 / opportunities⌋. */ static
+    handwash(compliant: number, opportunities: number): CrossFormula { return c('nursing-handwash',
+    'handwash(compliant, opportunities) = ⌊compliant · 100 / opportunities⌋', opportunities > 0 ?
+    Math.floor((compliant * 100) / opportunities) : 0, nat(compliant, opportunities) && opportunities > 0 &&
+    compliant <= opportunities, 'handwash', [compliant, opportunities]) } /** FLUID BALANCE: intake over output,
+    never negative. value max(0, intake − output). */ static fluid(intake: number, output: number): CrossFormula
+    { return c('nursing-fluid', 'fluid(intake, output) = max(0, intake − output)', Math.max(0, intake - output),
+    nat(intake, output), 'fluid', [intake, output]) } /** MEDICATION TIMELINESS: doses administered as a
+    percentage of those due. value ⌊administered · 100 / due⌋. */ static medication(administered: number, due:
+    number): CrossFormula { return c('nursing-medication', 'medication(administered, due) = ⌊administered · 100
+    / due⌋', due > 0 ? Math.floor((administered * 100) / due) : 0, nat(administered, due) && due > 0 &&
+    administered <= due, 'medication', [administered, due]) } /** WORKLOAD: tasks packed into the hours worked.
+    value ⌊tasks / hours⌋. -/
+theorem fam_nursing_workload_1 : ((12 : Int) / (8 : Int)) = (1 : Int) := by decide
 
-/-- nursing: workload(12, 0) = 0 — WORKLOAD: tasks packed into the hours worked. value ⌊tasks / hours⌋. -/
-theorem fam_nursing_workload_2 : (12 / 0) = 0 := by decide
+/-- nursing: workload(12, 0) = 0 — NURSING — BEDSIDE CARE AS ARITHMETIC (chosen by the clinical registry, not by
+    hand). Caring for patients is numbers: a weight-based dose, the drop rate of an infusion, the patients each
+    nurse holds, an acuity score, hand-hygiene compliance, fluid balance, medications given on time, and the
+    tasks packed into an hour. Crosses to `med` — nursing is what medicine delivers at the bedside. A measure.
+    */ const PROOF = 'nursing arithmetic (dosage, drop rate, patient ratio, acuity, hand hygiene, fluid balance,
+    medication timeliness, workload); the clinical registry\'s bedside domain; a measure crossed to med' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'nursing', dst: 'med', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `nursing.${name}`, params }) export class NursingFormulas { /** DOSAGE: a
+    weight-based dose at a per-kilogram amount. value weight · perkg. */ static dosage(weight: number, perkg:
+    number): CrossFormula { return c('nursing-dosage', 'dosage(weight, perkg) = weight · perkg', weight * perkg,
+    nat(weight, perkg), 'dosage', [weight, perkg]) } /** DROP RATE: an infusion volume over the minutes it runs.
+    value ⌊volume / minutes⌋. */ static droprate(volume: number, minutes: number): CrossFormula { return
+    c('nursing-droprate', 'droprate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ? Math.floor(volume /
+    minutes) : 0, nat(volume, minutes) && minutes > 0, 'droprate', [volume, minutes]) } /** RATIO: the patients
+    each nurse holds. value ⌊patients / nurses⌋. */ static ratio(patients: number, nurses: number): CrossFormula
+    { return c('nursing-ratio', 'ratio(patients, nurses) = ⌊patients / nurses⌋', nurses > 0 ?
+    Math.floor(patients / nurses) : 0, nat(patients, nurses) && nurses > 0, 'ratio', [patients, nurses]) } /**
+    ACUITY: a patient's acuity score. value score. */ static acuity(score: number): CrossFormula { return
+    c('nursing-acuity', 'acuity(score) = score', score, nat(score), 'acuity', [score]) } /** HAND HYGIENE:
+    compliant moments as a percentage of opportunities. value ⌊compliant · 100 / opportunities⌋. */ static
+    handwash(compliant: number, opportunities: number): CrossFormula { return c('nursing-handwash',
+    'handwash(compliant, opportunities) = ⌊compliant · 100 / opportunities⌋', opportunities > 0 ?
+    Math.floor((compliant * 100) / opportunities) : 0, nat(compliant, opportunities) && opportunities > 0 &&
+    compliant <= opportunities, 'handwash', [compliant, opportunities]) } /** FLUID BALANCE: intake over output,
+    never negative. value max(0, intake − output). */ static fluid(intake: number, output: number): CrossFormula
+    { return c('nursing-fluid', 'fluid(intake, output) = max(0, intake − output)', Math.max(0, intake - output),
+    nat(intake, output), 'fluid', [intake, output]) } /** MEDICATION TIMELINESS: doses administered as a
+    percentage of those due. value ⌊administered · 100 / due⌋. */ static medication(administered: number, due:
+    number): CrossFormula { return c('nursing-medication', 'medication(administered, due) = ⌊administered · 100
+    / due⌋', due > 0 ? Math.floor((administered * 100) / due) : 0, nat(administered, due) && due > 0 &&
+    administered <= due, 'medication', [administered, due]) } /** WORKLOAD: tasks packed into the hours worked.
+    value ⌊tasks / hours⌋. -/
+theorem fam_nursing_workload_2 : ((12 : Int) / (0 : Int)) = (0 : Int) := by decide
 
 /-- nutrition: energy(100, 4) = 400 — NUTRITION — FOOD AS ARITHMETIC (chosen by the registry, not by hand).
     Eating is numbers: the energy in grams of a macronutrient, the calories protein, carbs, and fat each carry,
@@ -779,31 +4617,178 @@ theorem fam_nursing_workload_2 : (12 / 0) = 0 := by decide
     src: 'nutrition', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name: `nutrition.${name}`,
     params }) export class NutritionFormulas { /** ENERGY: grams of a macronutrient at its calories per gram.
     value grams · perGram. -/
-theorem fam_nutrition_energy_1 : (100 * 4) = 400 := by decide
+theorem fam_nutrition_energy_1 : ((100 : Int) * (4 : Int)) = (400 : Int) := by decide
 
-/-- nutrition: protein(50) = 200 — PROTEIN: 4 kcal per gram. value grams · 4. -/
-theorem fam_nutrition_protein_1 : (50 * 4) = 200 := by decide
+/-- nutrition: protein(50) = 200 — NUTRITION — FOOD AS ARITHMETIC (chosen by the registry, not by hand). Eating
+    is numbers: the energy in grams of a macronutrient, the calories protein, carbs, and fat each carry, the
+    deficit between what is burned and what is taken in, a macro's share of the plate, water per kilo of body,
+    and the resting burn. Crosses to `med` — nutrition is what medicine prescribes. A measure. */ const PROOF =
+    'nutrition arithmetic (macro energy, protein/carb/fat calories, deficit, macro share, hydration, basal
+    rate); a food measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nutrition', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name: `nutrition.${name}`,
+    params }) export class NutritionFormulas { /** ENERGY: grams of a macronutrient at its calories per gram.
+    value grams · perGram. */ static energy(grams: number, perGram: number): CrossFormula { return
+    c('nutrition-energy', 'energy(grams, perGram) = grams · perGram', grams * perGram, nat(grams, perGram),
+    'energy', [grams, perGram]) } /** PROTEIN: 4 kcal per gram. value grams · 4. -/
+theorem fam_nutrition_protein_1 : ((50 : Int) * (4 : Int)) = (200 : Int) := by decide
 
-/-- nutrition: carbs(50) = 200 — CARBS: 4 kcal per gram. value grams · 4. -/
-theorem fam_nutrition_carbs_1 : (50 * 4) = 200 := by decide
+/-- nutrition: carbs(50) = 200 — NUTRITION — FOOD AS ARITHMETIC (chosen by the registry, not by hand). Eating is
+    numbers: the energy in grams of a macronutrient, the calories protein, carbs, and fat each carry, the
+    deficit between what is burned and what is taken in, a macro's share of the plate, water per kilo of body,
+    and the resting burn. Crosses to `med` — nutrition is what medicine prescribes. A measure. */ const PROOF =
+    'nutrition arithmetic (macro energy, protein/carb/fat calories, deficit, macro share, hydration, basal
+    rate); a food measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nutrition', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name: `nutrition.${name}`,
+    params }) export class NutritionFormulas { /** ENERGY: grams of a macronutrient at its calories per gram.
+    value grams · perGram. */ static energy(grams: number, perGram: number): CrossFormula { return
+    c('nutrition-energy', 'energy(grams, perGram) = grams · perGram', grams * perGram, nat(grams, perGram),
+    'energy', [grams, perGram]) } /** PROTEIN: 4 kcal per gram. value grams · 4. */ static protein(grams:
+    number): CrossFormula { return c('nutrition-protein', 'protein(grams) = grams · 4', grams * 4, nat(grams),
+    'protein', [grams]) } /** CARBS: 4 kcal per gram. value grams · 4. -/
+theorem fam_nutrition_carbs_1 : ((50 : Int) * (4 : Int)) = (200 : Int) := by decide
 
-/-- nutrition: fat(20) = 180 — FAT: 9 kcal per gram. value grams · 9. -/
-theorem fam_nutrition_fat_1 : (20 * 9) = 180 := by decide
+/-- nutrition: fat(20) = 180 — NUTRITION — FOOD AS ARITHMETIC (chosen by the registry, not by hand). Eating is
+    numbers: the energy in grams of a macronutrient, the calories protein, carbs, and fat each carry, the
+    deficit between what is burned and what is taken in, a macro's share of the plate, water per kilo of body,
+    and the resting burn. Crosses to `med` — nutrition is what medicine prescribes. A measure. */ const PROOF =
+    'nutrition arithmetic (macro energy, protein/carb/fat calories, deficit, macro share, hydration, basal
+    rate); a food measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nutrition', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name: `nutrition.${name}`,
+    params }) export class NutritionFormulas { /** ENERGY: grams of a macronutrient at its calories per gram.
+    value grams · perGram. */ static energy(grams: number, perGram: number): CrossFormula { return
+    c('nutrition-energy', 'energy(grams, perGram) = grams · perGram', grams * perGram, nat(grams, perGram),
+    'energy', [grams, perGram]) } /** PROTEIN: 4 kcal per gram. value grams · 4. */ static protein(grams:
+    number): CrossFormula { return c('nutrition-protein', 'protein(grams) = grams · 4', grams * 4, nat(grams),
+    'protein', [grams]) } /** CARBS: 4 kcal per gram. value grams · 4. */ static carbs(grams: number):
+    CrossFormula { return c('nutrition-carbs', 'carbs(grams) = grams · 4', grams * 4, nat(grams), 'carbs',
+    [grams]) } /** FAT: 9 kcal per gram. value grams · 9. -/
+theorem fam_nutrition_fat_1 : ((20 : Int) * (9 : Int)) = (180 : Int) := by decide
 
-/-- nutrition: deficit(1800, 2200) = 400 — DEFICIT: what is burned beyond what is taken in. value max(0, burn −
-    intake). -/
-theorem fam_nutrition_deficit_1 : (fmax 0 (2200 - 1800)) = 400 := by decide
+/-- nutrition: deficit(1800, 2200) = 400 — NUTRITION — FOOD AS ARITHMETIC (chosen by the registry, not by hand).
+    Eating is numbers: the energy in grams of a macronutrient, the calories protein, carbs, and fat each carry,
+    the deficit between what is burned and what is taken in, a macro's share of the plate, water per kilo of
+    body, and the resting burn. Crosses to `med` — nutrition is what medicine prescribes. A measure. */ const
+    PROOF = 'nutrition arithmetic (macro energy, protein/carb/fat calories, deficit, macro share, hydration,
+    basal rate); a food measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nutrition', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name: `nutrition.${name}`,
+    params }) export class NutritionFormulas { /** ENERGY: grams of a macronutrient at its calories per gram.
+    value grams · perGram. */ static energy(grams: number, perGram: number): CrossFormula { return
+    c('nutrition-energy', 'energy(grams, perGram) = grams · perGram', grams * perGram, nat(grams, perGram),
+    'energy', [grams, perGram]) } /** PROTEIN: 4 kcal per gram. value grams · 4. */ static protein(grams:
+    number): CrossFormula { return c('nutrition-protein', 'protein(grams) = grams · 4', grams * 4, nat(grams),
+    'protein', [grams]) } /** CARBS: 4 kcal per gram. value grams · 4. */ static carbs(grams: number):
+    CrossFormula { return c('nutrition-carbs', 'carbs(grams) = grams · 4', grams * 4, nat(grams), 'carbs',
+    [grams]) } /** FAT: 9 kcal per gram. value grams · 9. */ static fat(grams: number): CrossFormula { return
+    c('nutrition-fat', 'fat(grams) = grams · 9', grams * 9, nat(grams), 'fat', [grams]) } /** DEFICIT: what is
+    burned beyond what is taken in. value max(0, burn − intake). -/
+theorem fam_nutrition_deficit_1 : (fmax (0 : Int) ((2200 : Int) - (1800 : Int))) = (400 : Int) := by decide
 
-/-- nutrition: deficit(2500, 2200) = 0 — DEFICIT: what is burned beyond what is taken in. value max(0, burn −
-    intake). -/
-theorem fam_nutrition_deficit_2 : (fmax 0 (2200 - 2500)) = 0 := by decide
+/-- nutrition: deficit(2500, 2200) = 0 — NUTRITION — FOOD AS ARITHMETIC (chosen by the registry, not by hand).
+    Eating is numbers: the energy in grams of a macronutrient, the calories protein, carbs, and fat each carry,
+    the deficit between what is burned and what is taken in, a macro's share of the plate, water per kilo of
+    body, and the resting burn. Crosses to `med` — nutrition is what medicine prescribes. A measure. */ const
+    PROOF = 'nutrition arithmetic (macro energy, protein/carb/fat calories, deficit, macro share, hydration,
+    basal rate); a food measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nutrition', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name: `nutrition.${name}`,
+    params }) export class NutritionFormulas { /** ENERGY: grams of a macronutrient at its calories per gram.
+    value grams · perGram. */ static energy(grams: number, perGram: number): CrossFormula { return
+    c('nutrition-energy', 'energy(grams, perGram) = grams · perGram', grams * perGram, nat(grams, perGram),
+    'energy', [grams, perGram]) } /** PROTEIN: 4 kcal per gram. value grams · 4. */ static protein(grams:
+    number): CrossFormula { return c('nutrition-protein', 'protein(grams) = grams · 4', grams * 4, nat(grams),
+    'protein', [grams]) } /** CARBS: 4 kcal per gram. value grams · 4. */ static carbs(grams: number):
+    CrossFormula { return c('nutrition-carbs', 'carbs(grams) = grams · 4', grams * 4, nat(grams), 'carbs',
+    [grams]) } /** FAT: 9 kcal per gram. value grams · 9. */ static fat(grams: number): CrossFormula { return
+    c('nutrition-fat', 'fat(grams) = grams · 9', grams * 9, nat(grams), 'fat', [grams]) } /** DEFICIT: what is
+    burned beyond what is taken in. value max(0, burn − intake). -/
+theorem fam_nutrition_deficit_2 : (fmax (0 : Int) ((2200 : Int) - (2500 : Int))) = (0 : Int) := by decide
 
-/-- nutrition: macros(30, 120) = 25 — MACROS: a macro's share of the total, as a percentage. value ⌊macro · 100
-    / total⌋. -/
-theorem fam_nutrition_macros_1 : ((30 * 100) / 120) = 25 := by decide
+/-- nutrition: macros(30, 120) = 25 — NUTRITION — FOOD AS ARITHMETIC (chosen by the registry, not by hand).
+    Eating is numbers: the energy in grams of a macronutrient, the calories protein, carbs, and fat each carry,
+    the deficit between what is burned and what is taken in, a macro's share of the plate, water per kilo of
+    body, and the resting burn. Crosses to `med` — nutrition is what medicine prescribes. A measure. */ const
+    PROOF = 'nutrition arithmetic (macro energy, protein/carb/fat calories, deficit, macro share, hydration,
+    basal rate); a food measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nutrition', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name: `nutrition.${name}`,
+    params }) export class NutritionFormulas { /** ENERGY: grams of a macronutrient at its calories per gram.
+    value grams · perGram. */ static energy(grams: number, perGram: number): CrossFormula { return
+    c('nutrition-energy', 'energy(grams, perGram) = grams · perGram', grams * perGram, nat(grams, perGram),
+    'energy', [grams, perGram]) } /** PROTEIN: 4 kcal per gram. value grams · 4. */ static protein(grams:
+    number): CrossFormula { return c('nutrition-protein', 'protein(grams) = grams · 4', grams * 4, nat(grams),
+    'protein', [grams]) } /** CARBS: 4 kcal per gram. value grams · 4. */ static carbs(grams: number):
+    CrossFormula { return c('nutrition-carbs', 'carbs(grams) = grams · 4', grams * 4, nat(grams), 'carbs',
+    [grams]) } /** FAT: 9 kcal per gram. value grams · 9. */ static fat(grams: number): CrossFormula { return
+    c('nutrition-fat', 'fat(grams) = grams · 9', grams * 9, nat(grams), 'fat', [grams]) } /** DEFICIT: what is
+    burned beyond what is taken in. value max(0, burn − intake). */ static deficit(intake: number, burn:
+    number): CrossFormula { return c('nutrition-deficit', 'deficit(intake, burn) = max(0, burn − intake)',
+    Math.max(0, burn - intake), nat(intake, burn), 'deficit', [intake, burn]) } /** MACROS: a macro's share of
+    the total, as a percentage. value ⌊macro · 100 / total⌋. -/
+theorem fam_nutrition_macros_1 : (((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int) := by decide
 
-/-- nutrition: hydration(2100, 70) = 30 — HYDRATION: millilitres of water per kilo of body. value ⌊ml / weight⌋. -/
-theorem fam_nutrition_hydration_1 : (2100 / 70) = 30 := by decide
+/-- nutrition: hydration(2100, 70) = 30 — NUTRITION — FOOD AS ARITHMETIC (chosen by the registry, not by hand).
+    Eating is numbers: the energy in grams of a macronutrient, the calories protein, carbs, and fat each carry,
+    the deficit between what is burned and what is taken in, a macro's share of the plate, water per kilo of
+    body, and the resting burn. Crosses to `med` — nutrition is what medicine prescribes. A measure. */ const
+    PROOF = 'nutrition arithmetic (macro energy, protein/carb/fat calories, deficit, macro share, hydration,
+    basal rate); a food measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nutrition', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name: `nutrition.${name}`,
+    params }) export class NutritionFormulas { /** ENERGY: grams of a macronutrient at its calories per gram.
+    value grams · perGram. */ static energy(grams: number, perGram: number): CrossFormula { return
+    c('nutrition-energy', 'energy(grams, perGram) = grams · perGram', grams * perGram, nat(grams, perGram),
+    'energy', [grams, perGram]) } /** PROTEIN: 4 kcal per gram. value grams · 4. */ static protein(grams:
+    number): CrossFormula { return c('nutrition-protein', 'protein(grams) = grams · 4', grams * 4, nat(grams),
+    'protein', [grams]) } /** CARBS: 4 kcal per gram. value grams · 4. */ static carbs(grams: number):
+    CrossFormula { return c('nutrition-carbs', 'carbs(grams) = grams · 4', grams * 4, nat(grams), 'carbs',
+    [grams]) } /** FAT: 9 kcal per gram. value grams · 9. */ static fat(grams: number): CrossFormula { return
+    c('nutrition-fat', 'fat(grams) = grams · 9', grams * 9, nat(grams), 'fat', [grams]) } /** DEFICIT: what is
+    burned beyond what is taken in. value max(0, burn − intake). */ static deficit(intake: number, burn:
+    number): CrossFormula { return c('nutrition-deficit', 'deficit(intake, burn) = max(0, burn − intake)',
+    Math.max(0, burn - intake), nat(intake, burn), 'deficit', [intake, burn]) } /** MACROS: a macro's share of
+    the total, as a percentage. value ⌊macro · 100 / total⌋. */ static macros(macro: number, total: number):
+    CrossFormula { return c('nutrition-macros', 'macros(macro, total) = ⌊macro · 100 / total⌋', total > 0 ?
+    Math.floor((macro * 100) / total) : 0, nat(macro, total) && total > 0 && macro <= total, 'macros', [macro,
+    total]) } /** HYDRATION: millilitres of water per kilo of body. value ⌊ml / weight⌋. -/
+theorem fam_nutrition_hydration_1 : ((2100 : Int) / (70 : Int)) = (30 : Int) := by decide
 
-/-- nutrition: bmr(70, 24) = 1680 — BMR: the basal burn at a per-kilo factor. value weight · factor. -/
-theorem fam_nutrition_bmr_1 : (70 * 24) = 1680 := by decide
+/-- nutrition: bmr(70, 24) = 1680 — NUTRITION — FOOD AS ARITHMETIC (chosen by the registry, not by hand). Eating
+    is numbers: the energy in grams of a macronutrient, the calories protein, carbs, and fat each carry, the
+    deficit between what is burned and what is taken in, a macro's share of the plate, water per kilo of body,
+    and the resting burn. Crosses to `med` — nutrition is what medicine prescribes. A measure. */ const PROOF =
+    'nutrition arithmetic (macro energy, protein/carb/fat calories, deficit, macro share, hydration, basal
+    rate); a food measure crossed to med' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'nutrition', dst: 'med', formula, value, proof: PROOF, ...extra }, holds, { name: `nutrition.${name}`,
+    params }) export class NutritionFormulas { /** ENERGY: grams of a macronutrient at its calories per gram.
+    value grams · perGram. */ static energy(grams: number, perGram: number): CrossFormula { return
+    c('nutrition-energy', 'energy(grams, perGram) = grams · perGram', grams * perGram, nat(grams, perGram),
+    'energy', [grams, perGram]) } /** PROTEIN: 4 kcal per gram. value grams · 4. */ static protein(grams:
+    number): CrossFormula { return c('nutrition-protein', 'protein(grams) = grams · 4', grams * 4, nat(grams),
+    'protein', [grams]) } /** CARBS: 4 kcal per gram. value grams · 4. */ static carbs(grams: number):
+    CrossFormula { return c('nutrition-carbs', 'carbs(grams) = grams · 4', grams * 4, nat(grams), 'carbs',
+    [grams]) } /** FAT: 9 kcal per gram. value grams · 9. */ static fat(grams: number): CrossFormula { return
+    c('nutrition-fat', 'fat(grams) = grams · 9', grams * 9, nat(grams), 'fat', [grams]) } /** DEFICIT: what is
+    burned beyond what is taken in. value max(0, burn − intake). */ static deficit(intake: number, burn:
+    number): CrossFormula { return c('nutrition-deficit', 'deficit(intake, burn) = max(0, burn − intake)',
+    Math.max(0, burn - intake), nat(intake, burn), 'deficit', [intake, burn]) } /** MACROS: a macro's share of
+    the total, as a percentage. value ⌊macro · 100 / total⌋. */ static macros(macro: number, total: number):
+    CrossFormula { return c('nutrition-macros', 'macros(macro, total) = ⌊macro · 100 / total⌋', total > 0 ?
+    Math.floor((macro * 100) / total) : 0, nat(macro, total) && total > 0 && macro <= total, 'macros', [macro,
+    total]) } /** HYDRATION: millilitres of water per kilo of body. value ⌊ml / weight⌋. */ static hydration(ml:
+    number, weight: number): CrossFormula { return c('nutrition-hydration', 'hydration(ml, weight) = ⌊ml /
+    weight⌋', weight > 0 ? Math.floor(ml / weight) : 0, nat(ml, weight) && weight > 0, 'hydration', [ml,
+    weight]) } /** BMR: the basal burn at a per-kilo factor. value weight · factor. -/
+theorem fam_nutrition_bmr_1 : ((70 : Int) * (24 : Int)) = (1680 : Int) := by decide

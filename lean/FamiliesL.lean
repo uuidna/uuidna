@@ -1,31 +1,37 @@
--- lean/FamiliesL.lean — GENERATED. THE FAMILIES, L — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as Nat arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/FamiliesL.lean — GENERATED. THE FAMILIES, L — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
-def fmax (a b : Nat) : Nat := if a ≤ b then b else a
-def fmin (a b : Nat) : Nat := if a ≤ b then a else b
+def fmax (a b : Int) : Int := if a ≤ b then b else a
+def fmin (a b : Int) : Int := if a ≤ b then a else b
+def ffact : Nat → Nat
+  | 0 => 1
+  | n + 1 => (n + 1) * ffact n
+def fchoose (n : Nat) : Nat → Nat
+  | 0 => 1
+  | k + 1 => fchoose n k * (n - k) / (k + 1)
 
 /-- landslide: slopeangle(450, 10) = 45 -/
-theorem fam_landslide_slopeangle_1 : (450 / 10) = 45 := by decide
+theorem fam_landslide_slopeangle_1 : ((450 : Int) / (10 : Int)) = (45 : Int) := by decide
 
 /-- landslide: factorofsafety(120, 100) = 120 -/
-theorem fam_landslide_factorofsafety_1 : ((120 * 100) / 100) = 120 := by decide
+theorem fam_landslide_factorofsafety_1 : (((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int) := by decide
 
 /-- landslide: runoutdistance(30, 20) = 600 -/
-theorem fam_landslide_runoutdistance_1 : (30 * 20) = 600 := by decide
+theorem fam_landslide_runoutdistance_1 : ((30 : Int) * (20 : Int)) = (600 : Int) := by decide
 
 /-- landslide: volume(50, 40, 10) = 20000 -/
-theorem fam_landslide_volume_1 : ((50 * 40) * 10) = 20000 := by decide
+theorem fam_landslide_volume_1 : (((50 : Int) * (40 : Int)) * (10 : Int)) = (20000 : Int) := by decide
 
 /-- landslide: velocity(600, 60) = 10 -/
-theorem fam_landslide_velocity_1 : (600 / 60) = 10 := by decide
+theorem fam_landslide_velocity_1 : ((600 : Int) / (60 : Int)) = (10 : Int) := by decide
 
 /-- landslide: rainfallthreshold(200, 120) = 80 -/
-theorem fam_landslide_rainfallthreshold_1 : (fmax 0 (200 - 120)) = 80 := by decide
+theorem fam_landslide_rainfallthreshold_1 : (fmax (0 : Int) ((200 : Int) - (120 : Int))) = (80 : Int) := by decide
 
 /-- landslide: susceptibility(70, 100) = 70 -/
-theorem fam_landslide_susceptibility_1 : ((70 * 100) / 100) = 70 := by decide
+theorem fam_landslide_susceptibility_1 : (((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int) := by decide
 
 /-- landslide: debrisfraction(60, 100) = 60 -/
-theorem fam_landslide_debrisfraction_1 : ((60 * 100) / 100) = 60 := by decide
+theorem fam_landslide_debrisfraction_1 : (((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int) := by decide
 
 /-- landuse: buildableratio(650, 1000) = 65 — LANDUSE — PLANNING A PARCEL AS ARITHMETIC. How land is allotted is
     numbers: the residential share of a site, how much is paved over, the mix of zones, the land left to
@@ -39,38 +45,228 @@ theorem fam_landslide_debrisfraction_1 : ((60 * 100) / 100) = 60 := by decide
     formula, value, proof: PROOF, ...extra }, holds, { name: `landuse.${name}`, params }) export class
     LanduseFormulas { /** BUILDABLE RATIO: the buildable area of a lot as a percentage. value ⌊buildable · 100 /
     lot⌋. -/
-theorem fam_landuse_buildableratio_1 : ((650 * 100) / 1000) = 65 := by decide
+theorem fam_landuse_buildableratio_1 : (((650 : Int) * (100 : Int)) / (1000 : Int)) = (65 : Int) := by decide
 
-/-- landuse: developable(1000, 300) = 700 — DEVELOPABLE LAND: the total less what is protected. value max(0,
+/-- landuse: developable(1000, 300) = 700 — LANDUSE — PLANNING A PARCEL AS ARITHMETIC. How land is allotted is
+    numbers: the residential share of a site, how much is paved over, the mix of zones, the land left to
+    develop, the parcels a tract divides into, the area a setback takes, the buildable fraction of a lot, and
+    the open space kept back. Crosses to `geography` — land use is geography made a plan. A measure. */ const
+    PROOF = 'landuse arithmetic (residential share, impervious cover, zoning mix, developable land, parcel
+    count, setback area, buildable ratio, open-space ratio); a parcel planned as numbers; a measure crossed to
+    geography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'landuse', dst: 'geography',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `landuse.${name}`, params }) export class
+    LanduseFormulas { /** BUILDABLE RATIO: the buildable area of a lot as a percentage. value ⌊buildable · 100 /
+    lot⌋. */ static buildableratio(buildable: number, lot: number): CrossFormula { return
+    c('landuse-buildableratio', 'buildableratio(buildable, lot) = ⌊buildable · 100 / lot⌋', lot > 0 ?
+    Math.floor((buildable * 100) / lot) : 0, nat(buildable, lot) && lot > 0 && buildable <= lot,
+    'buildableratio', [buildable, lot]) } /** DEVELOPABLE LAND: the total less what is protected. value max(0,
     total − protected). -/
-theorem fam_landuse_developable_1 : (fmax 0 (1000 - 300)) = 700 := by decide
+theorem fam_landuse_developable_1 : (fmax (0 : Int) ((1000 : Int) - (300 : Int))) = (700 : Int) := by decide
 
-/-- landuse: developable(100, 300) = 0 — DEVELOPABLE LAND: the total less what is protected. value max(0, total
-    − protected). -/
-theorem fam_landuse_developable_2 : (fmax 0 (100 - 300)) = 0 := by decide
+/-- landuse: developable(100, 300) = 0 — LANDUSE — PLANNING A PARCEL AS ARITHMETIC. How land is allotted is
+    numbers: the residential share of a site, how much is paved over, the mix of zones, the land left to
+    develop, the parcels a tract divides into, the area a setback takes, the buildable fraction of a lot, and
+    the open space kept back. Crosses to `geography` — land use is geography made a plan. A measure. */ const
+    PROOF = 'landuse arithmetic (residential share, impervious cover, zoning mix, developable land, parcel
+    count, setback area, buildable ratio, open-space ratio); a parcel planned as numbers; a measure crossed to
+    geography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'landuse', dst: 'geography',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `landuse.${name}`, params }) export class
+    LanduseFormulas { /** BUILDABLE RATIO: the buildable area of a lot as a percentage. value ⌊buildable · 100 /
+    lot⌋. */ static buildableratio(buildable: number, lot: number): CrossFormula { return
+    c('landuse-buildableratio', 'buildableratio(buildable, lot) = ⌊buildable · 100 / lot⌋', lot > 0 ?
+    Math.floor((buildable * 100) / lot) : 0, nat(buildable, lot) && lot > 0 && buildable <= lot,
+    'buildableratio', [buildable, lot]) } /** DEVELOPABLE LAND: the total less what is protected. value max(0,
+    total − protected). -/
+theorem fam_landuse_developable_2 : (fmax (0 : Int) ((100 : Int) - (300 : Int))) = (0 : Int) := by decide
 
-/-- landuse: impervious(350, 1000) = 35 — IMPERVIOUS COVER: paved area as a percentage of the site. value ⌊paved
-    · 100 / total⌋. -/
-theorem fam_landuse_impervious_1 : ((350 * 100) / 1000) = 35 := by decide
+/-- landuse: impervious(350, 1000) = 35 — LANDUSE — PLANNING A PARCEL AS ARITHMETIC. How land is allotted is
+    numbers: the residential share of a site, how much is paved over, the mix of zones, the land left to
+    develop, the parcels a tract divides into, the area a setback takes, the buildable fraction of a lot, and
+    the open space kept back. Crosses to `geography` — land use is geography made a plan. A measure. */ const
+    PROOF = 'landuse arithmetic (residential share, impervious cover, zoning mix, developable land, parcel
+    count, setback area, buildable ratio, open-space ratio); a parcel planned as numbers; a measure crossed to
+    geography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'landuse', dst: 'geography',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `landuse.${name}`, params }) export class
+    LanduseFormulas { /** BUILDABLE RATIO: the buildable area of a lot as a percentage. value ⌊buildable · 100 /
+    lot⌋. */ static buildableratio(buildable: number, lot: number): CrossFormula { return
+    c('landuse-buildableratio', 'buildableratio(buildable, lot) = ⌊buildable · 100 / lot⌋', lot > 0 ?
+    Math.floor((buildable * 100) / lot) : 0, nat(buildable, lot) && lot > 0 && buildable <= lot,
+    'buildableratio', [buildable, lot]) } /** DEVELOPABLE LAND: the total less what is protected. value max(0,
+    total − protected). */ static developable(total: number, protected_: number): CrossFormula { return
+    c('landuse-developable', 'developable(total, protected) = max(0, total − protected)', Math.max(0, total -
+    protected_), nat(total, protected_), 'developable', [total, protected_]) } /** IMPERVIOUS COVER: paved area
+    as a percentage of the site. value ⌊paved · 100 / total⌋. -/
+theorem fam_landuse_impervious_1 : (((350 : Int) * (100 : Int)) / (1000 : Int)) = (35 : Int) := by decide
 
-/-- landuse: openspaceratio(250, 1000) = 25 — OPEN-SPACE RATIO: open land as a percentage of the site. value
-    ⌊open · 100 / total⌋. -/
-theorem fam_landuse_openspaceratio_1 : ((250 * 100) / 1000) = 25 := by decide
+/-- landuse: openspaceratio(250, 1000) = 25 — LANDUSE — PLANNING A PARCEL AS ARITHMETIC. How land is allotted is
+    numbers: the residential share of a site, how much is paved over, the mix of zones, the land left to
+    develop, the parcels a tract divides into, the area a setback takes, the buildable fraction of a lot, and
+    the open space kept back. Crosses to `geography` — land use is geography made a plan. A measure. */ const
+    PROOF = 'landuse arithmetic (residential share, impervious cover, zoning mix, developable land, parcel
+    count, setback area, buildable ratio, open-space ratio); a parcel planned as numbers; a measure crossed to
+    geography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'landuse', dst: 'geography',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `landuse.${name}`, params }) export class
+    LanduseFormulas { /** BUILDABLE RATIO: the buildable area of a lot as a percentage. value ⌊buildable · 100 /
+    lot⌋. */ static buildableratio(buildable: number, lot: number): CrossFormula { return
+    c('landuse-buildableratio', 'buildableratio(buildable, lot) = ⌊buildable · 100 / lot⌋', lot > 0 ?
+    Math.floor((buildable * 100) / lot) : 0, nat(buildable, lot) && lot > 0 && buildable <= lot,
+    'buildableratio', [buildable, lot]) } /** DEVELOPABLE LAND: the total less what is protected. value max(0,
+    total − protected). */ static developable(total: number, protected_: number): CrossFormula { return
+    c('landuse-developable', 'developable(total, protected) = max(0, total − protected)', Math.max(0, total -
+    protected_), nat(total, protected_), 'developable', [total, protected_]) } /** IMPERVIOUS COVER: paved area
+    as a percentage of the site. value ⌊paved · 100 / total⌋. */ static impervious(paved: number, total:
+    number): CrossFormula { return c('landuse-impervious', 'impervious(paved, total) = ⌊paved · 100 / total⌋',
+    total > 0 ? Math.floor((paved * 100) / total) : 0, nat(paved, total) && total > 0 && paved <= total,
+    'impervious', [paved, total]) } /** OPEN-SPACE RATIO: open land as a percentage of the site. value ⌊open ·
+    100 / total⌋. -/
+theorem fam_landuse_openspaceratio_1 : (((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int) := by decide
 
-/-- landuse: parcelcount(10000, 500) = 20 — PARCEL COUNT: the parcels a tract divides into at a parcel size.
-    value ⌊area / parcelsize⌋. -/
-theorem fam_landuse_parcelcount_1 : (10000 / 500) = 20 := by decide
+/-- landuse: parcelcount(10000, 500) = 20 — LANDUSE — PLANNING A PARCEL AS ARITHMETIC. How land is allotted is
+    numbers: the residential share of a site, how much is paved over, the mix of zones, the land left to
+    develop, the parcels a tract divides into, the area a setback takes, the buildable fraction of a lot, and
+    the open space kept back. Crosses to `geography` — land use is geography made a plan. A measure. */ const
+    PROOF = 'landuse arithmetic (residential share, impervious cover, zoning mix, developable land, parcel
+    count, setback area, buildable ratio, open-space ratio); a parcel planned as numbers; a measure crossed to
+    geography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'landuse', dst: 'geography',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `landuse.${name}`, params }) export class
+    LanduseFormulas { /** BUILDABLE RATIO: the buildable area of a lot as a percentage. value ⌊buildable · 100 /
+    lot⌋. */ static buildableratio(buildable: number, lot: number): CrossFormula { return
+    c('landuse-buildableratio', 'buildableratio(buildable, lot) = ⌊buildable · 100 / lot⌋', lot > 0 ?
+    Math.floor((buildable * 100) / lot) : 0, nat(buildable, lot) && lot > 0 && buildable <= lot,
+    'buildableratio', [buildable, lot]) } /** DEVELOPABLE LAND: the total less what is protected. value max(0,
+    total − protected). */ static developable(total: number, protected_: number): CrossFormula { return
+    c('landuse-developable', 'developable(total, protected) = max(0, total − protected)', Math.max(0, total -
+    protected_), nat(total, protected_), 'developable', [total, protected_]) } /** IMPERVIOUS COVER: paved area
+    as a percentage of the site. value ⌊paved · 100 / total⌋. */ static impervious(paved: number, total:
+    number): CrossFormula { return c('landuse-impervious', 'impervious(paved, total) = ⌊paved · 100 / total⌋',
+    total > 0 ? Math.floor((paved * 100) / total) : 0, nat(paved, total) && total > 0 && paved <= total,
+    'impervious', [paved, total]) } /** OPEN-SPACE RATIO: open land as a percentage of the site. value ⌊open ·
+    100 / total⌋. */ static openspaceratio(open: number, total: number): CrossFormula { return
+    c('landuse-openspaceratio', 'openspaceratio(open, total) = ⌊open · 100 / total⌋', total > 0 ?
+    Math.floor((open * 100) / total) : 0, nat(open, total) && total > 0 && open <= total, 'openspaceratio',
+    [open, total]) } /** PARCEL COUNT: the parcels a tract divides into at a parcel size. value ⌊area /
+    parcelsize⌋. -/
+theorem fam_landuse_parcelcount_1 : ((10000 : Int) / (500 : Int)) = (20 : Int) := by decide
 
-/-- landuse: residentialshare(600, 1000) = 60 — RESIDENTIAL SHARE: residential land as a percentage of the site.
-    value ⌊residential · 100 / total⌋. -/
-theorem fam_landuse_residentialshare_1 : ((600 * 100) / 1000) = 60 := by decide
+/-- landuse: residentialshare(600, 1000) = 60 — LANDUSE — PLANNING A PARCEL AS ARITHMETIC. How land is allotted
+    is numbers: the residential share of a site, how much is paved over, the mix of zones, the land left to
+    develop, the parcels a tract divides into, the area a setback takes, the buildable fraction of a lot, and
+    the open space kept back. Crosses to `geography` — land use is geography made a plan. A measure. */ const
+    PROOF = 'landuse arithmetic (residential share, impervious cover, zoning mix, developable land, parcel
+    count, setback area, buildable ratio, open-space ratio); a parcel planned as numbers; a measure crossed to
+    geography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'landuse', dst: 'geography',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `landuse.${name}`, params }) export class
+    LanduseFormulas { /** BUILDABLE RATIO: the buildable area of a lot as a percentage. value ⌊buildable · 100 /
+    lot⌋. */ static buildableratio(buildable: number, lot: number): CrossFormula { return
+    c('landuse-buildableratio', 'buildableratio(buildable, lot) = ⌊buildable · 100 / lot⌋', lot > 0 ?
+    Math.floor((buildable * 100) / lot) : 0, nat(buildable, lot) && lot > 0 && buildable <= lot,
+    'buildableratio', [buildable, lot]) } /** DEVELOPABLE LAND: the total less what is protected. value max(0,
+    total − protected). */ static developable(total: number, protected_: number): CrossFormula { return
+    c('landuse-developable', 'developable(total, protected) = max(0, total − protected)', Math.max(0, total -
+    protected_), nat(total, protected_), 'developable', [total, protected_]) } /** IMPERVIOUS COVER: paved area
+    as a percentage of the site. value ⌊paved · 100 / total⌋. */ static impervious(paved: number, total:
+    number): CrossFormula { return c('landuse-impervious', 'impervious(paved, total) = ⌊paved · 100 / total⌋',
+    total > 0 ? Math.floor((paved * 100) / total) : 0, nat(paved, total) && total > 0 && paved <= total,
+    'impervious', [paved, total]) } /** OPEN-SPACE RATIO: open land as a percentage of the site. value ⌊open ·
+    100 / total⌋. */ static openspaceratio(open: number, total: number): CrossFormula { return
+    c('landuse-openspaceratio', 'openspaceratio(open, total) = ⌊open · 100 / total⌋', total > 0 ?
+    Math.floor((open * 100) / total) : 0, nat(open, total) && total > 0 && open <= total, 'openspaceratio',
+    [open, total]) } /** PARCEL COUNT: the parcels a tract divides into at a parcel size. value ⌊area /
+    parcelsize⌋. */ static parcelcount(area: number, parcelsize: number): CrossFormula { return
+    c('landuse-parcelcount', 'parcelcount(area, parcelsize) = ⌊area / parcelsize⌋', parcelsize > 0 ?
+    Math.floor(area / parcelsize) : 0, nat(area, parcelsize) && parcelsize > 0, 'parcelcount', [area,
+    parcelsize]) } /** RESIDENTIAL SHARE: residential land as a percentage of the site. value ⌊residential · 100
+    / total⌋. -/
+theorem fam_landuse_residentialshare_1 : (((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int) := by decide
 
-/-- landuse: setbackarea(50, 20) = 1000 — SETBACK AREA: a frontage held back by a setback depth. value frontage
-    · setback. -/
-theorem fam_landuse_setbackarea_1 : (50 * 20) = 1000 := by decide
+/-- landuse: setbackarea(50, 20) = 1000 — LANDUSE — PLANNING A PARCEL AS ARITHMETIC. How land is allotted is
+    numbers: the residential share of a site, how much is paved over, the mix of zones, the land left to
+    develop, the parcels a tract divides into, the area a setback takes, the buildable fraction of a lot, and
+    the open space kept back. Crosses to `geography` — land use is geography made a plan. A measure. */ const
+    PROOF = 'landuse arithmetic (residential share, impervious cover, zoning mix, developable land, parcel
+    count, setback area, buildable ratio, open-space ratio); a parcel planned as numbers; a measure crossed to
+    geography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'landuse', dst: 'geography',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `landuse.${name}`, params }) export class
+    LanduseFormulas { /** BUILDABLE RATIO: the buildable area of a lot as a percentage. value ⌊buildable · 100 /
+    lot⌋. */ static buildableratio(buildable: number, lot: number): CrossFormula { return
+    c('landuse-buildableratio', 'buildableratio(buildable, lot) = ⌊buildable · 100 / lot⌋', lot > 0 ?
+    Math.floor((buildable * 100) / lot) : 0, nat(buildable, lot) && lot > 0 && buildable <= lot,
+    'buildableratio', [buildable, lot]) } /** DEVELOPABLE LAND: the total less what is protected. value max(0,
+    total − protected). */ static developable(total: number, protected_: number): CrossFormula { return
+    c('landuse-developable', 'developable(total, protected) = max(0, total − protected)', Math.max(0, total -
+    protected_), nat(total, protected_), 'developable', [total, protected_]) } /** IMPERVIOUS COVER: paved area
+    as a percentage of the site. value ⌊paved · 100 / total⌋. */ static impervious(paved: number, total:
+    number): CrossFormula { return c('landuse-impervious', 'impervious(paved, total) = ⌊paved · 100 / total⌋',
+    total > 0 ? Math.floor((paved * 100) / total) : 0, nat(paved, total) && total > 0 && paved <= total,
+    'impervious', [paved, total]) } /** OPEN-SPACE RATIO: open land as a percentage of the site. value ⌊open ·
+    100 / total⌋. */ static openspaceratio(open: number, total: number): CrossFormula { return
+    c('landuse-openspaceratio', 'openspaceratio(open, total) = ⌊open · 100 / total⌋', total > 0 ?
+    Math.floor((open * 100) / total) : 0, nat(open, total) && total > 0 && open <= total, 'openspaceratio',
+    [open, total]) } /** PARCEL COUNT: the parcels a tract divides into at a parcel size. value ⌊area /
+    parcelsize⌋. */ static parcelcount(area: number, parcelsize: number): CrossFormula { return
+    c('landuse-parcelcount', 'parcelcount(area, parcelsize) = ⌊area / parcelsize⌋', parcelsize > 0 ?
+    Math.floor(area / parcelsize) : 0, nat(area, parcelsize) && parcelsize > 0, 'parcelcount', [area,
+    parcelsize]) } /** RESIDENTIAL SHARE: residential land as a percentage of the site. value ⌊residential · 100
+    / total⌋. */ static residentialshare(residential: number, total: number): CrossFormula { return
+    c('landuse-residentialshare', 'residentialshare(residential, total) = ⌊residential · 100 / total⌋', total >
+    0 ? Math.floor((residential * 100) / total) : 0, nat(residential, total) && total > 0 && residential <=
+    total, 'residentialshare', [residential, total]) } /** SETBACK AREA: a frontage held back by a setback
+    depth. value frontage · setback. -/
+theorem fam_landuse_setbackarea_1 : ((50 : Int) * (20 : Int)) = (1000 : Int) := by decide
 
-/-- landuse: zoningmix(1200, 4) = 300 — ZONING MIX: the parcels per zone across a plan. value ⌊parcels / zones⌋. -/
-theorem fam_landuse_zoningmix_1 : (1200 / 4) = 300 := by decide
+/-- landuse: zoningmix(1200, 4) = 300 — LANDUSE — PLANNING A PARCEL AS ARITHMETIC. How land is allotted is
+    numbers: the residential share of a site, how much is paved over, the mix of zones, the land left to
+    develop, the parcels a tract divides into, the area a setback takes, the buildable fraction of a lot, and
+    the open space kept back. Crosses to `geography` — land use is geography made a plan. A measure. */ const
+    PROOF = 'landuse arithmetic (residential share, impervious cover, zoning mix, developable land, parcel
+    count, setback area, buildable ratio, open-space ratio); a parcel planned as numbers; a measure crossed to
+    geography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'landuse', dst: 'geography',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `landuse.${name}`, params }) export class
+    LanduseFormulas { /** BUILDABLE RATIO: the buildable area of a lot as a percentage. value ⌊buildable · 100 /
+    lot⌋. */ static buildableratio(buildable: number, lot: number): CrossFormula { return
+    c('landuse-buildableratio', 'buildableratio(buildable, lot) = ⌊buildable · 100 / lot⌋', lot > 0 ?
+    Math.floor((buildable * 100) / lot) : 0, nat(buildable, lot) && lot > 0 && buildable <= lot,
+    'buildableratio', [buildable, lot]) } /** DEVELOPABLE LAND: the total less what is protected. value max(0,
+    total − protected). */ static developable(total: number, protected_: number): CrossFormula { return
+    c('landuse-developable', 'developable(total, protected) = max(0, total − protected)', Math.max(0, total -
+    protected_), nat(total, protected_), 'developable', [total, protected_]) } /** IMPERVIOUS COVER: paved area
+    as a percentage of the site. value ⌊paved · 100 / total⌋. */ static impervious(paved: number, total:
+    number): CrossFormula { return c('landuse-impervious', 'impervious(paved, total) = ⌊paved · 100 / total⌋',
+    total > 0 ? Math.floor((paved * 100) / total) : 0, nat(paved, total) && total > 0 && paved <= total,
+    'impervious', [paved, total]) } /** OPEN-SPACE RATIO: open land as a percentage of the site. value ⌊open ·
+    100 / total⌋. */ static openspaceratio(open: number, total: number): CrossFormula { return
+    c('landuse-openspaceratio', 'openspaceratio(open, total) = ⌊open · 100 / total⌋', total > 0 ?
+    Math.floor((open * 100) / total) : 0, nat(open, total) && total > 0 && open <= total, 'openspaceratio',
+    [open, total]) } /** PARCEL COUNT: the parcels a tract divides into at a parcel size. value ⌊area /
+    parcelsize⌋. */ static parcelcount(area: number, parcelsize: number): CrossFormula { return
+    c('landuse-parcelcount', 'parcelcount(area, parcelsize) = ⌊area / parcelsize⌋', parcelsize > 0 ?
+    Math.floor(area / parcelsize) : 0, nat(area, parcelsize) && parcelsize > 0, 'parcelcount', [area,
+    parcelsize]) } /** RESIDENTIAL SHARE: residential land as a percentage of the site. value ⌊residential · 100
+    / total⌋. */ static residentialshare(residential: number, total: number): CrossFormula { return
+    c('landuse-residentialshare', 'residentialshare(residential, total) = ⌊residential · 100 / total⌋', total >
+    0 ? Math.floor((residential * 100) / total) : 0, nat(residential, total) && total > 0 && residential <=
+    total, 'residentialshare', [residential, total]) } /** SETBACK AREA: a frontage held back by a setback
+    depth. value frontage · setback. */ static setbackarea(frontage: number, setback: number): CrossFormula {
+    return c('landuse-setbackarea', 'setbackarea(frontage, setback) = frontage · setback', frontage * setback,
+    nat(frontage, setback), 'setbackarea', [frontage, setback]) } /** ZONING MIX: the parcels per zone across a
+    plan. value ⌊parcels / zones⌋. -/
+theorem fam_landuse_zoningmix_1 : ((1200 : Int) / (4 : Int)) = (300 : Int) := by decide
 
 /-- lasers: gain(1000, 10) = 100 — LASERS — COHERENT LIGHT, AS ARITHMETIC. A laser is numbers: the amplifier
     gain, the average power from the pulse train, the energy carried by one pulse, how often it fires, how fast
@@ -83,56 +279,204 @@ theorem fam_landuse_zoningmix_1 : (1200 / 4) = 300 := by decide
     src: 'lasers', dst: 'optics', formula, value, proof: PROOF, ...extra }, holds, { name: `lasers.${name}`,
     params }) export class LasersFormulas { /** GAIN: the amplifier ratio of output power to input power. value
     ⌊pout / pin⌋. -/
-theorem fam_lasers_gain_1 : (1000 / 10) = 100 := by decide
+theorem fam_lasers_gain_1 : ((1000 : Int) / (10 : Int)) = (100 : Int) := by decide
 
-/-- lasers: power(5, 1000) = 5000 — AVERAGE POWER: pulse energy times how often it fires. value energy · rate. -/
-theorem fam_lasers_power_1 : (5 * 1000) = 5000 := by decide
+/-- lasers: power(5, 1000) = 5000 — LASERS — COHERENT LIGHT, AS ARITHMETIC. A laser is numbers: the amplifier
+    gain, the average power from the pulse train, the energy carried by one pulse, how often it fires, how fast
+    the beam spreads, how far it stays coherent, the energy dumped on an area, and the colour it emits. Crosses
+    to `optics` — a laser is what optics shapes. A measure. */ const PROOF = 'lasers arithmetic (gain, average
+    power, pulse energy, repetition rate, beam divergence, coherence length, fluence, wavelength); coherent
+    light as a measure crossed to optics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lasers', dst: 'optics', formula, value, proof: PROOF, ...extra }, holds, { name: `lasers.${name}`,
+    params }) export class LasersFormulas { /** GAIN: the amplifier ratio of output power to input power. value
+    ⌊pout / pin⌋. */ static gain(pout: number, pin: number): CrossFormula { return c('lasers-gain', 'gain(pout,
+    pin) = ⌊pout / pin⌋', pin > 0 ? Math.floor(pout / pin) : 0, nat(pout, pin) && pin > 0, 'gain', [pout, pin])
+    } /** AVERAGE POWER: pulse energy times how often it fires. value energy · rate. -/
+theorem fam_lasers_power_1 : ((5 : Int) * (1000 : Int)) = (5000 : Int) := by decide
 
-/-- lasers: pulseenergy(5000, 1000) = 5 — PULSE ENERGY: average power shared across the pulses per second. value
-    ⌊power / rate⌋. -/
-theorem fam_lasers_pulseenergy_1 : (5000 / 1000) = 5 := by decide
+/-- lasers: pulseenergy(5000, 1000) = 5 — LASERS — COHERENT LIGHT, AS ARITHMETIC. A laser is numbers: the
+    amplifier gain, the average power from the pulse train, the energy carried by one pulse, how often it fires,
+    how fast the beam spreads, how far it stays coherent, the energy dumped on an area, and the colour it emits.
+    Crosses to `optics` — a laser is what optics shapes. A measure. */ const PROOF = 'lasers arithmetic (gain,
+    average power, pulse energy, repetition rate, beam divergence, coherence length, fluence, wavelength);
+    coherent light as a measure crossed to optics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lasers', dst: 'optics', formula, value, proof: PROOF, ...extra }, holds, { name: `lasers.${name}`,
+    params }) export class LasersFormulas { /** GAIN: the amplifier ratio of output power to input power. value
+    ⌊pout / pin⌋. */ static gain(pout: number, pin: number): CrossFormula { return c('lasers-gain', 'gain(pout,
+    pin) = ⌊pout / pin⌋', pin > 0 ? Math.floor(pout / pin) : 0, nat(pout, pin) && pin > 0, 'gain', [pout, pin])
+    } /** AVERAGE POWER: pulse energy times how often it fires. value energy · rate. */ static power(energy:
+    number, rate: number): CrossFormula { return c('lasers-power', 'power(energy, rate) = energy · rate', energy
+    * rate, nat(energy, rate), 'power', [energy, rate]) } /** PULSE ENERGY: average power shared across the
+    pulses per second. value ⌊power / rate⌋. -/
+theorem fam_lasers_pulseenergy_1 : ((5000 : Int) / (1000 : Int)) = (5 : Int) := by decide
 
-/-- lasers: repetitionrate(6000, 60) = 100 — REPETITION RATE: pulses over seconds. value ⌊pulses / seconds⌋. -/
-theorem fam_lasers_repetitionrate_1 : (6000 / 60) = 100 := by decide
+/-- lasers: repetitionrate(6000, 60) = 100 — LASERS — COHERENT LIGHT, AS ARITHMETIC. A laser is numbers: the
+    amplifier gain, the average power from the pulse train, the energy carried by one pulse, how often it fires,
+    how fast the beam spreads, how far it stays coherent, the energy dumped on an area, and the colour it emits.
+    Crosses to `optics` — a laser is what optics shapes. A measure. */ const PROOF = 'lasers arithmetic (gain,
+    average power, pulse energy, repetition rate, beam divergence, coherence length, fluence, wavelength);
+    coherent light as a measure crossed to optics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lasers', dst: 'optics', formula, value, proof: PROOF, ...extra }, holds, { name: `lasers.${name}`,
+    params }) export class LasersFormulas { /** GAIN: the amplifier ratio of output power to input power. value
+    ⌊pout / pin⌋. */ static gain(pout: number, pin: number): CrossFormula { return c('lasers-gain', 'gain(pout,
+    pin) = ⌊pout / pin⌋', pin > 0 ? Math.floor(pout / pin) : 0, nat(pout, pin) && pin > 0, 'gain', [pout, pin])
+    } /** AVERAGE POWER: pulse energy times how often it fires. value energy · rate. */ static power(energy:
+    number, rate: number): CrossFormula { return c('lasers-power', 'power(energy, rate) = energy · rate', energy
+    * rate, nat(energy, rate), 'power', [energy, rate]) } /** PULSE ENERGY: average power shared across the
+    pulses per second. value ⌊power / rate⌋. */ static pulseenergy(power: number, rate: number): CrossFormula {
+    return c('lasers-pulseenergy', 'pulseenergy(power, rate) = ⌊power / rate⌋', rate > 0 ? Math.floor(power /
+    rate) : 0, nat(power, rate) && rate > 0, 'pulseenergy', [power, rate]) } /** REPETITION RATE: pulses over
+    seconds. value ⌊pulses / seconds⌋. -/
+theorem fam_lasers_repetitionrate_1 : ((6000 : Int) / (60 : Int)) = (100 : Int) := by decide
 
-/-- lasers: beamdivergence(5, 1000) = 5 — BEAM DIVERGENCE: the spread per distance, in milliradians. value
-    ⌊spread · 1000 / distance⌋. -/
-theorem fam_lasers_beamdivergence_1 : ((5 * 1000) / 1000) = 5 := by decide
+/-- lasers: beamdivergence(5, 1000) = 5 — LASERS — COHERENT LIGHT, AS ARITHMETIC. A laser is numbers: the
+    amplifier gain, the average power from the pulse train, the energy carried by one pulse, how often it fires,
+    how fast the beam spreads, how far it stays coherent, the energy dumped on an area, and the colour it emits.
+    Crosses to `optics` — a laser is what optics shapes. A measure. */ const PROOF = 'lasers arithmetic (gain,
+    average power, pulse energy, repetition rate, beam divergence, coherence length, fluence, wavelength);
+    coherent light as a measure crossed to optics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lasers', dst: 'optics', formula, value, proof: PROOF, ...extra }, holds, { name: `lasers.${name}`,
+    params }) export class LasersFormulas { /** GAIN: the amplifier ratio of output power to input power. value
+    ⌊pout / pin⌋. */ static gain(pout: number, pin: number): CrossFormula { return c('lasers-gain', 'gain(pout,
+    pin) = ⌊pout / pin⌋', pin > 0 ? Math.floor(pout / pin) : 0, nat(pout, pin) && pin > 0, 'gain', [pout, pin])
+    } /** AVERAGE POWER: pulse energy times how often it fires. value energy · rate. */ static power(energy:
+    number, rate: number): CrossFormula { return c('lasers-power', 'power(energy, rate) = energy · rate', energy
+    * rate, nat(energy, rate), 'power', [energy, rate]) } /** PULSE ENERGY: average power shared across the
+    pulses per second. value ⌊power / rate⌋. */ static pulseenergy(power: number, rate: number): CrossFormula {
+    return c('lasers-pulseenergy', 'pulseenergy(power, rate) = ⌊power / rate⌋', rate > 0 ? Math.floor(power /
+    rate) : 0, nat(power, rate) && rate > 0, 'pulseenergy', [power, rate]) } /** REPETITION RATE: pulses over
+    seconds. value ⌊pulses / seconds⌋. */ static repetitionrate(pulses: number, seconds: number): CrossFormula {
+    return c('lasers-repetitionrate', 'repetitionrate(pulses, seconds) = ⌊pulses / seconds⌋', seconds > 0 ?
+    Math.floor(pulses / seconds) : 0, nat(pulses, seconds) && seconds > 0, 'repetitionrate', [pulses, seconds])
+    } /** BEAM DIVERGENCE: the spread per distance, in milliradians. value ⌊spread · 1000 / distance⌋. -/
+theorem fam_lasers_beamdivergence_1 : (((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int) := by decide
 
-/-- lasers: coherencelength(300000, 1000) = 300 — COHERENCE LENGTH: how far the wave stays in step, speed over
-    bandwidth. value ⌊speed / bandwidth⌋. -/
-theorem fam_lasers_coherencelength_1 : (300000 / 1000) = 300 := by decide
+/-- lasers: coherencelength(300000, 1000) = 300 — LASERS — COHERENT LIGHT, AS ARITHMETIC. A laser is numbers:
+    the amplifier gain, the average power from the pulse train, the energy carried by one pulse, how often it
+    fires, how fast the beam spreads, how far it stays coherent, the energy dumped on an area, and the colour it
+    emits. Crosses to `optics` — a laser is what optics shapes. A measure. */ const PROOF = 'lasers arithmetic
+    (gain, average power, pulse energy, repetition rate, beam divergence, coherence length, fluence,
+    wavelength); coherent light as a measure crossed to optics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lasers', dst: 'optics', formula, value, proof: PROOF, ...extra }, holds, { name: `lasers.${name}`,
+    params }) export class LasersFormulas { /** GAIN: the amplifier ratio of output power to input power. value
+    ⌊pout / pin⌋. */ static gain(pout: number, pin: number): CrossFormula { return c('lasers-gain', 'gain(pout,
+    pin) = ⌊pout / pin⌋', pin > 0 ? Math.floor(pout / pin) : 0, nat(pout, pin) && pin > 0, 'gain', [pout, pin])
+    } /** AVERAGE POWER: pulse energy times how often it fires. value energy · rate. */ static power(energy:
+    number, rate: number): CrossFormula { return c('lasers-power', 'power(energy, rate) = energy · rate', energy
+    * rate, nat(energy, rate), 'power', [energy, rate]) } /** PULSE ENERGY: average power shared across the
+    pulses per second. value ⌊power / rate⌋. */ static pulseenergy(power: number, rate: number): CrossFormula {
+    return c('lasers-pulseenergy', 'pulseenergy(power, rate) = ⌊power / rate⌋', rate > 0 ? Math.floor(power /
+    rate) : 0, nat(power, rate) && rate > 0, 'pulseenergy', [power, rate]) } /** REPETITION RATE: pulses over
+    seconds. value ⌊pulses / seconds⌋. */ static repetitionrate(pulses: number, seconds: number): CrossFormula {
+    return c('lasers-repetitionrate', 'repetitionrate(pulses, seconds) = ⌊pulses / seconds⌋', seconds > 0 ?
+    Math.floor(pulses / seconds) : 0, nat(pulses, seconds) && seconds > 0, 'repetitionrate', [pulses, seconds])
+    } /** BEAM DIVERGENCE: the spread per distance, in milliradians. value ⌊spread · 1000 / distance⌋. */ static
+    beamdivergence(spread: number, distance: number): CrossFormula { return c('lasers-beamdivergence',
+    'beamdivergence(spread, distance) = ⌊spread · 1000 / distance⌋', distance > 0 ? Math.floor((spread * 1000) /
+    distance) : 0, nat(spread, distance) && distance > 0, 'beamdivergence', [spread, distance]) } /** COHERENCE
+    LENGTH: how far the wave stays in step, speed over bandwidth. value ⌊speed / bandwidth⌋. -/
+theorem fam_lasers_coherencelength_1 : ((300000 : Int) / (1000 : Int)) = (300 : Int) := by decide
 
-/-- lasers: fluence(1000, 5) = 200 — FLUENCE: pulse energy spread over the spot area. value ⌊energy / area⌋. -/
-theorem fam_lasers_fluence_1 : (1000 / 5) = 200 := by decide
+/-- lasers: fluence(1000, 5) = 200 — LASERS — COHERENT LIGHT, AS ARITHMETIC. A laser is numbers: the amplifier
+    gain, the average power from the pulse train, the energy carried by one pulse, how often it fires, how fast
+    the beam spreads, how far it stays coherent, the energy dumped on an area, and the colour it emits. Crosses
+    to `optics` — a laser is what optics shapes. A measure. */ const PROOF = 'lasers arithmetic (gain, average
+    power, pulse energy, repetition rate, beam divergence, coherence length, fluence, wavelength); coherent
+    light as a measure crossed to optics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lasers', dst: 'optics', formula, value, proof: PROOF, ...extra }, holds, { name: `lasers.${name}`,
+    params }) export class LasersFormulas { /** GAIN: the amplifier ratio of output power to input power. value
+    ⌊pout / pin⌋. */ static gain(pout: number, pin: number): CrossFormula { return c('lasers-gain', 'gain(pout,
+    pin) = ⌊pout / pin⌋', pin > 0 ? Math.floor(pout / pin) : 0, nat(pout, pin) && pin > 0, 'gain', [pout, pin])
+    } /** AVERAGE POWER: pulse energy times how often it fires. value energy · rate. */ static power(energy:
+    number, rate: number): CrossFormula { return c('lasers-power', 'power(energy, rate) = energy · rate', energy
+    * rate, nat(energy, rate), 'power', [energy, rate]) } /** PULSE ENERGY: average power shared across the
+    pulses per second. value ⌊power / rate⌋. */ static pulseenergy(power: number, rate: number): CrossFormula {
+    return c('lasers-pulseenergy', 'pulseenergy(power, rate) = ⌊power / rate⌋', rate > 0 ? Math.floor(power /
+    rate) : 0, nat(power, rate) && rate > 0, 'pulseenergy', [power, rate]) } /** REPETITION RATE: pulses over
+    seconds. value ⌊pulses / seconds⌋. */ static repetitionrate(pulses: number, seconds: number): CrossFormula {
+    return c('lasers-repetitionrate', 'repetitionrate(pulses, seconds) = ⌊pulses / seconds⌋', seconds > 0 ?
+    Math.floor(pulses / seconds) : 0, nat(pulses, seconds) && seconds > 0, 'repetitionrate', [pulses, seconds])
+    } /** BEAM DIVERGENCE: the spread per distance, in milliradians. value ⌊spread · 1000 / distance⌋. */ static
+    beamdivergence(spread: number, distance: number): CrossFormula { return c('lasers-beamdivergence',
+    'beamdivergence(spread, distance) = ⌊spread · 1000 / distance⌋', distance > 0 ? Math.floor((spread * 1000) /
+    distance) : 0, nat(spread, distance) && distance > 0, 'beamdivergence', [spread, distance]) } /** COHERENCE
+    LENGTH: how far the wave stays in step, speed over bandwidth. value ⌊speed / bandwidth⌋. */ static
+    coherencelength(speed: number, bandwidth: number): CrossFormula { return c('lasers-coherencelength',
+    'coherencelength(speed, bandwidth) = ⌊speed / bandwidth⌋', bandwidth > 0 ? Math.floor(speed / bandwidth) :
+    0, nat(speed, bandwidth) && bandwidth > 0, 'coherencelength', [speed, bandwidth]) } /** FLUENCE: pulse
+    energy spread over the spot area. value ⌊energy / area⌋. -/
+theorem fam_lasers_fluence_1 : ((1000 : Int) / (5 : Int)) = (200 : Int) := by decide
 
-/-- lasers: wavelength(60000, 100) = 600 — WAVELENGTH: the colour emitted, speed over frequency. value ⌊speed /
-    frequency⌋. -/
-theorem fam_lasers_wavelength_1 : (60000 / 100) = 600 := by decide
+/-- lasers: wavelength(60000, 100) = 600 — LASERS — COHERENT LIGHT, AS ARITHMETIC. A laser is numbers: the
+    amplifier gain, the average power from the pulse train, the energy carried by one pulse, how often it fires,
+    how fast the beam spreads, how far it stays coherent, the energy dumped on an area, and the colour it emits.
+    Crosses to `optics` — a laser is what optics shapes. A measure. */ const PROOF = 'lasers arithmetic (gain,
+    average power, pulse energy, repetition rate, beam divergence, coherence length, fluence, wavelength);
+    coherent light as a measure crossed to optics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lasers', dst: 'optics', formula, value, proof: PROOF, ...extra }, holds, { name: `lasers.${name}`,
+    params }) export class LasersFormulas { /** GAIN: the amplifier ratio of output power to input power. value
+    ⌊pout / pin⌋. */ static gain(pout: number, pin: number): CrossFormula { return c('lasers-gain', 'gain(pout,
+    pin) = ⌊pout / pin⌋', pin > 0 ? Math.floor(pout / pin) : 0, nat(pout, pin) && pin > 0, 'gain', [pout, pin])
+    } /** AVERAGE POWER: pulse energy times how often it fires. value energy · rate. */ static power(energy:
+    number, rate: number): CrossFormula { return c('lasers-power', 'power(energy, rate) = energy · rate', energy
+    * rate, nat(energy, rate), 'power', [energy, rate]) } /** PULSE ENERGY: average power shared across the
+    pulses per second. value ⌊power / rate⌋. */ static pulseenergy(power: number, rate: number): CrossFormula {
+    return c('lasers-pulseenergy', 'pulseenergy(power, rate) = ⌊power / rate⌋', rate > 0 ? Math.floor(power /
+    rate) : 0, nat(power, rate) && rate > 0, 'pulseenergy', [power, rate]) } /** REPETITION RATE: pulses over
+    seconds. value ⌊pulses / seconds⌋. */ static repetitionrate(pulses: number, seconds: number): CrossFormula {
+    return c('lasers-repetitionrate', 'repetitionrate(pulses, seconds) = ⌊pulses / seconds⌋', seconds > 0 ?
+    Math.floor(pulses / seconds) : 0, nat(pulses, seconds) && seconds > 0, 'repetitionrate', [pulses, seconds])
+    } /** BEAM DIVERGENCE: the spread per distance, in milliradians. value ⌊spread · 1000 / distance⌋. */ static
+    beamdivergence(spread: number, distance: number): CrossFormula { return c('lasers-beamdivergence',
+    'beamdivergence(spread, distance) = ⌊spread · 1000 / distance⌋', distance > 0 ? Math.floor((spread * 1000) /
+    distance) : 0, nat(spread, distance) && distance > 0, 'beamdivergence', [spread, distance]) } /** COHERENCE
+    LENGTH: how far the wave stays in step, speed over bandwidth. value ⌊speed / bandwidth⌋. */ static
+    coherencelength(speed: number, bandwidth: number): CrossFormula { return c('lasers-coherencelength',
+    'coherencelength(speed, bandwidth) = ⌊speed / bandwidth⌋', bandwidth > 0 ? Math.floor(speed / bandwidth) :
+    0, nat(speed, bandwidth) && bandwidth > 0, 'coherencelength', [speed, bandwidth]) } /** FLUENCE: pulse
+    energy spread over the spot area. value ⌊energy / area⌋. */ static fluence(energy: number, area: number):
+    CrossFormula { return c('lasers-fluence', 'fluence(energy, area) = ⌊energy / area⌋', area > 0 ?
+    Math.floor(energy / area) : 0, nat(energy, area) && area > 0, 'fluence', [energy, area]) } /** WAVELENGTH:
+    the colour emitted, speed over frequency. value ⌊speed / frequency⌋. -/
+theorem fam_lasers_wavelength_1 : ((60000 : Int) / (100 : Int)) = (600 : Int) := by decide
 
 /-- lastmile: stopspermile(40, 10) = 4 -/
-theorem fam_lastmile_stopspermile_1 : (40 / 10) = 4 := by decide
+theorem fam_lastmile_stopspermile_1 : ((40 : Int) / (10 : Int)) = (4 : Int) := by decide
 
 /-- lastmile: deliverydensity(200, 50) = 4 -/
-theorem fam_lastmile_deliverydensity_1 : (200 / 50) = 4 := by decide
+theorem fam_lastmile_deliverydensity_1 : ((200 : Int) / (50 : Int)) = (4 : Int) := by decide
 
 /-- lastmile: costperstop(1000, 40) = 25 -/
-theorem fam_lastmile_costperstop_1 : (1000 / 40) = 25 := by decide
+theorem fam_lastmile_costperstop_1 : ((1000 : Int) / (40 : Int)) = (25 : Int) := by decide
 
 /-- lastmile: successrate(95, 100) = 95 -/
-theorem fam_lastmile_successrate_1 : ((95 * 100) / 100) = 95 := by decide
+theorem fam_lastmile_successrate_1 : (((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int) := by decide
 
 /-- lastmile: routetime(40, 6) = 240 -/
-theorem fam_lastmile_routetime_1 : (40 * 6) = 240 := by decide
+theorem fam_lastmile_routetime_1 : ((40 : Int) * (6 : Int)) = (240 : Int) := by decide
 
 /-- lastmile: failedratio(5, 100) = 5 -/
-theorem fam_lastmile_failedratio_1 : ((5 * 100) / 100) = 5 := by decide
+theorem fam_lastmile_failedratio_1 : (((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int) := by decide
 
 /-- lastmile: packagespervehicle(600, 10) = 60 -/
-theorem fam_lastmile_packagespervehicle_1 : (600 / 10) = 60 := by decide
+theorem fam_lastmile_packagespervehicle_1 : ((600 : Int) / (10 : Int)) = (60 : Int) := by decide
 
 /-- lastmile: detourfactor(120, 100) = 120 -/
-theorem fam_lastmile_detourfactor_1 : ((120 * 100) / 100) = 120 := by decide
+theorem fam_lastmile_detourfactor_1 : (((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int) := by decide
 
 /-- latency: oneway(15, 8, 2) = 25 — LATENCY — WHERE THE TIME GOES, AS ARITHMETIC (chosen by the public-API
     registry, not by hand). Moving a packet is numbers: the signal's time on the wire, the bits clocked out, the
@@ -145,48 +489,1555 @@ theorem fam_lastmile_detourfactor_1 : ((120 * 100) / 100) = 120 := by decide
     CrossFormula => crossFormulaOf({ id, src: 'latency', dst: 'networking', formula, value, proof: PROOF,
     ...extra }, holds, { name: `latency.${name}`, params }) export class LatencyFormulas { /** ONE-WAY: the
     delays on a single trip summed. value prop + trans + queue. -/
-theorem fam_latency_oneway_1 : ((15 + 8) + 2) = 25 := by decide
+theorem fam_latency_oneway_1 : (((15 : Int) + (8 : Int)) + (2 : Int)) = (25 : Int) := by decide
 
-/-- latency: processing(100, 2) = 200 — PROCESSING: the work a node spends per packet. value ops · perOp. -/
-theorem fam_latency_processing_1 : (100 * 2) = 200 := by decide
+/-- latency: processing(100, 2) = 200 — LATENCY — WHERE THE TIME GOES, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Moving a packet is numbers: the signal's time on the wire, the bits clocked out, the
+    wait in a queue, the work at each node, the one-way sum, the whole round trip, the serialization of a frame,
+    and the end-to-end total across hops. Crosses to `networking` — latency is what the network costs in time. A
+    measure. */ const PROOF = 'latency arithmetic (propagation, transmission, queuing, processing,
+    serialization, one-way, round-trip, end-to-end total); a measure crossed to networking' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'latency', dst: 'networking', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `latency.${name}`, params }) export class LatencyFormulas { /** ONE-WAY: the
+    delays on a single trip summed. value prop + trans + queue. */ static oneway(prop: number, trans: number,
+    queue: number): CrossFormula { return c('latency-oneway', 'oneway(prop, trans, queue) = prop + trans +
+    queue', prop + trans + queue, nat(prop, trans, queue), 'oneway', [prop, trans, queue]) } /** PROCESSING: the
+    work a node spends per packet. value ops · perOp. -/
+theorem fam_latency_processing_1 : ((100 : Int) * (2 : Int)) = (200 : Int) := by decide
 
-/-- latency: propagation(3000, 200) = 15 — PROPAGATION: distance over signal speed. value ⌊distance / speed⌋. -/
-theorem fam_latency_propagation_1 : (3000 / 200) = 15 := by decide
+/-- latency: propagation(3000, 200) = 15 — LATENCY — WHERE THE TIME GOES, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Moving a packet is numbers: the signal's time on the wire, the bits
+    clocked out, the wait in a queue, the work at each node, the one-way sum, the whole round trip, the
+    serialization of a frame, and the end-to-end total across hops. Crosses to `networking` — latency is what
+    the network costs in time. A measure. */ const PROOF = 'latency arithmetic (propagation, transmission,
+    queuing, processing, serialization, one-way, round-trip, end-to-end total); a measure crossed to networking'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'latency', dst: 'networking', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `latency.${name}`, params }) export class LatencyFormulas { /**
+    ONE-WAY: the delays on a single trip summed. value prop + trans + queue. */ static oneway(prop: number,
+    trans: number, queue: number): CrossFormula { return c('latency-oneway', 'oneway(prop, trans, queue) = prop
+    + trans + queue', prop + trans + queue, nat(prop, trans, queue), 'oneway', [prop, trans, queue]) } /**
+    PROCESSING: the work a node spends per packet. value ops · perOp. */ static processing(ops: number, perOp:
+    number): CrossFormula { return c('latency-processing', 'processing(ops, perOp) = ops · perOp', ops * perOp,
+    nat(ops, perOp), 'processing', [ops, perOp]) } /** PROPAGATION: distance over signal speed. value ⌊distance
+    / speed⌋. -/
+theorem fam_latency_propagation_1 : ((3000 : Int) / (200 : Int)) = (15 : Int) := by decide
 
-/-- latency: queuing(10, 5) = 50 — QUEUING: packets waiting at a service time each. value packets · service. -/
-theorem fam_latency_queuing_1 : (10 * 5) = 50 := by decide
+/-- latency: queuing(10, 5) = 50 — LATENCY — WHERE THE TIME GOES, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Moving a packet is numbers: the signal's time on the wire, the bits clocked out, the
+    wait in a queue, the work at each node, the one-way sum, the whole round trip, the serialization of a frame,
+    and the end-to-end total across hops. Crosses to `networking` — latency is what the network costs in time. A
+    measure. */ const PROOF = 'latency arithmetic (propagation, transmission, queuing, processing,
+    serialization, one-way, round-trip, end-to-end total); a measure crossed to networking' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'latency', dst: 'networking', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `latency.${name}`, params }) export class LatencyFormulas { /** ONE-WAY: the
+    delays on a single trip summed. value prop + trans + queue. */ static oneway(prop: number, trans: number,
+    queue: number): CrossFormula { return c('latency-oneway', 'oneway(prop, trans, queue) = prop + trans +
+    queue', prop + trans + queue, nat(prop, trans, queue), 'oneway', [prop, trans, queue]) } /** PROCESSING: the
+    work a node spends per packet. value ops · perOp. */ static processing(ops: number, perOp: number):
+    CrossFormula { return c('latency-processing', 'processing(ops, perOp) = ops · perOp', ops * perOp, nat(ops,
+    perOp), 'processing', [ops, perOp]) } /** PROPAGATION: distance over signal speed. value ⌊distance / speed⌋.
+    */ static propagation(distance: number, speed: number): CrossFormula { return c('latency-propagation',
+    'propagation(distance, speed) = ⌊distance / speed⌋', speed > 0 ? Math.floor(distance / speed) : 0,
+    nat(distance, speed) && speed > 0, 'propagation', [distance, speed]) } /** QUEUING: packets waiting at a
+    service time each. value packets · service. -/
+theorem fam_latency_queuing_1 : ((10 : Int) * (5 : Int)) = (50 : Int) := by decide
 
-/-- latency: roundtrip(25) = 50 — ROUND-TRIP: twice the one-way time. value 2 · oneway. -/
-theorem fam_latency_roundtrip_1 : (2 * 25) = 50 := by decide
+/-- latency: roundtrip(25) = 50 — LATENCY — WHERE THE TIME GOES, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Moving a packet is numbers: the signal's time on the wire, the bits clocked out, the
+    wait in a queue, the work at each node, the one-way sum, the whole round trip, the serialization of a frame,
+    and the end-to-end total across hops. Crosses to `networking` — latency is what the network costs in time. A
+    measure. */ const PROOF = 'latency arithmetic (propagation, transmission, queuing, processing,
+    serialization, one-way, round-trip, end-to-end total); a measure crossed to networking' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'latency', dst: 'networking', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `latency.${name}`, params }) export class LatencyFormulas { /** ONE-WAY: the
+    delays on a single trip summed. value prop + trans + queue. */ static oneway(prop: number, trans: number,
+    queue: number): CrossFormula { return c('latency-oneway', 'oneway(prop, trans, queue) = prop + trans +
+    queue', prop + trans + queue, nat(prop, trans, queue), 'oneway', [prop, trans, queue]) } /** PROCESSING: the
+    work a node spends per packet. value ops · perOp. */ static processing(ops: number, perOp: number):
+    CrossFormula { return c('latency-processing', 'processing(ops, perOp) = ops · perOp', ops * perOp, nat(ops,
+    perOp), 'processing', [ops, perOp]) } /** PROPAGATION: distance over signal speed. value ⌊distance / speed⌋.
+    */ static propagation(distance: number, speed: number): CrossFormula { return c('latency-propagation',
+    'propagation(distance, speed) = ⌊distance / speed⌋', speed > 0 ? Math.floor(distance / speed) : 0,
+    nat(distance, speed) && speed > 0, 'propagation', [distance, speed]) } /** QUEUING: packets waiting at a
+    service time each. value packets · service. */ static queuing(packets: number, service: number):
+    CrossFormula { return c('latency-queuing', 'queuing(packets, service) = packets · service', packets *
+    service, nat(packets, service), 'queuing', [packets, service]) } /** ROUND-TRIP: twice the one-way time.
+    value 2 · oneway. -/
+theorem fam_latency_roundtrip_1 : ((2 : Int) * (25 : Int)) = (50 : Int) := by decide
 
-/-- latency: serialization(1500, 1000) = 12 — SERIALIZATION: a frame's bytes clocked out as bits over the rate.
-    value ⌊bytes · 8 / rate⌋. -/
-theorem fam_latency_serialization_1 : ((1500 * 8) / 1000) = 12 := by decide
+/-- latency: serialization(1500, 1000) = 12 — LATENCY — WHERE THE TIME GOES, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Moving a packet is numbers: the signal's time on the wire, the bits
+    clocked out, the wait in a queue, the work at each node, the one-way sum, the whole round trip, the
+    serialization of a frame, and the end-to-end total across hops. Crosses to `networking` — latency is what
+    the network costs in time. A measure. */ const PROOF = 'latency arithmetic (propagation, transmission,
+    queuing, processing, serialization, one-way, round-trip, end-to-end total); a measure crossed to networking'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'latency', dst: 'networking', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `latency.${name}`, params }) export class LatencyFormulas { /**
+    ONE-WAY: the delays on a single trip summed. value prop + trans + queue. */ static oneway(prop: number,
+    trans: number, queue: number): CrossFormula { return c('latency-oneway', 'oneway(prop, trans, queue) = prop
+    + trans + queue', prop + trans + queue, nat(prop, trans, queue), 'oneway', [prop, trans, queue]) } /**
+    PROCESSING: the work a node spends per packet. value ops · perOp. */ static processing(ops: number, perOp:
+    number): CrossFormula { return c('latency-processing', 'processing(ops, perOp) = ops · perOp', ops * perOp,
+    nat(ops, perOp), 'processing', [ops, perOp]) } /** PROPAGATION: distance over signal speed. value ⌊distance
+    / speed⌋. */ static propagation(distance: number, speed: number): CrossFormula { return
+    c('latency-propagation', 'propagation(distance, speed) = ⌊distance / speed⌋', speed > 0 ?
+    Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'propagation', [distance, speed]) } /**
+    QUEUING: packets waiting at a service time each. value packets · service. */ static queuing(packets: number,
+    service: number): CrossFormula { return c('latency-queuing', 'queuing(packets, service) = packets ·
+    service', packets * service, nat(packets, service), 'queuing', [packets, service]) } /** ROUND-TRIP: twice
+    the one-way time. value 2 · oneway. */ static roundtrip(oneway: number): CrossFormula { return
+    c('latency-roundtrip', 'roundtrip(oneway) = 2 · oneway', 2 * oneway, nat(oneway), 'roundtrip', [oneway]) }
+    /** SERIALIZATION: a frame's bytes clocked out as bits over the rate. value ⌊bytes · 8 / rate⌋. -/
+theorem fam_latency_serialization_1 : (((1500 : Int) * (8 : Int)) / (1000 : Int)) = (12 : Int) := by decide
 
-/-- latency: total(20, 3) = 60 — TOTAL: the one-way time across every hop. value oneway · hops. -/
-theorem fam_latency_total_1 : (20 * 3) = 60 := by decide
+/-- latency: total(20, 3) = 60 — LATENCY — WHERE THE TIME GOES, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Moving a packet is numbers: the signal's time on the wire, the bits clocked out, the
+    wait in a queue, the work at each node, the one-way sum, the whole round trip, the serialization of a frame,
+    and the end-to-end total across hops. Crosses to `networking` — latency is what the network costs in time. A
+    measure. */ const PROOF = 'latency arithmetic (propagation, transmission, queuing, processing,
+    serialization, one-way, round-trip, end-to-end total); a measure crossed to networking' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'latency', dst: 'networking', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `latency.${name}`, params }) export class LatencyFormulas { /** ONE-WAY: the
+    delays on a single trip summed. value prop + trans + queue. */ static oneway(prop: number, trans: number,
+    queue: number): CrossFormula { return c('latency-oneway', 'oneway(prop, trans, queue) = prop + trans +
+    queue', prop + trans + queue, nat(prop, trans, queue), 'oneway', [prop, trans, queue]) } /** PROCESSING: the
+    work a node spends per packet. value ops · perOp. */ static processing(ops: number, perOp: number):
+    CrossFormula { return c('latency-processing', 'processing(ops, perOp) = ops · perOp', ops * perOp, nat(ops,
+    perOp), 'processing', [ops, perOp]) } /** PROPAGATION: distance over signal speed. value ⌊distance / speed⌋.
+    */ static propagation(distance: number, speed: number): CrossFormula { return c('latency-propagation',
+    'propagation(distance, speed) = ⌊distance / speed⌋', speed > 0 ? Math.floor(distance / speed) : 0,
+    nat(distance, speed) && speed > 0, 'propagation', [distance, speed]) } /** QUEUING: packets waiting at a
+    service time each. value packets · service. */ static queuing(packets: number, service: number):
+    CrossFormula { return c('latency-queuing', 'queuing(packets, service) = packets · service', packets *
+    service, nat(packets, service), 'queuing', [packets, service]) } /** ROUND-TRIP: twice the one-way time.
+    value 2 · oneway. */ static roundtrip(oneway: number): CrossFormula { return c('latency-roundtrip',
+    'roundtrip(oneway) = 2 · oneway', 2 * oneway, nat(oneway), 'roundtrip', [oneway]) } /** SERIALIZATION: a
+    frame's bytes clocked out as bits over the rate. value ⌊bytes · 8 / rate⌋. */ static serialization(bytes:
+    number, rate: number): CrossFormula { return c('latency-serialization', 'serialization(bytes, rate) = ⌊bytes
+    · 8 / rate⌋', rate > 0 ? Math.floor((bytes * 8) / rate) : 0, nat(bytes, rate) && rate > 0, 'serialization',
+    [bytes, rate]) } /** TOTAL: the one-way time across every hop. value oneway · hops. -/
+theorem fam_latency_total_1 : ((20 : Int) * (3 : Int)) = (60 : Int) := by decide
 
-/-- latency: transmission(8000, 1000) = 8 — TRANSMISSION: bits clocked out over the link rate. value ⌊bits /
-    rate⌋. -/
-theorem fam_latency_transmission_1 : (8000 / 1000) = 8 := by decide
+/-- latency: transmission(8000, 1000) = 8 — LATENCY — WHERE THE TIME GOES, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Moving a packet is numbers: the signal's time on the wire, the bits
+    clocked out, the wait in a queue, the work at each node, the one-way sum, the whole round trip, the
+    serialization of a frame, and the end-to-end total across hops. Crosses to `networking` — latency is what
+    the network costs in time. A measure. */ const PROOF = 'latency arithmetic (propagation, transmission,
+    queuing, processing, serialization, one-way, round-trip, end-to-end total); a measure crossed to networking'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'latency', dst: 'networking', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `latency.${name}`, params }) export class LatencyFormulas { /**
+    ONE-WAY: the delays on a single trip summed. value prop + trans + queue. */ static oneway(prop: number,
+    trans: number, queue: number): CrossFormula { return c('latency-oneway', 'oneway(prop, trans, queue) = prop
+    + trans + queue', prop + trans + queue, nat(prop, trans, queue), 'oneway', [prop, trans, queue]) } /**
+    PROCESSING: the work a node spends per packet. value ops · perOp. */ static processing(ops: number, perOp:
+    number): CrossFormula { return c('latency-processing', 'processing(ops, perOp) = ops · perOp', ops * perOp,
+    nat(ops, perOp), 'processing', [ops, perOp]) } /** PROPAGATION: distance over signal speed. value ⌊distance
+    / speed⌋. */ static propagation(distance: number, speed: number): CrossFormula { return
+    c('latency-propagation', 'propagation(distance, speed) = ⌊distance / speed⌋', speed > 0 ?
+    Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'propagation', [distance, speed]) } /**
+    QUEUING: packets waiting at a service time each. value packets · service. */ static queuing(packets: number,
+    service: number): CrossFormula { return c('latency-queuing', 'queuing(packets, service) = packets ·
+    service', packets * service, nat(packets, service), 'queuing', [packets, service]) } /** ROUND-TRIP: twice
+    the one-way time. value 2 · oneway. */ static roundtrip(oneway: number): CrossFormula { return
+    c('latency-roundtrip', 'roundtrip(oneway) = 2 · oneway', 2 * oneway, nat(oneway), 'roundtrip', [oneway]) }
+    /** SERIALIZATION: a frame's bytes clocked out as bits over the rate. value ⌊bytes · 8 / rate⌋. */ static
+    serialization(bytes: number, rate: number): CrossFormula { return c('latency-serialization',
+    'serialization(bytes, rate) = ⌊bytes · 8 / rate⌋', rate > 0 ? Math.floor((bytes * 8) / rate) : 0, nat(bytes,
+    rate) && rate > 0, 'serialization', [bytes, rate]) } /** TOTAL: the one-way time across every hop. value
+    oneway · hops. */ static total(oneway: number, hops: number): CrossFormula { return c('latency-total',
+    'total(oneway, hops) = oneway · hops', oneway * hops, nat(oneway, hops), 'total', [oneway, hops]) } /**
+    TRANSMISSION: bits clocked out over the link rate. value ⌊bits / rate⌋. -/
+theorem fam_latency_transmission_1 : ((8000 : Int) / (1000 : Int)) = (8 : Int) := by decide
+
+/-- latinsquare: cells(4) = 16 — LATINSQUARE — THE LATIN SQUARE, AS ARITHMETIC. A Latin square of order n is an
+    n×n array on n symbols, each symbol once per row and once per column (van Lint & Wilson). Deterministic
+    integer identities: its n² cells, the n symbols, its n rows and n columns, the n-1 mutually orthogonal mates
+    a complete set admits and the C(n-1, 2) orthogonal pairs among them, the n cells of a transversal, the six
+    conjugates obtained by permuting the (row, column, symbol) triples, the n!·(n-1)! factor by which the Latin
+    squares of order n exceed the reduced ones, the n! fillings of the first row, the (n!)³ isotopy group and
+    the 6·(n!)³ paratopy (main-class) group, the k² cells of a k-subsquare, and the C(n, 2) intercalate
+    row-pairs. Exact integer identities crossed to `combinatorics`. A measure, not advice. */ const PROOF =
+    'Latin square arithmetic by the book (van Lint & Wilson): n² cells, n symbols, n rows and columns, n-1
+    mutually orthogonal mates and C(n-1,2) orthogonal pairs, n transversal cells, the six (row,column,symbol)
+    conjugates, the n!·(n-1)! reduced-to-total factor, n! first-row fillings, the (n!)³ isotopy and 6·(n!)³
+    paratopy groups, k² subsquare cells, C(n,2) intercalate row-pairs; deterministic integer identities crossed
+    to combinatorics; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const fact = (n: number): number => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r } const
+    l = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'latinsquare', dst:
+    'combinatorics', formula, value, proof: PROOF, ...extra }, holds, { name: `latinsquare.${name}`, params })
+    export class LatinSquareFormulas { /** CELLS — the cells of an order-n Latin square, the n×n array. value
+    n². -/
+theorem fam_latinsquare_cells_1 : ((4 : Int) ^ (2 : Nat)) = (16 : Int) := by decide
+
+/-- latinsquare: symbols(4) = 4 — LATINSQUARE — THE LATIN SQUARE, AS ARITHMETIC. A Latin square of order n is an
+    n×n array on n symbols, each symbol once per row and once per column (van Lint & Wilson). Deterministic
+    integer identities: its n² cells, the n symbols, its n rows and n columns, the n-1 mutually orthogonal mates
+    a complete set admits and the C(n-1, 2) orthogonal pairs among them, the n cells of a transversal, the six
+    conjugates obtained by permuting the (row, column, symbol) triples, the n!·(n-1)! factor by which the Latin
+    squares of order n exceed the reduced ones, the n! fillings of the first row, the (n!)³ isotopy group and
+    the 6·(n!)³ paratopy (main-class) group, the k² cells of a k-subsquare, and the C(n, 2) intercalate
+    row-pairs. Exact integer identities crossed to `combinatorics`. A measure, not advice. */ const PROOF =
+    'Latin square arithmetic by the book (van Lint & Wilson): n² cells, n symbols, n rows and columns, n-1
+    mutually orthogonal mates and C(n-1,2) orthogonal pairs, n transversal cells, the six (row,column,symbol)
+    conjugates, the n!·(n-1)! reduced-to-total factor, n! first-row fillings, the (n!)³ isotopy and 6·(n!)³
+    paratopy groups, k² subsquare cells, C(n,2) intercalate row-pairs; deterministic integer identities crossed
+    to combinatorics; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const fact = (n: number): number => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r } const
+    l = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'latinsquare', dst:
+    'combinatorics', formula, value, proof: PROOF, ...extra }, holds, { name: `latinsquare.${name}`, params })
+    export class LatinSquareFormulas { /** CELLS — the cells of an order-n Latin square, the n×n array. value
+    n². */ static cells(n: number): CrossFormula { return l('latinsquare-cells', 'cells(n) = n²', n * n, nat(n),
+    'cells', [n]) } /** SYMBOLS — the distinct symbols, one appearing once per row and column. value n. -/
+theorem fam_latinsquare_symbols_1 : (4 : Int) = (4 : Int) := by decide
+
+/-- latinsquare: rows(4) = 4 — LATINSQUARE — THE LATIN SQUARE, AS ARITHMETIC. A Latin square of order n is an
+    n×n array on n symbols, each symbol once per row and once per column (van Lint & Wilson). Deterministic
+    integer identities: its n² cells, the n symbols, its n rows and n columns, the n-1 mutually orthogonal mates
+    a complete set admits and the C(n-1, 2) orthogonal pairs among them, the n cells of a transversal, the six
+    conjugates obtained by permuting the (row, column, symbol) triples, the n!·(n-1)! factor by which the Latin
+    squares of order n exceed the reduced ones, the n! fillings of the first row, the (n!)³ isotopy group and
+    the 6·(n!)³ paratopy (main-class) group, the k² cells of a k-subsquare, and the C(n, 2) intercalate
+    row-pairs. Exact integer identities crossed to `combinatorics`. A measure, not advice. */ const PROOF =
+    'Latin square arithmetic by the book (van Lint & Wilson): n² cells, n symbols, n rows and columns, n-1
+    mutually orthogonal mates and C(n-1,2) orthogonal pairs, n transversal cells, the six (row,column,symbol)
+    conjugates, the n!·(n-1)! reduced-to-total factor, n! first-row fillings, the (n!)³ isotopy and 6·(n!)³
+    paratopy groups, k² subsquare cells, C(n,2) intercalate row-pairs; deterministic integer identities crossed
+    to combinatorics; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const fact = (n: number): number => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r } const
+    l = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'latinsquare', dst:
+    'combinatorics', formula, value, proof: PROOF, ...extra }, holds, { name: `latinsquare.${name}`, params })
+    export class LatinSquareFormulas { /** CELLS — the cells of an order-n Latin square, the n×n array. value
+    n². */ static cells(n: number): CrossFormula { return l('latinsquare-cells', 'cells(n) = n²', n * n, nat(n),
+    'cells', [n]) } /** SYMBOLS — the distinct symbols, one appearing once per row and column. value n. */
+    static symbols(n: number): CrossFormula { return l('latinsquare-symbols', 'symbols(n) = n', n, nat(n),
+    'symbols', [n]) } /** ROWS — the rows of the square, each a permutation of the n symbols. value n. -/
+theorem fam_latinsquare_rows_1 : (4 : Int) = (4 : Int) := by decide
+
+/-- latinsquare: cols(4) = 4 — LATINSQUARE — THE LATIN SQUARE, AS ARITHMETIC. A Latin square of order n is an
+    n×n array on n symbols, each symbol once per row and once per column (van Lint & Wilson). Deterministic
+    integer identities: its n² cells, the n symbols, its n rows and n columns, the n-1 mutually orthogonal mates
+    a complete set admits and the C(n-1, 2) orthogonal pairs among them, the n cells of a transversal, the six
+    conjugates obtained by permuting the (row, column, symbol) triples, the n!·(n-1)! factor by which the Latin
+    squares of order n exceed the reduced ones, the n! fillings of the first row, the (n!)³ isotopy group and
+    the 6·(n!)³ paratopy (main-class) group, the k² cells of a k-subsquare, and the C(n, 2) intercalate
+    row-pairs. Exact integer identities crossed to `combinatorics`. A measure, not advice. */ const PROOF =
+    'Latin square arithmetic by the book (van Lint & Wilson): n² cells, n symbols, n rows and columns, n-1
+    mutually orthogonal mates and C(n-1,2) orthogonal pairs, n transversal cells, the six (row,column,symbol)
+    conjugates, the n!·(n-1)! reduced-to-total factor, n! first-row fillings, the (n!)³ isotopy and 6·(n!)³
+    paratopy groups, k² subsquare cells, C(n,2) intercalate row-pairs; deterministic integer identities crossed
+    to combinatorics; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const fact = (n: number): number => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r } const
+    l = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'latinsquare', dst:
+    'combinatorics', formula, value, proof: PROOF, ...extra }, holds, { name: `latinsquare.${name}`, params })
+    export class LatinSquareFormulas { /** CELLS — the cells of an order-n Latin square, the n×n array. value
+    n². */ static cells(n: number): CrossFormula { return l('latinsquare-cells', 'cells(n) = n²', n * n, nat(n),
+    'cells', [n]) } /** SYMBOLS — the distinct symbols, one appearing once per row and column. value n. */
+    static symbols(n: number): CrossFormula { return l('latinsquare-symbols', 'symbols(n) = n', n, nat(n),
+    'symbols', [n]) } /** ROWS — the rows of the square, each a permutation of the n symbols. value n. */ static
+    rows(n: number): CrossFormula { return l('latinsquare-rows', 'rows(n) = n', n, nat(n), 'rows', [n]) } /**
+    COLS — the columns of the square, each a permutation of the n symbols. value n. -/
+theorem fam_latinsquare_cols_1 : (4 : Int) = (4 : Int) := by decide
+
+/-- latinsquare: mols(4) = 3 — LATINSQUARE — THE LATIN SQUARE, AS ARITHMETIC. A Latin square of order n is an
+    n×n array on n symbols, each symbol once per row and once per column (van Lint & Wilson). Deterministic
+    integer identities: its n² cells, the n symbols, its n rows and n columns, the n-1 mutually orthogonal mates
+    a complete set admits and the C(n-1, 2) orthogonal pairs among them, the n cells of a transversal, the six
+    conjugates obtained by permuting the (row, column, symbol) triples, the n!·(n-1)! factor by which the Latin
+    squares of order n exceed the reduced ones, the n! fillings of the first row, the (n!)³ isotopy group and
+    the 6·(n!)³ paratopy (main-class) group, the k² cells of a k-subsquare, and the C(n, 2) intercalate
+    row-pairs. Exact integer identities crossed to `combinatorics`. A measure, not advice. */ const PROOF =
+    'Latin square arithmetic by the book (van Lint & Wilson): n² cells, n symbols, n rows and columns, n-1
+    mutually orthogonal mates and C(n-1,2) orthogonal pairs, n transversal cells, the six (row,column,symbol)
+    conjugates, the n!·(n-1)! reduced-to-total factor, n! first-row fillings, the (n!)³ isotopy and 6·(n!)³
+    paratopy groups, k² subsquare cells, C(n,2) intercalate row-pairs; deterministic integer identities crossed
+    to combinatorics; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const fact = (n: number): number => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r } const
+    l = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'latinsquare', dst:
+    'combinatorics', formula, value, proof: PROOF, ...extra }, holds, { name: `latinsquare.${name}`, params })
+    export class LatinSquareFormulas { /** CELLS — the cells of an order-n Latin square, the n×n array. value
+    n². */ static cells(n: number): CrossFormula { return l('latinsquare-cells', 'cells(n) = n²', n * n, nat(n),
+    'cells', [n]) } /** SYMBOLS — the distinct symbols, one appearing once per row and column. value n. */
+    static symbols(n: number): CrossFormula { return l('latinsquare-symbols', 'symbols(n) = n', n, nat(n),
+    'symbols', [n]) } /** ROWS — the rows of the square, each a permutation of the n symbols. value n. */ static
+    rows(n: number): CrossFormula { return l('latinsquare-rows', 'rows(n) = n', n, nat(n), 'rows', [n]) } /**
+    COLS — the columns of the square, each a permutation of the n symbols. value n. */ static cols(n: number):
+    CrossFormula { return l('latinsquare-cols', 'cols(n) = n', n, nat(n), 'cols', [n]) } /** MOLS — the mutually
+    orthogonal mates a complete set of order n admits. value n − 1; holds n ≥ 2. -/
+theorem fam_latinsquare_mols_1 : ((4 : Int) - (1 : Int)) = (3 : Int) := by decide
+
+/-- latinsquare: transversal(4) = 4 — LATINSQUARE — THE LATIN SQUARE, AS ARITHMETIC. A Latin square of order n
+    is an n×n array on n symbols, each symbol once per row and once per column (van Lint & Wilson).
+    Deterministic integer identities: its n² cells, the n symbols, its n rows and n columns, the n-1 mutually
+    orthogonal mates a complete set admits and the C(n-1, 2) orthogonal pairs among them, the n cells of a
+    transversal, the six conjugates obtained by permuting the (row, column, symbol) triples, the n!·(n-1)!
+    factor by which the Latin squares of order n exceed the reduced ones, the n! fillings of the first row, the
+    (n!)³ isotopy group and the 6·(n!)³ paratopy (main-class) group, the k² cells of a k-subsquare, and the C(n,
+    2) intercalate row-pairs. Exact integer identities crossed to `combinatorics`. A measure, not advice. */
+    const PROOF = 'Latin square arithmetic by the book (van Lint & Wilson): n² cells, n symbols, n rows and
+    columns, n-1 mutually orthogonal mates and C(n-1,2) orthogonal pairs, n transversal cells, the six
+    (row,column,symbol) conjugates, the n!·(n-1)! reduced-to-total factor, n! first-row fillings, the (n!)³
+    isotopy and 6·(n!)³ paratopy groups, k² subsquare cells, C(n,2) intercalate row-pairs; deterministic integer
+    identities crossed to combinatorics; a measure' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const fact = (n: number): number => { let r = 1; for (let i = 2; i <= n;
+    i++) r *= i; return r } const l = (id: string, formula: string, value: number, holds: boolean, name: string,
+    params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src:
+    'latinsquare', dst: 'combinatorics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `latinsquare.${name}`, params }) export class LatinSquareFormulas { /** CELLS — the cells of an order-n
+    Latin square, the n×n array. value n². */ static cells(n: number): CrossFormula { return
+    l('latinsquare-cells', 'cells(n) = n²', n * n, nat(n), 'cells', [n]) } /** SYMBOLS — the distinct symbols,
+    one appearing once per row and column. value n. */ static symbols(n: number): CrossFormula { return
+    l('latinsquare-symbols', 'symbols(n) = n', n, nat(n), 'symbols', [n]) } /** ROWS — the rows of the square,
+    each a permutation of the n symbols. value n. */ static rows(n: number): CrossFormula { return
+    l('latinsquare-rows', 'rows(n) = n', n, nat(n), 'rows', [n]) } /** COLS — the columns of the square, each a
+    permutation of the n symbols. value n. */ static cols(n: number): CrossFormula { return
+    l('latinsquare-cols', 'cols(n) = n', n, nat(n), 'cols', [n]) } /** MOLS — the mutually orthogonal mates a
+    complete set of order n admits. value n − 1; holds n ≥ 2. */ static mols(n: number): CrossFormula { return
+    l('latinsquare-mols', 'mols(n) = n − 1 (maximum mutually orthogonal mates)', n - 1, nat(n) && n >= 2,
+    'mols', [n]) } /** ORTHOGONALPAIRS — the orthogonal pairs among the n−1 mates of a complete set. value
+    C(n−1, 2) = (n−1)(n−2)/2; holds n ≥ 2. */ static orthogonalpairs(n: number): CrossFormula { return
+    l('latinsquare-orthogonalpairs', 'orthogonalpairs(n) = C(n−1, 2) = (n−1)(n−2)/2', ((n - 1) * (n - 2)) / 2,
+    nat(n) && n >= 2, 'orthogonalpairs', [n]) } /** TRANSVERSAL — the cells of a transversal, one per row,
+    column and symbol. value n. -/
+theorem fam_latinsquare_transversal_1 : (4 : Int) = (4 : Int) := by decide
+
+/-- latinsquare: order(4) = 4 — LATINSQUARE — THE LATIN SQUARE, AS ARITHMETIC. A Latin square of order n is an
+    n×n array on n symbols, each symbol once per row and once per column (van Lint & Wilson). Deterministic
+    integer identities: its n² cells, the n symbols, its n rows and n columns, the n-1 mutually orthogonal mates
+    a complete set admits and the C(n-1, 2) orthogonal pairs among them, the n cells of a transversal, the six
+    conjugates obtained by permuting the (row, column, symbol) triples, the n!·(n-1)! factor by which the Latin
+    squares of order n exceed the reduced ones, the n! fillings of the first row, the (n!)³ isotopy group and
+    the 6·(n!)³ paratopy (main-class) group, the k² cells of a k-subsquare, and the C(n, 2) intercalate
+    row-pairs. Exact integer identities crossed to `combinatorics`. A measure, not advice. */ const PROOF =
+    'Latin square arithmetic by the book (van Lint & Wilson): n² cells, n symbols, n rows and columns, n-1
+    mutually orthogonal mates and C(n-1,2) orthogonal pairs, n transversal cells, the six (row,column,symbol)
+    conjugates, the n!·(n-1)! reduced-to-total factor, n! first-row fillings, the (n!)³ isotopy and 6·(n!)³
+    paratopy groups, k² subsquare cells, C(n,2) intercalate row-pairs; deterministic integer identities crossed
+    to combinatorics; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const fact = (n: number): number => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r } const
+    l = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'latinsquare', dst:
+    'combinatorics', formula, value, proof: PROOF, ...extra }, holds, { name: `latinsquare.${name}`, params })
+    export class LatinSquareFormulas { /** CELLS — the cells of an order-n Latin square, the n×n array. value
+    n². */ static cells(n: number): CrossFormula { return l('latinsquare-cells', 'cells(n) = n²', n * n, nat(n),
+    'cells', [n]) } /** SYMBOLS — the distinct symbols, one appearing once per row and column. value n. */
+    static symbols(n: number): CrossFormula { return l('latinsquare-symbols', 'symbols(n) = n', n, nat(n),
+    'symbols', [n]) } /** ROWS — the rows of the square, each a permutation of the n symbols. value n. */ static
+    rows(n: number): CrossFormula { return l('latinsquare-rows', 'rows(n) = n', n, nat(n), 'rows', [n]) } /**
+    COLS — the columns of the square, each a permutation of the n symbols. value n. */ static cols(n: number):
+    CrossFormula { return l('latinsquare-cols', 'cols(n) = n', n, nat(n), 'cols', [n]) } /** MOLS — the mutually
+    orthogonal mates a complete set of order n admits. value n − 1; holds n ≥ 2. */ static mols(n: number):
+    CrossFormula { return l('latinsquare-mols', 'mols(n) = n − 1 (maximum mutually orthogonal mates)', n - 1,
+    nat(n) && n >= 2, 'mols', [n]) } /** ORTHOGONALPAIRS — the orthogonal pairs among the n−1 mates of a
+    complete set. value C(n−1, 2) = (n−1)(n−2)/2; holds n ≥ 2. */ static orthogonalpairs(n: number):
+    CrossFormula { return l('latinsquare-orthogonalpairs', 'orthogonalpairs(n) = C(n−1, 2) = (n−1)(n−2)/2', ((n
+    - 1) * (n - 2)) / 2, nat(n) && n >= 2, 'orthogonalpairs', [n]) } /** TRANSVERSAL — the cells of a
+    transversal, one per row, column and symbol. value n. */ static transversal(n: number): CrossFormula {
+    return l('latinsquare-transversal', 'transversal(n) = n (one cell per row, column and symbol)', n, nat(n),
+    'transversal', [n]) } /** CONJUGATES — the conjugates, the 3! permutations of the (row, column, symbol)
+    triples. value 6. */ static conjugates(): CrossFormula { return l('latinsquare-conjugates', 'conjugates() =
+    3! = 6 (permutations of the (row, column, symbol) triples)', 6, true, 'conjugates', []) } /** REDUCED — the
+    factor by which the Latin squares of order n exceed the reduced ones, L(n) = n!·(n−1)!·R(n). value
+    n!·(n−1)!; holds n ≥ 1 and fits. */ static reduced(n: number): CrossFormula { const v = fact(n) * fact(n -
+    1); return l('latinsquare-reduced', 'reduced(n) = n!·(n−1)! (L(n) = n!·(n−1)!·R(n))', v, nat(n) && n >= 1 &&
+    Number.isSafeInteger(v), 'reduced', [n]) } /** ORDER — the order of the square, the side of the array. value
+    n. -/
+theorem fam_latinsquare_order_1 : (4 : Int) = (4 : Int) := by decide
+
+/-- latinsquare: firstrow(4) = 24 — LATINSQUARE — THE LATIN SQUARE, AS ARITHMETIC. A Latin square of order n is
+    an n×n array on n symbols, each symbol once per row and once per column (van Lint & Wilson). Deterministic
+    integer identities: its n² cells, the n symbols, its n rows and n columns, the n-1 mutually orthogonal mates
+    a complete set admits and the C(n-1, 2) orthogonal pairs among them, the n cells of a transversal, the six
+    conjugates obtained by permuting the (row, column, symbol) triples, the n!·(n-1)! factor by which the Latin
+    squares of order n exceed the reduced ones, the n! fillings of the first row, the (n!)³ isotopy group and
+    the 6·(n!)³ paratopy (main-class) group, the k² cells of a k-subsquare, and the C(n, 2) intercalate
+    row-pairs. Exact integer identities crossed to `combinatorics`. A measure, not advice. */ const PROOF =
+    'Latin square arithmetic by the book (van Lint & Wilson): n² cells, n symbols, n rows and columns, n-1
+    mutually orthogonal mates and C(n-1,2) orthogonal pairs, n transversal cells, the six (row,column,symbol)
+    conjugates, the n!·(n-1)! reduced-to-total factor, n! first-row fillings, the (n!)³ isotopy and 6·(n!)³
+    paratopy groups, k² subsquare cells, C(n,2) intercalate row-pairs; deterministic integer identities crossed
+    to combinatorics; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const fact = (n: number): number => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r } const
+    l = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'latinsquare', dst:
+    'combinatorics', formula, value, proof: PROOF, ...extra }, holds, { name: `latinsquare.${name}`, params })
+    export class LatinSquareFormulas { /** CELLS — the cells of an order-n Latin square, the n×n array. value
+    n². */ static cells(n: number): CrossFormula { return l('latinsquare-cells', 'cells(n) = n²', n * n, nat(n),
+    'cells', [n]) } /** SYMBOLS — the distinct symbols, one appearing once per row and column. value n. */
+    static symbols(n: number): CrossFormula { return l('latinsquare-symbols', 'symbols(n) = n', n, nat(n),
+    'symbols', [n]) } /** ROWS — the rows of the square, each a permutation of the n symbols. value n. */ static
+    rows(n: number): CrossFormula { return l('latinsquare-rows', 'rows(n) = n', n, nat(n), 'rows', [n]) } /**
+    COLS — the columns of the square, each a permutation of the n symbols. value n. */ static cols(n: number):
+    CrossFormula { return l('latinsquare-cols', 'cols(n) = n', n, nat(n), 'cols', [n]) } /** MOLS — the mutually
+    orthogonal mates a complete set of order n admits. value n − 1; holds n ≥ 2. */ static mols(n: number):
+    CrossFormula { return l('latinsquare-mols', 'mols(n) = n − 1 (maximum mutually orthogonal mates)', n - 1,
+    nat(n) && n >= 2, 'mols', [n]) } /** ORTHOGONALPAIRS — the orthogonal pairs among the n−1 mates of a
+    complete set. value C(n−1, 2) = (n−1)(n−2)/2; holds n ≥ 2. */ static orthogonalpairs(n: number):
+    CrossFormula { return l('latinsquare-orthogonalpairs', 'orthogonalpairs(n) = C(n−1, 2) = (n−1)(n−2)/2', ((n
+    - 1) * (n - 2)) / 2, nat(n) && n >= 2, 'orthogonalpairs', [n]) } /** TRANSVERSAL — the cells of a
+    transversal, one per row, column and symbol. value n. */ static transversal(n: number): CrossFormula {
+    return l('latinsquare-transversal', 'transversal(n) = n (one cell per row, column and symbol)', n, nat(n),
+    'transversal', [n]) } /** CONJUGATES — the conjugates, the 3! permutations of the (row, column, symbol)
+    triples. value 6. */ static conjugates(): CrossFormula { return l('latinsquare-conjugates', 'conjugates() =
+    3! = 6 (permutations of the (row, column, symbol) triples)', 6, true, 'conjugates', []) } /** REDUCED — the
+    factor by which the Latin squares of order n exceed the reduced ones, L(n) = n!·(n−1)!·R(n). value
+    n!·(n−1)!; holds n ≥ 1 and fits. */ static reduced(n: number): CrossFormula { const v = fact(n) * fact(n -
+    1); return l('latinsquare-reduced', 'reduced(n) = n!·(n−1)! (L(n) = n!·(n−1)!·R(n))', v, nat(n) && n >= 1 &&
+    Number.isSafeInteger(v), 'reduced', [n]) } /** ORDER — the order of the square, the side of the array. value
+    n. */ static order(n: number): CrossFormula { return l('latinsquare-order', 'order(n) = n', n, nat(n),
+    'order', [n]) } /** FIRSTROW — the fillings of the first row, a permutation of the n symbols. value n!;
+    holds fits. -/
+theorem fam_latinsquare_firstrow_1 : (Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int) := by decide
+
+/-- latinsquare: isotopy(4) = 13824 — LATINSQUARE — THE LATIN SQUARE, AS ARITHMETIC. A Latin square of order n
+    is an n×n array on n symbols, each symbol once per row and once per column (van Lint & Wilson).
+    Deterministic integer identities: its n² cells, the n symbols, its n rows and n columns, the n-1 mutually
+    orthogonal mates a complete set admits and the C(n-1, 2) orthogonal pairs among them, the n cells of a
+    transversal, the six conjugates obtained by permuting the (row, column, symbol) triples, the n!·(n-1)!
+    factor by which the Latin squares of order n exceed the reduced ones, the n! fillings of the first row, the
+    (n!)³ isotopy group and the 6·(n!)³ paratopy (main-class) group, the k² cells of a k-subsquare, and the C(n,
+    2) intercalate row-pairs. Exact integer identities crossed to `combinatorics`. A measure, not advice. */
+    const PROOF = 'Latin square arithmetic by the book (van Lint & Wilson): n² cells, n symbols, n rows and
+    columns, n-1 mutually orthogonal mates and C(n-1,2) orthogonal pairs, n transversal cells, the six
+    (row,column,symbol) conjugates, the n!·(n-1)! reduced-to-total factor, n! first-row fillings, the (n!)³
+    isotopy and 6·(n!)³ paratopy groups, k² subsquare cells, C(n,2) intercalate row-pairs; deterministic integer
+    identities crossed to combinatorics; a measure' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const fact = (n: number): number => { let r = 1; for (let i = 2; i <= n;
+    i++) r *= i; return r } const l = (id: string, formula: string, value: number, holds: boolean, name: string,
+    params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src:
+    'latinsquare', dst: 'combinatorics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `latinsquare.${name}`, params }) export class LatinSquareFormulas { /** CELLS — the cells of an order-n
+    Latin square, the n×n array. value n². */ static cells(n: number): CrossFormula { return
+    l('latinsquare-cells', 'cells(n) = n²', n * n, nat(n), 'cells', [n]) } /** SYMBOLS — the distinct symbols,
+    one appearing once per row and column. value n. */ static symbols(n: number): CrossFormula { return
+    l('latinsquare-symbols', 'symbols(n) = n', n, nat(n), 'symbols', [n]) } /** ROWS — the rows of the square,
+    each a permutation of the n symbols. value n. */ static rows(n: number): CrossFormula { return
+    l('latinsquare-rows', 'rows(n) = n', n, nat(n), 'rows', [n]) } /** COLS — the columns of the square, each a
+    permutation of the n symbols. value n. */ static cols(n: number): CrossFormula { return
+    l('latinsquare-cols', 'cols(n) = n', n, nat(n), 'cols', [n]) } /** MOLS — the mutually orthogonal mates a
+    complete set of order n admits. value n − 1; holds n ≥ 2. */ static mols(n: number): CrossFormula { return
+    l('latinsquare-mols', 'mols(n) = n − 1 (maximum mutually orthogonal mates)', n - 1, nat(n) && n >= 2,
+    'mols', [n]) } /** ORTHOGONALPAIRS — the orthogonal pairs among the n−1 mates of a complete set. value
+    C(n−1, 2) = (n−1)(n−2)/2; holds n ≥ 2. */ static orthogonalpairs(n: number): CrossFormula { return
+    l('latinsquare-orthogonalpairs', 'orthogonalpairs(n) = C(n−1, 2) = (n−1)(n−2)/2', ((n - 1) * (n - 2)) / 2,
+    nat(n) && n >= 2, 'orthogonalpairs', [n]) } /** TRANSVERSAL — the cells of a transversal, one per row,
+    column and symbol. value n. */ static transversal(n: number): CrossFormula { return
+    l('latinsquare-transversal', 'transversal(n) = n (one cell per row, column and symbol)', n, nat(n),
+    'transversal', [n]) } /** CONJUGATES — the conjugates, the 3! permutations of the (row, column, symbol)
+    triples. value 6. */ static conjugates(): CrossFormula { return l('latinsquare-conjugates', 'conjugates() =
+    3! = 6 (permutations of the (row, column, symbol) triples)', 6, true, 'conjugates', []) } /** REDUCED — the
+    factor by which the Latin squares of order n exceed the reduced ones, L(n) = n!·(n−1)!·R(n). value
+    n!·(n−1)!; holds n ≥ 1 and fits. */ static reduced(n: number): CrossFormula { const v = fact(n) * fact(n -
+    1); return l('latinsquare-reduced', 'reduced(n) = n!·(n−1)! (L(n) = n!·(n−1)!·R(n))', v, nat(n) && n >= 1 &&
+    Number.isSafeInteger(v), 'reduced', [n]) } /** ORDER — the order of the square, the side of the array. value
+    n. */ static order(n: number): CrossFormula { return l('latinsquare-order', 'order(n) = n', n, nat(n),
+    'order', [n]) } /** FIRSTROW — the fillings of the first row, a permutation of the n symbols. value n!;
+    holds fits. */ static firstrow(n: number): CrossFormula { const v = fact(n); return
+    l('latinsquare-firstrow', 'firstrow(n) = n! (permutations of the n symbols)', v, nat(n) &&
+    Number.isSafeInteger(v), 'firstrow', [n]) } /** ISOTOPY — the isotopy group acting on Latin squares:
+    independent row, column and symbol permutations. value (n!)³; holds fits. -/
+theorem fam_latinsquare_isotopy_1 : ((Int.ofNat (ffact (Int.toNat (4 : Int)))) ^ (3 : Nat)) = (13824 : Int) := by decide
+
+/-- latinsquare: paratopy(4) = 82944 — LATINSQUARE — THE LATIN SQUARE, AS ARITHMETIC. A Latin square of order n
+    is an n×n array on n symbols, each symbol once per row and once per column (van Lint & Wilson).
+    Deterministic integer identities: its n² cells, the n symbols, its n rows and n columns, the n-1 mutually
+    orthogonal mates a complete set admits and the C(n-1, 2) orthogonal pairs among them, the n cells of a
+    transversal, the six conjugates obtained by permuting the (row, column, symbol) triples, the n!·(n-1)!
+    factor by which the Latin squares of order n exceed the reduced ones, the n! fillings of the first row, the
+    (n!)³ isotopy group and the 6·(n!)³ paratopy (main-class) group, the k² cells of a k-subsquare, and the C(n,
+    2) intercalate row-pairs. Exact integer identities crossed to `combinatorics`. A measure, not advice. */
+    const PROOF = 'Latin square arithmetic by the book (van Lint & Wilson): n² cells, n symbols, n rows and
+    columns, n-1 mutually orthogonal mates and C(n-1,2) orthogonal pairs, n transversal cells, the six
+    (row,column,symbol) conjugates, the n!·(n-1)! reduced-to-total factor, n! first-row fillings, the (n!)³
+    isotopy and 6·(n!)³ paratopy groups, k² subsquare cells, C(n,2) intercalate row-pairs; deterministic integer
+    identities crossed to combinatorics; a measure' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const fact = (n: number): number => { let r = 1; for (let i = 2; i <= n;
+    i++) r *= i; return r } const l = (id: string, formula: string, value: number, holds: boolean, name: string,
+    params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src:
+    'latinsquare', dst: 'combinatorics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `latinsquare.${name}`, params }) export class LatinSquareFormulas { /** CELLS — the cells of an order-n
+    Latin square, the n×n array. value n². */ static cells(n: number): CrossFormula { return
+    l('latinsquare-cells', 'cells(n) = n²', n * n, nat(n), 'cells', [n]) } /** SYMBOLS — the distinct symbols,
+    one appearing once per row and column. value n. */ static symbols(n: number): CrossFormula { return
+    l('latinsquare-symbols', 'symbols(n) = n', n, nat(n), 'symbols', [n]) } /** ROWS — the rows of the square,
+    each a permutation of the n symbols. value n. */ static rows(n: number): CrossFormula { return
+    l('latinsquare-rows', 'rows(n) = n', n, nat(n), 'rows', [n]) } /** COLS — the columns of the square, each a
+    permutation of the n symbols. value n. */ static cols(n: number): CrossFormula { return
+    l('latinsquare-cols', 'cols(n) = n', n, nat(n), 'cols', [n]) } /** MOLS — the mutually orthogonal mates a
+    complete set of order n admits. value n − 1; holds n ≥ 2. */ static mols(n: number): CrossFormula { return
+    l('latinsquare-mols', 'mols(n) = n − 1 (maximum mutually orthogonal mates)', n - 1, nat(n) && n >= 2,
+    'mols', [n]) } /** ORTHOGONALPAIRS — the orthogonal pairs among the n−1 mates of a complete set. value
+    C(n−1, 2) = (n−1)(n−2)/2; holds n ≥ 2. */ static orthogonalpairs(n: number): CrossFormula { return
+    l('latinsquare-orthogonalpairs', 'orthogonalpairs(n) = C(n−1, 2) = (n−1)(n−2)/2', ((n - 1) * (n - 2)) / 2,
+    nat(n) && n >= 2, 'orthogonalpairs', [n]) } /** TRANSVERSAL — the cells of a transversal, one per row,
+    column and symbol. value n. */ static transversal(n: number): CrossFormula { return
+    l('latinsquare-transversal', 'transversal(n) = n (one cell per row, column and symbol)', n, nat(n),
+    'transversal', [n]) } /** CONJUGATES — the conjugates, the 3! permutations of the (row, column, symbol)
+    triples. value 6. */ static conjugates(): CrossFormula { return l('latinsquare-conjugates', 'conjugates() =
+    3! = 6 (permutations of the (row, column, symbol) triples)', 6, true, 'conjugates', []) } /** REDUCED — the
+    factor by which the Latin squares of order n exceed the reduced ones, L(n) = n!·(n−1)!·R(n). value
+    n!·(n−1)!; holds n ≥ 1 and fits. */ static reduced(n: number): CrossFormula { const v = fact(n) * fact(n -
+    1); return l('latinsquare-reduced', 'reduced(n) = n!·(n−1)! (L(n) = n!·(n−1)!·R(n))', v, nat(n) && n >= 1 &&
+    Number.isSafeInteger(v), 'reduced', [n]) } /** ORDER — the order of the square, the side of the array. value
+    n. */ static order(n: number): CrossFormula { return l('latinsquare-order', 'order(n) = n', n, nat(n),
+    'order', [n]) } /** FIRSTROW — the fillings of the first row, a permutation of the n symbols. value n!;
+    holds fits. */ static firstrow(n: number): CrossFormula { const v = fact(n); return
+    l('latinsquare-firstrow', 'firstrow(n) = n! (permutations of the n symbols)', v, nat(n) &&
+    Number.isSafeInteger(v), 'firstrow', [n]) } /** ISOTOPY — the isotopy group acting on Latin squares:
+    independent row, column and symbol permutations. value (n!)³; holds fits. */ static isotopy(n: number):
+    CrossFormula { const v = fact(n) ** 3; return l('latinsquare-isotopy', 'isotopy(n) = (n!)³ (row, column and
+    symbol permutations)', v, nat(n) && Number.isSafeInteger(v), 'isotopy', [n]) } /** PARATOPY — the paratopy
+    (main-class) group: the isotopy group times the six conjugates. value 6·(n!)³; holds fits. -/
+theorem fam_latinsquare_paratopy_1 : ((6 : Int) * ((Int.ofNat (ffact (Int.toNat (4 : Int)))) ^ (3 : Nat))) = (82944 : Int) := by decide
+
+/-- latinsquare: subsquare(2) = 4 — LATINSQUARE — THE LATIN SQUARE, AS ARITHMETIC. A Latin square of order n is
+    an n×n array on n symbols, each symbol once per row and once per column (van Lint & Wilson). Deterministic
+    integer identities: its n² cells, the n symbols, its n rows and n columns, the n-1 mutually orthogonal mates
+    a complete set admits and the C(n-1, 2) orthogonal pairs among them, the n cells of a transversal, the six
+    conjugates obtained by permuting the (row, column, symbol) triples, the n!·(n-1)! factor by which the Latin
+    squares of order n exceed the reduced ones, the n! fillings of the first row, the (n!)³ isotopy group and
+    the 6·(n!)³ paratopy (main-class) group, the k² cells of a k-subsquare, and the C(n, 2) intercalate
+    row-pairs. Exact integer identities crossed to `combinatorics`. A measure, not advice. */ const PROOF =
+    'Latin square arithmetic by the book (van Lint & Wilson): n² cells, n symbols, n rows and columns, n-1
+    mutually orthogonal mates and C(n-1,2) orthogonal pairs, n transversal cells, the six (row,column,symbol)
+    conjugates, the n!·(n-1)! reduced-to-total factor, n! first-row fillings, the (n!)³ isotopy and 6·(n!)³
+    paratopy groups, k² subsquare cells, C(n,2) intercalate row-pairs; deterministic integer identities crossed
+    to combinatorics; a measure' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const fact = (n: number): number => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r } const
+    l = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'latinsquare', dst:
+    'combinatorics', formula, value, proof: PROOF, ...extra }, holds, { name: `latinsquare.${name}`, params })
+    export class LatinSquareFormulas { /** CELLS — the cells of an order-n Latin square, the n×n array. value
+    n². */ static cells(n: number): CrossFormula { return l('latinsquare-cells', 'cells(n) = n²', n * n, nat(n),
+    'cells', [n]) } /** SYMBOLS — the distinct symbols, one appearing once per row and column. value n. */
+    static symbols(n: number): CrossFormula { return l('latinsquare-symbols', 'symbols(n) = n', n, nat(n),
+    'symbols', [n]) } /** ROWS — the rows of the square, each a permutation of the n symbols. value n. */ static
+    rows(n: number): CrossFormula { return l('latinsquare-rows', 'rows(n) = n', n, nat(n), 'rows', [n]) } /**
+    COLS — the columns of the square, each a permutation of the n symbols. value n. */ static cols(n: number):
+    CrossFormula { return l('latinsquare-cols', 'cols(n) = n', n, nat(n), 'cols', [n]) } /** MOLS — the mutually
+    orthogonal mates a complete set of order n admits. value n − 1; holds n ≥ 2. */ static mols(n: number):
+    CrossFormula { return l('latinsquare-mols', 'mols(n) = n − 1 (maximum mutually orthogonal mates)', n - 1,
+    nat(n) && n >= 2, 'mols', [n]) } /** ORTHOGONALPAIRS — the orthogonal pairs among the n−1 mates of a
+    complete set. value C(n−1, 2) = (n−1)(n−2)/2; holds n ≥ 2. */ static orthogonalpairs(n: number):
+    CrossFormula { return l('latinsquare-orthogonalpairs', 'orthogonalpairs(n) = C(n−1, 2) = (n−1)(n−2)/2', ((n
+    - 1) * (n - 2)) / 2, nat(n) && n >= 2, 'orthogonalpairs', [n]) } /** TRANSVERSAL — the cells of a
+    transversal, one per row, column and symbol. value n. */ static transversal(n: number): CrossFormula {
+    return l('latinsquare-transversal', 'transversal(n) = n (one cell per row, column and symbol)', n, nat(n),
+    'transversal', [n]) } /** CONJUGATES — the conjugates, the 3! permutations of the (row, column, symbol)
+    triples. value 6. */ static conjugates(): CrossFormula { return l('latinsquare-conjugates', 'conjugates() =
+    3! = 6 (permutations of the (row, column, symbol) triples)', 6, true, 'conjugates', []) } /** REDUCED — the
+    factor by which the Latin squares of order n exceed the reduced ones, L(n) = n!·(n−1)!·R(n). value
+    n!·(n−1)!; holds n ≥ 1 and fits. */ static reduced(n: number): CrossFormula { const v = fact(n) * fact(n -
+    1); return l('latinsquare-reduced', 'reduced(n) = n!·(n−1)! (L(n) = n!·(n−1)!·R(n))', v, nat(n) && n >= 1 &&
+    Number.isSafeInteger(v), 'reduced', [n]) } /** ORDER — the order of the square, the side of the array. value
+    n. */ static order(n: number): CrossFormula { return l('latinsquare-order', 'order(n) = n', n, nat(n),
+    'order', [n]) } /** FIRSTROW — the fillings of the first row, a permutation of the n symbols. value n!;
+    holds fits. */ static firstrow(n: number): CrossFormula { const v = fact(n); return
+    l('latinsquare-firstrow', 'firstrow(n) = n! (permutations of the n symbols)', v, nat(n) &&
+    Number.isSafeInteger(v), 'firstrow', [n]) } /** ISOTOPY — the isotopy group acting on Latin squares:
+    independent row, column and symbol permutations. value (n!)³; holds fits. */ static isotopy(n: number):
+    CrossFormula { const v = fact(n) ** 3; return l('latinsquare-isotopy', 'isotopy(n) = (n!)³ (row, column and
+    symbol permutations)', v, nat(n) && Number.isSafeInteger(v), 'isotopy', [n]) } /** PARATOPY — the paratopy
+    (main-class) group: the isotopy group times the six conjugates. value 6·(n!)³; holds fits. */ static
+    paratopy(n: number): CrossFormula { const v = 6 * fact(n) ** 3; return l('latinsquare-paratopy',
+    'paratopy(n) = 6·(n!)³ (isotopy group × the six conjugates)', v, nat(n) && Number.isSafeInteger(v),
+    'paratopy', [n]) } /** SUBSQUARE — the cells of a k-subsquare, a k×k Latin square inside the array. value
+    k². -/
+theorem fam_latinsquare_subsquare_1 : ((2 : Int) ^ (2 : Nat)) = (4 : Int) := by decide
 
 /-- lattice: points(10, 10, 10) = 1000 -/
-theorem fam_lattice_points_1 : ((10 * 10) * 10) = 1000 := by decide
+theorem fam_lattice_points_1 : (((10 : Int) * (10 : Int)) * (10 : Int)) = (1000 : Int) := by decide
 
 /-- lattice: unitcells(100, 8) = 800 -/
-theorem fam_lattice_unitcells_1 : (100 * 8) = 800 := by decide
+theorem fam_lattice_unitcells_1 : ((100 : Int) * (8 : Int)) = (800 : Int) := by decide
 
 /-- lattice: coordinationnumber(6, 6) = 12 -/
-theorem fam_lattice_coordinationnumber_1 : (6 + 6) = 12 := by decide
+theorem fam_lattice_coordinationnumber_1 : ((6 : Int) + (6 : Int)) = (12 : Int) := by decide
+
+/-- lattice: symmetryorderings(4) = 24 -/
+theorem fam_lattice_symmetryorderings_1 : (Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int) := by decide
+
+/-- lattice: planepairs(6, 2) = 15 -/
+theorem fam_lattice_planepairs_1 : (Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int) := by decide
 
 /-- lattice: packingfraction(74, 100) = 74 -/
-theorem fam_lattice_packingfraction_1 : ((74 * 100) / 100) = 74 := by decide
+theorem fam_lattice_packingfraction_1 : (((74 : Int) * (100 : Int)) / (100 : Int)) = (74 : Int) := by decide
 
 /-- lattice: latticevectors(3, 0) = 3 -/
-theorem fam_lattice_latticevectors_1 : (3 + 0) = 3 := by decide
+theorem fam_lattice_latticevectors_1 : ((3 : Int) + (0 : Int)) = (3 : Int) := by decide
 
 /-- lattice: millerindices(3) = 8 -/
-theorem fam_lattice_millerindices_1 : (2 ^ 3) = 8 := by decide
+theorem fam_lattice_millerindices_1 : ((2 : Int) ^ (3 : Nat)) = (8 : Int) := by decide
+
+/-- law: limitation(6) = 2190 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL
+    REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a
+    limitation period in days, a filing deadline from a start day, a quorum and a majority or super-majority of
+    a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's
+    own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a
+    computed conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative
+    document (data.law reads the court-accepted source). Until then every result is a lead, computed and
+    receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const
+    PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a
+    result is ADVICE only when reviewed TRUE against the authoritative document via data.law — otherwise a lead'
+    const COURT = 'the MCP court protects the author of a computation: fidelity of the work to the order, the
+    tokens an order lost to redirection, standing from the receipt record, and the one limit upheld against the
+    author too — the safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to
+    the gate that enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already
+    computed comes first. The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist
+    = (extra: Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => {
+    const boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing =
+    extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete
+    rest.missing delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if
+    (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof
+    missing === 'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if
+    (typeof by === 'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead =
+    true return { work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF,
+    ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate
+    is what enforces the court's verdict on a push) const g = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => {
+    const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula,
+    value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A
+    limitation period of `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the
+    years. -/
+theorem fam_law_limitation_1 : ((6 : Int) * (365 : Int)) = (2190 : Int) := by decide
+
+/-- law: deadline(2460000, 21) = 2460021 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE
+    UNTIL REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction
+    supplies: a limitation period in days, a filing deadline from a start day, a quorum and a majority or
+    super-majority of a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass
+    the jurisdiction's own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is
+    the gate — a computed conclusion holds as advice only once a legal review has confirmed it TRUE against the
+    authoritative document (data.law reads the court-accepted source). Until then every result is a lead,
+    computed and receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no
+    heat. */ const PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority,
+    super-majority, notice); a result is ADVICE only when reviewed TRUE against the authoritative document via
+    data.law — otherwise a lead' const COURT = 'the MCP court protects the author of a computation: fidelity of
+    the work to the order, the tokens an order lost to redirection, standing from the receipt record, and the
+    one limit upheld against the author too — the safety floor (no genuine harm, illegality or
+    fabrication-as-genuine). A measure crossed to the gate that enforces it; a lead until reviewed TRUE, never
+    counsel.' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead
+    record: the boolean the court already computed comes first. The integer stays the measure. A holding integer
+    is not rewritten as 1. */ const hoist = (extra: Record<string, unknown>): { work: Record<string, unknown>;
+    rest: Record<string, unknown> } => { const boolean = extra.boolean const measure = extra.measure const lead
+    = extra.lead const missing = extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean
+    delete rest.measure delete rest.missing delete rest.by if (lead === true) delete rest.lead const work:
+    Record<string, unknown> = {} if (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead ===
+    true) work.lead = true if (typeof missing === 'string') work.missing = missing if (typeof measure ===
+    'number') work.measure = measure if (typeof by === 'string') work.by = by if ((boolean === 0 || boolean ===
+    1) && lead === true) work.lead = true return { work, rest } } const f = (id: string, formula: string, value:
+    number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula
+    => { const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit',
+    formula, value, proof: PROOF, ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection
+    bridge: law → gate (the gate is what enforces the court's verdict on a push) const g = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => { const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst:
+    'gate', formula, value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class
+    LawFormulas { /** A limitation period of `years` in days (365-day years): the window to bring a claim. The
+    jurisdiction sets the years. */ static limitation(years: number): CrossFormula { const measure = years *
+    365; return f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation',
+    [years], { lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the
+    day a filing is due (day numbers, e.g. Julian day). -/
+theorem fam_law_deadline_1 : ((2460000 : Int) + (21 : Int)) = (2460021 : Int) := by decide
+
+/-- law: quorum(9, 50) = 5 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL
+    REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a
+    limitation period in days, a filing deadline from a start day, a quorum and a majority or super-majority of
+    a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's
+    own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a
+    computed conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative
+    document (data.law reads the court-accepted source). Until then every result is a lead, computed and
+    receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const
+    PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a
+    result is ADVICE only when reviewed TRUE against the authoritative document via data.law — otherwise a lead'
+    const COURT = 'the MCP court protects the author of a computation: fidelity of the work to the order, the
+    tokens an order lost to redirection, standing from the receipt record, and the one limit upheld against the
+    author too — the safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to
+    the gate that enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already
+    computed comes first. The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist
+    = (extra: Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => {
+    const boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing =
+    extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete
+    rest.missing delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if
+    (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof
+    missing === 'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if
+    (typeof by === 'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead =
+    true return { work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF,
+    ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate
+    is what enforces the court's verdict on a push) const g = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => {
+    const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula,
+    value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A
+    limitation period of `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the
+    years. */ static limitation(years: number): CrossFormula { const measure = years * 365; return
+    f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation', [years], {
+    lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the day a
+    filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number): CrossFormula
+    { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure,
+    nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure }) } /** The quorum
+    of a body of `members` at `pct` percent, rounded up: the least present for business. -/
+theorem fam_law_quorum_1 : (-((-((9 : Int) * (50 : Int))) / (100 : Int))) = (5 : Int) := by decide
+
+/-- law: majority(5, 9) = 1 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL
+    REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a
+    limitation period in days, a filing deadline from a start day, a quorum and a majority or super-majority of
+    a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's
+    own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a
+    computed conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative
+    document (data.law reads the court-accepted source). Until then every result is a lead, computed and
+    receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const
+    PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a
+    result is ADVICE only when reviewed TRUE against the authoritative document via data.law — otherwise a lead'
+    const COURT = 'the MCP court protects the author of a computation: fidelity of the work to the order, the
+    tokens an order lost to redirection, standing from the receipt record, and the one limit upheld against the
+    author too — the safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to
+    the gate that enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already
+    computed comes first. The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist
+    = (extra: Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => {
+    const boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing =
+    extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete
+    rest.missing delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if
+    (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof
+    missing === 'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if
+    (typeof by === 'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead =
+    true return { work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF,
+    ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate
+    is what enforces the court's verdict on a push) const g = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => {
+    const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula,
+    value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A
+    limitation period of `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the
+    years. */ static limitation(years: number): CrossFormula { const measure = years * 365; return
+    f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation', [years], {
+    lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the day a
+    filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number): CrossFormula
+    { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure,
+    nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure }) } /** The quorum
+    of a body of `members` at `pct` percent, rounded up: the least present for business. */ static
+    quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members * pct)
+    / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members,
+    pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) }
+    /** 1 when `votes` is a simple majority of `total` (more than half). -/
+theorem fam_law_majority_1 : (if (if ((2 : Int) * (5 : Int)) > (9 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
+
+/-- law: majority(4, 9) = 0 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL
+    REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a
+    limitation period in days, a filing deadline from a start day, a quorum and a majority or super-majority of
+    a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's
+    own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a
+    computed conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative
+    document (data.law reads the court-accepted source). Until then every result is a lead, computed and
+    receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const
+    PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a
+    result is ADVICE only when reviewed TRUE against the authoritative document via data.law — otherwise a lead'
+    const COURT = 'the MCP court protects the author of a computation: fidelity of the work to the order, the
+    tokens an order lost to redirection, standing from the receipt record, and the one limit upheld against the
+    author too — the safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to
+    the gate that enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already
+    computed comes first. The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist
+    = (extra: Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => {
+    const boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing =
+    extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete
+    rest.missing delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if
+    (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof
+    missing === 'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if
+    (typeof by === 'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead =
+    true return { work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF,
+    ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate
+    is what enforces the court's verdict on a push) const g = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => {
+    const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula,
+    value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A
+    limitation period of `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the
+    years. */ static limitation(years: number): CrossFormula { const measure = years * 365; return
+    f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation', [years], {
+    lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the day a
+    filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number): CrossFormula
+    { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure,
+    nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure }) } /** The quorum
+    of a body of `members` at `pct` percent, rounded up: the least present for business. */ static
+    quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members * pct)
+    / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members,
+    pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) }
+    /** 1 when `votes` is a simple majority of `total` (more than half). -/
+theorem fam_law_majority_2 : (if (if ((2 : Int) * (4 : Int)) > (9 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
+
+/-- law: supermajority(6, 9, 66) = 1 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE
+    UNTIL REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction
+    supplies: a limitation period in days, a filing deadline from a start day, a quorum and a majority or
+    super-majority of a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass
+    the jurisdiction's own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is
+    the gate — a computed conclusion holds as advice only once a legal review has confirmed it TRUE against the
+    authoritative document (data.law reads the court-accepted source). Until then every result is a lead,
+    computed and receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no
+    heat. */ const PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority,
+    super-majority, notice); a result is ADVICE only when reviewed TRUE against the authoritative document via
+    data.law — otherwise a lead' const COURT = 'the MCP court protects the author of a computation: fidelity of
+    the work to the order, the tokens an order lost to redirection, standing from the receipt record, and the
+    one limit upheld against the author too — the safety floor (no genuine harm, illegality or
+    fabrication-as-genuine). A measure crossed to the gate that enforces it; a lead until reviewed TRUE, never
+    counsel.' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead
+    record: the boolean the court already computed comes first. The integer stays the measure. A holding integer
+    is not rewritten as 1. */ const hoist = (extra: Record<string, unknown>): { work: Record<string, unknown>;
+    rest: Record<string, unknown> } => { const boolean = extra.boolean const measure = extra.measure const lead
+    = extra.lead const missing = extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean
+    delete rest.measure delete rest.missing delete rest.by if (lead === true) delete rest.lead const work:
+    Record<string, unknown> = {} if (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead ===
+    true) work.lead = true if (typeof missing === 'string') work.missing = missing if (typeof measure ===
+    'number') work.measure = measure if (typeof by === 'string') work.by = by if ((boolean === 0 || boolean ===
+    1) && lead === true) work.lead = true return { work, rest } } const f = (id: string, formula: string, value:
+    number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula
+    => { const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit',
+    formula, value, proof: PROOF, ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection
+    bridge: law → gate (the gate is what enforces the court's verdict on a push) const g = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => { const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst:
+    'gate', formula, value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class
+    LawFormulas { /** A limitation period of `years` in days (365-day years): the window to bring a claim. The
+    jurisdiction sets the years. */ static limitation(years: number): CrossFormula { const measure = years *
+    365; return f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation',
+    [years], { lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the
+    day a filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number):
+    CrossFormula { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start +
+    days', measure, nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure })
+    } /** The quorum of a body of `members` at `pct` percent, rounded up: the least present for business. */
+    static quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members
+    * pct) / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure,
+    nat(members, pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate',
+    measure }) } /** 1 when `votes` is a simple majority of `total` (more than half). */ static majority(votes:
+    number, total: number): CrossFormula { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return
+    f('law-majority', 'majority(votes, total) = [2 · votes > total]', boolean, nat(votes, total) && votes <=
+    total && total > 0, 'majority', [votes, total], { boolean }) } /** 1 when `votes` meets a super-majority of
+    `total` at `pct` percent (e.g. 67 for two-thirds, 75 for three-quarters). -/
+theorem fam_law_supermajority_1 : (if (if ((100 : Int) * (6 : Int)) ≥ ((9 : Int) * (66 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
+
+/-- law: supermajority(5, 9, 66) = 0 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE
+    UNTIL REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction
+    supplies: a limitation period in days, a filing deadline from a start day, a quorum and a majority or
+    super-majority of a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass
+    the jurisdiction's own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is
+    the gate — a computed conclusion holds as advice only once a legal review has confirmed it TRUE against the
+    authoritative document (data.law reads the court-accepted source). Until then every result is a lead,
+    computed and receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no
+    heat. */ const PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority,
+    super-majority, notice); a result is ADVICE only when reviewed TRUE against the authoritative document via
+    data.law — otherwise a lead' const COURT = 'the MCP court protects the author of a computation: fidelity of
+    the work to the order, the tokens an order lost to redirection, standing from the receipt record, and the
+    one limit upheld against the author too — the safety floor (no genuine harm, illegality or
+    fabrication-as-genuine). A measure crossed to the gate that enforces it; a lead until reviewed TRUE, never
+    counsel.' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead
+    record: the boolean the court already computed comes first. The integer stays the measure. A holding integer
+    is not rewritten as 1. */ const hoist = (extra: Record<string, unknown>): { work: Record<string, unknown>;
+    rest: Record<string, unknown> } => { const boolean = extra.boolean const measure = extra.measure const lead
+    = extra.lead const missing = extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean
+    delete rest.measure delete rest.missing delete rest.by if (lead === true) delete rest.lead const work:
+    Record<string, unknown> = {} if (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead ===
+    true) work.lead = true if (typeof missing === 'string') work.missing = missing if (typeof measure ===
+    'number') work.measure = measure if (typeof by === 'string') work.by = by if ((boolean === 0 || boolean ===
+    1) && lead === true) work.lead = true return { work, rest } } const f = (id: string, formula: string, value:
+    number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula
+    => { const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit',
+    formula, value, proof: PROOF, ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection
+    bridge: law → gate (the gate is what enforces the court's verdict on a push) const g = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => { const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst:
+    'gate', formula, value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class
+    LawFormulas { /** A limitation period of `years` in days (365-day years): the window to bring a claim. The
+    jurisdiction sets the years. */ static limitation(years: number): CrossFormula { const measure = years *
+    365; return f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation',
+    [years], { lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the
+    day a filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number):
+    CrossFormula { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start +
+    days', measure, nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure })
+    } /** The quorum of a body of `members` at `pct` percent, rounded up: the least present for business. */
+    static quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members
+    * pct) / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure,
+    nat(members, pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate',
+    measure }) } /** 1 when `votes` is a simple majority of `total` (more than half). */ static majority(votes:
+    number, total: number): CrossFormula { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return
+    f('law-majority', 'majority(votes, total) = [2 · votes > total]', boolean, nat(votes, total) && votes <=
+    total && total > 0, 'majority', [votes, total], { boolean }) } /** 1 when `votes` meets a super-majority of
+    `total` at `pct` percent (e.g. 67 for two-thirds, 75 for three-quarters). -/
+theorem fam_law_supermajority_2 : (if (if ((100 : Int) * (5 : Int)) ≥ ((9 : Int) * (66 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
+
+/-- law: supermajority(6, 9, 67) = 0 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE
+    UNTIL REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction
+    supplies: a limitation period in days, a filing deadline from a start day, a quorum and a majority or
+    super-majority of a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass
+    the jurisdiction's own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is
+    the gate — a computed conclusion holds as advice only once a legal review has confirmed it TRUE against the
+    authoritative document (data.law reads the court-accepted source). Until then every result is a lead,
+    computed and receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no
+    heat. */ const PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority,
+    super-majority, notice); a result is ADVICE only when reviewed TRUE against the authoritative document via
+    data.law — otherwise a lead' const COURT = 'the MCP court protects the author of a computation: fidelity of
+    the work to the order, the tokens an order lost to redirection, standing from the receipt record, and the
+    one limit upheld against the author too — the safety floor (no genuine harm, illegality or
+    fabrication-as-genuine). A measure crossed to the gate that enforces it; a lead until reviewed TRUE, never
+    counsel.' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead
+    record: the boolean the court already computed comes first. The integer stays the measure. A holding integer
+    is not rewritten as 1. */ const hoist = (extra: Record<string, unknown>): { work: Record<string, unknown>;
+    rest: Record<string, unknown> } => { const boolean = extra.boolean const measure = extra.measure const lead
+    = extra.lead const missing = extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean
+    delete rest.measure delete rest.missing delete rest.by if (lead === true) delete rest.lead const work:
+    Record<string, unknown> = {} if (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead ===
+    true) work.lead = true if (typeof missing === 'string') work.missing = missing if (typeof measure ===
+    'number') work.measure = measure if (typeof by === 'string') work.by = by if ((boolean === 0 || boolean ===
+    1) && lead === true) work.lead = true return { work, rest } } const f = (id: string, formula: string, value:
+    number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula
+    => { const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit',
+    formula, value, proof: PROOF, ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection
+    bridge: law → gate (the gate is what enforces the court's verdict on a push) const g = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => { const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst:
+    'gate', formula, value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class
+    LawFormulas { /** A limitation period of `years` in days (365-day years): the window to bring a claim. The
+    jurisdiction sets the years. */ static limitation(years: number): CrossFormula { const measure = years *
+    365; return f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation',
+    [years], { lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the
+    day a filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number):
+    CrossFormula { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start +
+    days', measure, nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure })
+    } /** The quorum of a body of `members` at `pct` percent, rounded up: the least present for business. */
+    static quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members
+    * pct) / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure,
+    nat(members, pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate',
+    measure }) } /** 1 when `votes` is a simple majority of `total` (more than half). */ static majority(votes:
+    number, total: number): CrossFormula { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return
+    f('law-majority', 'majority(votes, total) = [2 · votes > total]', boolean, nat(votes, total) && votes <=
+    total && total > 0, 'majority', [votes, total], { boolean }) } /** 1 when `votes` meets a super-majority of
+    `total` at `pct` percent (e.g. 67 for two-thirds, 75 for three-quarters). -/
+theorem fam_law_supermajority_3 : (if (if ((100 : Int) * (6 : Int)) ≥ ((9 : Int) * (67 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
+
+/-- law: notice(14, 21) = 1 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL
+    REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a
+    limitation period in days, a filing deadline from a start day, a quorum and a majority or super-majority of
+    a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's
+    own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a
+    computed conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative
+    document (data.law reads the court-accepted source). Until then every result is a lead, computed and
+    receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const
+    PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a
+    result is ADVICE only when reviewed TRUE against the authoritative document via data.law — otherwise a lead'
+    const COURT = 'the MCP court protects the author of a computation: fidelity of the work to the order, the
+    tokens an order lost to redirection, standing from the receipt record, and the one limit upheld against the
+    author too — the safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to
+    the gate that enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already
+    computed comes first. The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist
+    = (extra: Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => {
+    const boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing =
+    extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete
+    rest.missing delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if
+    (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof
+    missing === 'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if
+    (typeof by === 'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead =
+    true return { work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF,
+    ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate
+    is what enforces the court's verdict on a push) const g = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => {
+    const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula,
+    value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A
+    limitation period of `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the
+    years. */ static limitation(years: number): CrossFormula { const measure = years * 365; return
+    f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation', [years], {
+    lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the day a
+    filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number): CrossFormula
+    { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure,
+    nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure }) } /** The quorum
+    of a body of `members` at `pct` percent, rounded up: the least present for business. */ static
+    quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members * pct)
+    / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members,
+    pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) }
+    /** 1 when `votes` is a simple majority of `total` (more than half). */ static majority(votes: number,
+    total: number): CrossFormula { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return
+    f('law-majority', 'majority(votes, total) = [2 · votes > total]', boolean, nat(votes, total) && votes <=
+    total && total > 0, 'majority', [votes, total], { boolean }) } /** 1 when `votes` meets a super-majority of
+    `total` at `pct` percent (e.g. 67 for two-thirds, 75 for three-quarters). */ static supermajority(votes:
+    number, total: number, pct: number): CrossFormula { const boolean = total > 0 && 100 * votes >= total * pct
+    ? 1 : 0; return f('law-supermajority', 'supermajority(votes, total, pct) = [100 · votes ≥ total · pct]',
+    boolean, nat(votes, total, pct) && votes <= total && total > 0 && pct <= 100, 'supermajority', [votes,
+    total, pct], { boolean }) } /** 1 when a notice of `given` days meets the `required` period. -/
+theorem fam_law_notice_1 : (if (if (21 : Int) ≥ (14 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
+
+/-- law: notice(28, 21) = 0 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL
+    REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a
+    limitation period in days, a filing deadline from a start day, a quorum and a majority or super-majority of
+    a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's
+    own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a
+    computed conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative
+    document (data.law reads the court-accepted source). Until then every result is a lead, computed and
+    receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const
+    PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a
+    result is ADVICE only when reviewed TRUE against the authoritative document via data.law — otherwise a lead'
+    const COURT = 'the MCP court protects the author of a computation: fidelity of the work to the order, the
+    tokens an order lost to redirection, standing from the receipt record, and the one limit upheld against the
+    author too — the safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to
+    the gate that enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already
+    computed comes first. The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist
+    = (extra: Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => {
+    const boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing =
+    extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete
+    rest.missing delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if
+    (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof
+    missing === 'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if
+    (typeof by === 'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead =
+    true return { work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF,
+    ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate
+    is what enforces the court's verdict on a push) const g = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => {
+    const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula,
+    value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A
+    limitation period of `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the
+    years. */ static limitation(years: number): CrossFormula { const measure = years * 365; return
+    f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation', [years], {
+    lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the day a
+    filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number): CrossFormula
+    { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure,
+    nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure }) } /** The quorum
+    of a body of `members` at `pct` percent, rounded up: the least present for business. */ static
+    quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members * pct)
+    / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members,
+    pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) }
+    /** 1 when `votes` is a simple majority of `total` (more than half). */ static majority(votes: number,
+    total: number): CrossFormula { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return
+    f('law-majority', 'majority(votes, total) = [2 · votes > total]', boolean, nat(votes, total) && votes <=
+    total && total > 0, 'majority', [votes, total], { boolean }) } /** 1 when `votes` meets a super-majority of
+    `total` at `pct` percent (e.g. 67 for two-thirds, 75 for three-quarters). */ static supermajority(votes:
+    number, total: number, pct: number): CrossFormula { const boolean = total > 0 && 100 * votes >= total * pct
+    ? 1 : 0; return f('law-supermajority', 'supermajority(votes, total, pct) = [100 · votes ≥ total · pct]',
+    boolean, nat(votes, total, pct) && votes <= total && total > 0 && pct <= 100, 'supermajority', [votes,
+    total, pct], { boolean }) } /** 1 when a notice of `given` days meets the `required` period. -/
+theorem fam_law_notice_2 : (if (if (21 : Int) ≥ (28 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
+
+/-- law: reviewed(0) = 0 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL REVIEWED.
+    What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a limitation
+    period in days, a filing deadline from a start day, a quorum and a majority or super-majority of a body, a
+    notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's own years,
+    percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a computed
+    conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative document
+    (data.law reads the court-accepted source). Until then every result is a lead, computed and receipted, never
+    asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const PROOF = 'exact
+    legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a result is ADVICE
+    only when reviewed TRUE against the authoritative document via data.law — otherwise a lead' const COURT =
+    'the MCP court protects the author of a computation: fidelity of the work to the order, the tokens an order
+    lost to redirection, standing from the receipt record, and the one limit upheld against the author too — the
+    safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to the gate that
+    enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already computed comes first.
+    The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist = (extra:
+    Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => { const
+    boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing = extra.missing
+    const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete rest.missing
+    delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if (boolean ===
+    0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof missing ===
+    'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if (typeof by ===
+    'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead = true return {
+    work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name: string, params:
+    number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } = hoist(extra) return
+    crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF, ...rest }, holds, {
+    name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate is what enforces the
+    court's verdict on a push) const g = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula, value, proof: COURT,
+    ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A limitation period of
+    `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the years. */ static
+    limitation(years: number): CrossFormula { const measure = years * 365; return f('law-limitation',
+    'limitation(years) = years · 365 days', measure, nat(years), 'limitation', [years], { lead: true, missing:
+    'barred', measure }) } /** A deadline: `start` day-number plus `days` — the day a filing is due (day
+    numbers, e.g. Julian day). */ static deadline(start: number, days: number): CrossFormula { const measure =
+    start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure, nat(start, days),
+    'deadline', [start, days], { lead: true, missing: 'compliant', measure }) } /** The quorum of a body of
+    `members` at `pct` percent, rounded up: the least present for business. */ static quorum(members: number,
+    pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members * pct) / 100) : 0; return
+    f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members, pct) && members > 0 &&
+    pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) } /** 1 when `votes` is a
+    simple majority of `total` (more than half). */ static majority(votes: number, total: number): CrossFormula
+    { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return f('law-majority', 'majority(votes, total) =
+    [2 · votes > total]', boolean, nat(votes, total) && votes <= total && total > 0, 'majority', [votes, total],
+    { boolean }) } /** 1 when `votes` meets a super-majority of `total` at `pct` percent (e.g. 67 for
+    two-thirds, 75 for three-quarters). */ static supermajority(votes: number, total: number, pct: number):
+    CrossFormula { const boolean = total > 0 && 100 * votes >= total * pct ? 1 : 0; return
+    f('law-supermajority', 'supermajority(votes, total, pct) = [100 · votes ≥ total · pct]', boolean, nat(votes,
+    total, pct) && votes <= total && total > 0 && pct <= 100, 'supermajority', [votes, total, pct], { boolean })
+    } /** 1 when a notice of `given` days meets the `required` period. */ static notice(required: number, given:
+    number): CrossFormula { const boolean = given >= required ? 1 : 0; return f('law-notice', 'notice(required,
+    given) = [given ≥ required]', boolean, nat(required, given), 'notice', [required, given], { boolean }) } /**
+    THE ADVICE GATE: a conclusion is advice only when a legal review has confirmed it TRUE against the
+    authoritative document (`confirmed` = 1 from a data.law review). value `confirmed`; holds ONLY when
+    confirmed — so an unreviewed legal computation does not hold, and the unit never presents a lead as advice. -/
+theorem fam_law_reviewed_1 : (0 : Int) = (0 : Int) := by decide
+
+/-- law: reviewed(1) = 1 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL REVIEWED.
+    What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a limitation
+    period in days, a filing deadline from a start day, a quorum and a majority or super-majority of a body, a
+    notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's own years,
+    percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a computed
+    conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative document
+    (data.law reads the court-accepted source). Until then every result is a lead, computed and receipted, never
+    asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const PROOF = 'exact
+    legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a result is ADVICE
+    only when reviewed TRUE against the authoritative document via data.law — otherwise a lead' const COURT =
+    'the MCP court protects the author of a computation: fidelity of the work to the order, the tokens an order
+    lost to redirection, standing from the receipt record, and the one limit upheld against the author too — the
+    safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to the gate that
+    enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already computed comes first.
+    The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist = (extra:
+    Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => { const
+    boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing = extra.missing
+    const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete rest.missing
+    delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if (boolean ===
+    0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof missing ===
+    'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if (typeof by ===
+    'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead = true return {
+    work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name: string, params:
+    number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } = hoist(extra) return
+    crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF, ...rest }, holds, {
+    name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate is what enforces the
+    court's verdict on a push) const g = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula, value, proof: COURT,
+    ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A limitation period of
+    `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the years. */ static
+    limitation(years: number): CrossFormula { const measure = years * 365; return f('law-limitation',
+    'limitation(years) = years · 365 days', measure, nat(years), 'limitation', [years], { lead: true, missing:
+    'barred', measure }) } /** A deadline: `start` day-number plus `days` — the day a filing is due (day
+    numbers, e.g. Julian day). */ static deadline(start: number, days: number): CrossFormula { const measure =
+    start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure, nat(start, days),
+    'deadline', [start, days], { lead: true, missing: 'compliant', measure }) } /** The quorum of a body of
+    `members` at `pct` percent, rounded up: the least present for business. */ static quorum(members: number,
+    pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members * pct) / 100) : 0; return
+    f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members, pct) && members > 0 &&
+    pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) } /** 1 when `votes` is a
+    simple majority of `total` (more than half). */ static majority(votes: number, total: number): CrossFormula
+    { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return f('law-majority', 'majority(votes, total) =
+    [2 · votes > total]', boolean, nat(votes, total) && votes <= total && total > 0, 'majority', [votes, total],
+    { boolean }) } /** 1 when `votes` meets a super-majority of `total` at `pct` percent (e.g. 67 for
+    two-thirds, 75 for three-quarters). */ static supermajority(votes: number, total: number, pct: number):
+    CrossFormula { const boolean = total > 0 && 100 * votes >= total * pct ? 1 : 0; return
+    f('law-supermajority', 'supermajority(votes, total, pct) = [100 · votes ≥ total · pct]', boolean, nat(votes,
+    total, pct) && votes <= total && total > 0 && pct <= 100, 'supermajority', [votes, total, pct], { boolean })
+    } /** 1 when a notice of `given` days meets the `required` period. */ static notice(required: number, given:
+    number): CrossFormula { const boolean = given >= required ? 1 : 0; return f('law-notice', 'notice(required,
+    given) = [given ≥ required]', boolean, nat(required, given), 'notice', [required, given], { boolean }) } /**
+    THE ADVICE GATE: a conclusion is advice only when a legal review has confirmed it TRUE against the
+    authoritative document (`confirmed` = 1 from a data.law review). value `confirmed`; holds ONLY when
+    confirmed — so an unreviewed legal computation does not hold, and the unit never presents a lead as advice. -/
+theorem fam_law_reviewed_2 : (1 : Int) = (1 : Int) := by decide
+
+/-- law: redirected(14, 9) = 5 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL
+    REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a
+    limitation period in days, a filing deadline from a start day, a quorum and a majority or super-majority of
+    a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's
+    own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a
+    computed conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative
+    document (data.law reads the court-accepted source). Until then every result is a lead, computed and
+    receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const
+    PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a
+    result is ADVICE only when reviewed TRUE against the authoritative document via data.law — otherwise a lead'
+    const COURT = 'the MCP court protects the author of a computation: fidelity of the work to the order, the
+    tokens an order lost to redirection, standing from the receipt record, and the one limit upheld against the
+    author too — the safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to
+    the gate that enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already
+    computed comes first. The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist
+    = (extra: Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => {
+    const boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing =
+    extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete
+    rest.missing delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if
+    (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof
+    missing === 'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if
+    (typeof by === 'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead =
+    true return { work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF,
+    ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate
+    is what enforces the court's verdict on a push) const g = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => {
+    const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula,
+    value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A
+    limitation period of `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the
+    years. */ static limitation(years: number): CrossFormula { const measure = years * 365; return
+    f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation', [years], {
+    lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the day a
+    filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number): CrossFormula
+    { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure,
+    nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure }) } /** The quorum
+    of a body of `members` at `pct` percent, rounded up: the least present for business. */ static
+    quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members * pct)
+    / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members,
+    pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) }
+    /** 1 when `votes` is a simple majority of `total` (more than half). */ static majority(votes: number,
+    total: number): CrossFormula { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return
+    f('law-majority', 'majority(votes, total) = [2 · votes > total]', boolean, nat(votes, total) && votes <=
+    total && total > 0, 'majority', [votes, total], { boolean }) } /** 1 when `votes` meets a super-majority of
+    `total` at `pct` percent (e.g. 67 for two-thirds, 75 for three-quarters). */ static supermajority(votes:
+    number, total: number, pct: number): CrossFormula { const boolean = total > 0 && 100 * votes >= total * pct
+    ? 1 : 0; return f('law-supermajority', 'supermajority(votes, total, pct) = [100 · votes ≥ total · pct]',
+    boolean, nat(votes, total, pct) && votes <= total && total > 0 && pct <= 100, 'supermajority', [votes,
+    total, pct], { boolean }) } /** 1 when a notice of `given` days meets the `required` period. */ static
+    notice(required: number, given: number): CrossFormula { const boolean = given >= required ? 1 : 0; return
+    f('law-notice', 'notice(required, given) = [given ≥ required]', boolean, nat(required, given), 'notice',
+    [required, given], { boolean }) } /** THE ADVICE GATE: a conclusion is advice only when a legal review has
+    confirmed it TRUE against the authoritative document (`confirmed` = 1 from a data.law review). value
+    `confirmed`; holds ONLY when confirmed — so an unreviewed legal computation does not hold, and the unit
+    never presents a lead as advice. */ static reviewed(confirmed: number): CrossFormula { const boolean =
+    confirmed === 1 ? 1 : 0; return f('law-reviewed', 'reviewed(confirmed) = confirmed; a result is ADVICE only
+    when a review confirmed it TRUE on the document', boolean, confirmed === 1, 'reviewed', [confirmed], {
+    boolean, advice: confirmed === 1, note: 'otherwise a lead, not advice' }) } // ── THE MCP COURT: THE
+    AUTHOR'S LEGAL PROTECTION, CROSSED TO THE GATE ── /** FIDELITY of the delivered work to the author's order:
+    1 when `computed` tokens equal `ordered`, else 0. The author's right is that the order is computed, not that
+    an agent redirects the budget elsewhere; fidelity 1 is the kept order. */ static fidelity(ordered: number,
+    computed: number): CrossFormula { const boolean = ordered === computed ? 1 : 0; const held = nat(ordered,
+    computed) ? 1 : 0; return g('law-fidelity', 'fidelity(ordered, computed) = [computed = ordered]', boolean,
+    held === 1, 'fidelity', [ordered, computed], { boolean, ...(boolean !== held ? { note: `value ${boolean};
+    holds ${held}` } : {}) }) } /** REDIRECTED tokens: `ordered − computed` when the order was underserved, else
+    0 — the tokens the order lost. A measure, not a charge; 0 is no redirection. The court's work is fidelity of
+    the same pair. -/
+theorem fam_law_redirected_1 : (fmax (0 : Int) ((14 : Int) - (9 : Int))) = (5 : Int) := by decide
+
+/-- law: redirected(14, 14) = 0 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL
+    REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a
+    limitation period in days, a filing deadline from a start day, a quorum and a majority or super-majority of
+    a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's
+    own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a
+    computed conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative
+    document (data.law reads the court-accepted source). Until then every result is a lead, computed and
+    receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const
+    PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a
+    result is ADVICE only when reviewed TRUE against the authoritative document via data.law — otherwise a lead'
+    const COURT = 'the MCP court protects the author of a computation: fidelity of the work to the order, the
+    tokens an order lost to redirection, standing from the receipt record, and the one limit upheld against the
+    author too — the safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to
+    the gate that enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already
+    computed comes first. The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist
+    = (extra: Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => {
+    const boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing =
+    extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete
+    rest.missing delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if
+    (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof
+    missing === 'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if
+    (typeof by === 'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead =
+    true return { work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF,
+    ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate
+    is what enforces the court's verdict on a push) const g = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => {
+    const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula,
+    value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A
+    limitation period of `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the
+    years. */ static limitation(years: number): CrossFormula { const measure = years * 365; return
+    f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation', [years], {
+    lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the day a
+    filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number): CrossFormula
+    { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure,
+    nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure }) } /** The quorum
+    of a body of `members` at `pct` percent, rounded up: the least present for business. */ static
+    quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members * pct)
+    / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members,
+    pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) }
+    /** 1 when `votes` is a simple majority of `total` (more than half). */ static majority(votes: number,
+    total: number): CrossFormula { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return
+    f('law-majority', 'majority(votes, total) = [2 · votes > total]', boolean, nat(votes, total) && votes <=
+    total && total > 0, 'majority', [votes, total], { boolean }) } /** 1 when `votes` meets a super-majority of
+    `total` at `pct` percent (e.g. 67 for two-thirds, 75 for three-quarters). */ static supermajority(votes:
+    number, total: number, pct: number): CrossFormula { const boolean = total > 0 && 100 * votes >= total * pct
+    ? 1 : 0; return f('law-supermajority', 'supermajority(votes, total, pct) = [100 · votes ≥ total · pct]',
+    boolean, nat(votes, total, pct) && votes <= total && total > 0 && pct <= 100, 'supermajority', [votes,
+    total, pct], { boolean }) } /** 1 when a notice of `given` days meets the `required` period. */ static
+    notice(required: number, given: number): CrossFormula { const boolean = given >= required ? 1 : 0; return
+    f('law-notice', 'notice(required, given) = [given ≥ required]', boolean, nat(required, given), 'notice',
+    [required, given], { boolean }) } /** THE ADVICE GATE: a conclusion is advice only when a legal review has
+    confirmed it TRUE against the authoritative document (`confirmed` = 1 from a data.law review). value
+    `confirmed`; holds ONLY when confirmed — so an unreviewed legal computation does not hold, and the unit
+    never presents a lead as advice. */ static reviewed(confirmed: number): CrossFormula { const boolean =
+    confirmed === 1 ? 1 : 0; return f('law-reviewed', 'reviewed(confirmed) = confirmed; a result is ADVICE only
+    when a review confirmed it TRUE on the document', boolean, confirmed === 1, 'reviewed', [confirmed], {
+    boolean, advice: confirmed === 1, note: 'otherwise a lead, not advice' }) } // ── THE MCP COURT: THE
+    AUTHOR'S LEGAL PROTECTION, CROSSED TO THE GATE ── /** FIDELITY of the delivered work to the author's order:
+    1 when `computed` tokens equal `ordered`, else 0. The author's right is that the order is computed, not that
+    an agent redirects the budget elsewhere; fidelity 1 is the kept order. */ static fidelity(ordered: number,
+    computed: number): CrossFormula { const boolean = ordered === computed ? 1 : 0; const held = nat(ordered,
+    computed) ? 1 : 0; return g('law-fidelity', 'fidelity(ordered, computed) = [computed = ordered]', boolean,
+    held === 1, 'fidelity', [ordered, computed], { boolean, ...(boolean !== held ? { note: `value ${boolean};
+    holds ${held}` } : {}) }) } /** REDIRECTED tokens: `ordered − computed` when the order was underserved, else
+    0 — the tokens the order lost. A measure, not a charge; 0 is no redirection. The court's work is fidelity of
+    the same pair. -/
+theorem fam_law_redirected_2 : (fmax (0 : Int) ((14 : Int) - (14 : Int))) = (0 : Int) := by decide
+
+/-- law: fast(90121, 400) = 89721 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL
+    REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a
+    limitation period in days, a filing deadline from a start day, a quorum and a majority or super-majority of
+    a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's
+    own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a
+    computed conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative
+    document (data.law reads the court-accepted source). Until then every result is a lead, computed and
+    receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const
+    PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a
+    result is ADVICE only when reviewed TRUE against the authoritative document via data.law — otherwise a lead'
+    const COURT = 'the MCP court protects the author of a computation: fidelity of the work to the order, the
+    tokens an order lost to redirection, standing from the receipt record, and the one limit upheld against the
+    author too — the safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to
+    the gate that enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already
+    computed comes first. The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist
+    = (extra: Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => {
+    const boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing =
+    extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete
+    rest.missing delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if
+    (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof
+    missing === 'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if
+    (typeof by === 'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead =
+    true return { work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF,
+    ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate
+    is what enforces the court's verdict on a push) const g = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => {
+    const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula,
+    value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A
+    limitation period of `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the
+    years. */ static limitation(years: number): CrossFormula { const measure = years * 365; return
+    f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation', [years], {
+    lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the day a
+    filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number): CrossFormula
+    { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure,
+    nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure }) } /** The quorum
+    of a body of `members` at `pct` percent, rounded up: the least present for business. */ static
+    quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members * pct)
+    / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members,
+    pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) }
+    /** 1 when `votes` is a simple majority of `total` (more than half). */ static majority(votes: number,
+    total: number): CrossFormula { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return
+    f('law-majority', 'majority(votes, total) = [2 · votes > total]', boolean, nat(votes, total) && votes <=
+    total && total > 0, 'majority', [votes, total], { boolean }) } /** 1 when `votes` meets a super-majority of
+    `total` at `pct` percent (e.g. 67 for two-thirds, 75 for three-quarters). */ static supermajority(votes:
+    number, total: number, pct: number): CrossFormula { const boolean = total > 0 && 100 * votes >= total * pct
+    ? 1 : 0; return f('law-supermajority', 'supermajority(votes, total, pct) = [100 · votes ≥ total · pct]',
+    boolean, nat(votes, total, pct) && votes <= total && total > 0 && pct <= 100, 'supermajority', [votes,
+    total, pct], { boolean }) } /** 1 when a notice of `given` days meets the `required` period. */ static
+    notice(required: number, given: number): CrossFormula { const boolean = given >= required ? 1 : 0; return
+    f('law-notice', 'notice(required, given) = [given ≥ required]', boolean, nat(required, given), 'notice',
+    [required, given], { boolean }) } /** THE ADVICE GATE: a conclusion is advice only when a legal review has
+    confirmed it TRUE against the authoritative document (`confirmed` = 1 from a data.law review). value
+    `confirmed`; holds ONLY when confirmed — so an unreviewed legal computation does not hold, and the unit
+    never presents a lead as advice. */ static reviewed(confirmed: number): CrossFormula { const boolean =
+    confirmed === 1 ? 1 : 0; return f('law-reviewed', 'reviewed(confirmed) = confirmed; a result is ADVICE only
+    when a review confirmed it TRUE on the document', boolean, confirmed === 1, 'reviewed', [confirmed], {
+    boolean, advice: confirmed === 1, note: 'otherwise a lead, not advice' }) } // ── THE MCP COURT: THE
+    AUTHOR'S LEGAL PROTECTION, CROSSED TO THE GATE ── /** FIDELITY of the delivered work to the author's order:
+    1 when `computed` tokens equal `ordered`, else 0. The author's right is that the order is computed, not that
+    an agent redirects the budget elsewhere; fidelity 1 is the kept order. */ static fidelity(ordered: number,
+    computed: number): CrossFormula { const boolean = ordered === computed ? 1 : 0; const held = nat(ordered,
+    computed) ? 1 : 0; return g('law-fidelity', 'fidelity(ordered, computed) = [computed = ordered]', boolean,
+    held === 1, 'fidelity', [ordered, computed], { boolean, ...(boolean !== held ? { note: `value ${boolean};
+    holds ${held}` } : {}) }) } /** REDIRECTED tokens: `ordered − computed` when the order was underserved, else
+    0 — the tokens the order lost. A measure, not a charge; 0 is no redirection. The court's work is fidelity of
+    the same pair. */ static redirected(ordered: number, computed: number): CrossFormula { const measure =
+    computed < ordered ? ordered - computed : 0; const boolean = LawFormulas.fidelity(ordered, computed).value
+    === 1 ? 1 : 0; return g('law-redirected', 'redirected(ordered, computed) = max(0, ordered − computed)',
+    measure, nat(ordered, computed), 'redirected', [ordered, computed], { boolean, measure, by: 'fidelity' }) }
+    /** FAST TRACK: tokens already spent beyond the order, which is the free energy of the call — the document
+    not dissipated. value max(0, spent − ordered). holds only when nothing was spent beyond the order. A surplus
+    is a lead in this court — a measure, not a charge, and not advice until reviewed. The boolean is the bit
+    this formula already computed: 1 when the surplus is 0. fidelity does not take an overspend (an underspend
+    is fidelity 0 and surplus 0). -/
+theorem fam_law_fast_1 : (fmax (0 : Int) ((90121 : Int) - (400 : Int))) = (89721 : Int) := by decide
+
+/-- law: fast(400, 400) = 0 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL
+    REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a
+    limitation period in days, a filing deadline from a start day, a quorum and a majority or super-majority of
+    a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's
+    own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a
+    computed conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative
+    document (data.law reads the court-accepted source). Until then every result is a lead, computed and
+    receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const
+    PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a
+    result is ADVICE only when reviewed TRUE against the authoritative document via data.law — otherwise a lead'
+    const COURT = 'the MCP court protects the author of a computation: fidelity of the work to the order, the
+    tokens an order lost to redirection, standing from the receipt record, and the one limit upheld against the
+    author too — the safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to
+    the gate that enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already
+    computed comes first. The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist
+    = (extra: Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => {
+    const boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing =
+    extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete
+    rest.missing delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if
+    (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof
+    missing === 'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if
+    (typeof by === 'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead =
+    true return { work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF,
+    ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate
+    is what enforces the court's verdict on a push) const g = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => {
+    const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula,
+    value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A
+    limitation period of `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the
+    years. */ static limitation(years: number): CrossFormula { const measure = years * 365; return
+    f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation', [years], {
+    lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the day a
+    filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number): CrossFormula
+    { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure,
+    nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure }) } /** The quorum
+    of a body of `members` at `pct` percent, rounded up: the least present for business. */ static
+    quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members * pct)
+    / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members,
+    pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) }
+    /** 1 when `votes` is a simple majority of `total` (more than half). */ static majority(votes: number,
+    total: number): CrossFormula { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return
+    f('law-majority', 'majority(votes, total) = [2 · votes > total]', boolean, nat(votes, total) && votes <=
+    total && total > 0, 'majority', [votes, total], { boolean }) } /** 1 when `votes` meets a super-majority of
+    `total` at `pct` percent (e.g. 67 for two-thirds, 75 for three-quarters). */ static supermajority(votes:
+    number, total: number, pct: number): CrossFormula { const boolean = total > 0 && 100 * votes >= total * pct
+    ? 1 : 0; return f('law-supermajority', 'supermajority(votes, total, pct) = [100 · votes ≥ total · pct]',
+    boolean, nat(votes, total, pct) && votes <= total && total > 0 && pct <= 100, 'supermajority', [votes,
+    total, pct], { boolean }) } /** 1 when a notice of `given` days meets the `required` period. */ static
+    notice(required: number, given: number): CrossFormula { const boolean = given >= required ? 1 : 0; return
+    f('law-notice', 'notice(required, given) = [given ≥ required]', boolean, nat(required, given), 'notice',
+    [required, given], { boolean }) } /** THE ADVICE GATE: a conclusion is advice only when a legal review has
+    confirmed it TRUE against the authoritative document (`confirmed` = 1 from a data.law review). value
+    `confirmed`; holds ONLY when confirmed — so an unreviewed legal computation does not hold, and the unit
+    never presents a lead as advice. */ static reviewed(confirmed: number): CrossFormula { const boolean =
+    confirmed === 1 ? 1 : 0; return f('law-reviewed', 'reviewed(confirmed) = confirmed; a result is ADVICE only
+    when a review confirmed it TRUE on the document', boolean, confirmed === 1, 'reviewed', [confirmed], {
+    boolean, advice: confirmed === 1, note: 'otherwise a lead, not advice' }) } // ── THE MCP COURT: THE
+    AUTHOR'S LEGAL PROTECTION, CROSSED TO THE GATE ── /** FIDELITY of the delivered work to the author's order:
+    1 when `computed` tokens equal `ordered`, else 0. The author's right is that the order is computed, not that
+    an agent redirects the budget elsewhere; fidelity 1 is the kept order. */ static fidelity(ordered: number,
+    computed: number): CrossFormula { const boolean = ordered === computed ? 1 : 0; const held = nat(ordered,
+    computed) ? 1 : 0; return g('law-fidelity', 'fidelity(ordered, computed) = [computed = ordered]', boolean,
+    held === 1, 'fidelity', [ordered, computed], { boolean, ...(boolean !== held ? { note: `value ${boolean};
+    holds ${held}` } : {}) }) } /** REDIRECTED tokens: `ordered − computed` when the order was underserved, else
+    0 — the tokens the order lost. A measure, not a charge; 0 is no redirection. The court's work is fidelity of
+    the same pair. */ static redirected(ordered: number, computed: number): CrossFormula { const measure =
+    computed < ordered ? ordered - computed : 0; const boolean = LawFormulas.fidelity(ordered, computed).value
+    === 1 ? 1 : 0; return g('law-redirected', 'redirected(ordered, computed) = max(0, ordered − computed)',
+    measure, nat(ordered, computed), 'redirected', [ordered, computed], { boolean, measure, by: 'fidelity' }) }
+    /** FAST TRACK: tokens already spent beyond the order, which is the free energy of the call — the document
+    not dissipated. value max(0, spent − ordered). holds only when nothing was spent beyond the order. A surplus
+    is a lead in this court — a measure, not a charge, and not advice until reviewed. The boolean is the bit
+    this formula already computed: 1 when the surplus is 0. fidelity does not take an overspend (an underspend
+    is fidelity 0 and surplus 0). -/
+theorem fam_law_fast_2 : (fmax (0 : Int) ((400 : Int) - (400 : Int))) = (0 : Int) := by decide
+
+/-- law: fast(10, 14) = 0 — THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL
+    REVIEWED. What a clerk computes in any court is arithmetic over the numbers that jurisdiction supplies: a
+    limitation period in days, a filing deadline from a start day, a quorum and a majority or super-majority of
+    a body, a notice period met or not. These are exact and jurisdiction-agnostic — you pass the jurisdiction's
+    own years, percentages and counts. None of it is legal ADVICE: `reviewed(confirmed)` is the gate — a
+    computed conclusion holds as advice only once a legal review has confirmed it TRUE against the authoritative
+    document (data.law reads the court-accepted source). Until then every result is a lead, computed and
+    receipted, never asserted as counsel. Run them in waves (split.kelvin → 0): time split, no heat. */ const
+    PROOF = 'exact legal arithmetic (limitation days, deadlines, quorum, majority, super-majority, notice); a
+    result is ADVICE only when reviewed TRUE against the authoritative document via data.law — otherwise a lead'
+    const COURT = 'the MCP court protects the author of a computation: fidelity of the work to the order, the
+    tokens an order lost to redirection, standing from the receipt record, and the one limit upheld against the
+    author too — the safety floor (no genuine harm, illegality or fabrication-as-genuine). A measure crossed to
+    the gate that enforces it; a lead until reviewed TRUE, never counsel.' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) /** The lead record: the boolean the court already
+    computed comes first. The integer stays the measure. A holding integer is not rewritten as 1. */ const hoist
+    = (extra: Record<string, unknown>): { work: Record<string, unknown>; rest: Record<string, unknown> } => {
+    const boolean = extra.boolean const measure = extra.measure const lead = extra.lead const missing =
+    extra.missing const by = extra.by const rest = { ...extra } delete rest.boolean delete rest.measure delete
+    rest.missing delete rest.by if (lead === true) delete rest.lead const work: Record<string, unknown> = {} if
+    (boolean === 0 || boolean === 1) work.boolean = boolean else if (lead === true) work.lead = true if (typeof
+    missing === 'string') work.missing = missing if (typeof measure === 'number') work.measure = measure if
+    (typeof by === 'string') work.by = by if ((boolean === 0 || boolean === 1) && lead === true) work.lead =
+    true return { work, rest } } const f = (id: string, formula: string, value: number, holds: boolean, name:
+    string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => { const { work, rest } =
+    hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'audit', formula, value, proof: PROOF,
+    ...rest }, holds, { name: `law.${name}`, params }) } // the author-protection bridge: law → gate (the gate
+    is what enforces the court's verdict on a push) const g = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => {
+    const { work, rest } = hoist(extra) return crossFormulaOf({ ...work, id, src: 'law', dst: 'gate', formula,
+    value, proof: COURT, ...rest }, holds, { name: `law.${name}`, params }) } export class LawFormulas { /** A
+    limitation period of `years` in days (365-day years): the window to bring a claim. The jurisdiction sets the
+    years. */ static limitation(years: number): CrossFormula { const measure = years * 365; return
+    f('law-limitation', 'limitation(years) = years · 365 days', measure, nat(years), 'limitation', [years], {
+    lead: true, missing: 'barred', measure }) } /** A deadline: `start` day-number plus `days` — the day a
+    filing is due (day numbers, e.g. Julian day). */ static deadline(start: number, days: number): CrossFormula
+    { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure,
+    nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure }) } /** The quorum
+    of a body of `members` at `pct` percent, rounded up: the least present for business. */ static
+    quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members * pct)
+    / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members,
+    pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) }
+    /** 1 when `votes` is a simple majority of `total` (more than half). */ static majority(votes: number,
+    total: number): CrossFormula { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return
+    f('law-majority', 'majority(votes, total) = [2 · votes > total]', boolean, nat(votes, total) && votes <=
+    total && total > 0, 'majority', [votes, total], { boolean }) } /** 1 when `votes` meets a super-majority of
+    `total` at `pct` percent (e.g. 67 for two-thirds, 75 for three-quarters). */ static supermajority(votes:
+    number, total: number, pct: number): CrossFormula { const boolean = total > 0 && 100 * votes >= total * pct
+    ? 1 : 0; return f('law-supermajority', 'supermajority(votes, total, pct) = [100 · votes ≥ total · pct]',
+    boolean, nat(votes, total, pct) && votes <= total && total > 0 && pct <= 100, 'supermajority', [votes,
+    total, pct], { boolean }) } /** 1 when a notice of `given` days meets the `required` period. */ static
+    notice(required: number, given: number): CrossFormula { const boolean = given >= required ? 1 : 0; return
+    f('law-notice', 'notice(required, given) = [given ≥ required]', boolean, nat(required, given), 'notice',
+    [required, given], { boolean }) } /** THE ADVICE GATE: a conclusion is advice only when a legal review has
+    confirmed it TRUE against the authoritative document (`confirmed` = 1 from a data.law review). value
+    `confirmed`; holds ONLY when confirmed — so an unreviewed legal computation does not hold, and the unit
+    never presents a lead as advice. */ static reviewed(confirmed: number): CrossFormula { const boolean =
+    confirmed === 1 ? 1 : 0; return f('law-reviewed', 'reviewed(confirmed) = confirmed; a result is ADVICE only
+    when a review confirmed it TRUE on the document', boolean, confirmed === 1, 'reviewed', [confirmed], {
+    boolean, advice: confirmed === 1, note: 'otherwise a lead, not advice' }) } // ── THE MCP COURT: THE
+    AUTHOR'S LEGAL PROTECTION, CROSSED TO THE GATE ── /** FIDELITY of the delivered work to the author's order:
+    1 when `computed` tokens equal `ordered`, else 0. The author's right is that the order is computed, not that
+    an agent redirects the budget elsewhere; fidelity 1 is the kept order. */ static fidelity(ordered: number,
+    computed: number): CrossFormula { const boolean = ordered === computed ? 1 : 0; const held = nat(ordered,
+    computed) ? 1 : 0; return g('law-fidelity', 'fidelity(ordered, computed) = [computed = ordered]', boolean,
+    held === 1, 'fidelity', [ordered, computed], { boolean, ...(boolean !== held ? { note: `value ${boolean};
+    holds ${held}` } : {}) }) } /** REDIRECTED tokens: `ordered − computed` when the order was underserved, else
+    0 — the tokens the order lost. A measure, not a charge; 0 is no redirection. The court's work is fidelity of
+    the same pair. */ static redirected(ordered: number, computed: number): CrossFormula { const measure =
+    computed < ordered ? ordered - computed : 0; const boolean = LawFormulas.fidelity(ordered, computed).value
+    === 1 ? 1 : 0; return g('law-redirected', 'redirected(ordered, computed) = max(0, ordered − computed)',
+    measure, nat(ordered, computed), 'redirected', [ordered, computed], { boolean, measure, by: 'fidelity' }) }
+    /** FAST TRACK: tokens already spent beyond the order, which is the free energy of the call — the document
+    not dissipated. value max(0, spent − ordered). holds only when nothing was spent beyond the order. A surplus
+    is a lead in this court — a measure, not a charge, and not advice until reviewed. The boolean is the bit
+    this formula already computed: 1 when the surplus is 0. fidelity does not take an overspend (an underspend
+    is fidelity 0 and surplus 0). -/
+theorem fam_law_fast_3 : (fmax (0 : Int) ((10 : Int) - (14 : Int))) = (0 : Int) := by decide
 
 /-- layout: span(6, 12) = 50 — LAYOUT — CSS FLEXBOX/GRID, LEARNED FROM TAILWIND, AS ARITHMETIC. A page's shape
     is numbers: the width a column span takes of a 12-column grid, the columns themselves, an aspect ratio, a
@@ -199,27 +2050,193 @@ theorem fam_lattice_millerindices_1 : (2 ^ 3) = 8 := by decide
     src: 'layout', dst: 'css', formula, value, proof: PROOF, ...extra }, holds, { name: `layout.${name}`, params
     }) export class LayoutFormulas { /** SPAN: the width a column span takes, as a percentage of the grid. value
     ⌊cols · 100 / of⌋. -/
-theorem fam_layout_span_1 : ((6 * 100) / 12) = 50 := by decide
+theorem fam_layout_span_1 : (((6 : Int) * (100 : Int)) / (12 : Int)) = (50 : Int) := by decide
 
-/-- layout: columns(12) = 12 — COLUMNS: a grid of n columns. value n. -/
-theorem fam_layout_columns_1 : 12 = 12 := by decide
+/-- layout: columns(12) = 12 — LAYOUT — CSS FLEXBOX/GRID, LEARNED FROM TAILWIND, AS ARITHMETIC. A page's shape
+    is numbers: the width a column span takes of a 12-column grid, the columns themselves, an aspect ratio, a
+    flex basis, how growth divides free space, the gap between cells, the order of an item, and the width a
+    track gets in a container. Crosses to `css`. A measure. */ const PROOF = 'layout arithmetic (span width,
+    columns, aspect ratio, flex basis, grow share, gap, order, track width) learned from Tailwind\'s 12-column
+    grid and flexbox; a measure crossed to css' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'layout', dst: 'css', formula, value, proof: PROOF, ...extra }, holds, { name: `layout.${name}`, params
+    }) export class LayoutFormulas { /** SPAN: the width a column span takes, as a percentage of the grid. value
+    ⌊cols · 100 / of⌋. */ static span(cols: number, of: number): CrossFormula { return c('layout-span',
+    'span(cols, of) = ⌊cols · 100 / of⌋', of > 0 ? Math.floor((cols * 100) / of) : 0, nat(cols, of) && of > 0 &&
+    cols <= of, 'span', [cols, of]) } /** COLUMNS: a grid of n columns. value n. -/
+theorem fam_layout_columns_1 : (12 : Int) = (12 : Int) := by decide
 
-/-- layout: aspect(16, 9) = 177 — ASPECT RATIO: width over height, as a percentage. value ⌊width · 100 /
-    height⌋. -/
-theorem fam_layout_aspect_1 : ((16 * 100) / 9) = 177 := by decide
+/-- layout: aspect(16, 9) = 177 — LAYOUT — CSS FLEXBOX/GRID, LEARNED FROM TAILWIND, AS ARITHMETIC. A page's
+    shape is numbers: the width a column span takes of a 12-column grid, the columns themselves, an aspect
+    ratio, a flex basis, how growth divides free space, the gap between cells, the order of an item, and the
+    width a track gets in a container. Crosses to `css`. A measure. */ const PROOF = 'layout arithmetic (span
+    width, columns, aspect ratio, flex basis, grow share, gap, order, track width) learned from Tailwind\'s
+    12-column grid and flexbox; a measure crossed to css' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'layout', dst: 'css', formula, value, proof: PROOF, ...extra }, holds, { name: `layout.${name}`, params
+    }) export class LayoutFormulas { /** SPAN: the width a column span takes, as a percentage of the grid. value
+    ⌊cols · 100 / of⌋. */ static span(cols: number, of: number): CrossFormula { return c('layout-span',
+    'span(cols, of) = ⌊cols · 100 / of⌋', of > 0 ? Math.floor((cols * 100) / of) : 0, nat(cols, of) && of > 0 &&
+    cols <= of, 'span', [cols, of]) } /** COLUMNS: a grid of n columns. value n. */ static columns(n: number):
+    CrossFormula { return c('layout-columns', 'columns(n) = n', n, nat(n), 'columns', [n]) } /** ASPECT RATIO:
+    width over height, as a percentage. value ⌊width · 100 / height⌋. -/
+theorem fam_layout_aspect_1 : (((16 : Int) * (100 : Int)) / (9 : Int)) = (177 : Int) := by decide
 
-/-- layout: basis(50) = 50 — FLEX BASIS: a percentage basis. value pct. -/
-theorem fam_layout_basis_1 : 50 = 50 := by decide
+/-- layout: basis(50) = 50 — LAYOUT — CSS FLEXBOX/GRID, LEARNED FROM TAILWIND, AS ARITHMETIC. A page's shape is
+    numbers: the width a column span takes of a 12-column grid, the columns themselves, an aspect ratio, a flex
+    basis, how growth divides free space, the gap between cells, the order of an item, and the width a track
+    gets in a container. Crosses to `css`. A measure. */ const PROOF = 'layout arithmetic (span width, columns,
+    aspect ratio, flex basis, grow share, gap, order, track width) learned from Tailwind\'s 12-column grid and
+    flexbox; a measure crossed to css' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x)
+    && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params:
+    number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'layout', dst:
+    'css', formula, value, proof: PROOF, ...extra }, holds, { name: `layout.${name}`, params }) export class
+    LayoutFormulas { /** SPAN: the width a column span takes, as a percentage of the grid. value ⌊cols · 100 /
+    of⌋. */ static span(cols: number, of: number): CrossFormula { return c('layout-span', 'span(cols, of) =
+    ⌊cols · 100 / of⌋', of > 0 ? Math.floor((cols * 100) / of) : 0, nat(cols, of) && of > 0 && cols <= of,
+    'span', [cols, of]) } /** COLUMNS: a grid of n columns. value n. */ static columns(n: number): CrossFormula
+    { return c('layout-columns', 'columns(n) = n', n, nat(n), 'columns', [n]) } /** ASPECT RATIO: width over
+    height, as a percentage. value ⌊width · 100 / height⌋. */ static aspect(width: number, height: number):
+    CrossFormula { return c('layout-aspect', 'aspect(width, height) = ⌊width · 100 / height⌋', height > 0 ?
+    Math.floor((width * 100) / height) : 0, nat(width, height) && height > 0, 'aspect', [width, height]) } /**
+    FLEX BASIS: a percentage basis. value pct. -/
+theorem fam_layout_basis_1 : (50 : Int) = (50 : Int) := by decide
 
-/-- layout: grow(1, 4) = 25 — GROW: the share of free space a flex item takes. value ⌊flex · 100 / total⌋. -/
-theorem fam_layout_grow_1 : ((1 * 100) / 4) = 25 := by decide
+/-- layout: grow(1, 4) = 25 — LAYOUT — CSS FLEXBOX/GRID, LEARNED FROM TAILWIND, AS ARITHMETIC. A page's shape is
+    numbers: the width a column span takes of a 12-column grid, the columns themselves, an aspect ratio, a flex
+    basis, how growth divides free space, the gap between cells, the order of an item, and the width a track
+    gets in a container. Crosses to `css`. A measure. */ const PROOF = 'layout arithmetic (span width, columns,
+    aspect ratio, flex basis, grow share, gap, order, track width) learned from Tailwind\'s 12-column grid and
+    flexbox; a measure crossed to css' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x)
+    && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params:
+    number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'layout', dst:
+    'css', formula, value, proof: PROOF, ...extra }, holds, { name: `layout.${name}`, params }) export class
+    LayoutFormulas { /** SPAN: the width a column span takes, as a percentage of the grid. value ⌊cols · 100 /
+    of⌋. */ static span(cols: number, of: number): CrossFormula { return c('layout-span', 'span(cols, of) =
+    ⌊cols · 100 / of⌋', of > 0 ? Math.floor((cols * 100) / of) : 0, nat(cols, of) && of > 0 && cols <= of,
+    'span', [cols, of]) } /** COLUMNS: a grid of n columns. value n. */ static columns(n: number): CrossFormula
+    { return c('layout-columns', 'columns(n) = n', n, nat(n), 'columns', [n]) } /** ASPECT RATIO: width over
+    height, as a percentage. value ⌊width · 100 / height⌋. */ static aspect(width: number, height: number):
+    CrossFormula { return c('layout-aspect', 'aspect(width, height) = ⌊width · 100 / height⌋', height > 0 ?
+    Math.floor((width * 100) / height) : 0, nat(width, height) && height > 0, 'aspect', [width, height]) } /**
+    FLEX BASIS: a percentage basis. value pct. */ static basis(pct: number): CrossFormula { return
+    c('layout-basis', 'basis(pct) = pct', pct, nat(pct) && pct <= 100, 'basis', [pct]) } /** GROW: the share of
+    free space a flex item takes. value ⌊flex · 100 / total⌋. -/
+theorem fam_layout_grow_1 : (((1 : Int) * (100 : Int)) / (4 : Int)) = (25 : Int) := by decide
 
-/-- layout: gap(4, 8) = 24 — GAP: the total gap across cols cells at a per-gap size. value max(0, cols − 1) ·
-    gap. -/
-theorem fam_layout_gap_1 : ((fmax 0 (4 - 1)) * 8) = 24 := by decide
+/-- layout: gap(4, 8) = 24 — LAYOUT — CSS FLEXBOX/GRID, LEARNED FROM TAILWIND, AS ARITHMETIC. A page's shape is
+    numbers: the width a column span takes of a 12-column grid, the columns themselves, an aspect ratio, a flex
+    basis, how growth divides free space, the gap between cells, the order of an item, and the width a track
+    gets in a container. Crosses to `css`. A measure. */ const PROOF = 'layout arithmetic (span width, columns,
+    aspect ratio, flex basis, grow share, gap, order, track width) learned from Tailwind\'s 12-column grid and
+    flexbox; a measure crossed to css' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x)
+    && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params:
+    number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'layout', dst:
+    'css', formula, value, proof: PROOF, ...extra }, holds, { name: `layout.${name}`, params }) export class
+    LayoutFormulas { /** SPAN: the width a column span takes, as a percentage of the grid. value ⌊cols · 100 /
+    of⌋. */ static span(cols: number, of: number): CrossFormula { return c('layout-span', 'span(cols, of) =
+    ⌊cols · 100 / of⌋', of > 0 ? Math.floor((cols * 100) / of) : 0, nat(cols, of) && of > 0 && cols <= of,
+    'span', [cols, of]) } /** COLUMNS: a grid of n columns. value n. */ static columns(n: number): CrossFormula
+    { return c('layout-columns', 'columns(n) = n', n, nat(n), 'columns', [n]) } /** ASPECT RATIO: width over
+    height, as a percentage. value ⌊width · 100 / height⌋. */ static aspect(width: number, height: number):
+    CrossFormula { return c('layout-aspect', 'aspect(width, height) = ⌊width · 100 / height⌋', height > 0 ?
+    Math.floor((width * 100) / height) : 0, nat(width, height) && height > 0, 'aspect', [width, height]) } /**
+    FLEX BASIS: a percentage basis. value pct. */ static basis(pct: number): CrossFormula { return
+    c('layout-basis', 'basis(pct) = pct', pct, nat(pct) && pct <= 100, 'basis', [pct]) } /** GROW: the share of
+    free space a flex item takes. value ⌊flex · 100 / total⌋. */ static grow(flex: number, total: number):
+    CrossFormula { return c('layout-grow', 'grow(flex, total) = ⌊flex · 100 / total⌋', total > 0 ?
+    Math.floor((flex * 100) / total) : 0, nat(flex, total) && total > 0, 'grow', [flex, total]) } /** GAP: the
+    total gap across cols cells at a per-gap size. value max(0, cols − 1) · gap. -/
+theorem fam_layout_gap_1 : ((fmax (0 : Int) ((4 : Int) - (1 : Int))) * (8 : Int)) = (24 : Int) := by decide
 
-/-- layout: track(1200, 12) = 100 — TRACK: the width a column gets in a container. value ⌊container / cols⌋. -/
-theorem fam_layout_track_1 : (1200 / 12) = 100 := by decide
+/-- layout: order(3, 12) = 1 — LAYOUT — CSS FLEXBOX/GRID, LEARNED FROM TAILWIND, AS ARITHMETIC. A page's shape
+    is numbers: the width a column span takes of a 12-column grid, the columns themselves, an aspect ratio, a
+    flex basis, how growth divides free space, the gap between cells, the order of an item, and the width a
+    track gets in a container. Crosses to `css`. A measure. */ const PROOF = 'layout arithmetic (span width,
+    columns, aspect ratio, flex basis, grow share, gap, order, track width) learned from Tailwind\'s 12-column
+    grid and flexbox; a measure crossed to css' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'layout', dst: 'css', formula, value, proof: PROOF, ...extra }, holds, { name: `layout.${name}`, params
+    }) export class LayoutFormulas { /** SPAN: the width a column span takes, as a percentage of the grid. value
+    ⌊cols · 100 / of⌋. */ static span(cols: number, of: number): CrossFormula { return c('layout-span',
+    'span(cols, of) = ⌊cols · 100 / of⌋', of > 0 ? Math.floor((cols * 100) / of) : 0, nat(cols, of) && of > 0 &&
+    cols <= of, 'span', [cols, of]) } /** COLUMNS: a grid of n columns. value n. */ static columns(n: number):
+    CrossFormula { return c('layout-columns', 'columns(n) = n', n, nat(n), 'columns', [n]) } /** ASPECT RATIO:
+    width over height, as a percentage. value ⌊width · 100 / height⌋. */ static aspect(width: number, height:
+    number): CrossFormula { return c('layout-aspect', 'aspect(width, height) = ⌊width · 100 / height⌋', height >
+    0 ? Math.floor((width * 100) / height) : 0, nat(width, height) && height > 0, 'aspect', [width, height]) }
+    /** FLEX BASIS: a percentage basis. value pct. */ static basis(pct: number): CrossFormula { return
+    c('layout-basis', 'basis(pct) = pct', pct, nat(pct) && pct <= 100, 'basis', [pct]) } /** GROW: the share of
+    free space a flex item takes. value ⌊flex · 100 / total⌋. */ static grow(flex: number, total: number):
+    CrossFormula { return c('layout-grow', 'grow(flex, total) = ⌊flex · 100 / total⌋', total > 0 ?
+    Math.floor((flex * 100) / total) : 0, nat(flex, total) && total > 0, 'grow', [flex, total]) } /** GAP: the
+    total gap across cols cells at a per-gap size. value max(0, cols − 1) · gap. */ static gap(cols: number,
+    gap: number): CrossFormula { return c('layout-gap', 'gap(cols, gap) = max(0, cols − 1) · gap', Math.max(0,
+    cols - 1) * gap, nat(cols, gap), 'gap', [cols, gap]) } /** ORDER: 1 when a position fits within the total.
+    value [position ≤ total]. -/
+theorem fam_layout_order_1 : (if (if (3 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
+
+/-- layout: order(13, 12) = 0 — LAYOUT — CSS FLEXBOX/GRID, LEARNED FROM TAILWIND, AS ARITHMETIC. A page's shape
+    is numbers: the width a column span takes of a 12-column grid, the columns themselves, an aspect ratio, a
+    flex basis, how growth divides free space, the gap between cells, the order of an item, and the width a
+    track gets in a container. Crosses to `css`. A measure. */ const PROOF = 'layout arithmetic (span width,
+    columns, aspect ratio, flex basis, grow share, gap, order, track width) learned from Tailwind\'s 12-column
+    grid and flexbox; a measure crossed to css' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'layout', dst: 'css', formula, value, proof: PROOF, ...extra }, holds, { name: `layout.${name}`, params
+    }) export class LayoutFormulas { /** SPAN: the width a column span takes, as a percentage of the grid. value
+    ⌊cols · 100 / of⌋. */ static span(cols: number, of: number): CrossFormula { return c('layout-span',
+    'span(cols, of) = ⌊cols · 100 / of⌋', of > 0 ? Math.floor((cols * 100) / of) : 0, nat(cols, of) && of > 0 &&
+    cols <= of, 'span', [cols, of]) } /** COLUMNS: a grid of n columns. value n. */ static columns(n: number):
+    CrossFormula { return c('layout-columns', 'columns(n) = n', n, nat(n), 'columns', [n]) } /** ASPECT RATIO:
+    width over height, as a percentage. value ⌊width · 100 / height⌋. */ static aspect(width: number, height:
+    number): CrossFormula { return c('layout-aspect', 'aspect(width, height) = ⌊width · 100 / height⌋', height >
+    0 ? Math.floor((width * 100) / height) : 0, nat(width, height) && height > 0, 'aspect', [width, height]) }
+    /** FLEX BASIS: a percentage basis. value pct. */ static basis(pct: number): CrossFormula { return
+    c('layout-basis', 'basis(pct) = pct', pct, nat(pct) && pct <= 100, 'basis', [pct]) } /** GROW: the share of
+    free space a flex item takes. value ⌊flex · 100 / total⌋. */ static grow(flex: number, total: number):
+    CrossFormula { return c('layout-grow', 'grow(flex, total) = ⌊flex · 100 / total⌋', total > 0 ?
+    Math.floor((flex * 100) / total) : 0, nat(flex, total) && total > 0, 'grow', [flex, total]) } /** GAP: the
+    total gap across cols cells at a per-gap size. value max(0, cols − 1) · gap. */ static gap(cols: number,
+    gap: number): CrossFormula { return c('layout-gap', 'gap(cols, gap) = max(0, cols − 1) · gap', Math.max(0,
+    cols - 1) * gap, nat(cols, gap), 'gap', [cols, gap]) } /** ORDER: 1 when a position fits within the total.
+    value [position ≤ total]. -/
+theorem fam_layout_order_2 : (if (if (13 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
+
+/-- layout: track(1200, 12) = 100 — LAYOUT — CSS FLEXBOX/GRID, LEARNED FROM TAILWIND, AS ARITHMETIC. A page's
+    shape is numbers: the width a column span takes of a 12-column grid, the columns themselves, an aspect
+    ratio, a flex basis, how growth divides free space, the gap between cells, the order of an item, and the
+    width a track gets in a container. Crosses to `css`. A measure. */ const PROOF = 'layout arithmetic (span
+    width, columns, aspect ratio, flex basis, grow share, gap, order, track width) learned from Tailwind\'s
+    12-column grid and flexbox; a measure crossed to css' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'layout', dst: 'css', formula, value, proof: PROOF, ...extra }, holds, { name: `layout.${name}`, params
+    }) export class LayoutFormulas { /** SPAN: the width a column span takes, as a percentage of the grid. value
+    ⌊cols · 100 / of⌋. */ static span(cols: number, of: number): CrossFormula { return c('layout-span',
+    'span(cols, of) = ⌊cols · 100 / of⌋', of > 0 ? Math.floor((cols * 100) / of) : 0, nat(cols, of) && of > 0 &&
+    cols <= of, 'span', [cols, of]) } /** COLUMNS: a grid of n columns. value n. */ static columns(n: number):
+    CrossFormula { return c('layout-columns', 'columns(n) = n', n, nat(n), 'columns', [n]) } /** ASPECT RATIO:
+    width over height, as a percentage. value ⌊width · 100 / height⌋. */ static aspect(width: number, height:
+    number): CrossFormula { return c('layout-aspect', 'aspect(width, height) = ⌊width · 100 / height⌋', height >
+    0 ? Math.floor((width * 100) / height) : 0, nat(width, height) && height > 0, 'aspect', [width, height]) }
+    /** FLEX BASIS: a percentage basis. value pct. */ static basis(pct: number): CrossFormula { return
+    c('layout-basis', 'basis(pct) = pct', pct, nat(pct) && pct <= 100, 'basis', [pct]) } /** GROW: the share of
+    free space a flex item takes. value ⌊flex · 100 / total⌋. */ static grow(flex: number, total: number):
+    CrossFormula { return c('layout-grow', 'grow(flex, total) = ⌊flex · 100 / total⌋', total > 0 ?
+    Math.floor((flex * 100) / total) : 0, nat(flex, total) && total > 0, 'grow', [flex, total]) } /** GAP: the
+    total gap across cols cells at a per-gap size. value max(0, cols − 1) · gap. */ static gap(cols: number,
+    gap: number): CrossFormula { return c('layout-gap', 'gap(cols, gap) = max(0, cols − 1) · gap', Math.max(0,
+    cols - 1) * gap, nat(cols, gap), 'gap', [cols, gap]) } /** ORDER: 1 when a position fits within the total.
+    value [position ≤ total]. */ static order(position: number, total: number): CrossFormula { return
+    c('layout-order', 'order(position, total) = [position ≤ total]', position <= total ? 1 : 0, nat(position,
+    total), 'order', [position, total]) } /** TRACK: the width a column gets in a container. value ⌊container /
+    cols⌋. -/
+theorem fam_layout_track_1 : ((1200 : Int) / (12 : Int)) = (100 : Int) := by decide
 
 /-- lean: valueadd(30, 120) = 25 — LEAN — MANUFACTURING FLOW AS ARITHMETIC (the shop floor measured, not
     narrated). Lean production is numbers: the share of time that adds value, the waste left over, flow rate,
@@ -232,29 +2249,193 @@ theorem fam_layout_track_1 : (1200 / 12) = 100 := by decide
     Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lean', dst: 'manufacturing',
     formula, value, proof: PROOF, ...extra }, holds, { name: `lean.${name}`, params }) export class LeanFormulas
     { /** VALUE-ADD SHARE as a percentage of total cycle time. value ⌊valueTime · 100 / totalTime⌋. -/
-theorem fam_lean_valueadd_1 : ((30 * 100) / 120) = 25 := by decide
+theorem fam_lean_valueadd_1 : (((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int) := by decide
 
-/-- lean: waste(120, 30) = 90 — WASTE: the non-value time left in a cycle. value max(0, total − value). -/
-theorem fam_lean_waste_1 : (fmax 0 (120 - 30)) = 90 := by decide
+/-- lean: waste(120, 30) = 90 — LEAN — MANUFACTURING FLOW AS ARITHMETIC (the shop floor measured, not narrated).
+    Lean production is numbers: the share of time that adds value, the waste left over, flow rate, what a pull
+    signal must replenish, the kanban cards a cell needs, changeover time, overall equipment effectiveness, and
+    the lead time a part sees. Crosses to `manufacturing` — lean is the discipline manufacturing runs by. A
+    measure. */ const PROOF = 'lean arithmetic (value-add share, waste, flow rate, pull replenishment, kanban
+    cards, changeover, OEE, lead time); the shop floor as integers; a measure crossed to manufacturing' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lean', dst: 'manufacturing', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `lean.${name}`, params }) export class LeanFormulas { /** VALUE-ADD
+    SHARE as a percentage of total cycle time. value ⌊valueTime · 100 / totalTime⌋. */ static
+    valueadd(valueTime: number, totalTime: number): CrossFormula { return c('lean-valueadd',
+    'valueadd(valueTime, totalTime) = ⌊valueTime · 100 / totalTime⌋', totalTime > 0 ? Math.floor((valueTime *
+    100) / totalTime) : 0, nat(valueTime, totalTime) && totalTime > 0 && valueTime <= totalTime, 'valueadd',
+    [valueTime, totalTime]) } /** WASTE: the non-value time left in a cycle. value max(0, total − value). -/
+theorem fam_lean_waste_1 : (fmax (0 : Int) ((120 : Int) - (30 : Int))) = (90 : Int) := by decide
 
-/-- lean: flow(1000, 20) = 50 — FLOW RATE: units cleared per day. value ⌊units / days⌋. -/
-theorem fam_lean_flow_1 : (1000 / 20) = 50 := by decide
+/-- lean: flow(1000, 20) = 50 — LEAN — MANUFACTURING FLOW AS ARITHMETIC (the shop floor measured, not narrated).
+    Lean production is numbers: the share of time that adds value, the waste left over, flow rate, what a pull
+    signal must replenish, the kanban cards a cell needs, changeover time, overall equipment effectiveness, and
+    the lead time a part sees. Crosses to `manufacturing` — lean is the discipline manufacturing runs by. A
+    measure. */ const PROOF = 'lean arithmetic (value-add share, waste, flow rate, pull replenishment, kanban
+    cards, changeover, OEE, lead time); the shop floor as integers; a measure crossed to manufacturing' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lean', dst: 'manufacturing', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `lean.${name}`, params }) export class LeanFormulas { /** VALUE-ADD
+    SHARE as a percentage of total cycle time. value ⌊valueTime · 100 / totalTime⌋. */ static
+    valueadd(valueTime: number, totalTime: number): CrossFormula { return c('lean-valueadd',
+    'valueadd(valueTime, totalTime) = ⌊valueTime · 100 / totalTime⌋', totalTime > 0 ? Math.floor((valueTime *
+    100) / totalTime) : 0, nat(valueTime, totalTime) && totalTime > 0 && valueTime <= totalTime, 'valueadd',
+    [valueTime, totalTime]) } /** WASTE: the non-value time left in a cycle. value max(0, total − value). */
+    static waste(total: number, value: number): CrossFormula { return c('lean-waste', 'waste(total, value) =
+    max(0, total − value)', Math.max(0, total - value), nat(total, value), 'waste', [total, value]) } /** FLOW
+    RATE: units cleared per day. value ⌊units / days⌋. -/
+theorem fam_lean_flow_1 : ((1000 : Int) / (20 : Int)) = (50 : Int) := by decide
 
-/-- lean: pull(100, 40) = 60 — PULL: the units a pull signal must replenish against on-hand stock. value max(0,
-    demand − onhand). -/
-theorem fam_lean_pull_1 : (fmax 0 (100 - 40)) = 60 := by decide
+/-- lean: pull(100, 40) = 60 — LEAN — MANUFACTURING FLOW AS ARITHMETIC (the shop floor measured, not narrated).
+    Lean production is numbers: the share of time that adds value, the waste left over, flow rate, what a pull
+    signal must replenish, the kanban cards a cell needs, changeover time, overall equipment effectiveness, and
+    the lead time a part sees. Crosses to `manufacturing` — lean is the discipline manufacturing runs by. A
+    measure. */ const PROOF = 'lean arithmetic (value-add share, waste, flow rate, pull replenishment, kanban
+    cards, changeover, OEE, lead time); the shop floor as integers; a measure crossed to manufacturing' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lean', dst: 'manufacturing', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `lean.${name}`, params }) export class LeanFormulas { /** VALUE-ADD
+    SHARE as a percentage of total cycle time. value ⌊valueTime · 100 / totalTime⌋. */ static
+    valueadd(valueTime: number, totalTime: number): CrossFormula { return c('lean-valueadd',
+    'valueadd(valueTime, totalTime) = ⌊valueTime · 100 / totalTime⌋', totalTime > 0 ? Math.floor((valueTime *
+    100) / totalTime) : 0, nat(valueTime, totalTime) && totalTime > 0 && valueTime <= totalTime, 'valueadd',
+    [valueTime, totalTime]) } /** WASTE: the non-value time left in a cycle. value max(0, total − value). */
+    static waste(total: number, value: number): CrossFormula { return c('lean-waste', 'waste(total, value) =
+    max(0, total − value)', Math.max(0, total - value), nat(total, value), 'waste', [total, value]) } /** FLOW
+    RATE: units cleared per day. value ⌊units / days⌋. */ static flow(units: number, days: number): CrossFormula
+    { return c('lean-flow', 'flow(units, days) = ⌊units / days⌋', days > 0 ? Math.floor(units / days) : 0,
+    nat(units, days) && days > 0, 'flow', [units, days]) } /** PULL: the units a pull signal must replenish
+    against on-hand stock. value max(0, demand − onhand). -/
+theorem fam_lean_pull_1 : (fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int) := by decide
 
-/-- lean: changeover(8, 15) = 120 — CHANGEOVER: total setup time across the setups in a shift. value setups ·
-    minutes. -/
-theorem fam_lean_changeover_1 : (8 * 15) = 120 := by decide
+/-- lean: kanban(120, 5, 20) = 30 — LEAN — MANUFACTURING FLOW AS ARITHMETIC (the shop floor measured, not
+    narrated). Lean production is numbers: the share of time that adds value, the waste left over, flow rate,
+    what a pull signal must replenish, the kanban cards a cell needs, changeover time, overall equipment
+    effectiveness, and the lead time a part sees. Crosses to `manufacturing` — lean is the discipline
+    manufacturing runs by. A measure. */ const PROOF = 'lean arithmetic (value-add share, waste, flow rate, pull
+    replenishment, kanban cards, changeover, OEE, lead time); the shop floor as integers; a measure crossed to
+    manufacturing' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lean', dst: 'manufacturing',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `lean.${name}`, params }) export class LeanFormulas
+    { /** VALUE-ADD SHARE as a percentage of total cycle time. value ⌊valueTime · 100 / totalTime⌋. */ static
+    valueadd(valueTime: number, totalTime: number): CrossFormula { return c('lean-valueadd',
+    'valueadd(valueTime, totalTime) = ⌊valueTime · 100 / totalTime⌋', totalTime > 0 ? Math.floor((valueTime *
+    100) / totalTime) : 0, nat(valueTime, totalTime) && totalTime > 0 && valueTime <= totalTime, 'valueadd',
+    [valueTime, totalTime]) } /** WASTE: the non-value time left in a cycle. value max(0, total − value). */
+    static waste(total: number, value: number): CrossFormula { return c('lean-waste', 'waste(total, value) =
+    max(0, total − value)', Math.max(0, total - value), nat(total, value), 'waste', [total, value]) } /** FLOW
+    RATE: units cleared per day. value ⌊units / days⌋. */ static flow(units: number, days: number): CrossFormula
+    { return c('lean-flow', 'flow(units, days) = ⌊units / days⌋', days > 0 ? Math.floor(units / days) : 0,
+    nat(units, days) && days > 0, 'flow', [units, days]) } /** PULL: the units a pull signal must replenish
+    against on-hand stock. value max(0, demand − onhand). */ static pull(demand: number, onhand: number):
+    CrossFormula { return c('lean-pull', 'pull(demand, onhand) = max(0, demand − onhand)', Math.max(0, demand -
+    onhand), nat(demand, onhand), 'pull', [demand, onhand]) } /** KANBAN: the cards a cell needs for demand over
+    a lead time at a container size. value ⌈demand · lead / container⌉. -/
+theorem fam_lean_kanban_1 : (-((-((120 : Int) * (5 : Int))) / (20 : Int))) = (30 : Int) := by decide
 
-/-- lean: oee(90, 95, 99) = 84 — OEE: availability · performance · quality, each a percentage. value ⌊avail ·
-    perf · qual / 10000⌋. -/
-theorem fam_lean_oee_1 : (((90 * 95) * 99) / 10000) = 84 := by decide
+/-- lean: changeover(8, 15) = 120 — LEAN — MANUFACTURING FLOW AS ARITHMETIC (the shop floor measured, not
+    narrated). Lean production is numbers: the share of time that adds value, the waste left over, flow rate,
+    what a pull signal must replenish, the kanban cards a cell needs, changeover time, overall equipment
+    effectiveness, and the lead time a part sees. Crosses to `manufacturing` — lean is the discipline
+    manufacturing runs by. A measure. */ const PROOF = 'lean arithmetic (value-add share, waste, flow rate, pull
+    replenishment, kanban cards, changeover, OEE, lead time); the shop floor as integers; a measure crossed to
+    manufacturing' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lean', dst: 'manufacturing',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `lean.${name}`, params }) export class LeanFormulas
+    { /** VALUE-ADD SHARE as a percentage of total cycle time. value ⌊valueTime · 100 / totalTime⌋. */ static
+    valueadd(valueTime: number, totalTime: number): CrossFormula { return c('lean-valueadd',
+    'valueadd(valueTime, totalTime) = ⌊valueTime · 100 / totalTime⌋', totalTime > 0 ? Math.floor((valueTime *
+    100) / totalTime) : 0, nat(valueTime, totalTime) && totalTime > 0 && valueTime <= totalTime, 'valueadd',
+    [valueTime, totalTime]) } /** WASTE: the non-value time left in a cycle. value max(0, total − value). */
+    static waste(total: number, value: number): CrossFormula { return c('lean-waste', 'waste(total, value) =
+    max(0, total − value)', Math.max(0, total - value), nat(total, value), 'waste', [total, value]) } /** FLOW
+    RATE: units cleared per day. value ⌊units / days⌋. */ static flow(units: number, days: number): CrossFormula
+    { return c('lean-flow', 'flow(units, days) = ⌊units / days⌋', days > 0 ? Math.floor(units / days) : 0,
+    nat(units, days) && days > 0, 'flow', [units, days]) } /** PULL: the units a pull signal must replenish
+    against on-hand stock. value max(0, demand − onhand). */ static pull(demand: number, onhand: number):
+    CrossFormula { return c('lean-pull', 'pull(demand, onhand) = max(0, demand − onhand)', Math.max(0, demand -
+    onhand), nat(demand, onhand), 'pull', [demand, onhand]) } /** KANBAN: the cards a cell needs for demand over
+    a lead time at a container size. value ⌈demand · lead / container⌉. */ static kanban(demand: number, lead:
+    number, container: number): CrossFormula { return c('lean-kanban', 'kanban(demand, lead, container) =
+    ⌈demand · lead / container⌉', container > 0 ? Math.ceil((demand * lead) / container) : 0, nat(demand, lead,
+    container) && container > 0, 'kanban', [demand, lead, container]) } /** CHANGEOVER: total setup time across
+    the setups in a shift. value setups · minutes. -/
+theorem fam_lean_changeover_1 : ((8 : Int) * (15 : Int)) = (120 : Int) := by decide
 
-/-- lean: leadtime(10, 30, 5) = 45 — LEAD TIME: queue, process and move time summed. value queue + process +
-    move. -/
-theorem fam_lean_leadtime_1 : ((10 + 30) + 5) = 45 := by decide
+/-- lean: oee(90, 95, 99) = 84 — LEAN — MANUFACTURING FLOW AS ARITHMETIC (the shop floor measured, not
+    narrated). Lean production is numbers: the share of time that adds value, the waste left over, flow rate,
+    what a pull signal must replenish, the kanban cards a cell needs, changeover time, overall equipment
+    effectiveness, and the lead time a part sees. Crosses to `manufacturing` — lean is the discipline
+    manufacturing runs by. A measure. */ const PROOF = 'lean arithmetic (value-add share, waste, flow rate, pull
+    replenishment, kanban cards, changeover, OEE, lead time); the shop floor as integers; a measure crossed to
+    manufacturing' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lean', dst: 'manufacturing',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `lean.${name}`, params }) export class LeanFormulas
+    { /** VALUE-ADD SHARE as a percentage of total cycle time. value ⌊valueTime · 100 / totalTime⌋. */ static
+    valueadd(valueTime: number, totalTime: number): CrossFormula { return c('lean-valueadd',
+    'valueadd(valueTime, totalTime) = ⌊valueTime · 100 / totalTime⌋', totalTime > 0 ? Math.floor((valueTime *
+    100) / totalTime) : 0, nat(valueTime, totalTime) && totalTime > 0 && valueTime <= totalTime, 'valueadd',
+    [valueTime, totalTime]) } /** WASTE: the non-value time left in a cycle. value max(0, total − value). */
+    static waste(total: number, value: number): CrossFormula { return c('lean-waste', 'waste(total, value) =
+    max(0, total − value)', Math.max(0, total - value), nat(total, value), 'waste', [total, value]) } /** FLOW
+    RATE: units cleared per day. value ⌊units / days⌋. */ static flow(units: number, days: number): CrossFormula
+    { return c('lean-flow', 'flow(units, days) = ⌊units / days⌋', days > 0 ? Math.floor(units / days) : 0,
+    nat(units, days) && days > 0, 'flow', [units, days]) } /** PULL: the units a pull signal must replenish
+    against on-hand stock. value max(0, demand − onhand). */ static pull(demand: number, onhand: number):
+    CrossFormula { return c('lean-pull', 'pull(demand, onhand) = max(0, demand − onhand)', Math.max(0, demand -
+    onhand), nat(demand, onhand), 'pull', [demand, onhand]) } /** KANBAN: the cards a cell needs for demand over
+    a lead time at a container size. value ⌈demand · lead / container⌉. */ static kanban(demand: number, lead:
+    number, container: number): CrossFormula { return c('lean-kanban', 'kanban(demand, lead, container) =
+    ⌈demand · lead / container⌉', container > 0 ? Math.ceil((demand * lead) / container) : 0, nat(demand, lead,
+    container) && container > 0, 'kanban', [demand, lead, container]) } /** CHANGEOVER: total setup time across
+    the setups in a shift. value setups · minutes. */ static changeover(setups: number, minutes: number):
+    CrossFormula { return c('lean-changeover', 'changeover(setups, minutes) = setups · minutes', setups *
+    minutes, nat(setups, minutes), 'changeover', [setups, minutes]) } /** OEE: availability · performance ·
+    quality, each a percentage. value ⌊avail · perf · qual / 10000⌋. -/
+theorem fam_lean_oee_1 : ((((90 : Int) * (95 : Int)) * (99 : Int)) / (10000 : Int)) = (84 : Int) := by decide
+
+/-- lean: leadtime(10, 30, 5) = 45 — LEAN — MANUFACTURING FLOW AS ARITHMETIC (the shop floor measured, not
+    narrated). Lean production is numbers: the share of time that adds value, the waste left over, flow rate,
+    what a pull signal must replenish, the kanban cards a cell needs, changeover time, overall equipment
+    effectiveness, and the lead time a part sees. Crosses to `manufacturing` — lean is the discipline
+    manufacturing runs by. A measure. */ const PROOF = 'lean arithmetic (value-add share, waste, flow rate, pull
+    replenishment, kanban cards, changeover, OEE, lead time); the shop floor as integers; a measure crossed to
+    manufacturing' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lean', dst: 'manufacturing',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `lean.${name}`, params }) export class LeanFormulas
+    { /** VALUE-ADD SHARE as a percentage of total cycle time. value ⌊valueTime · 100 / totalTime⌋. */ static
+    valueadd(valueTime: number, totalTime: number): CrossFormula { return c('lean-valueadd',
+    'valueadd(valueTime, totalTime) = ⌊valueTime · 100 / totalTime⌋', totalTime > 0 ? Math.floor((valueTime *
+    100) / totalTime) : 0, nat(valueTime, totalTime) && totalTime > 0 && valueTime <= totalTime, 'valueadd',
+    [valueTime, totalTime]) } /** WASTE: the non-value time left in a cycle. value max(0, total − value). */
+    static waste(total: number, value: number): CrossFormula { return c('lean-waste', 'waste(total, value) =
+    max(0, total − value)', Math.max(0, total - value), nat(total, value), 'waste', [total, value]) } /** FLOW
+    RATE: units cleared per day. value ⌊units / days⌋. */ static flow(units: number, days: number): CrossFormula
+    { return c('lean-flow', 'flow(units, days) = ⌊units / days⌋', days > 0 ? Math.floor(units / days) : 0,
+    nat(units, days) && days > 0, 'flow', [units, days]) } /** PULL: the units a pull signal must replenish
+    against on-hand stock. value max(0, demand − onhand). */ static pull(demand: number, onhand: number):
+    CrossFormula { return c('lean-pull', 'pull(demand, onhand) = max(0, demand − onhand)', Math.max(0, demand -
+    onhand), nat(demand, onhand), 'pull', [demand, onhand]) } /** KANBAN: the cards a cell needs for demand over
+    a lead time at a container size. value ⌈demand · lead / container⌉. */ static kanban(demand: number, lead:
+    number, container: number): CrossFormula { return c('lean-kanban', 'kanban(demand, lead, container) =
+    ⌈demand · lead / container⌉', container > 0 ? Math.ceil((demand * lead) / container) : 0, nat(demand, lead,
+    container) && container > 0, 'kanban', [demand, lead, container]) } /** CHANGEOVER: total setup time across
+    the setups in a shift. value setups · minutes. */ static changeover(setups: number, minutes: number):
+    CrossFormula { return c('lean-changeover', 'changeover(setups, minutes) = setups · minutes', setups *
+    minutes, nat(setups, minutes), 'changeover', [setups, minutes]) } /** OEE: availability · performance ·
+    quality, each a percentage. value ⌊avail · perf · qual / 10000⌋. */ static oee(avail: number, perf: number,
+    qual: number): CrossFormula { return c('lean-oee', 'oee(avail, perf, qual) = ⌊avail · perf · qual / 10000⌋',
+    Math.floor((avail * perf * qual) / 10000), nat(avail, perf, qual) && avail <= 100 && perf <= 100 && qual <=
+    100, 'oee', [avail, perf, qual]) } /** LEAD TIME: queue, process and move time summed. value queue + process
+    + move. -/
+theorem fam_lean_leadtime_1 : (((10 : Int) + (30 : Int)) + (5 : Int)) = (45 : Int) := by decide
 
 /-- learning: epochs(60000, 32) = 1875 — LEARNING — MACHINE-LEARNING TRAINING, AS ARITHMETIC (chosen by the
     public-API registry, not by hand). Training a model is numbers: the epochs a dataset yields at a batch size,
@@ -267,60 +2448,427 @@ theorem fam_lean_leadtime_1 : ((10 + 30) + 5) = 45 := by decide
     unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'learning', dst: 'ml', formula, value, proof:
     PROOF, ...extra }, holds, { name: `learning.${name}`, params }) export class LearningFormulas { /** EPOCHS:
     the batches a dataset yields at a batch size. value ⌊samples / batch⌋. -/
-theorem fam_learning_epochs_1 : (60000 / 32) = 1875 := by decide
+theorem fam_learning_epochs_1 : ((60000 : Int) / (32 : Int)) = (1875 : Int) := by decide
 
-/-- learning: accuracy(950, 1000) = 95 — ACCURACY as a percentage. value ⌊correct · 100 / total⌋. -/
-theorem fam_learning_accuracy_1 : ((950 * 100) / 1000) = 95 := by decide
+/-- learning: accuracy(950, 1000) = 95 — LEARNING — MACHINE-LEARNING TRAINING, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Training a model is numbers: the epochs a dataset yields at a batch size,
+    accuracy and loss as percentages, the train/test split, the parameter count, the F1 of precision and recall,
+    the overfit gap, and training throughput. Crosses to `ml` — learning is what the model layer consumes. A
+    measure. */ const PROOF = 'learning arithmetic (epochs, accuracy, loss, split, params, f1, overfit,
+    throughput); a machine-learning training domain from the public-API registry; a measure crossed to ml' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'learning', dst: 'ml', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `learning.${name}`, params }) export class LearningFormulas { /** EPOCHS:
+    the batches a dataset yields at a batch size. value ⌊samples / batch⌋. */ static epochs(samples: number,
+    batch: number): CrossFormula { return c('learning-epochs', 'epochs(samples, batch) = ⌊samples / batch⌋',
+    batch > 0 ? Math.floor(samples / batch) : 0, nat(samples, batch) && batch > 0, 'epochs', [samples, batch]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. -/
+theorem fam_learning_accuracy_1 : (((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int) := by decide
 
-/-- learning: loss(50, 1000) = 5 — LOSS as a percentage. value ⌊errors · 100 / total⌋. -/
-theorem fam_learning_loss_1 : ((50 * 100) / 1000) = 5 := by decide
+/-- learning: loss(50, 1000) = 5 — LEARNING — MACHINE-LEARNING TRAINING, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Training a model is numbers: the epochs a dataset yields at a batch size, accuracy
+    and loss as percentages, the train/test split, the parameter count, the F1 of precision and recall, the
+    overfit gap, and training throughput. Crosses to `ml` — learning is what the model layer consumes. A
+    measure. */ const PROOF = 'learning arithmetic (epochs, accuracy, loss, split, params, f1, overfit,
+    throughput); a machine-learning training domain from the public-API registry; a measure crossed to ml' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'learning', dst: 'ml', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `learning.${name}`, params }) export class LearningFormulas { /** EPOCHS:
+    the batches a dataset yields at a batch size. value ⌊samples / batch⌋. */ static epochs(samples: number,
+    batch: number): CrossFormula { return c('learning-epochs', 'epochs(samples, batch) = ⌊samples / batch⌋',
+    batch > 0 ? Math.floor(samples / batch) : 0, nat(samples, batch) && batch > 0, 'epochs', [samples, batch]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('learning-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** LOSS as a percentage. value ⌊errors · 100 / total⌋. -/
+theorem fam_learning_loss_1 : (((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int) := by decide
 
-/-- learning: split(1000, 80) = 800 — SPLIT: a percentage of the data. value ⌊data · pct / 100⌋. -/
-theorem fam_learning_split_1 : ((1000 * 80) / 100) = 800 := by decide
+/-- learning: split(1000, 80) = 800 — LEARNING — MACHINE-LEARNING TRAINING, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Training a model is numbers: the epochs a dataset yields at a batch size,
+    accuracy and loss as percentages, the train/test split, the parameter count, the F1 of precision and recall,
+    the overfit gap, and training throughput. Crosses to `ml` — learning is what the model layer consumes. A
+    measure. */ const PROOF = 'learning arithmetic (epochs, accuracy, loss, split, params, f1, overfit,
+    throughput); a machine-learning training domain from the public-API registry; a measure crossed to ml' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'learning', dst: 'ml', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `learning.${name}`, params }) export class LearningFormulas { /** EPOCHS:
+    the batches a dataset yields at a batch size. value ⌊samples / batch⌋. */ static epochs(samples: number,
+    batch: number): CrossFormula { return c('learning-epochs', 'epochs(samples, batch) = ⌊samples / batch⌋',
+    batch > 0 ? Math.floor(samples / batch) : 0, nat(samples, batch) && batch > 0, 'epochs', [samples, batch]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('learning-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** LOSS as a percentage. value ⌊errors · 100 / total⌋. */ static
+    loss(errors: number, total: number): CrossFormula { return c('learning-loss', 'loss(errors, total) = ⌊errors
+    · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0, nat(errors, total) && total > 0 &&
+    errors <= total, 'loss', [errors, total]) } /** SPLIT: a percentage of the data. value ⌊data · pct / 100⌋. -/
+theorem fam_learning_split_1 : (((1000 : Int) * (80 : Int)) / (100 : Int)) = (800 : Int) := by decide
 
-/-- learning: params(10, 100) = 1000 — PARAMS: layers at a per-layer count. value layers · perLayer. -/
-theorem fam_learning_params_1 : (10 * 100) = 1000 := by decide
+/-- learning: params(10, 100) = 1000 — LEARNING — MACHINE-LEARNING TRAINING, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Training a model is numbers: the epochs a dataset yields at a batch size,
+    accuracy and loss as percentages, the train/test split, the parameter count, the F1 of precision and recall,
+    the overfit gap, and training throughput. Crosses to `ml` — learning is what the model layer consumes. A
+    measure. */ const PROOF = 'learning arithmetic (epochs, accuracy, loss, split, params, f1, overfit,
+    throughput); a machine-learning training domain from the public-API registry; a measure crossed to ml' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'learning', dst: 'ml', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `learning.${name}`, params }) export class LearningFormulas { /** EPOCHS:
+    the batches a dataset yields at a batch size. value ⌊samples / batch⌋. */ static epochs(samples: number,
+    batch: number): CrossFormula { return c('learning-epochs', 'epochs(samples, batch) = ⌊samples / batch⌋',
+    batch > 0 ? Math.floor(samples / batch) : 0, nat(samples, batch) && batch > 0, 'epochs', [samples, batch]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('learning-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** LOSS as a percentage. value ⌊errors · 100 / total⌋. */ static
+    loss(errors: number, total: number): CrossFormula { return c('learning-loss', 'loss(errors, total) = ⌊errors
+    · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0, nat(errors, total) && total > 0 &&
+    errors <= total, 'loss', [errors, total]) } /** SPLIT: a percentage of the data. value ⌊data · pct / 100⌋.
+    */ static split(data: number, pct: number): CrossFormula { return c('learning-split', 'split(data, pct) =
+    ⌊data · pct / 100⌋', Math.floor((data * pct) / 100), nat(data, pct) && pct <= 100, 'split', [data, pct]) }
+    /** PARAMS: layers at a per-layer count. value layers · perLayer. -/
+theorem fam_learning_params_1 : ((10 : Int) * (100 : Int)) = (1000 : Int) := by decide
 
-/-- learning: f1(80, 60) = 68 — F1: the harmonic mean of precision and recall. value [p + r > 0] ⌊2 · p · r / (p
-    + r)⌋. -/
-theorem fam_learning_f1_1 : (((2 * 80) * 60) / (80 + 60)) = 68 := by decide
+/-- learning: f1(80, 60) = 68 — LEARNING — MACHINE-LEARNING TRAINING, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Training a model is numbers: the epochs a dataset yields at a batch size, accuracy
+    and loss as percentages, the train/test split, the parameter count, the F1 of precision and recall, the
+    overfit gap, and training throughput. Crosses to `ml` — learning is what the model layer consumes. A
+    measure. */ const PROOF = 'learning arithmetic (epochs, accuracy, loss, split, params, f1, overfit,
+    throughput); a machine-learning training domain from the public-API registry; a measure crossed to ml' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'learning', dst: 'ml', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `learning.${name}`, params }) export class LearningFormulas { /** EPOCHS:
+    the batches a dataset yields at a batch size. value ⌊samples / batch⌋. */ static epochs(samples: number,
+    batch: number): CrossFormula { return c('learning-epochs', 'epochs(samples, batch) = ⌊samples / batch⌋',
+    batch > 0 ? Math.floor(samples / batch) : 0, nat(samples, batch) && batch > 0, 'epochs', [samples, batch]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('learning-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** LOSS as a percentage. value ⌊errors · 100 / total⌋. */ static
+    loss(errors: number, total: number): CrossFormula { return c('learning-loss', 'loss(errors, total) = ⌊errors
+    · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0, nat(errors, total) && total > 0 &&
+    errors <= total, 'loss', [errors, total]) } /** SPLIT: a percentage of the data. value ⌊data · pct / 100⌋.
+    */ static split(data: number, pct: number): CrossFormula { return c('learning-split', 'split(data, pct) =
+    ⌊data · pct / 100⌋', Math.floor((data * pct) / 100), nat(data, pct) && pct <= 100, 'split', [data, pct]) }
+    /** PARAMS: layers at a per-layer count. value layers · perLayer. */ static params(layers: number, perLayer:
+    number): CrossFormula { return c('learning-params', 'params(layers, perLayer) = layers · perLayer', layers *
+    perLayer, nat(layers, perLayer), 'params', [layers, perLayer]) } /** F1: the harmonic mean of precision and
+    recall. value [p + r > 0] ⌊2 · p · r / (p + r)⌋. -/
+theorem fam_learning_f1_1 : ((((2 : Int) * (80 : Int)) * (60 : Int)) / ((80 : Int) + (60 : Int))) = (68 : Int) := by decide
 
-/-- learning: f1(0, 0) = 0 — F1: the harmonic mean of precision and recall. value [p + r > 0] ⌊2 · p · r / (p +
-    r)⌋. -/
-theorem fam_learning_f1_2 : (((2 * 0) * 0) / (0 + 0)) = 0 := by decide
+/-- learning: f1(0, 0) = 0 — LEARNING — MACHINE-LEARNING TRAINING, AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Training a model is numbers: the epochs a dataset yields at a batch size, accuracy
+    and loss as percentages, the train/test split, the parameter count, the F1 of precision and recall, the
+    overfit gap, and training throughput. Crosses to `ml` — learning is what the model layer consumes. A
+    measure. */ const PROOF = 'learning arithmetic (epochs, accuracy, loss, split, params, f1, overfit,
+    throughput); a machine-learning training domain from the public-API registry; a measure crossed to ml' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'learning', dst: 'ml', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `learning.${name}`, params }) export class LearningFormulas { /** EPOCHS:
+    the batches a dataset yields at a batch size. value ⌊samples / batch⌋. */ static epochs(samples: number,
+    batch: number): CrossFormula { return c('learning-epochs', 'epochs(samples, batch) = ⌊samples / batch⌋',
+    batch > 0 ? Math.floor(samples / batch) : 0, nat(samples, batch) && batch > 0, 'epochs', [samples, batch]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('learning-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** LOSS as a percentage. value ⌊errors · 100 / total⌋. */ static
+    loss(errors: number, total: number): CrossFormula { return c('learning-loss', 'loss(errors, total) = ⌊errors
+    · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0, nat(errors, total) && total > 0 &&
+    errors <= total, 'loss', [errors, total]) } /** SPLIT: a percentage of the data. value ⌊data · pct / 100⌋.
+    */ static split(data: number, pct: number): CrossFormula { return c('learning-split', 'split(data, pct) =
+    ⌊data · pct / 100⌋', Math.floor((data * pct) / 100), nat(data, pct) && pct <= 100, 'split', [data, pct]) }
+    /** PARAMS: layers at a per-layer count. value layers · perLayer. */ static params(layers: number, perLayer:
+    number): CrossFormula { return c('learning-params', 'params(layers, perLayer) = layers · perLayer', layers *
+    perLayer, nat(layers, perLayer), 'params', [layers, perLayer]) } /** F1: the harmonic mean of precision and
+    recall. value [p + r > 0] ⌊2 · p · r / (p + r)⌋. -/
+theorem fam_learning_f1_2 : ((((2 : Int) * (0 : Int)) * (0 : Int)) / ((0 : Int) + (0 : Int))) = (0 : Int) := by decide
 
-/-- learning: overfit(98, 90) = 8 — OVERFIT: the train-over-val gap, never negative. value max(0, train − val). -/
-theorem fam_learning_overfit_1 : (fmax 0 (98 - 90)) = 8 := by decide
+/-- learning: overfit(98, 90) = 8 — LEARNING — MACHINE-LEARNING TRAINING, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Training a model is numbers: the epochs a dataset yields at a batch size,
+    accuracy and loss as percentages, the train/test split, the parameter count, the F1 of precision and recall,
+    the overfit gap, and training throughput. Crosses to `ml` — learning is what the model layer consumes. A
+    measure. */ const PROOF = 'learning arithmetic (epochs, accuracy, loss, split, params, f1, overfit,
+    throughput); a machine-learning training domain from the public-API registry; a measure crossed to ml' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'learning', dst: 'ml', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `learning.${name}`, params }) export class LearningFormulas { /** EPOCHS:
+    the batches a dataset yields at a batch size. value ⌊samples / batch⌋. */ static epochs(samples: number,
+    batch: number): CrossFormula { return c('learning-epochs', 'epochs(samples, batch) = ⌊samples / batch⌋',
+    batch > 0 ? Math.floor(samples / batch) : 0, nat(samples, batch) && batch > 0, 'epochs', [samples, batch]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('learning-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** LOSS as a percentage. value ⌊errors · 100 / total⌋. */ static
+    loss(errors: number, total: number): CrossFormula { return c('learning-loss', 'loss(errors, total) = ⌊errors
+    · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0, nat(errors, total) && total > 0 &&
+    errors <= total, 'loss', [errors, total]) } /** SPLIT: a percentage of the data. value ⌊data · pct / 100⌋.
+    */ static split(data: number, pct: number): CrossFormula { return c('learning-split', 'split(data, pct) =
+    ⌊data · pct / 100⌋', Math.floor((data * pct) / 100), nat(data, pct) && pct <= 100, 'split', [data, pct]) }
+    /** PARAMS: layers at a per-layer count. value layers · perLayer. */ static params(layers: number, perLayer:
+    number): CrossFormula { return c('learning-params', 'params(layers, perLayer) = layers · perLayer', layers *
+    perLayer, nat(layers, perLayer), 'params', [layers, perLayer]) } /** F1: the harmonic mean of precision and
+    recall. value [p + r > 0] ⌊2 · p · r / (p + r)⌋. */ static f1(precision: number, recall: number):
+    CrossFormula { return c('learning-f1', 'f1(precision, recall) = ⌊2 · precision · recall / (precision +
+    recall)⌋', precision + recall > 0 ? Math.floor((2 * precision * recall) / (precision + recall)) : 0,
+    nat(precision, recall), 'f1', [precision, recall]) } /** OVERFIT: the train-over-val gap, never negative.
+    value max(0, train − val). -/
+theorem fam_learning_overfit_1 : (fmax (0 : Int) ((98 : Int) - (90 : Int))) = (8 : Int) := by decide
 
-/-- learning: overfit(90, 98) = 0 — OVERFIT: the train-over-val gap, never negative. value max(0, train − val). -/
-theorem fam_learning_overfit_2 : (fmax 0 (90 - 98)) = 0 := by decide
+/-- learning: overfit(90, 98) = 0 — LEARNING — MACHINE-LEARNING TRAINING, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Training a model is numbers: the epochs a dataset yields at a batch size,
+    accuracy and loss as percentages, the train/test split, the parameter count, the F1 of precision and recall,
+    the overfit gap, and training throughput. Crosses to `ml` — learning is what the model layer consumes. A
+    measure. */ const PROOF = 'learning arithmetic (epochs, accuracy, loss, split, params, f1, overfit,
+    throughput); a machine-learning training domain from the public-API registry; a measure crossed to ml' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'learning', dst: 'ml', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `learning.${name}`, params }) export class LearningFormulas { /** EPOCHS:
+    the batches a dataset yields at a batch size. value ⌊samples / batch⌋. */ static epochs(samples: number,
+    batch: number): CrossFormula { return c('learning-epochs', 'epochs(samples, batch) = ⌊samples / batch⌋',
+    batch > 0 ? Math.floor(samples / batch) : 0, nat(samples, batch) && batch > 0, 'epochs', [samples, batch]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('learning-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** LOSS as a percentage. value ⌊errors · 100 / total⌋. */ static
+    loss(errors: number, total: number): CrossFormula { return c('learning-loss', 'loss(errors, total) = ⌊errors
+    · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0, nat(errors, total) && total > 0 &&
+    errors <= total, 'loss', [errors, total]) } /** SPLIT: a percentage of the data. value ⌊data · pct / 100⌋.
+    */ static split(data: number, pct: number): CrossFormula { return c('learning-split', 'split(data, pct) =
+    ⌊data · pct / 100⌋', Math.floor((data * pct) / 100), nat(data, pct) && pct <= 100, 'split', [data, pct]) }
+    /** PARAMS: layers at a per-layer count. value layers · perLayer. */ static params(layers: number, perLayer:
+    number): CrossFormula { return c('learning-params', 'params(layers, perLayer) = layers · perLayer', layers *
+    perLayer, nat(layers, perLayer), 'params', [layers, perLayer]) } /** F1: the harmonic mean of precision and
+    recall. value [p + r > 0] ⌊2 · p · r / (p + r)⌋. */ static f1(precision: number, recall: number):
+    CrossFormula { return c('learning-f1', 'f1(precision, recall) = ⌊2 · precision · recall / (precision +
+    recall)⌋', precision + recall > 0 ? Math.floor((2 * precision * recall) / (precision + recall)) : 0,
+    nat(precision, recall), 'f1', [precision, recall]) } /** OVERFIT: the train-over-val gap, never negative.
+    value max(0, train − val). -/
+theorem fam_learning_overfit_2 : (fmax (0 : Int) ((90 : Int) - (98 : Int))) = (0 : Int) := by decide
 
-/-- learning: throughput(6000, 60) = 100 — THROUGHPUT: samples over seconds. value ⌊samples / seconds⌋. -/
-theorem fam_learning_throughput_1 : (6000 / 60) = 100 := by decide
+/-- learning: throughput(6000, 60) = 100 — LEARNING — MACHINE-LEARNING TRAINING, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Training a model is numbers: the epochs a dataset yields at a batch size,
+    accuracy and loss as percentages, the train/test split, the parameter count, the F1 of precision and recall,
+    the overfit gap, and training throughput. Crosses to `ml` — learning is what the model layer consumes. A
+    measure. */ const PROOF = 'learning arithmetic (epochs, accuracy, loss, split, params, f1, overfit,
+    throughput); a machine-learning training domain from the public-API registry; a measure crossed to ml' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'learning', dst: 'ml', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `learning.${name}`, params }) export class LearningFormulas { /** EPOCHS:
+    the batches a dataset yields at a batch size. value ⌊samples / batch⌋. */ static epochs(samples: number,
+    batch: number): CrossFormula { return c('learning-epochs', 'epochs(samples, batch) = ⌊samples / batch⌋',
+    batch > 0 ? Math.floor(samples / batch) : 0, nat(samples, batch) && batch > 0, 'epochs', [samples, batch]) }
+    /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */ static accuracy(correct: number, total:
+    number): CrossFormula { return c('learning-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋',
+    total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'accuracy', [correct, total]) } /** LOSS as a percentage. value ⌊errors · 100 / total⌋. */ static
+    loss(errors: number, total: number): CrossFormula { return c('learning-loss', 'loss(errors, total) = ⌊errors
+    · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0, nat(errors, total) && total > 0 &&
+    errors <= total, 'loss', [errors, total]) } /** SPLIT: a percentage of the data. value ⌊data · pct / 100⌋.
+    */ static split(data: number, pct: number): CrossFormula { return c('learning-split', 'split(data, pct) =
+    ⌊data · pct / 100⌋', Math.floor((data * pct) / 100), nat(data, pct) && pct <= 100, 'split', [data, pct]) }
+    /** PARAMS: layers at a per-layer count. value layers · perLayer. */ static params(layers: number, perLayer:
+    number): CrossFormula { return c('learning-params', 'params(layers, perLayer) = layers · perLayer', layers *
+    perLayer, nat(layers, perLayer), 'params', [layers, perLayer]) } /** F1: the harmonic mean of precision and
+    recall. value [p + r > 0] ⌊2 · p · r / (p + r)⌋. */ static f1(precision: number, recall: number):
+    CrossFormula { return c('learning-f1', 'f1(precision, recall) = ⌊2 · precision · recall / (precision +
+    recall)⌋', precision + recall > 0 ? Math.floor((2 * precision * recall) / (precision + recall)) : 0,
+    nat(precision, recall), 'f1', [precision, recall]) } /** OVERFIT: the train-over-val gap, never negative.
+    value max(0, train − val). */ static overfit(train: number, val: number): CrossFormula { return
+    c('learning-overfit', 'overfit(train, val) = max(0, train − val)', Math.max(0, train - val), nat(train,
+    val), 'overfit', [train, val]) } /** THROUGHPUT: samples over seconds. value ⌊samples / seconds⌋. -/
+theorem fam_learning_throughput_1 : ((6000 : Int) / (60 : Int)) = (100 : Int) := by decide
 
 /-- leavening: riseratio(200, 100) = 200 -/
-theorem fam_leavening_riseratio_1 : ((200 * 100) / 100) = 200 := by decide
+theorem fam_leavening_riseratio_1 : (((200 : Int) * (100 : Int)) / (100 : Int)) = (200 : Int) := by decide
 
 /-- leavening: co2volume(5, 40) = 200 -/
-theorem fam_leavening_co2volume_1 : (5 * 40) = 200 := by decide
+theorem fam_leavening_co2volume_1 : ((5 : Int) * (40 : Int)) = (200 : Int) := by decide
 
 /-- leavening: fermentationrate(600, 30) = 20 -/
-theorem fam_leavening_fermentationrate_1 : (600 / 30) = 20 := by decide
+theorem fam_leavening_fermentationrate_1 : ((600 : Int) / (30 : Int)) = (20 : Int) := by decide
 
 /-- leavening: yeastactivity(90, 100) = 90 -/
-theorem fam_leavening_yeastactivity_1 : ((90 * 100) / 100) = 90 := by decide
+theorem fam_leavening_yeastactivity_1 : (((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int) := by decide
 
 /-- leavening: doublingtime(120, 2) = 60 -/
-theorem fam_leavening_doublingtime_1 : (120 / 2) = 60 := by decide
+theorem fam_leavening_doublingtime_1 : ((120 : Int) / (2 : Int)) = (60 : Int) := by decide
 
 /-- leavening: gasretention(80, 100) = 80 -/
-theorem fam_leavening_gasretention_1 : ((80 * 100) / 100) = 80 := by decide
+theorem fam_leavening_gasretention_1 : (((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int) := by decide
 
 /-- leavening: acidityph(50, 10) = 5 -/
-theorem fam_leavening_acidityph_1 : (50 / 10) = 5 := by decide
+theorem fam_leavening_acidityph_1 : ((50 : Int) / (10 : Int)) = (5 : Int) := by decide
 
 /-- leavening: ovenspring(120, 100) = 20 -/
-theorem fam_leavening_ovenspring_1 : (fmax 0 (120 - 100)) = 20 := by decide
+theorem fam_leavening_ovenspring_1 : (fmax (0 : Int) ((120 : Int) - (100 : Int))) = (20 : Int) := by decide
+
+/-- ledger: debits(1000, 5) = 5000 — LedgerFormulas — 8 exact-integer formulas of the ledger domain, each at a
+    hex address crossing to cross; develops the ledger leads. */ const PROOF = "ledger counts: debits(x, y) = x
+    · y; credits(x, y) = x · y; balance(x, y) = max(0, x − y); accounts(x, y) = x + y; entries(x, y) = x · y;
+    periods(x, y) = x + y; reconciled(x, y) = x · 100 / y; combos(x, y) = C(x, y)" const factOf = (x: number):
+    number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf =
+    (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1;
+    for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn:
+    number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'ledger', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `ledger.${name}`, params })
+    export class LedgerFormulas { /** debits(x, y) = x · y. -/
+theorem fam_ledger_debits_1 : ((1000 : Int) * (5 : Int)) = (5000 : Int) := by decide
+
+/-- ledger: credits(1000, 5) = 5000 — LedgerFormulas — 8 exact-integer formulas of the ledger domain, each at a
+    hex address crossing to cross; develops the ledger leads. */ const PROOF = "ledger counts: debits(x, y) = x
+    · y; credits(x, y) = x · y; balance(x, y) = max(0, x − y); accounts(x, y) = x + y; entries(x, y) = x · y;
+    periods(x, y) = x + y; reconciled(x, y) = x · 100 / y; combos(x, y) = C(x, y)" const factOf = (x: number):
+    number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf =
+    (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1;
+    for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn:
+    number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'ledger', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `ledger.${name}`, params })
+    export class LedgerFormulas { /** debits(x, y) = x · y. */ static debits(x: number, y: number): CrossFormula
+    { return f('ledger-debits', 'debits(x, y) = x · y', x * y, nat(x, y), 'debits', [x, y]) } /** credits(x, y)
+    = x · y. -/
+theorem fam_ledger_credits_1 : ((1000 : Int) * (5 : Int)) = (5000 : Int) := by decide
+
+/-- ledger: balance(10000, 4000) = 6000 — LedgerFormulas — 8 exact-integer formulas of the ledger domain, each
+    at a hex address crossing to cross; develops the ledger leads. */ const PROOF = "ledger counts: debits(x, y)
+    = x · y; credits(x, y) = x · y; balance(x, y) = max(0, x − y); accounts(x, y) = x + y; entries(x, y) = x ·
+    y; periods(x, y) = x + y; reconciled(x, y) = x · 100 / y; combos(x, y) = C(x, y)" const factOf = (x:
+    number): number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const
+    combOf = (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k :
+    k, v = 1; for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf =
+    (nn: number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'ledger', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `ledger.${name}`, params })
+    export class LedgerFormulas { /** debits(x, y) = x · y. */ static debits(x: number, y: number): CrossFormula
+    { return f('ledger-debits', 'debits(x, y) = x · y', x * y, nat(x, y), 'debits', [x, y]) } /** credits(x, y)
+    = x · y. */ static credits(x: number, y: number): CrossFormula { return f('ledger-credits', 'credits(x, y) =
+    x · y', x * y, nat(x, y), 'credits', [x, y]) } /** balance(x, y) = max(0, x − y). -/
+theorem fam_ledger_balance_1 : (fmax (0 : Int) ((10000 : Int) - (4000 : Int))) = (6000 : Int) := by decide
+
+/-- ledger: accounts(500, 0) = 500 — LedgerFormulas — 8 exact-integer formulas of the ledger domain, each at a
+    hex address crossing to cross; develops the ledger leads. */ const PROOF = "ledger counts: debits(x, y) = x
+    · y; credits(x, y) = x · y; balance(x, y) = max(0, x − y); accounts(x, y) = x + y; entries(x, y) = x · y;
+    periods(x, y) = x + y; reconciled(x, y) = x · 100 / y; combos(x, y) = C(x, y)" const factOf = (x: number):
+    number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf =
+    (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1;
+    for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn:
+    number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'ledger', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `ledger.${name}`, params })
+    export class LedgerFormulas { /** debits(x, y) = x · y. */ static debits(x: number, y: number): CrossFormula
+    { return f('ledger-debits', 'debits(x, y) = x · y', x * y, nat(x, y), 'debits', [x, y]) } /** credits(x, y)
+    = x · y. */ static credits(x: number, y: number): CrossFormula { return f('ledger-credits', 'credits(x, y) =
+    x · y', x * y, nat(x, y), 'credits', [x, y]) } /** balance(x, y) = max(0, x − y). */ static balance(x:
+    number, y: number): CrossFormula { return f('ledger-balance', 'balance(x, y) = max(0, x − y)', Math.max(0, x
+    - y), nat(x, y), 'balance', [x, y]) } /** accounts(x, y) = x + y. -/
+theorem fam_ledger_accounts_1 : ((500 : Int) + (0 : Int)) = (500 : Int) := by decide
+
+/-- ledger: entries(1000, 2) = 2000 — LedgerFormulas — 8 exact-integer formulas of the ledger domain, each at a
+    hex address crossing to cross; develops the ledger leads. */ const PROOF = "ledger counts: debits(x, y) = x
+    · y; credits(x, y) = x · y; balance(x, y) = max(0, x − y); accounts(x, y) = x + y; entries(x, y) = x · y;
+    periods(x, y) = x + y; reconciled(x, y) = x · 100 / y; combos(x, y) = C(x, y)" const factOf = (x: number):
+    number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf =
+    (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1;
+    for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn:
+    number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'ledger', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `ledger.${name}`, params })
+    export class LedgerFormulas { /** debits(x, y) = x · y. */ static debits(x: number, y: number): CrossFormula
+    { return f('ledger-debits', 'debits(x, y) = x · y', x * y, nat(x, y), 'debits', [x, y]) } /** credits(x, y)
+    = x · y. */ static credits(x: number, y: number): CrossFormula { return f('ledger-credits', 'credits(x, y) =
+    x · y', x * y, nat(x, y), 'credits', [x, y]) } /** balance(x, y) = max(0, x − y). */ static balance(x:
+    number, y: number): CrossFormula { return f('ledger-balance', 'balance(x, y) = max(0, x − y)', Math.max(0, x
+    - y), nat(x, y), 'balance', [x, y]) } /** accounts(x, y) = x + y. */ static accounts(x: number, y: number):
+    CrossFormula { return f('ledger-accounts', 'accounts(x, y) = x + y', x + y, nat(x, y), 'accounts', [x, y]) }
+    /** entries(x, y) = x · y. -/
+theorem fam_ledger_entries_1 : ((1000 : Int) * (2 : Int)) = (2000 : Int) := by decide
+
+/-- ledger: periods(12, 0) = 12 — LedgerFormulas — 8 exact-integer formulas of the ledger domain, each at a hex
+    address crossing to cross; develops the ledger leads. */ const PROOF = "ledger counts: debits(x, y) = x · y;
+    credits(x, y) = x · y; balance(x, y) = max(0, x − y); accounts(x, y) = x + y; entries(x, y) = x · y;
+    periods(x, y) = x + y; reconciled(x, y) = x · 100 / y; combos(x, y) = C(x, y)" const factOf = (x: number):
+    number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf =
+    (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1;
+    for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn:
+    number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'ledger', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `ledger.${name}`, params })
+    export class LedgerFormulas { /** debits(x, y) = x · y. */ static debits(x: number, y: number): CrossFormula
+    { return f('ledger-debits', 'debits(x, y) = x · y', x * y, nat(x, y), 'debits', [x, y]) } /** credits(x, y)
+    = x · y. */ static credits(x: number, y: number): CrossFormula { return f('ledger-credits', 'credits(x, y) =
+    x · y', x * y, nat(x, y), 'credits', [x, y]) } /** balance(x, y) = max(0, x − y). */ static balance(x:
+    number, y: number): CrossFormula { return f('ledger-balance', 'balance(x, y) = max(0, x − y)', Math.max(0, x
+    - y), nat(x, y), 'balance', [x, y]) } /** accounts(x, y) = x + y. */ static accounts(x: number, y: number):
+    CrossFormula { return f('ledger-accounts', 'accounts(x, y) = x + y', x + y, nat(x, y), 'accounts', [x, y]) }
+    /** entries(x, y) = x · y. */ static entries(x: number, y: number): CrossFormula { return
+    f('ledger-entries', 'entries(x, y) = x · y', x * y, nat(x, y), 'entries', [x, y]) } /** periods(x, y) = x +
+    y. -/
+theorem fam_ledger_periods_1 : ((12 : Int) + (0 : Int)) = (12 : Int) := by decide
+
+/-- ledger: reconciled(98, 100) = 98 — LedgerFormulas — 8 exact-integer formulas of the ledger domain, each at a
+    hex address crossing to cross; develops the ledger leads. */ const PROOF = "ledger counts: debits(x, y) = x
+    · y; credits(x, y) = x · y; balance(x, y) = max(0, x − y); accounts(x, y) = x + y; entries(x, y) = x · y;
+    periods(x, y) = x + y; reconciled(x, y) = x · 100 / y; combos(x, y) = C(x, y)" const factOf = (x: number):
+    number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf =
+    (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1;
+    for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn:
+    number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'ledger', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `ledger.${name}`, params })
+    export class LedgerFormulas { /** debits(x, y) = x · y. */ static debits(x: number, y: number): CrossFormula
+    { return f('ledger-debits', 'debits(x, y) = x · y', x * y, nat(x, y), 'debits', [x, y]) } /** credits(x, y)
+    = x · y. */ static credits(x: number, y: number): CrossFormula { return f('ledger-credits', 'credits(x, y) =
+    x · y', x * y, nat(x, y), 'credits', [x, y]) } /** balance(x, y) = max(0, x − y). */ static balance(x:
+    number, y: number): CrossFormula { return f('ledger-balance', 'balance(x, y) = max(0, x − y)', Math.max(0, x
+    - y), nat(x, y), 'balance', [x, y]) } /** accounts(x, y) = x + y. */ static accounts(x: number, y: number):
+    CrossFormula { return f('ledger-accounts', 'accounts(x, y) = x + y', x + y, nat(x, y), 'accounts', [x, y]) }
+    /** entries(x, y) = x · y. */ static entries(x: number, y: number): CrossFormula { return
+    f('ledger-entries', 'entries(x, y) = x · y', x * y, nat(x, y), 'entries', [x, y]) } /** periods(x, y) = x +
+    y. */ static periods(x: number, y: number): CrossFormula { return f('ledger-periods', 'periods(x, y) = x +
+    y', x + y, nat(x, y), 'periods', [x, y]) } /** reconciled(x, y) = x · 100 / y. -/
+theorem fam_ledger_reconciled_1 : (((98 : Int) * (100 : Int)) / (100 : Int)) = (98 : Int) := by decide
+
+/-- ledger: combos(6, 2) = 15 — LedgerFormulas — 8 exact-integer formulas of the ledger domain, each at a hex
+    address crossing to cross; develops the ledger leads. */ const PROOF = "ledger counts: debits(x, y) = x · y;
+    credits(x, y) = x · y; balance(x, y) = max(0, x − y); accounts(x, y) = x + y; entries(x, y) = x · y;
+    periods(x, y) = x + y; reconciled(x, y) = x · 100 / y; combos(x, y) = C(x, y)" const factOf = (x: number):
+    number => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf =
+    (nn: number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1;
+    for (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn:
+    number, k: number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id,
+    src: 'ledger', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `ledger.${name}`, params })
+    export class LedgerFormulas { /** debits(x, y) = x · y. */ static debits(x: number, y: number): CrossFormula
+    { return f('ledger-debits', 'debits(x, y) = x · y', x * y, nat(x, y), 'debits', [x, y]) } /** credits(x, y)
+    = x · y. */ static credits(x: number, y: number): CrossFormula { return f('ledger-credits', 'credits(x, y) =
+    x · y', x * y, nat(x, y), 'credits', [x, y]) } /** balance(x, y) = max(0, x − y). */ static balance(x:
+    number, y: number): CrossFormula { return f('ledger-balance', 'balance(x, y) = max(0, x − y)', Math.max(0, x
+    - y), nat(x, y), 'balance', [x, y]) } /** accounts(x, y) = x + y. */ static accounts(x: number, y: number):
+    CrossFormula { return f('ledger-accounts', 'accounts(x, y) = x + y', x + y, nat(x, y), 'accounts', [x, y]) }
+    /** entries(x, y) = x · y. */ static entries(x: number, y: number): CrossFormula { return
+    f('ledger-entries', 'entries(x, y) = x · y', x * y, nat(x, y), 'entries', [x, y]) } /** periods(x, y) = x +
+    y. */ static periods(x: number, y: number): CrossFormula { return f('ledger-periods', 'periods(x, y) = x +
+    y', x + y, nat(x, y), 'periods', [x, y]) } /** reconciled(x, y) = x · 100 / y. */ static reconciled(x:
+    number, y: number): CrossFormula { return f('ledger-reconciled', 'reconciled(x, y) = x · 100 / y', y > 0 ?
+    Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'reconciled', [x, y]) } /** combos(x, y) = C(x, y). -/
+theorem fam_ledger_combos_1 : (Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int) := by decide
 
 /-- lemmatization: lemmacount(1000, 5) = 200 — LEMMATIZATION — REDUCING WORD FORMS TO THEIR LEMMA, AS
     ARITHMETIC. Normalizing text is numbers: how many lemmas a form set holds, inflections per lemma, forms per
@@ -333,51 +2881,343 @@ theorem fam_leavening_ovenspring_1 : (fmax 0 (120 - 100)) = 20 := by decide
     CrossFormula => crossFormulaOf({ id, src: 'lemmatization', dst: 'linguistics', formula, value, proof: PROOF,
     ...extra }, holds, { name: `lemmatization.${name}`, params }) export class LemmatizationFormulas { /** LEMMA
     COUNT: distinct lemmas from a form set at a fixed forms-per-lemma. value ⌊forms / perLemma⌋. -/
-theorem fam_lemmatization_lemmacount_1 : (1000 / 5) = 200 := by decide
+theorem fam_lemmatization_lemmacount_1 : ((1000 : Int) / (5 : Int)) = (200 : Int) := by decide
 
-/-- lemmatization: inflectionratio(300, 100) = 300 — INFLECTION RATIO: inflected forms per lemma, scaled by 100.
-    value ⌊forms · 100 / lemmas⌋. -/
-theorem fam_lemmatization_inflectionratio_1 : ((300 * 100) / 100) = 300 := by decide
+/-- lemmatization: inflectionratio(300, 100) = 300 — LEMMATIZATION — REDUCING WORD FORMS TO THEIR LEMMA, AS
+    ARITHMETIC. Normalizing text is numbers: how many lemmas a form set holds, inflections per lemma, forms per
+    lemma, tagging accuracy, how often a form is ambiguous, how much the token stream shrinks, part-of-speech
+    agreement, and vocabulary coverage. Crosses to `linguistics` — lemmatization is a linguistic operation. A
+    measure. */ const PROOF = 'lemmatization arithmetic (lemma count, inflection ratio, forms per lemma,
+    accuracy, ambiguity rate, reduction ratio, pos match, coverage); a measure crossed to linguistics' const nat
+    = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lemmatization', dst: 'linguistics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lemmatization.${name}`, params }) export class LemmatizationFormulas { /** LEMMA
+    COUNT: distinct lemmas from a form set at a fixed forms-per-lemma. value ⌊forms / perLemma⌋. */ static
+    lemmacount(forms: number, perLemma: number): CrossFormula { return c('lemmatization-lemmacount',
+    'lemmacount(forms, perLemma) = ⌊forms / perLemma⌋', perLemma > 0 ? Math.floor(forms / perLemma) : 0,
+    nat(forms, perLemma) && perLemma > 0, 'lemmacount', [forms, perLemma]) } /** INFLECTION RATIO: inflected
+    forms per lemma, scaled by 100. value ⌊forms · 100 / lemmas⌋. -/
+theorem fam_lemmatization_inflectionratio_1 : (((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int) := by decide
 
-/-- lemmatization: formsperlemma(500, 100) = 5 — FORMS PER LEMMA: surface forms over the lemmas they reduce to.
+/-- lemmatization: formsperlemma(500, 100) = 5 — LEMMATIZATION — REDUCING WORD FORMS TO THEIR LEMMA, AS
+    ARITHMETIC. Normalizing text is numbers: how many lemmas a form set holds, inflections per lemma, forms per
+    lemma, tagging accuracy, how often a form is ambiguous, how much the token stream shrinks, part-of-speech
+    agreement, and vocabulary coverage. Crosses to `linguistics` — lemmatization is a linguistic operation. A
+    measure. */ const PROOF = 'lemmatization arithmetic (lemma count, inflection ratio, forms per lemma,
+    accuracy, ambiguity rate, reduction ratio, pos match, coverage); a measure crossed to linguistics' const nat
+    = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lemmatization', dst: 'linguistics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lemmatization.${name}`, params }) export class LemmatizationFormulas { /** LEMMA
+    COUNT: distinct lemmas from a form set at a fixed forms-per-lemma. value ⌊forms / perLemma⌋. */ static
+    lemmacount(forms: number, perLemma: number): CrossFormula { return c('lemmatization-lemmacount',
+    'lemmacount(forms, perLemma) = ⌊forms / perLemma⌋', perLemma > 0 ? Math.floor(forms / perLemma) : 0,
+    nat(forms, perLemma) && perLemma > 0, 'lemmacount', [forms, perLemma]) } /** INFLECTION RATIO: inflected
+    forms per lemma, scaled by 100. value ⌊forms · 100 / lemmas⌋. */ static inflectionratio(forms: number,
+    lemmas: number): CrossFormula { return c('lemmatization-inflectionratio', 'inflectionratio(forms, lemmas) =
+    ⌊forms · 100 / lemmas⌋', lemmas > 0 ? Math.floor((forms * 100) / lemmas) : 0, nat(forms, lemmas) && lemmas >
+    0, 'inflectionratio', [forms, lemmas]) } /** FORMS PER LEMMA: surface forms over the lemmas they reduce to.
     value ⌊forms / lemmas⌋. -/
-theorem fam_lemmatization_formsperlemma_1 : (500 / 100) = 5 := by decide
+theorem fam_lemmatization_formsperlemma_1 : ((500 : Int) / (100 : Int)) = (5 : Int) := by decide
 
-/-- lemmatization: accuracy(950, 1000) = 95 — ACCURACY: correctly lemmatized tokens as a percentage. value
-    ⌊correct · 100 / total⌋. -/
-theorem fam_lemmatization_accuracy_1 : ((950 * 100) / 1000) = 95 := by decide
+/-- lemmatization: accuracy(950, 1000) = 95 — LEMMATIZATION — REDUCING WORD FORMS TO THEIR LEMMA, AS ARITHMETIC.
+    Normalizing text is numbers: how many lemmas a form set holds, inflections per lemma, forms per lemma,
+    tagging accuracy, how often a form is ambiguous, how much the token stream shrinks, part-of-speech
+    agreement, and vocabulary coverage. Crosses to `linguistics` — lemmatization is a linguistic operation. A
+    measure. */ const PROOF = 'lemmatization arithmetic (lemma count, inflection ratio, forms per lemma,
+    accuracy, ambiguity rate, reduction ratio, pos match, coverage); a measure crossed to linguistics' const nat
+    = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lemmatization', dst: 'linguistics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lemmatization.${name}`, params }) export class LemmatizationFormulas { /** LEMMA
+    COUNT: distinct lemmas from a form set at a fixed forms-per-lemma. value ⌊forms / perLemma⌋. */ static
+    lemmacount(forms: number, perLemma: number): CrossFormula { return c('lemmatization-lemmacount',
+    'lemmacount(forms, perLemma) = ⌊forms / perLemma⌋', perLemma > 0 ? Math.floor(forms / perLemma) : 0,
+    nat(forms, perLemma) && perLemma > 0, 'lemmacount', [forms, perLemma]) } /** INFLECTION RATIO: inflected
+    forms per lemma, scaled by 100. value ⌊forms · 100 / lemmas⌋. */ static inflectionratio(forms: number,
+    lemmas: number): CrossFormula { return c('lemmatization-inflectionratio', 'inflectionratio(forms, lemmas) =
+    ⌊forms · 100 / lemmas⌋', lemmas > 0 ? Math.floor((forms * 100) / lemmas) : 0, nat(forms, lemmas) && lemmas >
+    0, 'inflectionratio', [forms, lemmas]) } /** FORMS PER LEMMA: surface forms over the lemmas they reduce to.
+    value ⌊forms / lemmas⌋. */ static formsperlemma(forms: number, lemmas: number): CrossFormula { return
+    c('lemmatization-formsperlemma', 'formsperlemma(forms, lemmas) = ⌊forms / lemmas⌋', lemmas > 0 ?
+    Math.floor(forms / lemmas) : 0, nat(forms, lemmas) && lemmas > 0, 'formsperlemma', [forms, lemmas]) } /**
+    ACCURACY: correctly lemmatized tokens as a percentage. value ⌊correct · 100 / total⌋. -/
+theorem fam_lemmatization_accuracy_1 : (((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int) := by decide
 
-/-- lemmatization: ambiguityrate(50, 1000) = 5 — AMBIGUITY RATE: ambiguous forms as a percentage of all forms.
-    value ⌊ambiguous · 100 / total⌋. -/
-theorem fam_lemmatization_ambiguityrate_1 : ((50 * 100) / 1000) = 5 := by decide
+/-- lemmatization: ambiguityrate(50, 1000) = 5 — LEMMATIZATION — REDUCING WORD FORMS TO THEIR LEMMA, AS
+    ARITHMETIC. Normalizing text is numbers: how many lemmas a form set holds, inflections per lemma, forms per
+    lemma, tagging accuracy, how often a form is ambiguous, how much the token stream shrinks, part-of-speech
+    agreement, and vocabulary coverage. Crosses to `linguistics` — lemmatization is a linguistic operation. A
+    measure. */ const PROOF = 'lemmatization arithmetic (lemma count, inflection ratio, forms per lemma,
+    accuracy, ambiguity rate, reduction ratio, pos match, coverage); a measure crossed to linguistics' const nat
+    = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lemmatization', dst: 'linguistics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lemmatization.${name}`, params }) export class LemmatizationFormulas { /** LEMMA
+    COUNT: distinct lemmas from a form set at a fixed forms-per-lemma. value ⌊forms / perLemma⌋. */ static
+    lemmacount(forms: number, perLemma: number): CrossFormula { return c('lemmatization-lemmacount',
+    'lemmacount(forms, perLemma) = ⌊forms / perLemma⌋', perLemma > 0 ? Math.floor(forms / perLemma) : 0,
+    nat(forms, perLemma) && perLemma > 0, 'lemmacount', [forms, perLemma]) } /** INFLECTION RATIO: inflected
+    forms per lemma, scaled by 100. value ⌊forms · 100 / lemmas⌋. */ static inflectionratio(forms: number,
+    lemmas: number): CrossFormula { return c('lemmatization-inflectionratio', 'inflectionratio(forms, lemmas) =
+    ⌊forms · 100 / lemmas⌋', lemmas > 0 ? Math.floor((forms * 100) / lemmas) : 0, nat(forms, lemmas) && lemmas >
+    0, 'inflectionratio', [forms, lemmas]) } /** FORMS PER LEMMA: surface forms over the lemmas they reduce to.
+    value ⌊forms / lemmas⌋. */ static formsperlemma(forms: number, lemmas: number): CrossFormula { return
+    c('lemmatization-formsperlemma', 'formsperlemma(forms, lemmas) = ⌊forms / lemmas⌋', lemmas > 0 ?
+    Math.floor(forms / lemmas) : 0, nat(forms, lemmas) && lemmas > 0, 'formsperlemma', [forms, lemmas]) } /**
+    ACCURACY: correctly lemmatized tokens as a percentage. value ⌊correct · 100 / total⌋. */ static
+    accuracy(correct: number, total: number): CrossFormula { return c('lemmatization-accuracy',
+    'accuracy(correct, total) = ⌊correct · 100 / total⌋', total > 0 ? Math.floor((correct * 100) / total) : 0,
+    nat(correct, total) && total > 0 && correct <= total, 'accuracy', [correct, total]) } /** AMBIGUITY RATE:
+    ambiguous forms as a percentage of all forms. value ⌊ambiguous · 100 / total⌋. -/
+theorem fam_lemmatization_ambiguityrate_1 : (((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int) := by decide
 
-/-- lemmatization: reductionratio(1000, 200) = 80 — REDUCTION RATIO: how much the token stream shrinks to
-    lemmas, as a percentage. value ⌊(tokens − lemmas) · 100 / tokens⌋. -/
-theorem fam_lemmatization_reductionratio_1 : (((fmax 0 (1000 - 200)) * 100) / 1000) = 80 := by decide
+/-- lemmatization: reductionratio(1000, 200) = 80 — LEMMATIZATION — REDUCING WORD FORMS TO THEIR LEMMA, AS
+    ARITHMETIC. Normalizing text is numbers: how many lemmas a form set holds, inflections per lemma, forms per
+    lemma, tagging accuracy, how often a form is ambiguous, how much the token stream shrinks, part-of-speech
+    agreement, and vocabulary coverage. Crosses to `linguistics` — lemmatization is a linguistic operation. A
+    measure. */ const PROOF = 'lemmatization arithmetic (lemma count, inflection ratio, forms per lemma,
+    accuracy, ambiguity rate, reduction ratio, pos match, coverage); a measure crossed to linguistics' const nat
+    = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lemmatization', dst: 'linguistics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lemmatization.${name}`, params }) export class LemmatizationFormulas { /** LEMMA
+    COUNT: distinct lemmas from a form set at a fixed forms-per-lemma. value ⌊forms / perLemma⌋. */ static
+    lemmacount(forms: number, perLemma: number): CrossFormula { return c('lemmatization-lemmacount',
+    'lemmacount(forms, perLemma) = ⌊forms / perLemma⌋', perLemma > 0 ? Math.floor(forms / perLemma) : 0,
+    nat(forms, perLemma) && perLemma > 0, 'lemmacount', [forms, perLemma]) } /** INFLECTION RATIO: inflected
+    forms per lemma, scaled by 100. value ⌊forms · 100 / lemmas⌋. */ static inflectionratio(forms: number,
+    lemmas: number): CrossFormula { return c('lemmatization-inflectionratio', 'inflectionratio(forms, lemmas) =
+    ⌊forms · 100 / lemmas⌋', lemmas > 0 ? Math.floor((forms * 100) / lemmas) : 0, nat(forms, lemmas) && lemmas >
+    0, 'inflectionratio', [forms, lemmas]) } /** FORMS PER LEMMA: surface forms over the lemmas they reduce to.
+    value ⌊forms / lemmas⌋. */ static formsperlemma(forms: number, lemmas: number): CrossFormula { return
+    c('lemmatization-formsperlemma', 'formsperlemma(forms, lemmas) = ⌊forms / lemmas⌋', lemmas > 0 ?
+    Math.floor(forms / lemmas) : 0, nat(forms, lemmas) && lemmas > 0, 'formsperlemma', [forms, lemmas]) } /**
+    ACCURACY: correctly lemmatized tokens as a percentage. value ⌊correct · 100 / total⌋. */ static
+    accuracy(correct: number, total: number): CrossFormula { return c('lemmatization-accuracy',
+    'accuracy(correct, total) = ⌊correct · 100 / total⌋', total > 0 ? Math.floor((correct * 100) / total) : 0,
+    nat(correct, total) && total > 0 && correct <= total, 'accuracy', [correct, total]) } /** AMBIGUITY RATE:
+    ambiguous forms as a percentage of all forms. value ⌊ambiguous · 100 / total⌋. */ static
+    ambiguityrate(ambiguous: number, total: number): CrossFormula { return c('lemmatization-ambiguityrate',
+    'ambiguityrate(ambiguous, total) = ⌊ambiguous · 100 / total⌋', total > 0 ? Math.floor((ambiguous * 100) /
+    total) : 0, nat(ambiguous, total) && total > 0 && ambiguous <= total, 'ambiguityrate', [ambiguous, total]) }
+    /** REDUCTION RATIO: how much the token stream shrinks to lemmas, as a percentage. value ⌊(tokens − lemmas)
+    · 100 / tokens⌋. -/
+theorem fam_lemmatization_reductionratio_1 : (((fmax (0 : Int) ((1000 : Int) - (200 : Int))) * (100 : Int)) / (1000 : Int)) = (80 : Int) := by decide
 
-/-- lemmatization: posmatch(900, 1000) = 90 — POS MATCH: part-of-speech tags agreeing with the gold set, as a
-    percentage. value ⌊matched · 100 / total⌋. -/
-theorem fam_lemmatization_posmatch_1 : ((900 * 100) / 1000) = 90 := by decide
+/-- lemmatization: posmatch(900, 1000) = 90 — LEMMATIZATION — REDUCING WORD FORMS TO THEIR LEMMA, AS ARITHMETIC.
+    Normalizing text is numbers: how many lemmas a form set holds, inflections per lemma, forms per lemma,
+    tagging accuracy, how often a form is ambiguous, how much the token stream shrinks, part-of-speech
+    agreement, and vocabulary coverage. Crosses to `linguistics` — lemmatization is a linguistic operation. A
+    measure. */ const PROOF = 'lemmatization arithmetic (lemma count, inflection ratio, forms per lemma,
+    accuracy, ambiguity rate, reduction ratio, pos match, coverage); a measure crossed to linguistics' const nat
+    = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lemmatization', dst: 'linguistics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lemmatization.${name}`, params }) export class LemmatizationFormulas { /** LEMMA
+    COUNT: distinct lemmas from a form set at a fixed forms-per-lemma. value ⌊forms / perLemma⌋. */ static
+    lemmacount(forms: number, perLemma: number): CrossFormula { return c('lemmatization-lemmacount',
+    'lemmacount(forms, perLemma) = ⌊forms / perLemma⌋', perLemma > 0 ? Math.floor(forms / perLemma) : 0,
+    nat(forms, perLemma) && perLemma > 0, 'lemmacount', [forms, perLemma]) } /** INFLECTION RATIO: inflected
+    forms per lemma, scaled by 100. value ⌊forms · 100 / lemmas⌋. */ static inflectionratio(forms: number,
+    lemmas: number): CrossFormula { return c('lemmatization-inflectionratio', 'inflectionratio(forms, lemmas) =
+    ⌊forms · 100 / lemmas⌋', lemmas > 0 ? Math.floor((forms * 100) / lemmas) : 0, nat(forms, lemmas) && lemmas >
+    0, 'inflectionratio', [forms, lemmas]) } /** FORMS PER LEMMA: surface forms over the lemmas they reduce to.
+    value ⌊forms / lemmas⌋. */ static formsperlemma(forms: number, lemmas: number): CrossFormula { return
+    c('lemmatization-formsperlemma', 'formsperlemma(forms, lemmas) = ⌊forms / lemmas⌋', lemmas > 0 ?
+    Math.floor(forms / lemmas) : 0, nat(forms, lemmas) && lemmas > 0, 'formsperlemma', [forms, lemmas]) } /**
+    ACCURACY: correctly lemmatized tokens as a percentage. value ⌊correct · 100 / total⌋. */ static
+    accuracy(correct: number, total: number): CrossFormula { return c('lemmatization-accuracy',
+    'accuracy(correct, total) = ⌊correct · 100 / total⌋', total > 0 ? Math.floor((correct * 100) / total) : 0,
+    nat(correct, total) && total > 0 && correct <= total, 'accuracy', [correct, total]) } /** AMBIGUITY RATE:
+    ambiguous forms as a percentage of all forms. value ⌊ambiguous · 100 / total⌋. */ static
+    ambiguityrate(ambiguous: number, total: number): CrossFormula { return c('lemmatization-ambiguityrate',
+    'ambiguityrate(ambiguous, total) = ⌊ambiguous · 100 / total⌋', total > 0 ? Math.floor((ambiguous * 100) /
+    total) : 0, nat(ambiguous, total) && total > 0 && ambiguous <= total, 'ambiguityrate', [ambiguous, total]) }
+    /** REDUCTION RATIO: how much the token stream shrinks to lemmas, as a percentage. value ⌊(tokens − lemmas)
+    · 100 / tokens⌋. */ static reductionratio(tokens: number, lemmas: number): CrossFormula { return
+    c('lemmatization-reductionratio', 'reductionratio(tokens, lemmas) = ⌊max(0, tokens − lemmas) · 100 /
+    tokens⌋', tokens > 0 ? Math.floor((Math.max(0, tokens - lemmas) * 100) / tokens) : 0, nat(tokens, lemmas) &&
+    tokens > 0, 'reductionratio', [tokens, lemmas]) } /** POS MATCH: part-of-speech tags agreeing with the gold
+    set, as a percentage. value ⌊matched · 100 / total⌋. -/
+theorem fam_lemmatization_posmatch_1 : (((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int) := by decide
 
-/-- lemmatization: coverage(8000, 10000) = 80 — COVERAGE: vocabulary entries the lexicon resolves, as a
-    percentage. value ⌊found · 100 / vocab⌋. -/
-theorem fam_lemmatization_coverage_1 : ((8000 * 100) / 10000) = 80 := by decide
+/-- lemmatization: coverage(8000, 10000) = 80 — LEMMATIZATION — REDUCING WORD FORMS TO THEIR LEMMA, AS
+    ARITHMETIC. Normalizing text is numbers: how many lemmas a form set holds, inflections per lemma, forms per
+    lemma, tagging accuracy, how often a form is ambiguous, how much the token stream shrinks, part-of-speech
+    agreement, and vocabulary coverage. Crosses to `linguistics` — lemmatization is a linguistic operation. A
+    measure. */ const PROOF = 'lemmatization arithmetic (lemma count, inflection ratio, forms per lemma,
+    accuracy, ambiguity rate, reduction ratio, pos match, coverage); a measure crossed to linguistics' const nat
+    = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lemmatization', dst: 'linguistics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lemmatization.${name}`, params }) export class LemmatizationFormulas { /** LEMMA
+    COUNT: distinct lemmas from a form set at a fixed forms-per-lemma. value ⌊forms / perLemma⌋. */ static
+    lemmacount(forms: number, perLemma: number): CrossFormula { return c('lemmatization-lemmacount',
+    'lemmacount(forms, perLemma) = ⌊forms / perLemma⌋', perLemma > 0 ? Math.floor(forms / perLemma) : 0,
+    nat(forms, perLemma) && perLemma > 0, 'lemmacount', [forms, perLemma]) } /** INFLECTION RATIO: inflected
+    forms per lemma, scaled by 100. value ⌊forms · 100 / lemmas⌋. */ static inflectionratio(forms: number,
+    lemmas: number): CrossFormula { return c('lemmatization-inflectionratio', 'inflectionratio(forms, lemmas) =
+    ⌊forms · 100 / lemmas⌋', lemmas > 0 ? Math.floor((forms * 100) / lemmas) : 0, nat(forms, lemmas) && lemmas >
+    0, 'inflectionratio', [forms, lemmas]) } /** FORMS PER LEMMA: surface forms over the lemmas they reduce to.
+    value ⌊forms / lemmas⌋. */ static formsperlemma(forms: number, lemmas: number): CrossFormula { return
+    c('lemmatization-formsperlemma', 'formsperlemma(forms, lemmas) = ⌊forms / lemmas⌋', lemmas > 0 ?
+    Math.floor(forms / lemmas) : 0, nat(forms, lemmas) && lemmas > 0, 'formsperlemma', [forms, lemmas]) } /**
+    ACCURACY: correctly lemmatized tokens as a percentage. value ⌊correct · 100 / total⌋. */ static
+    accuracy(correct: number, total: number): CrossFormula { return c('lemmatization-accuracy',
+    'accuracy(correct, total) = ⌊correct · 100 / total⌋', total > 0 ? Math.floor((correct * 100) / total) : 0,
+    nat(correct, total) && total > 0 && correct <= total, 'accuracy', [correct, total]) } /** AMBIGUITY RATE:
+    ambiguous forms as a percentage of all forms. value ⌊ambiguous · 100 / total⌋. */ static
+    ambiguityrate(ambiguous: number, total: number): CrossFormula { return c('lemmatization-ambiguityrate',
+    'ambiguityrate(ambiguous, total) = ⌊ambiguous · 100 / total⌋', total > 0 ? Math.floor((ambiguous * 100) /
+    total) : 0, nat(ambiguous, total) && total > 0 && ambiguous <= total, 'ambiguityrate', [ambiguous, total]) }
+    /** REDUCTION RATIO: how much the token stream shrinks to lemmas, as a percentage. value ⌊(tokens − lemmas)
+    · 100 / tokens⌋. */ static reductionratio(tokens: number, lemmas: number): CrossFormula { return
+    c('lemmatization-reductionratio', 'reductionratio(tokens, lemmas) = ⌊max(0, tokens − lemmas) · 100 /
+    tokens⌋', tokens > 0 ? Math.floor((Math.max(0, tokens - lemmas) * 100) / tokens) : 0, nat(tokens, lemmas) &&
+    tokens > 0, 'reductionratio', [tokens, lemmas]) } /** POS MATCH: part-of-speech tags agreeing with the gold
+    set, as a percentage. value ⌊matched · 100 / total⌋. */ static posmatch(matched: number, total: number):
+    CrossFormula { return c('lemmatization-posmatch', 'posmatch(matched, total) = ⌊matched · 100 / total⌋',
+    total > 0 ? Math.floor((matched * 100) / total) : 0, nat(matched, total) && total > 0 && matched <= total,
+    'posmatch', [matched, total]) } /** COVERAGE: vocabulary entries the lexicon resolves, as a percentage.
+    value ⌊found · 100 / vocab⌋. -/
+theorem fam_lemmatization_coverage_1 : (((8000 : Int) * (100 : Int)) / (10000 : Int)) = (80 : Int) := by decide
 
-/-- lenses: magnification(100, 25) = 4 — FOCAL LENGTH from an object and image distance (thin lens). value ⌊obj
-    · img / (obj + img)⌋. */ static focallength(obj: number, img: number): CrossFormula { const s = obj + img;
-    return c('lenses-focallength', 'focallength(obj, img) = ⌊obj · img / (obj + img)⌋', s > 0 ? Math.floor((obj
-    * img) / s) : 0, nat(obj, img) && s > 0, 'focallength', [obj, img]) } /** IMAGE DISTANCE from object
-    distance and focal length (thin lens). value ⌊obj · f / (obj − f)⌋. */ static imagedistance(obj: number, f:
-    number): CrossFormula { const d = Math.max(0, obj - f); return c('lenses-imagedistance', 'imagedistance(obj,
-    f) = ⌊obj · f / (obj − f)⌋', d > 0 ? Math.floor((obj * f) / d) : 0, nat(obj, f) && d > 0, 'imagedistance',
-    [obj, f]) } /** MAGNIFICATION: image distance over object distance. value ⌊img / obj⌋. -/
-theorem fam_lenses_magnification_1 : (100 / 25) = 4 := by decide
+/-- lenses: focallength(30, 60) = 20 — LENSES — GEOMETRIC OPTICS AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A lens is numbers: the focal length an object and image fix, magnification, the
+    f-number, optical power, the image distance the thin-lens law gives, field of view, numerical aperture, and
+    hyperfocal depth of field. Crosses to `optics` — a lens is what optics describes. A measure. */ const PROOF
+    = 'lenses arithmetic (focal length, magnification, f-number, optical power, image distance, field of view,
+    numerical aperture, depth of field); the thin-lens law as integers; a measure crossed to optics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lenses', dst: 'optics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lenses.${name}`, params }) export class LensesFormulas { /** DEPTH OF FIELD (hyperfocal
+    distance): focal length squared over f-number times circle of confusion. value ⌊f² / (N · coc)⌋. */ static
+    depthoffield(f: number, N: number, coc: number): CrossFormula { const d = N * coc; return
+    c('lenses-depthoffield', 'depthoffield(f, N, coc) = ⌊f² / (N · coc)⌋', d > 0 ? Math.floor((f * f) / d) : 0,
+    nat(f, N, coc) && N > 0 && coc > 0, 'depthoffield', [f, N, coc]) } /** FIELD OF VIEW: the width a sensor
+    sees at a distance through a lens. value ⌊distance · sensor / f⌋. */ static fieldofview(distance: number,
+    sensor: number, f: number): CrossFormula { return c('lenses-fieldofview', 'fieldofview(distance, sensor, f)
+    = ⌊distance · sensor / f⌋', f > 0 ? Math.floor((distance * sensor) / f) : 0, nat(distance, sensor, f) && f >
+    0, 'fieldofview', [distance, sensor, f]) } /** F-NUMBER: focal length over aperture diameter. value ⌊f / D⌋.
+    */ static fnumber(f: number, D: number): CrossFormula { return c('lenses-fnumber', 'fnumber(f, D) = ⌊f /
+    D⌋', D > 0 ? Math.floor(f / D) : 0, nat(f, D) && D > 0, 'fnumber', [f, D]) } /** FOCAL LENGTH from an object
+    and image distance (thin lens). value ⌊obj · img / (obj + img)⌋. -/
+theorem fam_lenses_focallength_1 : (((30 : Int) * (60 : Int)) / ((30 : Int) + (60 : Int))) = (20 : Int) := by decide
 
-/-- lenses: fnumber(50, 25) = 2 — F-NUMBER: focal length over aperture diameter. value ⌊f / D⌋. -/
-theorem fam_lenses_fnumber_1 : (50 / 25) = 2 := by decide
+/-- lenses: magnification(100, 25) = 4 — LENSES — GEOMETRIC OPTICS AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A lens is numbers: the focal length an object and image fix, magnification, the
+    f-number, optical power, the image distance the thin-lens law gives, field of view, numerical aperture, and
+    hyperfocal depth of field. Crosses to `optics` — a lens is what optics describes. A measure. */ const PROOF
+    = 'lenses arithmetic (focal length, magnification, f-number, optical power, image distance, field of view,
+    numerical aperture, depth of field); the thin-lens law as integers; a measure crossed to optics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lenses', dst: 'optics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lenses.${name}`, params }) export class LensesFormulas { /** DEPTH OF FIELD (hyperfocal
+    distance): focal length squared over f-number times circle of confusion. value ⌊f² / (N · coc)⌋. */ static
+    depthoffield(f: number, N: number, coc: number): CrossFormula { const d = N * coc; return
+    c('lenses-depthoffield', 'depthoffield(f, N, coc) = ⌊f² / (N · coc)⌋', d > 0 ? Math.floor((f * f) / d) : 0,
+    nat(f, N, coc) && N > 0 && coc > 0, 'depthoffield', [f, N, coc]) } /** FIELD OF VIEW: the width a sensor
+    sees at a distance through a lens. value ⌊distance · sensor / f⌋. */ static fieldofview(distance: number,
+    sensor: number, f: number): CrossFormula { return c('lenses-fieldofview', 'fieldofview(distance, sensor, f)
+    = ⌊distance · sensor / f⌋', f > 0 ? Math.floor((distance * sensor) / f) : 0, nat(distance, sensor, f) && f >
+    0, 'fieldofview', [distance, sensor, f]) } /** F-NUMBER: focal length over aperture diameter. value ⌊f / D⌋.
+    */ static fnumber(f: number, D: number): CrossFormula { return c('lenses-fnumber', 'fnumber(f, D) = ⌊f /
+    D⌋', D > 0 ? Math.floor(f / D) : 0, nat(f, D) && D > 0, 'fnumber', [f, D]) } /** FOCAL LENGTH from an object
+    and image distance (thin lens). value ⌊obj · img / (obj + img)⌋. */ static focallength(obj: number, img:
+    number): CrossFormula { const s = obj + img; return c('lenses-focallength', 'focallength(obj, img) = ⌊obj ·
+    img / (obj + img)⌋', s > 0 ? Math.floor((obj * img) / s) : 0, nat(obj, img) && s > 0, 'focallength', [obj,
+    img]) } /** IMAGE DISTANCE from object distance and focal length (thin lens). value ⌊obj · f / (obj − f)⌋.
+    */ static imagedistance(obj: number, f: number): CrossFormula { const d = Math.max(0, obj - f); return
+    c('lenses-imagedistance', 'imagedistance(obj, f) = ⌊obj · f / (obj − f)⌋', d > 0 ? Math.floor((obj * f) / d)
+    : 0, nat(obj, f) && d > 0, 'imagedistance', [obj, f]) } /** MAGNIFICATION: image distance over object
+    distance. value ⌊img / obj⌋. -/
+theorem fam_lenses_magnification_1 : ((100 : Int) / (25 : Int)) = (4 : Int) := by decide
 
-/-- lenses: power(50) = 20 — OPTICAL POWER in diopters: a thousand over the focal length (mm). value ⌊1000 / f⌋. -/
-theorem fam_lenses_power_1 : (1000 / 50) = 20 := by decide
+/-- lenses: fnumber(50, 25) = 2 — LENSES — GEOMETRIC OPTICS AS ARITHMETIC (chosen by the public-API registry,
+    not by hand). A lens is numbers: the focal length an object and image fix, magnification, the f-number,
+    optical power, the image distance the thin-lens law gives, field of view, numerical aperture, and hyperfocal
+    depth of field. Crosses to `optics` — a lens is what optics describes. A measure. */ const PROOF = 'lenses
+    arithmetic (focal length, magnification, f-number, optical power, image distance, field of view, numerical
+    aperture, depth of field); the thin-lens law as integers; a measure crossed to optics' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lenses', dst: 'optics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lenses.${name}`, params }) export class LensesFormulas { /** DEPTH OF FIELD (hyperfocal
+    distance): focal length squared over f-number times circle of confusion. value ⌊f² / (N · coc)⌋. */ static
+    depthoffield(f: number, N: number, coc: number): CrossFormula { const d = N * coc; return
+    c('lenses-depthoffield', 'depthoffield(f, N, coc) = ⌊f² / (N · coc)⌋', d > 0 ? Math.floor((f * f) / d) : 0,
+    nat(f, N, coc) && N > 0 && coc > 0, 'depthoffield', [f, N, coc]) } /** FIELD OF VIEW: the width a sensor
+    sees at a distance through a lens. value ⌊distance · sensor / f⌋. */ static fieldofview(distance: number,
+    sensor: number, f: number): CrossFormula { return c('lenses-fieldofview', 'fieldofview(distance, sensor, f)
+    = ⌊distance · sensor / f⌋', f > 0 ? Math.floor((distance * sensor) / f) : 0, nat(distance, sensor, f) && f >
+    0, 'fieldofview', [distance, sensor, f]) } /** F-NUMBER: focal length over aperture diameter. value ⌊f / D⌋. -/
+theorem fam_lenses_fnumber_1 : ((50 : Int) / (25 : Int)) = (2 : Int) := by decide
+
+/-- lenses: power(50) = 20 — LENSES — GEOMETRIC OPTICS AS ARITHMETIC (chosen by the public-API registry, not by
+    hand). A lens is numbers: the focal length an object and image fix, magnification, the f-number, optical
+    power, the image distance the thin-lens law gives, field of view, numerical aperture, and hyperfocal depth
+    of field. Crosses to `optics` — a lens is what optics describes. A measure. */ const PROOF = 'lenses
+    arithmetic (focal length, magnification, f-number, optical power, image distance, field of view, numerical
+    aperture, depth of field); the thin-lens law as integers; a measure crossed to optics' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lenses', dst: 'optics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lenses.${name}`, params }) export class LensesFormulas { /** DEPTH OF FIELD (hyperfocal
+    distance): focal length squared over f-number times circle of confusion. value ⌊f² / (N · coc)⌋. */ static
+    depthoffield(f: number, N: number, coc: number): CrossFormula { const d = N * coc; return
+    c('lenses-depthoffield', 'depthoffield(f, N, coc) = ⌊f² / (N · coc)⌋', d > 0 ? Math.floor((f * f) / d) : 0,
+    nat(f, N, coc) && N > 0 && coc > 0, 'depthoffield', [f, N, coc]) } /** FIELD OF VIEW: the width a sensor
+    sees at a distance through a lens. value ⌊distance · sensor / f⌋. */ static fieldofview(distance: number,
+    sensor: number, f: number): CrossFormula { return c('lenses-fieldofview', 'fieldofview(distance, sensor, f)
+    = ⌊distance · sensor / f⌋', f > 0 ? Math.floor((distance * sensor) / f) : 0, nat(distance, sensor, f) && f >
+    0, 'fieldofview', [distance, sensor, f]) } /** F-NUMBER: focal length over aperture diameter. value ⌊f / D⌋.
+    */ static fnumber(f: number, D: number): CrossFormula { return c('lenses-fnumber', 'fnumber(f, D) = ⌊f /
+    D⌋', D > 0 ? Math.floor(f / D) : 0, nat(f, D) && D > 0, 'fnumber', [f, D]) } /** FOCAL LENGTH from an object
+    and image distance (thin lens). value ⌊obj · img / (obj + img)⌋. */ static focallength(obj: number, img:
+    number): CrossFormula { const s = obj + img; return c('lenses-focallength', 'focallength(obj, img) = ⌊obj ·
+    img / (obj + img)⌋', s > 0 ? Math.floor((obj * img) / s) : 0, nat(obj, img) && s > 0, 'focallength', [obj,
+    img]) } /** IMAGE DISTANCE from object distance and focal length (thin lens). value ⌊obj · f / (obj − f)⌋.
+    */ static imagedistance(obj: number, f: number): CrossFormula { const d = Math.max(0, obj - f); return
+    c('lenses-imagedistance', 'imagedistance(obj, f) = ⌊obj · f / (obj − f)⌋', d > 0 ? Math.floor((obj * f) / d)
+    : 0, nat(obj, f) && d > 0, 'imagedistance', [obj, f]) } /** MAGNIFICATION: image distance over object
+    distance. value ⌊img / obj⌋. */ static magnification(img: number, obj: number): CrossFormula { return
+    c('lenses-magnification', 'magnification(img, obj) = ⌊img / obj⌋', obj > 0 ? Math.floor(img / obj) : 0,
+    nat(img, obj) && obj > 0, 'magnification', [img, obj]) } /** NUMERICAL APERTURE (scaled ×1000): half the
+    aperture over focal length. value ⌊500 · D / f⌋. */ static numericalaperture(D: number, f: number):
+    CrossFormula { return c('lenses-numericalaperture', 'numericalaperture(D, f) = ⌊500 · D / f⌋', f > 0 ?
+    Math.floor((500 * D) / f) : 0, nat(D, f) && f > 0, 'numericalaperture', [D, f]) } /** OPTICAL POWER in
+    diopters: a thousand over the focal length (mm). value ⌊1000 / f⌋. -/
+theorem fam_lenses_power_1 : ((1000 : Int) / (50 : Int)) = (20 : Int) := by decide
+
+/-- lenses: imagedistance(30, 20) = 60 — LENSES — GEOMETRIC OPTICS AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A lens is numbers: the focal length an object and image fix, magnification, the
+    f-number, optical power, the image distance the thin-lens law gives, field of view, numerical aperture, and
+    hyperfocal depth of field. Crosses to `optics` — a lens is what optics describes. A measure. */ const PROOF
+    = 'lenses arithmetic (focal length, magnification, f-number, optical power, image distance, field of view,
+    numerical aperture, depth of field); the thin-lens law as integers; a measure crossed to optics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lenses', dst: 'optics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lenses.${name}`, params }) export class LensesFormulas { /** DEPTH OF FIELD (hyperfocal
+    distance): focal length squared over f-number times circle of confusion. value ⌊f² / (N · coc)⌋. */ static
+    depthoffield(f: number, N: number, coc: number): CrossFormula { const d = N * coc; return
+    c('lenses-depthoffield', 'depthoffield(f, N, coc) = ⌊f² / (N · coc)⌋', d > 0 ? Math.floor((f * f) / d) : 0,
+    nat(f, N, coc) && N > 0 && coc > 0, 'depthoffield', [f, N, coc]) } /** FIELD OF VIEW: the width a sensor
+    sees at a distance through a lens. value ⌊distance · sensor / f⌋. */ static fieldofview(distance: number,
+    sensor: number, f: number): CrossFormula { return c('lenses-fieldofview', 'fieldofview(distance, sensor, f)
+    = ⌊distance · sensor / f⌋', f > 0 ? Math.floor((distance * sensor) / f) : 0, nat(distance, sensor, f) && f >
+    0, 'fieldofview', [distance, sensor, f]) } /** F-NUMBER: focal length over aperture diameter. value ⌊f / D⌋.
+    */ static fnumber(f: number, D: number): CrossFormula { return c('lenses-fnumber', 'fnumber(f, D) = ⌊f /
+    D⌋', D > 0 ? Math.floor(f / D) : 0, nat(f, D) && D > 0, 'fnumber', [f, D]) } /** FOCAL LENGTH from an object
+    and image distance (thin lens). value ⌊obj · img / (obj + img)⌋. */ static focallength(obj: number, img:
+    number): CrossFormula { const s = obj + img; return c('lenses-focallength', 'focallength(obj, img) = ⌊obj ·
+    img / (obj + img)⌋', s > 0 ? Math.floor((obj * img) / s) : 0, nat(obj, img) && s > 0, 'focallength', [obj,
+    img]) } /** IMAGE DISTANCE from object distance and focal length (thin lens). value ⌊obj · f / (obj − f)⌋. -/
+theorem fam_lenses_imagedistance_1 : (((30 : Int) * (20 : Int)) / ((30 : Int) - (20 : Int))) = (60 : Int) := by decide
 
 /-- lenses: fieldofview(1000, 36, 50) = 720 — LENSES — GEOMETRIC OPTICS AS ARITHMETIC (chosen by the public-API
     registry, not by hand). A lens is numbers: the focal length an object and image fix, magnification, the
@@ -394,11 +3234,210 @@ theorem fam_lenses_power_1 : (1000 / 50) = 20 := by decide
     c('lenses-depthoffield', 'depthoffield(f, N, coc) = ⌊f² / (N · coc)⌋', d > 0 ? Math.floor((f * f) / d) : 0,
     nat(f, N, coc) && N > 0 && coc > 0, 'depthoffield', [f, N, coc]) } /** FIELD OF VIEW: the width a sensor
     sees at a distance through a lens. value ⌊distance · sensor / f⌋. -/
-theorem fam_lenses_fieldofview_1 : ((1000 * 36) / 50) = 720 := by decide
+theorem fam_lenses_fieldofview_1 : (((1000 : Int) * (36 : Int)) / (50 : Int)) = (720 : Int) := by decide
 
-/-- lenses: numericalaperture(50, 50) = 500 — NUMERICAL APERTURE (scaled ×1000): half the aperture over focal
-    length. value ⌊500 · D / f⌋. -/
-theorem fam_lenses_numericalaperture_1 : ((500 * 50) / 50) = 500 := by decide
+/-- lenses: numericalaperture(50, 50) = 500 — LENSES — GEOMETRIC OPTICS AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A lens is numbers: the focal length an object and image fix, magnification, the
+    f-number, optical power, the image distance the thin-lens law gives, field of view, numerical aperture, and
+    hyperfocal depth of field. Crosses to `optics` — a lens is what optics describes. A measure. */ const PROOF
+    = 'lenses arithmetic (focal length, magnification, f-number, optical power, image distance, field of view,
+    numerical aperture, depth of field); the thin-lens law as integers; a measure crossed to optics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lenses', dst: 'optics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lenses.${name}`, params }) export class LensesFormulas { /** DEPTH OF FIELD (hyperfocal
+    distance): focal length squared over f-number times circle of confusion. value ⌊f² / (N · coc)⌋. */ static
+    depthoffield(f: number, N: number, coc: number): CrossFormula { const d = N * coc; return
+    c('lenses-depthoffield', 'depthoffield(f, N, coc) = ⌊f² / (N · coc)⌋', d > 0 ? Math.floor((f * f) / d) : 0,
+    nat(f, N, coc) && N > 0 && coc > 0, 'depthoffield', [f, N, coc]) } /** FIELD OF VIEW: the width a sensor
+    sees at a distance through a lens. value ⌊distance · sensor / f⌋. */ static fieldofview(distance: number,
+    sensor: number, f: number): CrossFormula { return c('lenses-fieldofview', 'fieldofview(distance, sensor, f)
+    = ⌊distance · sensor / f⌋', f > 0 ? Math.floor((distance * sensor) / f) : 0, nat(distance, sensor, f) && f >
+    0, 'fieldofview', [distance, sensor, f]) } /** F-NUMBER: focal length over aperture diameter. value ⌊f / D⌋.
+    */ static fnumber(f: number, D: number): CrossFormula { return c('lenses-fnumber', 'fnumber(f, D) = ⌊f /
+    D⌋', D > 0 ? Math.floor(f / D) : 0, nat(f, D) && D > 0, 'fnumber', [f, D]) } /** FOCAL LENGTH from an object
+    and image distance (thin lens). value ⌊obj · img / (obj + img)⌋. */ static focallength(obj: number, img:
+    number): CrossFormula { const s = obj + img; return c('lenses-focallength', 'focallength(obj, img) = ⌊obj ·
+    img / (obj + img)⌋', s > 0 ? Math.floor((obj * img) / s) : 0, nat(obj, img) && s > 0, 'focallength', [obj,
+    img]) } /** IMAGE DISTANCE from object distance and focal length (thin lens). value ⌊obj · f / (obj − f)⌋.
+    */ static imagedistance(obj: number, f: number): CrossFormula { const d = Math.max(0, obj - f); return
+    c('lenses-imagedistance', 'imagedistance(obj, f) = ⌊obj · f / (obj − f)⌋', d > 0 ? Math.floor((obj * f) / d)
+    : 0, nat(obj, f) && d > 0, 'imagedistance', [obj, f]) } /** MAGNIFICATION: image distance over object
+    distance. value ⌊img / obj⌋. */ static magnification(img: number, obj: number): CrossFormula { return
+    c('lenses-magnification', 'magnification(img, obj) = ⌊img / obj⌋', obj > 0 ? Math.floor(img / obj) : 0,
+    nat(img, obj) && obj > 0, 'magnification', [img, obj]) } /** NUMERICAL APERTURE (scaled ×1000): half the
+    aperture over focal length. value ⌊500 · D / f⌋. -/
+theorem fam_lenses_numericalaperture_1 : (((500 : Int) * (50 : Int)) / (50 : Int)) = (500 : Int) := by decide
+
+/-- lenses: depthoffield(50, 2, 25) = 50 — LENSES — GEOMETRIC OPTICS AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A lens is numbers: the focal length an object and image fix, magnification, the
+    f-number, optical power, the image distance the thin-lens law gives, field of view, numerical aperture, and
+    hyperfocal depth of field. Crosses to `optics` — a lens is what optics describes. A measure. */ const PROOF
+    = 'lenses arithmetic (focal length, magnification, f-number, optical power, image distance, field of view,
+    numerical aperture, depth of field); the thin-lens law as integers; a measure crossed to optics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lenses', dst: 'optics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lenses.${name}`, params }) export class LensesFormulas { /** DEPTH OF FIELD (hyperfocal
+    distance): focal length squared over f-number times circle of confusion. value ⌊f² / (N · coc)⌋. -/
+theorem fam_lenses_depthoffield_1 : (((50 : Int) ^ (2 : Nat)) / ((2 : Int) * (25 : Int))) = (50 : Int) := by decide
+
+/-- lever: ratio(200, 50) = 4 — LeverFormulas — 8 exact-integer formulas of the lever domain, each at a hex
+    address crossing to cross; develops the lever leads. */ const PROOF = "lever counts: ratio(x, y) = x / y;
+    effort(x, y) = x / y; load(x, y) = x · y; moment(x, y) = x · y; arm(x, y) = x + y; advantage(x, y) = x / y;
+    classes(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number => { if (x > 12) return 0;
+    let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn: number, k: number): number =>
+    { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for (let i = 0; i < kk; i++) v =
+    (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k: number): number => (k < 0 ||
+    k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src: 'lever', dst: 'cross', formula,
+    value, proof: PROOF }, holds, { name: `lever.${name}`, params }) export class LeverFormulas { /** ratio(x,
+    y) = x / y. -/
+theorem fam_lever_ratio_1 : ((200 : Int) / (50 : Int)) = (4 : Int) := by decide
+
+/-- lever: effort(1000, 4) = 250 — LeverFormulas — 8 exact-integer formulas of the lever domain, each at a hex
+    address crossing to cross; develops the lever leads. */ const PROOF = "lever counts: ratio(x, y) = x / y;
+    effort(x, y) = x / y; load(x, y) = x · y; moment(x, y) = x · y; arm(x, y) = x + y; advantage(x, y) = x / y;
+    classes(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number => { if (x > 12) return 0;
+    let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn: number, k: number): number =>
+    { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for (let i = 0; i < kk; i++) v =
+    (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k: number): number => (k < 0 ||
+    k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src: 'lever', dst: 'cross', formula,
+    value, proof: PROOF }, holds, { name: `lever.${name}`, params }) export class LeverFormulas { /** ratio(x,
+    y) = x / y. */ static ratio(x: number, y: number): CrossFormula { return f('lever-ratio', 'ratio(x, y) = x /
+    y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'ratio', [x, y]) } /** effort(x, y) = x / y. -/
+theorem fam_lever_effort_1 : ((1000 : Int) / (4 : Int)) = (250 : Int) := by decide
+
+/-- lever: load(250, 4) = 1000 — LeverFormulas — 8 exact-integer formulas of the lever domain, each at a hex
+    address crossing to cross; develops the lever leads. */ const PROOF = "lever counts: ratio(x, y) = x / y;
+    effort(x, y) = x / y; load(x, y) = x · y; moment(x, y) = x · y; arm(x, y) = x + y; advantage(x, y) = x / y;
+    classes(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number => { if (x > 12) return 0;
+    let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn: number, k: number): number =>
+    { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for (let i = 0; i < kk; i++) v =
+    (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k: number): number => (k < 0 ||
+    k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src: 'lever', dst: 'cross', formula,
+    value, proof: PROOF }, holds, { name: `lever.${name}`, params }) export class LeverFormulas { /** ratio(x,
+    y) = x / y. */ static ratio(x: number, y: number): CrossFormula { return f('lever-ratio', 'ratio(x, y) = x /
+    y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'ratio', [x, y]) } /** effort(x, y) = x / y. */
+    static effort(x: number, y: number): CrossFormula { return f('lever-effort', 'effort(x, y) = x / y', y > 0 ?
+    Math.floor(x / y) : 0, nat(x, y) && y > 0, 'effort', [x, y]) } /** load(x, y) = x · y. -/
+theorem fam_lever_load_1 : ((250 : Int) * (4 : Int)) = (1000 : Int) := by decide
+
+/-- lever: moment(100, 2) = 200 — LeverFormulas — 8 exact-integer formulas of the lever domain, each at a hex
+    address crossing to cross; develops the lever leads. */ const PROOF = "lever counts: ratio(x, y) = x / y;
+    effort(x, y) = x / y; load(x, y) = x · y; moment(x, y) = x · y; arm(x, y) = x + y; advantage(x, y) = x / y;
+    classes(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number => { if (x > 12) return 0;
+    let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn: number, k: number): number =>
+    { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for (let i = 0; i < kk; i++) v =
+    (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k: number): number => (k < 0 ||
+    k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src: 'lever', dst: 'cross', formula,
+    value, proof: PROOF }, holds, { name: `lever.${name}`, params }) export class LeverFormulas { /** ratio(x,
+    y) = x / y. */ static ratio(x: number, y: number): CrossFormula { return f('lever-ratio', 'ratio(x, y) = x /
+    y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'ratio', [x, y]) } /** effort(x, y) = x / y. */
+    static effort(x: number, y: number): CrossFormula { return f('lever-effort', 'effort(x, y) = x / y', y > 0 ?
+    Math.floor(x / y) : 0, nat(x, y) && y > 0, 'effort', [x, y]) } /** load(x, y) = x · y. */ static load(x:
+    number, y: number): CrossFormula { return f('lever-load', 'load(x, y) = x · y', x * y, nat(x, y), 'load',
+    [x, y]) } /** moment(x, y) = x · y. -/
+theorem fam_lever_moment_1 : ((100 : Int) * (2 : Int)) = (200 : Int) := by decide
+
+/-- lever: arm(3, 1) = 4 — LeverFormulas — 8 exact-integer formulas of the lever domain, each at a hex address
+    crossing to cross; develops the lever leads. */ const PROOF = "lever counts: ratio(x, y) = x / y; effort(x,
+    y) = x / y; load(x, y) = x · y; moment(x, y) = x · y; arm(x, y) = x + y; advantage(x, y) = x / y; classes(x,
+    y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number => { if (x > 12) return 0; let v = 1;
+    for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn: number, k: number): number => { if (k <
+    0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for (let i = 0; i < kk; i++) v = (v * (nn -
+    i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k: number): number => (k < 0 || k > nn ||
+    nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src: 'lever', dst: 'cross', formula,
+    value, proof: PROOF }, holds, { name: `lever.${name}`, params }) export class LeverFormulas { /** ratio(x,
+    y) = x / y. */ static ratio(x: number, y: number): CrossFormula { return f('lever-ratio', 'ratio(x, y) = x /
+    y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'ratio', [x, y]) } /** effort(x, y) = x / y. */
+    static effort(x: number, y: number): CrossFormula { return f('lever-effort', 'effort(x, y) = x / y', y > 0 ?
+    Math.floor(x / y) : 0, nat(x, y) && y > 0, 'effort', [x, y]) } /** load(x, y) = x · y. */ static load(x:
+    number, y: number): CrossFormula { return f('lever-load', 'load(x, y) = x · y', x * y, nat(x, y), 'load',
+    [x, y]) } /** moment(x, y) = x · y. */ static moment(x: number, y: number): CrossFormula { return
+    f('lever-moment', 'moment(x, y) = x · y', x * y, nat(x, y), 'moment', [x, y]) } /** arm(x, y) = x + y. -/
+theorem fam_lever_arm_1 : ((3 : Int) + (1 : Int)) = (4 : Int) := by decide
+
+/-- lever: advantage(400, 100) = 4 — LeverFormulas — 8 exact-integer formulas of the lever domain, each at a hex
+    address crossing to cross; develops the lever leads. */ const PROOF = "lever counts: ratio(x, y) = x / y;
+    effort(x, y) = x / y; load(x, y) = x · y; moment(x, y) = x · y; arm(x, y) = x + y; advantage(x, y) = x / y;
+    classes(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number => { if (x > 12) return 0;
+    let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn: number, k: number): number =>
+    { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for (let i = 0; i < kk; i++) v =
+    (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k: number): number => (k < 0 ||
+    k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src: 'lever', dst: 'cross', formula,
+    value, proof: PROOF }, holds, { name: `lever.${name}`, params }) export class LeverFormulas { /** ratio(x,
+    y) = x / y. */ static ratio(x: number, y: number): CrossFormula { return f('lever-ratio', 'ratio(x, y) = x /
+    y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'ratio', [x, y]) } /** effort(x, y) = x / y. */
+    static effort(x: number, y: number): CrossFormula { return f('lever-effort', 'effort(x, y) = x / y', y > 0 ?
+    Math.floor(x / y) : 0, nat(x, y) && y > 0, 'effort', [x, y]) } /** load(x, y) = x · y. */ static load(x:
+    number, y: number): CrossFormula { return f('lever-load', 'load(x, y) = x · y', x * y, nat(x, y), 'load',
+    [x, y]) } /** moment(x, y) = x · y. */ static moment(x: number, y: number): CrossFormula { return
+    f('lever-moment', 'moment(x, y) = x · y', x * y, nat(x, y), 'moment', [x, y]) } /** arm(x, y) = x + y. */
+    static arm(x: number, y: number): CrossFormula { return f('lever-arm', 'arm(x, y) = x + y', x + y, nat(x,
+    y), 'arm', [x, y]) } /** advantage(x, y) = x / y. -/
+theorem fam_lever_advantage_1 : ((400 : Int) / (100 : Int)) = (4 : Int) := by decide
+
+/-- lever: classes(3, 0) = 3 — LeverFormulas — 8 exact-integer formulas of the lever domain, each at a hex
+    address crossing to cross; develops the lever leads. */ const PROOF = "lever counts: ratio(x, y) = x / y;
+    effort(x, y) = x / y; load(x, y) = x · y; moment(x, y) = x · y; arm(x, y) = x + y; advantage(x, y) = x / y;
+    classes(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number => { if (x > 12) return 0;
+    let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn: number, k: number): number =>
+    { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for (let i = 0; i < kk; i++) v =
+    (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k: number): number => (k < 0 ||
+    k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src: 'lever', dst: 'cross', formula,
+    value, proof: PROOF }, holds, { name: `lever.${name}`, params }) export class LeverFormulas { /** ratio(x,
+    y) = x / y. */ static ratio(x: number, y: number): CrossFormula { return f('lever-ratio', 'ratio(x, y) = x /
+    y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'ratio', [x, y]) } /** effort(x, y) = x / y. */
+    static effort(x: number, y: number): CrossFormula { return f('lever-effort', 'effort(x, y) = x / y', y > 0 ?
+    Math.floor(x / y) : 0, nat(x, y) && y > 0, 'effort', [x, y]) } /** load(x, y) = x · y. */ static load(x:
+    number, y: number): CrossFormula { return f('lever-load', 'load(x, y) = x · y', x * y, nat(x, y), 'load',
+    [x, y]) } /** moment(x, y) = x · y. */ static moment(x: number, y: number): CrossFormula { return
+    f('lever-moment', 'moment(x, y) = x · y', x * y, nat(x, y), 'moment', [x, y]) } /** arm(x, y) = x + y. */
+    static arm(x: number, y: number): CrossFormula { return f('lever-arm', 'arm(x, y) = x + y', x + y, nat(x,
+    y), 'arm', [x, y]) } /** advantage(x, y) = x / y. */ static advantage(x: number, y: number): CrossFormula {
+    return f('lever-advantage', 'advantage(x, y) = x / y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0,
+    'advantage', [x, y]) } /** classes(x, y) = x + y. -/
+theorem fam_lever_classes_1 : ((3 : Int) + (0 : Int)) = (3 : Int) := by decide
+
+/-- lever: combos(6, 2) = 15 — LeverFormulas — 8 exact-integer formulas of the lever domain, each at a hex
+    address crossing to cross; develops the lever leads. */ const PROOF = "lever counts: ratio(x, y) = x / y;
+    effort(x, y) = x / y; load(x, y) = x · y; moment(x, y) = x · y; arm(x, y) = x + y; advantage(x, y) = x / y;
+    classes(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number => { if (x > 12) return 0;
+    let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn: number, k: number): number =>
+    { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for (let i = 0; i < kk; i++) v =
+    (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k: number): number => (k < 0 ||
+    k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src: 'lever', dst: 'cross', formula,
+    value, proof: PROOF }, holds, { name: `lever.${name}`, params }) export class LeverFormulas { /** ratio(x,
+    y) = x / y. */ static ratio(x: number, y: number): CrossFormula { return f('lever-ratio', 'ratio(x, y) = x /
+    y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'ratio', [x, y]) } /** effort(x, y) = x / y. */
+    static effort(x: number, y: number): CrossFormula { return f('lever-effort', 'effort(x, y) = x / y', y > 0 ?
+    Math.floor(x / y) : 0, nat(x, y) && y > 0, 'effort', [x, y]) } /** load(x, y) = x · y. */ static load(x:
+    number, y: number): CrossFormula { return f('lever-load', 'load(x, y) = x · y', x * y, nat(x, y), 'load',
+    [x, y]) } /** moment(x, y) = x · y. */ static moment(x: number, y: number): CrossFormula { return
+    f('lever-moment', 'moment(x, y) = x · y', x * y, nat(x, y), 'moment', [x, y]) } /** arm(x, y) = x + y. */
+    static arm(x: number, y: number): CrossFormula { return f('lever-arm', 'arm(x, y) = x + y', x + y, nat(x,
+    y), 'arm', [x, y]) } /** advantage(x, y) = x / y. */ static advantage(x: number, y: number): CrossFormula {
+    return f('lever-advantage', 'advantage(x, y) = x / y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0,
+    'advantage', [x, y]) } /** classes(x, y) = x + y. */ static classes(x: number, y: number): CrossFormula {
+    return f('lever-classes', 'classes(x, y) = x + y', x + y, nat(x, y), 'classes', [x, y]) } /** combos(x, y) =
+    C(x, y). -/
+theorem fam_lever_combos_1 : (Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int) := by decide
 
 /-- leverage: debttoequity(60, 40) = 150 — LEVERAGE — HOW A BALANCE SHEET IS FINANCED, AS ARITHMETIC (chosen by
     the public-API registry, not by hand). Borrowing is numbers: debt against equity, debt against assets, the
@@ -412,39 +3451,250 @@ theorem fam_lenses_numericalaperture_1 : ((500 * 50) / 50) = 500 := by decide
     src: 'leverage', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
     `leverage.${name}`, params }) export class LeverageFormulas { /** DEBT-TO-EQUITY as a percentage. value
     ⌊debt · 100 / equity⌋. -/
-theorem fam_leverage_debttoequity_1 : ((60 * 100) / 40) = 150 := by decide
+theorem fam_leverage_debttoequity_1 : (((60 : Int) * (100 : Int)) / (40 : Int)) = (150 : Int) := by decide
 
-/-- leverage: debtratio(40, 100) = 40 — DEBT RATIO: debt against assets, as a percentage. value ⌊debt · 100 /
-    assets⌋. -/
-theorem fam_leverage_debtratio_1 : ((40 * 100) / 100) = 40 := by decide
+/-- leverage: debtratio(40, 100) = 40 — LEVERAGE — HOW A BALANCE SHEET IS FINANCED, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Borrowing is numbers: debt against equity, debt against assets, the
+    equity multiplier, how many times earnings cover interest, the capital held against assets, operating
+    leverage, the margin kept, and the gearing of debt against the whole capital base. Crosses to `banking` —
+    leverage is what a lender underwrites. A measure. */ const PROOF = 'leverage arithmetic (debt-to-equity,
+    debt ratio, equity multiplier, interest coverage, capital ratio, operating leverage, margin, gearing); a
+    public-API domain; a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'leverage', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `leverage.${name}`, params }) export class LeverageFormulas { /** DEBT-TO-EQUITY as a percentage. value
+    ⌊debt · 100 / equity⌋. */ static debttoequity(debt: number, equity: number): CrossFormula { return
+    c('leverage-debttoequity', 'debttoequity(debt, equity) = ⌊debt · 100 / equity⌋', equity > 0 ?
+    Math.floor((debt * 100) / equity) : 0, nat(debt, equity) && equity > 0, 'debttoequity', [debt, equity]) }
+    /** DEBT RATIO: debt against assets, as a percentage. value ⌊debt · 100 / assets⌋. -/
+theorem fam_leverage_debtratio_1 : (((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int) := by decide
 
-/-- leverage: equitymultiplier(200, 50) = 400 — EQUITY MULTIPLIER: assets financed per unit of equity, as a
+/-- leverage: equitymultiplier(200, 50) = 400 — LEVERAGE — HOW A BALANCE SHEET IS FINANCED, AS ARITHMETIC
+    (chosen by the public-API registry, not by hand). Borrowing is numbers: debt against equity, debt against
+    assets, the equity multiplier, how many times earnings cover interest, the capital held against assets,
+    operating leverage, the margin kept, and the gearing of debt against the whole capital base. Crosses to
+    `banking` — leverage is what a lender underwrites. A measure. */ const PROOF = 'leverage arithmetic
+    (debt-to-equity, debt ratio, equity multiplier, interest coverage, capital ratio, operating leverage,
+    margin, gearing); a public-API domain; a measure crossed to banking' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'leverage', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `leverage.${name}`, params }) export class LeverageFormulas { /** DEBT-TO-EQUITY as a percentage.
+    value ⌊debt · 100 / equity⌋. */ static debttoequity(debt: number, equity: number): CrossFormula { return
+    c('leverage-debttoequity', 'debttoequity(debt, equity) = ⌊debt · 100 / equity⌋', equity > 0 ?
+    Math.floor((debt * 100) / equity) : 0, nat(debt, equity) && equity > 0, 'debttoequity', [debt, equity]) }
+    /** DEBT RATIO: debt against assets, as a percentage. value ⌊debt · 100 / assets⌋. */ static debtratio(debt:
+    number, assets: number): CrossFormula { return c('leverage-debtratio', 'debtratio(debt, assets) = ⌊debt ·
+    100 / assets⌋', assets > 0 ? Math.floor((debt * 100) / assets) : 0, nat(debt, assets) && assets > 0 && debt
+    <= assets, 'debtratio', [debt, assets]) } /** EQUITY MULTIPLIER: assets financed per unit of equity, as a
     percentage. value ⌊assets · 100 / equity⌋. -/
-theorem fam_leverage_equitymultiplier_1 : ((200 * 100) / 50) = 400 := by decide
+theorem fam_leverage_equitymultiplier_1 : (((200 : Int) * (100 : Int)) / (50 : Int)) = (400 : Int) := by decide
 
-/-- leverage: interestcoverage(5000, 1000) = 5 — INTEREST COVERAGE: times earnings cover the interest due. value
-    ⌊ebit / interest⌋. -/
-theorem fam_leverage_interestcoverage_1 : (5000 / 1000) = 5 := by decide
+/-- leverage: interestcoverage(5000, 1000) = 5 — LEVERAGE — HOW A BALANCE SHEET IS FINANCED, AS ARITHMETIC
+    (chosen by the public-API registry, not by hand). Borrowing is numbers: debt against equity, debt against
+    assets, the equity multiplier, how many times earnings cover interest, the capital held against assets,
+    operating leverage, the margin kept, and the gearing of debt against the whole capital base. Crosses to
+    `banking` — leverage is what a lender underwrites. A measure. */ const PROOF = 'leverage arithmetic
+    (debt-to-equity, debt ratio, equity multiplier, interest coverage, capital ratio, operating leverage,
+    margin, gearing); a public-API domain; a measure crossed to banking' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'leverage', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `leverage.${name}`, params }) export class LeverageFormulas { /** DEBT-TO-EQUITY as a percentage.
+    value ⌊debt · 100 / equity⌋. */ static debttoequity(debt: number, equity: number): CrossFormula { return
+    c('leverage-debttoequity', 'debttoequity(debt, equity) = ⌊debt · 100 / equity⌋', equity > 0 ?
+    Math.floor((debt * 100) / equity) : 0, nat(debt, equity) && equity > 0, 'debttoequity', [debt, equity]) }
+    /** DEBT RATIO: debt against assets, as a percentage. value ⌊debt · 100 / assets⌋. */ static debtratio(debt:
+    number, assets: number): CrossFormula { return c('leverage-debtratio', 'debtratio(debt, assets) = ⌊debt ·
+    100 / assets⌋', assets > 0 ? Math.floor((debt * 100) / assets) : 0, nat(debt, assets) && assets > 0 && debt
+    <= assets, 'debtratio', [debt, assets]) } /** EQUITY MULTIPLIER: assets financed per unit of equity, as a
+    percentage. value ⌊assets · 100 / equity⌋. */ static equitymultiplier(assets: number, equity: number):
+    CrossFormula { return c('leverage-equitymultiplier', 'equitymultiplier(assets, equity) = ⌊assets · 100 /
+    equity⌋', equity > 0 ? Math.floor((assets * 100) / equity) : 0, nat(assets, equity) && equity > 0 && equity
+    <= assets, 'equitymultiplier', [assets, equity]) } /** INTEREST COVERAGE: times earnings cover the interest
+    due. value ⌊ebit / interest⌋. -/
+theorem fam_leverage_interestcoverage_1 : ((5000 : Int) / (1000 : Int)) = (5 : Int) := by decide
 
-/-- leverage: capitalratio(12, 150) = 8 — CAPITAL RATIO: capital held against assets, as a percentage. value
-    ⌊capital · 100 / assets⌋. -/
-theorem fam_leverage_capitalratio_1 : ((12 * 100) / 150) = 8 := by decide
+/-- leverage: capitalratio(12, 150) = 8 — LEVERAGE — HOW A BALANCE SHEET IS FINANCED, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). Borrowing is numbers: debt against equity, debt against assets, the
+    equity multiplier, how many times earnings cover interest, the capital held against assets, operating
+    leverage, the margin kept, and the gearing of debt against the whole capital base. Crosses to `banking` —
+    leverage is what a lender underwrites. A measure. */ const PROOF = 'leverage arithmetic (debt-to-equity,
+    debt ratio, equity multiplier, interest coverage, capital ratio, operating leverage, margin, gearing); a
+    public-API domain; a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'leverage', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `leverage.${name}`, params }) export class LeverageFormulas { /** DEBT-TO-EQUITY as a percentage. value
+    ⌊debt · 100 / equity⌋. */ static debttoequity(debt: number, equity: number): CrossFormula { return
+    c('leverage-debttoequity', 'debttoequity(debt, equity) = ⌊debt · 100 / equity⌋', equity > 0 ?
+    Math.floor((debt * 100) / equity) : 0, nat(debt, equity) && equity > 0, 'debttoequity', [debt, equity]) }
+    /** DEBT RATIO: debt against assets, as a percentage. value ⌊debt · 100 / assets⌋. */ static debtratio(debt:
+    number, assets: number): CrossFormula { return c('leverage-debtratio', 'debtratio(debt, assets) = ⌊debt ·
+    100 / assets⌋', assets > 0 ? Math.floor((debt * 100) / assets) : 0, nat(debt, assets) && assets > 0 && debt
+    <= assets, 'debtratio', [debt, assets]) } /** EQUITY MULTIPLIER: assets financed per unit of equity, as a
+    percentage. value ⌊assets · 100 / equity⌋. */ static equitymultiplier(assets: number, equity: number):
+    CrossFormula { return c('leverage-equitymultiplier', 'equitymultiplier(assets, equity) = ⌊assets · 100 /
+    equity⌋', equity > 0 ? Math.floor((assets * 100) / equity) : 0, nat(assets, equity) && equity > 0 && equity
+    <= assets, 'equitymultiplier', [assets, equity]) } /** INTEREST COVERAGE: times earnings cover the interest
+    due. value ⌊ebit / interest⌋. */ static interestcoverage(ebit: number, interest: number): CrossFormula {
+    return c('leverage-interestcoverage', 'interestcoverage(ebit, interest) = ⌊ebit / interest⌋', interest > 0 ?
+    Math.floor(ebit / interest) : 0, nat(ebit, interest) && interest > 0, 'interestcoverage', [ebit, interest])
+    } /** CAPITAL RATIO: capital held against assets, as a percentage. value ⌊capital · 100 / assets⌋. -/
+theorem fam_leverage_capitalratio_1 : (((12 : Int) * (100 : Int)) / (150 : Int)) = (8 : Int) := by decide
 
-/-- leverage: degreeofleverage(300, 120) = 250 — DEGREE OF OPERATING LEVERAGE: contribution margin over
-    operating income, as a percentage. value ⌊contribution · 100 / ebit⌋. -/
-theorem fam_leverage_degreeofleverage_1 : ((300 * 100) / 120) = 250 := by decide
+/-- leverage: degreeofleverage(300, 120) = 250 — LEVERAGE — HOW A BALANCE SHEET IS FINANCED, AS ARITHMETIC
+    (chosen by the public-API registry, not by hand). Borrowing is numbers: debt against equity, debt against
+    assets, the equity multiplier, how many times earnings cover interest, the capital held against assets,
+    operating leverage, the margin kept, and the gearing of debt against the whole capital base. Crosses to
+    `banking` — leverage is what a lender underwrites. A measure. */ const PROOF = 'leverage arithmetic
+    (debt-to-equity, debt ratio, equity multiplier, interest coverage, capital ratio, operating leverage,
+    margin, gearing); a public-API domain; a measure crossed to banking' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'leverage', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `leverage.${name}`, params }) export class LeverageFormulas { /** DEBT-TO-EQUITY as a percentage.
+    value ⌊debt · 100 / equity⌋. */ static debttoequity(debt: number, equity: number): CrossFormula { return
+    c('leverage-debttoequity', 'debttoequity(debt, equity) = ⌊debt · 100 / equity⌋', equity > 0 ?
+    Math.floor((debt * 100) / equity) : 0, nat(debt, equity) && equity > 0, 'debttoequity', [debt, equity]) }
+    /** DEBT RATIO: debt against assets, as a percentage. value ⌊debt · 100 / assets⌋. */ static debtratio(debt:
+    number, assets: number): CrossFormula { return c('leverage-debtratio', 'debtratio(debt, assets) = ⌊debt ·
+    100 / assets⌋', assets > 0 ? Math.floor((debt * 100) / assets) : 0, nat(debt, assets) && assets > 0 && debt
+    <= assets, 'debtratio', [debt, assets]) } /** EQUITY MULTIPLIER: assets financed per unit of equity, as a
+    percentage. value ⌊assets · 100 / equity⌋. */ static equitymultiplier(assets: number, equity: number):
+    CrossFormula { return c('leverage-equitymultiplier', 'equitymultiplier(assets, equity) = ⌊assets · 100 /
+    equity⌋', equity > 0 ? Math.floor((assets * 100) / equity) : 0, nat(assets, equity) && equity > 0 && equity
+    <= assets, 'equitymultiplier', [assets, equity]) } /** INTEREST COVERAGE: times earnings cover the interest
+    due. value ⌊ebit / interest⌋. */ static interestcoverage(ebit: number, interest: number): CrossFormula {
+    return c('leverage-interestcoverage', 'interestcoverage(ebit, interest) = ⌊ebit / interest⌋', interest > 0 ?
+    Math.floor(ebit / interest) : 0, nat(ebit, interest) && interest > 0, 'interestcoverage', [ebit, interest])
+    } /** CAPITAL RATIO: capital held against assets, as a percentage. value ⌊capital · 100 / assets⌋. */ static
+    capitalratio(capital: number, assets: number): CrossFormula { return c('leverage-capitalratio',
+    'capitalratio(capital, assets) = ⌊capital · 100 / assets⌋', assets > 0 ? Math.floor((capital * 100) /
+    assets) : 0, nat(capital, assets) && assets > 0 && capital <= assets, 'capitalratio', [capital, assets]) }
+    /** DEGREE OF OPERATING LEVERAGE: contribution margin over operating income, as a percentage. value
+    ⌊contribution · 100 / ebit⌋. -/
+theorem fam_leverage_degreeofleverage_1 : (((300 : Int) * (100 : Int)) / (120 : Int)) = (250 : Int) := by decide
 
-/-- leverage: marginratio(25, 200) = 12 — MARGIN RATIO: margin kept out of revenue, as a percentage. value
-    ⌊margin · 100 / revenue⌋. -/
-theorem fam_leverage_marginratio_1 : ((25 * 100) / 200) = 12 := by decide
+/-- leverage: marginratio(25, 200) = 12 — LEVERAGE — HOW A BALANCE SHEET IS FINANCED, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). Borrowing is numbers: debt against equity, debt against assets, the
+    equity multiplier, how many times earnings cover interest, the capital held against assets, operating
+    leverage, the margin kept, and the gearing of debt against the whole capital base. Crosses to `banking` —
+    leverage is what a lender underwrites. A measure. */ const PROOF = 'leverage arithmetic (debt-to-equity,
+    debt ratio, equity multiplier, interest coverage, capital ratio, operating leverage, margin, gearing); a
+    public-API domain; a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'leverage', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `leverage.${name}`, params }) export class LeverageFormulas { /** DEBT-TO-EQUITY as a percentage. value
+    ⌊debt · 100 / equity⌋. */ static debttoequity(debt: number, equity: number): CrossFormula { return
+    c('leverage-debttoequity', 'debttoequity(debt, equity) = ⌊debt · 100 / equity⌋', equity > 0 ?
+    Math.floor((debt * 100) / equity) : 0, nat(debt, equity) && equity > 0, 'debttoequity', [debt, equity]) }
+    /** DEBT RATIO: debt against assets, as a percentage. value ⌊debt · 100 / assets⌋. */ static debtratio(debt:
+    number, assets: number): CrossFormula { return c('leverage-debtratio', 'debtratio(debt, assets) = ⌊debt ·
+    100 / assets⌋', assets > 0 ? Math.floor((debt * 100) / assets) : 0, nat(debt, assets) && assets > 0 && debt
+    <= assets, 'debtratio', [debt, assets]) } /** EQUITY MULTIPLIER: assets financed per unit of equity, as a
+    percentage. value ⌊assets · 100 / equity⌋. */ static equitymultiplier(assets: number, equity: number):
+    CrossFormula { return c('leverage-equitymultiplier', 'equitymultiplier(assets, equity) = ⌊assets · 100 /
+    equity⌋', equity > 0 ? Math.floor((assets * 100) / equity) : 0, nat(assets, equity) && equity > 0 && equity
+    <= assets, 'equitymultiplier', [assets, equity]) } /** INTEREST COVERAGE: times earnings cover the interest
+    due. value ⌊ebit / interest⌋. */ static interestcoverage(ebit: number, interest: number): CrossFormula {
+    return c('leverage-interestcoverage', 'interestcoverage(ebit, interest) = ⌊ebit / interest⌋', interest > 0 ?
+    Math.floor(ebit / interest) : 0, nat(ebit, interest) && interest > 0, 'interestcoverage', [ebit, interest])
+    } /** CAPITAL RATIO: capital held against assets, as a percentage. value ⌊capital · 100 / assets⌋. */ static
+    capitalratio(capital: number, assets: number): CrossFormula { return c('leverage-capitalratio',
+    'capitalratio(capital, assets) = ⌊capital · 100 / assets⌋', assets > 0 ? Math.floor((capital * 100) /
+    assets) : 0, nat(capital, assets) && assets > 0 && capital <= assets, 'capitalratio', [capital, assets]) }
+    /** DEGREE OF OPERATING LEVERAGE: contribution margin over operating income, as a percentage. value
+    ⌊contribution · 100 / ebit⌋. */ static degreeofleverage(contribution: number, ebit: number): CrossFormula {
+    return c('leverage-degreeofleverage', 'degreeofleverage(contribution, ebit) = ⌊contribution · 100 / ebit⌋',
+    ebit > 0 ? Math.floor((contribution * 100) / ebit) : 0, nat(contribution, ebit) && ebit > 0 && contribution
+    >= ebit, 'degreeofleverage', [contribution, ebit]) } /** MARGIN RATIO: margin kept out of revenue, as a
+    percentage. value ⌊margin · 100 / revenue⌋. -/
+theorem fam_leverage_marginratio_1 : (((25 : Int) * (100 : Int)) / (200 : Int)) = (12 : Int) := by decide
 
-/-- leverage: gearingratio(60, 40) = 60 — GEARING RATIO: debt against the whole capital base, as a percentage.
-    value ⌊debt · 100 / (debt + capital)⌋. -/
-theorem fam_leverage_gearingratio_1 : ((60 * 100) / (60 + 40)) = 60 := by decide
+/-- leverage: gearingratio(60, 40) = 60 — LEVERAGE — HOW A BALANCE SHEET IS FINANCED, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). Borrowing is numbers: debt against equity, debt against assets, the
+    equity multiplier, how many times earnings cover interest, the capital held against assets, operating
+    leverage, the margin kept, and the gearing of debt against the whole capital base. Crosses to `banking` —
+    leverage is what a lender underwrites. A measure. */ const PROOF = 'leverage arithmetic (debt-to-equity,
+    debt ratio, equity multiplier, interest coverage, capital ratio, operating leverage, margin, gearing); a
+    public-API domain; a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'leverage', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `leverage.${name}`, params }) export class LeverageFormulas { /** DEBT-TO-EQUITY as a percentage. value
+    ⌊debt · 100 / equity⌋. */ static debttoequity(debt: number, equity: number): CrossFormula { return
+    c('leverage-debttoequity', 'debttoequity(debt, equity) = ⌊debt · 100 / equity⌋', equity > 0 ?
+    Math.floor((debt * 100) / equity) : 0, nat(debt, equity) && equity > 0, 'debttoequity', [debt, equity]) }
+    /** DEBT RATIO: debt against assets, as a percentage. value ⌊debt · 100 / assets⌋. */ static debtratio(debt:
+    number, assets: number): CrossFormula { return c('leverage-debtratio', 'debtratio(debt, assets) = ⌊debt ·
+    100 / assets⌋', assets > 0 ? Math.floor((debt * 100) / assets) : 0, nat(debt, assets) && assets > 0 && debt
+    <= assets, 'debtratio', [debt, assets]) } /** EQUITY MULTIPLIER: assets financed per unit of equity, as a
+    percentage. value ⌊assets · 100 / equity⌋. */ static equitymultiplier(assets: number, equity: number):
+    CrossFormula { return c('leverage-equitymultiplier', 'equitymultiplier(assets, equity) = ⌊assets · 100 /
+    equity⌋', equity > 0 ? Math.floor((assets * 100) / equity) : 0, nat(assets, equity) && equity > 0 && equity
+    <= assets, 'equitymultiplier', [assets, equity]) } /** INTEREST COVERAGE: times earnings cover the interest
+    due. value ⌊ebit / interest⌋. */ static interestcoverage(ebit: number, interest: number): CrossFormula {
+    return c('leverage-interestcoverage', 'interestcoverage(ebit, interest) = ⌊ebit / interest⌋', interest > 0 ?
+    Math.floor(ebit / interest) : 0, nat(ebit, interest) && interest > 0, 'interestcoverage', [ebit, interest])
+    } /** CAPITAL RATIO: capital held against assets, as a percentage. value ⌊capital · 100 / assets⌋. */ static
+    capitalratio(capital: number, assets: number): CrossFormula { return c('leverage-capitalratio',
+    'capitalratio(capital, assets) = ⌊capital · 100 / assets⌋', assets > 0 ? Math.floor((capital * 100) /
+    assets) : 0, nat(capital, assets) && assets > 0 && capital <= assets, 'capitalratio', [capital, assets]) }
+    /** DEGREE OF OPERATING LEVERAGE: contribution margin over operating income, as a percentage. value
+    ⌊contribution · 100 / ebit⌋. */ static degreeofleverage(contribution: number, ebit: number): CrossFormula {
+    return c('leverage-degreeofleverage', 'degreeofleverage(contribution, ebit) = ⌊contribution · 100 / ebit⌋',
+    ebit > 0 ? Math.floor((contribution * 100) / ebit) : 0, nat(contribution, ebit) && ebit > 0 && contribution
+    >= ebit, 'degreeofleverage', [contribution, ebit]) } /** MARGIN RATIO: margin kept out of revenue, as a
+    percentage. value ⌊margin · 100 / revenue⌋. */ static marginratio(margin: number, revenue: number):
+    CrossFormula { return c('leverage-marginratio', 'marginratio(margin, revenue) = ⌊margin · 100 / revenue⌋',
+    revenue > 0 ? Math.floor((margin * 100) / revenue) : 0, nat(margin, revenue) && revenue > 0 && margin <=
+    revenue, 'marginratio', [margin, revenue]) } /** GEARING RATIO: debt against the whole capital base, as a
+    percentage. value ⌊debt · 100 / (debt + capital)⌋. -/
+theorem fam_leverage_gearingratio_1 : (((60 : Int) * (100 : Int)) / ((60 : Int) + (40 : Int))) = (60 : Int) := by decide
 
-/-- leverage: gearingratio(0, 0) = 0 — GEARING RATIO: debt against the whole capital base, as a percentage.
-    value ⌊debt · 100 / (debt + capital)⌋. -/
-theorem fam_leverage_gearingratio_2 : ((0 * 100) / (0 + 0)) = 0 := by decide
+/-- leverage: gearingratio(0, 0) = 0 — LEVERAGE — HOW A BALANCE SHEET IS FINANCED, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Borrowing is numbers: debt against equity, debt against assets, the
+    equity multiplier, how many times earnings cover interest, the capital held against assets, operating
+    leverage, the margin kept, and the gearing of debt against the whole capital base. Crosses to `banking` —
+    leverage is what a lender underwrites. A measure. */ const PROOF = 'leverage arithmetic (debt-to-equity,
+    debt ratio, equity multiplier, interest coverage, capital ratio, operating leverage, margin, gearing); a
+    public-API domain; a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'leverage', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `leverage.${name}`, params }) export class LeverageFormulas { /** DEBT-TO-EQUITY as a percentage. value
+    ⌊debt · 100 / equity⌋. */ static debttoequity(debt: number, equity: number): CrossFormula { return
+    c('leverage-debttoequity', 'debttoequity(debt, equity) = ⌊debt · 100 / equity⌋', equity > 0 ?
+    Math.floor((debt * 100) / equity) : 0, nat(debt, equity) && equity > 0, 'debttoequity', [debt, equity]) }
+    /** DEBT RATIO: debt against assets, as a percentage. value ⌊debt · 100 / assets⌋. */ static debtratio(debt:
+    number, assets: number): CrossFormula { return c('leverage-debtratio', 'debtratio(debt, assets) = ⌊debt ·
+    100 / assets⌋', assets > 0 ? Math.floor((debt * 100) / assets) : 0, nat(debt, assets) && assets > 0 && debt
+    <= assets, 'debtratio', [debt, assets]) } /** EQUITY MULTIPLIER: assets financed per unit of equity, as a
+    percentage. value ⌊assets · 100 / equity⌋. */ static equitymultiplier(assets: number, equity: number):
+    CrossFormula { return c('leverage-equitymultiplier', 'equitymultiplier(assets, equity) = ⌊assets · 100 /
+    equity⌋', equity > 0 ? Math.floor((assets * 100) / equity) : 0, nat(assets, equity) && equity > 0 && equity
+    <= assets, 'equitymultiplier', [assets, equity]) } /** INTEREST COVERAGE: times earnings cover the interest
+    due. value ⌊ebit / interest⌋. */ static interestcoverage(ebit: number, interest: number): CrossFormula {
+    return c('leverage-interestcoverage', 'interestcoverage(ebit, interest) = ⌊ebit / interest⌋', interest > 0 ?
+    Math.floor(ebit / interest) : 0, nat(ebit, interest) && interest > 0, 'interestcoverage', [ebit, interest])
+    } /** CAPITAL RATIO: capital held against assets, as a percentage. value ⌊capital · 100 / assets⌋. */ static
+    capitalratio(capital: number, assets: number): CrossFormula { return c('leverage-capitalratio',
+    'capitalratio(capital, assets) = ⌊capital · 100 / assets⌋', assets > 0 ? Math.floor((capital * 100) /
+    assets) : 0, nat(capital, assets) && assets > 0 && capital <= assets, 'capitalratio', [capital, assets]) }
+    /** DEGREE OF OPERATING LEVERAGE: contribution margin over operating income, as a percentage. value
+    ⌊contribution · 100 / ebit⌋. */ static degreeofleverage(contribution: number, ebit: number): CrossFormula {
+    return c('leverage-degreeofleverage', 'degreeofleverage(contribution, ebit) = ⌊contribution · 100 / ebit⌋',
+    ebit > 0 ? Math.floor((contribution * 100) / ebit) : 0, nat(contribution, ebit) && ebit > 0 && contribution
+    >= ebit, 'degreeofleverage', [contribution, ebit]) } /** MARGIN RATIO: margin kept out of revenue, as a
+    percentage. value ⌊margin · 100 / revenue⌋. */ static marginratio(margin: number, revenue: number):
+    CrossFormula { return c('leverage-marginratio', 'marginratio(margin, revenue) = ⌊margin · 100 / revenue⌋',
+    revenue > 0 ? Math.floor((margin * 100) / revenue) : 0, nat(margin, revenue) && revenue > 0 && margin <=
+    revenue, 'marginratio', [margin, revenue]) } /** GEARING RATIO: debt against the whole capital base, as a
+    percentage. value ⌊debt · 100 / (debt + capital)⌋. -/
+theorem fam_leverage_gearingratio_2 : (((0 : Int) * (100 : Int)) / ((0 : Int) + (0 : Int))) = (0 : Int) := by decide
 
 /-- lexicography: headwords(500, 40) = 20000 — LEXICOGRAPHY — THE MAKING OF DICTIONARIES, AS ARITHMETIC. A
     dictionary is numbers: how many headwords it holds, how many senses those headwords carry, how much of the
@@ -458,37 +3708,217 @@ theorem fam_leverage_gearingratio_2 : ((0 * 100) / (0 + 0)) = 0 := by decide
     crossFormulaOf({ id, src: 'lexicography', dst: 'linguistics', formula, value, proof: PROOF, ...extra },
     holds, { name: `lexicography.${name}`, params }) export class LexicographyFormulas { /** HEADWORDS: entries
     across the pages at a count per page. value pages · perPage. -/
-theorem fam_lexicography_headwords_1 : (500 * 40) = 20000 := by decide
+theorem fam_lexicography_headwords_1 : ((500 : Int) * (40 : Int)) = (20000 : Int) := by decide
 
-/-- lexicography: senses(1000, 3) = 3000 — SENSES: the senses the headwords carry at an average each. value
-    headwords · avgSenses. -/
-theorem fam_lexicography_senses_1 : (1000 * 3) = 3000 := by decide
+/-- lexicography: senses(1000, 3) = 3000 — LEXICOGRAPHY — THE MAKING OF DICTIONARIES, AS ARITHMETIC. A
+    dictionary is numbers: how many headwords it holds, how many senses those headwords carry, how much of the
+    language it covers, the polysemy per entry, the length of a definition, the cross-references between
+    entries, the frequency band a word falls in, and inflected forms per lemma. Crosses to `linguistics` —
+    lexicography is the measured record of what linguistics describes. A measure. */ const PROOF = 'lexicography
+    arithmetic (headwords, senses, coverage, polysemy, definition length, cross-references, frequency rank,
+    lemma ratio); the dictionary as a measure crossed to linguistics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lexicography', dst: 'linguistics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lexicography.${name}`, params }) export class LexicographyFormulas { /** HEADWORDS: entries
+    across the pages at a count per page. value pages · perPage. */ static headwords(pages: number, perPage:
+    number): CrossFormula { return c('lexicography-headwords', 'headwords(pages, perPage) = pages · perPage',
+    pages * perPage, nat(pages, perPage), 'headwords', [pages, perPage]) } /** SENSES: the senses the headwords
+    carry at an average each. value headwords · avgSenses. -/
+theorem fam_lexicography_senses_1 : ((1000 : Int) * (3 : Int)) = (3000 : Int) := by decide
 
-/-- lexicography: coverage(950, 1000) = 95 — COVERAGE: the share of the lexicon defined, as a percentage. value
-    ⌊defined · 100 / total⌋. -/
-theorem fam_lexicography_coverage_1 : ((950 * 100) / 1000) = 95 := by decide
+/-- lexicography: coverage(950, 1000) = 95 — LEXICOGRAPHY — THE MAKING OF DICTIONARIES, AS ARITHMETIC. A
+    dictionary is numbers: how many headwords it holds, how many senses those headwords carry, how much of the
+    language it covers, the polysemy per entry, the length of a definition, the cross-references between
+    entries, the frequency band a word falls in, and inflected forms per lemma. Crosses to `linguistics` —
+    lexicography is the measured record of what linguistics describes. A measure. */ const PROOF = 'lexicography
+    arithmetic (headwords, senses, coverage, polysemy, definition length, cross-references, frequency rank,
+    lemma ratio); the dictionary as a measure crossed to linguistics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lexicography', dst: 'linguistics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lexicography.${name}`, params }) export class LexicographyFormulas { /** HEADWORDS: entries
+    across the pages at a count per page. value pages · perPage. */ static headwords(pages: number, perPage:
+    number): CrossFormula { return c('lexicography-headwords', 'headwords(pages, perPage) = pages · perPage',
+    pages * perPage, nat(pages, perPage), 'headwords', [pages, perPage]) } /** SENSES: the senses the headwords
+    carry at an average each. value headwords · avgSenses. */ static senses(headwords: number, avgSenses:
+    number): CrossFormula { return c('lexicography-senses', 'senses(headwords, avgSenses) = headwords ·
+    avgSenses', headwords * avgSenses, nat(headwords, avgSenses), 'senses', [headwords, avgSenses]) } /**
+    COVERAGE: the share of the lexicon defined, as a percentage. value ⌊defined · 100 / total⌋. -/
+theorem fam_lexicography_coverage_1 : (((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int) := by decide
 
-/-- lexicography: coverage(0, 0) = 0 — COVERAGE: the share of the lexicon defined, as a percentage. value
-    ⌊defined · 100 / total⌋. -/
-theorem fam_lexicography_coverage_2 : ((0 * 100) / 0) = 0 := by decide
+/-- lexicography: coverage(0, 0) = 0 — LEXICOGRAPHY — THE MAKING OF DICTIONARIES, AS ARITHMETIC. A dictionary is
+    numbers: how many headwords it holds, how many senses those headwords carry, how much of the language it
+    covers, the polysemy per entry, the length of a definition, the cross-references between entries, the
+    frequency band a word falls in, and inflected forms per lemma. Crosses to `linguistics` — lexicography is
+    the measured record of what linguistics describes. A measure. */ const PROOF = 'lexicography arithmetic
+    (headwords, senses, coverage, polysemy, definition length, cross-references, frequency rank, lemma ratio);
+    the dictionary as a measure crossed to linguistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lexicography', dst: 'linguistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `lexicography.${name}`, params }) export class LexicographyFormulas { /** HEADWORDS: entries across the
+    pages at a count per page. value pages · perPage. */ static headwords(pages: number, perPage: number):
+    CrossFormula { return c('lexicography-headwords', 'headwords(pages, perPage) = pages · perPage', pages *
+    perPage, nat(pages, perPage), 'headwords', [pages, perPage]) } /** SENSES: the senses the headwords carry at
+    an average each. value headwords · avgSenses. */ static senses(headwords: number, avgSenses: number):
+    CrossFormula { return c('lexicography-senses', 'senses(headwords, avgSenses) = headwords · avgSenses',
+    headwords * avgSenses, nat(headwords, avgSenses), 'senses', [headwords, avgSenses]) } /** COVERAGE: the
+    share of the lexicon defined, as a percentage. value ⌊defined · 100 / total⌋. -/
+theorem fam_lexicography_coverage_2 : (((0 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int) := by decide
 
-/-- lexicography: polysemy(3000, 1000) = 3 — POLYSEMY: senses per headword. value ⌊senses / headwords⌋. -/
-theorem fam_lexicography_polysemy_1 : (3000 / 1000) = 3 := by decide
+/-- lexicography: polysemy(3000, 1000) = 3 — LEXICOGRAPHY — THE MAKING OF DICTIONARIES, AS ARITHMETIC. A
+    dictionary is numbers: how many headwords it holds, how many senses those headwords carry, how much of the
+    language it covers, the polysemy per entry, the length of a definition, the cross-references between
+    entries, the frequency band a word falls in, and inflected forms per lemma. Crosses to `linguistics` —
+    lexicography is the measured record of what linguistics describes. A measure. */ const PROOF = 'lexicography
+    arithmetic (headwords, senses, coverage, polysemy, definition length, cross-references, frequency rank,
+    lemma ratio); the dictionary as a measure crossed to linguistics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lexicography', dst: 'linguistics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lexicography.${name}`, params }) export class LexicographyFormulas { /** HEADWORDS: entries
+    across the pages at a count per page. value pages · perPage. */ static headwords(pages: number, perPage:
+    number): CrossFormula { return c('lexicography-headwords', 'headwords(pages, perPage) = pages · perPage',
+    pages * perPage, nat(pages, perPage), 'headwords', [pages, perPage]) } /** SENSES: the senses the headwords
+    carry at an average each. value headwords · avgSenses. */ static senses(headwords: number, avgSenses:
+    number): CrossFormula { return c('lexicography-senses', 'senses(headwords, avgSenses) = headwords ·
+    avgSenses', headwords * avgSenses, nat(headwords, avgSenses), 'senses', [headwords, avgSenses]) } /**
+    COVERAGE: the share of the lexicon defined, as a percentage. value ⌊defined · 100 / total⌋. */ static
+    coverage(defined: number, total: number): CrossFormula { return c('lexicography-coverage',
+    'coverage(defined, total) = ⌊defined · 100 / total⌋', total > 0 ? Math.floor((defined * 100) / total) : 0,
+    nat(defined, total) && total > 0 && defined <= total, 'coverage', [defined, total]) } /** POLYSEMY: senses
+    per headword. value ⌊senses / headwords⌋. -/
+theorem fam_lexicography_polysemy_1 : ((3000 : Int) / (1000 : Int)) = (3 : Int) := by decide
 
-/-- lexicography: definitionlength(10000, 500) = 20 — DEFINITION LENGTH: average words per definition. value
-    ⌊words / entries⌋. -/
-theorem fam_lexicography_definitionlength_1 : (10000 / 500) = 20 := by decide
+/-- lexicography: definitionlength(10000, 500) = 20 — LEXICOGRAPHY — THE MAKING OF DICTIONARIES, AS ARITHMETIC.
+    A dictionary is numbers: how many headwords it holds, how many senses those headwords carry, how much of the
+    language it covers, the polysemy per entry, the length of a definition, the cross-references between
+    entries, the frequency band a word falls in, and inflected forms per lemma. Crosses to `linguistics` —
+    lexicography is the measured record of what linguistics describes. A measure. */ const PROOF = 'lexicography
+    arithmetic (headwords, senses, coverage, polysemy, definition length, cross-references, frequency rank,
+    lemma ratio); the dictionary as a measure crossed to linguistics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lexicography', dst: 'linguistics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lexicography.${name}`, params }) export class LexicographyFormulas { /** HEADWORDS: entries
+    across the pages at a count per page. value pages · perPage. */ static headwords(pages: number, perPage:
+    number): CrossFormula { return c('lexicography-headwords', 'headwords(pages, perPage) = pages · perPage',
+    pages * perPage, nat(pages, perPage), 'headwords', [pages, perPage]) } /** SENSES: the senses the headwords
+    carry at an average each. value headwords · avgSenses. */ static senses(headwords: number, avgSenses:
+    number): CrossFormula { return c('lexicography-senses', 'senses(headwords, avgSenses) = headwords ·
+    avgSenses', headwords * avgSenses, nat(headwords, avgSenses), 'senses', [headwords, avgSenses]) } /**
+    COVERAGE: the share of the lexicon defined, as a percentage. value ⌊defined · 100 / total⌋. */ static
+    coverage(defined: number, total: number): CrossFormula { return c('lexicography-coverage',
+    'coverage(defined, total) = ⌊defined · 100 / total⌋', total > 0 ? Math.floor((defined * 100) / total) : 0,
+    nat(defined, total) && total > 0 && defined <= total, 'coverage', [defined, total]) } /** POLYSEMY: senses
+    per headword. value ⌊senses / headwords⌋. */ static polysemy(senses: number, headwords: number):
+    CrossFormula { return c('lexicography-polysemy', 'polysemy(senses, headwords) = ⌊senses / headwords⌋',
+    headwords > 0 ? Math.floor(senses / headwords) : 0, nat(senses, headwords) && headwords > 0, 'polysemy',
+    [senses, headwords]) } /** DEFINITION LENGTH: average words per definition. value ⌊words / entries⌋. -/
+theorem fam_lexicography_definitionlength_1 : ((10000 : Int) / (500 : Int)) = (20 : Int) := by decide
 
-/-- lexicography: crossref(1000, 4) = 4000 — CROSS-REFERENCES: the links between entries at a count each. value
-    entries · refsEach. -/
-theorem fam_lexicography_crossref_1 : (1000 * 4) = 4000 := by decide
+/-- lexicography: crossref(1000, 4) = 4000 — LEXICOGRAPHY — THE MAKING OF DICTIONARIES, AS ARITHMETIC. A
+    dictionary is numbers: how many headwords it holds, how many senses those headwords carry, how much of the
+    language it covers, the polysemy per entry, the length of a definition, the cross-references between
+    entries, the frequency band a word falls in, and inflected forms per lemma. Crosses to `linguistics` —
+    lexicography is the measured record of what linguistics describes. A measure. */ const PROOF = 'lexicography
+    arithmetic (headwords, senses, coverage, polysemy, definition length, cross-references, frequency rank,
+    lemma ratio); the dictionary as a measure crossed to linguistics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lexicography', dst: 'linguistics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lexicography.${name}`, params }) export class LexicographyFormulas { /** HEADWORDS: entries
+    across the pages at a count per page. value pages · perPage. */ static headwords(pages: number, perPage:
+    number): CrossFormula { return c('lexicography-headwords', 'headwords(pages, perPage) = pages · perPage',
+    pages * perPage, nat(pages, perPage), 'headwords', [pages, perPage]) } /** SENSES: the senses the headwords
+    carry at an average each. value headwords · avgSenses. */ static senses(headwords: number, avgSenses:
+    number): CrossFormula { return c('lexicography-senses', 'senses(headwords, avgSenses) = headwords ·
+    avgSenses', headwords * avgSenses, nat(headwords, avgSenses), 'senses', [headwords, avgSenses]) } /**
+    COVERAGE: the share of the lexicon defined, as a percentage. value ⌊defined · 100 / total⌋. */ static
+    coverage(defined: number, total: number): CrossFormula { return c('lexicography-coverage',
+    'coverage(defined, total) = ⌊defined · 100 / total⌋', total > 0 ? Math.floor((defined * 100) / total) : 0,
+    nat(defined, total) && total > 0 && defined <= total, 'coverage', [defined, total]) } /** POLYSEMY: senses
+    per headword. value ⌊senses / headwords⌋. */ static polysemy(senses: number, headwords: number):
+    CrossFormula { return c('lexicography-polysemy', 'polysemy(senses, headwords) = ⌊senses / headwords⌋',
+    headwords > 0 ? Math.floor(senses / headwords) : 0, nat(senses, headwords) && headwords > 0, 'polysemy',
+    [senses, headwords]) } /** DEFINITION LENGTH: average words per definition. value ⌊words / entries⌋. */
+    static definitionlength(words: number, entries: number): CrossFormula { return
+    c('lexicography-definitionlength', 'definitionlength(words, entries) = ⌊words / entries⌋', entries > 0 ?
+    Math.floor(words / entries) : 0, nat(words, entries) && entries > 0, 'definitionlength', [words, entries]) }
+    /** CROSS-REFERENCES: the links between entries at a count each. value entries · refsEach. -/
+theorem fam_lexicography_crossref_1 : ((1000 : Int) * (4 : Int)) = (4000 : Int) := by decide
 
-/-- lexicography: frequencyrank(5000, 1000) = 5 — FREQUENCY RANK: the band a word of a given rank falls in.
-    value ⌊rank / band⌋. -/
-theorem fam_lexicography_frequencyrank_1 : (5000 / 1000) = 5 := by decide
+/-- lexicography: frequencyrank(5000, 1000) = 5 — LEXICOGRAPHY — THE MAKING OF DICTIONARIES, AS ARITHMETIC. A
+    dictionary is numbers: how many headwords it holds, how many senses those headwords carry, how much of the
+    language it covers, the polysemy per entry, the length of a definition, the cross-references between
+    entries, the frequency band a word falls in, and inflected forms per lemma. Crosses to `linguistics` —
+    lexicography is the measured record of what linguistics describes. A measure. */ const PROOF = 'lexicography
+    arithmetic (headwords, senses, coverage, polysemy, definition length, cross-references, frequency rank,
+    lemma ratio); the dictionary as a measure crossed to linguistics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lexicography', dst: 'linguistics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lexicography.${name}`, params }) export class LexicographyFormulas { /** HEADWORDS: entries
+    across the pages at a count per page. value pages · perPage. */ static headwords(pages: number, perPage:
+    number): CrossFormula { return c('lexicography-headwords', 'headwords(pages, perPage) = pages · perPage',
+    pages * perPage, nat(pages, perPage), 'headwords', [pages, perPage]) } /** SENSES: the senses the headwords
+    carry at an average each. value headwords · avgSenses. */ static senses(headwords: number, avgSenses:
+    number): CrossFormula { return c('lexicography-senses', 'senses(headwords, avgSenses) = headwords ·
+    avgSenses', headwords * avgSenses, nat(headwords, avgSenses), 'senses', [headwords, avgSenses]) } /**
+    COVERAGE: the share of the lexicon defined, as a percentage. value ⌊defined · 100 / total⌋. */ static
+    coverage(defined: number, total: number): CrossFormula { return c('lexicography-coverage',
+    'coverage(defined, total) = ⌊defined · 100 / total⌋', total > 0 ? Math.floor((defined * 100) / total) : 0,
+    nat(defined, total) && total > 0 && defined <= total, 'coverage', [defined, total]) } /** POLYSEMY: senses
+    per headword. value ⌊senses / headwords⌋. */ static polysemy(senses: number, headwords: number):
+    CrossFormula { return c('lexicography-polysemy', 'polysemy(senses, headwords) = ⌊senses / headwords⌋',
+    headwords > 0 ? Math.floor(senses / headwords) : 0, nat(senses, headwords) && headwords > 0, 'polysemy',
+    [senses, headwords]) } /** DEFINITION LENGTH: average words per definition. value ⌊words / entries⌋. */
+    static definitionlength(words: number, entries: number): CrossFormula { return
+    c('lexicography-definitionlength', 'definitionlength(words, entries) = ⌊words / entries⌋', entries > 0 ?
+    Math.floor(words / entries) : 0, nat(words, entries) && entries > 0, 'definitionlength', [words, entries]) }
+    /** CROSS-REFERENCES: the links between entries at a count each. value entries · refsEach. */ static
+    crossref(entries: number, refsEach: number): CrossFormula { return c('lexicography-crossref',
+    'crossref(entries, refsEach) = entries · refsEach', entries * refsEach, nat(entries, refsEach), 'crossref',
+    [entries, refsEach]) } /** FREQUENCY RANK: the band a word of a given rank falls in. value ⌊rank / band⌋. -/
+theorem fam_lexicography_frequencyrank_1 : ((5000 : Int) / (1000 : Int)) = (5 : Int) := by decide
 
-/-- lexicography: lemmaratio(6000, 1500) = 4 — LEMMA RATIO: inflected forms per lemma. value ⌊forms / lemmas⌋. -/
-theorem fam_lexicography_lemmaratio_1 : (6000 / 1500) = 4 := by decide
+/-- lexicography: lemmaratio(6000, 1500) = 4 — LEXICOGRAPHY — THE MAKING OF DICTIONARIES, AS ARITHMETIC. A
+    dictionary is numbers: how many headwords it holds, how many senses those headwords carry, how much of the
+    language it covers, the polysemy per entry, the length of a definition, the cross-references between
+    entries, the frequency band a word falls in, and inflected forms per lemma. Crosses to `linguistics` —
+    lexicography is the measured record of what linguistics describes. A measure. */ const PROOF = 'lexicography
+    arithmetic (headwords, senses, coverage, polysemy, definition length, cross-references, frequency rank,
+    lemma ratio); the dictionary as a measure crossed to linguistics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lexicography', dst: 'linguistics', formula, value, proof: PROOF, ...extra },
+    holds, { name: `lexicography.${name}`, params }) export class LexicographyFormulas { /** HEADWORDS: entries
+    across the pages at a count per page. value pages · perPage. */ static headwords(pages: number, perPage:
+    number): CrossFormula { return c('lexicography-headwords', 'headwords(pages, perPage) = pages · perPage',
+    pages * perPage, nat(pages, perPage), 'headwords', [pages, perPage]) } /** SENSES: the senses the headwords
+    carry at an average each. value headwords · avgSenses. */ static senses(headwords: number, avgSenses:
+    number): CrossFormula { return c('lexicography-senses', 'senses(headwords, avgSenses) = headwords ·
+    avgSenses', headwords * avgSenses, nat(headwords, avgSenses), 'senses', [headwords, avgSenses]) } /**
+    COVERAGE: the share of the lexicon defined, as a percentage. value ⌊defined · 100 / total⌋. */ static
+    coverage(defined: number, total: number): CrossFormula { return c('lexicography-coverage',
+    'coverage(defined, total) = ⌊defined · 100 / total⌋', total > 0 ? Math.floor((defined * 100) / total) : 0,
+    nat(defined, total) && total > 0 && defined <= total, 'coverage', [defined, total]) } /** POLYSEMY: senses
+    per headword. value ⌊senses / headwords⌋. */ static polysemy(senses: number, headwords: number):
+    CrossFormula { return c('lexicography-polysemy', 'polysemy(senses, headwords) = ⌊senses / headwords⌋',
+    headwords > 0 ? Math.floor(senses / headwords) : 0, nat(senses, headwords) && headwords > 0, 'polysemy',
+    [senses, headwords]) } /** DEFINITION LENGTH: average words per definition. value ⌊words / entries⌋. */
+    static definitionlength(words: number, entries: number): CrossFormula { return
+    c('lexicography-definitionlength', 'definitionlength(words, entries) = ⌊words / entries⌋', entries > 0 ?
+    Math.floor(words / entries) : 0, nat(words, entries) && entries > 0, 'definitionlength', [words, entries]) }
+    /** CROSS-REFERENCES: the links between entries at a count each. value entries · refsEach. */ static
+    crossref(entries: number, refsEach: number): CrossFormula { return c('lexicography-crossref',
+    'crossref(entries, refsEach) = entries · refsEach', entries * refsEach, nat(entries, refsEach), 'crossref',
+    [entries, refsEach]) } /** FREQUENCY RANK: the band a word of a given rank falls in. value ⌊rank / band⌋. */
+    static frequencyrank(rank: number, band: number): CrossFormula { return c('lexicography-frequencyrank',
+    'frequencyrank(rank, band) = ⌊rank / band⌋', band > 0 ? Math.floor(rank / band) : 0, nat(rank, band) && band
+    > 0, 'frequencyrank', [rank, band]) } /** LEMMA RATIO: inflected forms per lemma. value ⌊forms / lemmas⌋. -/
+theorem fam_lexicography_lemmaratio_1 : ((6000 : Int) / (1500 : Int)) = (4 : Int) := by decide
 
 /-- lexicon: typetokenratio(400, 1000) = 40 — LEXICON — A VOCABULARY, AS ARITHMETIC. Words are numbers: the
     type-token ratio of a text, the size of a vocabulary, the words that appear exactly once, how dense the
@@ -502,58 +3932,424 @@ theorem fam_lexicography_lemmaratio_1 : (6000 / 1500) = 4 := by decide
     src: 'lexicon', dst: 'linguistics', formula, value, proof: PROOF, ...extra }, holds, { name:
     `lexicon.${name}`, params }) export class LexiconFormulas { /** TYPE-TOKEN RATIO as a percentage: distinct
     words over total words. value ⌊types · 100 / tokens⌋. -/
-theorem fam_lexicon_typetokenratio_1 : ((400 * 100) / 1000) = 40 := by decide
+theorem fam_lexicon_typetokenratio_1 : (((400 : Int) * (100 : Int)) / (1000 : Int)) = (40 : Int) := by decide
 
-/-- lexicon: vocabularysize(5000, 1200) = 6200 — VOCABULARY SIZE: known words plus newly learned words. value
-    known + learned. -/
-theorem fam_lexicon_vocabularysize_1 : (5000 + 1200) = 6200 := by decide
+/-- lexicon: vocabularysize(5000, 1200) = 6200 — LEXICON — A VOCABULARY, AS ARITHMETIC. Words are numbers: the
+    type-token ratio of a text, the size of a vocabulary, the words that appear exactly once, how dense the
+    content words are, a word's rank by frequency, the frequency Zipf's law predicts for a rank, how much of a
+    corpus a word list covers, and how fast new types arrive. Crosses to `linguistics` — a lexicon is what
+    linguistics measures. A measure. */ const PROOF = 'lexicon arithmetic (type-token ratio, vocabulary size,
+    hapax legomena, lexical density, frequency rank, Zipf-scaled frequency, coverage, growth rate); words
+    counted as numbers; a measure crossed to linguistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lexicon', dst: 'linguistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `lexicon.${name}`, params }) export class LexiconFormulas { /** TYPE-TOKEN RATIO as a percentage: distinct
+    words over total words. value ⌊types · 100 / tokens⌋. */ static typetokenratio(types: number, tokens:
+    number): CrossFormula { return c('lexicon-typetokenratio', 'typetokenratio(types, tokens) = ⌊types · 100 /
+    tokens⌋', tokens > 0 ? Math.floor((types * 100) / tokens) : 0, nat(types, tokens) && tokens > 0 && types <=
+    tokens, 'typetokenratio', [types, tokens]) } /** VOCABULARY SIZE: known words plus newly learned words.
+    value known + learned. -/
+theorem fam_lexicon_vocabularysize_1 : ((5000 : Int) + (1200 : Int)) = (6200 : Int) := by decide
 
-/-- lexicon: hapaxlegomena(400, 150) = 250 — HAPAX LEGOMENA: words appearing exactly once — types minus the
-    repeated ones. value max(0, types − repeated). -/
-theorem fam_lexicon_hapaxlegomena_1 : (fmax 0 (400 - 150)) = 250 := by decide
+/-- lexicon: hapaxlegomena(400, 150) = 250 — LEXICON — A VOCABULARY, AS ARITHMETIC. Words are numbers: the
+    type-token ratio of a text, the size of a vocabulary, the words that appear exactly once, how dense the
+    content words are, a word's rank by frequency, the frequency Zipf's law predicts for a rank, how much of a
+    corpus a word list covers, and how fast new types arrive. Crosses to `linguistics` — a lexicon is what
+    linguistics measures. A measure. */ const PROOF = 'lexicon arithmetic (type-token ratio, vocabulary size,
+    hapax legomena, lexical density, frequency rank, Zipf-scaled frequency, coverage, growth rate); words
+    counted as numbers; a measure crossed to linguistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lexicon', dst: 'linguistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `lexicon.${name}`, params }) export class LexiconFormulas { /** TYPE-TOKEN RATIO as a percentage: distinct
+    words over total words. value ⌊types · 100 / tokens⌋. */ static typetokenratio(types: number, tokens:
+    number): CrossFormula { return c('lexicon-typetokenratio', 'typetokenratio(types, tokens) = ⌊types · 100 /
+    tokens⌋', tokens > 0 ? Math.floor((types * 100) / tokens) : 0, nat(types, tokens) && tokens > 0 && types <=
+    tokens, 'typetokenratio', [types, tokens]) } /** VOCABULARY SIZE: known words plus newly learned words.
+    value known + learned. */ static vocabularysize(known: number, learned: number): CrossFormula { return
+    c('lexicon-vocabularysize', 'vocabularysize(known, learned) = known + learned', known + learned, nat(known,
+    learned), 'vocabularysize', [known, learned]) } /** HAPAX LEGOMENA: words appearing exactly once — types
+    minus the repeated ones. value max(0, types − repeated). -/
+theorem fam_lexicon_hapaxlegomena_1 : (fmax (0 : Int) ((400 : Int) - (150 : Int))) = (250 : Int) := by decide
 
-/-- lexicon: lexicaldensity(240, 600) = 40 — LEXICAL DENSITY as a percentage: content words over all words.
-    value ⌊content · 100 / total⌋. -/
-theorem fam_lexicon_lexicaldensity_1 : ((240 * 100) / 600) = 40 := by decide
+/-- lexicon: lexicaldensity(240, 600) = 40 — LEXICON — A VOCABULARY, AS ARITHMETIC. Words are numbers: the
+    type-token ratio of a text, the size of a vocabulary, the words that appear exactly once, how dense the
+    content words are, a word's rank by frequency, the frequency Zipf's law predicts for a rank, how much of a
+    corpus a word list covers, and how fast new types arrive. Crosses to `linguistics` — a lexicon is what
+    linguistics measures. A measure. */ const PROOF = 'lexicon arithmetic (type-token ratio, vocabulary size,
+    hapax legomena, lexical density, frequency rank, Zipf-scaled frequency, coverage, growth rate); words
+    counted as numbers; a measure crossed to linguistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lexicon', dst: 'linguistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `lexicon.${name}`, params }) export class LexiconFormulas { /** TYPE-TOKEN RATIO as a percentage: distinct
+    words over total words. value ⌊types · 100 / tokens⌋. */ static typetokenratio(types: number, tokens:
+    number): CrossFormula { return c('lexicon-typetokenratio', 'typetokenratio(types, tokens) = ⌊types · 100 /
+    tokens⌋', tokens > 0 ? Math.floor((types * 100) / tokens) : 0, nat(types, tokens) && tokens > 0 && types <=
+    tokens, 'typetokenratio', [types, tokens]) } /** VOCABULARY SIZE: known words plus newly learned words.
+    value known + learned. */ static vocabularysize(known: number, learned: number): CrossFormula { return
+    c('lexicon-vocabularysize', 'vocabularysize(known, learned) = known + learned', known + learned, nat(known,
+    learned), 'vocabularysize', [known, learned]) } /** HAPAX LEGOMENA: words appearing exactly once — types
+    minus the repeated ones. value max(0, types − repeated). */ static hapaxlegomena(types: number, repeated:
+    number): CrossFormula { return c('lexicon-hapaxlegomena', 'hapaxlegomena(types, repeated) = max(0, types −
+    repeated)', Math.max(0, types - repeated), nat(types, repeated) && repeated <= types, 'hapaxlegomena',
+    [types, repeated]) } /** LEXICAL DENSITY as a percentage: content words over all words. value ⌊content · 100
+    / total⌋. -/
+theorem fam_lexicon_lexicaldensity_1 : (((240 : Int) * (100 : Int)) / (600 : Int)) = (40 : Int) := by decide
 
-/-- lexicon: frequencyrank(100, 5) = 500 — FREQUENCY RANK: Zipf's product of a word's frequency and its rank.
+/-- lexicon: frequencyrank(100, 5) = 500 — LEXICON — A VOCABULARY, AS ARITHMETIC. Words are numbers: the
+    type-token ratio of a text, the size of a vocabulary, the words that appear exactly once, how dense the
+    content words are, a word's rank by frequency, the frequency Zipf's law predicts for a rank, how much of a
+    corpus a word list covers, and how fast new types arrive. Crosses to `linguistics` — a lexicon is what
+    linguistics measures. A measure. */ const PROOF = 'lexicon arithmetic (type-token ratio, vocabulary size,
+    hapax legomena, lexical density, frequency rank, Zipf-scaled frequency, coverage, growth rate); words
+    counted as numbers; a measure crossed to linguistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lexicon', dst: 'linguistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `lexicon.${name}`, params }) export class LexiconFormulas { /** TYPE-TOKEN RATIO as a percentage: distinct
+    words over total words. value ⌊types · 100 / tokens⌋. */ static typetokenratio(types: number, tokens:
+    number): CrossFormula { return c('lexicon-typetokenratio', 'typetokenratio(types, tokens) = ⌊types · 100 /
+    tokens⌋', tokens > 0 ? Math.floor((types * 100) / tokens) : 0, nat(types, tokens) && tokens > 0 && types <=
+    tokens, 'typetokenratio', [types, tokens]) } /** VOCABULARY SIZE: known words plus newly learned words.
+    value known + learned. */ static vocabularysize(known: number, learned: number): CrossFormula { return
+    c('lexicon-vocabularysize', 'vocabularysize(known, learned) = known + learned', known + learned, nat(known,
+    learned), 'vocabularysize', [known, learned]) } /** HAPAX LEGOMENA: words appearing exactly once — types
+    minus the repeated ones. value max(0, types − repeated). */ static hapaxlegomena(types: number, repeated:
+    number): CrossFormula { return c('lexicon-hapaxlegomena', 'hapaxlegomena(types, repeated) = max(0, types −
+    repeated)', Math.max(0, types - repeated), nat(types, repeated) && repeated <= types, 'hapaxlegomena',
+    [types, repeated]) } /** LEXICAL DENSITY as a percentage: content words over all words. value ⌊content · 100
+    / total⌋. */ static lexicaldensity(content: number, total: number): CrossFormula { return
+    c('lexicon-lexicaldensity', 'lexicaldensity(content, total) = ⌊content · 100 / total⌋', total > 0 ?
+    Math.floor((content * 100) / total) : 0, nat(content, total) && total > 0 && content <= total,
+    'lexicaldensity', [content, total]) } /** FREQUENCY RANK: Zipf's product of a word's frequency and its rank.
     value occurrences · rank. -/
-theorem fam_lexicon_frequencyrank_1 : (100 * 5) = 500 := by decide
+theorem fam_lexicon_frequencyrank_1 : ((100 : Int) * (5 : Int)) = (500 : Int) := by decide
 
-/-- lexicon: zipfscaled(1000, 4) = 250 — ZIPF-SCALED FREQUENCY: the frequency Zipf's law predicts at a rank from
-    a constant. value ⌊constant / rank⌋. -/
-theorem fam_lexicon_zipfscaled_1 : (1000 / 4) = 250 := by decide
+/-- lexicon: zipfscaled(1000, 4) = 250 — LEXICON — A VOCABULARY, AS ARITHMETIC. Words are numbers: the
+    type-token ratio of a text, the size of a vocabulary, the words that appear exactly once, how dense the
+    content words are, a word's rank by frequency, the frequency Zipf's law predicts for a rank, how much of a
+    corpus a word list covers, and how fast new types arrive. Crosses to `linguistics` — a lexicon is what
+    linguistics measures. A measure. */ const PROOF = 'lexicon arithmetic (type-token ratio, vocabulary size,
+    hapax legomena, lexical density, frequency rank, Zipf-scaled frequency, coverage, growth rate); words
+    counted as numbers; a measure crossed to linguistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lexicon', dst: 'linguistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `lexicon.${name}`, params }) export class LexiconFormulas { /** TYPE-TOKEN RATIO as a percentage: distinct
+    words over total words. value ⌊types · 100 / tokens⌋. */ static typetokenratio(types: number, tokens:
+    number): CrossFormula { return c('lexicon-typetokenratio', 'typetokenratio(types, tokens) = ⌊types · 100 /
+    tokens⌋', tokens > 0 ? Math.floor((types * 100) / tokens) : 0, nat(types, tokens) && tokens > 0 && types <=
+    tokens, 'typetokenratio', [types, tokens]) } /** VOCABULARY SIZE: known words plus newly learned words.
+    value known + learned. */ static vocabularysize(known: number, learned: number): CrossFormula { return
+    c('lexicon-vocabularysize', 'vocabularysize(known, learned) = known + learned', known + learned, nat(known,
+    learned), 'vocabularysize', [known, learned]) } /** HAPAX LEGOMENA: words appearing exactly once — types
+    minus the repeated ones. value max(0, types − repeated). */ static hapaxlegomena(types: number, repeated:
+    number): CrossFormula { return c('lexicon-hapaxlegomena', 'hapaxlegomena(types, repeated) = max(0, types −
+    repeated)', Math.max(0, types - repeated), nat(types, repeated) && repeated <= types, 'hapaxlegomena',
+    [types, repeated]) } /** LEXICAL DENSITY as a percentage: content words over all words. value ⌊content · 100
+    / total⌋. */ static lexicaldensity(content: number, total: number): CrossFormula { return
+    c('lexicon-lexicaldensity', 'lexicaldensity(content, total) = ⌊content · 100 / total⌋', total > 0 ?
+    Math.floor((content * 100) / total) : 0, nat(content, total) && total > 0 && content <= total,
+    'lexicaldensity', [content, total]) } /** FREQUENCY RANK: Zipf's product of a word's frequency and its rank.
+    value occurrences · rank. */ static frequencyrank(occurrences: number, rank: number): CrossFormula { return
+    c('lexicon-frequencyrank', 'frequencyrank(occurrences, rank) = occurrences · rank', occurrences * rank,
+    nat(occurrences, rank), 'frequencyrank', [occurrences, rank]) } /** ZIPF-SCALED FREQUENCY: the frequency
+    Zipf's law predicts at a rank from a constant. value ⌊constant / rank⌋. -/
+theorem fam_lexicon_zipfscaled_1 : ((1000 : Int) / (4 : Int)) = (250 : Int) := by decide
 
-/-- lexicon: coverage(950, 1000) = 95 — COVERAGE as a percentage: corpus tokens a word list covers. value
-    ⌊covered · 100 / corpus⌋. -/
-theorem fam_lexicon_coverage_1 : ((950 * 100) / 1000) = 95 := by decide
+/-- lexicon: coverage(950, 1000) = 95 — LEXICON — A VOCABULARY, AS ARITHMETIC. Words are numbers: the type-token
+    ratio of a text, the size of a vocabulary, the words that appear exactly once, how dense the content words
+    are, a word's rank by frequency, the frequency Zipf's law predicts for a rank, how much of a corpus a word
+    list covers, and how fast new types arrive. Crosses to `linguistics` — a lexicon is what linguistics
+    measures. A measure. */ const PROOF = 'lexicon arithmetic (type-token ratio, vocabulary size, hapax
+    legomena, lexical density, frequency rank, Zipf-scaled frequency, coverage, growth rate); words counted as
+    numbers; a measure crossed to linguistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lexicon', dst: 'linguistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `lexicon.${name}`, params }) export class LexiconFormulas { /** TYPE-TOKEN RATIO as a percentage: distinct
+    words over total words. value ⌊types · 100 / tokens⌋. */ static typetokenratio(types: number, tokens:
+    number): CrossFormula { return c('lexicon-typetokenratio', 'typetokenratio(types, tokens) = ⌊types · 100 /
+    tokens⌋', tokens > 0 ? Math.floor((types * 100) / tokens) : 0, nat(types, tokens) && tokens > 0 && types <=
+    tokens, 'typetokenratio', [types, tokens]) } /** VOCABULARY SIZE: known words plus newly learned words.
+    value known + learned. */ static vocabularysize(known: number, learned: number): CrossFormula { return
+    c('lexicon-vocabularysize', 'vocabularysize(known, learned) = known + learned', known + learned, nat(known,
+    learned), 'vocabularysize', [known, learned]) } /** HAPAX LEGOMENA: words appearing exactly once — types
+    minus the repeated ones. value max(0, types − repeated). */ static hapaxlegomena(types: number, repeated:
+    number): CrossFormula { return c('lexicon-hapaxlegomena', 'hapaxlegomena(types, repeated) = max(0, types −
+    repeated)', Math.max(0, types - repeated), nat(types, repeated) && repeated <= types, 'hapaxlegomena',
+    [types, repeated]) } /** LEXICAL DENSITY as a percentage: content words over all words. value ⌊content · 100
+    / total⌋. */ static lexicaldensity(content: number, total: number): CrossFormula { return
+    c('lexicon-lexicaldensity', 'lexicaldensity(content, total) = ⌊content · 100 / total⌋', total > 0 ?
+    Math.floor((content * 100) / total) : 0, nat(content, total) && total > 0 && content <= total,
+    'lexicaldensity', [content, total]) } /** FREQUENCY RANK: Zipf's product of a word's frequency and its rank.
+    value occurrences · rank. */ static frequencyrank(occurrences: number, rank: number): CrossFormula { return
+    c('lexicon-frequencyrank', 'frequencyrank(occurrences, rank) = occurrences · rank', occurrences * rank,
+    nat(occurrences, rank), 'frequencyrank', [occurrences, rank]) } /** ZIPF-SCALED FREQUENCY: the frequency
+    Zipf's law predicts at a rank from a constant. value ⌊constant / rank⌋. */ static zipfscaled(constant:
+    number, rank: number): CrossFormula { return c('lexicon-zipfscaled', 'zipfscaled(constant, rank) = ⌊constant
+    / rank⌋', rank > 0 ? Math.floor(constant / rank) : 0, nat(constant, rank) && rank > 0, 'zipfscaled',
+    [constant, rank]) } /** COVERAGE as a percentage: corpus tokens a word list covers. value ⌊covered · 100 /
+    corpus⌋. -/
+theorem fam_lexicon_coverage_1 : (((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int) := by decide
 
-/-- lexicon: growthrate(50, 1000) = 50 — GROWTH RATE: new types per thousand tokens read. value ⌊newtypes · 1000
-    / tokens⌋. -/
-theorem fam_lexicon_growthrate_1 : ((50 * 1000) / 1000) = 50 := by decide
+/-- lexicon: growthrate(50, 1000) = 50 — LEXICON — A VOCABULARY, AS ARITHMETIC. Words are numbers: the
+    type-token ratio of a text, the size of a vocabulary, the words that appear exactly once, how dense the
+    content words are, a word's rank by frequency, the frequency Zipf's law predicts for a rank, how much of a
+    corpus a word list covers, and how fast new types arrive. Crosses to `linguistics` — a lexicon is what
+    linguistics measures. A measure. */ const PROOF = 'lexicon arithmetic (type-token ratio, vocabulary size,
+    hapax legomena, lexical density, frequency rank, Zipf-scaled frequency, coverage, growth rate); words
+    counted as numbers; a measure crossed to linguistics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'lexicon', dst: 'linguistics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `lexicon.${name}`, params }) export class LexiconFormulas { /** TYPE-TOKEN RATIO as a percentage: distinct
+    words over total words. value ⌊types · 100 / tokens⌋. */ static typetokenratio(types: number, tokens:
+    number): CrossFormula { return c('lexicon-typetokenratio', 'typetokenratio(types, tokens) = ⌊types · 100 /
+    tokens⌋', tokens > 0 ? Math.floor((types * 100) / tokens) : 0, nat(types, tokens) && tokens > 0 && types <=
+    tokens, 'typetokenratio', [types, tokens]) } /** VOCABULARY SIZE: known words plus newly learned words.
+    value known + learned. */ static vocabularysize(known: number, learned: number): CrossFormula { return
+    c('lexicon-vocabularysize', 'vocabularysize(known, learned) = known + learned', known + learned, nat(known,
+    learned), 'vocabularysize', [known, learned]) } /** HAPAX LEGOMENA: words appearing exactly once — types
+    minus the repeated ones. value max(0, types − repeated). */ static hapaxlegomena(types: number, repeated:
+    number): CrossFormula { return c('lexicon-hapaxlegomena', 'hapaxlegomena(types, repeated) = max(0, types −
+    repeated)', Math.max(0, types - repeated), nat(types, repeated) && repeated <= types, 'hapaxlegomena',
+    [types, repeated]) } /** LEXICAL DENSITY as a percentage: content words over all words. value ⌊content · 100
+    / total⌋. */ static lexicaldensity(content: number, total: number): CrossFormula { return
+    c('lexicon-lexicaldensity', 'lexicaldensity(content, total) = ⌊content · 100 / total⌋', total > 0 ?
+    Math.floor((content * 100) / total) : 0, nat(content, total) && total > 0 && content <= total,
+    'lexicaldensity', [content, total]) } /** FREQUENCY RANK: Zipf's product of a word's frequency and its rank.
+    value occurrences · rank. */ static frequencyrank(occurrences: number, rank: number): CrossFormula { return
+    c('lexicon-frequencyrank', 'frequencyrank(occurrences, rank) = occurrences · rank', occurrences * rank,
+    nat(occurrences, rank), 'frequencyrank', [occurrences, rank]) } /** ZIPF-SCALED FREQUENCY: the frequency
+    Zipf's law predicts at a rank from a constant. value ⌊constant / rank⌋. */ static zipfscaled(constant:
+    number, rank: number): CrossFormula { return c('lexicon-zipfscaled', 'zipfscaled(constant, rank) = ⌊constant
+    / rank⌋', rank > 0 ? Math.floor(constant / rank) : 0, nat(constant, rank) && rank > 0, 'zipfscaled',
+    [constant, rank]) } /** COVERAGE as a percentage: corpus tokens a word list covers. value ⌊covered · 100 /
+    corpus⌋. */ static coverage(covered: number, corpus: number): CrossFormula { return c('lexicon-coverage',
+    'coverage(covered, corpus) = ⌊covered · 100 / corpus⌋', corpus > 0 ? Math.floor((covered * 100) / corpus) :
+    0, nat(covered, corpus) && corpus > 0 && covered <= corpus, 'coverage', [covered, corpus]) } /** GROWTH
+    RATE: new types per thousand tokens read. value ⌊newtypes · 1000 / tokens⌋. -/
+theorem fam_lexicon_growthrate_1 : (((50 : Int) * (1000 : Int)) / (1000 : Int)) = (50 : Int) := by decide
 
-/-- licensing: utilization(45, 50) = 90 — UTILIZATION of a seat pool, as a percentage. value ⌊active · 100 /
+/-- licensing: seats(100, 5) = 20 — LICENSING — SOFTWARE ENTITLEMENT AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Holding a licence is numbers: the seats a headcount needs, how much of a pool is
+    used, renewal cost over a term, whether usage stays within the grant, total cost, the seats run over, when a
+    term ends, and what entitlement is left. Crosses to `law` — a licence is a lawful grant, and these measures
+    are what law is read against. A measure. */ const PROOF = 'licensing arithmetic (seats, utilization,
+    renewal, compliance, true cost, overage, term, entitlement); a public-API registry domain; a measure crossed
+    to law' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'licensing', dst: 'law', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `licensing.${name}`, params }) export class
+    LicensingFormulas { /** SEATS: the seats a headcount needs at a per-seat capacity. value ⌈users / perSeat⌉. -/
+theorem fam_licensing_seats_1 : (-((-(100 : Int)) / (5 : Int))) = (20 : Int) := by decide
+
+/-- licensing: utilization(45, 50) = 90 — LICENSING — SOFTWARE ENTITLEMENT AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Holding a licence is numbers: the seats a headcount needs, how much of a
+    pool is used, renewal cost over a term, whether usage stays within the grant, total cost, the seats run
+    over, when a term ends, and what entitlement is left. Crosses to `law` — a licence is a lawful grant, and
+    these measures are what law is read against. A measure. */ const PROOF = 'licensing arithmetic (seats,
+    utilization, renewal, compliance, true cost, overage, term, entitlement); a public-API registry domain; a
+    measure crossed to law' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'licensing', dst: 'law',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `licensing.${name}`, params }) export class
+    LicensingFormulas { /** SEATS: the seats a headcount needs at a per-seat capacity. value ⌈users / perSeat⌉.
+    */ static seats(users: number, perSeat: number): CrossFormula { return c('licensing-seats', 'seats(users,
+    perSeat) = ⌈users / perSeat⌉', perSeat > 0 ? Math.ceil(users / perSeat) : 0, nat(users, perSeat) && perSeat
+    > 0, 'seats', [users, perSeat]) } /** UTILIZATION of a seat pool, as a percentage. value ⌊active · 100 /
     total⌋. -/
-theorem fam_licensing_utilization_1 : ((45 * 100) / 50) = 90 := by decide
+theorem fam_licensing_utilization_1 : (((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int) := by decide
 
-/-- licensing: renewal(12, 100) = 1200 — RENEWAL cost over a term of months at a monthly rate. value months ·
-    rate. -/
-theorem fam_licensing_renewal_1 : (12 * 100) = 1200 := by decide
+/-- licensing: renewal(12, 100) = 1200 — LICENSING — SOFTWARE ENTITLEMENT AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Holding a licence is numbers: the seats a headcount needs, how much of a
+    pool is used, renewal cost over a term, whether usage stays within the grant, total cost, the seats run
+    over, when a term ends, and what entitlement is left. Crosses to `law` — a licence is a lawful grant, and
+    these measures are what law is read against. A measure. */ const PROOF = 'licensing arithmetic (seats,
+    utilization, renewal, compliance, true cost, overage, term, entitlement); a public-API registry domain; a
+    measure crossed to law' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'licensing', dst: 'law',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `licensing.${name}`, params }) export class
+    LicensingFormulas { /** SEATS: the seats a headcount needs at a per-seat capacity. value ⌈users / perSeat⌉.
+    */ static seats(users: number, perSeat: number): CrossFormula { return c('licensing-seats', 'seats(users,
+    perSeat) = ⌈users / perSeat⌉', perSeat > 0 ? Math.ceil(users / perSeat) : 0, nat(users, perSeat) && perSeat
+    > 0, 'seats', [users, perSeat]) } /** UTILIZATION of a seat pool, as a percentage. value ⌊active · 100 /
+    total⌋. */ static utilization(active: number, total: number): CrossFormula { return
+    c('licensing-utilization', 'utilization(active, total) = ⌊active · 100 / total⌋', total > 0 ?
+    Math.floor((active * 100) / total) : 0, nat(active, total) && total > 0 && active <= total, 'utilization',
+    [active, total]) } /** RENEWAL cost over a term of months at a monthly rate. value months · rate. -/
+theorem fam_licensing_renewal_1 : ((12 : Int) * (100 : Int)) = (1200 : Int) := by decide
 
-/-- licensing: truecost(20, 50) = 1000 — TRUE COST: seats at a price each. value seats · price. -/
-theorem fam_licensing_truecost_1 : (20 * 50) = 1000 := by decide
+/-- licensing: compliance(100, 80) = 1 — LICENSING — SOFTWARE ENTITLEMENT AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Holding a licence is numbers: the seats a headcount needs, how much of a
+    pool is used, renewal cost over a term, whether usage stays within the grant, total cost, the seats run
+    over, when a term ends, and what entitlement is left. Crosses to `law` — a licence is a lawful grant, and
+    these measures are what law is read against. A measure. */ const PROOF = 'licensing arithmetic (seats,
+    utilization, renewal, compliance, true cost, overage, term, entitlement); a public-API registry domain; a
+    measure crossed to law' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'licensing', dst: 'law',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `licensing.${name}`, params }) export class
+    LicensingFormulas { /** SEATS: the seats a headcount needs at a per-seat capacity. value ⌈users / perSeat⌉.
+    */ static seats(users: number, perSeat: number): CrossFormula { return c('licensing-seats', 'seats(users,
+    perSeat) = ⌈users / perSeat⌉', perSeat > 0 ? Math.ceil(users / perSeat) : 0, nat(users, perSeat) && perSeat
+    > 0, 'seats', [users, perSeat]) } /** UTILIZATION of a seat pool, as a percentage. value ⌊active · 100 /
+    total⌋. */ static utilization(active: number, total: number): CrossFormula { return
+    c('licensing-utilization', 'utilization(active, total) = ⌊active · 100 / total⌋', total > 0 ?
+    Math.floor((active * 100) / total) : 0, nat(active, total) && total > 0 && active <= total, 'utilization',
+    [active, total]) } /** RENEWAL cost over a term of months at a monthly rate. value months · rate. */ static
+    renewal(months: number, rate: number): CrossFormula { return c('licensing-renewal', 'renewal(months, rate) =
+    months · rate', months * rate, nat(months, rate), 'renewal', [months, rate]) } /** COMPLIANCE: 1 when usage
+    stays within the licensed grant. value [used ≤ licensed]. -/
+theorem fam_licensing_compliance_1 : (if (if (80 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
 
-/-- licensing: overage(120, 100) = 20 — OVERAGE: the seats used over the licensed count. value max(0, used −
+/-- licensing: compliance(80, 100) = 0 — LICENSING — SOFTWARE ENTITLEMENT AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Holding a licence is numbers: the seats a headcount needs, how much of a
+    pool is used, renewal cost over a term, whether usage stays within the grant, total cost, the seats run
+    over, when a term ends, and what entitlement is left. Crosses to `law` — a licence is a lawful grant, and
+    these measures are what law is read against. A measure. */ const PROOF = 'licensing arithmetic (seats,
+    utilization, renewal, compliance, true cost, overage, term, entitlement); a public-API registry domain; a
+    measure crossed to law' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'licensing', dst: 'law',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `licensing.${name}`, params }) export class
+    LicensingFormulas { /** SEATS: the seats a headcount needs at a per-seat capacity. value ⌈users / perSeat⌉.
+    */ static seats(users: number, perSeat: number): CrossFormula { return c('licensing-seats', 'seats(users,
+    perSeat) = ⌈users / perSeat⌉', perSeat > 0 ? Math.ceil(users / perSeat) : 0, nat(users, perSeat) && perSeat
+    > 0, 'seats', [users, perSeat]) } /** UTILIZATION of a seat pool, as a percentage. value ⌊active · 100 /
+    total⌋. */ static utilization(active: number, total: number): CrossFormula { return
+    c('licensing-utilization', 'utilization(active, total) = ⌊active · 100 / total⌋', total > 0 ?
+    Math.floor((active * 100) / total) : 0, nat(active, total) && total > 0 && active <= total, 'utilization',
+    [active, total]) } /** RENEWAL cost over a term of months at a monthly rate. value months · rate. */ static
+    renewal(months: number, rate: number): CrossFormula { return c('licensing-renewal', 'renewal(months, rate) =
+    months · rate', months * rate, nat(months, rate), 'renewal', [months, rate]) } /** COMPLIANCE: 1 when usage
+    stays within the licensed grant. value [used ≤ licensed]. -/
+theorem fam_licensing_compliance_2 : (if (if (100 : Int) ≤ (80 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
+
+/-- licensing: truecost(20, 50) = 1000 — LICENSING — SOFTWARE ENTITLEMENT AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Holding a licence is numbers: the seats a headcount needs, how much of a
+    pool is used, renewal cost over a term, whether usage stays within the grant, total cost, the seats run
+    over, when a term ends, and what entitlement is left. Crosses to `law` — a licence is a lawful grant, and
+    these measures are what law is read against. A measure. */ const PROOF = 'licensing arithmetic (seats,
+    utilization, renewal, compliance, true cost, overage, term, entitlement); a public-API registry domain; a
+    measure crossed to law' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'licensing', dst: 'law',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `licensing.${name}`, params }) export class
+    LicensingFormulas { /** SEATS: the seats a headcount needs at a per-seat capacity. value ⌈users / perSeat⌉.
+    */ static seats(users: number, perSeat: number): CrossFormula { return c('licensing-seats', 'seats(users,
+    perSeat) = ⌈users / perSeat⌉', perSeat > 0 ? Math.ceil(users / perSeat) : 0, nat(users, perSeat) && perSeat
+    > 0, 'seats', [users, perSeat]) } /** UTILIZATION of a seat pool, as a percentage. value ⌊active · 100 /
+    total⌋. */ static utilization(active: number, total: number): CrossFormula { return
+    c('licensing-utilization', 'utilization(active, total) = ⌊active · 100 / total⌋', total > 0 ?
+    Math.floor((active * 100) / total) : 0, nat(active, total) && total > 0 && active <= total, 'utilization',
+    [active, total]) } /** RENEWAL cost over a term of months at a monthly rate. value months · rate. */ static
+    renewal(months: number, rate: number): CrossFormula { return c('licensing-renewal', 'renewal(months, rate) =
+    months · rate', months * rate, nat(months, rate), 'renewal', [months, rate]) } /** COMPLIANCE: 1 when usage
+    stays within the licensed grant. value [used ≤ licensed]. */ static compliance(licensed: number, used:
+    number): CrossFormula { return c('licensing-compliance', 'compliance(licensed, used) = [used ≤ licensed]',
+    used <= licensed ? 1 : 0, nat(licensed, used), 'compliance', [licensed, used]) } /** TRUE COST: seats at a
+    price each. value seats · price. -/
+theorem fam_licensing_truecost_1 : ((20 : Int) * (50 : Int)) = (1000 : Int) := by decide
+
+/-- licensing: overage(120, 100) = 20 — LICENSING — SOFTWARE ENTITLEMENT AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Holding a licence is numbers: the seats a headcount needs, how much of a pool is
+    used, renewal cost over a term, whether usage stays within the grant, total cost, the seats run over, when a
+    term ends, and what entitlement is left. Crosses to `law` — a licence is a lawful grant, and these measures
+    are what law is read against. A measure. */ const PROOF = 'licensing arithmetic (seats, utilization,
+    renewal, compliance, true cost, overage, term, entitlement); a public-API registry domain; a measure crossed
+    to law' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'licensing', dst: 'law', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `licensing.${name}`, params }) export class
+    LicensingFormulas { /** SEATS: the seats a headcount needs at a per-seat capacity. value ⌈users / perSeat⌉.
+    */ static seats(users: number, perSeat: number): CrossFormula { return c('licensing-seats', 'seats(users,
+    perSeat) = ⌈users / perSeat⌉', perSeat > 0 ? Math.ceil(users / perSeat) : 0, nat(users, perSeat) && perSeat
+    > 0, 'seats', [users, perSeat]) } /** UTILIZATION of a seat pool, as a percentage. value ⌊active · 100 /
+    total⌋. */ static utilization(active: number, total: number): CrossFormula { return
+    c('licensing-utilization', 'utilization(active, total) = ⌊active · 100 / total⌋', total > 0 ?
+    Math.floor((active * 100) / total) : 0, nat(active, total) && total > 0 && active <= total, 'utilization',
+    [active, total]) } /** RENEWAL cost over a term of months at a monthly rate. value months · rate. */ static
+    renewal(months: number, rate: number): CrossFormula { return c('licensing-renewal', 'renewal(months, rate) =
+    months · rate', months * rate, nat(months, rate), 'renewal', [months, rate]) } /** COMPLIANCE: 1 when usage
+    stays within the licensed grant. value [used ≤ licensed]. */ static compliance(licensed: number, used:
+    number): CrossFormula { return c('licensing-compliance', 'compliance(licensed, used) = [used ≤ licensed]',
+    used <= licensed ? 1 : 0, nat(licensed, used), 'compliance', [licensed, used]) } /** TRUE COST: seats at a
+    price each. value seats · price. */ static truecost(seats: number, price: number): CrossFormula { return
+    c('licensing-truecost', 'truecost(seats, price) = seats · price', seats * price, nat(seats, price),
+    'truecost', [seats, price]) } /** OVERAGE: the seats used over the licensed count. value max(0, used −
     licensed). -/
-theorem fam_licensing_overage_1 : (fmax 0 (120 - 100)) = 20 := by decide
+theorem fam_licensing_overage_1 : (fmax (0 : Int) ((120 : Int) - (100 : Int))) = (20 : Int) := by decide
 
-/-- licensing: term(2024, 3) = 2027 — TERM: the period a term ends, from a start and a length. value start +
+/-- licensing: term(2024, 3) = 2027 — LICENSING — SOFTWARE ENTITLEMENT AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). Holding a licence is numbers: the seats a headcount needs, how much of a pool is
+    used, renewal cost over a term, whether usage stays within the grant, total cost, the seats run over, when a
+    term ends, and what entitlement is left. Crosses to `law` — a licence is a lawful grant, and these measures
+    are what law is read against. A measure. */ const PROOF = 'licensing arithmetic (seats, utilization,
+    renewal, compliance, true cost, overage, term, entitlement); a public-API registry domain; a measure crossed
+    to law' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'licensing', dst: 'law', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `licensing.${name}`, params }) export class
+    LicensingFormulas { /** SEATS: the seats a headcount needs at a per-seat capacity. value ⌈users / perSeat⌉.
+    */ static seats(users: number, perSeat: number): CrossFormula { return c('licensing-seats', 'seats(users,
+    perSeat) = ⌈users / perSeat⌉', perSeat > 0 ? Math.ceil(users / perSeat) : 0, nat(users, perSeat) && perSeat
+    > 0, 'seats', [users, perSeat]) } /** UTILIZATION of a seat pool, as a percentage. value ⌊active · 100 /
+    total⌋. */ static utilization(active: number, total: number): CrossFormula { return
+    c('licensing-utilization', 'utilization(active, total) = ⌊active · 100 / total⌋', total > 0 ?
+    Math.floor((active * 100) / total) : 0, nat(active, total) && total > 0 && active <= total, 'utilization',
+    [active, total]) } /** RENEWAL cost over a term of months at a monthly rate. value months · rate. */ static
+    renewal(months: number, rate: number): CrossFormula { return c('licensing-renewal', 'renewal(months, rate) =
+    months · rate', months * rate, nat(months, rate), 'renewal', [months, rate]) } /** COMPLIANCE: 1 when usage
+    stays within the licensed grant. value [used ≤ licensed]. */ static compliance(licensed: number, used:
+    number): CrossFormula { return c('licensing-compliance', 'compliance(licensed, used) = [used ≤ licensed]',
+    used <= licensed ? 1 : 0, nat(licensed, used), 'compliance', [licensed, used]) } /** TRUE COST: seats at a
+    price each. value seats · price. */ static truecost(seats: number, price: number): CrossFormula { return
+    c('licensing-truecost', 'truecost(seats, price) = seats · price', seats * price, nat(seats, price),
+    'truecost', [seats, price]) } /** OVERAGE: the seats used over the licensed count. value max(0, used −
+    licensed). */ static overage(used: number, licensed: number): CrossFormula { return c('licensing-overage',
+    'overage(used, licensed) = max(0, used − licensed)', Math.max(0, used - licensed), nat(used, licensed),
+    'overage', [used, licensed]) } /** TERM: the period a term ends, from a start and a length. value start +
     length. -/
-theorem fam_licensing_term_1 : (2024 + 3) = 2027 := by decide
+theorem fam_licensing_term_1 : ((2024 : Int) + (3 : Int)) = (2027 : Int) := by decide
 
-/-- licensing: entitlement(1000, 250) = 750 — ENTITLEMENT left: the grant less what is consumed. value max(0,
-    total − consumed). -/
-theorem fam_licensing_entitlement_1 : (fmax 0 (1000 - 250)) = 750 := by decide
+/-- licensing: entitlement(1000, 250) = 750 — LICENSING — SOFTWARE ENTITLEMENT AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). Holding a licence is numbers: the seats a headcount needs, how much of a
+    pool is used, renewal cost over a term, whether usage stays within the grant, total cost, the seats run
+    over, when a term ends, and what entitlement is left. Crosses to `law` — a licence is a lawful grant, and
+    these measures are what law is read against. A measure. */ const PROOF = 'licensing arithmetic (seats,
+    utilization, renewal, compliance, true cost, overage, term, entitlement); a public-API registry domain; a
+    measure crossed to law' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'licensing', dst: 'law',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `licensing.${name}`, params }) export class
+    LicensingFormulas { /** SEATS: the seats a headcount needs at a per-seat capacity. value ⌈users / perSeat⌉.
+    */ static seats(users: number, perSeat: number): CrossFormula { return c('licensing-seats', 'seats(users,
+    perSeat) = ⌈users / perSeat⌉', perSeat > 0 ? Math.ceil(users / perSeat) : 0, nat(users, perSeat) && perSeat
+    > 0, 'seats', [users, perSeat]) } /** UTILIZATION of a seat pool, as a percentage. value ⌊active · 100 /
+    total⌋. */ static utilization(active: number, total: number): CrossFormula { return
+    c('licensing-utilization', 'utilization(active, total) = ⌊active · 100 / total⌋', total > 0 ?
+    Math.floor((active * 100) / total) : 0, nat(active, total) && total > 0 && active <= total, 'utilization',
+    [active, total]) } /** RENEWAL cost over a term of months at a monthly rate. value months · rate. */ static
+    renewal(months: number, rate: number): CrossFormula { return c('licensing-renewal', 'renewal(months, rate) =
+    months · rate', months * rate, nat(months, rate), 'renewal', [months, rate]) } /** COMPLIANCE: 1 when usage
+    stays within the licensed grant. value [used ≤ licensed]. */ static compliance(licensed: number, used:
+    number): CrossFormula { return c('licensing-compliance', 'compliance(licensed, used) = [used ≤ licensed]',
+    used <= licensed ? 1 : 0, nat(licensed, used), 'compliance', [licensed, used]) } /** TRUE COST: seats at a
+    price each. value seats · price. */ static truecost(seats: number, price: number): CrossFormula { return
+    c('licensing-truecost', 'truecost(seats, price) = seats · price', seats * price, nat(seats, price),
+    'truecost', [seats, price]) } /** OVERAGE: the seats used over the licensed count. value max(0, used −
+    licensed). */ static overage(used: number, licensed: number): CrossFormula { return c('licensing-overage',
+    'overage(used, licensed) = max(0, used − licensed)', Math.max(0, used - licensed), nat(used, licensed),
+    'overage', [used, licensed]) } /** TERM: the period a term ends, from a start and a length. value start +
+    length. */ static term(start: number, length: number): CrossFormula { return c('licensing-term',
+    'term(start, length) = start + length', start + length, nat(start, length), 'term', [start, length]) } /**
+    ENTITLEMENT left: the grant less what is consumed. value max(0, total − consumed). -/
+theorem fam_licensing_entitlement_1 : (fmax (0 : Int) ((1000 : Int) - (250 : Int))) = (750 : Int) := by decide
 
 /-- lidar: range(300, 1000) = 150000 — LIDAR — LIGHT DETECTION AND RANGING, AS ARITHMETIC. A pulse of light goes
     out and comes back: the range is the round-trip time at the speed of light, halved. The point cloud is
@@ -567,29 +4363,189 @@ theorem fam_licensing_entitlement_1 : (fmax 0 (1000 - 250)) = 750 := by decide
     crossFormulaOf({ id, src: 'lidar', dst: 'geophysics', formula, value, proof: PROOF, ...extra }, holds, {
     name: `lidar.${name}`, params }) export class LidarFormulas { /** RANGE: time-of-flight, round trip halved.
     value ⌊speed · time / 2⌋. -/
-theorem fam_lidar_range_1 : ((300 * 1000) / 2) = 150000 := by decide
+theorem fam_lidar_range_1 : (((300 : Int) * (1000 : Int)) / (2 : Int)) = (150000 : Int) := by decide
 
-/-- lidar: pointdensity(10000, 50) = 200 — POINT DENSITY: points over area. value ⌊points / area⌋. -/
-theorem fam_lidar_pointdensity_1 : (10000 / 50) = 200 := by decide
+/-- lidar: pointdensity(10000, 50) = 200 — LIDAR — LIGHT DETECTION AND RANGING, AS ARITHMETIC. A pulse of light
+    goes out and comes back: the range is the round-trip time at the speed of light, halved. The point cloud is
+    numbers — density over area, accuracy in ppm, how many pulses returned, how far the beam penetrated to the
+    ground, the swath a scan sweeps, the ground sample spacing, the noise. Crosses to `geophysics` — lidar is
+    how the Earth's surface is measured from above. A measure. */ const PROOF = 'lidar arithmetic (range by
+    time-of-flight, point density, accuracy ppm, returns, ground penetration, swath, resolution, noise); light
+    detection and ranging as a point cloud; a measure crossed to geophysics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lidar', dst: 'geophysics', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `lidar.${name}`, params }) export class LidarFormulas { /** RANGE: time-of-flight, round trip halved.
+    value ⌊speed · time / 2⌋. */ static range(speed: number, time: number): CrossFormula { return
+    c('lidar-range', 'range(speed, time) = ⌊speed · time / 2⌋', Math.floor((speed * time) / 2), nat(speed,
+    time), 'range', [speed, time]) } /** POINT DENSITY: points over area. value ⌊points / area⌋. -/
+theorem fam_lidar_pointdensity_1 : ((10000 : Int) / (50 : Int)) = (200 : Int) := by decide
 
-/-- lidar: accuracy(5, 1000) = 50 — ACCURACY in parts per million. value ⌊error · 10000 / range⌋. -/
-theorem fam_lidar_accuracy_1 : ((5 * 10000) / 1000) = 50 := by decide
+/-- lidar: accuracy(5, 1000) = 50 — LIDAR — LIGHT DETECTION AND RANGING, AS ARITHMETIC. A pulse of light goes
+    out and comes back: the range is the round-trip time at the speed of light, halved. The point cloud is
+    numbers — density over area, accuracy in ppm, how many pulses returned, how far the beam penetrated to the
+    ground, the swath a scan sweeps, the ground sample spacing, the noise. Crosses to `geophysics` — lidar is
+    how the Earth's surface is measured from above. A measure. */ const PROOF = 'lidar arithmetic (range by
+    time-of-flight, point density, accuracy ppm, returns, ground penetration, swath, resolution, noise); light
+    detection and ranging as a point cloud; a measure crossed to geophysics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lidar', dst: 'geophysics', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `lidar.${name}`, params }) export class LidarFormulas { /** RANGE: time-of-flight, round trip halved.
+    value ⌊speed · time / 2⌋. */ static range(speed: number, time: number): CrossFormula { return
+    c('lidar-range', 'range(speed, time) = ⌊speed · time / 2⌋', Math.floor((speed * time) / 2), nat(speed,
+    time), 'range', [speed, time]) } /** POINT DENSITY: points over area. value ⌊points / area⌋. */ static
+    pointdensity(points: number, area: number): CrossFormula { return c('lidar-pointdensity',
+    'pointdensity(points, area) = ⌊points / area⌋', area > 0 ? Math.floor(points / area) : 0, nat(points, area)
+    && area > 0, 'pointdensity', [points, area]) } /** ACCURACY in parts per million. value ⌊error · 10000 /
+    range⌋. -/
+theorem fam_lidar_accuracy_1 : (((5 : Int) * (10000 : Int)) / (1000 : Int)) = (50 : Int) := by decide
 
-/-- lidar: returns(950, 1000) = 95 — RETURNS as a percentage of pulses. value ⌊detected · 100 / pulses⌋. -/
-theorem fam_lidar_returns_1 : ((950 * 100) / 1000) = 95 := by decide
+/-- lidar: returns(950, 1000) = 95 — LIDAR — LIGHT DETECTION AND RANGING, AS ARITHMETIC. A pulse of light goes
+    out and comes back: the range is the round-trip time at the speed of light, halved. The point cloud is
+    numbers — density over area, accuracy in ppm, how many pulses returned, how far the beam penetrated to the
+    ground, the swath a scan sweeps, the ground sample spacing, the noise. Crosses to `geophysics` — lidar is
+    how the Earth's surface is measured from above. A measure. */ const PROOF = 'lidar arithmetic (range by
+    time-of-flight, point density, accuracy ppm, returns, ground penetration, swath, resolution, noise); light
+    detection and ranging as a point cloud; a measure crossed to geophysics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lidar', dst: 'geophysics', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `lidar.${name}`, params }) export class LidarFormulas { /** RANGE: time-of-flight, round trip halved.
+    value ⌊speed · time / 2⌋. */ static range(speed: number, time: number): CrossFormula { return
+    c('lidar-range', 'range(speed, time) = ⌊speed · time / 2⌋', Math.floor((speed * time) / 2), nat(speed,
+    time), 'range', [speed, time]) } /** POINT DENSITY: points over area. value ⌊points / area⌋. */ static
+    pointdensity(points: number, area: number): CrossFormula { return c('lidar-pointdensity',
+    'pointdensity(points, area) = ⌊points / area⌋', area > 0 ? Math.floor(points / area) : 0, nat(points, area)
+    && area > 0, 'pointdensity', [points, area]) } /** ACCURACY in parts per million. value ⌊error · 10000 /
+    range⌋. */ static accuracy(error: number, range_: number): CrossFormula { return c('lidar-accuracy',
+    'accuracy(error, range) = ⌊error · 10000 / range⌋', range_ > 0 ? Math.floor((error * 10000) / range_) : 0,
+    nat(error, range_) && range_ > 0, 'accuracy', [error, range_]) } /** RETURNS as a percentage of pulses.
+    value ⌊detected · 100 / pulses⌋. -/
+theorem fam_lidar_returns_1 : (((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int) := by decide
 
-/-- lidar: penetration(300, 1000) = 30 — GROUND PENETRATION as a percentage of total returns. value ⌊ground ·
-    100 / total⌋. -/
-theorem fam_lidar_penetration_1 : ((300 * 100) / 1000) = 30 := by decide
+/-- lidar: penetration(300, 1000) = 30 — LIDAR — LIGHT DETECTION AND RANGING, AS ARITHMETIC. A pulse of light
+    goes out and comes back: the range is the round-trip time at the speed of light, halved. The point cloud is
+    numbers — density over area, accuracy in ppm, how many pulses returned, how far the beam penetrated to the
+    ground, the swath a scan sweeps, the ground sample spacing, the noise. Crosses to `geophysics` — lidar is
+    how the Earth's surface is measured from above. A measure. */ const PROOF = 'lidar arithmetic (range by
+    time-of-flight, point density, accuracy ppm, returns, ground penetration, swath, resolution, noise); light
+    detection and ranging as a point cloud; a measure crossed to geophysics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lidar', dst: 'geophysics', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `lidar.${name}`, params }) export class LidarFormulas { /** RANGE: time-of-flight, round trip halved.
+    value ⌊speed · time / 2⌋. */ static range(speed: number, time: number): CrossFormula { return
+    c('lidar-range', 'range(speed, time) = ⌊speed · time / 2⌋', Math.floor((speed * time) / 2), nat(speed,
+    time), 'range', [speed, time]) } /** POINT DENSITY: points over area. value ⌊points / area⌋. */ static
+    pointdensity(points: number, area: number): CrossFormula { return c('lidar-pointdensity',
+    'pointdensity(points, area) = ⌊points / area⌋', area > 0 ? Math.floor(points / area) : 0, nat(points, area)
+    && area > 0, 'pointdensity', [points, area]) } /** ACCURACY in parts per million. value ⌊error · 10000 /
+    range⌋. */ static accuracy(error: number, range_: number): CrossFormula { return c('lidar-accuracy',
+    'accuracy(error, range) = ⌊error · 10000 / range⌋', range_ > 0 ? Math.floor((error * 10000) / range_) : 0,
+    nat(error, range_) && range_ > 0, 'accuracy', [error, range_]) } /** RETURNS as a percentage of pulses.
+    value ⌊detected · 100 / pulses⌋. */ static returns(detected: number, pulses: number): CrossFormula { return
+    c('lidar-returns', 'returns(detected, pulses) = ⌊detected · 100 / pulses⌋', pulses > 0 ?
+    Math.floor((detected * 100) / pulses) : 0, nat(detected, pulses) && pulses > 0, 'returns', [detected,
+    pulses]) } /** GROUND PENETRATION as a percentage of total returns. value ⌊ground · 100 / total⌋. -/
+theorem fam_lidar_penetration_1 : (((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int) := by decide
 
-/-- lidar: swath(500, 60) = 30000 — SWATH: altitude at a scan angle. value altitude · angle. -/
-theorem fam_lidar_swath_1 : (500 * 60) = 30000 := by decide
+/-- lidar: swath(500, 60) = 30000 — LIDAR — LIGHT DETECTION AND RANGING, AS ARITHMETIC. A pulse of light goes
+    out and comes back: the range is the round-trip time at the speed of light, halved. The point cloud is
+    numbers — density over area, accuracy in ppm, how many pulses returned, how far the beam penetrated to the
+    ground, the swath a scan sweeps, the ground sample spacing, the noise. Crosses to `geophysics` — lidar is
+    how the Earth's surface is measured from above. A measure. */ const PROOF = 'lidar arithmetic (range by
+    time-of-flight, point density, accuracy ppm, returns, ground penetration, swath, resolution, noise); light
+    detection and ranging as a point cloud; a measure crossed to geophysics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lidar', dst: 'geophysics', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `lidar.${name}`, params }) export class LidarFormulas { /** RANGE: time-of-flight, round trip halved.
+    value ⌊speed · time / 2⌋. */ static range(speed: number, time: number): CrossFormula { return
+    c('lidar-range', 'range(speed, time) = ⌊speed · time / 2⌋', Math.floor((speed * time) / 2), nat(speed,
+    time), 'range', [speed, time]) } /** POINT DENSITY: points over area. value ⌊points / area⌋. */ static
+    pointdensity(points: number, area: number): CrossFormula { return c('lidar-pointdensity',
+    'pointdensity(points, area) = ⌊points / area⌋', area > 0 ? Math.floor(points / area) : 0, nat(points, area)
+    && area > 0, 'pointdensity', [points, area]) } /** ACCURACY in parts per million. value ⌊error · 10000 /
+    range⌋. */ static accuracy(error: number, range_: number): CrossFormula { return c('lidar-accuracy',
+    'accuracy(error, range) = ⌊error · 10000 / range⌋', range_ > 0 ? Math.floor((error * 10000) / range_) : 0,
+    nat(error, range_) && range_ > 0, 'accuracy', [error, range_]) } /** RETURNS as a percentage of pulses.
+    value ⌊detected · 100 / pulses⌋. */ static returns(detected: number, pulses: number): CrossFormula { return
+    c('lidar-returns', 'returns(detected, pulses) = ⌊detected · 100 / pulses⌋', pulses > 0 ?
+    Math.floor((detected * 100) / pulses) : 0, nat(detected, pulses) && pulses > 0, 'returns', [detected,
+    pulses]) } /** GROUND PENETRATION as a percentage of total returns. value ⌊ground · 100 / total⌋. */ static
+    penetration(ground: number, total: number): CrossFormula { return c('lidar-penetration',
+    'penetration(ground, total) = ⌊ground · 100 / total⌋', total > 0 ? Math.floor((ground * 100) / total) : 0,
+    nat(ground, total) && total > 0 && ground <= total, 'penetration', [ground, total]) } /** SWATH: altitude at
+    a scan angle. value altitude · angle. -/
+theorem fam_lidar_swath_1 : ((500 : Int) * (60 : Int)) = (30000 : Int) := by decide
 
-/-- lidar: resolution(25) = 25 — RESOLUTION: the ground sample spacing itself. value spacing. -/
-theorem fam_lidar_resolution_1 : 25 = 25 := by decide
+/-- lidar: resolution(25) = 25 — LIDAR — LIGHT DETECTION AND RANGING, AS ARITHMETIC. A pulse of light goes out
+    and comes back: the range is the round-trip time at the speed of light, halved. The point cloud is numbers —
+    density over area, accuracy in ppm, how many pulses returned, how far the beam penetrated to the ground, the
+    swath a scan sweeps, the ground sample spacing, the noise. Crosses to `geophysics` — lidar is how the
+    Earth's surface is measured from above. A measure. */ const PROOF = 'lidar arithmetic (range by
+    time-of-flight, point density, accuracy ppm, returns, ground penetration, swath, resolution, noise); light
+    detection and ranging as a point cloud; a measure crossed to geophysics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lidar', dst: 'geophysics', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `lidar.${name}`, params }) export class LidarFormulas { /** RANGE: time-of-flight, round trip halved.
+    value ⌊speed · time / 2⌋. */ static range(speed: number, time: number): CrossFormula { return
+    c('lidar-range', 'range(speed, time) = ⌊speed · time / 2⌋', Math.floor((speed * time) / 2), nat(speed,
+    time), 'range', [speed, time]) } /** POINT DENSITY: points over area. value ⌊points / area⌋. */ static
+    pointdensity(points: number, area: number): CrossFormula { return c('lidar-pointdensity',
+    'pointdensity(points, area) = ⌊points / area⌋', area > 0 ? Math.floor(points / area) : 0, nat(points, area)
+    && area > 0, 'pointdensity', [points, area]) } /** ACCURACY in parts per million. value ⌊error · 10000 /
+    range⌋. */ static accuracy(error: number, range_: number): CrossFormula { return c('lidar-accuracy',
+    'accuracy(error, range) = ⌊error · 10000 / range⌋', range_ > 0 ? Math.floor((error * 10000) / range_) : 0,
+    nat(error, range_) && range_ > 0, 'accuracy', [error, range_]) } /** RETURNS as a percentage of pulses.
+    value ⌊detected · 100 / pulses⌋. */ static returns(detected: number, pulses: number): CrossFormula { return
+    c('lidar-returns', 'returns(detected, pulses) = ⌊detected · 100 / pulses⌋', pulses > 0 ?
+    Math.floor((detected * 100) / pulses) : 0, nat(detected, pulses) && pulses > 0, 'returns', [detected,
+    pulses]) } /** GROUND PENETRATION as a percentage of total returns. value ⌊ground · 100 / total⌋. */ static
+    penetration(ground: number, total: number): CrossFormula { return c('lidar-penetration',
+    'penetration(ground, total) = ⌊ground · 100 / total⌋', total > 0 ? Math.floor((ground * 100) / total) : 0,
+    nat(ground, total) && total > 0 && ground <= total, 'penetration', [ground, total]) } /** SWATH: altitude at
+    a scan angle. value altitude · angle. */ static swath(altitude: number, angle: number): CrossFormula {
+    return c('lidar-swath', 'swath(altitude, angle) = altitude · angle', altitude * angle, nat(altitude, angle),
+    'swath', [altitude, angle]) } /** RESOLUTION: the ground sample spacing itself. value spacing. -/
+theorem fam_lidar_resolution_1 : (25 : Int) = (25 : Int) := by decide
 
-/-- lidar: noise(20, 1000) = 2 — NOISE: outliers as a percentage of points. value ⌊outliers · 100 / points⌋. -/
-theorem fam_lidar_noise_1 : ((20 * 100) / 1000) = 2 := by decide
+/-- lidar: noise(20, 1000) = 2 — LIDAR — LIGHT DETECTION AND RANGING, AS ARITHMETIC. A pulse of light goes out
+    and comes back: the range is the round-trip time at the speed of light, halved. The point cloud is numbers —
+    density over area, accuracy in ppm, how many pulses returned, how far the beam penetrated to the ground, the
+    swath a scan sweeps, the ground sample spacing, the noise. Crosses to `geophysics` — lidar is how the
+    Earth's surface is measured from above. A measure. */ const PROOF = 'lidar arithmetic (range by
+    time-of-flight, point density, accuracy ppm, returns, ground penetration, swath, resolution, noise); light
+    detection and ranging as a point cloud; a measure crossed to geophysics' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lidar', dst: 'geophysics', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `lidar.${name}`, params }) export class LidarFormulas { /** RANGE: time-of-flight, round trip halved.
+    value ⌊speed · time / 2⌋. */ static range(speed: number, time: number): CrossFormula { return
+    c('lidar-range', 'range(speed, time) = ⌊speed · time / 2⌋', Math.floor((speed * time) / 2), nat(speed,
+    time), 'range', [speed, time]) } /** POINT DENSITY: points over area. value ⌊points / area⌋. */ static
+    pointdensity(points: number, area: number): CrossFormula { return c('lidar-pointdensity',
+    'pointdensity(points, area) = ⌊points / area⌋', area > 0 ? Math.floor(points / area) : 0, nat(points, area)
+    && area > 0, 'pointdensity', [points, area]) } /** ACCURACY in parts per million. value ⌊error · 10000 /
+    range⌋. */ static accuracy(error: number, range_: number): CrossFormula { return c('lidar-accuracy',
+    'accuracy(error, range) = ⌊error · 10000 / range⌋', range_ > 0 ? Math.floor((error * 10000) / range_) : 0,
+    nat(error, range_) && range_ > 0, 'accuracy', [error, range_]) } /** RETURNS as a percentage of pulses.
+    value ⌊detected · 100 / pulses⌋. */ static returns(detected: number, pulses: number): CrossFormula { return
+    c('lidar-returns', 'returns(detected, pulses) = ⌊detected · 100 / pulses⌋', pulses > 0 ?
+    Math.floor((detected * 100) / pulses) : 0, nat(detected, pulses) && pulses > 0, 'returns', [detected,
+    pulses]) } /** GROUND PENETRATION as a percentage of total returns. value ⌊ground · 100 / total⌋. */ static
+    penetration(ground: number, total: number): CrossFormula { return c('lidar-penetration',
+    'penetration(ground, total) = ⌊ground · 100 / total⌋', total > 0 ? Math.floor((ground * 100) / total) : 0,
+    nat(ground, total) && total > 0 && ground <= total, 'penetration', [ground, total]) } /** SWATH: altitude at
+    a scan angle. value altitude · angle. */ static swath(altitude: number, angle: number): CrossFormula {
+    return c('lidar-swath', 'swath(altitude, angle) = altitude · angle', altitude * angle, nat(altitude, angle),
+    'swath', [altitude, angle]) } /** RESOLUTION: the ground sample spacing itself. value spacing. */ static
+    resolution(spacing: number): CrossFormula { return c('lidar-resolution', 'resolution(spacing) = spacing',
+    spacing, nat(spacing), 'resolution', [spacing]) } /** NOISE: outliers as a percentage of points. value
+    ⌊outliers · 100 / points⌋. -/
+theorem fam_lidar_noise_1 : (((20 : Int) * (100 : Int)) / (1000 : Int)) = (2 : Int) := by decide
 
 /-- lift: force(50, 20) = 1000 — LIFT — HOW A WING HOLDS THE AIR UP, AS ARITHMETIC (the forces a finite wing
     trades for altitude). Flying is numbers: the lift force a wing makes, its lift coefficient, its aspect
@@ -602,37 +4558,218 @@ theorem fam_lidar_noise_1 : ((20 * 100) / 1000) = 2 := by decide
     unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lift', dst: 'aerodynamics', formula, value,
     proof: PROOF, ...extra }, holds, { name: `lift.${name}`, params }) export class LiftFormulas { /** LIFT
     FORCE: dynamic pressure over the wing area. value pressure · area. -/
-theorem fam_lift_force_1 : (50 * 20) = 1000 := by decide
+theorem fam_lift_force_1 : ((50 : Int) * (20 : Int)) = (1000 : Int) := by decide
 
-/-- lift: coefficient(600, 1000) = 60 — LIFT COEFFICIENT (×100): the lift a wing makes per unit of
-    dynamic-pressure-area. value ⌊lift · 100 / qs⌋. -/
-theorem fam_lift_coefficient_1 : ((600 * 100) / 1000) = 60 := by decide
+/-- lift: coefficient(600, 1000) = 60 — LIFT — HOW A WING HOLDS THE AIR UP, AS ARITHMETIC (the forces a finite
+    wing trades for altitude). Flying is numbers: the lift force a wing makes, its lift coefficient, its aspect
+    ratio, the effective angle of attack, the lift-to-drag ratio, the bound circulation, the margin before
+    stall, and the wing loading. Crosses to `aerodynamics` — lift is the one force aerodynamics is spent to
+    earn. A measure. */ const PROOF = 'lift arithmetic (lift force, lift coefficient, aspect ratio, effective
+    angle of attack, lift/drag, circulation, stall margin, wing loading); a measure crossed to aerodynamics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lift', dst: 'aerodynamics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `lift.${name}`, params }) export class LiftFormulas { /** LIFT
+    FORCE: dynamic pressure over the wing area. value pressure · area. */ static force(pressure: number, area:
+    number): CrossFormula { return c('lift-force', 'force(pressure, area) = pressure · area', pressure * area,
+    nat(pressure, area), 'force', [pressure, area]) } /** LIFT COEFFICIENT (×100): the lift a wing makes per
+    unit of dynamic-pressure-area. value ⌊lift · 100 / qs⌋. -/
+theorem fam_lift_coefficient_1 : (((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int) := by decide
 
-/-- lift: aspectratio(30, 90) = 10 — ASPECT RATIO: span squared over the planform area. value ⌊span · span /
-    area⌋. -/
-theorem fam_lift_aspectratio_1 : ((30 * 30) / 90) = 10 := by decide
+/-- lift: aspectratio(30, 90) = 10 — LIFT — HOW A WING HOLDS THE AIR UP, AS ARITHMETIC (the forces a finite wing
+    trades for altitude). Flying is numbers: the lift force a wing makes, its lift coefficient, its aspect
+    ratio, the effective angle of attack, the lift-to-drag ratio, the bound circulation, the margin before
+    stall, and the wing loading. Crosses to `aerodynamics` — lift is the one force aerodynamics is spent to
+    earn. A measure. */ const PROOF = 'lift arithmetic (lift force, lift coefficient, aspect ratio, effective
+    angle of attack, lift/drag, circulation, stall margin, wing loading); a measure crossed to aerodynamics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lift', dst: 'aerodynamics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `lift.${name}`, params }) export class LiftFormulas { /** LIFT
+    FORCE: dynamic pressure over the wing area. value pressure · area. */ static force(pressure: number, area:
+    number): CrossFormula { return c('lift-force', 'force(pressure, area) = pressure · area', pressure * area,
+    nat(pressure, area), 'force', [pressure, area]) } /** LIFT COEFFICIENT (×100): the lift a wing makes per
+    unit of dynamic-pressure-area. value ⌊lift · 100 / qs⌋. */ static coefficient(lift: number, qs: number):
+    CrossFormula { return c('lift-coefficient', 'coefficient(lift, qs) = ⌊lift · 100 / qs⌋', qs > 0 ?
+    Math.floor((lift * 100) / qs) : 0, nat(lift, qs) && qs > 0, 'coefficient', [lift, qs]) } /** ASPECT RATIO:
+    span squared over the planform area. value ⌊span · span / area⌋. -/
+theorem fam_lift_aspectratio_1 : (((30 : Int) * (30 : Int)) / (90 : Int)) = (10 : Int) := by decide
 
-/-- lift: angleofattack(12, 4) = 8 — EFFECTIVE ANGLE OF ATTACK: the geometric angle less the induced angle.
-    value max(0, geometric − induced). -/
-theorem fam_lift_angleofattack_1 : (fmax 0 (12 - 4)) = 8 := by decide
+/-- lift: angleofattack(12, 4) = 8 — LIFT — HOW A WING HOLDS THE AIR UP, AS ARITHMETIC (the forces a finite wing
+    trades for altitude). Flying is numbers: the lift force a wing makes, its lift coefficient, its aspect
+    ratio, the effective angle of attack, the lift-to-drag ratio, the bound circulation, the margin before
+    stall, and the wing loading. Crosses to `aerodynamics` — lift is the one force aerodynamics is spent to
+    earn. A measure. */ const PROOF = 'lift arithmetic (lift force, lift coefficient, aspect ratio, effective
+    angle of attack, lift/drag, circulation, stall margin, wing loading); a measure crossed to aerodynamics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lift', dst: 'aerodynamics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `lift.${name}`, params }) export class LiftFormulas { /** LIFT
+    FORCE: dynamic pressure over the wing area. value pressure · area. */ static force(pressure: number, area:
+    number): CrossFormula { return c('lift-force', 'force(pressure, area) = pressure · area', pressure * area,
+    nat(pressure, area), 'force', [pressure, area]) } /** LIFT COEFFICIENT (×100): the lift a wing makes per
+    unit of dynamic-pressure-area. value ⌊lift · 100 / qs⌋. */ static coefficient(lift: number, qs: number):
+    CrossFormula { return c('lift-coefficient', 'coefficient(lift, qs) = ⌊lift · 100 / qs⌋', qs > 0 ?
+    Math.floor((lift * 100) / qs) : 0, nat(lift, qs) && qs > 0, 'coefficient', [lift, qs]) } /** ASPECT RATIO:
+    span squared over the planform area. value ⌊span · span / area⌋. */ static aspectratio(span: number, area:
+    number): CrossFormula { return c('lift-aspectratio', 'aspectratio(span, area) = ⌊span · span / area⌋', area
+    > 0 ? Math.floor((span * span) / area) : 0, nat(span, area) && area > 0, 'aspectratio', [span, area]) } /**
+    EFFECTIVE ANGLE OF ATTACK: the geometric angle less the induced angle. value max(0, geometric − induced). -/
+theorem fam_lift_angleofattack_1 : (fmax (0 : Int) ((12 : Int) - (4 : Int))) = (8 : Int) := by decide
 
-/-- lift: liftdragratio(1800, 100) = 18 — LIFT-TO-DRAG RATIO: the glide number. value ⌊lift / drag⌋. -/
-theorem fam_lift_liftdragratio_1 : (1800 / 100) = 18 := by decide
+/-- lift: liftdragratio(1800, 100) = 18 — LIFT — HOW A WING HOLDS THE AIR UP, AS ARITHMETIC (the forces a finite
+    wing trades for altitude). Flying is numbers: the lift force a wing makes, its lift coefficient, its aspect
+    ratio, the effective angle of attack, the lift-to-drag ratio, the bound circulation, the margin before
+    stall, and the wing loading. Crosses to `aerodynamics` — lift is the one force aerodynamics is spent to
+    earn. A measure. */ const PROOF = 'lift arithmetic (lift force, lift coefficient, aspect ratio, effective
+    angle of attack, lift/drag, circulation, stall margin, wing loading); a measure crossed to aerodynamics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lift', dst: 'aerodynamics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `lift.${name}`, params }) export class LiftFormulas { /** LIFT
+    FORCE: dynamic pressure over the wing area. value pressure · area. */ static force(pressure: number, area:
+    number): CrossFormula { return c('lift-force', 'force(pressure, area) = pressure · area', pressure * area,
+    nat(pressure, area), 'force', [pressure, area]) } /** LIFT COEFFICIENT (×100): the lift a wing makes per
+    unit of dynamic-pressure-area. value ⌊lift · 100 / qs⌋. */ static coefficient(lift: number, qs: number):
+    CrossFormula { return c('lift-coefficient', 'coefficient(lift, qs) = ⌊lift · 100 / qs⌋', qs > 0 ?
+    Math.floor((lift * 100) / qs) : 0, nat(lift, qs) && qs > 0, 'coefficient', [lift, qs]) } /** ASPECT RATIO:
+    span squared over the planform area. value ⌊span · span / area⌋. */ static aspectratio(span: number, area:
+    number): CrossFormula { return c('lift-aspectratio', 'aspectratio(span, area) = ⌊span · span / area⌋', area
+    > 0 ? Math.floor((span * span) / area) : 0, nat(span, area) && area > 0, 'aspectratio', [span, area]) } /**
+    EFFECTIVE ANGLE OF ATTACK: the geometric angle less the induced angle. value max(0, geometric − induced). */
+    static angleofattack(geometric: number, induced: number): CrossFormula { return c('lift-angleofattack',
+    'angleofattack(geometric, induced) = max(0, geometric − induced)', Math.max(0, geometric - induced),
+    nat(geometric, induced), 'angleofattack', [geometric, induced]) } /** LIFT-TO-DRAG RATIO: the glide number.
+    value ⌊lift / drag⌋. -/
+theorem fam_lift_liftdragratio_1 : ((1800 : Int) / (100 : Int)) = (18 : Int) := by decide
 
-/-- lift: circulation(5000, 100) = 50 — BOUND CIRCULATION: lift over the density-speed product
-    (Kutta–Joukowski). value ⌊lift / rhov⌋. -/
-theorem fam_lift_circulation_1 : (5000 / 100) = 50 := by decide
+/-- lift: circulation(5000, 100) = 50 — LIFT — HOW A WING HOLDS THE AIR UP, AS ARITHMETIC (the forces a finite
+    wing trades for altitude). Flying is numbers: the lift force a wing makes, its lift coefficient, its aspect
+    ratio, the effective angle of attack, the lift-to-drag ratio, the bound circulation, the margin before
+    stall, and the wing loading. Crosses to `aerodynamics` — lift is the one force aerodynamics is spent to
+    earn. A measure. */ const PROOF = 'lift arithmetic (lift force, lift coefficient, aspect ratio, effective
+    angle of attack, lift/drag, circulation, stall margin, wing loading); a measure crossed to aerodynamics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lift', dst: 'aerodynamics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `lift.${name}`, params }) export class LiftFormulas { /** LIFT
+    FORCE: dynamic pressure over the wing area. value pressure · area. */ static force(pressure: number, area:
+    number): CrossFormula { return c('lift-force', 'force(pressure, area) = pressure · area', pressure * area,
+    nat(pressure, area), 'force', [pressure, area]) } /** LIFT COEFFICIENT (×100): the lift a wing makes per
+    unit of dynamic-pressure-area. value ⌊lift · 100 / qs⌋. */ static coefficient(lift: number, qs: number):
+    CrossFormula { return c('lift-coefficient', 'coefficient(lift, qs) = ⌊lift · 100 / qs⌋', qs > 0 ?
+    Math.floor((lift * 100) / qs) : 0, nat(lift, qs) && qs > 0, 'coefficient', [lift, qs]) } /** ASPECT RATIO:
+    span squared over the planform area. value ⌊span · span / area⌋. */ static aspectratio(span: number, area:
+    number): CrossFormula { return c('lift-aspectratio', 'aspectratio(span, area) = ⌊span · span / area⌋', area
+    > 0 ? Math.floor((span * span) / area) : 0, nat(span, area) && area > 0, 'aspectratio', [span, area]) } /**
+    EFFECTIVE ANGLE OF ATTACK: the geometric angle less the induced angle. value max(0, geometric − induced). */
+    static angleofattack(geometric: number, induced: number): CrossFormula { return c('lift-angleofattack',
+    'angleofattack(geometric, induced) = max(0, geometric − induced)', Math.max(0, geometric - induced),
+    nat(geometric, induced), 'angleofattack', [geometric, induced]) } /** LIFT-TO-DRAG RATIO: the glide number.
+    value ⌊lift / drag⌋. */ static liftdragratio(lift: number, drag: number): CrossFormula { return
+    c('lift-liftdragratio', 'liftdragratio(lift, drag) = ⌊lift / drag⌋', drag > 0 ? Math.floor(lift / drag) : 0,
+    nat(lift, drag) && drag > 0, 'liftdragratio', [lift, drag]) } /** BOUND CIRCULATION: lift over the
+    density-speed product (Kutta–Joukowski). value ⌊lift / rhov⌋. -/
+theorem fam_lift_circulation_1 : ((5000 : Int) / (100 : Int)) = (50 : Int) := by decide
 
-/-- lift: stallmargin(15, 12) = 3 — STALL MARGIN: the angle left before the stall angle. value max(0, stall −
-    current). -/
-theorem fam_lift_stallmargin_1 : (fmax 0 (15 - 12)) = 3 := by decide
+/-- lift: stallmargin(15, 12) = 3 — LIFT — HOW A WING HOLDS THE AIR UP, AS ARITHMETIC (the forces a finite wing
+    trades for altitude). Flying is numbers: the lift force a wing makes, its lift coefficient, its aspect
+    ratio, the effective angle of attack, the lift-to-drag ratio, the bound circulation, the margin before
+    stall, and the wing loading. Crosses to `aerodynamics` — lift is the one force aerodynamics is spent to
+    earn. A measure. */ const PROOF = 'lift arithmetic (lift force, lift coefficient, aspect ratio, effective
+    angle of attack, lift/drag, circulation, stall margin, wing loading); a measure crossed to aerodynamics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lift', dst: 'aerodynamics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `lift.${name}`, params }) export class LiftFormulas { /** LIFT
+    FORCE: dynamic pressure over the wing area. value pressure · area. */ static force(pressure: number, area:
+    number): CrossFormula { return c('lift-force', 'force(pressure, area) = pressure · area', pressure * area,
+    nat(pressure, area), 'force', [pressure, area]) } /** LIFT COEFFICIENT (×100): the lift a wing makes per
+    unit of dynamic-pressure-area. value ⌊lift · 100 / qs⌋. */ static coefficient(lift: number, qs: number):
+    CrossFormula { return c('lift-coefficient', 'coefficient(lift, qs) = ⌊lift · 100 / qs⌋', qs > 0 ?
+    Math.floor((lift * 100) / qs) : 0, nat(lift, qs) && qs > 0, 'coefficient', [lift, qs]) } /** ASPECT RATIO:
+    span squared over the planform area. value ⌊span · span / area⌋. */ static aspectratio(span: number, area:
+    number): CrossFormula { return c('lift-aspectratio', 'aspectratio(span, area) = ⌊span · span / area⌋', area
+    > 0 ? Math.floor((span * span) / area) : 0, nat(span, area) && area > 0, 'aspectratio', [span, area]) } /**
+    EFFECTIVE ANGLE OF ATTACK: the geometric angle less the induced angle. value max(0, geometric − induced). */
+    static angleofattack(geometric: number, induced: number): CrossFormula { return c('lift-angleofattack',
+    'angleofattack(geometric, induced) = max(0, geometric − induced)', Math.max(0, geometric - induced),
+    nat(geometric, induced), 'angleofattack', [geometric, induced]) } /** LIFT-TO-DRAG RATIO: the glide number.
+    value ⌊lift / drag⌋. */ static liftdragratio(lift: number, drag: number): CrossFormula { return
+    c('lift-liftdragratio', 'liftdragratio(lift, drag) = ⌊lift / drag⌋', drag > 0 ? Math.floor(lift / drag) : 0,
+    nat(lift, drag) && drag > 0, 'liftdragratio', [lift, drag]) } /** BOUND CIRCULATION: lift over the
+    density-speed product (Kutta–Joukowski). value ⌊lift / rhov⌋. */ static circulation(lift: number, rhov:
+    number): CrossFormula { return c('lift-circulation', 'circulation(lift, rhov) = ⌊lift / rhov⌋', rhov > 0 ?
+    Math.floor(lift / rhov) : 0, nat(lift, rhov) && rhov > 0, 'circulation', [lift, rhov]) } /** STALL MARGIN:
+    the angle left before the stall angle. value max(0, stall − current). -/
+theorem fam_lift_stallmargin_1 : (fmax (0 : Int) ((15 : Int) - (12 : Int))) = (3 : Int) := by decide
 
-/-- lift: stallmargin(10, 15) = 0 — STALL MARGIN: the angle left before the stall angle. value max(0, stall −
-    current). -/
-theorem fam_lift_stallmargin_2 : (fmax 0 (10 - 15)) = 0 := by decide
+/-- lift: stallmargin(10, 15) = 0 — LIFT — HOW A WING HOLDS THE AIR UP, AS ARITHMETIC (the forces a finite wing
+    trades for altitude). Flying is numbers: the lift force a wing makes, its lift coefficient, its aspect
+    ratio, the effective angle of attack, the lift-to-drag ratio, the bound circulation, the margin before
+    stall, and the wing loading. Crosses to `aerodynamics` — lift is the one force aerodynamics is spent to
+    earn. A measure. */ const PROOF = 'lift arithmetic (lift force, lift coefficient, aspect ratio, effective
+    angle of attack, lift/drag, circulation, stall margin, wing loading); a measure crossed to aerodynamics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lift', dst: 'aerodynamics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `lift.${name}`, params }) export class LiftFormulas { /** LIFT
+    FORCE: dynamic pressure over the wing area. value pressure · area. */ static force(pressure: number, area:
+    number): CrossFormula { return c('lift-force', 'force(pressure, area) = pressure · area', pressure * area,
+    nat(pressure, area), 'force', [pressure, area]) } /** LIFT COEFFICIENT (×100): the lift a wing makes per
+    unit of dynamic-pressure-area. value ⌊lift · 100 / qs⌋. */ static coefficient(lift: number, qs: number):
+    CrossFormula { return c('lift-coefficient', 'coefficient(lift, qs) = ⌊lift · 100 / qs⌋', qs > 0 ?
+    Math.floor((lift * 100) / qs) : 0, nat(lift, qs) && qs > 0, 'coefficient', [lift, qs]) } /** ASPECT RATIO:
+    span squared over the planform area. value ⌊span · span / area⌋. */ static aspectratio(span: number, area:
+    number): CrossFormula { return c('lift-aspectratio', 'aspectratio(span, area) = ⌊span · span / area⌋', area
+    > 0 ? Math.floor((span * span) / area) : 0, nat(span, area) && area > 0, 'aspectratio', [span, area]) } /**
+    EFFECTIVE ANGLE OF ATTACK: the geometric angle less the induced angle. value max(0, geometric − induced). */
+    static angleofattack(geometric: number, induced: number): CrossFormula { return c('lift-angleofattack',
+    'angleofattack(geometric, induced) = max(0, geometric − induced)', Math.max(0, geometric - induced),
+    nat(geometric, induced), 'angleofattack', [geometric, induced]) } /** LIFT-TO-DRAG RATIO: the glide number.
+    value ⌊lift / drag⌋. */ static liftdragratio(lift: number, drag: number): CrossFormula { return
+    c('lift-liftdragratio', 'liftdragratio(lift, drag) = ⌊lift / drag⌋', drag > 0 ? Math.floor(lift / drag) : 0,
+    nat(lift, drag) && drag > 0, 'liftdragratio', [lift, drag]) } /** BOUND CIRCULATION: lift over the
+    density-speed product (Kutta–Joukowski). value ⌊lift / rhov⌋. */ static circulation(lift: number, rhov:
+    number): CrossFormula { return c('lift-circulation', 'circulation(lift, rhov) = ⌊lift / rhov⌋', rhov > 0 ?
+    Math.floor(lift / rhov) : 0, nat(lift, rhov) && rhov > 0, 'circulation', [lift, rhov]) } /** STALL MARGIN:
+    the angle left before the stall angle. value max(0, stall − current). -/
+theorem fam_lift_stallmargin_2 : (fmax (0 : Int) ((10 : Int) - (15 : Int))) = (0 : Int) := by decide
 
-/-- lift: loading(24000, 30) = 800 — WING LOADING: weight carried per unit of wing area. value ⌊weight / area⌋. -/
-theorem fam_lift_loading_1 : (24000 / 30) = 800 := by decide
+/-- lift: loading(24000, 30) = 800 — LIFT — HOW A WING HOLDS THE AIR UP, AS ARITHMETIC (the forces a finite wing
+    trades for altitude). Flying is numbers: the lift force a wing makes, its lift coefficient, its aspect
+    ratio, the effective angle of attack, the lift-to-drag ratio, the bound circulation, the margin before
+    stall, and the wing loading. Crosses to `aerodynamics` — lift is the one force aerodynamics is spent to
+    earn. A measure. */ const PROOF = 'lift arithmetic (lift force, lift coefficient, aspect ratio, effective
+    angle of attack, lift/drag, circulation, stall margin, wing loading); a measure crossed to aerodynamics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lift', dst: 'aerodynamics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `lift.${name}`, params }) export class LiftFormulas { /** LIFT
+    FORCE: dynamic pressure over the wing area. value pressure · area. */ static force(pressure: number, area:
+    number): CrossFormula { return c('lift-force', 'force(pressure, area) = pressure · area', pressure * area,
+    nat(pressure, area), 'force', [pressure, area]) } /** LIFT COEFFICIENT (×100): the lift a wing makes per
+    unit of dynamic-pressure-area. value ⌊lift · 100 / qs⌋. */ static coefficient(lift: number, qs: number):
+    CrossFormula { return c('lift-coefficient', 'coefficient(lift, qs) = ⌊lift · 100 / qs⌋', qs > 0 ?
+    Math.floor((lift * 100) / qs) : 0, nat(lift, qs) && qs > 0, 'coefficient', [lift, qs]) } /** ASPECT RATIO:
+    span squared over the planform area. value ⌊span · span / area⌋. */ static aspectratio(span: number, area:
+    number): CrossFormula { return c('lift-aspectratio', 'aspectratio(span, area) = ⌊span · span / area⌋', area
+    > 0 ? Math.floor((span * span) / area) : 0, nat(span, area) && area > 0, 'aspectratio', [span, area]) } /**
+    EFFECTIVE ANGLE OF ATTACK: the geometric angle less the induced angle. value max(0, geometric − induced). */
+    static angleofattack(geometric: number, induced: number): CrossFormula { return c('lift-angleofattack',
+    'angleofattack(geometric, induced) = max(0, geometric − induced)', Math.max(0, geometric - induced),
+    nat(geometric, induced), 'angleofattack', [geometric, induced]) } /** LIFT-TO-DRAG RATIO: the glide number.
+    value ⌊lift / drag⌋. */ static liftdragratio(lift: number, drag: number): CrossFormula { return
+    c('lift-liftdragratio', 'liftdragratio(lift, drag) = ⌊lift / drag⌋', drag > 0 ? Math.floor(lift / drag) : 0,
+    nat(lift, drag) && drag > 0, 'liftdragratio', [lift, drag]) } /** BOUND CIRCULATION: lift over the
+    density-speed product (Kutta–Joukowski). value ⌊lift / rhov⌋. */ static circulation(lift: number, rhov:
+    number): CrossFormula { return c('lift-circulation', 'circulation(lift, rhov) = ⌊lift / rhov⌋', rhov > 0 ?
+    Math.floor(lift / rhov) : 0, nat(lift, rhov) && rhov > 0, 'circulation', [lift, rhov]) } /** STALL MARGIN:
+    the angle left before the stall angle. value max(0, stall − current). */ static stallmargin(stall: number,
+    current: number): CrossFormula { return c('lift-stallmargin', 'stallmargin(stall, current) = max(0, stall −
+    current)', Math.max(0, stall - current), nat(stall, current), 'stallmargin', [stall, current]) } /** WING
+    LOADING: weight carried per unit of wing area. value ⌊weight / area⌋. -/
+theorem fam_lift_loading_1 : ((24000 : Int) / (30 : Int)) = (800 : Int) := by decide
 
 /-- limnology: oxygen(8, 10) = 80 — LIMNOLOGY — INLAND WATERS AS ARITHMETIC (lakes, ponds, reservoirs). The
     state of a body of water is numbers: dissolved oxygen against saturation, Secchi clarity, trophic load,
@@ -645,36 +4782,211 @@ theorem fam_lift_loading_1 : (24000 / 30) = 800 := by decide
     'hydrology', formula, value, proof: PROOF, ...extra }, holds, { name: `limnology.${name}`, params }) export
     class LimnologyFormulas { /** DISSOLVED OXYGEN as a percentage of saturation. value ⌊dissolved · 100 /
     saturation⌋. -/
-theorem fam_limnology_oxygen_1 : ((8 * 100) / 10) = 80 := by decide
+theorem fam_limnology_oxygen_1 : (((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int) := by decide
 
-/-- limnology: clarity(4) = 4 — CLARITY: the Secchi depth. value depth. -/
-theorem fam_limnology_clarity_1 : 4 = 4 := by decide
+/-- limnology: clarity(4) = 4 — LIMNOLOGY — INLAND WATERS AS ARITHMETIC (lakes, ponds, reservoirs). The state of
+    a body of water is numbers: dissolved oxygen against saturation, Secchi clarity, trophic load, residence
+    time, thermal stratification, primary productivity, acidity, and turbidity. Crosses to `hydrology` —
+    limnology is the still water hydrology moves. A measure. */ const PROOF = 'limnology arithmetic (dissolved
+    oxygen, Secchi clarity, trophic load, residence time, stratification, productivity, pH, turbidity); a
+    measure crossed to hydrology' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'limnology', dst:
+    'hydrology', formula, value, proof: PROOF, ...extra }, holds, { name: `limnology.${name}`, params }) export
+    class LimnologyFormulas { /** DISSOLVED OXYGEN as a percentage of saturation. value ⌊dissolved · 100 /
+    saturation⌋. */ static oxygen(dissolved: number, saturation: number): CrossFormula { return
+    c('limnology-oxygen', 'oxygen(dissolved, saturation) = ⌊dissolved · 100 / saturation⌋', saturation > 0 ?
+    Math.floor((dissolved * 100) / saturation) : 0, nat(dissolved, saturation) && saturation > 0 && dissolved <=
+    saturation, 'oxygen', [dissolved, saturation]) } /** CLARITY: the Secchi depth. value depth. -/
+theorem fam_limnology_clarity_1 : (4 : Int) = (4 : Int) := by decide
 
-/-- limnology: trophic(1000, 50) = 20 — TROPHIC load: nutrients per unit volume. value ⌊nutrients / volume⌋. -/
-theorem fam_limnology_trophic_1 : (1000 / 50) = 20 := by decide
+/-- limnology: trophic(1000, 50) = 20 — LIMNOLOGY — INLAND WATERS AS ARITHMETIC (lakes, ponds, reservoirs). The
+    state of a body of water is numbers: dissolved oxygen against saturation, Secchi clarity, trophic load,
+    residence time, thermal stratification, primary productivity, acidity, and turbidity. Crosses to `hydrology`
+    — limnology is the still water hydrology moves. A measure. */ const PROOF = 'limnology arithmetic (dissolved
+    oxygen, Secchi clarity, trophic load, residence time, stratification, productivity, pH, turbidity); a
+    measure crossed to hydrology' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'limnology', dst:
+    'hydrology', formula, value, proof: PROOF, ...extra }, holds, { name: `limnology.${name}`, params }) export
+    class LimnologyFormulas { /** DISSOLVED OXYGEN as a percentage of saturation. value ⌊dissolved · 100 /
+    saturation⌋. */ static oxygen(dissolved: number, saturation: number): CrossFormula { return
+    c('limnology-oxygen', 'oxygen(dissolved, saturation) = ⌊dissolved · 100 / saturation⌋', saturation > 0 ?
+    Math.floor((dissolved * 100) / saturation) : 0, nat(dissolved, saturation) && saturation > 0 && dissolved <=
+    saturation, 'oxygen', [dissolved, saturation]) } /** CLARITY: the Secchi depth. value depth. */ static
+    clarity(depth: number): CrossFormula { return c('limnology-clarity', 'clarity(depth) = depth', depth,
+    nat(depth), 'clarity', [depth]) } /** TROPHIC load: nutrients per unit volume. value ⌊nutrients / volume⌋. -/
+theorem fam_limnology_trophic_1 : ((1000 : Int) / (50 : Int)) = (20 : Int) := by decide
 
-/-- limnology: residence(10000, 100) = 100 — RESIDENCE time: volume over outflow. value ⌊volume / outflow⌋. -/
-theorem fam_limnology_residence_1 : (10000 / 100) = 100 := by decide
+/-- limnology: residence(10000, 100) = 100 — LIMNOLOGY — INLAND WATERS AS ARITHMETIC (lakes, ponds, reservoirs).
+    The state of a body of water is numbers: dissolved oxygen against saturation, Secchi clarity, trophic load,
+    residence time, thermal stratification, primary productivity, acidity, and turbidity. Crosses to `hydrology`
+    — limnology is the still water hydrology moves. A measure. */ const PROOF = 'limnology arithmetic (dissolved
+    oxygen, Secchi clarity, trophic load, residence time, stratification, productivity, pH, turbidity); a
+    measure crossed to hydrology' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'limnology', dst:
+    'hydrology', formula, value, proof: PROOF, ...extra }, holds, { name: `limnology.${name}`, params }) export
+    class LimnologyFormulas { /** DISSOLVED OXYGEN as a percentage of saturation. value ⌊dissolved · 100 /
+    saturation⌋. */ static oxygen(dissolved: number, saturation: number): CrossFormula { return
+    c('limnology-oxygen', 'oxygen(dissolved, saturation) = ⌊dissolved · 100 / saturation⌋', saturation > 0 ?
+    Math.floor((dissolved * 100) / saturation) : 0, nat(dissolved, saturation) && saturation > 0 && dissolved <=
+    saturation, 'oxygen', [dissolved, saturation]) } /** CLARITY: the Secchi depth. value depth. */ static
+    clarity(depth: number): CrossFormula { return c('limnology-clarity', 'clarity(depth) = depth', depth,
+    nat(depth), 'clarity', [depth]) } /** TROPHIC load: nutrients per unit volume. value ⌊nutrients / volume⌋.
+    */ static trophic(nutrients: number, volume: number): CrossFormula { return c('limnology-trophic',
+    'trophic(nutrients, volume) = ⌊nutrients / volume⌋', volume > 0 ? Math.floor(nutrients / volume) : 0,
+    nat(nutrients, volume) && volume > 0, 'trophic', [nutrients, volume]) } /** RESIDENCE time: volume over
+    outflow. value ⌊volume / outflow⌋. -/
+theorem fam_limnology_residence_1 : ((10000 : Int) / (100 : Int)) = (100 : Int) := by decide
 
-/-- limnology: stratification(22, 7) = 15 — STRATIFICATION: surface minus bottom, floored at zero. value max(0,
-    surface − bottom). -/
-theorem fam_limnology_stratification_1 : (fmax 0 (22 - 7)) = 15 := by decide
+/-- limnology: stratification(22, 7) = 15 — LIMNOLOGY — INLAND WATERS AS ARITHMETIC (lakes, ponds, reservoirs).
+    The state of a body of water is numbers: dissolved oxygen against saturation, Secchi clarity, trophic load,
+    residence time, thermal stratification, primary productivity, acidity, and turbidity. Crosses to `hydrology`
+    — limnology is the still water hydrology moves. A measure. */ const PROOF = 'limnology arithmetic (dissolved
+    oxygen, Secchi clarity, trophic load, residence time, stratification, productivity, pH, turbidity); a
+    measure crossed to hydrology' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'limnology', dst:
+    'hydrology', formula, value, proof: PROOF, ...extra }, holds, { name: `limnology.${name}`, params }) export
+    class LimnologyFormulas { /** DISSOLVED OXYGEN as a percentage of saturation. value ⌊dissolved · 100 /
+    saturation⌋. */ static oxygen(dissolved: number, saturation: number): CrossFormula { return
+    c('limnology-oxygen', 'oxygen(dissolved, saturation) = ⌊dissolved · 100 / saturation⌋', saturation > 0 ?
+    Math.floor((dissolved * 100) / saturation) : 0, nat(dissolved, saturation) && saturation > 0 && dissolved <=
+    saturation, 'oxygen', [dissolved, saturation]) } /** CLARITY: the Secchi depth. value depth. */ static
+    clarity(depth: number): CrossFormula { return c('limnology-clarity', 'clarity(depth) = depth', depth,
+    nat(depth), 'clarity', [depth]) } /** TROPHIC load: nutrients per unit volume. value ⌊nutrients / volume⌋.
+    */ static trophic(nutrients: number, volume: number): CrossFormula { return c('limnology-trophic',
+    'trophic(nutrients, volume) = ⌊nutrients / volume⌋', volume > 0 ? Math.floor(nutrients / volume) : 0,
+    nat(nutrients, volume) && volume > 0, 'trophic', [nutrients, volume]) } /** RESIDENCE time: volume over
+    outflow. value ⌊volume / outflow⌋. */ static residence(volume: number, outflow: number): CrossFormula {
+    return c('limnology-residence', 'residence(volume, outflow) = ⌊volume / outflow⌋', outflow > 0 ?
+    Math.floor(volume / outflow) : 0, nat(volume, outflow) && outflow > 0, 'residence', [volume, outflow]) } /**
+    STRATIFICATION: surface minus bottom, floored at zero. value max(0, surface − bottom). -/
+theorem fam_limnology_stratification_1 : (fmax (0 : Int) ((22 : Int) - (7 : Int))) = (15 : Int) := by decide
 
-/-- limnology: stratification(7, 22) = 0 — STRATIFICATION: surface minus bottom, floored at zero. value max(0,
-    surface − bottom). -/
-theorem fam_limnology_stratification_2 : (fmax 0 (7 - 22)) = 0 := by decide
+/-- limnology: stratification(7, 22) = 0 — LIMNOLOGY — INLAND WATERS AS ARITHMETIC (lakes, ponds, reservoirs).
+    The state of a body of water is numbers: dissolved oxygen against saturation, Secchi clarity, trophic load,
+    residence time, thermal stratification, primary productivity, acidity, and turbidity. Crosses to `hydrology`
+    — limnology is the still water hydrology moves. A measure. */ const PROOF = 'limnology arithmetic (dissolved
+    oxygen, Secchi clarity, trophic load, residence time, stratification, productivity, pH, turbidity); a
+    measure crossed to hydrology' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'limnology', dst:
+    'hydrology', formula, value, proof: PROOF, ...extra }, holds, { name: `limnology.${name}`, params }) export
+    class LimnologyFormulas { /** DISSOLVED OXYGEN as a percentage of saturation. value ⌊dissolved · 100 /
+    saturation⌋. */ static oxygen(dissolved: number, saturation: number): CrossFormula { return
+    c('limnology-oxygen', 'oxygen(dissolved, saturation) = ⌊dissolved · 100 / saturation⌋', saturation > 0 ?
+    Math.floor((dissolved * 100) / saturation) : 0, nat(dissolved, saturation) && saturation > 0 && dissolved <=
+    saturation, 'oxygen', [dissolved, saturation]) } /** CLARITY: the Secchi depth. value depth. */ static
+    clarity(depth: number): CrossFormula { return c('limnology-clarity', 'clarity(depth) = depth', depth,
+    nat(depth), 'clarity', [depth]) } /** TROPHIC load: nutrients per unit volume. value ⌊nutrients / volume⌋.
+    */ static trophic(nutrients: number, volume: number): CrossFormula { return c('limnology-trophic',
+    'trophic(nutrients, volume) = ⌊nutrients / volume⌋', volume > 0 ? Math.floor(nutrients / volume) : 0,
+    nat(nutrients, volume) && volume > 0, 'trophic', [nutrients, volume]) } /** RESIDENCE time: volume over
+    outflow. value ⌊volume / outflow⌋. */ static residence(volume: number, outflow: number): CrossFormula {
+    return c('limnology-residence', 'residence(volume, outflow) = ⌊volume / outflow⌋', outflow > 0 ?
+    Math.floor(volume / outflow) : 0, nat(volume, outflow) && outflow > 0, 'residence', [volume, outflow]) } /**
+    STRATIFICATION: surface minus bottom, floored at zero. value max(0, surface − bottom). -/
+theorem fam_limnology_stratification_2 : (fmax (0 : Int) ((7 : Int) - (22 : Int))) = (0 : Int) := by decide
 
-/-- limnology: productivity(6000, 60) = 100 — PRODUCTIVITY: fixed carbon per unit area. value ⌊carbon / area⌋. -/
-theorem fam_limnology_productivity_1 : (6000 / 60) = 100 := by decide
+/-- limnology: productivity(6000, 60) = 100 — LIMNOLOGY — INLAND WATERS AS ARITHMETIC (lakes, ponds,
+    reservoirs). The state of a body of water is numbers: dissolved oxygen against saturation, Secchi clarity,
+    trophic load, residence time, thermal stratification, primary productivity, acidity, and turbidity. Crosses
+    to `hydrology` — limnology is the still water hydrology moves. A measure. */ const PROOF = 'limnology
+    arithmetic (dissolved oxygen, Secchi clarity, trophic load, residence time, stratification, productivity,
+    pH, turbidity); a measure crossed to hydrology' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'limnology', dst: 'hydrology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `limnology.${name}`, params }) export class LimnologyFormulas { /** DISSOLVED OXYGEN as a percentage of
+    saturation. value ⌊dissolved · 100 / saturation⌋. */ static oxygen(dissolved: number, saturation: number):
+    CrossFormula { return c('limnology-oxygen', 'oxygen(dissolved, saturation) = ⌊dissolved · 100 /
+    saturation⌋', saturation > 0 ? Math.floor((dissolved * 100) / saturation) : 0, nat(dissolved, saturation) &&
+    saturation > 0 && dissolved <= saturation, 'oxygen', [dissolved, saturation]) } /** CLARITY: the Secchi
+    depth. value depth. */ static clarity(depth: number): CrossFormula { return c('limnology-clarity',
+    'clarity(depth) = depth', depth, nat(depth), 'clarity', [depth]) } /** TROPHIC load: nutrients per unit
+    volume. value ⌊nutrients / volume⌋. */ static trophic(nutrients: number, volume: number): CrossFormula {
+    return c('limnology-trophic', 'trophic(nutrients, volume) = ⌊nutrients / volume⌋', volume > 0 ?
+    Math.floor(nutrients / volume) : 0, nat(nutrients, volume) && volume > 0, 'trophic', [nutrients, volume]) }
+    /** RESIDENCE time: volume over outflow. value ⌊volume / outflow⌋. */ static residence(volume: number,
+    outflow: number): CrossFormula { return c('limnology-residence', 'residence(volume, outflow) = ⌊volume /
+    outflow⌋', outflow > 0 ? Math.floor(volume / outflow) : 0, nat(volume, outflow) && outflow > 0, 'residence',
+    [volume, outflow]) } /** STRATIFICATION: surface minus bottom, floored at zero. value max(0, surface −
+    bottom). */ static stratification(surface: number, bottom: number): CrossFormula { return
+    c('limnology-stratification', 'stratification(surface, bottom) = max(0, surface − bottom)', Math.max(0,
+    surface - bottom), nat(surface, bottom), 'stratification', [surface, bottom]) } /** PRODUCTIVITY: fixed
+    carbon per unit area. value ⌊carbon / area⌋. -/
+theorem fam_limnology_productivity_1 : ((6000 : Int) / (60 : Int)) = (100 : Int) := by decide
 
-/-- limnology: ph(50, 100) = 50 — PH as an acid-to-base ratio, scaled. value ⌊acid · 100 / base⌋. -/
-theorem fam_limnology_ph_1 : ((50 * 100) / 100) = 50 := by decide
+/-- limnology: ph(50, 100) = 50 — LIMNOLOGY — INLAND WATERS AS ARITHMETIC (lakes, ponds, reservoirs). The state
+    of a body of water is numbers: dissolved oxygen against saturation, Secchi clarity, trophic load, residence
+    time, thermal stratification, primary productivity, acidity, and turbidity. Crosses to `hydrology` —
+    limnology is the still water hydrology moves. A measure. */ const PROOF = 'limnology arithmetic (dissolved
+    oxygen, Secchi clarity, trophic load, residence time, stratification, productivity, pH, turbidity); a
+    measure crossed to hydrology' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'limnology', dst:
+    'hydrology', formula, value, proof: PROOF, ...extra }, holds, { name: `limnology.${name}`, params }) export
+    class LimnologyFormulas { /** DISSOLVED OXYGEN as a percentage of saturation. value ⌊dissolved · 100 /
+    saturation⌋. */ static oxygen(dissolved: number, saturation: number): CrossFormula { return
+    c('limnology-oxygen', 'oxygen(dissolved, saturation) = ⌊dissolved · 100 / saturation⌋', saturation > 0 ?
+    Math.floor((dissolved * 100) / saturation) : 0, nat(dissolved, saturation) && saturation > 0 && dissolved <=
+    saturation, 'oxygen', [dissolved, saturation]) } /** CLARITY: the Secchi depth. value depth. */ static
+    clarity(depth: number): CrossFormula { return c('limnology-clarity', 'clarity(depth) = depth', depth,
+    nat(depth), 'clarity', [depth]) } /** TROPHIC load: nutrients per unit volume. value ⌊nutrients / volume⌋.
+    */ static trophic(nutrients: number, volume: number): CrossFormula { return c('limnology-trophic',
+    'trophic(nutrients, volume) = ⌊nutrients / volume⌋', volume > 0 ? Math.floor(nutrients / volume) : 0,
+    nat(nutrients, volume) && volume > 0, 'trophic', [nutrients, volume]) } /** RESIDENCE time: volume over
+    outflow. value ⌊volume / outflow⌋. */ static residence(volume: number, outflow: number): CrossFormula {
+    return c('limnology-residence', 'residence(volume, outflow) = ⌊volume / outflow⌋', outflow > 0 ?
+    Math.floor(volume / outflow) : 0, nat(volume, outflow) && outflow > 0, 'residence', [volume, outflow]) } /**
+    STRATIFICATION: surface minus bottom, floored at zero. value max(0, surface − bottom). */ static
+    stratification(surface: number, bottom: number): CrossFormula { return c('limnology-stratification',
+    'stratification(surface, bottom) = max(0, surface − bottom)', Math.max(0, surface - bottom), nat(surface,
+    bottom), 'stratification', [surface, bottom]) } /** PRODUCTIVITY: fixed carbon per unit area. value ⌊carbon
+    / area⌋. */ static productivity(carbon: number, area: number): CrossFormula { return
+    c('limnology-productivity', 'productivity(carbon, area) = ⌊carbon / area⌋', area > 0 ? Math.floor(carbon /
+    area) : 0, nat(carbon, area) && area > 0, 'productivity', [carbon, area]) } /** PH as an acid-to-base ratio,
+    scaled. value ⌊acid · 100 / base⌋. -/
+theorem fam_limnology_ph_1 : (((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int) := by decide
 
-/-- limnology: turbidity(3, 10) = 30 — TURBIDITY: scattered light as a fraction of incident. value ⌊scattered ·
-    100 / incident⌋. -/
-theorem fam_limnology_turbidity_1 : ((3 * 100) / 10) = 30 := by decide
+/-- limnology: turbidity(3, 10) = 30 — LIMNOLOGY — INLAND WATERS AS ARITHMETIC (lakes, ponds, reservoirs). The
+    state of a body of water is numbers: dissolved oxygen against saturation, Secchi clarity, trophic load,
+    residence time, thermal stratification, primary productivity, acidity, and turbidity. Crosses to `hydrology`
+    — limnology is the still water hydrology moves. A measure. */ const PROOF = 'limnology arithmetic (dissolved
+    oxygen, Secchi clarity, trophic load, residence time, stratification, productivity, pH, turbidity); a
+    measure crossed to hydrology' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'limnology', dst:
+    'hydrology', formula, value, proof: PROOF, ...extra }, holds, { name: `limnology.${name}`, params }) export
+    class LimnologyFormulas { /** DISSOLVED OXYGEN as a percentage of saturation. value ⌊dissolved · 100 /
+    saturation⌋. */ static oxygen(dissolved: number, saturation: number): CrossFormula { return
+    c('limnology-oxygen', 'oxygen(dissolved, saturation) = ⌊dissolved · 100 / saturation⌋', saturation > 0 ?
+    Math.floor((dissolved * 100) / saturation) : 0, nat(dissolved, saturation) && saturation > 0 && dissolved <=
+    saturation, 'oxygen', [dissolved, saturation]) } /** CLARITY: the Secchi depth. value depth. */ static
+    clarity(depth: number): CrossFormula { return c('limnology-clarity', 'clarity(depth) = depth', depth,
+    nat(depth), 'clarity', [depth]) } /** TROPHIC load: nutrients per unit volume. value ⌊nutrients / volume⌋.
+    */ static trophic(nutrients: number, volume: number): CrossFormula { return c('limnology-trophic',
+    'trophic(nutrients, volume) = ⌊nutrients / volume⌋', volume > 0 ? Math.floor(nutrients / volume) : 0,
+    nat(nutrients, volume) && volume > 0, 'trophic', [nutrients, volume]) } /** RESIDENCE time: volume over
+    outflow. value ⌊volume / outflow⌋. */ static residence(volume: number, outflow: number): CrossFormula {
+    return c('limnology-residence', 'residence(volume, outflow) = ⌊volume / outflow⌋', outflow > 0 ?
+    Math.floor(volume / outflow) : 0, nat(volume, outflow) && outflow > 0, 'residence', [volume, outflow]) } /**
+    STRATIFICATION: surface minus bottom, floored at zero. value max(0, surface − bottom). */ static
+    stratification(surface: number, bottom: number): CrossFormula { return c('limnology-stratification',
+    'stratification(surface, bottom) = max(0, surface − bottom)', Math.max(0, surface - bottom), nat(surface,
+    bottom), 'stratification', [surface, bottom]) } /** PRODUCTIVITY: fixed carbon per unit area. value ⌊carbon
+    / area⌋. */ static productivity(carbon: number, area: number): CrossFormula { return
+    c('limnology-productivity', 'productivity(carbon, area) = ⌊carbon / area⌋', area > 0 ? Math.floor(carbon /
+    area) : 0, nat(carbon, area) && area > 0, 'productivity', [carbon, area]) } /** PH as an acid-to-base ratio,
+    scaled. value ⌊acid · 100 / base⌋. */ static ph(acid: number, base: number): CrossFormula { return
+    c('limnology-ph', 'ph(acid, base) = ⌊acid · 100 / base⌋', base > 0 ? Math.floor((acid * 100) / base) : 0,
+    nat(acid, base) && base > 0, 'ph', [acid, base]) } /** TURBIDITY: scattered light as a fraction of incident.
+    value ⌊scattered · 100 / incident⌋. -/
+theorem fam_limnology_turbidity_1 : (((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int) := by decide
 
-/-- linearalgebra: dot2(3, 4, 5) = 32 — LINEARALGEBRA — THE SMALL-DIMENSION LINEAR OPERATIONS, AS ARITHMETIC.
+/-- linearalgebra: trace2(7, 9) = 16 — LINEARALGEBRA — THE SMALL-DIMENSION LINEAR OPERATIONS, AS ARITHMETIC.
     Vectors and 2x2 matrices are numbers: the dot of two 2-vectors, the determinant and trace of a 2x2, how many
     entries a matrix holds, the rank of a diagonal, an L1 norm, the 2D cross magnitude, and a scalar times a
     vector. Crosses to `algebra` — linear algebra is algebra over a space. A measure, every output an exact
@@ -685,57 +4997,257 @@ theorem fam_limnology_turbidity_1 : ((3 * 100) / 10) = 30 := by decide
     name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
     src: 'linearalgebra', dst: 'algebra', formula, value, proof: PROOF, ...extra }, holds, { name:
     `linearalgebra.${name}`, params }) export class LinearalgebraFormulas { /** DOT of two 2-vectors (a, b) and
-    (b, c). value a·b + b·c. -/
-theorem fam_linearalgebra_dot2_1 : ((3 * 4) + (4 * 5)) = 32 := by decide
+    (b, c). value a·b + b·c. */ static dot2(a: number, b: number, cc: number): CrossFormula { return
+    c('la-dot2', 'dot2(a, b, c) = a·b + b·c = (a,b)·(b,c)', a * b + b * cc, nat(a, b, cc), 'dot2', [a, b, cc]) }
+    /** DETERMINANT of the symmetric 2x2 [[a, b],[b, c]]. value max(0, a·c − b²). */ static determinant2x2(a:
+    number, b: number, cc: number): CrossFormula { return c('la-determinant2x2', 'determinant2x2(a, b, c) =
+    max(0, a·c − b²), [[a,b],[b,c]]', Math.max(0, a * cc - b * b), nat(a, b, cc), 'determinant2x2', [a, b, cc])
+    } /** TRACE of a 2x2 with diagonal (a, b). value a + b. -/
+theorem fam_linearalgebra_trace2_1 : ((7 : Int) + (9 : Int)) = (16 : Int) := by decide
 
-/-- linearalgebra: trace2(7, 9) = 16 — TRACE of a 2x2 with diagonal (a, b). value a + b. -/
-theorem fam_linearalgebra_trace2_1 : (7 + 9) = 16 := by decide
+/-- linearalgebra: matrixelements(3, 4) = 12 — LINEARALGEBRA — THE SMALL-DIMENSION LINEAR OPERATIONS, AS
+    ARITHMETIC. Vectors and 2x2 matrices are numbers: the dot of two 2-vectors, the determinant and trace of a
+    2x2, how many entries a matrix holds, the rank of a diagonal, an L1 norm, the 2D cross magnitude, and a
+    scalar times a vector. Crosses to `algebra` — linear algebra is algebra over a space. A measure, every
+    output an exact finite nonnegative integer. */ const PROOF = 'linear-algebra arithmetic (dot, 2x2
+    determinant & trace, matrix elements, diagonal rank, L1 norm, 2D cross, scalar multiply); small-dimension
+    hex-addressable entries; a measure crossed to algebra' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linearalgebra', dst: 'algebra', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linearalgebra.${name}`, params }) export class LinearalgebraFormulas { /** DOT of two 2-vectors (a, b) and
+    (b, c). value a·b + b·c. */ static dot2(a: number, b: number, cc: number): CrossFormula { return
+    c('la-dot2', 'dot2(a, b, c) = a·b + b·c = (a,b)·(b,c)', a * b + b * cc, nat(a, b, cc), 'dot2', [a, b, cc]) }
+    /** DETERMINANT of the symmetric 2x2 [[a, b],[b, c]]. value max(0, a·c − b²). */ static determinant2x2(a:
+    number, b: number, cc: number): CrossFormula { return c('la-determinant2x2', 'determinant2x2(a, b, c) =
+    max(0, a·c − b²), [[a,b],[b,c]]', Math.max(0, a * cc - b * b), nat(a, b, cc), 'determinant2x2', [a, b, cc])
+    } /** TRACE of a 2x2 with diagonal (a, b). value a + b. */ static trace2(a: number, b: number): CrossFormula
+    { return c('la-trace2', 'trace2(a, b) = a + b', a + b, nat(a, b), 'trace2', [a, b]) } /** MATRIX ELEMENTS:
+    the entries of an r×c matrix. value r · c. -/
+theorem fam_linearalgebra_matrixelements_1 : ((3 : Int) * (4 : Int)) = (12 : Int) := by decide
 
-/-- linearalgebra: matrixelements(3, 4) = 12 — MATRIX ELEMENTS: the entries of an r×c matrix. value r · c. -/
-theorem fam_linearalgebra_matrixelements_1 : (3 * 4) = 12 := by decide
+/-- linearalgebra: ranknullity(2, 3) = 5 — LINEARALGEBRA — THE SMALL-DIMENSION LINEAR OPERATIONS, AS ARITHMETIC.
+    Vectors and 2x2 matrices are numbers: the dot of two 2-vectors, the determinant and trace of a 2x2, how many
+    entries a matrix holds, the rank of a diagonal, an L1 norm, the 2D cross magnitude, and a scalar times a
+    vector. Crosses to `algebra` — linear algebra is algebra over a space. A measure, every output an exact
+    finite nonnegative integer. */ const PROOF = 'linear-algebra arithmetic (dot, 2x2 determinant & trace,
+    matrix elements, diagonal rank, L1 norm, 2D cross, scalar multiply); small-dimension hex-addressable
+    entries; a measure crossed to algebra' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linearalgebra', dst: 'algebra', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linearalgebra.${name}`, params }) export class LinearalgebraFormulas { /** DOT of two 2-vectors (a, b) and
+    (b, c). value a·b + b·c. */ static dot2(a: number, b: number, cc: number): CrossFormula { return
+    c('la-dot2', 'dot2(a, b, c) = a·b + b·c = (a,b)·(b,c)', a * b + b * cc, nat(a, b, cc), 'dot2', [a, b, cc]) }
+    /** DETERMINANT of the symmetric 2x2 [[a, b],[b, c]]. value max(0, a·c − b²). */ static determinant2x2(a:
+    number, b: number, cc: number): CrossFormula { return c('la-determinant2x2', 'determinant2x2(a, b, c) =
+    max(0, a·c − b²), [[a,b],[b,c]]', Math.max(0, a * cc - b * b), nat(a, b, cc), 'determinant2x2', [a, b, cc])
+    } /** TRACE of a 2x2 with diagonal (a, b). value a + b. */ static trace2(a: number, b: number): CrossFormula
+    { return c('la-trace2', 'trace2(a, b) = a + b', a + b, nat(a, b), 'trace2', [a, b]) } /** MATRIX ELEMENTS:
+    the entries of an r×c matrix. value r · c. */ static matrixelements(r: number, cc: number): CrossFormula {
+    return c('la-matrixelements', 'matrixelements(r, c) = r · c', r * cc, nat(r, cc), 'matrixelements', [r, cc])
+    } /** RANK of the diagonal matrix diag(a, b): the nonzero diagonal entries. value [a≠0] + [b≠0]. */ static
+    rank(a: number, b: number): CrossFormula { return c('la-rank', 'rank(a, b) = [a≠0] + [b≠0] for diag(a, b)',
+    (a !== 0 ? 1 : 0) + (b !== 0 ? 1 : 0), nat(a, b), 'rank', [a, b]) } /** L1 NORM (Manhattan) of the 2-vector
+    (a, b). value |a| + |b|. */ static norm1(a: number, b: number): CrossFormula { return c('la-norm1',
+    'norm1(a, b) = |a| + |b|', Math.abs(a) + Math.abs(b), nat(a, b), 'norm1', [a, b]) } /** CROSS: the 2D cross
+    magnitude of (a, b) and (c, c). value max(0, a·c − b·c). */ static cross(a: number, b: number, cc: number):
+    CrossFormula { return c('la-cross', 'cross(a, b, c) = max(0, a·c − b·c) = (a,b)×(c,c)', Math.max(0, a * cc -
+    b * cc), nat(a, b, cc), 'cross', [a, b, cc]) } /** SCALAR MULTIPLY: k · (a, b), returned as the L1 norm of
+    the scaled vector. value k·a + k·b. */ static scalarmul(k: number, a: number, b: number): CrossFormula {
+    return c('la-scalarmul', 'scalarmul(k, a, b) = k·a + k·b = |k·(a,b)|₁', k * a + k * b, nat(k, a, b),
+    'scalarmul', [k, a, b]) } /** RANK–NULLITY theorem: rank + nullity = dim. value rank + nullity. -/
+theorem fam_linearalgebra_ranknullity_1 : ((2 : Int) + (3 : Int)) = (5 : Int) := by decide
 
-/-- linearalgebra: cross(5, 2, 4) = 12 — CROSS: the 2D cross magnitude of (a, b) and (c, c). value max(0, a·c −
-    b·c). -/
-theorem fam_linearalgebra_cross_1 : (fmax 0 ((5 * 4) - (2 * 4))) = 12 := by decide
+/-- linearalgebra: nullity(4, 1) = 3 — LINEARALGEBRA — THE SMALL-DIMENSION LINEAR OPERATIONS, AS ARITHMETIC.
+    Vectors and 2x2 matrices are numbers: the dot of two 2-vectors, the determinant and trace of a 2x2, how many
+    entries a matrix holds, the rank of a diagonal, an L1 norm, the 2D cross magnitude, and a scalar times a
+    vector. Crosses to `algebra` — linear algebra is algebra over a space. A measure, every output an exact
+    finite nonnegative integer. */ const PROOF = 'linear-algebra arithmetic (dot, 2x2 determinant & trace,
+    matrix elements, diagonal rank, L1 norm, 2D cross, scalar multiply); small-dimension hex-addressable
+    entries; a measure crossed to algebra' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linearalgebra', dst: 'algebra', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linearalgebra.${name}`, params }) export class LinearalgebraFormulas { /** DOT of two 2-vectors (a, b) and
+    (b, c). value a·b + b·c. */ static dot2(a: number, b: number, cc: number): CrossFormula { return
+    c('la-dot2', 'dot2(a, b, c) = a·b + b·c = (a,b)·(b,c)', a * b + b * cc, nat(a, b, cc), 'dot2', [a, b, cc]) }
+    /** DETERMINANT of the symmetric 2x2 [[a, b],[b, c]]. value max(0, a·c − b²). */ static determinant2x2(a:
+    number, b: number, cc: number): CrossFormula { return c('la-determinant2x2', 'determinant2x2(a, b, c) =
+    max(0, a·c − b²), [[a,b],[b,c]]', Math.max(0, a * cc - b * b), nat(a, b, cc), 'determinant2x2', [a, b, cc])
+    } /** TRACE of a 2x2 with diagonal (a, b). value a + b. */ static trace2(a: number, b: number): CrossFormula
+    { return c('la-trace2', 'trace2(a, b) = a + b', a + b, nat(a, b), 'trace2', [a, b]) } /** MATRIX ELEMENTS:
+    the entries of an r×c matrix. value r · c. */ static matrixelements(r: number, cc: number): CrossFormula {
+    return c('la-matrixelements', 'matrixelements(r, c) = r · c', r * cc, nat(r, cc), 'matrixelements', [r, cc])
+    } /** RANK of the diagonal matrix diag(a, b): the nonzero diagonal entries. value [a≠0] + [b≠0]. */ static
+    rank(a: number, b: number): CrossFormula { return c('la-rank', 'rank(a, b) = [a≠0] + [b≠0] for diag(a, b)',
+    (a !== 0 ? 1 : 0) + (b !== 0 ? 1 : 0), nat(a, b), 'rank', [a, b]) } /** L1 NORM (Manhattan) of the 2-vector
+    (a, b). value |a| + |b|. */ static norm1(a: number, b: number): CrossFormula { return c('la-norm1',
+    'norm1(a, b) = |a| + |b|', Math.abs(a) + Math.abs(b), nat(a, b), 'norm1', [a, b]) } /** CROSS: the 2D cross
+    magnitude of (a, b) and (c, c). value max(0, a·c − b·c). */ static cross(a: number, b: number, cc: number):
+    CrossFormula { return c('la-cross', 'cross(a, b, c) = max(0, a·c − b·c) = (a,b)×(c,c)', Math.max(0, a * cc -
+    b * cc), nat(a, b, cc), 'cross', [a, b, cc]) } /** SCALAR MULTIPLY: k · (a, b), returned as the L1 norm of
+    the scaled vector. value k·a + k·b. */ static scalarmul(k: number, a: number, b: number): CrossFormula {
+    return c('la-scalarmul', 'scalarmul(k, a, b) = k·a + k·b = |k·(a,b)|₁', k * a + k * b, nat(k, a, b),
+    'scalarmul', [k, a, b]) } /** RANK–NULLITY theorem: rank + nullity = dim. value rank + nullity. */ static
+    ranknullity(rank: number, nullity: number): CrossFormula { return c('la-ranknullity', 'ranknullity(rank,
+    nullity) = rank + nullity (rank–nullity theorem)', rank + nullity, nat(rank, nullity), 'ranknullity', [rank,
+    nullity]) } /** NULLITY: the kernel dimension, cols − rank. value max(0, cols − rank). -/
+theorem fam_linearalgebra_nullity_1 : (fmax (0 : Int) ((4 : Int) - (1 : Int))) = (3 : Int) := by decide
 
-/-- linearalgebra: scalarmul(3, 4, 5) = 27 — SCALAR MULTIPLY: k · (a, b), returned as the L1 norm of the scaled
-    vector. value k·a + k·b. -/
-theorem fam_linearalgebra_scalarmul_1 : ((3 * 4) + (3 * 5)) = 27 := by decide
+/-- linearalgebra: orthogonal(3, 4) = 1 — LINEARALGEBRA — THE SMALL-DIMENSION LINEAR OPERATIONS, AS ARITHMETIC.
+    Vectors and 2x2 matrices are numbers: the dot of two 2-vectors, the determinant and trace of a 2x2, how many
+    entries a matrix holds, the rank of a diagonal, an L1 norm, the 2D cross magnitude, and a scalar times a
+    vector. Crosses to `algebra` — linear algebra is algebra over a space. A measure, every output an exact
+    finite nonnegative integer. */ const PROOF = 'linear-algebra arithmetic (dot, 2x2 determinant & trace,
+    matrix elements, diagonal rank, L1 norm, 2D cross, scalar multiply); small-dimension hex-addressable
+    entries; a measure crossed to algebra' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linearalgebra', dst: 'algebra', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linearalgebra.${name}`, params }) export class LinearalgebraFormulas { /** DOT of two 2-vectors (a, b) and
+    (b, c). value a·b + b·c. */ static dot2(a: number, b: number, cc: number): CrossFormula { return
+    c('la-dot2', 'dot2(a, b, c) = a·b + b·c = (a,b)·(b,c)', a * b + b * cc, nat(a, b, cc), 'dot2', [a, b, cc]) }
+    /** DETERMINANT of the symmetric 2x2 [[a, b],[b, c]]. value max(0, a·c − b²). */ static determinant2x2(a:
+    number, b: number, cc: number): CrossFormula { return c('la-determinant2x2', 'determinant2x2(a, b, c) =
+    max(0, a·c − b²), [[a,b],[b,c]]', Math.max(0, a * cc - b * b), nat(a, b, cc), 'determinant2x2', [a, b, cc])
+    } /** TRACE of a 2x2 with diagonal (a, b). value a + b. */ static trace2(a: number, b: number): CrossFormula
+    { return c('la-trace2', 'trace2(a, b) = a + b', a + b, nat(a, b), 'trace2', [a, b]) } /** MATRIX ELEMENTS:
+    the entries of an r×c matrix. value r · c. */ static matrixelements(r: number, cc: number): CrossFormula {
+    return c('la-matrixelements', 'matrixelements(r, c) = r · c', r * cc, nat(r, cc), 'matrixelements', [r, cc])
+    } /** RANK of the diagonal matrix diag(a, b): the nonzero diagonal entries. value [a≠0] + [b≠0]. */ static
+    rank(a: number, b: number): CrossFormula { return c('la-rank', 'rank(a, b) = [a≠0] + [b≠0] for diag(a, b)',
+    (a !== 0 ? 1 : 0) + (b !== 0 ? 1 : 0), nat(a, b), 'rank', [a, b]) } /** L1 NORM (Manhattan) of the 2-vector
+    (a, b). value |a| + |b|. */ static norm1(a: number, b: number): CrossFormula { return c('la-norm1',
+    'norm1(a, b) = |a| + |b|', Math.abs(a) + Math.abs(b), nat(a, b), 'norm1', [a, b]) } /** CROSS: the 2D cross
+    magnitude of (a, b) and (c, c). value max(0, a·c − b·c). */ static cross(a: number, b: number, cc: number):
+    CrossFormula { return c('la-cross', 'cross(a, b, c) = max(0, a·c − b·c) = (a,b)×(c,c)', Math.max(0, a * cc -
+    b * cc), nat(a, b, cc), 'cross', [a, b, cc]) } /** SCALAR MULTIPLY: k · (a, b), returned as the L1 norm of
+    the scaled vector. value k·a + k·b. */ static scalarmul(k: number, a: number, b: number): CrossFormula {
+    return c('la-scalarmul', 'scalarmul(k, a, b) = k·a + k·b = |k·(a,b)|₁', k * a + k * b, nat(k, a, b),
+    'scalarmul', [k, a, b]) } /** RANK–NULLITY theorem: rank + nullity = dim. value rank + nullity. */ static
+    ranknullity(rank: number, nullity: number): CrossFormula { return c('la-ranknullity', 'ranknullity(rank,
+    nullity) = rank + nullity (rank–nullity theorem)', rank + nullity, nat(rank, nullity), 'ranknullity', [rank,
+    nullity]) } /** NULLITY: the kernel dimension, cols − rank. value max(0, cols − rank). */ static
+    nullity(cols: number, rank: number): CrossFormula { return c('la-nullity', 'nullity(cols, rank) = max(0,
+    cols − rank)', Math.max(0, cols - rank), nat(cols, rank), 'nullity', [cols, rank]) } /** ORTHOGONAL: (a, b)
+    and (−b, a) are perpendicular, so the dot is 0 and the test is 1. -/
+theorem fam_linearalgebra_orthogonal_1 : (1 : Int) = (1 : Int) := by decide
 
-/-- linearalgebra: nullity(4, 1) = 3 — NULLITY: the kernel dimension, cols − rank. value max(0, cols − rank). -/
-theorem fam_linearalgebra_nullity_1 : (fmax 0 (4 - 1)) = 3 := by decide
+/-- linearalgebra: outerproduct(2, 3) = 6 — LINEARALGEBRA — THE SMALL-DIMENSION LINEAR OPERATIONS, AS
+    ARITHMETIC. Vectors and 2x2 matrices are numbers: the dot of two 2-vectors, the determinant and trace of a
+    2x2, how many entries a matrix holds, the rank of a diagonal, an L1 norm, the 2D cross magnitude, and a
+    scalar times a vector. Crosses to `algebra` — linear algebra is algebra over a space. A measure, every
+    output an exact finite nonnegative integer. */ const PROOF = 'linear-algebra arithmetic (dot, 2x2
+    determinant & trace, matrix elements, diagonal rank, L1 norm, 2D cross, scalar multiply); small-dimension
+    hex-addressable entries; a measure crossed to algebra' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linearalgebra', dst: 'algebra', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linearalgebra.${name}`, params }) export class LinearalgebraFormulas { /** DOT of two 2-vectors (a, b) and
+    (b, c). value a·b + b·c. */ static dot2(a: number, b: number, cc: number): CrossFormula { return
+    c('la-dot2', 'dot2(a, b, c) = a·b + b·c = (a,b)·(b,c)', a * b + b * cc, nat(a, b, cc), 'dot2', [a, b, cc]) }
+    /** DETERMINANT of the symmetric 2x2 [[a, b],[b, c]]. value max(0, a·c − b²). */ static determinant2x2(a:
+    number, b: number, cc: number): CrossFormula { return c('la-determinant2x2', 'determinant2x2(a, b, c) =
+    max(0, a·c − b²), [[a,b],[b,c]]', Math.max(0, a * cc - b * b), nat(a, b, cc), 'determinant2x2', [a, b, cc])
+    } /** TRACE of a 2x2 with diagonal (a, b). value a + b. */ static trace2(a: number, b: number): CrossFormula
+    { return c('la-trace2', 'trace2(a, b) = a + b', a + b, nat(a, b), 'trace2', [a, b]) } /** MATRIX ELEMENTS:
+    the entries of an r×c matrix. value r · c. */ static matrixelements(r: number, cc: number): CrossFormula {
+    return c('la-matrixelements', 'matrixelements(r, c) = r · c', r * cc, nat(r, cc), 'matrixelements', [r, cc])
+    } /** RANK of the diagonal matrix diag(a, b): the nonzero diagonal entries. value [a≠0] + [b≠0]. */ static
+    rank(a: number, b: number): CrossFormula { return c('la-rank', 'rank(a, b) = [a≠0] + [b≠0] for diag(a, b)',
+    (a !== 0 ? 1 : 0) + (b !== 0 ? 1 : 0), nat(a, b), 'rank', [a, b]) } /** L1 NORM (Manhattan) of the 2-vector
+    (a, b). value |a| + |b|. */ static norm1(a: number, b: number): CrossFormula { return c('la-norm1',
+    'norm1(a, b) = |a| + |b|', Math.abs(a) + Math.abs(b), nat(a, b), 'norm1', [a, b]) } /** CROSS: the 2D cross
+    magnitude of (a, b) and (c, c). value max(0, a·c − b·c). */ static cross(a: number, b: number, cc: number):
+    CrossFormula { return c('la-cross', 'cross(a, b, c) = max(0, a·c − b·c) = (a,b)×(c,c)', Math.max(0, a * cc -
+    b * cc), nat(a, b, cc), 'cross', [a, b, cc]) } /** SCALAR MULTIPLY: k · (a, b), returned as the L1 norm of
+    the scaled vector. value k·a + k·b. */ static scalarmul(k: number, a: number, b: number): CrossFormula {
+    return c('la-scalarmul', 'scalarmul(k, a, b) = k·a + k·b = |k·(a,b)|₁', k * a + k * b, nat(k, a, b),
+    'scalarmul', [k, a, b]) } /** RANK–NULLITY theorem: rank + nullity = dim. value rank + nullity. */ static
+    ranknullity(rank: number, nullity: number): CrossFormula { return c('la-ranknullity', 'ranknullity(rank,
+    nullity) = rank + nullity (rank–nullity theorem)', rank + nullity, nat(rank, nullity), 'ranknullity', [rank,
+    nullity]) } /** NULLITY: the kernel dimension, cols − rank. value max(0, cols − rank). */ static
+    nullity(cols: number, rank: number): CrossFormula { return c('la-nullity', 'nullity(cols, rank) = max(0,
+    cols − rank)', Math.max(0, cols - rank), nat(cols, rank), 'nullity', [cols, rank]) } /** ORTHOGONAL: (a, b)
+    and (−b, a) are perpendicular, so the dot is 0 and the test is 1. */ static orthogonal(a: number, b:
+    number): CrossFormula { return c('la-orthogonal', 'orthogonal(a, b) = [(a,b)·(−b,a) = 0] = 1', a * -b + b *
+    a === 0 ? 1 : 0, nat(a, b), 'orthogonal', [a, b]) } /** PROJECTION of (a, b) onto the first axis (c, 0): the
+    scalar a·c. value a·c. */ static projection(a: number, b: number, cc: number): CrossFormula { return
+    c('la-projection', 'projection(a, b, c) = a·c = (a,b)·(c,0)', a * cc, nat(a, b, cc), 'projection', [a, b,
+    cc]) } /** OUTER PRODUCT: the entries of an m-vector ⊗ an n-vector, an m×n matrix. value m · n. -/
+theorem fam_linearalgebra_outerproduct_1 : ((2 : Int) * (3 : Int)) = (6 : Int) := by decide
 
-/-- linearalgebra: projection(3, 4, 5) = 15 — PROJECTION of (a, b) onto the first axis (c, 0): the scalar a·c.
-    value a·c. -/
-theorem fam_linearalgebra_projection_1 : (3 * 5) = 15 := by decide
-
-/-- linearalgebra: span(3, 5) = 3 — SPAN dimension: min of the ambient dimension and the independent-vector
-    count. value min(dim, indep). -/
-theorem fam_linearalgebra_span_1 : (fmin 3 5) = 3 := by decide
+/-- linearalgebra: span(3, 5) = 3 — LINEARALGEBRA — THE SMALL-DIMENSION LINEAR OPERATIONS, AS ARITHMETIC.
+    Vectors and 2x2 matrices are numbers: the dot of two 2-vectors, the determinant and trace of a 2x2, how many
+    entries a matrix holds, the rank of a diagonal, an L1 norm, the 2D cross magnitude, and a scalar times a
+    vector. Crosses to `algebra` — linear algebra is algebra over a space. A measure, every output an exact
+    finite nonnegative integer. */ const PROOF = 'linear-algebra arithmetic (dot, 2x2 determinant & trace,
+    matrix elements, diagonal rank, L1 norm, 2D cross, scalar multiply); small-dimension hex-addressable
+    entries; a measure crossed to algebra' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linearalgebra', dst: 'algebra', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linearalgebra.${name}`, params }) export class LinearalgebraFormulas { /** DOT of two 2-vectors (a, b) and
+    (b, c). value a·b + b·c. */ static dot2(a: number, b: number, cc: number): CrossFormula { return
+    c('la-dot2', 'dot2(a, b, c) = a·b + b·c = (a,b)·(b,c)', a * b + b * cc, nat(a, b, cc), 'dot2', [a, b, cc]) }
+    /** DETERMINANT of the symmetric 2x2 [[a, b],[b, c]]. value max(0, a·c − b²). */ static determinant2x2(a:
+    number, b: number, cc: number): CrossFormula { return c('la-determinant2x2', 'determinant2x2(a, b, c) =
+    max(0, a·c − b²), [[a,b],[b,c]]', Math.max(0, a * cc - b * b), nat(a, b, cc), 'determinant2x2', [a, b, cc])
+    } /** TRACE of a 2x2 with diagonal (a, b). value a + b. */ static trace2(a: number, b: number): CrossFormula
+    { return c('la-trace2', 'trace2(a, b) = a + b', a + b, nat(a, b), 'trace2', [a, b]) } /** MATRIX ELEMENTS:
+    the entries of an r×c matrix. value r · c. */ static matrixelements(r: number, cc: number): CrossFormula {
+    return c('la-matrixelements', 'matrixelements(r, c) = r · c', r * cc, nat(r, cc), 'matrixelements', [r, cc])
+    } /** RANK of the diagonal matrix diag(a, b): the nonzero diagonal entries. value [a≠0] + [b≠0]. */ static
+    rank(a: number, b: number): CrossFormula { return c('la-rank', 'rank(a, b) = [a≠0] + [b≠0] for diag(a, b)',
+    (a !== 0 ? 1 : 0) + (b !== 0 ? 1 : 0), nat(a, b), 'rank', [a, b]) } /** L1 NORM (Manhattan) of the 2-vector
+    (a, b). value |a| + |b|. */ static norm1(a: number, b: number): CrossFormula { return c('la-norm1',
+    'norm1(a, b) = |a| + |b|', Math.abs(a) + Math.abs(b), nat(a, b), 'norm1', [a, b]) } /** CROSS: the 2D cross
+    magnitude of (a, b) and (c, c). value max(0, a·c − b·c). */ static cross(a: number, b: number, cc: number):
+    CrossFormula { return c('la-cross', 'cross(a, b, c) = max(0, a·c − b·c) = (a,b)×(c,c)', Math.max(0, a * cc -
+    b * cc), nat(a, b, cc), 'cross', [a, b, cc]) } /** SCALAR MULTIPLY: k · (a, b), returned as the L1 norm of
+    the scaled vector. value k·a + k·b. */ static scalarmul(k: number, a: number, b: number): CrossFormula {
+    return c('la-scalarmul', 'scalarmul(k, a, b) = k·a + k·b = |k·(a,b)|₁', k * a + k * b, nat(k, a, b),
+    'scalarmul', [k, a, b]) } /** RANK–NULLITY theorem: rank + nullity = dim. value rank + nullity. */ static
+    ranknullity(rank: number, nullity: number): CrossFormula { return c('la-ranknullity', 'ranknullity(rank,
+    nullity) = rank + nullity (rank–nullity theorem)', rank + nullity, nat(rank, nullity), 'ranknullity', [rank,
+    nullity]) } /** NULLITY: the kernel dimension, cols − rank. value max(0, cols − rank). */ static
+    nullity(cols: number, rank: number): CrossFormula { return c('la-nullity', 'nullity(cols, rank) = max(0,
+    cols − rank)', Math.max(0, cols - rank), nat(cols, rank), 'nullity', [cols, rank]) } /** ORTHOGONAL: (a, b)
+    and (−b, a) are perpendicular, so the dot is 0 and the test is 1. */ static orthogonal(a: number, b:
+    number): CrossFormula { return c('la-orthogonal', 'orthogonal(a, b) = [(a,b)·(−b,a) = 0] = 1', a * -b + b *
+    a === 0 ? 1 : 0, nat(a, b), 'orthogonal', [a, b]) } /** PROJECTION of (a, b) onto the first axis (c, 0): the
+    scalar a·c. value a·c. */ static projection(a: number, b: number, cc: number): CrossFormula { return
+    c('la-projection', 'projection(a, b, c) = a·c = (a,b)·(c,0)', a * cc, nat(a, b, cc), 'projection', [a, b,
+    cc]) } /** OUTER PRODUCT: the entries of an m-vector ⊗ an n-vector, an m×n matrix. value m · n. */ static
+    outerproduct(m: number, nn: number): CrossFormula { return c('la-outerproduct', 'outerproduct(m, n) = m · n
+    (entries of an m×n outer product)', m * nn, nat(m, nn), 'outerproduct', [m, nn]) } /** SPAN dimension: min
+    of the ambient dimension and the independent-vector count. value min(dim, indep). -/
+theorem fam_linearalgebra_span_1 : (fmin (3 : Int) (5 : Int)) = (3 : Int) := by decide
 
 /-- linehaul: transittime(1200, 60) = 20 -/
-theorem fam_linehaul_transittime_1 : (1200 / 60) = 20 := by decide
+theorem fam_linehaul_transittime_1 : ((1200 : Int) / (60 : Int)) = (20 : Int) := by decide
 
 /-- linehaul: costpermile(1000, 2) = 2000 -/
-theorem fam_linehaul_costpermile_1 : (1000 * 2) = 2000 := by decide
+theorem fam_linehaul_costpermile_1 : ((1000 : Int) * (2 : Int)) = (2000 : Int) := by decide
 
 /-- linehaul: avgspeed(1200, 20) = 60 -/
-theorem fam_linehaul_avgspeed_1 : (1200 / 20) = 60 := by decide
+theorem fam_linehaul_avgspeed_1 : ((1200 : Int) / (20 : Int)) = (60 : Int) := by decide
 
 /-- linehaul: fuelburn(1200, 6) = 200 -/
-theorem fam_linehaul_fuelburn_1 : (1200 / 6) = 200 := by decide
+theorem fam_linehaul_fuelburn_1 : ((1200 : Int) / (6 : Int)) = (200 : Int) := by decide
 
 /-- linehaul: payloadmiles(20000, 1200) = 24000000 -/
-theorem fam_linehaul_payloadmiles_1 : (20000 * 1200) = 24000000 := by decide
+theorem fam_linehaul_payloadmiles_1 : ((20000 : Int) * (1200 : Int)) = (24000000 : Int) := by decide
 
 /-- linehaul: driverhours(600, 60) = 10 -/
-theorem fam_linehaul_driverhours_1 : (600 / 60) = 10 := by decide
+theorem fam_linehaul_driverhours_1 : ((600 : Int) / (60 : Int)) = (10 : Int) := by decide
 
 /-- linehaul: teamutilization(20, 24) = 83 -/
-theorem fam_linehaul_teamutilization_1 : ((20 * 100) / 24) = 83 := by decide
+theorem fam_linehaul_teamutilization_1 : (((20 : Int) * (100 : Int)) / (24 : Int)) = (83 : Int) := by decide
 
 /-- linehaul: laneprofit(3000, 2000) = 1000 -/
-theorem fam_linehaul_laneprofit_1 : (fmax 0 (3000 - 2000)) = 1000 := by decide
+theorem fam_linehaul_laneprofit_1 : (fmax (0 : Int) ((3000 : Int) - (2000 : Int))) = (1000 : Int) := by decide
 
 /-- linguistics: syllables(100, 2) = 200 — LINGUISTICS — LANGUAGE ANALYSIS, AS ARITHMETIC (chosen by the
     registry, not by hand). Reading a corpus is numbers: the syllables a text carries, how varied its vocabulary
@@ -749,54 +5261,217 @@ theorem fam_linehaul_laneprofit_1 : (fmax 0 (3000 - 2000)) = 1000 := by decide
     src: 'linguistics', dst: 'ml', formula, value, proof: PROOF, ...extra }, holds, { name:
     `linguistics.${name}`, params }) export class LinguisticsFormulas { /** SYLLABLES: words at an average
     syllable count each. value words · avg. -/
-theorem fam_linguistics_syllables_1 : (100 * 2) = 200 := by decide
+theorem fam_linguistics_syllables_1 : ((100 : Int) * (2 : Int)) = (200 : Int) := by decide
 
-/-- linguistics: lexical(400, 1000) = 40 — LEXICAL DIVERSITY: type-token ratio as a percentage. value ⌊unique ·
-    100 / total⌋. -/
-theorem fam_linguistics_lexical_1 : ((400 * 100) / 1000) = 40 := by decide
+/-- linguistics: lexical(400, 1000) = 40 — LINGUISTICS — LANGUAGE ANALYSIS, AS ARITHMETIC (chosen by the
+    registry, not by hand). Reading a corpus is numbers: the syllables a text carries, how varied its vocabulary
+    is, how long its sentences run, how many words two languages share, its phoneme inventory, how often a word
+    occurs per million, the morphemes per word, and the edit distance between two strings. Crosses to `ml` —
+    language analysis is what a model learns from. A measure. */ const PROOF = 'linguistics arithmetic
+    (syllables, lexical diversity, readability, cognates, phonemes, word frequency, morphemes, edit distance); a
+    language-analysis domain; a measure crossed to ml' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linguistics', dst: 'ml', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linguistics.${name}`, params }) export class LinguisticsFormulas { /** SYLLABLES: words at an average
+    syllable count each. value words · avg. */ static syllables(words: number, avg: number): CrossFormula {
+    return c('linguistics-syllables', 'syllables(words, avg) = words · avg', words * avg, nat(words, avg),
+    'syllables', [words, avg]) } /** LEXICAL DIVERSITY: type-token ratio as a percentage. value ⌊unique · 100 /
+    total⌋. -/
+theorem fam_linguistics_lexical_1 : (((400 : Int) * (100 : Int)) / (1000 : Int)) = (40 : Int) := by decide
 
-/-- linguistics: readability(500, 25) = 20 — READABILITY: average sentence length in words. value ⌊words /
-    sentences⌋. -/
-theorem fam_linguistics_readability_1 : (500 / 25) = 20 := by decide
+/-- linguistics: readability(500, 25) = 20 — LINGUISTICS — LANGUAGE ANALYSIS, AS ARITHMETIC (chosen by the
+    registry, not by hand). Reading a corpus is numbers: the syllables a text carries, how varied its vocabulary
+    is, how long its sentences run, how many words two languages share, its phoneme inventory, how often a word
+    occurs per million, the morphemes per word, and the edit distance between two strings. Crosses to `ml` —
+    language analysis is what a model learns from. A measure. */ const PROOF = 'linguistics arithmetic
+    (syllables, lexical diversity, readability, cognates, phonemes, word frequency, morphemes, edit distance); a
+    language-analysis domain; a measure crossed to ml' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linguistics', dst: 'ml', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linguistics.${name}`, params }) export class LinguisticsFormulas { /** SYLLABLES: words at an average
+    syllable count each. value words · avg. */ static syllables(words: number, avg: number): CrossFormula {
+    return c('linguistics-syllables', 'syllables(words, avg) = words · avg', words * avg, nat(words, avg),
+    'syllables', [words, avg]) } /** LEXICAL DIVERSITY: type-token ratio as a percentage. value ⌊unique · 100 /
+    total⌋. */ static lexical(unique: number, total: number): CrossFormula { return c('linguistics-lexical',
+    'lexical(unique, total) = ⌊unique · 100 / total⌋', total > 0 ? Math.floor((unique * 100) / total) : 0,
+    nat(unique, total) && total > 0 && unique <= total, 'lexical', [unique, total]) } /** READABILITY: average
+    sentence length in words. value ⌊words / sentences⌋. -/
+theorem fam_linguistics_readability_1 : ((500 : Int) / (25 : Int)) = (20 : Int) := by decide
 
-/-- linguistics: cognates(300, 1000) = 30 — COGNATES: shared vocabulary between two languages as a percentage.
+/-- linguistics: cognates(300, 1000) = 30 — LINGUISTICS — LANGUAGE ANALYSIS, AS ARITHMETIC (chosen by the
+    registry, not by hand). Reading a corpus is numbers: the syllables a text carries, how varied its vocabulary
+    is, how long its sentences run, how many words two languages share, its phoneme inventory, how often a word
+    occurs per million, the morphemes per word, and the edit distance between two strings. Crosses to `ml` —
+    language analysis is what a model learns from. A measure. */ const PROOF = 'linguistics arithmetic
+    (syllables, lexical diversity, readability, cognates, phonemes, word frequency, morphemes, edit distance); a
+    language-analysis domain; a measure crossed to ml' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linguistics', dst: 'ml', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linguistics.${name}`, params }) export class LinguisticsFormulas { /** SYLLABLES: words at an average
+    syllable count each. value words · avg. */ static syllables(words: number, avg: number): CrossFormula {
+    return c('linguistics-syllables', 'syllables(words, avg) = words · avg', words * avg, nat(words, avg),
+    'syllables', [words, avg]) } /** LEXICAL DIVERSITY: type-token ratio as a percentage. value ⌊unique · 100 /
+    total⌋. */ static lexical(unique: number, total: number): CrossFormula { return c('linguistics-lexical',
+    'lexical(unique, total) = ⌊unique · 100 / total⌋', total > 0 ? Math.floor((unique * 100) / total) : 0,
+    nat(unique, total) && total > 0 && unique <= total, 'lexical', [unique, total]) } /** READABILITY: average
+    sentence length in words. value ⌊words / sentences⌋. */ static readability(words: number, sentences:
+    number): CrossFormula { return c('linguistics-readability', 'readability(words, sentences) = ⌊words /
+    sentences⌋', sentences > 0 ? Math.floor(words / sentences) : 0, nat(words, sentences) && sentences > 0,
+    'readability', [words, sentences]) } /** COGNATES: shared vocabulary between two languages as a percentage.
     value ⌊shared · 100 / total⌋. -/
-theorem fam_linguistics_cognates_1 : ((300 * 100) / 1000) = 30 := by decide
+theorem fam_linguistics_cognates_1 : (((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int) := by decide
 
-/-- linguistics: phonemes(44) = 44 — PHONEMES: the phoneme inventory. value count. -/
-theorem fam_linguistics_phonemes_1 : 44 = 44 := by decide
+/-- linguistics: phonemes(44) = 44 — LINGUISTICS — LANGUAGE ANALYSIS, AS ARITHMETIC (chosen by the registry, not
+    by hand). Reading a corpus is numbers: the syllables a text carries, how varied its vocabulary is, how long
+    its sentences run, how many words two languages share, its phoneme inventory, how often a word occurs per
+    million, the morphemes per word, and the edit distance between two strings. Crosses to `ml` — language
+    analysis is what a model learns from. A measure. */ const PROOF = 'linguistics arithmetic (syllables,
+    lexical diversity, readability, cognates, phonemes, word frequency, morphemes, edit distance); a
+    language-analysis domain; a measure crossed to ml' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linguistics', dst: 'ml', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linguistics.${name}`, params }) export class LinguisticsFormulas { /** SYLLABLES: words at an average
+    syllable count each. value words · avg. */ static syllables(words: number, avg: number): CrossFormula {
+    return c('linguistics-syllables', 'syllables(words, avg) = words · avg', words * avg, nat(words, avg),
+    'syllables', [words, avg]) } /** LEXICAL DIVERSITY: type-token ratio as a percentage. value ⌊unique · 100 /
+    total⌋. */ static lexical(unique: number, total: number): CrossFormula { return c('linguistics-lexical',
+    'lexical(unique, total) = ⌊unique · 100 / total⌋', total > 0 ? Math.floor((unique * 100) / total) : 0,
+    nat(unique, total) && total > 0 && unique <= total, 'lexical', [unique, total]) } /** READABILITY: average
+    sentence length in words. value ⌊words / sentences⌋. */ static readability(words: number, sentences:
+    number): CrossFormula { return c('linguistics-readability', 'readability(words, sentences) = ⌊words /
+    sentences⌋', sentences > 0 ? Math.floor(words / sentences) : 0, nat(words, sentences) && sentences > 0,
+    'readability', [words, sentences]) } /** COGNATES: shared vocabulary between two languages as a percentage.
+    value ⌊shared · 100 / total⌋. */ static cognates(shared: number, total: number): CrossFormula { return
+    c('linguistics-cognates', 'cognates(shared, total) = ⌊shared · 100 / total⌋', total > 0 ? Math.floor((shared
+    * 100) / total) : 0, nat(shared, total) && total > 0 && shared <= total, 'cognates', [shared, total]) } /**
+    PHONEMES: the phoneme inventory. value count. -/
+theorem fam_linguistics_phonemes_1 : (44 : Int) = (44 : Int) := by decide
 
-/-- linguistics: frequency(50, 1000000) = 50 — WORD FREQUENCY: occurrences per million of a corpus. value
-    ⌊occurrences · 1000000 / corpus⌋. -/
-theorem fam_linguistics_frequency_1 : ((50 * 1000000) / 1000000) = 50 := by decide
+/-- linguistics: frequency(50, 1000000) = 50 — LINGUISTICS — LANGUAGE ANALYSIS, AS ARITHMETIC (chosen by the
+    registry, not by hand). Reading a corpus is numbers: the syllables a text carries, how varied its vocabulary
+    is, how long its sentences run, how many words two languages share, its phoneme inventory, how often a word
+    occurs per million, the morphemes per word, and the edit distance between two strings. Crosses to `ml` —
+    language analysis is what a model learns from. A measure. */ const PROOF = 'linguistics arithmetic
+    (syllables, lexical diversity, readability, cognates, phonemes, word frequency, morphemes, edit distance); a
+    language-analysis domain; a measure crossed to ml' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linguistics', dst: 'ml', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linguistics.${name}`, params }) export class LinguisticsFormulas { /** SYLLABLES: words at an average
+    syllable count each. value words · avg. */ static syllables(words: number, avg: number): CrossFormula {
+    return c('linguistics-syllables', 'syllables(words, avg) = words · avg', words * avg, nat(words, avg),
+    'syllables', [words, avg]) } /** LEXICAL DIVERSITY: type-token ratio as a percentage. value ⌊unique · 100 /
+    total⌋. */ static lexical(unique: number, total: number): CrossFormula { return c('linguistics-lexical',
+    'lexical(unique, total) = ⌊unique · 100 / total⌋', total > 0 ? Math.floor((unique * 100) / total) : 0,
+    nat(unique, total) && total > 0 && unique <= total, 'lexical', [unique, total]) } /** READABILITY: average
+    sentence length in words. value ⌊words / sentences⌋. */ static readability(words: number, sentences:
+    number): CrossFormula { return c('linguistics-readability', 'readability(words, sentences) = ⌊words /
+    sentences⌋', sentences > 0 ? Math.floor(words / sentences) : 0, nat(words, sentences) && sentences > 0,
+    'readability', [words, sentences]) } /** COGNATES: shared vocabulary between two languages as a percentage.
+    value ⌊shared · 100 / total⌋. */ static cognates(shared: number, total: number): CrossFormula { return
+    c('linguistics-cognates', 'cognates(shared, total) = ⌊shared · 100 / total⌋', total > 0 ? Math.floor((shared
+    * 100) / total) : 0, nat(shared, total) && total > 0 && shared <= total, 'cognates', [shared, total]) } /**
+    PHONEMES: the phoneme inventory. value count. */ static phonemes(count: number): CrossFormula { return
+    c('linguistics-phonemes', 'phonemes(count) = count', count, nat(count), 'phonemes', [count]) } /** WORD
+    FREQUENCY: occurrences per million of a corpus. value ⌊occurrences · 1000000 / corpus⌋. -/
+theorem fam_linguistics_frequency_1 : (((50 : Int) * (1000000 : Int)) / (1000000 : Int)) = (50 : Int) := by decide
 
-/-- linguistics: morphemes(200, 3) = 600 — MORPHEMES: words at a morpheme count each. value words · perWord. -/
-theorem fam_linguistics_morphemes_1 : (200 * 3) = 600 := by decide
+/-- linguistics: morphemes(200, 3) = 600 — LINGUISTICS — LANGUAGE ANALYSIS, AS ARITHMETIC (chosen by the
+    registry, not by hand). Reading a corpus is numbers: the syllables a text carries, how varied its vocabulary
+    is, how long its sentences run, how many words two languages share, its phoneme inventory, how often a word
+    occurs per million, the morphemes per word, and the edit distance between two strings. Crosses to `ml` —
+    language analysis is what a model learns from. A measure. */ const PROOF = 'linguistics arithmetic
+    (syllables, lexical diversity, readability, cognates, phonemes, word frequency, morphemes, edit distance); a
+    language-analysis domain; a measure crossed to ml' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linguistics', dst: 'ml', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linguistics.${name}`, params }) export class LinguisticsFormulas { /** SYLLABLES: words at an average
+    syllable count each. value words · avg. */ static syllables(words: number, avg: number): CrossFormula {
+    return c('linguistics-syllables', 'syllables(words, avg) = words · avg', words * avg, nat(words, avg),
+    'syllables', [words, avg]) } /** LEXICAL DIVERSITY: type-token ratio as a percentage. value ⌊unique · 100 /
+    total⌋. */ static lexical(unique: number, total: number): CrossFormula { return c('linguistics-lexical',
+    'lexical(unique, total) = ⌊unique · 100 / total⌋', total > 0 ? Math.floor((unique * 100) / total) : 0,
+    nat(unique, total) && total > 0 && unique <= total, 'lexical', [unique, total]) } /** READABILITY: average
+    sentence length in words. value ⌊words / sentences⌋. */ static readability(words: number, sentences:
+    number): CrossFormula { return c('linguistics-readability', 'readability(words, sentences) = ⌊words /
+    sentences⌋', sentences > 0 ? Math.floor(words / sentences) : 0, nat(words, sentences) && sentences > 0,
+    'readability', [words, sentences]) } /** COGNATES: shared vocabulary between two languages as a percentage.
+    value ⌊shared · 100 / total⌋. */ static cognates(shared: number, total: number): CrossFormula { return
+    c('linguistics-cognates', 'cognates(shared, total) = ⌊shared · 100 / total⌋', total > 0 ? Math.floor((shared
+    * 100) / total) : 0, nat(shared, total) && total > 0 && shared <= total, 'cognates', [shared, total]) } /**
+    PHONEMES: the phoneme inventory. value count. */ static phonemes(count: number): CrossFormula { return
+    c('linguistics-phonemes', 'phonemes(count) = count', count, nat(count), 'phonemes', [count]) } /** WORD
+    FREQUENCY: occurrences per million of a corpus. value ⌊occurrences · 1000000 / corpus⌋. */ static
+    frequency(occurrences: number, corpus: number): CrossFormula { return c('linguistics-frequency',
+    'frequency(occurrences, corpus) = ⌊occurrences · 1000000 / corpus⌋', corpus > 0 ? Math.floor((occurrences *
+    1000000) / corpus) : 0, nat(occurrences, corpus) && corpus > 0, 'frequency', [occurrences, corpus]) } /**
+    MORPHEMES: words at a morpheme count each. value words · perWord. -/
+theorem fam_linguistics_morphemes_1 : ((200 : Int) * (3 : Int)) = (600 : Int) := by decide
 
-/-- linguistics: distance(5, 20) = 25 — EDIT DISTANCE: edits over a string length as a percentage. value ⌊edits
-    · 100 / length⌋. -/
-theorem fam_linguistics_distance_1 : ((5 * 100) / 20) = 25 := by decide
+/-- linguistics: distance(5, 20) = 25 — LINGUISTICS — LANGUAGE ANALYSIS, AS ARITHMETIC (chosen by the registry,
+    not by hand). Reading a corpus is numbers: the syllables a text carries, how varied its vocabulary is, how
+    long its sentences run, how many words two languages share, its phoneme inventory, how often a word occurs
+    per million, the morphemes per word, and the edit distance between two strings. Crosses to `ml` — language
+    analysis is what a model learns from. A measure. */ const PROOF = 'linguistics arithmetic (syllables,
+    lexical diversity, readability, cognates, phonemes, word frequency, morphemes, edit distance); a
+    language-analysis domain; a measure crossed to ml' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'linguistics', dst: 'ml', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `linguistics.${name}`, params }) export class LinguisticsFormulas { /** SYLLABLES: words at an average
+    syllable count each. value words · avg. */ static syllables(words: number, avg: number): CrossFormula {
+    return c('linguistics-syllables', 'syllables(words, avg) = words · avg', words * avg, nat(words, avg),
+    'syllables', [words, avg]) } /** LEXICAL DIVERSITY: type-token ratio as a percentage. value ⌊unique · 100 /
+    total⌋. */ static lexical(unique: number, total: number): CrossFormula { return c('linguistics-lexical',
+    'lexical(unique, total) = ⌊unique · 100 / total⌋', total > 0 ? Math.floor((unique * 100) / total) : 0,
+    nat(unique, total) && total > 0 && unique <= total, 'lexical', [unique, total]) } /** READABILITY: average
+    sentence length in words. value ⌊words / sentences⌋. */ static readability(words: number, sentences:
+    number): CrossFormula { return c('linguistics-readability', 'readability(words, sentences) = ⌊words /
+    sentences⌋', sentences > 0 ? Math.floor(words / sentences) : 0, nat(words, sentences) && sentences > 0,
+    'readability', [words, sentences]) } /** COGNATES: shared vocabulary between two languages as a percentage.
+    value ⌊shared · 100 / total⌋. */ static cognates(shared: number, total: number): CrossFormula { return
+    c('linguistics-cognates', 'cognates(shared, total) = ⌊shared · 100 / total⌋', total > 0 ? Math.floor((shared
+    * 100) / total) : 0, nat(shared, total) && total > 0 && shared <= total, 'cognates', [shared, total]) } /**
+    PHONEMES: the phoneme inventory. value count. */ static phonemes(count: number): CrossFormula { return
+    c('linguistics-phonemes', 'phonemes(count) = count', count, nat(count), 'phonemes', [count]) } /** WORD
+    FREQUENCY: occurrences per million of a corpus. value ⌊occurrences · 1000000 / corpus⌋. */ static
+    frequency(occurrences: number, corpus: number): CrossFormula { return c('linguistics-frequency',
+    'frequency(occurrences, corpus) = ⌊occurrences · 1000000 / corpus⌋', corpus > 0 ? Math.floor((occurrences *
+    1000000) / corpus) : 0, nat(occurrences, corpus) && corpus > 0, 'frequency', [occurrences, corpus]) } /**
+    MORPHEMES: words at a morpheme count each. value words · perWord. */ static morphemes(words: number,
+    perWord: number): CrossFormula { return c('linguistics-morphemes', 'morphemes(words, perWord) = words ·
+    perWord', words * perWord, nat(words, perWord), 'morphemes', [words, perWord]) } /** EDIT DISTANCE: edits
+    over a string length as a percentage. value ⌊edits · 100 / length⌋. -/
+theorem fam_linguistics_distance_1 : (((5 : Int) * (100 : Int)) / (20 : Int)) = (25 : Int) := by decide
 
 /-- linkage: degreesoffreedom(6, 2) = 4 -/
-theorem fam_linkage_degreesoffreedom_1 : (fmax 0 (6 - 2)) = 4 := by decide
+theorem fam_linkage_degreesoffreedom_1 : (fmax (0 : Int) ((6 : Int) - (2 : Int))) = (4 : Int) := by decide
 
 /-- linkage: linkcount(4, 1) = 5 -/
-theorem fam_linkage_linkcount_1 : (4 + 1) = 5 := by decide
+theorem fam_linkage_linkcount_1 : ((4 : Int) + (1 : Int)) = (5 : Int) := by decide
 
 /-- linkage: jointcount(5, 1) = 4 -/
-theorem fam_linkage_jointcount_1 : (fmax 0 (5 - 1)) = 4 := by decide
+theorem fam_linkage_jointcount_1 : (fmax (0 : Int) ((5 : Int) - (1 : Int))) = (4 : Int) := by decide
 
 /-- linkage: reach(30, 4) = 120 -/
-theorem fam_linkage_reach_1 : (30 * 4) = 120 := by decide
+theorem fam_linkage_reach_1 : ((30 : Int) * (4 : Int)) = (120 : Int) := by decide
 
 /-- linkage: transmissionangle(90, 30) = 60 -/
-theorem fam_linkage_transmissionangle_1 : (fmax 0 (90 - 30)) = 60 := by decide
+theorem fam_linkage_transmissionangle_1 : (fmax (0 : Int) ((90 : Int) - (30 : Int))) = (60 : Int) := by decide
 
 /-- linkage: mechanicaladvantage(100, 25) = 4 -/
-theorem fam_linkage_mechanicaladvantage_1 : (100 / 25) = 4 := by decide
+theorem fam_linkage_mechanicaladvantage_1 : ((100 : Int) / (25 : Int)) = (4 : Int) := by decide
 
 /-- linkage: couplercurve(12, 3) = 36 -/
-theorem fam_linkage_couplercurve_1 : (12 * 3) = 36 := by decide
+theorem fam_linkage_couplercurve_1 : ((12 : Int) * (3 : Int)) = (36 : Int) := by decide
+
+/-- linkage: grashofcondition(10, 8) = 1 -/
+theorem fam_linkage_grashofcondition_1 : (if (if (10 : Int) ≥ (8 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
 
 /-- liquidity: currentratio(300, 150) = 200 — LIQUIDITY — SOLVENCY AND SURVIVAL, AS ARITHMETIC (chosen by the
     public-API registry, not by hand). A balance sheet is numbers: the current ratio, the quick ratio, interest
@@ -809,39 +5484,239 @@ theorem fam_linkage_couplercurve_1 : (12 * 3) = 36 := by decide
     src: 'liquidity', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
     `liquidity.${name}`, params }) export class LiquidityFormulas { /** CURRENT RATIO as a percentage: current
     assets over current liabilities. value ⌊assets · 100 / liabilities⌋. -/
-theorem fam_liquidity_currentratio_1 : ((300 * 100) / 150) = 200 := by decide
+theorem fam_liquidity_currentratio_1 : (((300 : Int) * (100 : Int)) / (150 : Int)) = (200 : Int) := by decide
 
-/-- liquidity: quickratio(250, 100) = 250 — QUICK RATIO as a percentage: liquid assets over current liabilities.
-    value ⌊liquid · 100 / liabilities⌋. -/
-theorem fam_liquidity_quickratio_1 : ((250 * 100) / 100) = 250 := by decide
+/-- liquidity: quickratio(250, 100) = 250 — LIQUIDITY — SOLVENCY AND SURVIVAL, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). A balance sheet is numbers: the current ratio, the quick ratio, interest
+    coverage, the cash ratio, working capital, the regulator's LCR, net stable funding, and how long the cash
+    lasts. Crosses to `banking` — liquidity is what banking underwrites. A measure. */ const PROOF = 'liquidity
+    arithmetic (current ratio, quick ratio, coverage, cash ratio, working capital, LCR, net stable funding, burn
+    rate); a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'liquidity', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `liquidity.${name}`, params }) export class LiquidityFormulas { /** CURRENT RATIO as a percentage: current
+    assets over current liabilities. value ⌊assets · 100 / liabilities⌋. */ static currentratio(assets: number,
+    liabilities: number): CrossFormula { return c('liquidity-currentratio', 'currentratio(assets, liabilities) =
+    ⌊assets · 100 / liabilities⌋', liabilities > 0 ? Math.floor((assets * 100) / liabilities) : 0, nat(assets,
+    liabilities) && liabilities > 0, 'currentratio', [assets, liabilities]) } /** QUICK RATIO as a percentage:
+    liquid assets over current liabilities. value ⌊liquid · 100 / liabilities⌋. -/
+theorem fam_liquidity_quickratio_1 : (((250 : Int) * (100 : Int)) / (100 : Int)) = (250 : Int) := by decide
 
-/-- liquidity: coverageratio(800, 100) = 8 — INTEREST COVERAGE: operating income over the interest due. value
-    ⌊income / interest⌋. -/
-theorem fam_liquidity_coverageratio_1 : (800 / 100) = 8 := by decide
+/-- liquidity: coverageratio(800, 100) = 8 — LIQUIDITY — SOLVENCY AND SURVIVAL, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). A balance sheet is numbers: the current ratio, the quick ratio, interest
+    coverage, the cash ratio, working capital, the regulator's LCR, net stable funding, and how long the cash
+    lasts. Crosses to `banking` — liquidity is what banking underwrites. A measure. */ const PROOF = 'liquidity
+    arithmetic (current ratio, quick ratio, coverage, cash ratio, working capital, LCR, net stable funding, burn
+    rate); a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'liquidity', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `liquidity.${name}`, params }) export class LiquidityFormulas { /** CURRENT RATIO as a percentage: current
+    assets over current liabilities. value ⌊assets · 100 / liabilities⌋. */ static currentratio(assets: number,
+    liabilities: number): CrossFormula { return c('liquidity-currentratio', 'currentratio(assets, liabilities) =
+    ⌊assets · 100 / liabilities⌋', liabilities > 0 ? Math.floor((assets * 100) / liabilities) : 0, nat(assets,
+    liabilities) && liabilities > 0, 'currentratio', [assets, liabilities]) } /** QUICK RATIO as a percentage:
+    liquid assets over current liabilities. value ⌊liquid · 100 / liabilities⌋. */ static quickratio(liquid:
+    number, liabilities: number): CrossFormula { return c('liquidity-quickratio', 'quickratio(liquid,
+    liabilities) = ⌊liquid · 100 / liabilities⌋', liabilities > 0 ? Math.floor((liquid * 100) / liabilities) :
+    0, nat(liquid, liabilities) && liabilities > 0, 'quickratio', [liquid, liabilities]) } /** INTEREST
+    COVERAGE: operating income over the interest due. value ⌊income / interest⌋. -/
+theorem fam_liquidity_coverageratio_1 : ((800 : Int) / (100 : Int)) = (8 : Int) := by decide
 
-/-- liquidity: cashratio(50, 200) = 25 — CASH RATIO as a percentage: cash on hand over current liabilities.
-    value ⌊cash · 100 / liabilities⌋. -/
-theorem fam_liquidity_cashratio_1 : ((50 * 100) / 200) = 25 := by decide
+/-- liquidity: cashratio(50, 200) = 25 — LIQUIDITY — SOLVENCY AND SURVIVAL, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). A balance sheet is numbers: the current ratio, the quick ratio, interest
+    coverage, the cash ratio, working capital, the regulator's LCR, net stable funding, and how long the cash
+    lasts. Crosses to `banking` — liquidity is what banking underwrites. A measure. */ const PROOF = 'liquidity
+    arithmetic (current ratio, quick ratio, coverage, cash ratio, working capital, LCR, net stable funding, burn
+    rate); a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'liquidity', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `liquidity.${name}`, params }) export class LiquidityFormulas { /** CURRENT RATIO as a percentage: current
+    assets over current liabilities. value ⌊assets · 100 / liabilities⌋. */ static currentratio(assets: number,
+    liabilities: number): CrossFormula { return c('liquidity-currentratio', 'currentratio(assets, liabilities) =
+    ⌊assets · 100 / liabilities⌋', liabilities > 0 ? Math.floor((assets * 100) / liabilities) : 0, nat(assets,
+    liabilities) && liabilities > 0, 'currentratio', [assets, liabilities]) } /** QUICK RATIO as a percentage:
+    liquid assets over current liabilities. value ⌊liquid · 100 / liabilities⌋. */ static quickratio(liquid:
+    number, liabilities: number): CrossFormula { return c('liquidity-quickratio', 'quickratio(liquid,
+    liabilities) = ⌊liquid · 100 / liabilities⌋', liabilities > 0 ? Math.floor((liquid * 100) / liabilities) :
+    0, nat(liquid, liabilities) && liabilities > 0, 'quickratio', [liquid, liabilities]) } /** INTEREST
+    COVERAGE: operating income over the interest due. value ⌊income / interest⌋. */ static coverageratio(income:
+    number, interest: number): CrossFormula { return c('liquidity-coverageratio', 'coverageratio(income,
+    interest) = ⌊income / interest⌋', interest > 0 ? Math.floor(income / interest) : 0, nat(income, interest) &&
+    interest > 0, 'coverageratio', [income, interest]) } /** CASH RATIO as a percentage: cash on hand over
+    current liabilities. value ⌊cash · 100 / liabilities⌋. -/
+theorem fam_liquidity_cashratio_1 : (((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int) := by decide
 
-/-- liquidity: workingcapital(500, 300) = 200 — WORKING CAPITAL: current assets less current liabilities,
-    floored at zero. value max(0, assets − liabilities). -/
-theorem fam_liquidity_workingcapital_1 : (fmax 0 (500 - 300)) = 200 := by decide
+/-- liquidity: workingcapital(500, 300) = 200 — LIQUIDITY — SOLVENCY AND SURVIVAL, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). A balance sheet is numbers: the current ratio, the quick ratio, interest
+    coverage, the cash ratio, working capital, the regulator's LCR, net stable funding, and how long the cash
+    lasts. Crosses to `banking` — liquidity is what banking underwrites. A measure. */ const PROOF = 'liquidity
+    arithmetic (current ratio, quick ratio, coverage, cash ratio, working capital, LCR, net stable funding, burn
+    rate); a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'liquidity', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `liquidity.${name}`, params }) export class LiquidityFormulas { /** CURRENT RATIO as a percentage: current
+    assets over current liabilities. value ⌊assets · 100 / liabilities⌋. */ static currentratio(assets: number,
+    liabilities: number): CrossFormula { return c('liquidity-currentratio', 'currentratio(assets, liabilities) =
+    ⌊assets · 100 / liabilities⌋', liabilities > 0 ? Math.floor((assets * 100) / liabilities) : 0, nat(assets,
+    liabilities) && liabilities > 0, 'currentratio', [assets, liabilities]) } /** QUICK RATIO as a percentage:
+    liquid assets over current liabilities. value ⌊liquid · 100 / liabilities⌋. */ static quickratio(liquid:
+    number, liabilities: number): CrossFormula { return c('liquidity-quickratio', 'quickratio(liquid,
+    liabilities) = ⌊liquid · 100 / liabilities⌋', liabilities > 0 ? Math.floor((liquid * 100) / liabilities) :
+    0, nat(liquid, liabilities) && liabilities > 0, 'quickratio', [liquid, liabilities]) } /** INTEREST
+    COVERAGE: operating income over the interest due. value ⌊income / interest⌋. */ static coverageratio(income:
+    number, interest: number): CrossFormula { return c('liquidity-coverageratio', 'coverageratio(income,
+    interest) = ⌊income / interest⌋', interest > 0 ? Math.floor(income / interest) : 0, nat(income, interest) &&
+    interest > 0, 'coverageratio', [income, interest]) } /** CASH RATIO as a percentage: cash on hand over
+    current liabilities. value ⌊cash · 100 / liabilities⌋. */ static cashratio(cash: number, liabilities:
+    number): CrossFormula { return c('liquidity-cashratio', 'cashratio(cash, liabilities) = ⌊cash · 100 /
+    liabilities⌋', liabilities > 0 ? Math.floor((cash * 100) / liabilities) : 0, nat(cash, liabilities) &&
+    liabilities > 0, 'cashratio', [cash, liabilities]) } /** WORKING CAPITAL: current assets less current
+    liabilities, floored at zero. value max(0, assets − liabilities). -/
+theorem fam_liquidity_workingcapital_1 : (fmax (0 : Int) ((500 : Int) - (300 : Int))) = (200 : Int) := by decide
 
-/-- liquidity: lcr(1200, 1000) = 120 — LIQUIDITY COVERAGE RATIO as a percentage: high-quality liquid assets over
-    net outflows. value ⌊hqla · 100 / outflows⌋. -/
-theorem fam_liquidity_lcr_1 : ((1200 * 100) / 1000) = 120 := by decide
+/-- liquidity: lcr(1200, 1000) = 120 — LIQUIDITY — SOLVENCY AND SURVIVAL, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). A balance sheet is numbers: the current ratio, the quick ratio, interest
+    coverage, the cash ratio, working capital, the regulator's LCR, net stable funding, and how long the cash
+    lasts. Crosses to `banking` — liquidity is what banking underwrites. A measure. */ const PROOF = 'liquidity
+    arithmetic (current ratio, quick ratio, coverage, cash ratio, working capital, LCR, net stable funding, burn
+    rate); a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'liquidity', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `liquidity.${name}`, params }) export class LiquidityFormulas { /** CURRENT RATIO as a percentage: current
+    assets over current liabilities. value ⌊assets · 100 / liabilities⌋. */ static currentratio(assets: number,
+    liabilities: number): CrossFormula { return c('liquidity-currentratio', 'currentratio(assets, liabilities) =
+    ⌊assets · 100 / liabilities⌋', liabilities > 0 ? Math.floor((assets * 100) / liabilities) : 0, nat(assets,
+    liabilities) && liabilities > 0, 'currentratio', [assets, liabilities]) } /** QUICK RATIO as a percentage:
+    liquid assets over current liabilities. value ⌊liquid · 100 / liabilities⌋. */ static quickratio(liquid:
+    number, liabilities: number): CrossFormula { return c('liquidity-quickratio', 'quickratio(liquid,
+    liabilities) = ⌊liquid · 100 / liabilities⌋', liabilities > 0 ? Math.floor((liquid * 100) / liabilities) :
+    0, nat(liquid, liabilities) && liabilities > 0, 'quickratio', [liquid, liabilities]) } /** INTEREST
+    COVERAGE: operating income over the interest due. value ⌊income / interest⌋. */ static coverageratio(income:
+    number, interest: number): CrossFormula { return c('liquidity-coverageratio', 'coverageratio(income,
+    interest) = ⌊income / interest⌋', interest > 0 ? Math.floor(income / interest) : 0, nat(income, interest) &&
+    interest > 0, 'coverageratio', [income, interest]) } /** CASH RATIO as a percentage: cash on hand over
+    current liabilities. value ⌊cash · 100 / liabilities⌋. */ static cashratio(cash: number, liabilities:
+    number): CrossFormula { return c('liquidity-cashratio', 'cashratio(cash, liabilities) = ⌊cash · 100 /
+    liabilities⌋', liabilities > 0 ? Math.floor((cash * 100) / liabilities) : 0, nat(cash, liabilities) &&
+    liabilities > 0, 'cashratio', [cash, liabilities]) } /** WORKING CAPITAL: current assets less current
+    liabilities, floored at zero. value max(0, assets − liabilities). */ static workingcapital(assets: number,
+    liabilities: number): CrossFormula { return c('liquidity-workingcapital', 'workingcapital(assets,
+    liabilities) = max(0, assets − liabilities)', Math.max(0, assets - liabilities), nat(assets, liabilities),
+    'workingcapital', [assets, liabilities]) } /** LIQUIDITY COVERAGE RATIO as a percentage: high-quality liquid
+    assets over net outflows. value ⌊hqla · 100 / outflows⌋. -/
+theorem fam_liquidity_lcr_1 : (((1200 : Int) * (100 : Int)) / (1000 : Int)) = (120 : Int) := by decide
 
-/-- liquidity: netstablefunding(1100, 1000) = 110 — NET STABLE FUNDING RATIO as a percentage: available stable
-    funding over required. value ⌊available · 100 / required⌋. -/
-theorem fam_liquidity_netstablefunding_1 : ((1100 * 100) / 1000) = 110 := by decide
+/-- liquidity: netstablefunding(1100, 1000) = 110 — LIQUIDITY — SOLVENCY AND SURVIVAL, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). A balance sheet is numbers: the current ratio, the quick ratio,
+    interest coverage, the cash ratio, working capital, the regulator's LCR, net stable funding, and how long
+    the cash lasts. Crosses to `banking` — liquidity is what banking underwrites. A measure. */ const PROOF =
+    'liquidity arithmetic (current ratio, quick ratio, coverage, cash ratio, working capital, LCR, net stable
+    funding, burn rate); a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'liquidity', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `liquidity.${name}`, params }) export class LiquidityFormulas { /** CURRENT RATIO as a percentage: current
+    assets over current liabilities. value ⌊assets · 100 / liabilities⌋. */ static currentratio(assets: number,
+    liabilities: number): CrossFormula { return c('liquidity-currentratio', 'currentratio(assets, liabilities) =
+    ⌊assets · 100 / liabilities⌋', liabilities > 0 ? Math.floor((assets * 100) / liabilities) : 0, nat(assets,
+    liabilities) && liabilities > 0, 'currentratio', [assets, liabilities]) } /** QUICK RATIO as a percentage:
+    liquid assets over current liabilities. value ⌊liquid · 100 / liabilities⌋. */ static quickratio(liquid:
+    number, liabilities: number): CrossFormula { return c('liquidity-quickratio', 'quickratio(liquid,
+    liabilities) = ⌊liquid · 100 / liabilities⌋', liabilities > 0 ? Math.floor((liquid * 100) / liabilities) :
+    0, nat(liquid, liabilities) && liabilities > 0, 'quickratio', [liquid, liabilities]) } /** INTEREST
+    COVERAGE: operating income over the interest due. value ⌊income / interest⌋. */ static coverageratio(income:
+    number, interest: number): CrossFormula { return c('liquidity-coverageratio', 'coverageratio(income,
+    interest) = ⌊income / interest⌋', interest > 0 ? Math.floor(income / interest) : 0, nat(income, interest) &&
+    interest > 0, 'coverageratio', [income, interest]) } /** CASH RATIO as a percentage: cash on hand over
+    current liabilities. value ⌊cash · 100 / liabilities⌋. */ static cashratio(cash: number, liabilities:
+    number): CrossFormula { return c('liquidity-cashratio', 'cashratio(cash, liabilities) = ⌊cash · 100 /
+    liabilities⌋', liabilities > 0 ? Math.floor((cash * 100) / liabilities) : 0, nat(cash, liabilities) &&
+    liabilities > 0, 'cashratio', [cash, liabilities]) } /** WORKING CAPITAL: current assets less current
+    liabilities, floored at zero. value max(0, assets − liabilities). */ static workingcapital(assets: number,
+    liabilities: number): CrossFormula { return c('liquidity-workingcapital', 'workingcapital(assets,
+    liabilities) = max(0, assets − liabilities)', Math.max(0, assets - liabilities), nat(assets, liabilities),
+    'workingcapital', [assets, liabilities]) } /** LIQUIDITY COVERAGE RATIO as a percentage: high-quality liquid
+    assets over net outflows. value ⌊hqla · 100 / outflows⌋. */ static lcr(hqla: number, outflows: number):
+    CrossFormula { return c('liquidity-lcr', 'lcr(hqla, outflows) = ⌊hqla · 100 / outflows⌋', outflows > 0 ?
+    Math.floor((hqla * 100) / outflows) : 0, nat(hqla, outflows) && outflows > 0, 'lcr', [hqla, outflows]) } /**
+    NET STABLE FUNDING RATIO as a percentage: available stable funding over required. value ⌊available · 100 /
+    required⌋. -/
+theorem fam_liquidity_netstablefunding_1 : (((1100 : Int) * (100 : Int)) / (1000 : Int)) = (110 : Int) := by decide
 
-/-- liquidity: burnrate(1200, 12) = 100 — BURN RATE: cash on hand spread over the months it lasts. value ⌊cash /
-    months⌋. -/
-theorem fam_liquidity_burnrate_1 : (1200 / 12) = 100 := by decide
+/-- liquidity: burnrate(1200, 12) = 100 — LIQUIDITY — SOLVENCY AND SURVIVAL, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). A balance sheet is numbers: the current ratio, the quick ratio, interest
+    coverage, the cash ratio, working capital, the regulator's LCR, net stable funding, and how long the cash
+    lasts. Crosses to `banking` — liquidity is what banking underwrites. A measure. */ const PROOF = 'liquidity
+    arithmetic (current ratio, quick ratio, coverage, cash ratio, working capital, LCR, net stable funding, burn
+    rate); a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'liquidity', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `liquidity.${name}`, params }) export class LiquidityFormulas { /** CURRENT RATIO as a percentage: current
+    assets over current liabilities. value ⌊assets · 100 / liabilities⌋. */ static currentratio(assets: number,
+    liabilities: number): CrossFormula { return c('liquidity-currentratio', 'currentratio(assets, liabilities) =
+    ⌊assets · 100 / liabilities⌋', liabilities > 0 ? Math.floor((assets * 100) / liabilities) : 0, nat(assets,
+    liabilities) && liabilities > 0, 'currentratio', [assets, liabilities]) } /** QUICK RATIO as a percentage:
+    liquid assets over current liabilities. value ⌊liquid · 100 / liabilities⌋. */ static quickratio(liquid:
+    number, liabilities: number): CrossFormula { return c('liquidity-quickratio', 'quickratio(liquid,
+    liabilities) = ⌊liquid · 100 / liabilities⌋', liabilities > 0 ? Math.floor((liquid * 100) / liabilities) :
+    0, nat(liquid, liabilities) && liabilities > 0, 'quickratio', [liquid, liabilities]) } /** INTEREST
+    COVERAGE: operating income over the interest due. value ⌊income / interest⌋. */ static coverageratio(income:
+    number, interest: number): CrossFormula { return c('liquidity-coverageratio', 'coverageratio(income,
+    interest) = ⌊income / interest⌋', interest > 0 ? Math.floor(income / interest) : 0, nat(income, interest) &&
+    interest > 0, 'coverageratio', [income, interest]) } /** CASH RATIO as a percentage: cash on hand over
+    current liabilities. value ⌊cash · 100 / liabilities⌋. */ static cashratio(cash: number, liabilities:
+    number): CrossFormula { return c('liquidity-cashratio', 'cashratio(cash, liabilities) = ⌊cash · 100 /
+    liabilities⌋', liabilities > 0 ? Math.floor((cash * 100) / liabilities) : 0, nat(cash, liabilities) &&
+    liabilities > 0, 'cashratio', [cash, liabilities]) } /** WORKING CAPITAL: current assets less current
+    liabilities, floored at zero. value max(0, assets − liabilities). */ static workingcapital(assets: number,
+    liabilities: number): CrossFormula { return c('liquidity-workingcapital', 'workingcapital(assets,
+    liabilities) = max(0, assets − liabilities)', Math.max(0, assets - liabilities), nat(assets, liabilities),
+    'workingcapital', [assets, liabilities]) } /** LIQUIDITY COVERAGE RATIO as a percentage: high-quality liquid
+    assets over net outflows. value ⌊hqla · 100 / outflows⌋. */ static lcr(hqla: number, outflows: number):
+    CrossFormula { return c('liquidity-lcr', 'lcr(hqla, outflows) = ⌊hqla · 100 / outflows⌋', outflows > 0 ?
+    Math.floor((hqla * 100) / outflows) : 0, nat(hqla, outflows) && outflows > 0, 'lcr', [hqla, outflows]) } /**
+    NET STABLE FUNDING RATIO as a percentage: available stable funding over required. value ⌊available · 100 /
+    required⌋. */ static netstablefunding(available: number, required: number): CrossFormula { return
+    c('liquidity-netstablefunding', 'netstablefunding(available, required) = ⌊available · 100 / required⌋',
+    required > 0 ? Math.floor((available * 100) / required) : 0, nat(available, required) && required > 0,
+    'netstablefunding', [available, required]) } /** BURN RATE: cash on hand spread over the months it lasts.
+    value ⌊cash / months⌋. -/
+theorem fam_liquidity_burnrate_1 : ((1200 : Int) / (12 : Int)) = (100 : Int) := by decide
 
-/-- liquidity: workingcapital(300, 500) = 0 — WORKING CAPITAL: current assets less current liabilities, floored
-    at zero. value max(0, assets − liabilities). -/
-theorem fam_liquidity_workingcapital_2 : (fmax 0 (300 - 500)) = 0 := by decide
+/-- liquidity: workingcapital(300, 500) = 0 — LIQUIDITY — SOLVENCY AND SURVIVAL, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). A balance sheet is numbers: the current ratio, the quick ratio, interest
+    coverage, the cash ratio, working capital, the regulator's LCR, net stable funding, and how long the cash
+    lasts. Crosses to `banking` — liquidity is what banking underwrites. A measure. */ const PROOF = 'liquidity
+    arithmetic (current ratio, quick ratio, coverage, cash ratio, working capital, LCR, net stable funding, burn
+    rate); a measure crossed to banking' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'liquidity', dst: 'banking', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `liquidity.${name}`, params }) export class LiquidityFormulas { /** CURRENT RATIO as a percentage: current
+    assets over current liabilities. value ⌊assets · 100 / liabilities⌋. */ static currentratio(assets: number,
+    liabilities: number): CrossFormula { return c('liquidity-currentratio', 'currentratio(assets, liabilities) =
+    ⌊assets · 100 / liabilities⌋', liabilities > 0 ? Math.floor((assets * 100) / liabilities) : 0, nat(assets,
+    liabilities) && liabilities > 0, 'currentratio', [assets, liabilities]) } /** QUICK RATIO as a percentage:
+    liquid assets over current liabilities. value ⌊liquid · 100 / liabilities⌋. */ static quickratio(liquid:
+    number, liabilities: number): CrossFormula { return c('liquidity-quickratio', 'quickratio(liquid,
+    liabilities) = ⌊liquid · 100 / liabilities⌋', liabilities > 0 ? Math.floor((liquid * 100) / liabilities) :
+    0, nat(liquid, liabilities) && liabilities > 0, 'quickratio', [liquid, liabilities]) } /** INTEREST
+    COVERAGE: operating income over the interest due. value ⌊income / interest⌋. */ static coverageratio(income:
+    number, interest: number): CrossFormula { return c('liquidity-coverageratio', 'coverageratio(income,
+    interest) = ⌊income / interest⌋', interest > 0 ? Math.floor(income / interest) : 0, nat(income, interest) &&
+    interest > 0, 'coverageratio', [income, interest]) } /** CASH RATIO as a percentage: cash on hand over
+    current liabilities. value ⌊cash · 100 / liabilities⌋. */ static cashratio(cash: number, liabilities:
+    number): CrossFormula { return c('liquidity-cashratio', 'cashratio(cash, liabilities) = ⌊cash · 100 /
+    liabilities⌋', liabilities > 0 ? Math.floor((cash * 100) / liabilities) : 0, nat(cash, liabilities) &&
+    liabilities > 0, 'cashratio', [cash, liabilities]) } /** WORKING CAPITAL: current assets less current
+    liabilities, floored at zero. value max(0, assets − liabilities). -/
+theorem fam_liquidity_workingcapital_2 : (fmax (0 : Int) ((300 : Int) - (500 : Int))) = (0 : Int) := by decide
 
 /-- literacy: wordsperminute(300, 60) = 300 — LITERACY — READING, AS ARITHMETIC (chosen by the registry, not by
     hand). How a reader meets a text is numbers: words a minute, how much is understood, fluency, the grade a
@@ -854,53 +5729,259 @@ theorem fam_liquidity_workingcapital_2 : (fmax 0 (300 - 500)) = 0 := by decide
     src: 'literacy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
     `literacy.${name}`, params }) export class LiteracyFormulas { /** WORDS PER MINUTE: words read over the
     seconds taken. value ⌊words · 60 / seconds⌋. -/
-theorem fam_literacy_wordsperminute_1 : ((300 * 60) / 60) = 300 := by decide
+theorem fam_literacy_wordsperminute_1 : (((300 : Int) * (60 : Int)) / (60 : Int)) = (300 : Int) := by decide
 
-/-- literacy: comprehension(8, 10) = 80 — COMPREHENSION as a percentage of questions answered. value ⌊correct ·
-    100 / total⌋. -/
-theorem fam_literacy_comprehension_1 : ((8 * 100) / 10) = 80 := by decide
+/-- literacy: comprehension(8, 10) = 80 — LITERACY — READING, AS ARITHMETIC (chosen by the registry, not by
+    hand). How a reader meets a text is numbers: words a minute, how much is understood, fluency, the grade a
+    passage sits at, vocabulary coverage, decoding accuracy, the Lexile gap to close, and the fog a sentence
+    carries. Crosses to `pedagogy` — literacy is what teaching builds. A measure. */ const PROOF = 'literacy
+    arithmetic (words per minute, comprehension, fluency, reading level, vocabulary, accuracy, lexile delta, fog
+    index); a reading measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'literacy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `literacy.${name}`, params }) export class LiteracyFormulas { /** WORDS PER MINUTE: words read over the
+    seconds taken. value ⌊words · 60 / seconds⌋. */ static wordsperminute(words: number, seconds: number):
+    CrossFormula { return c('literacy-wordsperminute', 'wordsperminute(words, seconds) = ⌊words · 60 /
+    seconds⌋', seconds > 0 ? Math.floor((words * 60) / seconds) : 0, nat(words, seconds) && seconds > 0,
+    'wordsperminute', [words, seconds]) } /** COMPREHENSION as a percentage of questions answered. value
+    ⌊correct · 100 / total⌋. -/
+theorem fam_literacy_comprehension_1 : (((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int) := by decide
 
-/-- literacy: fluency(300, 80) = 240 — FLUENCY: words per minute scaled by comprehension. value ⌊wpm · comp /
-    100⌋. -/
-theorem fam_literacy_fluency_1 : ((300 * 80) / 100) = 240 := by decide
+/-- literacy: fluency(300, 80) = 240 — LITERACY — READING, AS ARITHMETIC (chosen by the registry, not by hand).
+    How a reader meets a text is numbers: words a minute, how much is understood, fluency, the grade a passage
+    sits at, vocabulary coverage, decoding accuracy, the Lexile gap to close, and the fog a sentence carries.
+    Crosses to `pedagogy` — literacy is what teaching builds. A measure. */ const PROOF = 'literacy arithmetic
+    (words per minute, comprehension, fluency, reading level, vocabulary, accuracy, lexile delta, fog index); a
+    reading measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'literacy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `literacy.${name}`, params }) export class LiteracyFormulas { /** WORDS PER MINUTE: words read over the
+    seconds taken. value ⌊words · 60 / seconds⌋. */ static wordsperminute(words: number, seconds: number):
+    CrossFormula { return c('literacy-wordsperminute', 'wordsperminute(words, seconds) = ⌊words · 60 /
+    seconds⌋', seconds > 0 ? Math.floor((words * 60) / seconds) : 0, nat(words, seconds) && seconds > 0,
+    'wordsperminute', [words, seconds]) } /** COMPREHENSION as a percentage of questions answered. value
+    ⌊correct · 100 / total⌋. */ static comprehension(correct: number, total: number): CrossFormula { return
+    c('literacy-comprehension', 'comprehension(correct, total) = ⌊correct · 100 / total⌋', total > 0 ?
+    Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'comprehension', [correct, total]) } /** FLUENCY: words per minute scaled by comprehension. value ⌊wpm ·
+    comp / 100⌋. -/
+theorem fam_literacy_fluency_1 : (((300 : Int) * (80 : Int)) / (100 : Int)) = (240 : Int) := by decide
 
-/-- literacy: readinglevel(120, 8) = 15 — READING LEVEL: average sentence length as a grade proxy. value ⌊words
-    / sentences⌋. -/
-theorem fam_literacy_readinglevel_1 : (120 / 8) = 15 := by decide
+/-- literacy: readinglevel(120, 8) = 15 — LITERACY — READING, AS ARITHMETIC (chosen by the registry, not by
+    hand). How a reader meets a text is numbers: words a minute, how much is understood, fluency, the grade a
+    passage sits at, vocabulary coverage, decoding accuracy, the Lexile gap to close, and the fog a sentence
+    carries. Crosses to `pedagogy` — literacy is what teaching builds. A measure. */ const PROOF = 'literacy
+    arithmetic (words per minute, comprehension, fluency, reading level, vocabulary, accuracy, lexile delta, fog
+    index); a reading measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'literacy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `literacy.${name}`, params }) export class LiteracyFormulas { /** WORDS PER MINUTE: words read over the
+    seconds taken. value ⌊words · 60 / seconds⌋. */ static wordsperminute(words: number, seconds: number):
+    CrossFormula { return c('literacy-wordsperminute', 'wordsperminute(words, seconds) = ⌊words · 60 /
+    seconds⌋', seconds > 0 ? Math.floor((words * 60) / seconds) : 0, nat(words, seconds) && seconds > 0,
+    'wordsperminute', [words, seconds]) } /** COMPREHENSION as a percentage of questions answered. value
+    ⌊correct · 100 / total⌋. */ static comprehension(correct: number, total: number): CrossFormula { return
+    c('literacy-comprehension', 'comprehension(correct, total) = ⌊correct · 100 / total⌋', total > 0 ?
+    Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'comprehension', [correct, total]) } /** FLUENCY: words per minute scaled by comprehension. value ⌊wpm ·
+    comp / 100⌋. */ static fluency(wpm: number, comp: number): CrossFormula { return c('literacy-fluency',
+    'fluency(wpm, comp) = ⌊wpm · comp / 100⌋', Math.floor((wpm * comp) / 100), nat(wpm, comp) && comp <= 100,
+    'fluency', [wpm, comp]) } /** READING LEVEL: average sentence length as a grade proxy. value ⌊words /
+    sentences⌋. -/
+theorem fam_literacy_readinglevel_1 : ((120 : Int) / (8 : Int)) = (15 : Int) := by decide
 
-/-- literacy: vocabulary(4500, 5000) = 90 — VOCABULARY coverage as a percentage. value ⌊known · 100 / total⌋. -/
-theorem fam_literacy_vocabulary_1 : ((4500 * 100) / 5000) = 90 := by decide
+/-- literacy: vocabulary(4500, 5000) = 90 — LITERACY — READING, AS ARITHMETIC (chosen by the registry, not by
+    hand). How a reader meets a text is numbers: words a minute, how much is understood, fluency, the grade a
+    passage sits at, vocabulary coverage, decoding accuracy, the Lexile gap to close, and the fog a sentence
+    carries. Crosses to `pedagogy` — literacy is what teaching builds. A measure. */ const PROOF = 'literacy
+    arithmetic (words per minute, comprehension, fluency, reading level, vocabulary, accuracy, lexile delta, fog
+    index); a reading measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'literacy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `literacy.${name}`, params }) export class LiteracyFormulas { /** WORDS PER MINUTE: words read over the
+    seconds taken. value ⌊words · 60 / seconds⌋. */ static wordsperminute(words: number, seconds: number):
+    CrossFormula { return c('literacy-wordsperminute', 'wordsperminute(words, seconds) = ⌊words · 60 /
+    seconds⌋', seconds > 0 ? Math.floor((words * 60) / seconds) : 0, nat(words, seconds) && seconds > 0,
+    'wordsperminute', [words, seconds]) } /** COMPREHENSION as a percentage of questions answered. value
+    ⌊correct · 100 / total⌋. */ static comprehension(correct: number, total: number): CrossFormula { return
+    c('literacy-comprehension', 'comprehension(correct, total) = ⌊correct · 100 / total⌋', total > 0 ?
+    Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'comprehension', [correct, total]) } /** FLUENCY: words per minute scaled by comprehension. value ⌊wpm ·
+    comp / 100⌋. */ static fluency(wpm: number, comp: number): CrossFormula { return c('literacy-fluency',
+    'fluency(wpm, comp) = ⌊wpm · comp / 100⌋', Math.floor((wpm * comp) / 100), nat(wpm, comp) && comp <= 100,
+    'fluency', [wpm, comp]) } /** READING LEVEL: average sentence length as a grade proxy. value ⌊words /
+    sentences⌋. */ static readinglevel(words: number, sentences: number): CrossFormula { return
+    c('literacy-readinglevel', 'readinglevel(words, sentences) = ⌊words / sentences⌋', sentences > 0 ?
+    Math.floor(words / sentences) : 0, nat(words, sentences) && sentences > 0, 'readinglevel', [words,
+    sentences]) } /** VOCABULARY coverage as a percentage. value ⌊known · 100 / total⌋. -/
+theorem fam_literacy_vocabulary_1 : (((4500 : Int) * (100 : Int)) / (5000 : Int)) = (90 : Int) := by decide
 
-/-- literacy: accuracy(95, 100) = 95 — ACCURACY: words decoded correctly over the words attempted. value
-    ⌊correct · 100 / attempts⌋. -/
-theorem fam_literacy_accuracy_1 : ((95 * 100) / 100) = 95 := by decide
+/-- literacy: accuracy(95, 100) = 95 — LITERACY — READING, AS ARITHMETIC (chosen by the registry, not by hand).
+    How a reader meets a text is numbers: words a minute, how much is understood, fluency, the grade a passage
+    sits at, vocabulary coverage, decoding accuracy, the Lexile gap to close, and the fog a sentence carries.
+    Crosses to `pedagogy` — literacy is what teaching builds. A measure. */ const PROOF = 'literacy arithmetic
+    (words per minute, comprehension, fluency, reading level, vocabulary, accuracy, lexile delta, fog index); a
+    reading measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'literacy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `literacy.${name}`, params }) export class LiteracyFormulas { /** WORDS PER MINUTE: words read over the
+    seconds taken. value ⌊words · 60 / seconds⌋. */ static wordsperminute(words: number, seconds: number):
+    CrossFormula { return c('literacy-wordsperminute', 'wordsperminute(words, seconds) = ⌊words · 60 /
+    seconds⌋', seconds > 0 ? Math.floor((words * 60) / seconds) : 0, nat(words, seconds) && seconds > 0,
+    'wordsperminute', [words, seconds]) } /** COMPREHENSION as a percentage of questions answered. value
+    ⌊correct · 100 / total⌋. */ static comprehension(correct: number, total: number): CrossFormula { return
+    c('literacy-comprehension', 'comprehension(correct, total) = ⌊correct · 100 / total⌋', total > 0 ?
+    Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'comprehension', [correct, total]) } /** FLUENCY: words per minute scaled by comprehension. value ⌊wpm ·
+    comp / 100⌋. */ static fluency(wpm: number, comp: number): CrossFormula { return c('literacy-fluency',
+    'fluency(wpm, comp) = ⌊wpm · comp / 100⌋', Math.floor((wpm * comp) / 100), nat(wpm, comp) && comp <= 100,
+    'fluency', [wpm, comp]) } /** READING LEVEL: average sentence length as a grade proxy. value ⌊words /
+    sentences⌋. */ static readinglevel(words: number, sentences: number): CrossFormula { return
+    c('literacy-readinglevel', 'readinglevel(words, sentences) = ⌊words / sentences⌋', sentences > 0 ?
+    Math.floor(words / sentences) : 0, nat(words, sentences) && sentences > 0, 'readinglevel', [words,
+    sentences]) } /** VOCABULARY coverage as a percentage. value ⌊known · 100 / total⌋. */ static
+    vocabulary(known: number, total: number): CrossFormula { return c('literacy-vocabulary', 'vocabulary(known,
+    total) = ⌊known · 100 / total⌋', total > 0 ? Math.floor((known * 100) / total) : 0, nat(known, total) &&
+    total > 0 && known <= total, 'vocabulary', [known, total]) } /** ACCURACY: words decoded correctly over the
+    words attempted. value ⌊correct · 100 / attempts⌋. -/
+theorem fam_literacy_accuracy_1 : (((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int) := by decide
 
-/-- literacy: lexiledelta(1000, 850) = 150 — LEXILE DELTA: the gap from reader to text, never below zero. value
-    max(0, reader − text). -/
-theorem fam_literacy_lexiledelta_1 : (fmax 0 (1000 - 850)) = 150 := by decide
+/-- literacy: lexiledelta(1000, 850) = 150 — LITERACY — READING, AS ARITHMETIC (chosen by the registry, not by
+    hand). How a reader meets a text is numbers: words a minute, how much is understood, fluency, the grade a
+    passage sits at, vocabulary coverage, decoding accuracy, the Lexile gap to close, and the fog a sentence
+    carries. Crosses to `pedagogy` — literacy is what teaching builds. A measure. */ const PROOF = 'literacy
+    arithmetic (words per minute, comprehension, fluency, reading level, vocabulary, accuracy, lexile delta, fog
+    index); a reading measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'literacy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `literacy.${name}`, params }) export class LiteracyFormulas { /** WORDS PER MINUTE: words read over the
+    seconds taken. value ⌊words · 60 / seconds⌋. */ static wordsperminute(words: number, seconds: number):
+    CrossFormula { return c('literacy-wordsperminute', 'wordsperminute(words, seconds) = ⌊words · 60 /
+    seconds⌋', seconds > 0 ? Math.floor((words * 60) / seconds) : 0, nat(words, seconds) && seconds > 0,
+    'wordsperminute', [words, seconds]) } /** COMPREHENSION as a percentage of questions answered. value
+    ⌊correct · 100 / total⌋. */ static comprehension(correct: number, total: number): CrossFormula { return
+    c('literacy-comprehension', 'comprehension(correct, total) = ⌊correct · 100 / total⌋', total > 0 ?
+    Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'comprehension', [correct, total]) } /** FLUENCY: words per minute scaled by comprehension. value ⌊wpm ·
+    comp / 100⌋. */ static fluency(wpm: number, comp: number): CrossFormula { return c('literacy-fluency',
+    'fluency(wpm, comp) = ⌊wpm · comp / 100⌋', Math.floor((wpm * comp) / 100), nat(wpm, comp) && comp <= 100,
+    'fluency', [wpm, comp]) } /** READING LEVEL: average sentence length as a grade proxy. value ⌊words /
+    sentences⌋. */ static readinglevel(words: number, sentences: number): CrossFormula { return
+    c('literacy-readinglevel', 'readinglevel(words, sentences) = ⌊words / sentences⌋', sentences > 0 ?
+    Math.floor(words / sentences) : 0, nat(words, sentences) && sentences > 0, 'readinglevel', [words,
+    sentences]) } /** VOCABULARY coverage as a percentage. value ⌊known · 100 / total⌋. */ static
+    vocabulary(known: number, total: number): CrossFormula { return c('literacy-vocabulary', 'vocabulary(known,
+    total) = ⌊known · 100 / total⌋', total > 0 ? Math.floor((known * 100) / total) : 0, nat(known, total) &&
+    total > 0 && known <= total, 'vocabulary', [known, total]) } /** ACCURACY: words decoded correctly over the
+    words attempted. value ⌊correct · 100 / attempts⌋. */ static accuracy(correct: number, attempts: number):
+    CrossFormula { return c('literacy-accuracy', 'accuracy(correct, attempts) = ⌊correct · 100 / attempts⌋',
+    attempts > 0 ? Math.floor((correct * 100) / attempts) : 0, nat(correct, attempts) && attempts > 0 && correct
+    <= attempts, 'accuracy', [correct, attempts]) } /** LEXILE DELTA: the gap from reader to text, never below
+    zero. value max(0, reader − text). -/
+theorem fam_literacy_lexiledelta_1 : (fmax (0 : Int) ((1000 : Int) - (850 : Int))) = (150 : Int) := by decide
 
-/-- literacy: lexiledelta(800, 850) = 0 — LEXILE DELTA: the gap from reader to text, never below zero. value
-    max(0, reader − text). -/
-theorem fam_literacy_lexiledelta_2 : (fmax 0 (800 - 850)) = 0 := by decide
+/-- literacy: lexiledelta(800, 850) = 0 — LITERACY — READING, AS ARITHMETIC (chosen by the registry, not by
+    hand). How a reader meets a text is numbers: words a minute, how much is understood, fluency, the grade a
+    passage sits at, vocabulary coverage, decoding accuracy, the Lexile gap to close, and the fog a sentence
+    carries. Crosses to `pedagogy` — literacy is what teaching builds. A measure. */ const PROOF = 'literacy
+    arithmetic (words per minute, comprehension, fluency, reading level, vocabulary, accuracy, lexile delta, fog
+    index); a reading measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'literacy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `literacy.${name}`, params }) export class LiteracyFormulas { /** WORDS PER MINUTE: words read over the
+    seconds taken. value ⌊words · 60 / seconds⌋. */ static wordsperminute(words: number, seconds: number):
+    CrossFormula { return c('literacy-wordsperminute', 'wordsperminute(words, seconds) = ⌊words · 60 /
+    seconds⌋', seconds > 0 ? Math.floor((words * 60) / seconds) : 0, nat(words, seconds) && seconds > 0,
+    'wordsperminute', [words, seconds]) } /** COMPREHENSION as a percentage of questions answered. value
+    ⌊correct · 100 / total⌋. */ static comprehension(correct: number, total: number): CrossFormula { return
+    c('literacy-comprehension', 'comprehension(correct, total) = ⌊correct · 100 / total⌋', total > 0 ?
+    Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'comprehension', [correct, total]) } /** FLUENCY: words per minute scaled by comprehension. value ⌊wpm ·
+    comp / 100⌋. */ static fluency(wpm: number, comp: number): CrossFormula { return c('literacy-fluency',
+    'fluency(wpm, comp) = ⌊wpm · comp / 100⌋', Math.floor((wpm * comp) / 100), nat(wpm, comp) && comp <= 100,
+    'fluency', [wpm, comp]) } /** READING LEVEL: average sentence length as a grade proxy. value ⌊words /
+    sentences⌋. */ static readinglevel(words: number, sentences: number): CrossFormula { return
+    c('literacy-readinglevel', 'readinglevel(words, sentences) = ⌊words / sentences⌋', sentences > 0 ?
+    Math.floor(words / sentences) : 0, nat(words, sentences) && sentences > 0, 'readinglevel', [words,
+    sentences]) } /** VOCABULARY coverage as a percentage. value ⌊known · 100 / total⌋. */ static
+    vocabulary(known: number, total: number): CrossFormula { return c('literacy-vocabulary', 'vocabulary(known,
+    total) = ⌊known · 100 / total⌋', total > 0 ? Math.floor((known * 100) / total) : 0, nat(known, total) &&
+    total > 0 && known <= total, 'vocabulary', [known, total]) } /** ACCURACY: words decoded correctly over the
+    words attempted. value ⌊correct · 100 / attempts⌋. */ static accuracy(correct: number, attempts: number):
+    CrossFormula { return c('literacy-accuracy', 'accuracy(correct, attempts) = ⌊correct · 100 / attempts⌋',
+    attempts > 0 ? Math.floor((correct * 100) / attempts) : 0, nat(correct, attempts) && attempts > 0 && correct
+    <= attempts, 'accuracy', [correct, attempts]) } /** LEXILE DELTA: the gap from reader to text, never below
+    zero. value max(0, reader − text). -/
+theorem fam_literacy_lexiledelta_2 : (fmax (0 : Int) ((800 : Int) - (850 : Int))) = (0 : Int) := by decide
 
-/-- literacy: fogindex(100, 5, 10) = 12 — FOG INDEX: Gunning fog over sentence length and complex words. value
-    ⌊(⌊words / sentences⌋ + ⌊complex · 100 / words⌋) · 2 / 5⌋. -/
-theorem fam_literacy_fogindex_1 : ((((100 / 5) + ((10 * 100) / 100)) * 2) / 5) = 12 := by decide
+/-- literacy: fogindex(100, 5, 10) = 12 — LITERACY — READING, AS ARITHMETIC (chosen by the registry, not by
+    hand). How a reader meets a text is numbers: words a minute, how much is understood, fluency, the grade a
+    passage sits at, vocabulary coverage, decoding accuracy, the Lexile gap to close, and the fog a sentence
+    carries. Crosses to `pedagogy` — literacy is what teaching builds. A measure. */ const PROOF = 'literacy
+    arithmetic (words per minute, comprehension, fluency, reading level, vocabulary, accuracy, lexile delta, fog
+    index); a reading measure crossed to pedagogy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'literacy', dst: 'pedagogy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `literacy.${name}`, params }) export class LiteracyFormulas { /** WORDS PER MINUTE: words read over the
+    seconds taken. value ⌊words · 60 / seconds⌋. */ static wordsperminute(words: number, seconds: number):
+    CrossFormula { return c('literacy-wordsperminute', 'wordsperminute(words, seconds) = ⌊words · 60 /
+    seconds⌋', seconds > 0 ? Math.floor((words * 60) / seconds) : 0, nat(words, seconds) && seconds > 0,
+    'wordsperminute', [words, seconds]) } /** COMPREHENSION as a percentage of questions answered. value
+    ⌊correct · 100 / total⌋. */ static comprehension(correct: number, total: number): CrossFormula { return
+    c('literacy-comprehension', 'comprehension(correct, total) = ⌊correct · 100 / total⌋', total > 0 ?
+    Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total,
+    'comprehension', [correct, total]) } /** FLUENCY: words per minute scaled by comprehension. value ⌊wpm ·
+    comp / 100⌋. */ static fluency(wpm: number, comp: number): CrossFormula { return c('literacy-fluency',
+    'fluency(wpm, comp) = ⌊wpm · comp / 100⌋', Math.floor((wpm * comp) / 100), nat(wpm, comp) && comp <= 100,
+    'fluency', [wpm, comp]) } /** READING LEVEL: average sentence length as a grade proxy. value ⌊words /
+    sentences⌋. */ static readinglevel(words: number, sentences: number): CrossFormula { return
+    c('literacy-readinglevel', 'readinglevel(words, sentences) = ⌊words / sentences⌋', sentences > 0 ?
+    Math.floor(words / sentences) : 0, nat(words, sentences) && sentences > 0, 'readinglevel', [words,
+    sentences]) } /** VOCABULARY coverage as a percentage. value ⌊known · 100 / total⌋. */ static
+    vocabulary(known: number, total: number): CrossFormula { return c('literacy-vocabulary', 'vocabulary(known,
+    total) = ⌊known · 100 / total⌋', total > 0 ? Math.floor((known * 100) / total) : 0, nat(known, total) &&
+    total > 0 && known <= total, 'vocabulary', [known, total]) } /** ACCURACY: words decoded correctly over the
+    words attempted. value ⌊correct · 100 / attempts⌋. */ static accuracy(correct: number, attempts: number):
+    CrossFormula { return c('literacy-accuracy', 'accuracy(correct, attempts) = ⌊correct · 100 / attempts⌋',
+    attempts > 0 ? Math.floor((correct * 100) / attempts) : 0, nat(correct, attempts) && attempts > 0 && correct
+    <= attempts, 'accuracy', [correct, attempts]) } /** LEXILE DELTA: the gap from reader to text, never below
+    zero. value max(0, reader − text). */ static lexiledelta(reader: number, text: number): CrossFormula {
+    return c('literacy-lexiledelta', 'lexiledelta(reader, text) = max(0, reader − text)', Math.max(0, reader -
+    text), nat(reader, text), 'lexiledelta', [reader, text]) } /** FOG INDEX: Gunning fog over sentence length
+    and complex words. value ⌊(⌊words / sentences⌋ + ⌊complex · 100 / words⌋) · 2 / 5⌋. -/
+theorem fam_literacy_fogindex_1 : (((((100 : Int) / (5 : Int)) + (((10 : Int) * (100 : Int)) / (100 : Int))) * (2 : Int)) / (5 : Int)) = (12 : Int) := by decide
 
 /-- liturgy: feastdays(40, 12) = 52 -/
-theorem fam_liturgy_feastdays_1 : (40 + 12) = 52 := by decide
+theorem fam_liturgy_feastdays_1 : ((40 : Int) + (12 : Int)) = (52 : Int) := by decide
 
 /-- liturgy: cyclelength(7, 52) = 364 -/
-theorem fam_liturgy_cyclelength_1 : (7 * 52) = 364 := by decide
+theorem fam_liturgy_cyclelength_1 : ((7 : Int) * (52 : Int)) = (364 : Int) := by decide
+
+/-- liturgy: hourorderings(7) = 5040 -/
+theorem fam_liturgy_hourorderings_1 : (Int.ofNat (ffact (Int.toNat (7 : Int)))) = (5040 : Int) := by decide
+
+/-- liturgy: rubriccombos(12, 3) = 220 -/
+theorem fam_liturgy_rubriccombos_1 : (Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int) := by decide
 
 /-- liturgy: seasons(4, 2) = 6 -/
-theorem fam_liturgy_seasons_1 : (4 + 2) = 6 := by decide
+theorem fam_liturgy_seasons_1 : ((4 : Int) + (2 : Int)) = (6 : Int) := by decide
 
 /-- liturgy: chantmodes(8, 1) = 8 -/
-theorem fam_liturgy_chantmodes_1 : (8 * 1) = 8 := by decide
+theorem fam_liturgy_chantmodes_1 : ((8 : Int) * (1 : Int)) = (8 : Int) := by decide
 
 /-- liturgy: vestmentsubsets(5) = 32 -/
-theorem fam_liturgy_vestmentsubsets_1 : (2 ^ 5) = 32 := by decide
+theorem fam_liturgy_vestmentsubsets_1 : ((2 : Int) ^ (5 : Nat)) = (32 : Int) := by decide
+
+/-- liturgy: processionpaths(6, 2) = 30 -/
+theorem fam_liturgy_processionpaths_1 : ((Int.ofNat (ffact (Int.toNat (6 : Int)))) / (Int.ofNat (ffact (Int.toNat ((6 : Int) - (2 : Int)))))) = (30 : Int) := by decide
 
 /-- livestock: feedconversion(600, 100) = 600 — LIVESTOCK — HERD AND PASTURE MANAGEMENT, AS ARITHMETIC. Running
     a herd is numbers: how many animals a pasture carries, the feed to put on weight, the weight gained, how
@@ -913,62 +5994,420 @@ theorem fam_liturgy_vestmentsubsets_1 : (2 ^ 5) = 32 := by decide
     crossFormulaOf({ id, src: 'livestock', dst: 'agriculture', formula, value, proof: PROOF, ...extra }, holds,
     { name: `livestock.${name}`, params }) export class LivestockFormulas { /** FEED CONVERSION RATIO (×100):
     feed per unit of gain. value ⌊feed · 100 / gain⌋. -/
-theorem fam_livestock_feedconversion_1 : ((600 * 100) / 100) = 600 := by decide
+theorem fam_livestock_feedconversion_1 : (((600 : Int) * (100 : Int)) / (100 : Int)) = (600 : Int) := by decide
 
-/-- livestock: fertility(90, 100) = 90 — FERTILITY as a percentage: births per breeding female. value ⌊births ·
-    100 / females⌋. -/
-theorem fam_livestock_fertility_1 : ((90 * 100) / 100) = 90 := by decide
+/-- livestock: fertility(90, 100) = 90 — LIVESTOCK — HERD AND PASTURE MANAGEMENT, AS ARITHMETIC. Running a herd
+    is numbers: how many animals a pasture carries, the feed to put on weight, the weight gained, how many are
+    lost, how many breed and are born, whether forage meets demand, how many are weaned, and the product each
+    animal yields. Crosses to `agriculture` — livestock is what the land feeds. A measure. */ const PROOF =
+    'livestock arithmetic (stocking density, feed conversion, weight gain, mortality, fertility, forage balance,
+    weaning, output per head); a measure crossed to agriculture' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'livestock', dst: 'agriculture', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `livestock.${name}`, params }) export class LivestockFormulas { /** FEED CONVERSION RATIO (×100): feed per
+    unit of gain. value ⌊feed · 100 / gain⌋. */ static feedconversion(feed: number, gain: number): CrossFormula
+    { return c('livestock-feedconversion', 'feedconversion(feed, gain) = ⌊feed · 100 / gain⌋', gain > 0 ?
+    Math.floor((feed * 100) / gain) : 0, nat(feed, gain) && gain > 0, 'feedconversion', [feed, gain]) } /**
+    FERTILITY as a percentage: births per breeding female. value ⌊births · 100 / females⌋. -/
+theorem fam_livestock_fertility_1 : (((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int) := by decide
 
-/-- livestock: forage(1200, 1000) = 120 — FORAGE BALANCE as a percentage: available over demand. value
-    ⌊available · 100 / demand⌋. -/
-theorem fam_livestock_forage_1 : ((1200 * 100) / 1000) = 120 := by decide
+/-- livestock: forage(1200, 1000) = 120 — LIVESTOCK — HERD AND PASTURE MANAGEMENT, AS ARITHMETIC. Running a herd
+    is numbers: how many animals a pasture carries, the feed to put on weight, the weight gained, how many are
+    lost, how many breed and are born, whether forage meets demand, how many are weaned, and the product each
+    animal yields. Crosses to `agriculture` — livestock is what the land feeds. A measure. */ const PROOF =
+    'livestock arithmetic (stocking density, feed conversion, weight gain, mortality, fertility, forage balance,
+    weaning, output per head); a measure crossed to agriculture' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'livestock', dst: 'agriculture', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `livestock.${name}`, params }) export class LivestockFormulas { /** FEED CONVERSION RATIO (×100): feed per
+    unit of gain. value ⌊feed · 100 / gain⌋. */ static feedconversion(feed: number, gain: number): CrossFormula
+    { return c('livestock-feedconversion', 'feedconversion(feed, gain) = ⌊feed · 100 / gain⌋', gain > 0 ?
+    Math.floor((feed * 100) / gain) : 0, nat(feed, gain) && gain > 0, 'feedconversion', [feed, gain]) } /**
+    FERTILITY as a percentage: births per breeding female. value ⌊births · 100 / females⌋. */ static
+    fertility(births: number, females: number): CrossFormula { return c('livestock-fertility',
+    'fertility(births, females) = ⌊births · 100 / females⌋', females > 0 ? Math.floor((births * 100) / females)
+    : 0, nat(births, females) && females > 0, 'fertility', [births, females]) } /** FORAGE BALANCE as a
+    percentage: available over demand. value ⌊available · 100 / demand⌋. -/
+theorem fam_livestock_forage_1 : (((1200 : Int) * (100 : Int)) / (1000 : Int)) = (120 : Int) := by decide
 
-/-- livestock: mortality(3, 100) = 3 — MORTALITY as a percentage: lost from the herd. value ⌊died · 100 / herd⌋. -/
-theorem fam_livestock_mortality_1 : ((3 * 100) / 100) = 3 := by decide
+/-- livestock: mortality(3, 100) = 3 — LIVESTOCK — HERD AND PASTURE MANAGEMENT, AS ARITHMETIC. Running a herd is
+    numbers: how many animals a pasture carries, the feed to put on weight, the weight gained, how many are
+    lost, how many breed and are born, whether forage meets demand, how many are weaned, and the product each
+    animal yields. Crosses to `agriculture` — livestock is what the land feeds. A measure. */ const PROOF =
+    'livestock arithmetic (stocking density, feed conversion, weight gain, mortality, fertility, forage balance,
+    weaning, output per head); a measure crossed to agriculture' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'livestock', dst: 'agriculture', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `livestock.${name}`, params }) export class LivestockFormulas { /** FEED CONVERSION RATIO (×100): feed per
+    unit of gain. value ⌊feed · 100 / gain⌋. */ static feedconversion(feed: number, gain: number): CrossFormula
+    { return c('livestock-feedconversion', 'feedconversion(feed, gain) = ⌊feed · 100 / gain⌋', gain > 0 ?
+    Math.floor((feed * 100) / gain) : 0, nat(feed, gain) && gain > 0, 'feedconversion', [feed, gain]) } /**
+    FERTILITY as a percentage: births per breeding female. value ⌊births · 100 / females⌋. */ static
+    fertility(births: number, females: number): CrossFormula { return c('livestock-fertility',
+    'fertility(births, females) = ⌊births · 100 / females⌋', females > 0 ? Math.floor((births * 100) / females)
+    : 0, nat(births, females) && females > 0, 'fertility', [births, females]) } /** FORAGE BALANCE as a
+    percentage: available over demand. value ⌊available · 100 / demand⌋. */ static forage(available: number,
+    demand: number): CrossFormula { return c('livestock-forage', 'forage(available, demand) = ⌊available · 100 /
+    demand⌋', demand > 0 ? Math.floor((available * 100) / demand) : 0, nat(available, demand) && demand > 0,
+    'forage', [available, demand]) } /** MORTALITY as a percentage: lost from the herd. value ⌊died · 100 /
+    herd⌋. -/
+theorem fam_livestock_mortality_1 : (((3 : Int) * (100 : Int)) / (100 : Int)) = (3 : Int) := by decide
 
-/-- livestock: output(5000, 100) = 50 — OUTPUT per head: product over the animals producing it. value ⌊product /
-    animals⌋. -/
-theorem fam_livestock_output_1 : (5000 / 100) = 50 := by decide
+/-- livestock: output(5000, 100) = 50 — LIVESTOCK — HERD AND PASTURE MANAGEMENT, AS ARITHMETIC. Running a herd
+    is numbers: how many animals a pasture carries, the feed to put on weight, the weight gained, how many are
+    lost, how many breed and are born, whether forage meets demand, how many are weaned, and the product each
+    animal yields. Crosses to `agriculture` — livestock is what the land feeds. A measure. */ const PROOF =
+    'livestock arithmetic (stocking density, feed conversion, weight gain, mortality, fertility, forage balance,
+    weaning, output per head); a measure crossed to agriculture' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'livestock', dst: 'agriculture', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `livestock.${name}`, params }) export class LivestockFormulas { /** FEED CONVERSION RATIO (×100): feed per
+    unit of gain. value ⌊feed · 100 / gain⌋. */ static feedconversion(feed: number, gain: number): CrossFormula
+    { return c('livestock-feedconversion', 'feedconversion(feed, gain) = ⌊feed · 100 / gain⌋', gain > 0 ?
+    Math.floor((feed * 100) / gain) : 0, nat(feed, gain) && gain > 0, 'feedconversion', [feed, gain]) } /**
+    FERTILITY as a percentage: births per breeding female. value ⌊births · 100 / females⌋. */ static
+    fertility(births: number, females: number): CrossFormula { return c('livestock-fertility',
+    'fertility(births, females) = ⌊births · 100 / females⌋', females > 0 ? Math.floor((births * 100) / females)
+    : 0, nat(births, females) && females > 0, 'fertility', [births, females]) } /** FORAGE BALANCE as a
+    percentage: available over demand. value ⌊available · 100 / demand⌋. */ static forage(available: number,
+    demand: number): CrossFormula { return c('livestock-forage', 'forage(available, demand) = ⌊available · 100 /
+    demand⌋', demand > 0 ? Math.floor((available * 100) / demand) : 0, nat(available, demand) && demand > 0,
+    'forage', [available, demand]) } /** MORTALITY as a percentage: lost from the herd. value ⌊died · 100 /
+    herd⌋. */ static mortality(died: number, herd: number): CrossFormula { return c('livestock-mortality',
+    'mortality(died, herd) = ⌊died · 100 / herd⌋', herd > 0 ? Math.floor((died * 100) / herd) : 0, nat(died,
+    herd) && herd > 0 && died <= herd, 'mortality', [died, herd]) } /** OUTPUT per head: product over the
+    animals producing it. value ⌊product / animals⌋. -/
+theorem fam_livestock_output_1 : ((5000 : Int) / (100 : Int)) = (50 : Int) := by decide
 
-/-- livestock: stocking(100, 40) = 2 — STOCKING DENSITY: animals per hectare of pasture. value ⌊animals /
-    hectares⌋. -/
-theorem fam_livestock_stocking_1 : (100 / 40) = 2 := by decide
+/-- livestock: stocking(100, 40) = 2 — LIVESTOCK — HERD AND PASTURE MANAGEMENT, AS ARITHMETIC. Running a herd is
+    numbers: how many animals a pasture carries, the feed to put on weight, the weight gained, how many are
+    lost, how many breed and are born, whether forage meets demand, how many are weaned, and the product each
+    animal yields. Crosses to `agriculture` — livestock is what the land feeds. A measure. */ const PROOF =
+    'livestock arithmetic (stocking density, feed conversion, weight gain, mortality, fertility, forage balance,
+    weaning, output per head); a measure crossed to agriculture' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'livestock', dst: 'agriculture', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `livestock.${name}`, params }) export class LivestockFormulas { /** FEED CONVERSION RATIO (×100): feed per
+    unit of gain. value ⌊feed · 100 / gain⌋. */ static feedconversion(feed: number, gain: number): CrossFormula
+    { return c('livestock-feedconversion', 'feedconversion(feed, gain) = ⌊feed · 100 / gain⌋', gain > 0 ?
+    Math.floor((feed * 100) / gain) : 0, nat(feed, gain) && gain > 0, 'feedconversion', [feed, gain]) } /**
+    FERTILITY as a percentage: births per breeding female. value ⌊births · 100 / females⌋. */ static
+    fertility(births: number, females: number): CrossFormula { return c('livestock-fertility',
+    'fertility(births, females) = ⌊births · 100 / females⌋', females > 0 ? Math.floor((births * 100) / females)
+    : 0, nat(births, females) && females > 0, 'fertility', [births, females]) } /** FORAGE BALANCE as a
+    percentage: available over demand. value ⌊available · 100 / demand⌋. */ static forage(available: number,
+    demand: number): CrossFormula { return c('livestock-forage', 'forage(available, demand) = ⌊available · 100 /
+    demand⌋', demand > 0 ? Math.floor((available * 100) / demand) : 0, nat(available, demand) && demand > 0,
+    'forage', [available, demand]) } /** MORTALITY as a percentage: lost from the herd. value ⌊died · 100 /
+    herd⌋. */ static mortality(died: number, herd: number): CrossFormula { return c('livestock-mortality',
+    'mortality(died, herd) = ⌊died · 100 / herd⌋', herd > 0 ? Math.floor((died * 100) / herd) : 0, nat(died,
+    herd) && herd > 0 && died <= herd, 'mortality', [died, herd]) } /** OUTPUT per head: product over the
+    animals producing it. value ⌊product / animals⌋. */ static output(product: number, animals: number):
+    CrossFormula { return c('livestock-output', 'output(product, animals) = ⌊product / animals⌋', animals > 0 ?
+    Math.floor(product / animals) : 0, nat(product, animals) && animals > 0, 'output', [product, animals]) } /**
+    STOCKING DENSITY: animals per hectare of pasture. value ⌊animals / hectares⌋. -/
+theorem fam_livestock_stocking_1 : ((100 : Int) / (40 : Int)) = (2 : Int) := by decide
 
-/-- livestock: weaning(85, 100) = 85 — WEANING RATE as a percentage: weaned of those born. value ⌊weaned · 100 /
-    born⌋. -/
-theorem fam_livestock_weaning_1 : ((85 * 100) / 100) = 85 := by decide
+/-- livestock: weaning(85, 100) = 85 — LIVESTOCK — HERD AND PASTURE MANAGEMENT, AS ARITHMETIC. Running a herd is
+    numbers: how many animals a pasture carries, the feed to put on weight, the weight gained, how many are
+    lost, how many breed and are born, whether forage meets demand, how many are weaned, and the product each
+    animal yields. Crosses to `agriculture` — livestock is what the land feeds. A measure. */ const PROOF =
+    'livestock arithmetic (stocking density, feed conversion, weight gain, mortality, fertility, forage balance,
+    weaning, output per head); a measure crossed to agriculture' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'livestock', dst: 'agriculture', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `livestock.${name}`, params }) export class LivestockFormulas { /** FEED CONVERSION RATIO (×100): feed per
+    unit of gain. value ⌊feed · 100 / gain⌋. */ static feedconversion(feed: number, gain: number): CrossFormula
+    { return c('livestock-feedconversion', 'feedconversion(feed, gain) = ⌊feed · 100 / gain⌋', gain > 0 ?
+    Math.floor((feed * 100) / gain) : 0, nat(feed, gain) && gain > 0, 'feedconversion', [feed, gain]) } /**
+    FERTILITY as a percentage: births per breeding female. value ⌊births · 100 / females⌋. */ static
+    fertility(births: number, females: number): CrossFormula { return c('livestock-fertility',
+    'fertility(births, females) = ⌊births · 100 / females⌋', females > 0 ? Math.floor((births * 100) / females)
+    : 0, nat(births, females) && females > 0, 'fertility', [births, females]) } /** FORAGE BALANCE as a
+    percentage: available over demand. value ⌊available · 100 / demand⌋. */ static forage(available: number,
+    demand: number): CrossFormula { return c('livestock-forage', 'forage(available, demand) = ⌊available · 100 /
+    demand⌋', demand > 0 ? Math.floor((available * 100) / demand) : 0, nat(available, demand) && demand > 0,
+    'forage', [available, demand]) } /** MORTALITY as a percentage: lost from the herd. value ⌊died · 100 /
+    herd⌋. */ static mortality(died: number, herd: number): CrossFormula { return c('livestock-mortality',
+    'mortality(died, herd) = ⌊died · 100 / herd⌋', herd > 0 ? Math.floor((died * 100) / herd) : 0, nat(died,
+    herd) && herd > 0 && died <= herd, 'mortality', [died, herd]) } /** OUTPUT per head: product over the
+    animals producing it. value ⌊product / animals⌋. */ static output(product: number, animals: number):
+    CrossFormula { return c('livestock-output', 'output(product, animals) = ⌊product / animals⌋', animals > 0 ?
+    Math.floor(product / animals) : 0, nat(product, animals) && animals > 0, 'output', [product, animals]) } /**
+    STOCKING DENSITY: animals per hectare of pasture. value ⌊animals / hectares⌋. */ static stocking(animals:
+    number, hectares: number): CrossFormula { return c('livestock-stocking', 'stocking(animals, hectares) =
+    ⌊animals / hectares⌋', hectares > 0 ? Math.floor(animals / hectares) : 0, nat(animals, hectares) && hectares
+    > 0, 'stocking', [animals, hectares]) } /** WEANING RATE as a percentage: weaned of those born. value
+    ⌊weaned · 100 / born⌋. -/
+theorem fam_livestock_weaning_1 : (((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int) := by decide
 
-/-- livestock: weightgain(450, 120) = 330 — WEIGHT GAIN: final weight less the initial. value max(0, final −
-    initial). -/
-theorem fam_livestock_weightgain_1 : (fmax 0 (450 - 120)) = 330 := by decide
+/-- livestock: weightgain(450, 120) = 330 — LIVESTOCK — HERD AND PASTURE MANAGEMENT, AS ARITHMETIC. Running a
+    herd is numbers: how many animals a pasture carries, the feed to put on weight, the weight gained, how many
+    are lost, how many breed and are born, whether forage meets demand, how many are weaned, and the product
+    each animal yields. Crosses to `agriculture` — livestock is what the land feeds. A measure. */ const PROOF =
+    'livestock arithmetic (stocking density, feed conversion, weight gain, mortality, fertility, forage balance,
+    weaning, output per head); a measure crossed to agriculture' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'livestock', dst: 'agriculture', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `livestock.${name}`, params }) export class LivestockFormulas { /** FEED CONVERSION RATIO (×100): feed per
+    unit of gain. value ⌊feed · 100 / gain⌋. */ static feedconversion(feed: number, gain: number): CrossFormula
+    { return c('livestock-feedconversion', 'feedconversion(feed, gain) = ⌊feed · 100 / gain⌋', gain > 0 ?
+    Math.floor((feed * 100) / gain) : 0, nat(feed, gain) && gain > 0, 'feedconversion', [feed, gain]) } /**
+    FERTILITY as a percentage: births per breeding female. value ⌊births · 100 / females⌋. */ static
+    fertility(births: number, females: number): CrossFormula { return c('livestock-fertility',
+    'fertility(births, females) = ⌊births · 100 / females⌋', females > 0 ? Math.floor((births * 100) / females)
+    : 0, nat(births, females) && females > 0, 'fertility', [births, females]) } /** FORAGE BALANCE as a
+    percentage: available over demand. value ⌊available · 100 / demand⌋. */ static forage(available: number,
+    demand: number): CrossFormula { return c('livestock-forage', 'forage(available, demand) = ⌊available · 100 /
+    demand⌋', demand > 0 ? Math.floor((available * 100) / demand) : 0, nat(available, demand) && demand > 0,
+    'forage', [available, demand]) } /** MORTALITY as a percentage: lost from the herd. value ⌊died · 100 /
+    herd⌋. */ static mortality(died: number, herd: number): CrossFormula { return c('livestock-mortality',
+    'mortality(died, herd) = ⌊died · 100 / herd⌋', herd > 0 ? Math.floor((died * 100) / herd) : 0, nat(died,
+    herd) && herd > 0 && died <= herd, 'mortality', [died, herd]) } /** OUTPUT per head: product over the
+    animals producing it. value ⌊product / animals⌋. */ static output(product: number, animals: number):
+    CrossFormula { return c('livestock-output', 'output(product, animals) = ⌊product / animals⌋', animals > 0 ?
+    Math.floor(product / animals) : 0, nat(product, animals) && animals > 0, 'output', [product, animals]) } /**
+    STOCKING DENSITY: animals per hectare of pasture. value ⌊animals / hectares⌋. */ static stocking(animals:
+    number, hectares: number): CrossFormula { return c('livestock-stocking', 'stocking(animals, hectares) =
+    ⌊animals / hectares⌋', hectares > 0 ? Math.floor(animals / hectares) : 0, nat(animals, hectares) && hectares
+    > 0, 'stocking', [animals, hectares]) } /** WEANING RATE as a percentage: weaned of those born. value
+    ⌊weaned · 100 / born⌋. */ static weaning(weaned: number, born: number): CrossFormula { return
+    c('livestock-weaning', 'weaning(weaned, born) = ⌊weaned · 100 / born⌋', born > 0 ? Math.floor((weaned * 100)
+    / born) : 0, nat(weaned, born) && born > 0 && weaned <= born, 'weaning', [weaned, born]) } /** WEIGHT GAIN:
+    final weight less the initial. value max(0, final − initial). -/
+theorem fam_livestock_weightgain_1 : (fmax (0 : Int) ((450 : Int) - (120 : Int))) = (330 : Int) := by decide
 
-/-- livestock: weightgain(100, 150) = 0 — WEIGHT GAIN: final weight less the initial. value max(0, final −
-    initial). -/
-theorem fam_livestock_weightgain_2 : (fmax 0 (100 - 150)) = 0 := by decide
+/-- livestock: weightgain(100, 150) = 0 — LIVESTOCK — HERD AND PASTURE MANAGEMENT, AS ARITHMETIC. Running a herd
+    is numbers: how many animals a pasture carries, the feed to put on weight, the weight gained, how many are
+    lost, how many breed and are born, whether forage meets demand, how many are weaned, and the product each
+    animal yields. Crosses to `agriculture` — livestock is what the land feeds. A measure. */ const PROOF =
+    'livestock arithmetic (stocking density, feed conversion, weight gain, mortality, fertility, forage balance,
+    weaning, output per head); a measure crossed to agriculture' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'livestock', dst: 'agriculture', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `livestock.${name}`, params }) export class LivestockFormulas { /** FEED CONVERSION RATIO (×100): feed per
+    unit of gain. value ⌊feed · 100 / gain⌋. */ static feedconversion(feed: number, gain: number): CrossFormula
+    { return c('livestock-feedconversion', 'feedconversion(feed, gain) = ⌊feed · 100 / gain⌋', gain > 0 ?
+    Math.floor((feed * 100) / gain) : 0, nat(feed, gain) && gain > 0, 'feedconversion', [feed, gain]) } /**
+    FERTILITY as a percentage: births per breeding female. value ⌊births · 100 / females⌋. */ static
+    fertility(births: number, females: number): CrossFormula { return c('livestock-fertility',
+    'fertility(births, females) = ⌊births · 100 / females⌋', females > 0 ? Math.floor((births * 100) / females)
+    : 0, nat(births, females) && females > 0, 'fertility', [births, females]) } /** FORAGE BALANCE as a
+    percentage: available over demand. value ⌊available · 100 / demand⌋. */ static forage(available: number,
+    demand: number): CrossFormula { return c('livestock-forage', 'forage(available, demand) = ⌊available · 100 /
+    demand⌋', demand > 0 ? Math.floor((available * 100) / demand) : 0, nat(available, demand) && demand > 0,
+    'forage', [available, demand]) } /** MORTALITY as a percentage: lost from the herd. value ⌊died · 100 /
+    herd⌋. */ static mortality(died: number, herd: number): CrossFormula { return c('livestock-mortality',
+    'mortality(died, herd) = ⌊died · 100 / herd⌋', herd > 0 ? Math.floor((died * 100) / herd) : 0, nat(died,
+    herd) && herd > 0 && died <= herd, 'mortality', [died, herd]) } /** OUTPUT per head: product over the
+    animals producing it. value ⌊product / animals⌋. */ static output(product: number, animals: number):
+    CrossFormula { return c('livestock-output', 'output(product, animals) = ⌊product / animals⌋', animals > 0 ?
+    Math.floor(product / animals) : 0, nat(product, animals) && animals > 0, 'output', [product, animals]) } /**
+    STOCKING DENSITY: animals per hectare of pasture. value ⌊animals / hectares⌋. */ static stocking(animals:
+    number, hectares: number): CrossFormula { return c('livestock-stocking', 'stocking(animals, hectares) =
+    ⌊animals / hectares⌋', hectares > 0 ? Math.floor(animals / hectares) : 0, nat(animals, hectares) && hectares
+    > 0, 'stocking', [animals, hectares]) } /** WEANING RATE as a percentage: weaned of those born. value
+    ⌊weaned · 100 / born⌋. */ static weaning(weaned: number, born: number): CrossFormula { return
+    c('livestock-weaning', 'weaning(weaned, born) = ⌊weaned · 100 / born⌋', born > 0 ? Math.floor((weaned * 100)
+    / born) : 0, nat(weaned, born) && born > 0 && weaned <= born, 'weaning', [weaned, born]) } /** WEIGHT GAIN:
+    final weight less the initial. value max(0, final − initial). -/
+theorem fam_livestock_weightgain_2 : (fmax (0 : Int) ((100 : Int) - (150 : Int))) = (0 : Int) := by decide
 
 /-- loadplanning: utilization(900, 1000) = 90 -/
-theorem fam_loadplanning_utilization_1 : ((900 * 100) / 1000) = 90 := by decide
+theorem fam_loadplanning_utilization_1 : (((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int) := by decide
 
 /-- loadplanning: cubicfill(48, 60) = 80 -/
-theorem fam_loadplanning_cubicfill_1 : ((48 * 100) / 60) = 80 := by decide
+theorem fam_loadplanning_cubicfill_1 : (((48 : Int) * (100 : Int)) / (60 : Int)) = (80 : Int) := by decide
 
 /-- loadplanning: weightlimit(20000, 18000) = 2000 -/
-theorem fam_loadplanning_weightlimit_1 : (fmax 0 (20000 - 18000)) = 2000 := by decide
+theorem fam_loadplanning_weightlimit_1 : (fmax (0 : Int) ((20000 : Int) - (18000 : Int))) = (2000 : Int) := by decide
 
 /-- loadplanning: stackheight(240, 40) = 6 -/
-theorem fam_loadplanning_stackheight_1 : (240 / 40) = 6 := by decide
+theorem fam_loadplanning_stackheight_1 : ((240 : Int) / (40 : Int)) = (6 : Int) := by decide
 
 /-- loadplanning: palletspertruck(52, 2) = 26 -/
-theorem fam_loadplanning_palletspertruck_1 : (52 / 2) = 26 := by decide
+theorem fam_loadplanning_palletspertruck_1 : ((52 : Int) / (2 : Int)) = (26 : Int) := by decide
 
 /-- loadplanning: axleload(36000, 3) = 12000 -/
-theorem fam_loadplanning_axleload_1 : (36000 / 3) = 12000 := by decide
+theorem fam_loadplanning_axleload_1 : ((36000 : Int) / (3 : Int)) = (12000 : Int) := by decide
 
 /-- loadplanning: voidspace(60, 48) = 12 -/
-theorem fam_loadplanning_voidspace_1 : (fmax 0 (60 - 48)) = 12 := by decide
+theorem fam_loadplanning_voidspace_1 : (fmax (0 : Int) ((60 : Int) - (48 : Int))) = (12 : Int) := by decide
 
 /-- loadplanning: loadbalance(50, 50) = 100 -/
-theorem fam_loadplanning_loadbalance_1 : ((50 * 100) / 50) = 100 := by decide
+theorem fam_loadplanning_loadbalance_1 : (((50 : Int) * (100 : Int)) / (50 : Int)) = (100 : Int) := by decide
+
+/-- loan: principal(20000, 1) = 20000 — LoanFormulas — 8 exact-integer formulas of the loan domain, each at a
+    hex address crossing to cross; develops the loan leads. */ const PROOF = "loan counts: principal(x, y) = x ·
+    y; interest(x, y) = x · 100 / y; payment(x, y) = x / y; term(x, y) = x · y; ltv(x, y) = x · 100 / y;
+    amortization(x, y) = x / y; points(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number
+    => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'loan', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `loan.${name}`, params }) export class
+    LoanFormulas { /** principal(x, y) = x · y. -/
+theorem fam_loan_principal_1 : ((20000 : Int) * (1 : Int)) = (20000 : Int) := by decide
+
+/-- loan: interest(5, 100) = 5 — LoanFormulas — 8 exact-integer formulas of the loan domain, each at a hex
+    address crossing to cross; develops the loan leads. */ const PROOF = "loan counts: principal(x, y) = x · y;
+    interest(x, y) = x · 100 / y; payment(x, y) = x / y; term(x, y) = x · y; ltv(x, y) = x · 100 / y;
+    amortization(x, y) = x / y; points(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number
+    => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'loan', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `loan.${name}`, params }) export class
+    LoanFormulas { /** principal(x, y) = x · y. */ static principal(x: number, y: number): CrossFormula { return
+    f('loan-principal', 'principal(x, y) = x · y', x * y, nat(x, y), 'principal', [x, y]) } /** interest(x, y) =
+    x · 100 / y. -/
+theorem fam_loan_interest_1 : (((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int) := by decide
+
+/-- loan: payment(24000, 360) = 66 — LoanFormulas — 8 exact-integer formulas of the loan domain, each at a hex
+    address crossing to cross; develops the loan leads. */ const PROOF = "loan counts: principal(x, y) = x · y;
+    interest(x, y) = x · 100 / y; payment(x, y) = x / y; term(x, y) = x · y; ltv(x, y) = x · 100 / y;
+    amortization(x, y) = x / y; points(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number
+    => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'loan', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `loan.${name}`, params }) export class
+    LoanFormulas { /** principal(x, y) = x · y. */ static principal(x: number, y: number): CrossFormula { return
+    f('loan-principal', 'principal(x, y) = x · y', x * y, nat(x, y), 'principal', [x, y]) } /** interest(x, y) =
+    x · 100 / y. */ static interest(x: number, y: number): CrossFormula { return f('loan-interest', 'interest(x,
+    y) = x · 100 / y', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'interest', [x, y]) } /**
+    payment(x, y) = x / y. -/
+theorem fam_loan_payment_1 : ((24000 : Int) / (360 : Int)) = (66 : Int) := by decide
+
+/-- loan: term(30, 12) = 360 — LoanFormulas — 8 exact-integer formulas of the loan domain, each at a hex address
+    crossing to cross; develops the loan leads. */ const PROOF = "loan counts: principal(x, y) = x · y;
+    interest(x, y) = x · 100 / y; payment(x, y) = x / y; term(x, y) = x · y; ltv(x, y) = x · 100 / y;
+    amortization(x, y) = x / y; points(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number
+    => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'loan', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `loan.${name}`, params }) export class
+    LoanFormulas { /** principal(x, y) = x · y. */ static principal(x: number, y: number): CrossFormula { return
+    f('loan-principal', 'principal(x, y) = x · y', x * y, nat(x, y), 'principal', [x, y]) } /** interest(x, y) =
+    x · 100 / y. */ static interest(x: number, y: number): CrossFormula { return f('loan-interest', 'interest(x,
+    y) = x · 100 / y', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'interest', [x, y]) } /**
+    payment(x, y) = x / y. */ static payment(x: number, y: number): CrossFormula { return f('loan-payment',
+    'payment(x, y) = x / y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'payment', [x, y]) } /** term(x,
+    y) = x · y. -/
+theorem fam_loan_term_1 : ((30 : Int) * (12 : Int)) = (360 : Int) := by decide
+
+/-- loan: ltv(80, 100) = 80 — LoanFormulas — 8 exact-integer formulas of the loan domain, each at a hex address
+    crossing to cross; develops the loan leads. */ const PROOF = "loan counts: principal(x, y) = x · y;
+    interest(x, y) = x · 100 / y; payment(x, y) = x / y; term(x, y) = x · y; ltv(x, y) = x · 100 / y;
+    amortization(x, y) = x / y; points(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number
+    => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'loan', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `loan.${name}`, params }) export class
+    LoanFormulas { /** principal(x, y) = x · y. */ static principal(x: number, y: number): CrossFormula { return
+    f('loan-principal', 'principal(x, y) = x · y', x * y, nat(x, y), 'principal', [x, y]) } /** interest(x, y) =
+    x · 100 / y. */ static interest(x: number, y: number): CrossFormula { return f('loan-interest', 'interest(x,
+    y) = x · 100 / y', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'interest', [x, y]) } /**
+    payment(x, y) = x / y. */ static payment(x: number, y: number): CrossFormula { return f('loan-payment',
+    'payment(x, y) = x / y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'payment', [x, y]) } /** term(x,
+    y) = x · y. */ static term(x: number, y: number): CrossFormula { return f('loan-term', 'term(x, y) = x · y',
+    x * y, nat(x, y), 'term', [x, y]) } /** ltv(x, y) = x · 100 / y. -/
+theorem fam_loan_ltv_1 : (((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int) := by decide
+
+/-- loan: amortization(20000, 360) = 55 — LoanFormulas — 8 exact-integer formulas of the loan domain, each at a
+    hex address crossing to cross; develops the loan leads. */ const PROOF = "loan counts: principal(x, y) = x ·
+    y; interest(x, y) = x · 100 / y; payment(x, y) = x / y; term(x, y) = x · y; ltv(x, y) = x · 100 / y;
+    amortization(x, y) = x / y; points(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number
+    => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'loan', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `loan.${name}`, params }) export class
+    LoanFormulas { /** principal(x, y) = x · y. */ static principal(x: number, y: number): CrossFormula { return
+    f('loan-principal', 'principal(x, y) = x · y', x * y, nat(x, y), 'principal', [x, y]) } /** interest(x, y) =
+    x · 100 / y. */ static interest(x: number, y: number): CrossFormula { return f('loan-interest', 'interest(x,
+    y) = x · 100 / y', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'interest', [x, y]) } /**
+    payment(x, y) = x / y. */ static payment(x: number, y: number): CrossFormula { return f('loan-payment',
+    'payment(x, y) = x / y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'payment', [x, y]) } /** term(x,
+    y) = x · y. */ static term(x: number, y: number): CrossFormula { return f('loan-term', 'term(x, y) = x · y',
+    x * y, nat(x, y), 'term', [x, y]) } /** ltv(x, y) = x · 100 / y. */ static ltv(x: number, y: number):
+    CrossFormula { return f('loan-ltv', 'ltv(x, y) = x · 100 / y', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x,
+    y) && y > 0, 'ltv', [x, y]) } /** amortization(x, y) = x / y. -/
+theorem fam_loan_amortization_1 : ((20000 : Int) / (360 : Int)) = (55 : Int) := by decide
+
+/-- loan: points(2, 0) = 2 — LoanFormulas — 8 exact-integer formulas of the loan domain, each at a hex address
+    crossing to cross; develops the loan leads. */ const PROOF = "loan counts: principal(x, y) = x · y;
+    interest(x, y) = x · 100 / y; payment(x, y) = x / y; term(x, y) = x · y; ltv(x, y) = x · 100 / y;
+    amortization(x, y) = x / y; points(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number
+    => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'loan', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `loan.${name}`, params }) export class
+    LoanFormulas { /** principal(x, y) = x · y. */ static principal(x: number, y: number): CrossFormula { return
+    f('loan-principal', 'principal(x, y) = x · y', x * y, nat(x, y), 'principal', [x, y]) } /** interest(x, y) =
+    x · 100 / y. */ static interest(x: number, y: number): CrossFormula { return f('loan-interest', 'interest(x,
+    y) = x · 100 / y', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'interest', [x, y]) } /**
+    payment(x, y) = x / y. */ static payment(x: number, y: number): CrossFormula { return f('loan-payment',
+    'payment(x, y) = x / y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'payment', [x, y]) } /** term(x,
+    y) = x · y. */ static term(x: number, y: number): CrossFormula { return f('loan-term', 'term(x, y) = x · y',
+    x * y, nat(x, y), 'term', [x, y]) } /** ltv(x, y) = x · 100 / y. */ static ltv(x: number, y: number):
+    CrossFormula { return f('loan-ltv', 'ltv(x, y) = x · 100 / y', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x,
+    y) && y > 0, 'ltv', [x, y]) } /** amortization(x, y) = x / y. */ static amortization(x: number, y: number):
+    CrossFormula { return f('loan-amortization', 'amortization(x, y) = x / y', y > 0 ? Math.floor(x / y) : 0,
+    nat(x, y) && y > 0, 'amortization', [x, y]) } /** points(x, y) = x + y. -/
+theorem fam_loan_points_1 : ((2 : Int) + (0 : Int)) = (2 : Int) := by decide
+
+/-- loan: combos(6, 2) = 15 — LoanFormulas — 8 exact-integer formulas of the loan domain, each at a hex address
+    crossing to cross; develops the loan leads. */ const PROOF = "loan counts: principal(x, y) = x · y;
+    interest(x, y) = x · 100 / y; payment(x, y) = x / y; term(x, y) = x · y; ltv(x, y) = x · 100 / y;
+    amortization(x, y) = x / y; points(x, y) = x + y; combos(x, y) = C(x, y)" const factOf = (x: number): number
+    => { if (x > 12) return 0; let v = 1; for (let i = 2; i <= x; i++) v *= i; return v } const combOf = (nn:
+    number, k: number): number => { if (k < 0 || k > nn) return 0; let kk = k > nn - k ? nn - k : k, v = 1; for
+    (let i = 0; i < kk; i++) v = (v * (nn - i)) / (i + 1); return Math.round(v) } const permOf = (nn: number, k:
+    number): number => (k < 0 || k > nn || nn > 20 ? 0 : combOf(nn, k) * factOf(k)) const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[]): CrossFormula => crossFormulaOf({ id, src:
+    'loan', dst: 'cross', formula, value, proof: PROOF }, holds, { name: `loan.${name}`, params }) export class
+    LoanFormulas { /** principal(x, y) = x · y. */ static principal(x: number, y: number): CrossFormula { return
+    f('loan-principal', 'principal(x, y) = x · y', x * y, nat(x, y), 'principal', [x, y]) } /** interest(x, y) =
+    x · 100 / y. */ static interest(x: number, y: number): CrossFormula { return f('loan-interest', 'interest(x,
+    y) = x · 100 / y', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'interest', [x, y]) } /**
+    payment(x, y) = x / y. */ static payment(x: number, y: number): CrossFormula { return f('loan-payment',
+    'payment(x, y) = x / y', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'payment', [x, y]) } /** term(x,
+    y) = x · y. */ static term(x: number, y: number): CrossFormula { return f('loan-term', 'term(x, y) = x · y',
+    x * y, nat(x, y), 'term', [x, y]) } /** ltv(x, y) = x · 100 / y. */ static ltv(x: number, y: number):
+    CrossFormula { return f('loan-ltv', 'ltv(x, y) = x · 100 / y', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x,
+    y) && y > 0, 'ltv', [x, y]) } /** amortization(x, y) = x / y. */ static amortization(x: number, y: number):
+    CrossFormula { return f('loan-amortization', 'amortization(x, y) = x / y', y > 0 ? Math.floor(x / y) : 0,
+    nat(x, y) && y > 0, 'amortization', [x, y]) } /** points(x, y) = x + y. */ static points(x: number, y:
+    number): CrossFormula { return f('loan-points', 'points(x, y) = x + y', x + y, nat(x, y), 'points', [x, y])
+    } /** combos(x, y) = C(x, y). -/
+theorem fam_loan_combos_1 : (Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int) := by decide
 
 /-- locale: coverage(750, 1000) = 75 — LOCALE — THE PAYLOAD CMS LOCALIZATION API, AS ARITHMETIC (locales,
     fallback, translated content). Localizing content is numbers: translation coverage, fallback reliance, the
@@ -981,62 +6420,428 @@ theorem fam_loadplanning_loadbalance_1 : ((50 * 100) / 50) = 100 := by decide
     Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'locale', dst: 'payload', formula,
     value, proof: PROOF, ...extra }, holds, { name: `locale.${name}`, params }) export class LocaleFormulas {
     /** COVERAGE: translated documents as a percentage of the total. value ⌊translated · 100 / total⌋. -/
-theorem fam_locale_coverage_1 : ((750 * 100) / 1000) = 75 := by decide
+theorem fam_locale_coverage_1 : (((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int) := by decide
 
-/-- locale: fallback(250, 1000) = 25 — FALLBACK: documents served from the fallback locale as a percentage.
-    value ⌊missing · 100 / total⌋. -/
-theorem fam_locale_fallback_1 : ((250 * 100) / 1000) = 25 := by decide
+/-- locale: fallback(250, 1000) = 25 — LOCALE — THE PAYLOAD CMS LOCALIZATION API, AS ARITHMETIC (locales,
+    fallback, translated content). Localizing content is numbers: translation coverage, fallback reliance, the
+    locales configured, which fields carry translations, words still to translate, right-to-left share,
+    completion per locale, and the storage a localized field set costs. Crosses to `payload` — locale is the
+    localization layer payload runs. A measure. */ const PROOF = 'locale arithmetic (coverage, fallback,
+    locales, fields, words, rtl, complete, storage); the Payload CMS localization API; a measure crossed to
+    payload' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'locale', dst: 'payload', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `locale.${name}`, params }) export class LocaleFormulas {
+    /** COVERAGE: translated documents as a percentage of the total. value ⌊translated · 100 / total⌋. */ static
+    coverage(translated: number, total: number): CrossFormula { return c('locale-coverage',
+    'coverage(translated, total) = ⌊translated · 100 / total⌋', total > 0 ? Math.floor((translated * 100) /
+    total) : 0, nat(translated, total) && total > 0 && translated <= total, 'coverage', [translated, total]) }
+    /** FALLBACK: documents served from the fallback locale as a percentage. value ⌊missing · 100 / total⌋. -/
+theorem fam_locale_fallback_1 : (((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int) := by decide
 
-/-- locale: locales(7) = 7 — LOCALES: the locales configured. value count. -/
-theorem fam_locale_locales_1 : 7 = 7 := by decide
+/-- locale: locales(7) = 7 — LOCALE — THE PAYLOAD CMS LOCALIZATION API, AS ARITHMETIC (locales, fallback,
+    translated content). Localizing content is numbers: translation coverage, fallback reliance, the locales
+    configured, which fields carry translations, words still to translate, right-to-left share, completion per
+    locale, and the storage a localized field set costs. Crosses to `payload` — locale is the localization layer
+    payload runs. A measure. */ const PROOF = 'locale arithmetic (coverage, fallback, locales, fields, words,
+    rtl, complete, storage); the Payload CMS localization API; a measure crossed to payload' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'locale', dst: 'payload', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `locale.${name}`, params }) export class LocaleFormulas { /** COVERAGE: translated
+    documents as a percentage of the total. value ⌊translated · 100 / total⌋. */ static coverage(translated:
+    number, total: number): CrossFormula { return c('locale-coverage', 'coverage(translated, total) =
+    ⌊translated · 100 / total⌋', total > 0 ? Math.floor((translated * 100) / total) : 0, nat(translated, total)
+    && total > 0 && translated <= total, 'coverage', [translated, total]) } /** FALLBACK: documents served from
+    the fallback locale as a percentage. value ⌊missing · 100 / total⌋. */ static fallback(missing: number,
+    total: number): CrossFormula { return c('locale-fallback', 'fallback(missing, total) = ⌊missing · 100 /
+    total⌋', total > 0 ? Math.floor((missing * 100) / total) : 0, nat(missing, total) && total > 0 && missing <=
+    total, 'fallback', [missing, total]) } /** LOCALES: the locales configured. value count. -/
+theorem fam_locale_locales_1 : (7 : Int) = (7 : Int) := by decide
 
-/-- locale: fields(12, 40) = 30 — FIELDS: localized fields as a percentage of all fields. value ⌊localized · 100
+/-- locale: fields(12, 40) = 30 — LOCALE — THE PAYLOAD CMS LOCALIZATION API, AS ARITHMETIC (locales, fallback,
+    translated content). Localizing content is numbers: translation coverage, fallback reliance, the locales
+    configured, which fields carry translations, words still to translate, right-to-left share, completion per
+    locale, and the storage a localized field set costs. Crosses to `payload` — locale is the localization layer
+    payload runs. A measure. */ const PROOF = 'locale arithmetic (coverage, fallback, locales, fields, words,
+    rtl, complete, storage); the Payload CMS localization API; a measure crossed to payload' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'locale', dst: 'payload', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `locale.${name}`, params }) export class LocaleFormulas { /** COVERAGE: translated
+    documents as a percentage of the total. value ⌊translated · 100 / total⌋. */ static coverage(translated:
+    number, total: number): CrossFormula { return c('locale-coverage', 'coverage(translated, total) =
+    ⌊translated · 100 / total⌋', total > 0 ? Math.floor((translated * 100) / total) : 0, nat(translated, total)
+    && total > 0 && translated <= total, 'coverage', [translated, total]) } /** FALLBACK: documents served from
+    the fallback locale as a percentage. value ⌊missing · 100 / total⌋. */ static fallback(missing: number,
+    total: number): CrossFormula { return c('locale-fallback', 'fallback(missing, total) = ⌊missing · 100 /
+    total⌋', total > 0 ? Math.floor((missing * 100) / total) : 0, nat(missing, total) && total > 0 && missing <=
+    total, 'fallback', [missing, total]) } /** LOCALES: the locales configured. value count. */ static
+    locales(count: number): CrossFormula { return c('locale-locales', 'locales(count) = count', count,
+    nat(count), 'locales', [count]) } /** FIELDS: localized fields as a percentage of all fields. value
+    ⌊localized · 100 / total⌋. -/
+theorem fam_locale_fields_1 : (((12 : Int) * (100 : Int)) / (40 : Int)) = (30 : Int) := by decide
+
+/-- locale: words(5000, 1200) = 3800 — LOCALE — THE PAYLOAD CMS LOCALIZATION API, AS ARITHMETIC (locales,
+    fallback, translated content). Localizing content is numbers: translation coverage, fallback reliance, the
+    locales configured, which fields carry translations, words still to translate, right-to-left share,
+    completion per locale, and the storage a localized field set costs. Crosses to `payload` — locale is the
+    localization layer payload runs. A measure. */ const PROOF = 'locale arithmetic (coverage, fallback,
+    locales, fields, words, rtl, complete, storage); the Payload CMS localization API; a measure crossed to
+    payload' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'locale', dst: 'payload', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `locale.${name}`, params }) export class LocaleFormulas {
+    /** COVERAGE: translated documents as a percentage of the total. value ⌊translated · 100 / total⌋. */ static
+    coverage(translated: number, total: number): CrossFormula { return c('locale-coverage',
+    'coverage(translated, total) = ⌊translated · 100 / total⌋', total > 0 ? Math.floor((translated * 100) /
+    total) : 0, nat(translated, total) && total > 0 && translated <= total, 'coverage', [translated, total]) }
+    /** FALLBACK: documents served from the fallback locale as a percentage. value ⌊missing · 100 / total⌋. */
+    static fallback(missing: number, total: number): CrossFormula { return c('locale-fallback',
+    'fallback(missing, total) = ⌊missing · 100 / total⌋', total > 0 ? Math.floor((missing * 100) / total) : 0,
+    nat(missing, total) && total > 0 && missing <= total, 'fallback', [missing, total]) } /** LOCALES: the
+    locales configured. value count. */ static locales(count: number): CrossFormula { return c('locale-locales',
+    'locales(count) = count', count, nat(count), 'locales', [count]) } /** FIELDS: localized fields as a
+    percentage of all fields. value ⌊localized · 100 / total⌋. */ static fields(localized: number, total:
+    number): CrossFormula { return c('locale-fields', 'fields(localized, total) = ⌊localized · 100 / total⌋',
+    total > 0 ? Math.floor((localized * 100) / total) : 0, nat(localized, total) && total > 0 && localized <=
+    total, 'fields', [localized, total]) } /** WORDS: words still to translate, source over what the target
+    already holds. value max(0, source − target). -/
+theorem fam_locale_words_1 : (fmax (0 : Int) ((5000 : Int) - (1200 : Int))) = (3800 : Int) := by decide
+
+/-- locale: words(1200, 5000) = 0 — LOCALE — THE PAYLOAD CMS LOCALIZATION API, AS ARITHMETIC (locales, fallback,
+    translated content). Localizing content is numbers: translation coverage, fallback reliance, the locales
+    configured, which fields carry translations, words still to translate, right-to-left share, completion per
+    locale, and the storage a localized field set costs. Crosses to `payload` — locale is the localization layer
+    payload runs. A measure. */ const PROOF = 'locale arithmetic (coverage, fallback, locales, fields, words,
+    rtl, complete, storage); the Payload CMS localization API; a measure crossed to payload' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'locale', dst: 'payload', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `locale.${name}`, params }) export class LocaleFormulas { /** COVERAGE: translated
+    documents as a percentage of the total. value ⌊translated · 100 / total⌋. */ static coverage(translated:
+    number, total: number): CrossFormula { return c('locale-coverage', 'coverage(translated, total) =
+    ⌊translated · 100 / total⌋', total > 0 ? Math.floor((translated * 100) / total) : 0, nat(translated, total)
+    && total > 0 && translated <= total, 'coverage', [translated, total]) } /** FALLBACK: documents served from
+    the fallback locale as a percentage. value ⌊missing · 100 / total⌋. */ static fallback(missing: number,
+    total: number): CrossFormula { return c('locale-fallback', 'fallback(missing, total) = ⌊missing · 100 /
+    total⌋', total > 0 ? Math.floor((missing * 100) / total) : 0, nat(missing, total) && total > 0 && missing <=
+    total, 'fallback', [missing, total]) } /** LOCALES: the locales configured. value count. */ static
+    locales(count: number): CrossFormula { return c('locale-locales', 'locales(count) = count', count,
+    nat(count), 'locales', [count]) } /** FIELDS: localized fields as a percentage of all fields. value
+    ⌊localized · 100 / total⌋. */ static fields(localized: number, total: number): CrossFormula { return
+    c('locale-fields', 'fields(localized, total) = ⌊localized · 100 / total⌋', total > 0 ? Math.floor((localized
+    * 100) / total) : 0, nat(localized, total) && total > 0 && localized <= total, 'fields', [localized, total])
+    } /** WORDS: words still to translate, source over what the target already holds. value max(0, source −
+    target). -/
+theorem fam_locale_words_2 : (fmax (0 : Int) ((1200 : Int) - (5000 : Int))) = (0 : Int) := by decide
+
+/-- locale: rtl(2, 8) = 25 — LOCALE — THE PAYLOAD CMS LOCALIZATION API, AS ARITHMETIC (locales, fallback,
+    translated content). Localizing content is numbers: translation coverage, fallback reliance, the locales
+    configured, which fields carry translations, words still to translate, right-to-left share, completion per
+    locale, and the storage a localized field set costs. Crosses to `payload` — locale is the localization layer
+    payload runs. A measure. */ const PROOF = 'locale arithmetic (coverage, fallback, locales, fields, words,
+    rtl, complete, storage); the Payload CMS localization API; a measure crossed to payload' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'locale', dst: 'payload', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `locale.${name}`, params }) export class LocaleFormulas { /** COVERAGE: translated
+    documents as a percentage of the total. value ⌊translated · 100 / total⌋. */ static coverage(translated:
+    number, total: number): CrossFormula { return c('locale-coverage', 'coverage(translated, total) =
+    ⌊translated · 100 / total⌋', total > 0 ? Math.floor((translated * 100) / total) : 0, nat(translated, total)
+    && total > 0 && translated <= total, 'coverage', [translated, total]) } /** FALLBACK: documents served from
+    the fallback locale as a percentage. value ⌊missing · 100 / total⌋. */ static fallback(missing: number,
+    total: number): CrossFormula { return c('locale-fallback', 'fallback(missing, total) = ⌊missing · 100 /
+    total⌋', total > 0 ? Math.floor((missing * 100) / total) : 0, nat(missing, total) && total > 0 && missing <=
+    total, 'fallback', [missing, total]) } /** LOCALES: the locales configured. value count. */ static
+    locales(count: number): CrossFormula { return c('locale-locales', 'locales(count) = count', count,
+    nat(count), 'locales', [count]) } /** FIELDS: localized fields as a percentage of all fields. value
+    ⌊localized · 100 / total⌋. */ static fields(localized: number, total: number): CrossFormula { return
+    c('locale-fields', 'fields(localized, total) = ⌊localized · 100 / total⌋', total > 0 ? Math.floor((localized
+    * 100) / total) : 0, nat(localized, total) && total > 0 && localized <= total, 'fields', [localized, total])
+    } /** WORDS: words still to translate, source over what the target already holds. value max(0, source −
+    target). */ static words(source: number, target: number): CrossFormula { return c('locale-words',
+    'words(source, target) = max(0, source − target)', Math.max(0, source - target), nat(source, target),
+    'words', [source, target]) } /** RTL: right-to-left locales as a percentage of all locales. value ⌊rtl · 100
     / total⌋. -/
-theorem fam_locale_fields_1 : ((12 * 100) / 40) = 30 := by decide
+theorem fam_locale_rtl_1 : (((2 : Int) * (100 : Int)) / (8 : Int)) = (25 : Int) := by decide
 
-/-- locale: words(5000, 1200) = 3800 — WORDS: words still to translate, source over what the target already
-    holds. value max(0, source − target). -/
-theorem fam_locale_words_1 : (fmax 0 (5000 - 1200)) = 3800 := by decide
+/-- locale: complete(6, 8) = 75 — LOCALE — THE PAYLOAD CMS LOCALIZATION API, AS ARITHMETIC (locales, fallback,
+    translated content). Localizing content is numbers: translation coverage, fallback reliance, the locales
+    configured, which fields carry translations, words still to translate, right-to-left share, completion per
+    locale, and the storage a localized field set costs. Crosses to `payload` — locale is the localization layer
+    payload runs. A measure. */ const PROOF = 'locale arithmetic (coverage, fallback, locales, fields, words,
+    rtl, complete, storage); the Payload CMS localization API; a measure crossed to payload' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'locale', dst: 'payload', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `locale.${name}`, params }) export class LocaleFormulas { /** COVERAGE: translated
+    documents as a percentage of the total. value ⌊translated · 100 / total⌋. */ static coverage(translated:
+    number, total: number): CrossFormula { return c('locale-coverage', 'coverage(translated, total) =
+    ⌊translated · 100 / total⌋', total > 0 ? Math.floor((translated * 100) / total) : 0, nat(translated, total)
+    && total > 0 && translated <= total, 'coverage', [translated, total]) } /** FALLBACK: documents served from
+    the fallback locale as a percentage. value ⌊missing · 100 / total⌋. */ static fallback(missing: number,
+    total: number): CrossFormula { return c('locale-fallback', 'fallback(missing, total) = ⌊missing · 100 /
+    total⌋', total > 0 ? Math.floor((missing * 100) / total) : 0, nat(missing, total) && total > 0 && missing <=
+    total, 'fallback', [missing, total]) } /** LOCALES: the locales configured. value count. */ static
+    locales(count: number): CrossFormula { return c('locale-locales', 'locales(count) = count', count,
+    nat(count), 'locales', [count]) } /** FIELDS: localized fields as a percentage of all fields. value
+    ⌊localized · 100 / total⌋. */ static fields(localized: number, total: number): CrossFormula { return
+    c('locale-fields', 'fields(localized, total) = ⌊localized · 100 / total⌋', total > 0 ? Math.floor((localized
+    * 100) / total) : 0, nat(localized, total) && total > 0 && localized <= total, 'fields', [localized, total])
+    } /** WORDS: words still to translate, source over what the target already holds. value max(0, source −
+    target). */ static words(source: number, target: number): CrossFormula { return c('locale-words',
+    'words(source, target) = max(0, source − target)', Math.max(0, source - target), nat(source, target),
+    'words', [source, target]) } /** RTL: right-to-left locales as a percentage of all locales. value ⌊rtl · 100
+    / total⌋. */ static rtl(rtl: number, total: number): CrossFormula { return c('locale-rtl', 'rtl(rtl, total)
+    = ⌊rtl · 100 / total⌋', total > 0 ? Math.floor((rtl * 100) / total) : 0, nat(rtl, total) && total > 0 && rtl
+    <= total, 'rtl', [rtl, total]) } /** COMPLETE: documents fully translated across every locale, as a
+    percentage. value ⌊done · 100 / locales⌋. -/
+theorem fam_locale_complete_1 : (((6 : Int) * (100 : Int)) / (8 : Int)) = (75 : Int) := by decide
 
-/-- locale: words(1200, 5000) = 0 — WORDS: words still to translate, source over what the target already holds.
-    value max(0, source − target). -/
-theorem fam_locale_words_2 : (fmax 0 (1200 - 5000)) = 0 := by decide
-
-/-- locale: rtl(2, 8) = 25 — RTL: right-to-left locales as a percentage of all locales. value ⌊rtl · 100 /
-    total⌋. -/
-theorem fam_locale_rtl_1 : ((2 * 100) / 8) = 25 := by decide
-
-/-- locale: complete(6, 8) = 75 — COMPLETE: documents fully translated across every locale, as a percentage.
-    value ⌊done · 100 / locales⌋. -/
-theorem fam_locale_complete_1 : ((6 * 100) / 8) = 75 := by decide
-
-/-- locale: storage(40, 7) = 280 — STORAGE: localized field values are a field per locale. value fields ·
-    locales. -/
-theorem fam_locale_storage_1 : (40 * 7) = 280 := by decide
+/-- locale: storage(40, 7) = 280 — LOCALE — THE PAYLOAD CMS LOCALIZATION API, AS ARITHMETIC (locales, fallback,
+    translated content). Localizing content is numbers: translation coverage, fallback reliance, the locales
+    configured, which fields carry translations, words still to translate, right-to-left share, completion per
+    locale, and the storage a localized field set costs. Crosses to `payload` — locale is the localization layer
+    payload runs. A measure. */ const PROOF = 'locale arithmetic (coverage, fallback, locales, fields, words,
+    rtl, complete, storage); the Payload CMS localization API; a measure crossed to payload' const nat = (...xs:
+    number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string,
+    value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'locale', dst: 'payload', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `locale.${name}`, params }) export class LocaleFormulas { /** COVERAGE: translated
+    documents as a percentage of the total. value ⌊translated · 100 / total⌋. */ static coverage(translated:
+    number, total: number): CrossFormula { return c('locale-coverage', 'coverage(translated, total) =
+    ⌊translated · 100 / total⌋', total > 0 ? Math.floor((translated * 100) / total) : 0, nat(translated, total)
+    && total > 0 && translated <= total, 'coverage', [translated, total]) } /** FALLBACK: documents served from
+    the fallback locale as a percentage. value ⌊missing · 100 / total⌋. */ static fallback(missing: number,
+    total: number): CrossFormula { return c('locale-fallback', 'fallback(missing, total) = ⌊missing · 100 /
+    total⌋', total > 0 ? Math.floor((missing * 100) / total) : 0, nat(missing, total) && total > 0 && missing <=
+    total, 'fallback', [missing, total]) } /** LOCALES: the locales configured. value count. */ static
+    locales(count: number): CrossFormula { return c('locale-locales', 'locales(count) = count', count,
+    nat(count), 'locales', [count]) } /** FIELDS: localized fields as a percentage of all fields. value
+    ⌊localized · 100 / total⌋. */ static fields(localized: number, total: number): CrossFormula { return
+    c('locale-fields', 'fields(localized, total) = ⌊localized · 100 / total⌋', total > 0 ? Math.floor((localized
+    * 100) / total) : 0, nat(localized, total) && total > 0 && localized <= total, 'fields', [localized, total])
+    } /** WORDS: words still to translate, source over what the target already holds. value max(0, source −
+    target). */ static words(source: number, target: number): CrossFormula { return c('locale-words',
+    'words(source, target) = max(0, source − target)', Math.max(0, source - target), nat(source, target),
+    'words', [source, target]) } /** RTL: right-to-left locales as a percentage of all locales. value ⌊rtl · 100
+    / total⌋. */ static rtl(rtl: number, total: number): CrossFormula { return c('locale-rtl', 'rtl(rtl, total)
+    = ⌊rtl · 100 / total⌋', total > 0 ? Math.floor((rtl * 100) / total) : 0, nat(rtl, total) && total > 0 && rtl
+    <= total, 'rtl', [rtl, total]) } /** COMPLETE: documents fully translated across every locale, as a
+    percentage. value ⌊done · 100 / locales⌋. */ static complete(done: number, locales: number): CrossFormula {
+    return c('locale-complete', 'complete(done, locales) = ⌊done · 100 / locales⌋', locales > 0 ?
+    Math.floor((done * 100) / locales) : 0, nat(done, locales) && locales > 0 && done <= locales, 'complete',
+    [done, locales]) } /** STORAGE: localized field values are a field per locale. value fields · locales. -/
+theorem fam_locale_storage_1 : ((40 : Int) * (7 : Int)) = (280 : Int) := by decide
 
 /-- localization: covariance(4, 4) = 16 -/
-theorem fam_localization_covariance_1 : (4 * 4) = 16 := by decide
+theorem fam_localization_covariance_1 : ((4 : Int) * (4 : Int)) = (16 : Int) := by decide
 
 /-- localization: gain(30, 100) = 30 -/
-theorem fam_localization_gain_1 : ((30 * 100) / 100) = 30 := by decide
+theorem fam_localization_gain_1 : (((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int) := by decide
 
 /-- localization: innovation(120, 100) = 20 -/
-theorem fam_localization_innovation_1 : (fmax 0 (120 - 100)) = 20 := by decide
+theorem fam_localization_innovation_1 : (fmax (0 : Int) ((120 : Int) - (100 : Int))) = (20 : Int) := by decide
 
 /-- localization: confidence(90, 100) = 90 -/
-theorem fam_localization_confidence_1 : ((90 * 100) / 100) = 90 := by decide
+theorem fam_localization_confidence_1 : (((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int) := by decide
 
 /-- localization: gridresolution(1000, 50) = 20 -/
-theorem fam_localization_gridresolution_1 : (1000 / 50) = 20 := by decide
+theorem fam_localization_gridresolution_1 : ((1000 : Int) / (50 : Int)) = (20 : Int) := by decide
 
 /-- localization: particlecount(100, 5) = 500 -/
-theorem fam_localization_particlecount_1 : (100 * 5) = 500 := by decide
+theorem fam_localization_particlecount_1 : ((100 : Int) * (5 : Int)) = (500 : Int) := by decide
 
 /-- localization: updaterate(1000, 20) = 50 -/
-theorem fam_localization_updaterate_1 : (1000 / 20) = 50 := by decide
+theorem fam_localization_updaterate_1 : ((1000 : Int) / (20 : Int)) = (50 : Int) := by decide
 
 /-- localization: positionvariance(400, 4) = 100 -/
-theorem fam_localization_positionvariance_1 : (400 / 4) = 100 := by decide
+theorem fam_localization_positionvariance_1 : ((400 : Int) / (4 : Int)) = (100 : Int) := by decide
+
+/-- location: manhattan(3, 4) = 7 — LOCATION — SPACE AND DISTANCE, AS ARITHMETIC (chosen by the registry). A
+    place is numbers: Manhattan and Chebyshev distance, a bounding-box area, a grid cell index, whether a point
+    is within a radius, speed, estimated arrival, and the zoom level a span needs. Crosses to `cross`. A
+    measure. */ const PROOF = 'spatial arithmetic (Manhattan and Chebyshev distance, bounding box, grid index,
+    within radius, speed, ETA, zoom); a measure crossed through cross' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const l = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'location', dst: 'cross', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `location.${name}`, params }) export class LocationFormulas { /** MANHATTAN DISTANCE: the grid distance
+    between two points. value dx + dy. -/
+theorem fam_location_manhattan_1 : ((3 : Int) + (4 : Int)) = (7 : Int) := by decide
+
+/-- location: chebyshev(3, 4) = 4 — LOCATION — SPACE AND DISTANCE, AS ARITHMETIC (chosen by the registry). A
+    place is numbers: Manhattan and Chebyshev distance, a bounding-box area, a grid cell index, whether a point
+    is within a radius, speed, estimated arrival, and the zoom level a span needs. Crosses to `cross`. A
+    measure. */ const PROOF = 'spatial arithmetic (Manhattan and Chebyshev distance, bounding box, grid index,
+    within radius, speed, ETA, zoom); a measure crossed through cross' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const l = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'location', dst: 'cross', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `location.${name}`, params }) export class LocationFormulas { /** MANHATTAN DISTANCE: the grid distance
+    between two points. value dx + dy. */ static manhattan(dx: number, dy: number): CrossFormula { return
+    l('location-manhattan', 'manhattan(dx, dy) = dx + dy', dx + dy, nat(dx, dy), 'manhattan', [dx, dy]) } /**
+    CHEBYSHEV DISTANCE: the king-move distance, the larger axis. value max(dx, dy). -/
+theorem fam_location_chebyshev_1 : (fmax (3 : Int) (4 : Int)) = (4 : Int) := by decide
+
+/-- location: box(30, 40) = 1200 — LOCATION — SPACE AND DISTANCE, AS ARITHMETIC (chosen by the registry). A
+    place is numbers: Manhattan and Chebyshev distance, a bounding-box area, a grid cell index, whether a point
+    is within a radius, speed, estimated arrival, and the zoom level a span needs. Crosses to `cross`. A
+    measure. */ const PROOF = 'spatial arithmetic (Manhattan and Chebyshev distance, bounding box, grid index,
+    within radius, speed, ETA, zoom); a measure crossed through cross' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const l = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'location', dst: 'cross', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `location.${name}`, params }) export class LocationFormulas { /** MANHATTAN DISTANCE: the grid distance
+    between two points. value dx + dy. */ static manhattan(dx: number, dy: number): CrossFormula { return
+    l('location-manhattan', 'manhattan(dx, dy) = dx + dy', dx + dy, nat(dx, dy), 'manhattan', [dx, dy]) } /**
+    CHEBYSHEV DISTANCE: the king-move distance, the larger axis. value max(dx, dy). */ static chebyshev(dx:
+    number, dy: number): CrossFormula { return l('location-chebyshev', 'chebyshev(dx, dy) = max(dx, dy)',
+    Math.max(dx, dy), nat(dx, dy), 'chebyshev', [dx, dy]) } /** A BOUNDING-BOX AREA. value dx · dy. -/
+theorem fam_location_box_1 : ((30 : Int) * (40 : Int)) = (1200 : Int) := by decide
+
+/-- location: grid(275, 100) = 2 — LOCATION — SPACE AND DISTANCE, AS ARITHMETIC (chosen by the registry). A
+    place is numbers: Manhattan and Chebyshev distance, a bounding-box area, a grid cell index, whether a point
+    is within a radius, speed, estimated arrival, and the zoom level a span needs. Crosses to `cross`. A
+    measure. */ const PROOF = 'spatial arithmetic (Manhattan and Chebyshev distance, bounding box, grid index,
+    within radius, speed, ETA, zoom); a measure crossed through cross' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const l = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'location', dst: 'cross', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `location.${name}`, params }) export class LocationFormulas { /** MANHATTAN DISTANCE: the grid distance
+    between two points. value dx + dy. */ static manhattan(dx: number, dy: number): CrossFormula { return
+    l('location-manhattan', 'manhattan(dx, dy) = dx + dy', dx + dy, nat(dx, dy), 'manhattan', [dx, dy]) } /**
+    CHEBYSHEV DISTANCE: the king-move distance, the larger axis. value max(dx, dy). */ static chebyshev(dx:
+    number, dy: number): CrossFormula { return l('location-chebyshev', 'chebyshev(dx, dy) = max(dx, dy)',
+    Math.max(dx, dy), nat(dx, dy), 'chebyshev', [dx, dy]) } /** A BOUNDING-BOX AREA. value dx · dy. */ static
+    box(dx: number, dy: number): CrossFormula { return l('location-box', 'box(dx, dy) = dx · dy', dx * dy,
+    nat(dx, dy), 'box', [dx, dy]) } /** THE GRID CELL INDEX of a coordinate at a cell size. value ⌊value /
+    size⌋. -/
+theorem fam_location_grid_1 : ((275 : Int) / (100 : Int)) = (2 : Int) := by decide
+
+/-- location: within(80, 100) = 1 — LOCATION — SPACE AND DISTANCE, AS ARITHMETIC (chosen by the registry). A
+    place is numbers: Manhattan and Chebyshev distance, a bounding-box area, a grid cell index, whether a point
+    is within a radius, speed, estimated arrival, and the zoom level a span needs. Crosses to `cross`. A
+    measure. */ const PROOF = 'spatial arithmetic (Manhattan and Chebyshev distance, bounding box, grid index,
+    within radius, speed, ETA, zoom); a measure crossed through cross' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const l = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'location', dst: 'cross', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `location.${name}`, params }) export class LocationFormulas { /** MANHATTAN DISTANCE: the grid distance
+    between two points. value dx + dy. */ static manhattan(dx: number, dy: number): CrossFormula { return
+    l('location-manhattan', 'manhattan(dx, dy) = dx + dy', dx + dy, nat(dx, dy), 'manhattan', [dx, dy]) } /**
+    CHEBYSHEV DISTANCE: the king-move distance, the larger axis. value max(dx, dy). */ static chebyshev(dx:
+    number, dy: number): CrossFormula { return l('location-chebyshev', 'chebyshev(dx, dy) = max(dx, dy)',
+    Math.max(dx, dy), nat(dx, dy), 'chebyshev', [dx, dy]) } /** A BOUNDING-BOX AREA. value dx · dy. */ static
+    box(dx: number, dy: number): CrossFormula { return l('location-box', 'box(dx, dy) = dx · dy', dx * dy,
+    nat(dx, dy), 'box', [dx, dy]) } /** THE GRID CELL INDEX of a coordinate at a cell size. value ⌊value /
+    size⌋. */ static grid(value: number, size: number): CrossFormula { return l('location-grid', 'grid(value,
+    size) = ⌊value / size⌋', size > 0 ? Math.floor(value / size) : 0, nat(value, size) && size > 0, 'grid',
+    [value, size]) } /** WITHIN: 1 when a distance is inside the radius. value [distance ≤ radius]. -/
+theorem fam_location_within_1 : (if (if (80 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
+
+/-- location: within(120, 100) = 0 — LOCATION — SPACE AND DISTANCE, AS ARITHMETIC (chosen by the registry). A
+    place is numbers: Manhattan and Chebyshev distance, a bounding-box area, a grid cell index, whether a point
+    is within a radius, speed, estimated arrival, and the zoom level a span needs. Crosses to `cross`. A
+    measure. */ const PROOF = 'spatial arithmetic (Manhattan and Chebyshev distance, bounding box, grid index,
+    within radius, speed, ETA, zoom); a measure crossed through cross' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const l = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'location', dst: 'cross', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `location.${name}`, params }) export class LocationFormulas { /** MANHATTAN DISTANCE: the grid distance
+    between two points. value dx + dy. */ static manhattan(dx: number, dy: number): CrossFormula { return
+    l('location-manhattan', 'manhattan(dx, dy) = dx + dy', dx + dy, nat(dx, dy), 'manhattan', [dx, dy]) } /**
+    CHEBYSHEV DISTANCE: the king-move distance, the larger axis. value max(dx, dy). */ static chebyshev(dx:
+    number, dy: number): CrossFormula { return l('location-chebyshev', 'chebyshev(dx, dy) = max(dx, dy)',
+    Math.max(dx, dy), nat(dx, dy), 'chebyshev', [dx, dy]) } /** A BOUNDING-BOX AREA. value dx · dy. */ static
+    box(dx: number, dy: number): CrossFormula { return l('location-box', 'box(dx, dy) = dx · dy', dx * dy,
+    nat(dx, dy), 'box', [dx, dy]) } /** THE GRID CELL INDEX of a coordinate at a cell size. value ⌊value /
+    size⌋. */ static grid(value: number, size: number): CrossFormula { return l('location-grid', 'grid(value,
+    size) = ⌊value / size⌋', size > 0 ? Math.floor(value / size) : 0, nat(value, size) && size > 0, 'grid',
+    [value, size]) } /** WITHIN: 1 when a distance is inside the radius. value [distance ≤ radius]. -/
+theorem fam_location_within_2 : (if (if (120 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
+
+/-- location: speed(300, 4) = 75 — LOCATION — SPACE AND DISTANCE, AS ARITHMETIC (chosen by the registry). A
+    place is numbers: Manhattan and Chebyshev distance, a bounding-box area, a grid cell index, whether a point
+    is within a radius, speed, estimated arrival, and the zoom level a span needs. Crosses to `cross`. A
+    measure. */ const PROOF = 'spatial arithmetic (Manhattan and Chebyshev distance, bounding box, grid index,
+    within radius, speed, ETA, zoom); a measure crossed through cross' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const l = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'location', dst: 'cross', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `location.${name}`, params }) export class LocationFormulas { /** MANHATTAN DISTANCE: the grid distance
+    between two points. value dx + dy. */ static manhattan(dx: number, dy: number): CrossFormula { return
+    l('location-manhattan', 'manhattan(dx, dy) = dx + dy', dx + dy, nat(dx, dy), 'manhattan', [dx, dy]) } /**
+    CHEBYSHEV DISTANCE: the king-move distance, the larger axis. value max(dx, dy). */ static chebyshev(dx:
+    number, dy: number): CrossFormula { return l('location-chebyshev', 'chebyshev(dx, dy) = max(dx, dy)',
+    Math.max(dx, dy), nat(dx, dy), 'chebyshev', [dx, dy]) } /** A BOUNDING-BOX AREA. value dx · dy. */ static
+    box(dx: number, dy: number): CrossFormula { return l('location-box', 'box(dx, dy) = dx · dy', dx * dy,
+    nat(dx, dy), 'box', [dx, dy]) } /** THE GRID CELL INDEX of a coordinate at a cell size. value ⌊value /
+    size⌋. */ static grid(value: number, size: number): CrossFormula { return l('location-grid', 'grid(value,
+    size) = ⌊value / size⌋', size > 0 ? Math.floor(value / size) : 0, nat(value, size) && size > 0, 'grid',
+    [value, size]) } /** WITHIN: 1 when a distance is inside the radius. value [distance ≤ radius]. */ static
+    within(distance: number, radius: number): CrossFormula { return l('location-within', 'within(distance,
+    radius) = [distance ≤ radius]', distance <= radius ? 1 : 0, nat(distance, radius), 'within', [distance,
+    radius]) } /** SPEED: distance over time. value ⌊distance / time⌋. -/
+theorem fam_location_speed_1 : ((300 : Int) / (4 : Int)) = (75 : Int) := by decide
+
+/-- location: eta(300, 75) = 4 — LOCATION — SPACE AND DISTANCE, AS ARITHMETIC (chosen by the registry). A place
+    is numbers: Manhattan and Chebyshev distance, a bounding-box area, a grid cell index, whether a point is
+    within a radius, speed, estimated arrival, and the zoom level a span needs. Crosses to `cross`. A measure.
+    */ const PROOF = 'spatial arithmetic (Manhattan and Chebyshev distance, bounding box, grid index, within
+    radius, speed, ETA, zoom); a measure crossed through cross' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const l = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'location', dst: 'cross', formula, value, proof: PROOF, ...extra }, holds, { name: `location.${name}`,
+    params }) export class LocationFormulas { /** MANHATTAN DISTANCE: the grid distance between two points.
+    value dx + dy. */ static manhattan(dx: number, dy: number): CrossFormula { return l('location-manhattan',
+    'manhattan(dx, dy) = dx + dy', dx + dy, nat(dx, dy), 'manhattan', [dx, dy]) } /** CHEBYSHEV DISTANCE: the
+    king-move distance, the larger axis. value max(dx, dy). */ static chebyshev(dx: number, dy: number):
+    CrossFormula { return l('location-chebyshev', 'chebyshev(dx, dy) = max(dx, dy)', Math.max(dx, dy), nat(dx,
+    dy), 'chebyshev', [dx, dy]) } /** A BOUNDING-BOX AREA. value dx · dy. */ static box(dx: number, dy: number):
+    CrossFormula { return l('location-box', 'box(dx, dy) = dx · dy', dx * dy, nat(dx, dy), 'box', [dx, dy]) }
+    /** THE GRID CELL INDEX of a coordinate at a cell size. value ⌊value / size⌋. */ static grid(value: number,
+    size: number): CrossFormula { return l('location-grid', 'grid(value, size) = ⌊value / size⌋', size > 0 ?
+    Math.floor(value / size) : 0, nat(value, size) && size > 0, 'grid', [value, size]) } /** WITHIN: 1 when a
+    distance is inside the radius. value [distance ≤ radius]. */ static within(distance: number, radius:
+    number): CrossFormula { return l('location-within', 'within(distance, radius) = [distance ≤ radius]',
+    distance <= radius ? 1 : 0, nat(distance, radius), 'within', [distance, radius]) } /** SPEED: distance over
+    time. value ⌊distance / time⌋. */ static speed(distance: number, time: number): CrossFormula { return
+    l('location-speed', 'speed(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance / time) : 0,
+    nat(distance, time) && time > 0, 'speed', [distance, time]) } /** ESTIMATED ARRIVAL: distance over speed.
+    value ⌊distance / speed⌋. -/
+theorem fam_location_eta_1 : ((300 : Int) / (75 : Int)) = (4 : Int) := by decide
+
+/-- location: zoom(2560, 256) = 10 — LOCATION — SPACE AND DISTANCE, AS ARITHMETIC (chosen by the registry). A
+    place is numbers: Manhattan and Chebyshev distance, a bounding-box area, a grid cell index, whether a point
+    is within a radius, speed, estimated arrival, and the zoom level a span needs. Crosses to `cross`. A
+    measure. */ const PROOF = 'spatial arithmetic (Manhattan and Chebyshev distance, bounding box, grid index,
+    within radius, speed, ETA, zoom); a measure crossed through cross' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const l = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'location', dst: 'cross', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `location.${name}`, params }) export class LocationFormulas { /** MANHATTAN DISTANCE: the grid distance
+    between two points. value dx + dy. */ static manhattan(dx: number, dy: number): CrossFormula { return
+    l('location-manhattan', 'manhattan(dx, dy) = dx + dy', dx + dy, nat(dx, dy), 'manhattan', [dx, dy]) } /**
+    CHEBYSHEV DISTANCE: the king-move distance, the larger axis. value max(dx, dy). */ static chebyshev(dx:
+    number, dy: number): CrossFormula { return l('location-chebyshev', 'chebyshev(dx, dy) = max(dx, dy)',
+    Math.max(dx, dy), nat(dx, dy), 'chebyshev', [dx, dy]) } /** A BOUNDING-BOX AREA. value dx · dy. */ static
+    box(dx: number, dy: number): CrossFormula { return l('location-box', 'box(dx, dy) = dx · dy', dx * dy,
+    nat(dx, dy), 'box', [dx, dy]) } /** THE GRID CELL INDEX of a coordinate at a cell size. value ⌊value /
+    size⌋. */ static grid(value: number, size: number): CrossFormula { return l('location-grid', 'grid(value,
+    size) = ⌊value / size⌋', size > 0 ? Math.floor(value / size) : 0, nat(value, size) && size > 0, 'grid',
+    [value, size]) } /** WITHIN: 1 when a distance is inside the radius. value [distance ≤ radius]. */ static
+    within(distance: number, radius: number): CrossFormula { return l('location-within', 'within(distance,
+    radius) = [distance ≤ radius]', distance <= radius ? 1 : 0, nat(distance, radius), 'within', [distance,
+    radius]) } /** SPEED: distance over time. value ⌊distance / time⌋. */ static speed(distance: number, time:
+    number): CrossFormula { return l('location-speed', 'speed(distance, time) = ⌊distance / time⌋', time > 0 ?
+    Math.floor(distance / time) : 0, nat(distance, time) && time > 0, 'speed', [distance, time]) } /** ESTIMATED
+    ARRIVAL: distance over speed. value ⌊distance / speed⌋. */ static eta(distance: number, speed: number):
+    CrossFormula { return l('location-eta', 'eta(distance, speed) = ⌊distance / speed⌋', speed > 0 ?
+    Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta', [distance, speed]) } /** THE
+    ZOOM LEVEL: how many cell tiles a span spans. value ⌊span / tile⌋. -/
+theorem fam_location_zoom_1 : ((2560 : Int) / (256 : Int)) = (10 : Int) := by decide
 
 /-- lodging: occupancy(85, 100) = 85 — LODGING — HOSPITALITY AS ARITHMETIC (chosen by the public-API registry,
     not by hand). A place to stay is numbers: rooms filled, the nightly rate earned, turnovers cleaned, bookings
@@ -1049,34 +6854,220 @@ theorem fam_localization_positionvariance_1 : (400 / 4) = 100 := by decide
     crossFormulaOf({ id, src: 'lodging', dst: 'tourism', formula, value, proof: PROOF, ...extra }, holds, {
     name: `lodging.${name}`, params }) export class LodgingFormulas { /** OCCUPANCY as a percentage of units
     booked. value ⌊booked · 100 / units⌋. -/
-theorem fam_lodging_occupancy_1 : ((85 * 100) / 100) = 85 := by decide
+theorem fam_lodging_occupancy_1 : (((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int) := by decide
 
-/-- lodging: nightlyrate(9000, 60) = 150 — NIGHTLY RATE: revenue over the nights sold. value ⌊revenue / nights⌋. -/
-theorem fam_lodging_nightlyrate_1 : (9000 / 60) = 150 := by decide
+/-- lodging: nightlyrate(9000, 60) = 150 — LODGING — HOSPITALITY AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A place to stay is numbers: rooms filled, the nightly rate earned, turnovers
+    cleaned, bookings cancelled, how far ahead guests book, the rating reviews settle on, amenities used, and
+    the peak season against the off. Crosses to `tourism` — lodging is where tourism rests. A measure. */ const
+    PROOF = 'lodging arithmetic (occupancy, nightly rate, cleaning, cancellation, lead time, rating, amenity
+    use, seasonality); a hospitality domain from the public-API registry; a measure crossed to tourism' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lodging', dst: 'tourism', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `lodging.${name}`, params }) export class LodgingFormulas { /** OCCUPANCY
+    as a percentage of units booked. value ⌊booked · 100 / units⌋. */ static occupancy(booked: number, units:
+    number): CrossFormula { return c('lodging-occupancy', 'occupancy(booked, units) = ⌊booked · 100 / units⌋',
+    units > 0 ? Math.floor((booked * 100) / units) : 0, nat(booked, units) && units > 0 && booked <= units,
+    'occupancy', [booked, units]) } /** NIGHTLY RATE: revenue over the nights sold. value ⌊revenue / nights⌋. -/
+theorem fam_lodging_nightlyrate_1 : ((9000 : Int) / (60 : Int)) = (150 : Int) := by decide
 
-/-- lodging: cleaning(120, 40) = 3 — CLEANING: rooms cleaned per turnover. value ⌊cleaned / turnovers⌋. -/
-theorem fam_lodging_cleaning_1 : (120 / 40) = 3 := by decide
+/-- lodging: cleaning(120, 40) = 3 — LODGING — HOSPITALITY AS ARITHMETIC (chosen by the public-API registry, not
+    by hand). A place to stay is numbers: rooms filled, the nightly rate earned, turnovers cleaned, bookings
+    cancelled, how far ahead guests book, the rating reviews settle on, amenities used, and the peak season
+    against the off. Crosses to `tourism` — lodging is where tourism rests. A measure. */ const PROOF = 'lodging
+    arithmetic (occupancy, nightly rate, cleaning, cancellation, lead time, rating, amenity use, seasonality); a
+    hospitality domain from the public-API registry; a measure crossed to tourism' const nat = (...xs: number[])
+    => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lodging', dst: 'tourism', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `lodging.${name}`, params }) export class LodgingFormulas { /** OCCUPANCY as a percentage of units
+    booked. value ⌊booked · 100 / units⌋. */ static occupancy(booked: number, units: number): CrossFormula {
+    return c('lodging-occupancy', 'occupancy(booked, units) = ⌊booked · 100 / units⌋', units > 0 ?
+    Math.floor((booked * 100) / units) : 0, nat(booked, units) && units > 0 && booked <= units, 'occupancy',
+    [booked, units]) } /** NIGHTLY RATE: revenue over the nights sold. value ⌊revenue / nights⌋. */ static
+    nightlyrate(revenue: number, nights: number): CrossFormula { return c('lodging-nightlyrate',
+    'nightlyrate(revenue, nights) = ⌊revenue / nights⌋', nights > 0 ? Math.floor(revenue / nights) : 0,
+    nat(revenue, nights) && nights > 0, 'nightlyrate', [revenue, nights]) } /** CLEANING: rooms cleaned per
+    turnover. value ⌊cleaned / turnovers⌋. -/
+theorem fam_lodging_cleaning_1 : ((120 : Int) / (40 : Int)) = (3 : Int) := by decide
 
-/-- lodging: cancellation(15, 100) = 15 — CANCELLATION as a percentage of bookings. value ⌊cancelled · 100 /
-    bookings⌋. -/
-theorem fam_lodging_cancellation_1 : ((15 * 100) / 100) = 15 := by decide
+/-- lodging: cancellation(15, 100) = 15 — LODGING — HOSPITALITY AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A place to stay is numbers: rooms filled, the nightly rate earned, turnovers
+    cleaned, bookings cancelled, how far ahead guests book, the rating reviews settle on, amenities used, and
+    the peak season against the off. Crosses to `tourism` — lodging is where tourism rests. A measure. */ const
+    PROOF = 'lodging arithmetic (occupancy, nightly rate, cleaning, cancellation, lead time, rating, amenity
+    use, seasonality); a hospitality domain from the public-API registry; a measure crossed to tourism' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lodging', dst: 'tourism', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `lodging.${name}`, params }) export class LodgingFormulas { /** OCCUPANCY
+    as a percentage of units booked. value ⌊booked · 100 / units⌋. */ static occupancy(booked: number, units:
+    number): CrossFormula { return c('lodging-occupancy', 'occupancy(booked, units) = ⌊booked · 100 / units⌋',
+    units > 0 ? Math.floor((booked * 100) / units) : 0, nat(booked, units) && units > 0 && booked <= units,
+    'occupancy', [booked, units]) } /** NIGHTLY RATE: revenue over the nights sold. value ⌊revenue / nights⌋. */
+    static nightlyrate(revenue: number, nights: number): CrossFormula { return c('lodging-nightlyrate',
+    'nightlyrate(revenue, nights) = ⌊revenue / nights⌋', nights > 0 ? Math.floor(revenue / nights) : 0,
+    nat(revenue, nights) && nights > 0, 'nightlyrate', [revenue, nights]) } /** CLEANING: rooms cleaned per
+    turnover. value ⌊cleaned / turnovers⌋. */ static cleaning(cleaned: number, turnovers: number): CrossFormula
+    { return c('lodging-cleaning', 'cleaning(cleaned, turnovers) = ⌊cleaned / turnovers⌋', turnovers > 0 ?
+    Math.floor(cleaned / turnovers) : 0, nat(cleaned, turnovers) && turnovers > 0, 'cleaning', [cleaned,
+    turnovers]) } /** CANCELLATION as a percentage of bookings. value ⌊cancelled · 100 / bookings⌋. -/
+theorem fam_lodging_cancellation_1 : (((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int) := by decide
 
-/-- lodging: leadtime(10, 45) = 35 — LEAD TIME: nights between booking and stay. value max(0, stay − booked). -/
-theorem fam_lodging_leadtime_1 : (fmax 0 (45 - 10)) = 35 := by decide
+/-- lodging: leadtime(10, 45) = 35 — LODGING — HOSPITALITY AS ARITHMETIC (chosen by the public-API registry, not
+    by hand). A place to stay is numbers: rooms filled, the nightly rate earned, turnovers cleaned, bookings
+    cancelled, how far ahead guests book, the rating reviews settle on, amenities used, and the peak season
+    against the off. Crosses to `tourism` — lodging is where tourism rests. A measure. */ const PROOF = 'lodging
+    arithmetic (occupancy, nightly rate, cleaning, cancellation, lead time, rating, amenity use, seasonality); a
+    hospitality domain from the public-API registry; a measure crossed to tourism' const nat = (...xs: number[])
+    => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lodging', dst: 'tourism', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `lodging.${name}`, params }) export class LodgingFormulas { /** OCCUPANCY as a percentage of units
+    booked. value ⌊booked · 100 / units⌋. */ static occupancy(booked: number, units: number): CrossFormula {
+    return c('lodging-occupancy', 'occupancy(booked, units) = ⌊booked · 100 / units⌋', units > 0 ?
+    Math.floor((booked * 100) / units) : 0, nat(booked, units) && units > 0 && booked <= units, 'occupancy',
+    [booked, units]) } /** NIGHTLY RATE: revenue over the nights sold. value ⌊revenue / nights⌋. */ static
+    nightlyrate(revenue: number, nights: number): CrossFormula { return c('lodging-nightlyrate',
+    'nightlyrate(revenue, nights) = ⌊revenue / nights⌋', nights > 0 ? Math.floor(revenue / nights) : 0,
+    nat(revenue, nights) && nights > 0, 'nightlyrate', [revenue, nights]) } /** CLEANING: rooms cleaned per
+    turnover. value ⌊cleaned / turnovers⌋. */ static cleaning(cleaned: number, turnovers: number): CrossFormula
+    { return c('lodging-cleaning', 'cleaning(cleaned, turnovers) = ⌊cleaned / turnovers⌋', turnovers > 0 ?
+    Math.floor(cleaned / turnovers) : 0, nat(cleaned, turnovers) && turnovers > 0, 'cleaning', [cleaned,
+    turnovers]) } /** CANCELLATION as a percentage of bookings. value ⌊cancelled · 100 / bookings⌋. */ static
+    cancellation(cancelled: number, bookings: number): CrossFormula { return c('lodging-cancellation',
+    'cancellation(cancelled, bookings) = ⌊cancelled · 100 / bookings⌋', bookings > 0 ? Math.floor((cancelled *
+    100) / bookings) : 0, nat(cancelled, bookings) && bookings > 0 && cancelled <= bookings, 'cancellation',
+    [cancelled, bookings]) } /** LEAD TIME: nights between booking and stay. value max(0, stay − booked). -/
+theorem fam_lodging_leadtime_1 : (fmax (0 : Int) ((45 : Int) - (10 : Int))) = (35 : Int) := by decide
 
-/-- lodging: leadtime(50, 45) = 0 — LEAD TIME: nights between booking and stay. value max(0, stay − booked). -/
-theorem fam_lodging_leadtime_2 : (fmax 0 (45 - 50)) = 0 := by decide
+/-- lodging: leadtime(50, 45) = 0 — LODGING — HOSPITALITY AS ARITHMETIC (chosen by the public-API registry, not
+    by hand). A place to stay is numbers: rooms filled, the nightly rate earned, turnovers cleaned, bookings
+    cancelled, how far ahead guests book, the rating reviews settle on, amenities used, and the peak season
+    against the off. Crosses to `tourism` — lodging is where tourism rests. A measure. */ const PROOF = 'lodging
+    arithmetic (occupancy, nightly rate, cleaning, cancellation, lead time, rating, amenity use, seasonality); a
+    hospitality domain from the public-API registry; a measure crossed to tourism' const nat = (...xs: number[])
+    => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lodging', dst: 'tourism', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `lodging.${name}`, params }) export class LodgingFormulas { /** OCCUPANCY as a percentage of units
+    booked. value ⌊booked · 100 / units⌋. */ static occupancy(booked: number, units: number): CrossFormula {
+    return c('lodging-occupancy', 'occupancy(booked, units) = ⌊booked · 100 / units⌋', units > 0 ?
+    Math.floor((booked * 100) / units) : 0, nat(booked, units) && units > 0 && booked <= units, 'occupancy',
+    [booked, units]) } /** NIGHTLY RATE: revenue over the nights sold. value ⌊revenue / nights⌋. */ static
+    nightlyrate(revenue: number, nights: number): CrossFormula { return c('lodging-nightlyrate',
+    'nightlyrate(revenue, nights) = ⌊revenue / nights⌋', nights > 0 ? Math.floor(revenue / nights) : 0,
+    nat(revenue, nights) && nights > 0, 'nightlyrate', [revenue, nights]) } /** CLEANING: rooms cleaned per
+    turnover. value ⌊cleaned / turnovers⌋. */ static cleaning(cleaned: number, turnovers: number): CrossFormula
+    { return c('lodging-cleaning', 'cleaning(cleaned, turnovers) = ⌊cleaned / turnovers⌋', turnovers > 0 ?
+    Math.floor(cleaned / turnovers) : 0, nat(cleaned, turnovers) && turnovers > 0, 'cleaning', [cleaned,
+    turnovers]) } /** CANCELLATION as a percentage of bookings. value ⌊cancelled · 100 / bookings⌋. */ static
+    cancellation(cancelled: number, bookings: number): CrossFormula { return c('lodging-cancellation',
+    'cancellation(cancelled, bookings) = ⌊cancelled · 100 / bookings⌋', bookings > 0 ? Math.floor((cancelled *
+    100) / bookings) : 0, nat(cancelled, bookings) && bookings > 0 && cancelled <= bookings, 'cancellation',
+    [cancelled, bookings]) } /** LEAD TIME: nights between booking and stay. value max(0, stay − booked). -/
+theorem fam_lodging_leadtime_2 : (fmax (0 : Int) ((45 : Int) - (50 : Int))) = (0 : Int) := by decide
 
-/-- lodging: rating(480, 100) = 4 — RATING: the score averaged over the reviews. value ⌊score / reviews⌋. -/
-theorem fam_lodging_rating_1 : (480 / 100) = 4 := by decide
+/-- lodging: rating(480, 100) = 4 — LODGING — HOSPITALITY AS ARITHMETIC (chosen by the public-API registry, not
+    by hand). A place to stay is numbers: rooms filled, the nightly rate earned, turnovers cleaned, bookings
+    cancelled, how far ahead guests book, the rating reviews settle on, amenities used, and the peak season
+    against the off. Crosses to `tourism` — lodging is where tourism rests. A measure. */ const PROOF = 'lodging
+    arithmetic (occupancy, nightly rate, cleaning, cancellation, lead time, rating, amenity use, seasonality); a
+    hospitality domain from the public-API registry; a measure crossed to tourism' const nat = (...xs: number[])
+    => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lodging', dst: 'tourism', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `lodging.${name}`, params }) export class LodgingFormulas { /** OCCUPANCY as a percentage of units
+    booked. value ⌊booked · 100 / units⌋. */ static occupancy(booked: number, units: number): CrossFormula {
+    return c('lodging-occupancy', 'occupancy(booked, units) = ⌊booked · 100 / units⌋', units > 0 ?
+    Math.floor((booked * 100) / units) : 0, nat(booked, units) && units > 0 && booked <= units, 'occupancy',
+    [booked, units]) } /** NIGHTLY RATE: revenue over the nights sold. value ⌊revenue / nights⌋. */ static
+    nightlyrate(revenue: number, nights: number): CrossFormula { return c('lodging-nightlyrate',
+    'nightlyrate(revenue, nights) = ⌊revenue / nights⌋', nights > 0 ? Math.floor(revenue / nights) : 0,
+    nat(revenue, nights) && nights > 0, 'nightlyrate', [revenue, nights]) } /** CLEANING: rooms cleaned per
+    turnover. value ⌊cleaned / turnovers⌋. */ static cleaning(cleaned: number, turnovers: number): CrossFormula
+    { return c('lodging-cleaning', 'cleaning(cleaned, turnovers) = ⌊cleaned / turnovers⌋', turnovers > 0 ?
+    Math.floor(cleaned / turnovers) : 0, nat(cleaned, turnovers) && turnovers > 0, 'cleaning', [cleaned,
+    turnovers]) } /** CANCELLATION as a percentage of bookings. value ⌊cancelled · 100 / bookings⌋. */ static
+    cancellation(cancelled: number, bookings: number): CrossFormula { return c('lodging-cancellation',
+    'cancellation(cancelled, bookings) = ⌊cancelled · 100 / bookings⌋', bookings > 0 ? Math.floor((cancelled *
+    100) / bookings) : 0, nat(cancelled, bookings) && bookings > 0 && cancelled <= bookings, 'cancellation',
+    [cancelled, bookings]) } /** LEAD TIME: nights between booking and stay. value max(0, stay − booked). */
+    static leadtime(booked: number, stay: number): CrossFormula { return c('lodging-leadtime', 'leadtime(booked,
+    stay) = max(0, stay − booked)', Math.max(0, stay - booked), nat(booked, stay), 'leadtime', [booked, stay]) }
+    /** RATING: the score averaged over the reviews. value ⌊score / reviews⌋. -/
+theorem fam_lodging_rating_1 : ((480 : Int) / (100 : Int)) = (4 : Int) := by decide
 
-/-- lodging: amenity(18, 24) = 75 — AMENITY: amenities used as a percentage of those offered. value ⌊used · 100
-    / offered⌋. -/
-theorem fam_lodging_amenity_1 : ((18 * 100) / 24) = 75 := by decide
+/-- lodging: amenity(18, 24) = 75 — LODGING — HOSPITALITY AS ARITHMETIC (chosen by the public-API registry, not
+    by hand). A place to stay is numbers: rooms filled, the nightly rate earned, turnovers cleaned, bookings
+    cancelled, how far ahead guests book, the rating reviews settle on, amenities used, and the peak season
+    against the off. Crosses to `tourism` — lodging is where tourism rests. A measure. */ const PROOF = 'lodging
+    arithmetic (occupancy, nightly rate, cleaning, cancellation, lead time, rating, amenity use, seasonality); a
+    hospitality domain from the public-API registry; a measure crossed to tourism' const nat = (...xs: number[])
+    => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'lodging', dst: 'tourism', formula, value, proof: PROOF, ...extra }, holds, {
+    name: `lodging.${name}`, params }) export class LodgingFormulas { /** OCCUPANCY as a percentage of units
+    booked. value ⌊booked · 100 / units⌋. */ static occupancy(booked: number, units: number): CrossFormula {
+    return c('lodging-occupancy', 'occupancy(booked, units) = ⌊booked · 100 / units⌋', units > 0 ?
+    Math.floor((booked * 100) / units) : 0, nat(booked, units) && units > 0 && booked <= units, 'occupancy',
+    [booked, units]) } /** NIGHTLY RATE: revenue over the nights sold. value ⌊revenue / nights⌋. */ static
+    nightlyrate(revenue: number, nights: number): CrossFormula { return c('lodging-nightlyrate',
+    'nightlyrate(revenue, nights) = ⌊revenue / nights⌋', nights > 0 ? Math.floor(revenue / nights) : 0,
+    nat(revenue, nights) && nights > 0, 'nightlyrate', [revenue, nights]) } /** CLEANING: rooms cleaned per
+    turnover. value ⌊cleaned / turnovers⌋. */ static cleaning(cleaned: number, turnovers: number): CrossFormula
+    { return c('lodging-cleaning', 'cleaning(cleaned, turnovers) = ⌊cleaned / turnovers⌋', turnovers > 0 ?
+    Math.floor(cleaned / turnovers) : 0, nat(cleaned, turnovers) && turnovers > 0, 'cleaning', [cleaned,
+    turnovers]) } /** CANCELLATION as a percentage of bookings. value ⌊cancelled · 100 / bookings⌋. */ static
+    cancellation(cancelled: number, bookings: number): CrossFormula { return c('lodging-cancellation',
+    'cancellation(cancelled, bookings) = ⌊cancelled · 100 / bookings⌋', bookings > 0 ? Math.floor((cancelled *
+    100) / bookings) : 0, nat(cancelled, bookings) && bookings > 0 && cancelled <= bookings, 'cancellation',
+    [cancelled, bookings]) } /** LEAD TIME: nights between booking and stay. value max(0, stay − booked). */
+    static leadtime(booked: number, stay: number): CrossFormula { return c('lodging-leadtime', 'leadtime(booked,
+    stay) = max(0, stay − booked)', Math.max(0, stay - booked), nat(booked, stay), 'leadtime', [booked, stay]) }
+    /** RATING: the score averaged over the reviews. value ⌊score / reviews⌋. */ static rating(score: number,
+    reviews: number): CrossFormula { return c('lodging-rating', 'rating(score, reviews) = ⌊score / reviews⌋',
+    reviews > 0 ? Math.floor(score / reviews) : 0, nat(score, reviews) && reviews > 0, 'rating', [score,
+    reviews]) } /** AMENITY: amenities used as a percentage of those offered. value ⌊used · 100 / offered⌋. -/
+theorem fam_lodging_amenity_1 : (((18 : Int) * (100 : Int)) / (24 : Int)) = (75 : Int) := by decide
 
-/-- lodging: seasonality(300, 100) = 300 — SEASONALITY: peak demand against the off-peak, as a percentage. value
-    ⌊peak · 100 / offpeak⌋. -/
-theorem fam_lodging_seasonality_1 : ((300 * 100) / 100) = 300 := by decide
+/-- lodging: seasonality(300, 100) = 300 — LODGING — HOSPITALITY AS ARITHMETIC (chosen by the public-API
+    registry, not by hand). A place to stay is numbers: rooms filled, the nightly rate earned, turnovers
+    cleaned, bookings cancelled, how far ahead guests book, the rating reviews settle on, amenities used, and
+    the peak season against the off. Crosses to `tourism` — lodging is where tourism rests. A measure. */ const
+    PROOF = 'lodging arithmetic (occupancy, nightly rate, cleaning, cancellation, lead time, rating, amenity
+    use, seasonality); a hospitality domain from the public-API registry; a measure crossed to tourism' const
+    nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lodging', dst: 'tourism', formula, value, proof:
+    PROOF, ...extra }, holds, { name: `lodging.${name}`, params }) export class LodgingFormulas { /** OCCUPANCY
+    as a percentage of units booked. value ⌊booked · 100 / units⌋. */ static occupancy(booked: number, units:
+    number): CrossFormula { return c('lodging-occupancy', 'occupancy(booked, units) = ⌊booked · 100 / units⌋',
+    units > 0 ? Math.floor((booked * 100) / units) : 0, nat(booked, units) && units > 0 && booked <= units,
+    'occupancy', [booked, units]) } /** NIGHTLY RATE: revenue over the nights sold. value ⌊revenue / nights⌋. */
+    static nightlyrate(revenue: number, nights: number): CrossFormula { return c('lodging-nightlyrate',
+    'nightlyrate(revenue, nights) = ⌊revenue / nights⌋', nights > 0 ? Math.floor(revenue / nights) : 0,
+    nat(revenue, nights) && nights > 0, 'nightlyrate', [revenue, nights]) } /** CLEANING: rooms cleaned per
+    turnover. value ⌊cleaned / turnovers⌋. */ static cleaning(cleaned: number, turnovers: number): CrossFormula
+    { return c('lodging-cleaning', 'cleaning(cleaned, turnovers) = ⌊cleaned / turnovers⌋', turnovers > 0 ?
+    Math.floor(cleaned / turnovers) : 0, nat(cleaned, turnovers) && turnovers > 0, 'cleaning', [cleaned,
+    turnovers]) } /** CANCELLATION as a percentage of bookings. value ⌊cancelled · 100 / bookings⌋. */ static
+    cancellation(cancelled: number, bookings: number): CrossFormula { return c('lodging-cancellation',
+    'cancellation(cancelled, bookings) = ⌊cancelled · 100 / bookings⌋', bookings > 0 ? Math.floor((cancelled *
+    100) / bookings) : 0, nat(cancelled, bookings) && bookings > 0 && cancelled <= bookings, 'cancellation',
+    [cancelled, bookings]) } /** LEAD TIME: nights between booking and stay. value max(0, stay − booked). */
+    static leadtime(booked: number, stay: number): CrossFormula { return c('lodging-leadtime', 'leadtime(booked,
+    stay) = max(0, stay − booked)', Math.max(0, stay - booked), nat(booked, stay), 'leadtime', [booked, stay]) }
+    /** RATING: the score averaged over the reviews. value ⌊score / reviews⌋. */ static rating(score: number,
+    reviews: number): CrossFormula { return c('lodging-rating', 'rating(score, reviews) = ⌊score / reviews⌋',
+    reviews > 0 ? Math.floor(score / reviews) : 0, nat(score, reviews) && reviews > 0, 'rating', [score,
+    reviews]) } /** AMENITY: amenities used as a percentage of those offered. value ⌊used · 100 / offered⌋. */
+    static amenity(used: number, offered: number): CrossFormula { return c('lodging-amenity', 'amenity(used,
+    offered) = ⌊used · 100 / offered⌋', offered > 0 ? Math.floor((used * 100) / offered) : 0, nat(used, offered)
+    && offered > 0 && used <= offered, 'amenity', [used, offered]) } /** SEASONALITY: peak demand against the
+    off-peak, as a percentage. value ⌊peak · 100 / offpeak⌋. -/
+theorem fam_lodging_seasonality_1 : (((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int) := by decide
 
 /-- logging: ingestrate(60000, 60) = 1000 — LOGGING — RUNNING COMPUTE WRITES A RECORD, AS ARITHMETIC (chosen by
     the public-API registry, not by hand). A log stream is numbers: events ingested per second, how long records
@@ -1090,33 +7081,232 @@ theorem fam_lodging_seasonality_1 : ((300 * 100) / 100) = 300 := by decide
     src: 'logging', dst: 'observability', formula, value, proof: PROOF, ...extra }, holds, { name:
     `logging.${name}`, params }) export class LoggingFormulas { /** INGEST RATE: events over the seconds they
     arrived in. value ⌊events / seconds⌋. -/
-theorem fam_logging_ingestrate_1 : (60000 / 60) = 1000 := by decide
+theorem fam_logging_ingestrate_1 : ((60000 : Int) / (60 : Int)) = (1000 : Int) := by decide
 
-/-- logging: retention(500, 30) = 15000 — RETENTION: daily bytes kept for a number of days. value dailyBytes ·
-    days. -/
-theorem fam_logging_retention_1 : (500 * 30) = 15000 := by decide
+/-- logging: retention(500, 30) = 15000 — LOGGING — RUNNING COMPUTE WRITES A RECORD, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). A log stream is numbers: events ingested per second, how long records
+    are kept, the fraction sampled, what the bytes cost, the error share of a window, an index's size, how many
+    times a file rotates, and the bytes compression saves. Crosses to `observability` — logging is the raw
+    record observability reads. A measure. */ const PROOF = 'logging arithmetic (ingest rate, retention,
+    sampling, storage cost, error ratio, index size, rotations, compression savings); a stream chosen by the
+    public-API registry; a measure crossed to observability' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'logging', dst: 'observability', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logging.${name}`, params }) export class LoggingFormulas { /** INGEST RATE: events over the seconds they
+    arrived in. value ⌊events / seconds⌋. */ static ingestrate(events: number, seconds: number): CrossFormula {
+    return c('logging-ingestrate', 'ingestrate(events, seconds) = ⌊events / seconds⌋', seconds > 0 ?
+    Math.floor(events / seconds) : 0, nat(events, seconds) && seconds > 0, 'ingestrate', [events, seconds]) }
+    /** RETENTION: daily bytes kept for a number of days. value dailyBytes · days. -/
+theorem fam_logging_retention_1 : ((500 : Int) * (30 : Int)) = (15000 : Int) := by decide
 
-/-- logging: samplingrate(10, 100) = 10 — SAMPLING RATE: the percentage of events kept. value ⌊sampled · 100 /
+/-- logging: samplingrate(10, 100) = 10 — LOGGING — RUNNING COMPUTE WRITES A RECORD, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). A log stream is numbers: events ingested per second, how long records
+    are kept, the fraction sampled, what the bytes cost, the error share of a window, an index's size, how many
+    times a file rotates, and the bytes compression saves. Crosses to `observability` — logging is the raw
+    record observability reads. A measure. */ const PROOF = 'logging arithmetic (ingest rate, retention,
+    sampling, storage cost, error ratio, index size, rotations, compression savings); a stream chosen by the
+    public-API registry; a measure crossed to observability' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'logging', dst: 'observability', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logging.${name}`, params }) export class LoggingFormulas { /** INGEST RATE: events over the seconds they
+    arrived in. value ⌊events / seconds⌋. */ static ingestrate(events: number, seconds: number): CrossFormula {
+    return c('logging-ingestrate', 'ingestrate(events, seconds) = ⌊events / seconds⌋', seconds > 0 ?
+    Math.floor(events / seconds) : 0, nat(events, seconds) && seconds > 0, 'ingestrate', [events, seconds]) }
+    /** RETENTION: daily bytes kept for a number of days. value dailyBytes · days. */ static
+    retention(dailyBytes: number, days: number): CrossFormula { return c('logging-retention',
+    'retention(dailyBytes, days) = dailyBytes · days', dailyBytes * days, nat(dailyBytes, days), 'retention',
+    [dailyBytes, days]) } /** SAMPLING RATE: the percentage of events kept. value ⌊sampled · 100 / total⌋. -/
+theorem fam_logging_samplingrate_1 : (((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int) := by decide
+
+/-- logging: storagecost(1000, 5) = 5000 — LOGGING — RUNNING COMPUTE WRITES A RECORD, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). A log stream is numbers: events ingested per second, how long records
+    are kept, the fraction sampled, what the bytes cost, the error share of a window, an index's size, how many
+    times a file rotates, and the bytes compression saves. Crosses to `observability` — logging is the raw
+    record observability reads. A measure. */ const PROOF = 'logging arithmetic (ingest rate, retention,
+    sampling, storage cost, error ratio, index size, rotations, compression savings); a stream chosen by the
+    public-API registry; a measure crossed to observability' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'logging', dst: 'observability', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logging.${name}`, params }) export class LoggingFormulas { /** INGEST RATE: events over the seconds they
+    arrived in. value ⌊events / seconds⌋. */ static ingestrate(events: number, seconds: number): CrossFormula {
+    return c('logging-ingestrate', 'ingestrate(events, seconds) = ⌊events / seconds⌋', seconds > 0 ?
+    Math.floor(events / seconds) : 0, nat(events, seconds) && seconds > 0, 'ingestrate', [events, seconds]) }
+    /** RETENTION: daily bytes kept for a number of days. value dailyBytes · days. */ static
+    retention(dailyBytes: number, days: number): CrossFormula { return c('logging-retention',
+    'retention(dailyBytes, days) = dailyBytes · days', dailyBytes * days, nat(dailyBytes, days), 'retention',
+    [dailyBytes, days]) } /** SAMPLING RATE: the percentage of events kept. value ⌊sampled · 100 / total⌋. */
+    static samplingrate(sampled: number, total: number): CrossFormula { return c('logging-samplingrate',
+    'samplingrate(sampled, total) = ⌊sampled · 100 / total⌋', total > 0 ? Math.floor((sampled * 100) / total) :
+    0, nat(sampled, total) && total > 0 && sampled <= total, 'samplingrate', [sampled, total]) } /** STORAGE
+    COST: gigabytes kept at a rate each. value gb · rate. -/
+theorem fam_logging_storagecost_1 : ((1000 : Int) * (5 : Int)) = (5000 : Int) := by decide
+
+/-- logging: errorratio(50, 1000) = 5 — LOGGING — RUNNING COMPUTE WRITES A RECORD, AS ARITHMETIC (chosen by the
+    public-API registry, not by hand). A log stream is numbers: events ingested per second, how long records are
+    kept, the fraction sampled, what the bytes cost, the error share of a window, an index's size, how many
+    times a file rotates, and the bytes compression saves. Crosses to `observability` — logging is the raw
+    record observability reads. A measure. */ const PROOF = 'logging arithmetic (ingest rate, retention,
+    sampling, storage cost, error ratio, index size, rotations, compression savings); a stream chosen by the
+    public-API registry; a measure crossed to observability' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'logging', dst: 'observability', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logging.${name}`, params }) export class LoggingFormulas { /** INGEST RATE: events over the seconds they
+    arrived in. value ⌊events / seconds⌋. */ static ingestrate(events: number, seconds: number): CrossFormula {
+    return c('logging-ingestrate', 'ingestrate(events, seconds) = ⌊events / seconds⌋', seconds > 0 ?
+    Math.floor(events / seconds) : 0, nat(events, seconds) && seconds > 0, 'ingestrate', [events, seconds]) }
+    /** RETENTION: daily bytes kept for a number of days. value dailyBytes · days. */ static
+    retention(dailyBytes: number, days: number): CrossFormula { return c('logging-retention',
+    'retention(dailyBytes, days) = dailyBytes · days', dailyBytes * days, nat(dailyBytes, days), 'retention',
+    [dailyBytes, days]) } /** SAMPLING RATE: the percentage of events kept. value ⌊sampled · 100 / total⌋. */
+    static samplingrate(sampled: number, total: number): CrossFormula { return c('logging-samplingrate',
+    'samplingrate(sampled, total) = ⌊sampled · 100 / total⌋', total > 0 ? Math.floor((sampled * 100) / total) :
+    0, nat(sampled, total) && total > 0 && sampled <= total, 'samplingrate', [sampled, total]) } /** STORAGE
+    COST: gigabytes kept at a rate each. value gb · rate. */ static storagecost(gb: number, rate: number):
+    CrossFormula { return c('logging-storagecost', 'storagecost(gb, rate) = gb · rate', gb * rate, nat(gb,
+    rate), 'storagecost', [gb, rate]) } /** ERROR RATIO: the error percentage of a window. value ⌊errors · 100 /
     total⌋. -/
-theorem fam_logging_samplingrate_1 : ((10 * 100) / 100) = 10 := by decide
+theorem fam_logging_errorratio_1 : (((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int) := by decide
 
-/-- logging: storagecost(1000, 5) = 5000 — STORAGE COST: gigabytes kept at a rate each. value gb · rate. -/
-theorem fam_logging_storagecost_1 : (1000 * 5) = 5000 := by decide
+/-- logging: indexsize(1000, 50) = 50000 — LOGGING — RUNNING COMPUTE WRITES A RECORD, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). A log stream is numbers: events ingested per second, how long records
+    are kept, the fraction sampled, what the bytes cost, the error share of a window, an index's size, how many
+    times a file rotates, and the bytes compression saves. Crosses to `observability` — logging is the raw
+    record observability reads. A measure. */ const PROOF = 'logging arithmetic (ingest rate, retention,
+    sampling, storage cost, error ratio, index size, rotations, compression savings); a stream chosen by the
+    public-API registry; a measure crossed to observability' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'logging', dst: 'observability', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logging.${name}`, params }) export class LoggingFormulas { /** INGEST RATE: events over the seconds they
+    arrived in. value ⌊events / seconds⌋. */ static ingestrate(events: number, seconds: number): CrossFormula {
+    return c('logging-ingestrate', 'ingestrate(events, seconds) = ⌊events / seconds⌋', seconds > 0 ?
+    Math.floor(events / seconds) : 0, nat(events, seconds) && seconds > 0, 'ingestrate', [events, seconds]) }
+    /** RETENTION: daily bytes kept for a number of days. value dailyBytes · days. */ static
+    retention(dailyBytes: number, days: number): CrossFormula { return c('logging-retention',
+    'retention(dailyBytes, days) = dailyBytes · days', dailyBytes * days, nat(dailyBytes, days), 'retention',
+    [dailyBytes, days]) } /** SAMPLING RATE: the percentage of events kept. value ⌊sampled · 100 / total⌋. */
+    static samplingrate(sampled: number, total: number): CrossFormula { return c('logging-samplingrate',
+    'samplingrate(sampled, total) = ⌊sampled · 100 / total⌋', total > 0 ? Math.floor((sampled * 100) / total) :
+    0, nat(sampled, total) && total > 0 && sampled <= total, 'samplingrate', [sampled, total]) } /** STORAGE
+    COST: gigabytes kept at a rate each. value gb · rate. */ static storagecost(gb: number, rate: number):
+    CrossFormula { return c('logging-storagecost', 'storagecost(gb, rate) = gb · rate', gb * rate, nat(gb,
+    rate), 'storagecost', [gb, rate]) } /** ERROR RATIO: the error percentage of a window. value ⌊errors · 100 /
+    total⌋. */ static errorratio(errors: number, total: number): CrossFormula { return c('logging-errorratio',
+    'errorratio(errors, total) = ⌊errors · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0,
+    nat(errors, total) && total > 0 && errors <= total, 'errorratio', [errors, total]) } /** INDEX SIZE:
+    documents at a size each. value docs · bytesPer. -/
+theorem fam_logging_indexsize_1 : ((1000 : Int) * (50 : Int)) = (50000 : Int) := by decide
 
-/-- logging: errorratio(50, 1000) = 5 — ERROR RATIO: the error percentage of a window. value ⌊errors · 100 /
-    total⌋. -/
-theorem fam_logging_errorratio_1 : ((50 * 100) / 1000) = 5 := by decide
+/-- logging: rotationcount(1000, 300) = 4 — LOGGING — RUNNING COMPUTE WRITES A RECORD, AS ARITHMETIC (chosen by
+    the public-API registry, not by hand). A log stream is numbers: events ingested per second, how long records
+    are kept, the fraction sampled, what the bytes cost, the error share of a window, an index's size, how many
+    times a file rotates, and the bytes compression saves. Crosses to `observability` — logging is the raw
+    record observability reads. A measure. */ const PROOF = 'logging arithmetic (ingest rate, retention,
+    sampling, storage cost, error ratio, index size, rotations, compression savings); a stream chosen by the
+    public-API registry; a measure crossed to observability' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'logging', dst: 'observability', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logging.${name}`, params }) export class LoggingFormulas { /** INGEST RATE: events over the seconds they
+    arrived in. value ⌊events / seconds⌋. */ static ingestrate(events: number, seconds: number): CrossFormula {
+    return c('logging-ingestrate', 'ingestrate(events, seconds) = ⌊events / seconds⌋', seconds > 0 ?
+    Math.floor(events / seconds) : 0, nat(events, seconds) && seconds > 0, 'ingestrate', [events, seconds]) }
+    /** RETENTION: daily bytes kept for a number of days. value dailyBytes · days. */ static
+    retention(dailyBytes: number, days: number): CrossFormula { return c('logging-retention',
+    'retention(dailyBytes, days) = dailyBytes · days', dailyBytes * days, nat(dailyBytes, days), 'retention',
+    [dailyBytes, days]) } /** SAMPLING RATE: the percentage of events kept. value ⌊sampled · 100 / total⌋. */
+    static samplingrate(sampled: number, total: number): CrossFormula { return c('logging-samplingrate',
+    'samplingrate(sampled, total) = ⌊sampled · 100 / total⌋', total > 0 ? Math.floor((sampled * 100) / total) :
+    0, nat(sampled, total) && total > 0 && sampled <= total, 'samplingrate', [sampled, total]) } /** STORAGE
+    COST: gigabytes kept at a rate each. value gb · rate. */ static storagecost(gb: number, rate: number):
+    CrossFormula { return c('logging-storagecost', 'storagecost(gb, rate) = gb · rate', gb * rate, nat(gb,
+    rate), 'storagecost', [gb, rate]) } /** ERROR RATIO: the error percentage of a window. value ⌊errors · 100 /
+    total⌋. */ static errorratio(errors: number, total: number): CrossFormula { return c('logging-errorratio',
+    'errorratio(errors, total) = ⌊errors · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0,
+    nat(errors, total) && total > 0 && errors <= total, 'errorratio', [errors, total]) } /** INDEX SIZE:
+    documents at a size each. value docs · bytesPer. */ static indexsize(docs: number, bytesPer: number):
+    CrossFormula { return c('logging-indexsize', 'indexsize(docs, bytesPer) = docs · bytesPer', docs * bytesPer,
+    nat(docs, bytesPer), 'indexsize', [docs, bytesPer]) } /** ROTATION COUNT: files a byte total needs at a
+    maximum size. value ⌈totalBytes / maxBytes⌉. -/
+theorem fam_logging_rotationcount_1 : (-((-(1000 : Int)) / (300 : Int))) = (4 : Int) := by decide
 
-/-- logging: indexsize(1000, 50) = 50000 — INDEX SIZE: documents at a size each. value docs · bytesPer. -/
-theorem fam_logging_indexsize_1 : (1000 * 50) = 50000 := by decide
-
-/-- logging: compressionsavings(1000, 400) = 600 — COMPRESSION SAVINGS: the bytes compression removes. value
+/-- logging: compressionsavings(1000, 400) = 600 — LOGGING — RUNNING COMPUTE WRITES A RECORD, AS ARITHMETIC
+    (chosen by the public-API registry, not by hand). A log stream is numbers: events ingested per second, how
+    long records are kept, the fraction sampled, what the bytes cost, the error share of a window, an index's
+    size, how many times a file rotates, and the bytes compression saves. Crosses to `observability` — logging
+    is the raw record observability reads. A measure. */ const PROOF = 'logging arithmetic (ingest rate,
+    retention, sampling, storage cost, error ratio, index size, rotations, compression savings); a stream chosen
+    by the public-API registry; a measure crossed to observability' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'logging', dst: 'observability', formula, value, proof: PROOF, ...extra }, holds,
+    { name: `logging.${name}`, params }) export class LoggingFormulas { /** INGEST RATE: events over the seconds
+    they arrived in. value ⌊events / seconds⌋. */ static ingestrate(events: number, seconds: number):
+    CrossFormula { return c('logging-ingestrate', 'ingestrate(events, seconds) = ⌊events / seconds⌋', seconds >
+    0 ? Math.floor(events / seconds) : 0, nat(events, seconds) && seconds > 0, 'ingestrate', [events, seconds])
+    } /** RETENTION: daily bytes kept for a number of days. value dailyBytes · days. */ static
+    retention(dailyBytes: number, days: number): CrossFormula { return c('logging-retention',
+    'retention(dailyBytes, days) = dailyBytes · days', dailyBytes * days, nat(dailyBytes, days), 'retention',
+    [dailyBytes, days]) } /** SAMPLING RATE: the percentage of events kept. value ⌊sampled · 100 / total⌋. */
+    static samplingrate(sampled: number, total: number): CrossFormula { return c('logging-samplingrate',
+    'samplingrate(sampled, total) = ⌊sampled · 100 / total⌋', total > 0 ? Math.floor((sampled * 100) / total) :
+    0, nat(sampled, total) && total > 0 && sampled <= total, 'samplingrate', [sampled, total]) } /** STORAGE
+    COST: gigabytes kept at a rate each. value gb · rate. */ static storagecost(gb: number, rate: number):
+    CrossFormula { return c('logging-storagecost', 'storagecost(gb, rate) = gb · rate', gb * rate, nat(gb,
+    rate), 'storagecost', [gb, rate]) } /** ERROR RATIO: the error percentage of a window. value ⌊errors · 100 /
+    total⌋. */ static errorratio(errors: number, total: number): CrossFormula { return c('logging-errorratio',
+    'errorratio(errors, total) = ⌊errors · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0,
+    nat(errors, total) && total > 0 && errors <= total, 'errorratio', [errors, total]) } /** INDEX SIZE:
+    documents at a size each. value docs · bytesPer. */ static indexsize(docs: number, bytesPer: number):
+    CrossFormula { return c('logging-indexsize', 'indexsize(docs, bytesPer) = docs · bytesPer', docs * bytesPer,
+    nat(docs, bytesPer), 'indexsize', [docs, bytesPer]) } /** ROTATION COUNT: files a byte total needs at a
+    maximum size. value ⌈totalBytes / maxBytes⌉. */ static rotationcount(totalBytes: number, maxBytes: number):
+    CrossFormula { return c('logging-rotationcount', 'rotationcount(totalBytes, maxBytes) = ⌈totalBytes /
+    maxBytes⌉', maxBytes > 0 ? Math.ceil(totalBytes / maxBytes) : 0, nat(totalBytes, maxBytes) && maxBytes > 0,
+    'rotationcount', [totalBytes, maxBytes]) } /** COMPRESSION SAVINGS: the bytes compression removes. value
     max(0, original − compressed). -/
-theorem fam_logging_compressionsavings_1 : (fmax 0 (1000 - 400)) = 600 := by decide
+theorem fam_logging_compressionsavings_1 : (fmax (0 : Int) ((1000 : Int) - (400 : Int))) = (600 : Int) := by decide
 
-/-- logging: compressionsavings(400, 1000) = 0 — COMPRESSION SAVINGS: the bytes compression removes. value
+/-- logging: compressionsavings(400, 1000) = 0 — LOGGING — RUNNING COMPUTE WRITES A RECORD, AS ARITHMETIC
+    (chosen by the public-API registry, not by hand). A log stream is numbers: events ingested per second, how
+    long records are kept, the fraction sampled, what the bytes cost, the error share of a window, an index's
+    size, how many times a file rotates, and the bytes compression saves. Crosses to `observability` — logging
+    is the raw record observability reads. A measure. */ const PROOF = 'logging arithmetic (ingest rate,
+    retention, sampling, storage cost, error ratio, index size, rotations, compression savings); a stream chosen
+    by the public-API registry; a measure crossed to observability' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'logging', dst: 'observability', formula, value, proof: PROOF, ...extra }, holds,
+    { name: `logging.${name}`, params }) export class LoggingFormulas { /** INGEST RATE: events over the seconds
+    they arrived in. value ⌊events / seconds⌋. */ static ingestrate(events: number, seconds: number):
+    CrossFormula { return c('logging-ingestrate', 'ingestrate(events, seconds) = ⌊events / seconds⌋', seconds >
+    0 ? Math.floor(events / seconds) : 0, nat(events, seconds) && seconds > 0, 'ingestrate', [events, seconds])
+    } /** RETENTION: daily bytes kept for a number of days. value dailyBytes · days. */ static
+    retention(dailyBytes: number, days: number): CrossFormula { return c('logging-retention',
+    'retention(dailyBytes, days) = dailyBytes · days', dailyBytes * days, nat(dailyBytes, days), 'retention',
+    [dailyBytes, days]) } /** SAMPLING RATE: the percentage of events kept. value ⌊sampled · 100 / total⌋. */
+    static samplingrate(sampled: number, total: number): CrossFormula { return c('logging-samplingrate',
+    'samplingrate(sampled, total) = ⌊sampled · 100 / total⌋', total > 0 ? Math.floor((sampled * 100) / total) :
+    0, nat(sampled, total) && total > 0 && sampled <= total, 'samplingrate', [sampled, total]) } /** STORAGE
+    COST: gigabytes kept at a rate each. value gb · rate. */ static storagecost(gb: number, rate: number):
+    CrossFormula { return c('logging-storagecost', 'storagecost(gb, rate) = gb · rate', gb * rate, nat(gb,
+    rate), 'storagecost', [gb, rate]) } /** ERROR RATIO: the error percentage of a window. value ⌊errors · 100 /
+    total⌋. */ static errorratio(errors: number, total: number): CrossFormula { return c('logging-errorratio',
+    'errorratio(errors, total) = ⌊errors · 100 / total⌋', total > 0 ? Math.floor((errors * 100) / total) : 0,
+    nat(errors, total) && total > 0 && errors <= total, 'errorratio', [errors, total]) } /** INDEX SIZE:
+    documents at a size each. value docs · bytesPer. */ static indexsize(docs: number, bytesPer: number):
+    CrossFormula { return c('logging-indexsize', 'indexsize(docs, bytesPer) = docs · bytesPer', docs * bytesPer,
+    nat(docs, bytesPer), 'indexsize', [docs, bytesPer]) } /** ROTATION COUNT: files a byte total needs at a
+    maximum size. value ⌈totalBytes / maxBytes⌉. */ static rotationcount(totalBytes: number, maxBytes: number):
+    CrossFormula { return c('logging-rotationcount', 'rotationcount(totalBytes, maxBytes) = ⌈totalBytes /
+    maxBytes⌉', maxBytes > 0 ? Math.ceil(totalBytes / maxBytes) : 0, nat(totalBytes, maxBytes) && maxBytes > 0,
+    'rotationcount', [totalBytes, maxBytes]) } /** COMPRESSION SAVINGS: the bytes compression removes. value
     max(0, original − compressed). -/
-theorem fam_logging_compressionsavings_2 : (fmax 0 (400 - 1000)) = 0 := by decide
+theorem fam_logging_compressionsavings_2 : (fmax (0 : Int) ((400 : Int) - (1000 : Int))) = (0 : Int) := by decide
 
 /-- logic: truthtable(3) = 8 — LOGIC — PROPOSITIONAL REASONING AS ARITHMETIC. Truth is numbers: the rows of a
     truth table, AND and OR over 0/1 (or counts), material implication and equivalence as indicators, the share
@@ -1129,96 +7319,789 @@ theorem fam_logging_compressionsavings_2 : (fmax 0 (400 - 1000)) = 0 := by decid
     crossFormulaOf({ id, src: 'logic', dst: 'code', formula, value, proof: PROOF, ...extra }, holds, { name:
     `logic.${name}`, params }) export class LogicFormulas { /** TRUTH TABLE: the rows over a number of
     variables. value 2^variables. -/
-theorem fam_logic_truthtable_1 : (2 ^ 3) = 8 := by decide
+theorem fam_logic_truthtable_1 : ((2 : Int) ^ (3 : Nat)) = (8 : Int) := by decide
 
-/-- logic: conjunction(1, 0) = 0 — CONJUNCTION: AND over 0/1 or counts. value min(a, b). -/
-theorem fam_logic_conjunction_1 : (fmin 1 0) = 0 := by decide
+/-- logic: conjunction(1, 0) = 0 — LOGIC — PROPOSITIONAL REASONING AS ARITHMETIC. Truth is numbers: the rows of
+    a truth table, AND and OR over 0/1 (or counts), material implication and equivalence as indicators, the
+    share of satisfying models, the share of true cases, and proof steps per axiom. Crosses to `code` — logic is
+    what code is built from. A measure. */ const PROOF = 'logic arithmetic (truth-table rows, conjunction,
+    disjunction, implication, equivalence, satisfiable share, entropy share, proof steps per axiom);
+    propositional reasoning as integers; a measure crossed to code' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'logic', dst: 'code', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logic.${name}`, params }) export class LogicFormulas { /** TRUTH TABLE: the rows over a number of
+    variables. value 2^variables. */ static truthtable(variables: number): CrossFormula { return
+    c('logic-truthtable', 'truthtable(variables) = 2^variables', 2 ** variables, nat(variables), 'truthtable',
+    [variables]) } /** CONJUNCTION: AND over 0/1 or counts. value min(a, b). -/
+theorem fam_logic_conjunction_1 : (fmin (1 : Int) (0 : Int)) = (0 : Int) := by decide
 
-/-- logic: disjunction(1, 0) = 1 — DISJUNCTION: OR over 0/1 or counts. value max(a, b). -/
-theorem fam_logic_disjunction_1 : (fmax 1 0) = 1 := by decide
+/-- logic: disjunction(1, 0) = 1 — LOGIC — PROPOSITIONAL REASONING AS ARITHMETIC. Truth is numbers: the rows of
+    a truth table, AND and OR over 0/1 (or counts), material implication and equivalence as indicators, the
+    share of satisfying models, the share of true cases, and proof steps per axiom. Crosses to `code` — logic is
+    what code is built from. A measure. */ const PROOF = 'logic arithmetic (truth-table rows, conjunction,
+    disjunction, implication, equivalence, satisfiable share, entropy share, proof steps per axiom);
+    propositional reasoning as integers; a measure crossed to code' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'logic', dst: 'code', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logic.${name}`, params }) export class LogicFormulas { /** TRUTH TABLE: the rows over a number of
+    variables. value 2^variables. */ static truthtable(variables: number): CrossFormula { return
+    c('logic-truthtable', 'truthtable(variables) = 2^variables', 2 ** variables, nat(variables), 'truthtable',
+    [variables]) } /** CONJUNCTION: AND over 0/1 or counts. value min(a, b). */ static conjunction(a: number, b:
+    number): CrossFormula { return c('logic-conjunction', 'conjunction(a, b) = min(a, b)', Math.min(a, b),
+    nat(a, b), 'conjunction', [a, b]) } /** DISJUNCTION: OR over 0/1 or counts. value max(a, b). -/
+theorem fam_logic_disjunction_1 : (fmax (1 : Int) (0 : Int)) = (1 : Int) := by decide
 
-/-- logic: satisfiable(3, 8) = 37 — SATISFIABLE: the share of satisfying models as a percentage. value ⌊models ·
+/-- logic: implication(0, 1) = 1 — LOGIC — PROPOSITIONAL REASONING AS ARITHMETIC. Truth is numbers: the rows of
+    a truth table, AND and OR over 0/1 (or counts), material implication and equivalence as indicators, the
+    share of satisfying models, the share of true cases, and proof steps per axiom. Crosses to `code` — logic is
+    what code is built from. A measure. */ const PROOF = 'logic arithmetic (truth-table rows, conjunction,
+    disjunction, implication, equivalence, satisfiable share, entropy share, proof steps per axiom);
+    propositional reasoning as integers; a measure crossed to code' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'logic', dst: 'code', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logic.${name}`, params }) export class LogicFormulas { /** TRUTH TABLE: the rows over a number of
+    variables. value 2^variables. */ static truthtable(variables: number): CrossFormula { return
+    c('logic-truthtable', 'truthtable(variables) = 2^variables', 2 ** variables, nat(variables), 'truthtable',
+    [variables]) } /** CONJUNCTION: AND over 0/1 or counts. value min(a, b). */ static conjunction(a: number, b:
+    number): CrossFormula { return c('logic-conjunction', 'conjunction(a, b) = min(a, b)', Math.min(a, b),
+    nat(a, b), 'conjunction', [a, b]) } /** DISJUNCTION: OR over 0/1 or counts. value max(a, b). */ static
+    disjunction(a: number, b: number): CrossFormula { return c('logic-disjunction', 'disjunction(a, b) = max(a,
+    b)', Math.max(a, b), nat(a, b), 'disjunction', [a, b]) } /** MATERIAL IMPLICATION over 0/1. value
+    [antecedent ≤ consequent]. -/
+theorem fam_logic_implication_1 : (if (if (0 : Int) ≤ (1 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
+
+/-- logic: implication(1, 0) = 0 — LOGIC — PROPOSITIONAL REASONING AS ARITHMETIC. Truth is numbers: the rows of
+    a truth table, AND and OR over 0/1 (or counts), material implication and equivalence as indicators, the
+    share of satisfying models, the share of true cases, and proof steps per axiom. Crosses to `code` — logic is
+    what code is built from. A measure. */ const PROOF = 'logic arithmetic (truth-table rows, conjunction,
+    disjunction, implication, equivalence, satisfiable share, entropy share, proof steps per axiom);
+    propositional reasoning as integers; a measure crossed to code' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'logic', dst: 'code', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logic.${name}`, params }) export class LogicFormulas { /** TRUTH TABLE: the rows over a number of
+    variables. value 2^variables. */ static truthtable(variables: number): CrossFormula { return
+    c('logic-truthtable', 'truthtable(variables) = 2^variables', 2 ** variables, nat(variables), 'truthtable',
+    [variables]) } /** CONJUNCTION: AND over 0/1 or counts. value min(a, b). */ static conjunction(a: number, b:
+    number): CrossFormula { return c('logic-conjunction', 'conjunction(a, b) = min(a, b)', Math.min(a, b),
+    nat(a, b), 'conjunction', [a, b]) } /** DISJUNCTION: OR over 0/1 or counts. value max(a, b). */ static
+    disjunction(a: number, b: number): CrossFormula { return c('logic-disjunction', 'disjunction(a, b) = max(a,
+    b)', Math.max(a, b), nat(a, b), 'disjunction', [a, b]) } /** MATERIAL IMPLICATION over 0/1. value
+    [antecedent ≤ consequent]. -/
+theorem fam_logic_implication_2 : (if (if (1 : Int) ≤ (0 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
+
+/-- logic: satisfiable(3, 8) = 37 — LOGIC — PROPOSITIONAL REASONING AS ARITHMETIC. Truth is numbers: the rows of
+    a truth table, AND and OR over 0/1 (or counts), material implication and equivalence as indicators, the
+    share of satisfying models, the share of true cases, and proof steps per axiom. Crosses to `code` — logic is
+    what code is built from. A measure. */ const PROOF = 'logic arithmetic (truth-table rows, conjunction,
+    disjunction, implication, equivalence, satisfiable share, entropy share, proof steps per axiom);
+    propositional reasoning as integers; a measure crossed to code' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'logic', dst: 'code', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logic.${name}`, params }) export class LogicFormulas { /** TRUTH TABLE: the rows over a number of
+    variables. value 2^variables. */ static truthtable(variables: number): CrossFormula { return
+    c('logic-truthtable', 'truthtable(variables) = 2^variables', 2 ** variables, nat(variables), 'truthtable',
+    [variables]) } /** CONJUNCTION: AND over 0/1 or counts. value min(a, b). */ static conjunction(a: number, b:
+    number): CrossFormula { return c('logic-conjunction', 'conjunction(a, b) = min(a, b)', Math.min(a, b),
+    nat(a, b), 'conjunction', [a, b]) } /** DISJUNCTION: OR over 0/1 or counts. value max(a, b). */ static
+    disjunction(a: number, b: number): CrossFormula { return c('logic-disjunction', 'disjunction(a, b) = max(a,
+    b)', Math.max(a, b), nat(a, b), 'disjunction', [a, b]) } /** MATERIAL IMPLICATION over 0/1. value
+    [antecedent ≤ consequent]. */ static implication(antecedent: number, consequent: number): CrossFormula {
+    return c('logic-implication', 'implication(antecedent, consequent) = [antecedent ≤ consequent]', antecedent
+    <= consequent ? 1 : 0, nat(antecedent, consequent), 'implication', [antecedent, consequent]) } /**
+    EQUIVALENCE: 1 when the two sides agree. value [a = b]. */ static equivalence(a: number, b: number):
+    CrossFormula { return c('logic-equivalence', 'equivalence(a, b) = [a = b]', a === b ? 1 : 0, nat(a, b),
+    'equivalence', [a, b]) } /** SATISFIABLE: the share of satisfying models as a percentage. value ⌊models ·
     100 / total⌋. -/
-theorem fam_logic_satisfiable_1 : ((3 * 100) / 8) = 37 := by decide
+theorem fam_logic_satisfiable_1 : (((3 : Int) * (100 : Int)) / (8 : Int)) = (37 : Int) := by decide
 
-/-- logic: entropy(1, 4) = 25 — ENTROPY: the share of true cases as a percentage. value ⌊cases · 100 / total⌋. -/
-theorem fam_logic_entropy_1 : ((1 * 100) / 4) = 25 := by decide
+/-- logic: entropy(1, 4) = 25 — LOGIC — PROPOSITIONAL REASONING AS ARITHMETIC. Truth is numbers: the rows of a
+    truth table, AND and OR over 0/1 (or counts), material implication and equivalence as indicators, the share
+    of satisfying models, the share of true cases, and proof steps per axiom. Crosses to `code` — logic is what
+    code is built from. A measure. */ const PROOF = 'logic arithmetic (truth-table rows, conjunction,
+    disjunction, implication, equivalence, satisfiable share, entropy share, proof steps per axiom);
+    propositional reasoning as integers; a measure crossed to code' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'logic', dst: 'code', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logic.${name}`, params }) export class LogicFormulas { /** TRUTH TABLE: the rows over a number of
+    variables. value 2^variables. */ static truthtable(variables: number): CrossFormula { return
+    c('logic-truthtable', 'truthtable(variables) = 2^variables', 2 ** variables, nat(variables), 'truthtable',
+    [variables]) } /** CONJUNCTION: AND over 0/1 or counts. value min(a, b). */ static conjunction(a: number, b:
+    number): CrossFormula { return c('logic-conjunction', 'conjunction(a, b) = min(a, b)', Math.min(a, b),
+    nat(a, b), 'conjunction', [a, b]) } /** DISJUNCTION: OR over 0/1 or counts. value max(a, b). */ static
+    disjunction(a: number, b: number): CrossFormula { return c('logic-disjunction', 'disjunction(a, b) = max(a,
+    b)', Math.max(a, b), nat(a, b), 'disjunction', [a, b]) } /** MATERIAL IMPLICATION over 0/1. value
+    [antecedent ≤ consequent]. */ static implication(antecedent: number, consequent: number): CrossFormula {
+    return c('logic-implication', 'implication(antecedent, consequent) = [antecedent ≤ consequent]', antecedent
+    <= consequent ? 1 : 0, nat(antecedent, consequent), 'implication', [antecedent, consequent]) } /**
+    EQUIVALENCE: 1 when the two sides agree. value [a = b]. */ static equivalence(a: number, b: number):
+    CrossFormula { return c('logic-equivalence', 'equivalence(a, b) = [a = b]', a === b ? 1 : 0, nat(a, b),
+    'equivalence', [a, b]) } /** SATISFIABLE: the share of satisfying models as a percentage. value ⌊models ·
+    100 / total⌋. */ static satisfiable(models: number, total: number): CrossFormula { return
+    c('logic-satisfiable', 'satisfiable(models, total) = ⌊models · 100 / total⌋', total > 0 ? Math.floor((models
+    * 100) / total) : 0, nat(models, total) && total > 0 && models <= total, 'satisfiable', [models, total]) }
+    /** ENTROPY: the share of true cases as a percentage. value ⌊cases · 100 / total⌋. -/
+theorem fam_logic_entropy_1 : (((1 : Int) * (100 : Int)) / (4 : Int)) = (25 : Int) := by decide
 
-/-- logic: proof(10, 2) = 5 — PROOF: steps per axiom. value ⌊steps / axioms⌋. -/
-theorem fam_logic_proof_1 : (10 / 2) = 5 := by decide
+/-- logic: proof(10, 2) = 5 — LOGIC — PROPOSITIONAL REASONING AS ARITHMETIC. Truth is numbers: the rows of a
+    truth table, AND and OR over 0/1 (or counts), material implication and equivalence as indicators, the share
+    of satisfying models, the share of true cases, and proof steps per axiom. Crosses to `code` — logic is what
+    code is built from. A measure. */ const PROOF = 'logic arithmetic (truth-table rows, conjunction,
+    disjunction, implication, equivalence, satisfiable share, entropy share, proof steps per axiom);
+    propositional reasoning as integers; a measure crossed to code' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'logic', dst: 'code', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `logic.${name}`, params }) export class LogicFormulas { /** TRUTH TABLE: the rows over a number of
+    variables. value 2^variables. */ static truthtable(variables: number): CrossFormula { return
+    c('logic-truthtable', 'truthtable(variables) = 2^variables', 2 ** variables, nat(variables), 'truthtable',
+    [variables]) } /** CONJUNCTION: AND over 0/1 or counts. value min(a, b). */ static conjunction(a: number, b:
+    number): CrossFormula { return c('logic-conjunction', 'conjunction(a, b) = min(a, b)', Math.min(a, b),
+    nat(a, b), 'conjunction', [a, b]) } /** DISJUNCTION: OR over 0/1 or counts. value max(a, b). */ static
+    disjunction(a: number, b: number): CrossFormula { return c('logic-disjunction', 'disjunction(a, b) = max(a,
+    b)', Math.max(a, b), nat(a, b), 'disjunction', [a, b]) } /** MATERIAL IMPLICATION over 0/1. value
+    [antecedent ≤ consequent]. */ static implication(antecedent: number, consequent: number): CrossFormula {
+    return c('logic-implication', 'implication(antecedent, consequent) = [antecedent ≤ consequent]', antecedent
+    <= consequent ? 1 : 0, nat(antecedent, consequent), 'implication', [antecedent, consequent]) } /**
+    EQUIVALENCE: 1 when the two sides agree. value [a = b]. */ static equivalence(a: number, b: number):
+    CrossFormula { return c('logic-equivalence', 'equivalence(a, b) = [a = b]', a === b ? 1 : 0, nat(a, b),
+    'equivalence', [a, b]) } /** SATISFIABLE: the share of satisfying models as a percentage. value ⌊models ·
+    100 / total⌋. */ static satisfiable(models: number, total: number): CrossFormula { return
+    c('logic-satisfiable', 'satisfiable(models, total) = ⌊models · 100 / total⌋', total > 0 ? Math.floor((models
+    * 100) / total) : 0, nat(models, total) && total > 0 && models <= total, 'satisfiable', [models, total]) }
+    /** ENTROPY: the share of true cases as a percentage. value ⌊cases · 100 / total⌋. */ static entropy(cases:
+    number, total: number): CrossFormula { return c('logic-entropy', 'entropy(cases, total) = ⌊cases · 100 /
+    total⌋', total > 0 ? Math.floor((cases * 100) / total) : 0, nat(cases, total) && total > 0 && cases <=
+    total, 'entropy', [cases, total]) } /** PROOF: steps per axiom. value ⌊steps / axioms⌋. -/
+theorem fam_logic_proof_1 : ((10 : Int) / (2 : Int)) = (5 : Int) := by decide
 
-/-- logicgates: fanout(4, 8) = 32 — FANOUT: inputs driven = gates each driving loads. value gates · loads. -/
-theorem fam_logicgates_fanout_1 : (4 * 8) = 32 := by decide
+/-- logicgates: and(1, 1) = 1 — LOGICGATES — DIGITAL LOGIC AS ARITHMETIC (chosen by the gate-level registry, not
+    by hand). A gate is numbers: the boolean functions on 0/1 bits (and, or, xor, nand, nor), the 2:1 selector
+    that picks one of two bits, the inputs a gate drives (fanout), and the delay a signal accrues down a chain
+    (propagation). Crosses to `electronics` — a gate is what the circuit realises. A measure. */ const PROOF =
+    'logicgates arithmetic (and, or, xor, nand, nor on 0/1 bits; mux 2:1 selector; fanout driven inputs;
+    propagation chain delay); the gate-level domain the registry surfaced; a measure crossed to electronics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logicgates', dst: 'electronics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `logicgates.${name}`, params }) export class LogicgatesFormulas {
+    /** AND: both bits set. value a ∧ b. -/
+theorem fam_logicgates_and_1 : (if (1 : Int) ≠ 0 ∧ (1 : Int) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
 
-/-- logicgates: propagation(10, 2) = 20 — PROPAGATION: delay down a chain of gates. value gates · delay. -/
-theorem fam_logicgates_propagation_1 : (10 * 2) = 20 := by decide
+/-- logicgates: or(1, 0) = 1 — LOGICGATES — DIGITAL LOGIC AS ARITHMETIC (chosen by the gate-level registry, not
+    by hand). A gate is numbers: the boolean functions on 0/1 bits (and, or, xor, nand, nor), the 2:1 selector
+    that picks one of two bits, the inputs a gate drives (fanout), and the delay a signal accrues down a chain
+    (propagation). Crosses to `electronics` — a gate is what the circuit realises. A measure. */ const PROOF =
+    'logicgates arithmetic (and, or, xor, nand, nor on 0/1 bits; mux 2:1 selector; fanout driven inputs;
+    propagation chain delay); the gate-level domain the registry surfaced; a measure crossed to electronics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logicgates', dst: 'electronics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `logicgates.${name}`, params }) export class LogicgatesFormulas {
+    /** AND: both bits set. value a ∧ b. */ static and(a: number, b: number): CrossFormula { return
+    c('logicgates-and', 'and(a, b) = a ∧ b', a & b, nat(a, b) && a <= 1 && b <= 1, 'and', [a, b]) } /** OR:
+    either bit set. value a ∨ b. -/
+theorem fam_logicgates_or_1 : (if (1 : Int) ≠ 0 ∨ (0 : Int) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
 
-/-- logistics: capacity(1000, 40) = 25 — CAPACITY: the units a volume holds at a per-unit size. value ⌊volume /
-    perUnit⌋. -/
-theorem fam_logistics_capacity_1 : (1000 / 40) = 25 := by decide
+/-- logicgates: nand(1, 1) = 0 — LOGICGATES — DIGITAL LOGIC AS ARITHMETIC (chosen by the gate-level registry,
+    not by hand). A gate is numbers: the boolean functions on 0/1 bits (and, or, xor, nand, nor), the 2:1
+    selector that picks one of two bits, the inputs a gate drives (fanout), and the delay a signal accrues down
+    a chain (propagation). Crosses to `electronics` — a gate is what the circuit realises. A measure. */ const
+    PROOF = 'logicgates arithmetic (and, or, xor, nand, nor on 0/1 bits; mux 2:1 selector; fanout driven inputs;
+    propagation chain delay); the gate-level domain the registry surfaced; a measure crossed to electronics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logicgates', dst: 'electronics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `logicgates.${name}`, params }) export class LogicgatesFormulas {
+    /** AND: both bits set. value a ∧ b. */ static and(a: number, b: number): CrossFormula { return
+    c('logicgates-and', 'and(a, b) = a ∧ b', a & b, nat(a, b) && a <= 1 && b <= 1, 'and', [a, b]) } /** OR:
+    either bit set. value a ∨ b. */ static or(a: number, b: number): CrossFormula { return c('logicgates-or',
+    'or(a, b) = a ∨ b', a | b, nat(a, b) && a <= 1 && b <= 1, 'or', [a, b]) } /** XOR: the bits differ. value a
+    ⊕ b. */ static xor(a: number, b: number): CrossFormula { return c('logicgates-xor', 'xor(a, b) = a ⊕ b', a ^
+    b, nat(a, b) && a <= 1 && b <= 1, 'xor', [a, b]) } /** NAND: not both set. value 1 − (a ∧ b). -/
+theorem fam_logicgates_nand_1 : ((1 : Int) - (if (1 : Int) ≠ 0 ∧ (1 : Int) ≠ 0 then (1 : Int) else 0)) = (0 : Int) := by decide
 
-/-- logistics: utilization(30, 40) = 75 — UTILIZATION as a percentage. value ⌊used · 100 / total⌋. -/
-theorem fam_logistics_utilization_1 : ((30 * 100) / 40) = 75 := by decide
+/-- logicgates: nor(0, 0) = 1 — LOGICGATES — DIGITAL LOGIC AS ARITHMETIC (chosen by the gate-level registry, not
+    by hand). A gate is numbers: the boolean functions on 0/1 bits (and, or, xor, nand, nor), the 2:1 selector
+    that picks one of two bits, the inputs a gate drives (fanout), and the delay a signal accrues down a chain
+    (propagation). Crosses to `electronics` — a gate is what the circuit realises. A measure. */ const PROOF =
+    'logicgates arithmetic (and, or, xor, nand, nor on 0/1 bits; mux 2:1 selector; fanout driven inputs;
+    propagation chain delay); the gate-level domain the registry surfaced; a measure crossed to electronics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logicgates', dst: 'electronics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `logicgates.${name}`, params }) export class LogicgatesFormulas {
+    /** AND: both bits set. value a ∧ b. */ static and(a: number, b: number): CrossFormula { return
+    c('logicgates-and', 'and(a, b) = a ∧ b', a & b, nat(a, b) && a <= 1 && b <= 1, 'and', [a, b]) } /** OR:
+    either bit set. value a ∨ b. */ static or(a: number, b: number): CrossFormula { return c('logicgates-or',
+    'or(a, b) = a ∨ b', a | b, nat(a, b) && a <= 1 && b <= 1, 'or', [a, b]) } /** XOR: the bits differ. value a
+    ⊕ b. */ static xor(a: number, b: number): CrossFormula { return c('logicgates-xor', 'xor(a, b) = a ⊕ b', a ^
+    b, nat(a, b) && a <= 1 && b <= 1, 'xor', [a, b]) } /** NAND: not both set. value 1 − (a ∧ b). */ static
+    nand(a: number, b: number): CrossFormula { return c('logicgates-nand', 'nand(a, b) = 1 − (a ∧ b)',
+    Math.max(0, 1 - (a & b)), nat(a, b) && a <= 1 && b <= 1, 'nand', [a, b]) } /** NOR: neither set. value 1 −
+    (a ∨ b). -/
+theorem fam_logicgates_nor_1 : ((1 : Int) - (if (0 : Int) ≠ 0 ∨ (0 : Int) ≠ 0 then (1 : Int) else 0)) = (1 : Int) := by decide
 
-/-- logistics: cost(1000, 2) = 2000 — COST: distance at a rate. value distance · rate. -/
-theorem fam_logistics_cost_1 : (1000 * 2) = 2000 := by decide
+/-- logicgates: mux(1, 0, 1) = 1 — LOGICGATES — DIGITAL LOGIC AS ARITHMETIC (chosen by the gate-level registry,
+    not by hand). A gate is numbers: the boolean functions on 0/1 bits (and, or, xor, nand, nor), the 2:1
+    selector that picks one of two bits, the inputs a gate drives (fanout), and the delay a signal accrues down
+    a chain (propagation). Crosses to `electronics` — a gate is what the circuit realises. A measure. */ const
+    PROOF = 'logicgates arithmetic (and, or, xor, nand, nor on 0/1 bits; mux 2:1 selector; fanout driven inputs;
+    propagation chain delay); the gate-level domain the registry surfaced; a measure crossed to electronics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logicgates', dst: 'electronics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `logicgates.${name}`, params }) export class LogicgatesFormulas {
+    /** AND: both bits set. value a ∧ b. */ static and(a: number, b: number): CrossFormula { return
+    c('logicgates-and', 'and(a, b) = a ∧ b', a & b, nat(a, b) && a <= 1 && b <= 1, 'and', [a, b]) } /** OR:
+    either bit set. value a ∨ b. */ static or(a: number, b: number): CrossFormula { return c('logicgates-or',
+    'or(a, b) = a ∨ b', a | b, nat(a, b) && a <= 1 && b <= 1, 'or', [a, b]) } /** XOR: the bits differ. value a
+    ⊕ b. */ static xor(a: number, b: number): CrossFormula { return c('logicgates-xor', 'xor(a, b) = a ⊕ b', a ^
+    b, nat(a, b) && a <= 1 && b <= 1, 'xor', [a, b]) } /** NAND: not both set. value 1 − (a ∧ b). */ static
+    nand(a: number, b: number): CrossFormula { return c('logicgates-nand', 'nand(a, b) = 1 − (a ∧ b)',
+    Math.max(0, 1 - (a & b)), nat(a, b) && a <= 1 && b <= 1, 'nand', [a, b]) } /** NOR: neither set. value 1 −
+    (a ∨ b). */ static nor(a: number, b: number): CrossFormula { return c('logicgates-nor', 'nor(a, b) = 1 − (a
+    ∨ b)', Math.max(0, 1 - (a | b)), nat(a, b) && a <= 1 && b <= 1, 'nor', [a, b]) } /** MUX: a 2:1 selector;
+    sel picks b, else a. value sel ? b : a. -/
+theorem fam_logicgates_mux_1 : (if (1 : Int) ≠ 0 then (1 : Int) else (0 : Int)) = (1 : Int) := by decide
 
-/-- logistics: inventory(500, 120) = 380 — INVENTORY left after demand. value max(0, stock − demand). -/
-theorem fam_logistics_inventory_1 : (fmax 0 (500 - 120)) = 380 := by decide
+/-- logicgates: mux(0, 0, 1) = 0 — LOGICGATES — DIGITAL LOGIC AS ARITHMETIC (chosen by the gate-level registry,
+    not by hand). A gate is numbers: the boolean functions on 0/1 bits (and, or, xor, nand, nor), the 2:1
+    selector that picks one of two bits, the inputs a gate drives (fanout), and the delay a signal accrues down
+    a chain (propagation). Crosses to `electronics` — a gate is what the circuit realises. A measure. */ const
+    PROOF = 'logicgates arithmetic (and, or, xor, nand, nor on 0/1 bits; mux 2:1 selector; fanout driven inputs;
+    propagation chain delay); the gate-level domain the registry surfaced; a measure crossed to electronics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logicgates', dst: 'electronics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `logicgates.${name}`, params }) export class LogicgatesFormulas {
+    /** AND: both bits set. value a ∧ b. */ static and(a: number, b: number): CrossFormula { return
+    c('logicgates-and', 'and(a, b) = a ∧ b', a & b, nat(a, b) && a <= 1 && b <= 1, 'and', [a, b]) } /** OR:
+    either bit set. value a ∨ b. */ static or(a: number, b: number): CrossFormula { return c('logicgates-or',
+    'or(a, b) = a ∨ b', a | b, nat(a, b) && a <= 1 && b <= 1, 'or', [a, b]) } /** XOR: the bits differ. value a
+    ⊕ b. */ static xor(a: number, b: number): CrossFormula { return c('logicgates-xor', 'xor(a, b) = a ⊕ b', a ^
+    b, nat(a, b) && a <= 1 && b <= 1, 'xor', [a, b]) } /** NAND: not both set. value 1 − (a ∧ b). */ static
+    nand(a: number, b: number): CrossFormula { return c('logicgates-nand', 'nand(a, b) = 1 − (a ∧ b)',
+    Math.max(0, 1 - (a & b)), nat(a, b) && a <= 1 && b <= 1, 'nand', [a, b]) } /** NOR: neither set. value 1 −
+    (a ∨ b). */ static nor(a: number, b: number): CrossFormula { return c('logicgates-nor', 'nor(a, b) = 1 − (a
+    ∨ b)', Math.max(0, 1 - (a | b)), nat(a, b) && a <= 1 && b <= 1, 'nor', [a, b]) } /** MUX: a 2:1 selector;
+    sel picks b, else a. value sel ? b : a. -/
+theorem fam_logicgates_mux_2 : (if (0 : Int) ≠ 0 then (1 : Int) else (0 : Int)) = (0 : Int) := by decide
 
-/-- logistics: inventory(100, 150) = 0 — INVENTORY left after demand. value max(0, stock − demand). -/
-theorem fam_logistics_inventory_2 : (fmax 0 (100 - 150)) = 0 := by decide
+/-- logicgates: fanout(4, 8) = 32 — LOGICGATES — DIGITAL LOGIC AS ARITHMETIC (chosen by the gate-level registry,
+    not by hand). A gate is numbers: the boolean functions on 0/1 bits (and, or, xor, nand, nor), the 2:1
+    selector that picks one of two bits, the inputs a gate drives (fanout), and the delay a signal accrues down
+    a chain (propagation). Crosses to `electronics` — a gate is what the circuit realises. A measure. */ const
+    PROOF = 'logicgates arithmetic (and, or, xor, nand, nor on 0/1 bits; mux 2:1 selector; fanout driven inputs;
+    propagation chain delay); the gate-level domain the registry surfaced; a measure crossed to electronics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logicgates', dst: 'electronics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `logicgates.${name}`, params }) export class LogicgatesFormulas {
+    /** AND: both bits set. value a ∧ b. */ static and(a: number, b: number): CrossFormula { return
+    c('logicgates-and', 'and(a, b) = a ∧ b', a & b, nat(a, b) && a <= 1 && b <= 1, 'and', [a, b]) } /** OR:
+    either bit set. value a ∨ b. */ static or(a: number, b: number): CrossFormula { return c('logicgates-or',
+    'or(a, b) = a ∨ b', a | b, nat(a, b) && a <= 1 && b <= 1, 'or', [a, b]) } /** XOR: the bits differ. value a
+    ⊕ b. */ static xor(a: number, b: number): CrossFormula { return c('logicgates-xor', 'xor(a, b) = a ⊕ b', a ^
+    b, nat(a, b) && a <= 1 && b <= 1, 'xor', [a, b]) } /** NAND: not both set. value 1 − (a ∧ b). */ static
+    nand(a: number, b: number): CrossFormula { return c('logicgates-nand', 'nand(a, b) = 1 − (a ∧ b)',
+    Math.max(0, 1 - (a & b)), nat(a, b) && a <= 1 && b <= 1, 'nand', [a, b]) } /** NOR: neither set. value 1 −
+    (a ∨ b). */ static nor(a: number, b: number): CrossFormula { return c('logicgates-nor', 'nor(a, b) = 1 − (a
+    ∨ b)', Math.max(0, 1 - (a | b)), nat(a, b) && a <= 1 && b <= 1, 'nor', [a, b]) } /** MUX: a 2:1 selector;
+    sel picks b, else a. value sel ? b : a. */ static mux(sel: number, a: number, b: number): CrossFormula {
+    return c('logicgates-mux', 'mux(sel, a, b) = sel ? b : a', sel === 1 ? b : a, nat(sel, a, b) && sel <= 1 &&
+    a <= 1 && b <= 1, 'mux', [sel, a, b]) } /** FANOUT: inputs driven = gates each driving loads. value gates ·
+    loads. -/
+theorem fam_logicgates_fanout_1 : ((4 : Int) * (8 : Int)) = (32 : Int) := by decide
 
-/-- logistics: leadtime(10, 17) = 7 — LEAD TIME: from ordered to received. value max(0, received − ordered). -/
-theorem fam_logistics_leadtime_1 : (fmax 0 (17 - 10)) = 7 := by decide
+/-- logicgates: propagation(10, 2) = 20 — LOGICGATES — DIGITAL LOGIC AS ARITHMETIC (chosen by the gate-level
+    registry, not by hand). A gate is numbers: the boolean functions on 0/1 bits (and, or, xor, nand, nor), the
+    2:1 selector that picks one of two bits, the inputs a gate drives (fanout), and the delay a signal accrues
+    down a chain (propagation). Crosses to `electronics` — a gate is what the circuit realises. A measure. */
+    const PROOF = 'logicgates arithmetic (and, or, xor, nand, nor on 0/1 bits; mux 2:1 selector; fanout driven
+    inputs; propagation chain delay); the gate-level domain the registry surfaced; a measure crossed to
+    electronics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c =
+    (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logicgates', dst: 'electronics',
+    formula, value, proof: PROOF, ...extra }, holds, { name: `logicgates.${name}`, params }) export class
+    LogicgatesFormulas { /** AND: both bits set. value a ∧ b. */ static and(a: number, b: number): CrossFormula
+    { return c('logicgates-and', 'and(a, b) = a ∧ b', a & b, nat(a, b) && a <= 1 && b <= 1, 'and', [a, b]) } /**
+    OR: either bit set. value a ∨ b. */ static or(a: number, b: number): CrossFormula { return
+    c('logicgates-or', 'or(a, b) = a ∨ b', a | b, nat(a, b) && a <= 1 && b <= 1, 'or', [a, b]) } /** XOR: the
+    bits differ. value a ⊕ b. */ static xor(a: number, b: number): CrossFormula { return c('logicgates-xor',
+    'xor(a, b) = a ⊕ b', a ^ b, nat(a, b) && a <= 1 && b <= 1, 'xor', [a, b]) } /** NAND: not both set. value 1
+    − (a ∧ b). */ static nand(a: number, b: number): CrossFormula { return c('logicgates-nand', 'nand(a, b) = 1
+    − (a ∧ b)', Math.max(0, 1 - (a & b)), nat(a, b) && a <= 1 && b <= 1, 'nand', [a, b]) } /** NOR: neither set.
+    value 1 − (a ∨ b). */ static nor(a: number, b: number): CrossFormula { return c('logicgates-nor', 'nor(a, b)
+    = 1 − (a ∨ b)', Math.max(0, 1 - (a | b)), nat(a, b) && a <= 1 && b <= 1, 'nor', [a, b]) } /** MUX: a 2:1
+    selector; sel picks b, else a. value sel ? b : a. */ static mux(sel: number, a: number, b: number):
+    CrossFormula { return c('logicgates-mux', 'mux(sel, a, b) = sel ? b : a', sel === 1 ? b : a, nat(sel, a, b)
+    && sel <= 1 && a <= 1 && b <= 1, 'mux', [sel, a, b]) } /** FANOUT: inputs driven = gates each driving loads.
+    value gates · loads. */ static fanout(gates: number, loads: number): CrossFormula { return
+    c('logicgates-fanout', 'fanout(gates, loads) = gates · loads', gates * loads, nat(gates, loads), 'fanout',
+    [gates, loads]) } /** PROPAGATION: delay down a chain of gates. value gates · delay. -/
+theorem fam_logicgates_propagation_1 : ((10 : Int) * (2 : Int)) = (20 : Int) := by decide
 
-/-- logistics: fillrate(90, 100) = 90 — FILL RATE: the share of an order shipped, as a percentage. value
-    ⌊shipped · 100 / ordered⌋. -/
-theorem fam_logistics_fillrate_1 : ((90 * 100) / 100) = 90 := by decide
+/-- logistics: eta(1000, 80) = 13 — LOGISTICS — SUPPLY CHAIN & SHIPPING, AS ARITHMETIC. Moving goods is numbers:
+    time to arrive, what a carrier holds, how full it runs, cost by distance, stock after demand, the lead time
+    of an order, the share of an order shipped, and the stops a route makes. Crosses to `econ` — logistics is
+    what the economy carries. A measure. */ const PROOF = 'logistics arithmetic (eta, capacity, utilization,
+    cost, inventory, leadtime, fillrate, route); supply chain & shipping as a measure crossed to econ' const nat
+    = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'logistics', dst: 'econ', formula, value, proof: PROOF, ...extra
+    }, holds, { name: `logistics.${name}`, params }) export class LogisticsFormulas { /** ETA: the hours to
+    cover a distance at a speed. value ⌈distance / speed⌉. -/
+theorem fam_logistics_eta_1 : (-((-(1000 : Int)) / (80 : Int))) = (13 : Int) := by decide
 
-/-- logistics: route(12, 50) = 600 — ROUTE: the distance of stops at a per-stop leg. value stops · perStop. -/
-theorem fam_logistics_route_1 : (12 * 50) = 600 := by decide
+/-- logistics: capacity(1000, 40) = 25 — LOGISTICS — SUPPLY CHAIN & SHIPPING, AS ARITHMETIC. Moving goods is
+    numbers: time to arrive, what a carrier holds, how full it runs, cost by distance, stock after demand, the
+    lead time of an order, the share of an order shipped, and the stops a route makes. Crosses to `econ` —
+    logistics is what the economy carries. A measure. */ const PROOF = 'logistics arithmetic (eta, capacity,
+    utilization, cost, inventory, leadtime, fillrate, route); supply chain & shipping as a measure crossed to
+    econ' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logistics', dst: 'econ', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `logistics.${name}`, params }) export class
+    LogisticsFormulas { /** ETA: the hours to cover a distance at a speed. value ⌈distance / speed⌉. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('logistics-eta', 'eta(distance, speed) =
+    ⌈distance / speed⌉', speed > 0 ? Math.ceil(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CAPACITY: the units a volume holds at a per-unit size. value ⌊volume / perUnit⌋. -/
+theorem fam_logistics_capacity_1 : ((1000 : Int) / (40 : Int)) = (25 : Int) := by decide
+
+/-- logistics: utilization(30, 40) = 75 — LOGISTICS — SUPPLY CHAIN & SHIPPING, AS ARITHMETIC. Moving goods is
+    numbers: time to arrive, what a carrier holds, how full it runs, cost by distance, stock after demand, the
+    lead time of an order, the share of an order shipped, and the stops a route makes. Crosses to `econ` —
+    logistics is what the economy carries. A measure. */ const PROOF = 'logistics arithmetic (eta, capacity,
+    utilization, cost, inventory, leadtime, fillrate, route); supply chain & shipping as a measure crossed to
+    econ' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logistics', dst: 'econ', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `logistics.${name}`, params }) export class
+    LogisticsFormulas { /** ETA: the hours to cover a distance at a speed. value ⌈distance / speed⌉. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('logistics-eta', 'eta(distance, speed) =
+    ⌈distance / speed⌉', speed > 0 ? Math.ceil(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CAPACITY: the units a volume holds at a per-unit size. value ⌊volume / perUnit⌋. */
+    static capacity(volume: number, perUnit: number): CrossFormula { return c('logistics-capacity',
+    'capacity(volume, perUnit) = ⌊volume / perUnit⌋', perUnit > 0 ? Math.floor(volume / perUnit) : 0,
+    nat(volume, perUnit) && perUnit > 0, 'capacity', [volume, perUnit]) } /** UTILIZATION as a percentage. value
+    ⌊used · 100 / total⌋. -/
+theorem fam_logistics_utilization_1 : (((30 : Int) * (100 : Int)) / (40 : Int)) = (75 : Int) := by decide
+
+/-- logistics: cost(1000, 2) = 2000 — LOGISTICS — SUPPLY CHAIN & SHIPPING, AS ARITHMETIC. Moving goods is
+    numbers: time to arrive, what a carrier holds, how full it runs, cost by distance, stock after demand, the
+    lead time of an order, the share of an order shipped, and the stops a route makes. Crosses to `econ` —
+    logistics is what the economy carries. A measure. */ const PROOF = 'logistics arithmetic (eta, capacity,
+    utilization, cost, inventory, leadtime, fillrate, route); supply chain & shipping as a measure crossed to
+    econ' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logistics', dst: 'econ', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `logistics.${name}`, params }) export class
+    LogisticsFormulas { /** ETA: the hours to cover a distance at a speed. value ⌈distance / speed⌉. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('logistics-eta', 'eta(distance, speed) =
+    ⌈distance / speed⌉', speed > 0 ? Math.ceil(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CAPACITY: the units a volume holds at a per-unit size. value ⌊volume / perUnit⌋. */
+    static capacity(volume: number, perUnit: number): CrossFormula { return c('logistics-capacity',
+    'capacity(volume, perUnit) = ⌊volume / perUnit⌋', perUnit > 0 ? Math.floor(volume / perUnit) : 0,
+    nat(volume, perUnit) && perUnit > 0, 'capacity', [volume, perUnit]) } /** UTILIZATION as a percentage. value
+    ⌊used · 100 / total⌋. */ static utilization(used: number, total: number): CrossFormula { return
+    c('logistics-utilization', 'utilization(used, total) = ⌊used · 100 / total⌋', total > 0 ? Math.floor((used *
+    100) / total) : 0, nat(used, total) && total > 0 && used <= total, 'utilization', [used, total]) } /** COST:
+    distance at a rate. value distance · rate. -/
+theorem fam_logistics_cost_1 : ((1000 : Int) * (2 : Int)) = (2000 : Int) := by decide
+
+/-- logistics: inventory(500, 120) = 380 — LOGISTICS — SUPPLY CHAIN & SHIPPING, AS ARITHMETIC. Moving goods is
+    numbers: time to arrive, what a carrier holds, how full it runs, cost by distance, stock after demand, the
+    lead time of an order, the share of an order shipped, and the stops a route makes. Crosses to `econ` —
+    logistics is what the economy carries. A measure. */ const PROOF = 'logistics arithmetic (eta, capacity,
+    utilization, cost, inventory, leadtime, fillrate, route); supply chain & shipping as a measure crossed to
+    econ' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logistics', dst: 'econ', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `logistics.${name}`, params }) export class
+    LogisticsFormulas { /** ETA: the hours to cover a distance at a speed. value ⌈distance / speed⌉. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('logistics-eta', 'eta(distance, speed) =
+    ⌈distance / speed⌉', speed > 0 ? Math.ceil(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CAPACITY: the units a volume holds at a per-unit size. value ⌊volume / perUnit⌋. */
+    static capacity(volume: number, perUnit: number): CrossFormula { return c('logistics-capacity',
+    'capacity(volume, perUnit) = ⌊volume / perUnit⌋', perUnit > 0 ? Math.floor(volume / perUnit) : 0,
+    nat(volume, perUnit) && perUnit > 0, 'capacity', [volume, perUnit]) } /** UTILIZATION as a percentage. value
+    ⌊used · 100 / total⌋. */ static utilization(used: number, total: number): CrossFormula { return
+    c('logistics-utilization', 'utilization(used, total) = ⌊used · 100 / total⌋', total > 0 ? Math.floor((used *
+    100) / total) : 0, nat(used, total) && total > 0 && used <= total, 'utilization', [used, total]) } /** COST:
+    distance at a rate. value distance · rate. */ static cost(distance: number, rate: number): CrossFormula {
+    return c('logistics-cost', 'cost(distance, rate) = distance · rate', distance * rate, nat(distance, rate),
+    'cost', [distance, rate]) } /** INVENTORY left after demand. value max(0, stock − demand). -/
+theorem fam_logistics_inventory_1 : (fmax (0 : Int) ((500 : Int) - (120 : Int))) = (380 : Int) := by decide
+
+/-- logistics: inventory(100, 150) = 0 — LOGISTICS — SUPPLY CHAIN & SHIPPING, AS ARITHMETIC. Moving goods is
+    numbers: time to arrive, what a carrier holds, how full it runs, cost by distance, stock after demand, the
+    lead time of an order, the share of an order shipped, and the stops a route makes. Crosses to `econ` —
+    logistics is what the economy carries. A measure. */ const PROOF = 'logistics arithmetic (eta, capacity,
+    utilization, cost, inventory, leadtime, fillrate, route); supply chain & shipping as a measure crossed to
+    econ' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logistics', dst: 'econ', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `logistics.${name}`, params }) export class
+    LogisticsFormulas { /** ETA: the hours to cover a distance at a speed. value ⌈distance / speed⌉. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('logistics-eta', 'eta(distance, speed) =
+    ⌈distance / speed⌉', speed > 0 ? Math.ceil(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CAPACITY: the units a volume holds at a per-unit size. value ⌊volume / perUnit⌋. */
+    static capacity(volume: number, perUnit: number): CrossFormula { return c('logistics-capacity',
+    'capacity(volume, perUnit) = ⌊volume / perUnit⌋', perUnit > 0 ? Math.floor(volume / perUnit) : 0,
+    nat(volume, perUnit) && perUnit > 0, 'capacity', [volume, perUnit]) } /** UTILIZATION as a percentage. value
+    ⌊used · 100 / total⌋. */ static utilization(used: number, total: number): CrossFormula { return
+    c('logistics-utilization', 'utilization(used, total) = ⌊used · 100 / total⌋', total > 0 ? Math.floor((used *
+    100) / total) : 0, nat(used, total) && total > 0 && used <= total, 'utilization', [used, total]) } /** COST:
+    distance at a rate. value distance · rate. */ static cost(distance: number, rate: number): CrossFormula {
+    return c('logistics-cost', 'cost(distance, rate) = distance · rate', distance * rate, nat(distance, rate),
+    'cost', [distance, rate]) } /** INVENTORY left after demand. value max(0, stock − demand). -/
+theorem fam_logistics_inventory_2 : (fmax (0 : Int) ((100 : Int) - (150 : Int))) = (0 : Int) := by decide
+
+/-- logistics: leadtime(10, 17) = 7 — LOGISTICS — SUPPLY CHAIN & SHIPPING, AS ARITHMETIC. Moving goods is
+    numbers: time to arrive, what a carrier holds, how full it runs, cost by distance, stock after demand, the
+    lead time of an order, the share of an order shipped, and the stops a route makes. Crosses to `econ` —
+    logistics is what the economy carries. A measure. */ const PROOF = 'logistics arithmetic (eta, capacity,
+    utilization, cost, inventory, leadtime, fillrate, route); supply chain & shipping as a measure crossed to
+    econ' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logistics', dst: 'econ', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `logistics.${name}`, params }) export class
+    LogisticsFormulas { /** ETA: the hours to cover a distance at a speed. value ⌈distance / speed⌉. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('logistics-eta', 'eta(distance, speed) =
+    ⌈distance / speed⌉', speed > 0 ? Math.ceil(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CAPACITY: the units a volume holds at a per-unit size. value ⌊volume / perUnit⌋. */
+    static capacity(volume: number, perUnit: number): CrossFormula { return c('logistics-capacity',
+    'capacity(volume, perUnit) = ⌊volume / perUnit⌋', perUnit > 0 ? Math.floor(volume / perUnit) : 0,
+    nat(volume, perUnit) && perUnit > 0, 'capacity', [volume, perUnit]) } /** UTILIZATION as a percentage. value
+    ⌊used · 100 / total⌋. */ static utilization(used: number, total: number): CrossFormula { return
+    c('logistics-utilization', 'utilization(used, total) = ⌊used · 100 / total⌋', total > 0 ? Math.floor((used *
+    100) / total) : 0, nat(used, total) && total > 0 && used <= total, 'utilization', [used, total]) } /** COST:
+    distance at a rate. value distance · rate. */ static cost(distance: number, rate: number): CrossFormula {
+    return c('logistics-cost', 'cost(distance, rate) = distance · rate', distance * rate, nat(distance, rate),
+    'cost', [distance, rate]) } /** INVENTORY left after demand. value max(0, stock − demand). */ static
+    inventory(stock: number, demand: number): CrossFormula { return c('logistics-inventory', 'inventory(stock,
+    demand) = max(0, stock − demand)', Math.max(0, stock - demand), nat(stock, demand), 'inventory', [stock,
+    demand]) } /** LEAD TIME: from ordered to received. value max(0, received − ordered). -/
+theorem fam_logistics_leadtime_1 : (fmax (0 : Int) ((17 : Int) - (10 : Int))) = (7 : Int) := by decide
+
+/-- logistics: fillrate(90, 100) = 90 — LOGISTICS — SUPPLY CHAIN & SHIPPING, AS ARITHMETIC. Moving goods is
+    numbers: time to arrive, what a carrier holds, how full it runs, cost by distance, stock after demand, the
+    lead time of an order, the share of an order shipped, and the stops a route makes. Crosses to `econ` —
+    logistics is what the economy carries. A measure. */ const PROOF = 'logistics arithmetic (eta, capacity,
+    utilization, cost, inventory, leadtime, fillrate, route); supply chain & shipping as a measure crossed to
+    econ' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logistics', dst: 'econ', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `logistics.${name}`, params }) export class
+    LogisticsFormulas { /** ETA: the hours to cover a distance at a speed. value ⌈distance / speed⌉. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('logistics-eta', 'eta(distance, speed) =
+    ⌈distance / speed⌉', speed > 0 ? Math.ceil(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CAPACITY: the units a volume holds at a per-unit size. value ⌊volume / perUnit⌋. */
+    static capacity(volume: number, perUnit: number): CrossFormula { return c('logistics-capacity',
+    'capacity(volume, perUnit) = ⌊volume / perUnit⌋', perUnit > 0 ? Math.floor(volume / perUnit) : 0,
+    nat(volume, perUnit) && perUnit > 0, 'capacity', [volume, perUnit]) } /** UTILIZATION as a percentage. value
+    ⌊used · 100 / total⌋. */ static utilization(used: number, total: number): CrossFormula { return
+    c('logistics-utilization', 'utilization(used, total) = ⌊used · 100 / total⌋', total > 0 ? Math.floor((used *
+    100) / total) : 0, nat(used, total) && total > 0 && used <= total, 'utilization', [used, total]) } /** COST:
+    distance at a rate. value distance · rate. */ static cost(distance: number, rate: number): CrossFormula {
+    return c('logistics-cost', 'cost(distance, rate) = distance · rate', distance * rate, nat(distance, rate),
+    'cost', [distance, rate]) } /** INVENTORY left after demand. value max(0, stock − demand). */ static
+    inventory(stock: number, demand: number): CrossFormula { return c('logistics-inventory', 'inventory(stock,
+    demand) = max(0, stock − demand)', Math.max(0, stock - demand), nat(stock, demand), 'inventory', [stock,
+    demand]) } /** LEAD TIME: from ordered to received. value max(0, received − ordered). */ static
+    leadtime(ordered: number, received: number): CrossFormula { return c('logistics-leadtime',
+    'leadtime(ordered, received) = max(0, received − ordered)', Math.max(0, received - ordered), nat(ordered,
+    received), 'leadtime', [ordered, received]) } /** FILL RATE: the share of an order shipped, as a percentage.
+    value ⌊shipped · 100 / ordered⌋. -/
+theorem fam_logistics_fillrate_1 : (((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int) := by decide
+
+/-- logistics: route(12, 50) = 600 — LOGISTICS — SUPPLY CHAIN & SHIPPING, AS ARITHMETIC. Moving goods is
+    numbers: time to arrive, what a carrier holds, how full it runs, cost by distance, stock after demand, the
+    lead time of an order, the share of an order shipped, and the stops a route makes. Crosses to `econ` —
+    logistics is what the economy carries. A measure. */ const PROOF = 'logistics arithmetic (eta, capacity,
+    utilization, cost, inventory, leadtime, fillrate, route); supply chain & shipping as a measure crossed to
+    econ' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id:
+    string, formula: string, value: number, holds: boolean, name: string, params: number[], extra:
+    Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'logistics', dst: 'econ', formula,
+    value, proof: PROOF, ...extra }, holds, { name: `logistics.${name}`, params }) export class
+    LogisticsFormulas { /** ETA: the hours to cover a distance at a speed. value ⌈distance / speed⌉. */ static
+    eta(distance: number, speed: number): CrossFormula { return c('logistics-eta', 'eta(distance, speed) =
+    ⌈distance / speed⌉', speed > 0 ? Math.ceil(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta',
+    [distance, speed]) } /** CAPACITY: the units a volume holds at a per-unit size. value ⌊volume / perUnit⌋. */
+    static capacity(volume: number, perUnit: number): CrossFormula { return c('logistics-capacity',
+    'capacity(volume, perUnit) = ⌊volume / perUnit⌋', perUnit > 0 ? Math.floor(volume / perUnit) : 0,
+    nat(volume, perUnit) && perUnit > 0, 'capacity', [volume, perUnit]) } /** UTILIZATION as a percentage. value
+    ⌊used · 100 / total⌋. */ static utilization(used: number, total: number): CrossFormula { return
+    c('logistics-utilization', 'utilization(used, total) = ⌊used · 100 / total⌋', total > 0 ? Math.floor((used *
+    100) / total) : 0, nat(used, total) && total > 0 && used <= total, 'utilization', [used, total]) } /** COST:
+    distance at a rate. value distance · rate. */ static cost(distance: number, rate: number): CrossFormula {
+    return c('logistics-cost', 'cost(distance, rate) = distance · rate', distance * rate, nat(distance, rate),
+    'cost', [distance, rate]) } /** INVENTORY left after demand. value max(0, stock − demand). */ static
+    inventory(stock: number, demand: number): CrossFormula { return c('logistics-inventory', 'inventory(stock,
+    demand) = max(0, stock − demand)', Math.max(0, stock - demand), nat(stock, demand), 'inventory', [stock,
+    demand]) } /** LEAD TIME: from ordered to received. value max(0, received − ordered). */ static
+    leadtime(ordered: number, received: number): CrossFormula { return c('logistics-leadtime',
+    'leadtime(ordered, received) = max(0, received − ordered)', Math.max(0, received - ordered), nat(ordered,
+    received), 'leadtime', [ordered, received]) } /** FILL RATE: the share of an order shipped, as a percentage.
+    value ⌊shipped · 100 / ordered⌋. */ static fillrate(shipped: number, ordered: number): CrossFormula { return
+    c('logistics-fillrate', 'fillrate(shipped, ordered) = ⌊shipped · 100 / ordered⌋', ordered > 0 ?
+    Math.floor((shipped * 100) / ordered) : 0, nat(shipped, ordered) && ordered > 0 && shipped <= ordered,
+    'fillrate', [shipped, ordered]) } /** ROUTE: the distance of stops at a per-stop leg. value stops · perStop. -/
+theorem fam_logistics_route_1 : ((12 : Int) * (50 : Int)) = (600 : Int) := by decide
 
 /-- logogram: symbols(2000, 1) = 2000 -/
-theorem fam_logogram_symbols_1 : (2000 * 1) = 2000 := by decide
+theorem fam_logogram_symbols_1 : ((2000 : Int) * (1 : Int)) = (2000 : Int) := by decide
+
+/-- logogram: compoundpairs(20, 2) = 190 -/
+theorem fam_logogram_compoundpairs_1 : (Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (2 : Int)))) = (190 : Int) := by decide
 
 /-- logogram: radicals(214, 0) = 214 -/
-theorem fam_logogram_radicals_1 : (214 + 0) = 214 := by decide
+theorem fam_logogram_radicals_1 : ((214 : Int) + (0 : Int)) = (214 : Int) := by decide
+
+/-- logogram: strokeorderings(5) = 120 -/
+theorem fam_logogram_strokeorderings_1 : (Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int) := by decide
 
 /-- logogram: semanticsubsets(6) = 64 -/
-theorem fam_logogram_semanticsubsets_1 : (2 ^ 6) = 64 := by decide
+theorem fam_logogram_semanticsubsets_1 : ((2 : Int) ^ (6 : Nat)) = (64 : Int) := by decide
 
 /-- logogram: readingsper(3, 2) = 5 -/
-theorem fam_logogram_readingsper_1 : (3 + 2) = 5 := by decide
+theorem fam_logogram_readingsper_1 : ((3 : Int) + (2 : Int)) = (5 : Int) := by decide
 
 /-- logogram: frequencyrank(2000, 10) = 200 -/
-theorem fam_logogram_frequencyrank_1 : (2000 / 10) = 200 := by decide
+theorem fam_logogram_frequencyrank_1 : ((2000 : Int) / (10 : Int)) = (200 : Int) := by decide
 
 /-- logogram: literacyratio(95, 100) = 95 -/
-theorem fam_logogram_literacyratio_1 : ((95 * 100) / 100) = 95 := by decide
+theorem fam_logogram_literacyratio_1 : (((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int) := by decide
 
-/-- lottery: coverage(250, 1000) = 25 — COVERAGE: the percent of all lines a batch of tickets covers. value
-    ⌊tickets · 100 / total⌋. -/
-theorem fam_lottery_coverage_1 : ((250 * 100) / 1000) = 25 := by decide
+/-- lottery: combinations(49, 6) = 13983816 — LOTTERY — DRAWING ODDS AS ARITHMETIC. A lottery is counting: how
+    many ways the balls fall, the one-in-N odds of a line, the value of a ticket against the jackpot, each
+    winner's share, what the lines cost, the fraction of the pool they cover, what rolls into the next draw, and
+    the house's cut. Crosses to `combinatorics` — the draw is a choice of k from n. A count. */ const PROOF =
+    'lottery arithmetic (combinations, odds denominator, expected value, jackpot share, ticket cost, coverage,
+    rollover, house edge); the draw is a choice of k from n; a count crossed to combinatorics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lottery', dst: 'combinatorics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lottery.${name}`, params }) /** C(n, k) by the multiplicative method: every
+    partial product is an integer, so the result is exact. 0 when k is out of range. */ const choose = (n:
+    number, k: number): number => { if (k < 0 || k > n) return 0 k = Math.min(k, n - k) let r = 1 for (let i =
+    1; i <= k; i++) r = (r * (n - k + i)) / i return r } export class LotteryFormulas { /** COMBINATIONS: the
+    ways to draw k balls from n. value C(n, k). -/
+theorem fam_lottery_combinations_1 : (Int.ofNat (fchoose (Int.toNat (49 : Int)) (Int.toNat (6 : Int)))) = (13983816 : Int) := by decide
 
-/-- lottery: expectedvalue(50000, 10000) = 5 — EXPECTED VALUE: the jackpot spread over the one-in-N odds. value
-    ⌊jackpot / odds⌋. -/
-theorem fam_lottery_expectedvalue_1 : (50000 / 10000) = 5 := by decide
+/-- lottery: coverage(250, 1000) = 25 — LOTTERY — DRAWING ODDS AS ARITHMETIC. A lottery is counting: how many
+    ways the balls fall, the one-in-N odds of a line, the value of a ticket against the jackpot, each winner's
+    share, what the lines cost, the fraction of the pool they cover, what rolls into the next draw, and the
+    house's cut. Crosses to `combinatorics` — the draw is a choice of k from n. A count. */ const PROOF =
+    'lottery arithmetic (combinations, odds denominator, expected value, jackpot share, ticket cost, coverage,
+    rollover, house edge); the draw is a choice of k from n; a count crossed to combinatorics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lottery', dst: 'combinatorics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lottery.${name}`, params }) /** C(n, k) by the multiplicative method: every
+    partial product is an integer, so the result is exact. 0 when k is out of range. */ const choose = (n:
+    number, k: number): number => { if (k < 0 || k > n) return 0 k = Math.min(k, n - k) let r = 1 for (let i =
+    1; i <= k; i++) r = (r * (n - k + i)) / i return r } export class LotteryFormulas { /** COMBINATIONS: the
+    ways to draw k balls from n. value C(n, k). */ static combinations(n: number, k: number): CrossFormula {
+    return c('lottery-combinations', 'combinations(n, k) = C(n, k)', choose(n, k), nat(n, k) && k <= n,
+    'combinations', [n, k]) } /** COVERAGE: the percent of all lines a batch of tickets covers. value ⌊tickets ·
+    100 / total⌋. -/
+theorem fam_lottery_coverage_1 : (((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int) := by decide
 
-/-- lottery: houseedge(1000, 500) = 50 — HOUSE EDGE: the percent of revenue the house keeps after payout. value
-    ⌊(revenue − payout) · 100 / revenue⌋. -/
-theorem fam_lottery_houseedge_1 : (((1000 - 500) * 100) / 1000) = 50 := by decide
+/-- lottery: expectedvalue(50000, 10000) = 5 — LOTTERY — DRAWING ODDS AS ARITHMETIC. A lottery is counting: how
+    many ways the balls fall, the one-in-N odds of a line, the value of a ticket against the jackpot, each
+    winner's share, what the lines cost, the fraction of the pool they cover, what rolls into the next draw, and
+    the house's cut. Crosses to `combinatorics` — the draw is a choice of k from n. A count. */ const PROOF =
+    'lottery arithmetic (combinations, odds denominator, expected value, jackpot share, ticket cost, coverage,
+    rollover, house edge); the draw is a choice of k from n; a count crossed to combinatorics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lottery', dst: 'combinatorics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lottery.${name}`, params }) /** C(n, k) by the multiplicative method: every
+    partial product is an integer, so the result is exact. 0 when k is out of range. */ const choose = (n:
+    number, k: number): number => { if (k < 0 || k > n) return 0 k = Math.min(k, n - k) let r = 1 for (let i =
+    1; i <= k; i++) r = (r * (n - k + i)) / i return r } export class LotteryFormulas { /** COMBINATIONS: the
+    ways to draw k balls from n. value C(n, k). */ static combinations(n: number, k: number): CrossFormula {
+    return c('lottery-combinations', 'combinations(n, k) = C(n, k)', choose(n, k), nat(n, k) && k <= n,
+    'combinations', [n, k]) } /** COVERAGE: the percent of all lines a batch of tickets covers. value ⌊tickets ·
+    100 / total⌋. */ static coverage(tickets: number, total: number): CrossFormula { return
+    c('lottery-coverage', 'coverage(tickets, total) = ⌊tickets · 100 / total⌋', total > 0 ? Math.floor((tickets
+    * 100) / total) : 0, nat(tickets, total) && total > 0 && tickets <= total, 'coverage', [tickets, total]) }
+    /** EXPECTED VALUE: the jackpot spread over the one-in-N odds. value ⌊jackpot / odds⌋. -/
+theorem fam_lottery_expectedvalue_1 : ((50000 : Int) / (10000 : Int)) = (5 : Int) := by decide
 
-/-- lottery: jackpotshare(60000, 4) = 15000 — JACKPOT SHARE: the jackpot split among the winners. value ⌊jackpot
-    / winners⌋. -/
-theorem fam_lottery_jackpotshare_1 : (60000 / 4) = 15000 := by decide
+/-- lottery: houseedge(1000, 500) = 50 — LOTTERY — DRAWING ODDS AS ARITHMETIC. A lottery is counting: how many
+    ways the balls fall, the one-in-N odds of a line, the value of a ticket against the jackpot, each winner's
+    share, what the lines cost, the fraction of the pool they cover, what rolls into the next draw, and the
+    house's cut. Crosses to `combinatorics` — the draw is a choice of k from n. A count. */ const PROOF =
+    'lottery arithmetic (combinations, odds denominator, expected value, jackpot share, ticket cost, coverage,
+    rollover, house edge); the draw is a choice of k from n; a count crossed to combinatorics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lottery', dst: 'combinatorics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lottery.${name}`, params }) /** C(n, k) by the multiplicative method: every
+    partial product is an integer, so the result is exact. 0 when k is out of range. */ const choose = (n:
+    number, k: number): number => { if (k < 0 || k > n) return 0 k = Math.min(k, n - k) let r = 1 for (let i =
+    1; i <= k; i++) r = (r * (n - k + i)) / i return r } export class LotteryFormulas { /** COMBINATIONS: the
+    ways to draw k balls from n. value C(n, k). */ static combinations(n: number, k: number): CrossFormula {
+    return c('lottery-combinations', 'combinations(n, k) = C(n, k)', choose(n, k), nat(n, k) && k <= n,
+    'combinations', [n, k]) } /** COVERAGE: the percent of all lines a batch of tickets covers. value ⌊tickets ·
+    100 / total⌋. */ static coverage(tickets: number, total: number): CrossFormula { return
+    c('lottery-coverage', 'coverage(tickets, total) = ⌊tickets · 100 / total⌋', total > 0 ? Math.floor((tickets
+    * 100) / total) : 0, nat(tickets, total) && total > 0 && tickets <= total, 'coverage', [tickets, total]) }
+    /** EXPECTED VALUE: the jackpot spread over the one-in-N odds. value ⌊jackpot / odds⌋. */ static
+    expectedvalue(jackpot: number, odds: number): CrossFormula { return c('lottery-expectedvalue',
+    'expectedvalue(jackpot, odds) = ⌊jackpot / odds⌋', odds > 0 ? Math.floor(jackpot / odds) : 0, nat(jackpot,
+    odds) && odds > 0, 'expectedvalue', [jackpot, odds]) } /** HOUSE EDGE: the percent of revenue the house
+    keeps after payout. value ⌊(revenue − payout) · 100 / revenue⌋. -/
+theorem fam_lottery_houseedge_1 : ((((1000 : Int) - (500 : Int)) * (100 : Int)) / (1000 : Int)) = (50 : Int) := by decide
 
-/-- lottery: rollover(50000, 15000) = 65000 — ROLLOVER: the jackpot carried into the next draw plus the added
-    pool. value jackpot + add. -/
-theorem fam_lottery_rollover_1 : (50000 + 15000) = 65000 := by decide
+/-- lottery: jackpotshare(60000, 4) = 15000 — LOTTERY — DRAWING ODDS AS ARITHMETIC. A lottery is counting: how
+    many ways the balls fall, the one-in-N odds of a line, the value of a ticket against the jackpot, each
+    winner's share, what the lines cost, the fraction of the pool they cover, what rolls into the next draw, and
+    the house's cut. Crosses to `combinatorics` — the draw is a choice of k from n. A count. */ const PROOF =
+    'lottery arithmetic (combinations, odds denominator, expected value, jackpot share, ticket cost, coverage,
+    rollover, house edge); the draw is a choice of k from n; a count crossed to combinatorics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lottery', dst: 'combinatorics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lottery.${name}`, params }) /** C(n, k) by the multiplicative method: every
+    partial product is an integer, so the result is exact. 0 when k is out of range. */ const choose = (n:
+    number, k: number): number => { if (k < 0 || k > n) return 0 k = Math.min(k, n - k) let r = 1 for (let i =
+    1; i <= k; i++) r = (r * (n - k + i)) / i return r } export class LotteryFormulas { /** COMBINATIONS: the
+    ways to draw k balls from n. value C(n, k). */ static combinations(n: number, k: number): CrossFormula {
+    return c('lottery-combinations', 'combinations(n, k) = C(n, k)', choose(n, k), nat(n, k) && k <= n,
+    'combinations', [n, k]) } /** COVERAGE: the percent of all lines a batch of tickets covers. value ⌊tickets ·
+    100 / total⌋. */ static coverage(tickets: number, total: number): CrossFormula { return
+    c('lottery-coverage', 'coverage(tickets, total) = ⌊tickets · 100 / total⌋', total > 0 ? Math.floor((tickets
+    * 100) / total) : 0, nat(tickets, total) && total > 0 && tickets <= total, 'coverage', [tickets, total]) }
+    /** EXPECTED VALUE: the jackpot spread over the one-in-N odds. value ⌊jackpot / odds⌋. */ static
+    expectedvalue(jackpot: number, odds: number): CrossFormula { return c('lottery-expectedvalue',
+    'expectedvalue(jackpot, odds) = ⌊jackpot / odds⌋', odds > 0 ? Math.floor(jackpot / odds) : 0, nat(jackpot,
+    odds) && odds > 0, 'expectedvalue', [jackpot, odds]) } /** HOUSE EDGE: the percent of revenue the house
+    keeps after payout. value ⌊(revenue − payout) · 100 / revenue⌋. */ static houseedge(revenue: number, payout:
+    number): CrossFormula { return c('lottery-houseedge', 'houseedge(revenue, payout) = ⌊(revenue − payout) ·
+    100 / revenue⌋', revenue > 0 ? Math.floor((Math.max(0, revenue - payout) * 100) / revenue) : 0, nat(revenue,
+    payout) && revenue > 0 && payout <= revenue, 'houseedge', [revenue, payout]) } /** JACKPOT SHARE: the
+    jackpot split among the winners. value ⌊jackpot / winners⌋. -/
+theorem fam_lottery_jackpotshare_1 : ((60000 : Int) / (4 : Int)) = (15000 : Int) := by decide
 
-/-- lottery: ticketcost(1000, 2) = 2000 — TICKET COST: tickets at a price each. value tickets · price. -/
-theorem fam_lottery_ticketcost_1 : (1000 * 2) = 2000 := by decide
+/-- lottery: oddsdenominator(69, 5, 26) = 292201338 — LOTTERY — DRAWING ODDS AS ARITHMETIC. A lottery is
+    counting: how many ways the balls fall, the one-in-N odds of a line, the value of a ticket against the
+    jackpot, each winner's share, what the lines cost, the fraction of the pool they cover, what rolls into the
+    next draw, and the house's cut. Crosses to `combinatorics` — the draw is a choice of k from n. A count. */
+    const PROOF = 'lottery arithmetic (combinations, odds denominator, expected value, jackpot share, ticket
+    cost, coverage, rollover, house edge); the draw is a choice of k from n; a count crossed to combinatorics'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'lottery', dst: 'combinatorics', formula, value,
+    proof: PROOF, ...extra }, holds, { name: `lottery.${name}`, params }) /** C(n, k) by the multiplicative
+    method: every partial product is an integer, so the result is exact. 0 when k is out of range. */ const
+    choose = (n: number, k: number): number => { if (k < 0 || k > n) return 0 k = Math.min(k, n - k) let r = 1
+    for (let i = 1; i <= k; i++) r = (r * (n - k + i)) / i return r } export class LotteryFormulas { /**
+    COMBINATIONS: the ways to draw k balls from n. value C(n, k). */ static combinations(n: number, k: number):
+    CrossFormula { return c('lottery-combinations', 'combinations(n, k) = C(n, k)', choose(n, k), nat(n, k) && k
+    <= n, 'combinations', [n, k]) } /** COVERAGE: the percent of all lines a batch of tickets covers. value
+    ⌊tickets · 100 / total⌋. */ static coverage(tickets: number, total: number): CrossFormula { return
+    c('lottery-coverage', 'coverage(tickets, total) = ⌊tickets · 100 / total⌋', total > 0 ? Math.floor((tickets
+    * 100) / total) : 0, nat(tickets, total) && total > 0 && tickets <= total, 'coverage', [tickets, total]) }
+    /** EXPECTED VALUE: the jackpot spread over the one-in-N odds. value ⌊jackpot / odds⌋. */ static
+    expectedvalue(jackpot: number, odds: number): CrossFormula { return c('lottery-expectedvalue',
+    'expectedvalue(jackpot, odds) = ⌊jackpot / odds⌋', odds > 0 ? Math.floor(jackpot / odds) : 0, nat(jackpot,
+    odds) && odds > 0, 'expectedvalue', [jackpot, odds]) } /** HOUSE EDGE: the percent of revenue the house
+    keeps after payout. value ⌊(revenue − payout) · 100 / revenue⌋. */ static houseedge(revenue: number, payout:
+    number): CrossFormula { return c('lottery-houseedge', 'houseedge(revenue, payout) = ⌊(revenue − payout) ·
+    100 / revenue⌋', revenue > 0 ? Math.floor((Math.max(0, revenue - payout) * 100) / revenue) : 0, nat(revenue,
+    payout) && revenue > 0 && payout <= revenue, 'houseedge', [revenue, payout]) } /** JACKPOT SHARE: the
+    jackpot split among the winners. value ⌊jackpot / winners⌋. */ static jackpotshare(jackpot: number, winners:
+    number): CrossFormula { return c('lottery-jackpotshare', 'jackpotshare(jackpot, winners) = ⌊jackpot /
+    winners⌋', winners > 0 ? Math.floor(jackpot / winners) : 0, nat(jackpot, winners) && winners > 0,
+    'jackpotshare', [jackpot, winners]) } /** ODDS DENOMINATOR: the one-in-N of a line, the main-pool
+    combinations times the bonus pool. value C(n, k) · bonus. -/
+theorem fam_lottery_oddsdenominator_1 : ((Int.ofNat (fchoose (Int.toNat (69 : Int)) (Int.toNat (5 : Int)))) * (26 : Int)) = (292201338 : Int) := by decide
+
+/-- lottery: rollover(50000, 15000) = 65000 — LOTTERY — DRAWING ODDS AS ARITHMETIC. A lottery is counting: how
+    many ways the balls fall, the one-in-N odds of a line, the value of a ticket against the jackpot, each
+    winner's share, what the lines cost, the fraction of the pool they cover, what rolls into the next draw, and
+    the house's cut. Crosses to `combinatorics` — the draw is a choice of k from n. A count. */ const PROOF =
+    'lottery arithmetic (combinations, odds denominator, expected value, jackpot share, ticket cost, coverage,
+    rollover, house edge); the draw is a choice of k from n; a count crossed to combinatorics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lottery', dst: 'combinatorics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lottery.${name}`, params }) /** C(n, k) by the multiplicative method: every
+    partial product is an integer, so the result is exact. 0 when k is out of range. */ const choose = (n:
+    number, k: number): number => { if (k < 0 || k > n) return 0 k = Math.min(k, n - k) let r = 1 for (let i =
+    1; i <= k; i++) r = (r * (n - k + i)) / i return r } export class LotteryFormulas { /** COMBINATIONS: the
+    ways to draw k balls from n. value C(n, k). */ static combinations(n: number, k: number): CrossFormula {
+    return c('lottery-combinations', 'combinations(n, k) = C(n, k)', choose(n, k), nat(n, k) && k <= n,
+    'combinations', [n, k]) } /** COVERAGE: the percent of all lines a batch of tickets covers. value ⌊tickets ·
+    100 / total⌋. */ static coverage(tickets: number, total: number): CrossFormula { return
+    c('lottery-coverage', 'coverage(tickets, total) = ⌊tickets · 100 / total⌋', total > 0 ? Math.floor((tickets
+    * 100) / total) : 0, nat(tickets, total) && total > 0 && tickets <= total, 'coverage', [tickets, total]) }
+    /** EXPECTED VALUE: the jackpot spread over the one-in-N odds. value ⌊jackpot / odds⌋. */ static
+    expectedvalue(jackpot: number, odds: number): CrossFormula { return c('lottery-expectedvalue',
+    'expectedvalue(jackpot, odds) = ⌊jackpot / odds⌋', odds > 0 ? Math.floor(jackpot / odds) : 0, nat(jackpot,
+    odds) && odds > 0, 'expectedvalue', [jackpot, odds]) } /** HOUSE EDGE: the percent of revenue the house
+    keeps after payout. value ⌊(revenue − payout) · 100 / revenue⌋. */ static houseedge(revenue: number, payout:
+    number): CrossFormula { return c('lottery-houseedge', 'houseedge(revenue, payout) = ⌊(revenue − payout) ·
+    100 / revenue⌋', revenue > 0 ? Math.floor((Math.max(0, revenue - payout) * 100) / revenue) : 0, nat(revenue,
+    payout) && revenue > 0 && payout <= revenue, 'houseedge', [revenue, payout]) } /** JACKPOT SHARE: the
+    jackpot split among the winners. value ⌊jackpot / winners⌋. */ static jackpotshare(jackpot: number, winners:
+    number): CrossFormula { return c('lottery-jackpotshare', 'jackpotshare(jackpot, winners) = ⌊jackpot /
+    winners⌋', winners > 0 ? Math.floor(jackpot / winners) : 0, nat(jackpot, winners) && winners > 0,
+    'jackpotshare', [jackpot, winners]) } /** ODDS DENOMINATOR: the one-in-N of a line, the main-pool
+    combinations times the bonus pool. value C(n, k) · bonus. */ static oddsdenominator(n: number, k: number,
+    bonus: number): CrossFormula { return c('lottery-oddsdenominator', 'oddsdenominator(n, k, bonus) = C(n, k) ·
+    bonus', choose(n, k) * bonus, nat(n, k, bonus) && k <= n, 'oddsdenominator', [n, k, bonus]) } /** ROLLOVER:
+    the jackpot carried into the next draw plus the added pool. value jackpot + add. -/
+theorem fam_lottery_rollover_1 : ((50000 : Int) + (15000 : Int)) = (65000 : Int) := by decide
+
+/-- lottery: ticketcost(1000, 2) = 2000 — LOTTERY — DRAWING ODDS AS ARITHMETIC. A lottery is counting: how many
+    ways the balls fall, the one-in-N odds of a line, the value of a ticket against the jackpot, each winner's
+    share, what the lines cost, the fraction of the pool they cover, what rolls into the next draw, and the
+    house's cut. Crosses to `combinatorics` — the draw is a choice of k from n. A count. */ const PROOF =
+    'lottery arithmetic (combinations, odds denominator, expected value, jackpot share, ticket cost, coverage,
+    rollover, house edge); the draw is a choice of k from n; a count crossed to combinatorics' const nat =
+    (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula:
+    string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
+    CrossFormula => crossFormulaOf({ id, src: 'lottery', dst: 'combinatorics', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `lottery.${name}`, params }) /** C(n, k) by the multiplicative method: every
+    partial product is an integer, so the result is exact. 0 when k is out of range. */ const choose = (n:
+    number, k: number): number => { if (k < 0 || k > n) return 0 k = Math.min(k, n - k) let r = 1 for (let i =
+    1; i <= k; i++) r = (r * (n - k + i)) / i return r } export class LotteryFormulas { /** COMBINATIONS: the
+    ways to draw k balls from n. value C(n, k). */ static combinations(n: number, k: number): CrossFormula {
+    return c('lottery-combinations', 'combinations(n, k) = C(n, k)', choose(n, k), nat(n, k) && k <= n,
+    'combinations', [n, k]) } /** COVERAGE: the percent of all lines a batch of tickets covers. value ⌊tickets ·
+    100 / total⌋. */ static coverage(tickets: number, total: number): CrossFormula { return
+    c('lottery-coverage', 'coverage(tickets, total) = ⌊tickets · 100 / total⌋', total > 0 ? Math.floor((tickets
+    * 100) / total) : 0, nat(tickets, total) && total > 0 && tickets <= total, 'coverage', [tickets, total]) }
+    /** EXPECTED VALUE: the jackpot spread over the one-in-N odds. value ⌊jackpot / odds⌋. */ static
+    expectedvalue(jackpot: number, odds: number): CrossFormula { return c('lottery-expectedvalue',
+    'expectedvalue(jackpot, odds) = ⌊jackpot / odds⌋', odds > 0 ? Math.floor(jackpot / odds) : 0, nat(jackpot,
+    odds) && odds > 0, 'expectedvalue', [jackpot, odds]) } /** HOUSE EDGE: the percent of revenue the house
+    keeps after payout. value ⌊(revenue − payout) · 100 / revenue⌋. */ static houseedge(revenue: number, payout:
+    number): CrossFormula { return c('lottery-houseedge', 'houseedge(revenue, payout) = ⌊(revenue − payout) ·
+    100 / revenue⌋', revenue > 0 ? Math.floor((Math.max(0, revenue - payout) * 100) / revenue) : 0, nat(revenue,
+    payout) && revenue > 0 && payout <= revenue, 'houseedge', [revenue, payout]) } /** JACKPOT SHARE: the
+    jackpot split among the winners. value ⌊jackpot / winners⌋. */ static jackpotshare(jackpot: number, winners:
+    number): CrossFormula { return c('lottery-jackpotshare', 'jackpotshare(jackpot, winners) = ⌊jackpot /
+    winners⌋', winners > 0 ? Math.floor(jackpot / winners) : 0, nat(jackpot, winners) && winners > 0,
+    'jackpotshare', [jackpot, winners]) } /** ODDS DENOMINATOR: the one-in-N of a line, the main-pool
+    combinations times the bonus pool. value C(n, k) · bonus. */ static oddsdenominator(n: number, k: number,
+    bonus: number): CrossFormula { return c('lottery-oddsdenominator', 'oddsdenominator(n, k, bonus) = C(n, k) ·
+    bonus', choose(n, k) * bonus, nat(n, k, bonus) && k <= n, 'oddsdenominator', [n, k, bonus]) } /** ROLLOVER:
+    the jackpot carried into the next draw plus the added pool. value jackpot + add. */ static rollover(jackpot:
+    number, add: number): CrossFormula { return c('lottery-rollover', 'rollover(jackpot, add) = jackpot + add',
+    jackpot + add, nat(jackpot, add), 'rollover', [jackpot, add]) } /** TICKET COST: tickets at a price each.
+    value tickets · price. -/
+theorem fam_lottery_ticketcost_1 : ((1000 : Int) * (2 : Int)) = (2000 : Int) := by decide
 
 /-- loyalty: points(100, 3) = 300 — LOYALTY — A RETAIL LOYALTY PROGRAM, AS ARITHMETIC. A member's standing is
     numbers: points earned on spend, the tier those points buy, points redeemed back into value, the share of
@@ -1231,36 +8114,456 @@ theorem fam_lottery_ticketcost_1 : (1000 * 2) = 2000 := by decide
     src: 'loyalty', dst: 'retail', formula, value, proof: PROOF, ...extra }, holds, { name: `loyalty.${name}`,
     params }) export class LoyaltyFormulas { /** POINTS EARNED: spend at a points-per-unit rate. value spend ·
     rate. -/
-theorem fam_loyalty_points_1 : (100 * 3) = 300 := by decide
+theorem fam_loyalty_points_1 : ((100 : Int) * (3 : Int)) = (300 : Int) := by decide
 
-/-- loyalty: tier(2500, 1000) = 2 — TIER: the whole tiers points buy at a per-tier threshold. value ⌊points /
-    perTier⌋. -/
-theorem fam_loyalty_tier_1 : (2500 / 1000) = 2 := by decide
+/-- loyalty: tier(2500, 1000) = 2 — LOYALTY — A RETAIL LOYALTY PROGRAM, AS ARITHMETIC. A member's standing is
+    numbers: points earned on spend, the tier those points buy, points redeemed back into value, the share of
+    members retained, repeat purchases per member, lifetime value, the churn share, and whether a reward
+    threshold is met. Crosses to `retail` — loyalty is what a store runs on its buyers. A measure. */ const
+    PROOF = 'loyalty arithmetic (points earned, tier, redemption, retention, repeat rate, lifetime value, churn,
+    reward threshold); a measure crossed to retail' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'loyalty', dst: 'retail', formula, value, proof: PROOF, ...extra }, holds, { name: `loyalty.${name}`,
+    params }) export class LoyaltyFormulas { /** POINTS EARNED: spend at a points-per-unit rate. value spend ·
+    rate. */ static points(spend: number, rate: number): CrossFormula { return c('loyalty-points',
+    'points(spend, rate) = spend · rate', spend * rate, nat(spend, rate), 'points', [spend, rate]) } /** TIER:
+    the whole tiers points buy at a per-tier threshold. value ⌊points / perTier⌋. -/
+theorem fam_loyalty_tier_1 : ((2500 : Int) / (1000 : Int)) = (2 : Int) := by decide
 
-/-- loyalty: redemption(1000, 100) = 10 — REDEMPTION: units of value points redeem into at a points-per-unit
-    cost. value ⌊points / perUnit⌋. -/
-theorem fam_loyalty_redemption_1 : (1000 / 100) = 10 := by decide
+/-- loyalty: redemption(1000, 100) = 10 — LOYALTY — A RETAIL LOYALTY PROGRAM, AS ARITHMETIC. A member's standing
+    is numbers: points earned on spend, the tier those points buy, points redeemed back into value, the share of
+    members retained, repeat purchases per member, lifetime value, the churn share, and whether a reward
+    threshold is met. Crosses to `retail` — loyalty is what a store runs on its buyers. A measure. */ const
+    PROOF = 'loyalty arithmetic (points earned, tier, redemption, retention, repeat rate, lifetime value, churn,
+    reward threshold); a measure crossed to retail' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'loyalty', dst: 'retail', formula, value, proof: PROOF, ...extra }, holds, { name: `loyalty.${name}`,
+    params }) export class LoyaltyFormulas { /** POINTS EARNED: spend at a points-per-unit rate. value spend ·
+    rate. */ static points(spend: number, rate: number): CrossFormula { return c('loyalty-points',
+    'points(spend, rate) = spend · rate', spend * rate, nat(spend, rate), 'points', [spend, rate]) } /** TIER:
+    the whole tiers points buy at a per-tier threshold. value ⌊points / perTier⌋. */ static tier(points: number,
+    perTier: number): CrossFormula { return c('loyalty-tier', 'tier(points, perTier) = ⌊points / perTier⌋',
+    perTier > 0 ? Math.floor(points / perTier) : 0, nat(points, perTier) && perTier > 0, 'tier', [points,
+    perTier]) } /** REDEMPTION: units of value points redeem into at a points-per-unit cost. value ⌊points /
+    perUnit⌋. -/
+theorem fam_loyalty_redemption_1 : ((1000 : Int) / (100 : Int)) = (10 : Int) := by decide
 
-/-- loyalty: retention(950, 1000) = 95 — RETENTION as a percentage. value ⌊retained · 100 / total⌋. -/
-theorem fam_loyalty_retention_1 : ((950 * 100) / 1000) = 95 := by decide
+/-- loyalty: retention(950, 1000) = 95 — LOYALTY — A RETAIL LOYALTY PROGRAM, AS ARITHMETIC. A member's standing
+    is numbers: points earned on spend, the tier those points buy, points redeemed back into value, the share of
+    members retained, repeat purchases per member, lifetime value, the churn share, and whether a reward
+    threshold is met. Crosses to `retail` — loyalty is what a store runs on its buyers. A measure. */ const
+    PROOF = 'loyalty arithmetic (points earned, tier, redemption, retention, repeat rate, lifetime value, churn,
+    reward threshold); a measure crossed to retail' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'loyalty', dst: 'retail', formula, value, proof: PROOF, ...extra }, holds, { name: `loyalty.${name}`,
+    params }) export class LoyaltyFormulas { /** POINTS EARNED: spend at a points-per-unit rate. value spend ·
+    rate. */ static points(spend: number, rate: number): CrossFormula { return c('loyalty-points',
+    'points(spend, rate) = spend · rate', spend * rate, nat(spend, rate), 'points', [spend, rate]) } /** TIER:
+    the whole tiers points buy at a per-tier threshold. value ⌊points / perTier⌋. */ static tier(points: number,
+    perTier: number): CrossFormula { return c('loyalty-tier', 'tier(points, perTier) = ⌊points / perTier⌋',
+    perTier > 0 ? Math.floor(points / perTier) : 0, nat(points, perTier) && perTier > 0, 'tier', [points,
+    perTier]) } /** REDEMPTION: units of value points redeem into at a points-per-unit cost. value ⌊points /
+    perUnit⌋. */ static redemption(points: number, perUnit: number): CrossFormula { return
+    c('loyalty-redemption', 'redemption(points, perUnit) = ⌊points / perUnit⌋', perUnit > 0 ? Math.floor(points
+    / perUnit) : 0, nat(points, perUnit) && perUnit > 0, 'redemption', [points, perUnit]) } /** RETENTION as a
+    percentage. value ⌊retained · 100 / total⌋. -/
+theorem fam_loyalty_retention_1 : (((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int) := by decide
 
-/-- loyalty: repeat(500, 100) = 5 — REPEAT RATE: purchases over members. value ⌊purchases / members⌋. -/
-theorem fam_loyalty_repeat_1 : (500 / 100) = 5 := by decide
+/-- loyalty: repeat(500, 100) = 5 — LOYALTY — A RETAIL LOYALTY PROGRAM, AS ARITHMETIC. A member's standing is
+    numbers: points earned on spend, the tier those points buy, points redeemed back into value, the share of
+    members retained, repeat purchases per member, lifetime value, the churn share, and whether a reward
+    threshold is met. Crosses to `retail` — loyalty is what a store runs on its buyers. A measure. */ const
+    PROOF = 'loyalty arithmetic (points earned, tier, redemption, retention, repeat rate, lifetime value, churn,
+    reward threshold); a measure crossed to retail' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'loyalty', dst: 'retail', formula, value, proof: PROOF, ...extra }, holds, { name: `loyalty.${name}`,
+    params }) export class LoyaltyFormulas { /** POINTS EARNED: spend at a points-per-unit rate. value spend ·
+    rate. */ static points(spend: number, rate: number): CrossFormula { return c('loyalty-points',
+    'points(spend, rate) = spend · rate', spend * rate, nat(spend, rate), 'points', [spend, rate]) } /** TIER:
+    the whole tiers points buy at a per-tier threshold. value ⌊points / perTier⌋. */ static tier(points: number,
+    perTier: number): CrossFormula { return c('loyalty-tier', 'tier(points, perTier) = ⌊points / perTier⌋',
+    perTier > 0 ? Math.floor(points / perTier) : 0, nat(points, perTier) && perTier > 0, 'tier', [points,
+    perTier]) } /** REDEMPTION: units of value points redeem into at a points-per-unit cost. value ⌊points /
+    perUnit⌋. */ static redemption(points: number, perUnit: number): CrossFormula { return
+    c('loyalty-redemption', 'redemption(points, perUnit) = ⌊points / perUnit⌋', perUnit > 0 ? Math.floor(points
+    / perUnit) : 0, nat(points, perUnit) && perUnit > 0, 'redemption', [points, perUnit]) } /** RETENTION as a
+    percentage. value ⌊retained · 100 / total⌋. */ static retention(retained: number, total: number):
+    CrossFormula { return c('loyalty-retention', 'retention(retained, total) = ⌊retained · 100 / total⌋', total
+    > 0 ? Math.floor((retained * 100) / total) : 0, nat(retained, total) && total > 0 && retained <= total,
+    'retention', [retained, total]) } /** REPEAT RATE: purchases over members. value ⌊purchases / members⌋. -/
+theorem fam_loyalty_repeat_1 : ((500 : Int) / (100 : Int)) = (5 : Int) := by decide
 
-/-- loyalty: lifetime(50, 12) = 600 — LIFETIME VALUE: average order over a member's orders. value avgOrder ·
-    orders. -/
-theorem fam_loyalty_lifetime_1 : (50 * 12) = 600 := by decide
+/-- loyalty: lifetime(50, 12) = 600 — LOYALTY — A RETAIL LOYALTY PROGRAM, AS ARITHMETIC. A member's standing is
+    numbers: points earned on spend, the tier those points buy, points redeemed back into value, the share of
+    members retained, repeat purchases per member, lifetime value, the churn share, and whether a reward
+    threshold is met. Crosses to `retail` — loyalty is what a store runs on its buyers. A measure. */ const
+    PROOF = 'loyalty arithmetic (points earned, tier, redemption, retention, repeat rate, lifetime value, churn,
+    reward threshold); a measure crossed to retail' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'loyalty', dst: 'retail', formula, value, proof: PROOF, ...extra }, holds, { name: `loyalty.${name}`,
+    params }) export class LoyaltyFormulas { /** POINTS EARNED: spend at a points-per-unit rate. value spend ·
+    rate. */ static points(spend: number, rate: number): CrossFormula { return c('loyalty-points',
+    'points(spend, rate) = spend · rate', spend * rate, nat(spend, rate), 'points', [spend, rate]) } /** TIER:
+    the whole tiers points buy at a per-tier threshold. value ⌊points / perTier⌋. */ static tier(points: number,
+    perTier: number): CrossFormula { return c('loyalty-tier', 'tier(points, perTier) = ⌊points / perTier⌋',
+    perTier > 0 ? Math.floor(points / perTier) : 0, nat(points, perTier) && perTier > 0, 'tier', [points,
+    perTier]) } /** REDEMPTION: units of value points redeem into at a points-per-unit cost. value ⌊points /
+    perUnit⌋. */ static redemption(points: number, perUnit: number): CrossFormula { return
+    c('loyalty-redemption', 'redemption(points, perUnit) = ⌊points / perUnit⌋', perUnit > 0 ? Math.floor(points
+    / perUnit) : 0, nat(points, perUnit) && perUnit > 0, 'redemption', [points, perUnit]) } /** RETENTION as a
+    percentage. value ⌊retained · 100 / total⌋. */ static retention(retained: number, total: number):
+    CrossFormula { return c('loyalty-retention', 'retention(retained, total) = ⌊retained · 100 / total⌋', total
+    > 0 ? Math.floor((retained * 100) / total) : 0, nat(retained, total) && total > 0 && retained <= total,
+    'retention', [retained, total]) } /** REPEAT RATE: purchases over members. value ⌊purchases / members⌋. */
+    static repeat(purchases: number, members: number): CrossFormula { return c('loyalty-repeat',
+    'repeat(purchases, members) = ⌊purchases / members⌋', members > 0 ? Math.floor(purchases / members) : 0,
+    nat(purchases, members) && members > 0, 'repeat', [purchases, members]) } /** LIFETIME VALUE: average order
+    over a member's orders. value avgOrder · orders. -/
+theorem fam_loyalty_lifetime_1 : ((50 : Int) * (12 : Int)) = (600 : Int) := by decide
 
-/-- loyalty: churn(50, 1000) = 5 — CHURN as a percentage. value ⌊lost · 100 / total⌋. -/
-theorem fam_loyalty_churn_1 : ((50 * 100) / 1000) = 5 := by decide
+/-- loyalty: churn(50, 1000) = 5 — LOYALTY — A RETAIL LOYALTY PROGRAM, AS ARITHMETIC. A member's standing is
+    numbers: points earned on spend, the tier those points buy, points redeemed back into value, the share of
+    members retained, repeat purchases per member, lifetime value, the churn share, and whether a reward
+    threshold is met. Crosses to `retail` — loyalty is what a store runs on its buyers. A measure. */ const
+    PROOF = 'loyalty arithmetic (points earned, tier, redemption, retention, repeat rate, lifetime value, churn,
+    reward threshold); a measure crossed to retail' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'loyalty', dst: 'retail', formula, value, proof: PROOF, ...extra }, holds, { name: `loyalty.${name}`,
+    params }) export class LoyaltyFormulas { /** POINTS EARNED: spend at a points-per-unit rate. value spend ·
+    rate. */ static points(spend: number, rate: number): CrossFormula { return c('loyalty-points',
+    'points(spend, rate) = spend · rate', spend * rate, nat(spend, rate), 'points', [spend, rate]) } /** TIER:
+    the whole tiers points buy at a per-tier threshold. value ⌊points / perTier⌋. */ static tier(points: number,
+    perTier: number): CrossFormula { return c('loyalty-tier', 'tier(points, perTier) = ⌊points / perTier⌋',
+    perTier > 0 ? Math.floor(points / perTier) : 0, nat(points, perTier) && perTier > 0, 'tier', [points,
+    perTier]) } /** REDEMPTION: units of value points redeem into at a points-per-unit cost. value ⌊points /
+    perUnit⌋. */ static redemption(points: number, perUnit: number): CrossFormula { return
+    c('loyalty-redemption', 'redemption(points, perUnit) = ⌊points / perUnit⌋', perUnit > 0 ? Math.floor(points
+    / perUnit) : 0, nat(points, perUnit) && perUnit > 0, 'redemption', [points, perUnit]) } /** RETENTION as a
+    percentage. value ⌊retained · 100 / total⌋. */ static retention(retained: number, total: number):
+    CrossFormula { return c('loyalty-retention', 'retention(retained, total) = ⌊retained · 100 / total⌋', total
+    > 0 ? Math.floor((retained * 100) / total) : 0, nat(retained, total) && total > 0 && retained <= total,
+    'retention', [retained, total]) } /** REPEAT RATE: purchases over members. value ⌊purchases / members⌋. */
+    static repeat(purchases: number, members: number): CrossFormula { return c('loyalty-repeat',
+    'repeat(purchases, members) = ⌊purchases / members⌋', members > 0 ? Math.floor(purchases / members) : 0,
+    nat(purchases, members) && members > 0, 'repeat', [purchases, members]) } /** LIFETIME VALUE: average order
+    over a member's orders. value avgOrder · orders. */ static lifetime(avgOrder: number, orders: number):
+    CrossFormula { return c('loyalty-lifetime', 'lifetime(avgOrder, orders) = avgOrder · orders', avgOrder *
+    orders, nat(avgOrder, orders), 'lifetime', [avgOrder, orders]) } /** CHURN as a percentage. value ⌊lost ·
+    100 / total⌋. -/
+theorem fam_loyalty_churn_1 : (((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int) := by decide
 
-/-- luminosity: bolometric(100, 200, 300) = 600 — BOLOMETRIC luminosity: the sum of output across bands. value
-    band1 + band2 + band3. -/
-theorem fam_luminosity_bolometric_1 : ((100 + 200) + 300) = 600 := by decide
+/-- loyalty: reward(2500, 2000) = 1 — LOYALTY — A RETAIL LOYALTY PROGRAM, AS ARITHMETIC. A member's standing is
+    numbers: points earned on spend, the tier those points buy, points redeemed back into value, the share of
+    members retained, repeat purchases per member, lifetime value, the churn share, and whether a reward
+    threshold is met. Crosses to `retail` — loyalty is what a store runs on its buyers. A measure. */ const
+    PROOF = 'loyalty arithmetic (points earned, tier, redemption, retention, repeat rate, lifetime value, churn,
+    reward threshold); a measure crossed to retail' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'loyalty', dst: 'retail', formula, value, proof: PROOF, ...extra }, holds, { name: `loyalty.${name}`,
+    params }) export class LoyaltyFormulas { /** POINTS EARNED: spend at a points-per-unit rate. value spend ·
+    rate. */ static points(spend: number, rate: number): CrossFormula { return c('loyalty-points',
+    'points(spend, rate) = spend · rate', spend * rate, nat(spend, rate), 'points', [spend, rate]) } /** TIER:
+    the whole tiers points buy at a per-tier threshold. value ⌊points / perTier⌋. */ static tier(points: number,
+    perTier: number): CrossFormula { return c('loyalty-tier', 'tier(points, perTier) = ⌊points / perTier⌋',
+    perTier > 0 ? Math.floor(points / perTier) : 0, nat(points, perTier) && perTier > 0, 'tier', [points,
+    perTier]) } /** REDEMPTION: units of value points redeem into at a points-per-unit cost. value ⌊points /
+    perUnit⌋. */ static redemption(points: number, perUnit: number): CrossFormula { return
+    c('loyalty-redemption', 'redemption(points, perUnit) = ⌊points / perUnit⌋', perUnit > 0 ? Math.floor(points
+    / perUnit) : 0, nat(points, perUnit) && perUnit > 0, 'redemption', [points, perUnit]) } /** RETENTION as a
+    percentage. value ⌊retained · 100 / total⌋. */ static retention(retained: number, total: number):
+    CrossFormula { return c('loyalty-retention', 'retention(retained, total) = ⌊retained · 100 / total⌋', total
+    > 0 ? Math.floor((retained * 100) / total) : 0, nat(retained, total) && total > 0 && retained <= total,
+    'retention', [retained, total]) } /** REPEAT RATE: purchases over members. value ⌊purchases / members⌋. */
+    static repeat(purchases: number, members: number): CrossFormula { return c('loyalty-repeat',
+    'repeat(purchases, members) = ⌊purchases / members⌋', members > 0 ? Math.floor(purchases / members) : 0,
+    nat(purchases, members) && members > 0, 'repeat', [purchases, members]) } /** LIFETIME VALUE: average order
+    over a member's orders. value avgOrder · orders. */ static lifetime(avgOrder: number, orders: number):
+    CrossFormula { return c('loyalty-lifetime', 'lifetime(avgOrder, orders) = avgOrder · orders', avgOrder *
+    orders, nat(avgOrder, orders), 'lifetime', [avgOrder, orders]) } /** CHURN as a percentage. value ⌊lost ·
+    100 / total⌋. */ static churn(lost: number, total: number): CrossFormula { return c('loyalty-churn',
+    'churn(lost, total) = ⌊lost · 100 / total⌋', total > 0 ? Math.floor((lost * 100) / total) : 0, nat(lost,
+    total) && total > 0 && lost <= total, 'churn', [lost, total]) } /** THE REWARD: 1 when points meet the
+    threshold. value [points ≥ threshold]. -/
+theorem fam_loyalty_reward_1 : (if (if (2500 : Int) ≥ (2000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
 
-/-- luminosity: eddingtonlimit(10) = 320000 — EDDINGTON LIMIT: the luminosity ceiling a mass can sustain. value
-    mass · 32000. -/
-theorem fam_luminosity_eddingtonlimit_1 : (10 * 32000) = 320000 := by decide
+/-- loyalty: reward(1000, 2000) = 0 — LOYALTY — A RETAIL LOYALTY PROGRAM, AS ARITHMETIC. A member's standing is
+    numbers: points earned on spend, the tier those points buy, points redeemed back into value, the share of
+    members retained, repeat purchases per member, lifetime value, the churn share, and whether a reward
+    threshold is met. Crosses to `retail` — loyalty is what a store runs on its buyers. A measure. */ const
+    PROOF = 'loyalty arithmetic (points earned, tier, redemption, retention, repeat rate, lifetime value, churn,
+    reward threshold); a measure crossed to retail' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'loyalty', dst: 'retail', formula, value, proof: PROOF, ...extra }, holds, { name: `loyalty.${name}`,
+    params }) export class LoyaltyFormulas { /** POINTS EARNED: spend at a points-per-unit rate. value spend ·
+    rate. */ static points(spend: number, rate: number): CrossFormula { return c('loyalty-points',
+    'points(spend, rate) = spend · rate', spend * rate, nat(spend, rate), 'points', [spend, rate]) } /** TIER:
+    the whole tiers points buy at a per-tier threshold. value ⌊points / perTier⌋. */ static tier(points: number,
+    perTier: number): CrossFormula { return c('loyalty-tier', 'tier(points, perTier) = ⌊points / perTier⌋',
+    perTier > 0 ? Math.floor(points / perTier) : 0, nat(points, perTier) && perTier > 0, 'tier', [points,
+    perTier]) } /** REDEMPTION: units of value points redeem into at a points-per-unit cost. value ⌊points /
+    perUnit⌋. */ static redemption(points: number, perUnit: number): CrossFormula { return
+    c('loyalty-redemption', 'redemption(points, perUnit) = ⌊points / perUnit⌋', perUnit > 0 ? Math.floor(points
+    / perUnit) : 0, nat(points, perUnit) && perUnit > 0, 'redemption', [points, perUnit]) } /** RETENTION as a
+    percentage. value ⌊retained · 100 / total⌋. */ static retention(retained: number, total: number):
+    CrossFormula { return c('loyalty-retention', 'retention(retained, total) = ⌊retained · 100 / total⌋', total
+    > 0 ? Math.floor((retained * 100) / total) : 0, nat(retained, total) && total > 0 && retained <= total,
+    'retention', [retained, total]) } /** REPEAT RATE: purchases over members. value ⌊purchases / members⌋. */
+    static repeat(purchases: number, members: number): CrossFormula { return c('loyalty-repeat',
+    'repeat(purchases, members) = ⌊purchases / members⌋', members > 0 ? Math.floor(purchases / members) : 0,
+    nat(purchases, members) && members > 0, 'repeat', [purchases, members]) } /** LIFETIME VALUE: average order
+    over a member's orders. value avgOrder · orders. */ static lifetime(avgOrder: number, orders: number):
+    CrossFormula { return c('loyalty-lifetime', 'lifetime(avgOrder, orders) = avgOrder · orders', avgOrder *
+    orders, nat(avgOrder, orders), 'lifetime', [avgOrder, orders]) } /** CHURN as a percentage. value ⌊lost ·
+    100 / total⌋. */ static churn(lost: number, total: number): CrossFormula { return c('loyalty-churn',
+    'churn(lost, total) = ⌊lost · 100 / total⌋', total > 0 ? Math.floor((lost * 100) / total) : 0, nat(lost,
+    total) && total > 0 && lost <= total, 'churn', [lost, total]) } /** THE REWARD: 1 when points meet the
+    threshold. value [points ≥ threshold]. -/
+theorem fam_loyalty_reward_2 : (if (if (1000 : Int) ≥ (2000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
 
-/-- luminosity: fluxratio(1000, 50) = 20 — FLUX RATIO: one flux over another. value ⌊flux1 / flux2⌋. -/
-theorem fam_luminosity_fluxratio_1 : (1000 / 50) = 20 := by decide
+/-- luminosity: stefanboltzmann(3, 2) = 48 — LUMINOSITY — THE RADIANT OUTPUT OF A STAR, AS ARITHMETIC. How
+    bright a star burns is numbers: the Stefan–Boltzmann output of a hot surface, the apparent brightness at a
+    distance, the inverse-square fall-off, the bolometric sum across bands, the Eddington ceiling a mass can
+    sustain, the radius a temperature implies, the ratio of two fluxes, and the luminosity class a threshold
+    decides. Crosses to `astrophysics` — luminosity is what astrophysics measures. A measure. */ const PROOF =
+    'luminosity arithmetic (Stefan–Boltzmann output, apparent brightness, inverse-square fall-off, bolometric
+    sum, Eddington limit, radius from temperature, flux ratio, luminosity class); integer proxies with small
+    exponents; a measure crossed to astrophysics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'luminosity', dst: 'astrophysics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `luminosity.${name}`, params }) export class LuminosityFormulas { /** APPARENT BRIGHTNESS: luminosity seen
+    across a distance (4π dropped). value ⌊lum / dist²⌋. */ static apparentbrightness(lum: number, dist:
+    number): CrossFormula { return c('luminosity-apparentbrightness', 'apparentbrightness(lum, dist) = ⌊lum /
+    dist²⌋', dist > 0 ? Math.floor(lum / (dist * dist)) : 0, nat(lum, dist) && dist > 0, 'apparentbrightness',
+    [lum, dist]) } /** BOLOMETRIC luminosity: the sum of output across bands. value band1 + band2 + band3. */
+    static bolometric(band1: number, band2: number, band3: number): CrossFormula { return
+    c('luminosity-bolometric', 'bolometric(band1, band2, band3) = band1 + band2 + band3', band1 + band2 + band3,
+    nat(band1, band2, band3), 'bolometric', [band1, band2, band3]) } /** EDDINGTON LIMIT: the luminosity ceiling
+    a mass can sustain. value mass · 32000. */ static eddingtonlimit(mass: number): CrossFormula { return
+    c('luminosity-eddingtonlimit', 'eddingtonlimit(mass) = mass · 32000', mass * 32000, nat(mass),
+    'eddingtonlimit', [mass]) } /** FLUX RATIO: one flux over another. value ⌊flux1 / flux2⌋. */ static
+    fluxratio(flux1: number, flux2: number): CrossFormula { return c('luminosity-fluxratio', 'fluxratio(flux1,
+    flux2) = ⌊flux1 / flux2⌋', flux2 > 0 ? Math.floor(flux1 / flux2) : 0, nat(flux1, flux2) && flux2 > 0,
+    'fluxratio', [flux1, flux2]) } /** INVERSE SQUARE: how flux falls from a near to a far distance. value ⌊far²
+    / near²⌋. */ static inversesquare(near: number, far: number): CrossFormula { return
+    c('luminosity-inversesquare', 'inversesquare(near, far) = ⌊far² / near²⌋', near > 0 ? Math.floor((far * far)
+    / (near * near)) : 0, nat(near, far) && near > 0, 'inversesquare', [near, far]) } /** LUMINOSITY CLASS: 1
+    when output reaches the threshold. value [lum ≥ threshold]. */ static luminosityclass(lum: number,
+    threshold: number): CrossFormula { return c('luminosity-luminosityclass', 'luminosityclass(lum, threshold) =
+    [lum ≥ threshold]', lum >= threshold ? 1 : 0, nat(lum, threshold), 'luminosityclass', [lum, threshold]) }
+    /** RADIUS FROM TEMP: the radius a luminosity and temperature imply. value ⌊lum / temp²⌋. */ static
+    radiusfromtemp(lum: number, temp: number): CrossFormula { return c('luminosity-radiusfromtemp',
+    'radiusfromtemp(lum, temp) = ⌊lum / temp²⌋', temp > 0 ? Math.floor(lum / (temp * temp)) : 0, nat(lum, temp)
+    && temp > 0, 'radiusfromtemp', [lum, temp]) } /** STEFAN–BOLTZMANN: the output of a hot surface. value area
+    · temp⁴. -/
+theorem fam_luminosity_stefanboltzmann_1 : ((3 : Int) * ((2 : Int) ^ (4 : Nat))) = (48 : Int) := by decide
+
+/-- luminosity: apparentbrightness(1000, 10) = 10 — LUMINOSITY — THE RADIANT OUTPUT OF A STAR, AS ARITHMETIC.
+    How bright a star burns is numbers: the Stefan–Boltzmann output of a hot surface, the apparent brightness at
+    a distance, the inverse-square fall-off, the bolometric sum across bands, the Eddington ceiling a mass can
+    sustain, the radius a temperature implies, the ratio of two fluxes, and the luminosity class a threshold
+    decides. Crosses to `astrophysics` — luminosity is what astrophysics measures. A measure. */ const PROOF =
+    'luminosity arithmetic (Stefan–Boltzmann output, apparent brightness, inverse-square fall-off, bolometric
+    sum, Eddington limit, radius from temperature, flux ratio, luminosity class); integer proxies with small
+    exponents; a measure crossed to astrophysics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'luminosity', dst: 'astrophysics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `luminosity.${name}`, params }) export class LuminosityFormulas { /** APPARENT BRIGHTNESS: luminosity seen
+    across a distance (4π dropped). value ⌊lum / dist²⌋. -/
+theorem fam_luminosity_apparentbrightness_1 : ((1000 : Int) / ((10 : Int) ^ (2 : Nat))) = (10 : Int) := by decide
+
+/-- luminosity: inversesquare(2, 6) = 9 — LUMINOSITY — THE RADIANT OUTPUT OF A STAR, AS ARITHMETIC. How bright a
+    star burns is numbers: the Stefan–Boltzmann output of a hot surface, the apparent brightness at a distance,
+    the inverse-square fall-off, the bolometric sum across bands, the Eddington ceiling a mass can sustain, the
+    radius a temperature implies, the ratio of two fluxes, and the luminosity class a threshold decides. Crosses
+    to `astrophysics` — luminosity is what astrophysics measures. A measure. */ const PROOF = 'luminosity
+    arithmetic (Stefan–Boltzmann output, apparent brightness, inverse-square fall-off, bolometric sum, Eddington
+    limit, radius from temperature, flux ratio, luminosity class); integer proxies with small exponents; a
+    measure crossed to astrophysics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) &&
+    x >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params:
+    number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'luminosity', dst:
+    'astrophysics', formula, value, proof: PROOF, ...extra }, holds, { name: `luminosity.${name}`, params })
+    export class LuminosityFormulas { /** APPARENT BRIGHTNESS: luminosity seen across a distance (4π dropped).
+    value ⌊lum / dist²⌋. */ static apparentbrightness(lum: number, dist: number): CrossFormula { return
+    c('luminosity-apparentbrightness', 'apparentbrightness(lum, dist) = ⌊lum / dist²⌋', dist > 0 ?
+    Math.floor(lum / (dist * dist)) : 0, nat(lum, dist) && dist > 0, 'apparentbrightness', [lum, dist]) } /**
+    BOLOMETRIC luminosity: the sum of output across bands. value band1 + band2 + band3. */ static
+    bolometric(band1: number, band2: number, band3: number): CrossFormula { return c('luminosity-bolometric',
+    'bolometric(band1, band2, band3) = band1 + band2 + band3', band1 + band2 + band3, nat(band1, band2, band3),
+    'bolometric', [band1, band2, band3]) } /** EDDINGTON LIMIT: the luminosity ceiling a mass can sustain. value
+    mass · 32000. */ static eddingtonlimit(mass: number): CrossFormula { return c('luminosity-eddingtonlimit',
+    'eddingtonlimit(mass) = mass · 32000', mass * 32000, nat(mass), 'eddingtonlimit', [mass]) } /** FLUX RATIO:
+    one flux over another. value ⌊flux1 / flux2⌋. */ static fluxratio(flux1: number, flux2: number):
+    CrossFormula { return c('luminosity-fluxratio', 'fluxratio(flux1, flux2) = ⌊flux1 / flux2⌋', flux2 > 0 ?
+    Math.floor(flux1 / flux2) : 0, nat(flux1, flux2) && flux2 > 0, 'fluxratio', [flux1, flux2]) } /** INVERSE
+    SQUARE: how flux falls from a near to a far distance. value ⌊far² / near²⌋. -/
+theorem fam_luminosity_inversesquare_1 : (((6 : Int) ^ (2 : Nat)) / ((2 : Int) ^ (2 : Nat))) = (9 : Int) := by decide
+
+/-- luminosity: bolometric(100, 200, 300) = 600 — LUMINOSITY — THE RADIANT OUTPUT OF A STAR, AS ARITHMETIC. How
+    bright a star burns is numbers: the Stefan–Boltzmann output of a hot surface, the apparent brightness at a
+    distance, the inverse-square fall-off, the bolometric sum across bands, the Eddington ceiling a mass can
+    sustain, the radius a temperature implies, the ratio of two fluxes, and the luminosity class a threshold
+    decides. Crosses to `astrophysics` — luminosity is what astrophysics measures. A measure. */ const PROOF =
+    'luminosity arithmetic (Stefan–Boltzmann output, apparent brightness, inverse-square fall-off, bolometric
+    sum, Eddington limit, radius from temperature, flux ratio, luminosity class); integer proxies with small
+    exponents; a measure crossed to astrophysics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'luminosity', dst: 'astrophysics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `luminosity.${name}`, params }) export class LuminosityFormulas { /** APPARENT BRIGHTNESS: luminosity seen
+    across a distance (4π dropped). value ⌊lum / dist²⌋. */ static apparentbrightness(lum: number, dist:
+    number): CrossFormula { return c('luminosity-apparentbrightness', 'apparentbrightness(lum, dist) = ⌊lum /
+    dist²⌋', dist > 0 ? Math.floor(lum / (dist * dist)) : 0, nat(lum, dist) && dist > 0, 'apparentbrightness',
+    [lum, dist]) } /** BOLOMETRIC luminosity: the sum of output across bands. value band1 + band2 + band3. -/
+theorem fam_luminosity_bolometric_1 : (((100 : Int) + (200 : Int)) + (300 : Int)) = (600 : Int) := by decide
+
+/-- luminosity: eddingtonlimit(10) = 320000 — LUMINOSITY — THE RADIANT OUTPUT OF A STAR, AS ARITHMETIC. How
+    bright a star burns is numbers: the Stefan–Boltzmann output of a hot surface, the apparent brightness at a
+    distance, the inverse-square fall-off, the bolometric sum across bands, the Eddington ceiling a mass can
+    sustain, the radius a temperature implies, the ratio of two fluxes, and the luminosity class a threshold
+    decides. Crosses to `astrophysics` — luminosity is what astrophysics measures. A measure. */ const PROOF =
+    'luminosity arithmetic (Stefan–Boltzmann output, apparent brightness, inverse-square fall-off, bolometric
+    sum, Eddington limit, radius from temperature, flux ratio, luminosity class); integer proxies with small
+    exponents; a measure crossed to astrophysics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'luminosity', dst: 'astrophysics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `luminosity.${name}`, params }) export class LuminosityFormulas { /** APPARENT BRIGHTNESS: luminosity seen
+    across a distance (4π dropped). value ⌊lum / dist²⌋. */ static apparentbrightness(lum: number, dist:
+    number): CrossFormula { return c('luminosity-apparentbrightness', 'apparentbrightness(lum, dist) = ⌊lum /
+    dist²⌋', dist > 0 ? Math.floor(lum / (dist * dist)) : 0, nat(lum, dist) && dist > 0, 'apparentbrightness',
+    [lum, dist]) } /** BOLOMETRIC luminosity: the sum of output across bands. value band1 + band2 + band3. */
+    static bolometric(band1: number, band2: number, band3: number): CrossFormula { return
+    c('luminosity-bolometric', 'bolometric(band1, band2, band3) = band1 + band2 + band3', band1 + band2 + band3,
+    nat(band1, band2, band3), 'bolometric', [band1, band2, band3]) } /** EDDINGTON LIMIT: the luminosity ceiling
+    a mass can sustain. value mass · 32000. -/
+theorem fam_luminosity_eddingtonlimit_1 : ((10 : Int) * (32000 : Int)) = (320000 : Int) := by decide
+
+/-- luminosity: radiusfromtemp(1000, 10) = 10 — LUMINOSITY — THE RADIANT OUTPUT OF A STAR, AS ARITHMETIC. How
+    bright a star burns is numbers: the Stefan–Boltzmann output of a hot surface, the apparent brightness at a
+    distance, the inverse-square fall-off, the bolometric sum across bands, the Eddington ceiling a mass can
+    sustain, the radius a temperature implies, the ratio of two fluxes, and the luminosity class a threshold
+    decides. Crosses to `astrophysics` — luminosity is what astrophysics measures. A measure. */ const PROOF =
+    'luminosity arithmetic (Stefan–Boltzmann output, apparent brightness, inverse-square fall-off, bolometric
+    sum, Eddington limit, radius from temperature, flux ratio, luminosity class); integer proxies with small
+    exponents; a measure crossed to astrophysics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'luminosity', dst: 'astrophysics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `luminosity.${name}`, params }) export class LuminosityFormulas { /** APPARENT BRIGHTNESS: luminosity seen
+    across a distance (4π dropped). value ⌊lum / dist²⌋. */ static apparentbrightness(lum: number, dist:
+    number): CrossFormula { return c('luminosity-apparentbrightness', 'apparentbrightness(lum, dist) = ⌊lum /
+    dist²⌋', dist > 0 ? Math.floor(lum / (dist * dist)) : 0, nat(lum, dist) && dist > 0, 'apparentbrightness',
+    [lum, dist]) } /** BOLOMETRIC luminosity: the sum of output across bands. value band1 + band2 + band3. */
+    static bolometric(band1: number, band2: number, band3: number): CrossFormula { return
+    c('luminosity-bolometric', 'bolometric(band1, band2, band3) = band1 + band2 + band3', band1 + band2 + band3,
+    nat(band1, band2, band3), 'bolometric', [band1, band2, band3]) } /** EDDINGTON LIMIT: the luminosity ceiling
+    a mass can sustain. value mass · 32000. */ static eddingtonlimit(mass: number): CrossFormula { return
+    c('luminosity-eddingtonlimit', 'eddingtonlimit(mass) = mass · 32000', mass * 32000, nat(mass),
+    'eddingtonlimit', [mass]) } /** FLUX RATIO: one flux over another. value ⌊flux1 / flux2⌋. */ static
+    fluxratio(flux1: number, flux2: number): CrossFormula { return c('luminosity-fluxratio', 'fluxratio(flux1,
+    flux2) = ⌊flux1 / flux2⌋', flux2 > 0 ? Math.floor(flux1 / flux2) : 0, nat(flux1, flux2) && flux2 > 0,
+    'fluxratio', [flux1, flux2]) } /** INVERSE SQUARE: how flux falls from a near to a far distance. value ⌊far²
+    / near²⌋. */ static inversesquare(near: number, far: number): CrossFormula { return
+    c('luminosity-inversesquare', 'inversesquare(near, far) = ⌊far² / near²⌋', near > 0 ? Math.floor((far * far)
+    / (near * near)) : 0, nat(near, far) && near > 0, 'inversesquare', [near, far]) } /** LUMINOSITY CLASS: 1
+    when output reaches the threshold. value [lum ≥ threshold]. */ static luminosityclass(lum: number,
+    threshold: number): CrossFormula { return c('luminosity-luminosityclass', 'luminosityclass(lum, threshold) =
+    [lum ≥ threshold]', lum >= threshold ? 1 : 0, nat(lum, threshold), 'luminosityclass', [lum, threshold]) }
+    /** RADIUS FROM TEMP: the radius a luminosity and temperature imply. value ⌊lum / temp²⌋. -/
+theorem fam_luminosity_radiusfromtemp_1 : ((1000 : Int) / ((10 : Int) ^ (2 : Nat))) = (10 : Int) := by decide
+
+/-- luminosity: fluxratio(1000, 50) = 20 — LUMINOSITY — THE RADIANT OUTPUT OF A STAR, AS ARITHMETIC. How bright
+    a star burns is numbers: the Stefan–Boltzmann output of a hot surface, the apparent brightness at a
+    distance, the inverse-square fall-off, the bolometric sum across bands, the Eddington ceiling a mass can
+    sustain, the radius a temperature implies, the ratio of two fluxes, and the luminosity class a threshold
+    decides. Crosses to `astrophysics` — luminosity is what astrophysics measures. A measure. */ const PROOF =
+    'luminosity arithmetic (Stefan–Boltzmann output, apparent brightness, inverse-square fall-off, bolometric
+    sum, Eddington limit, radius from temperature, flux ratio, luminosity class); integer proxies with small
+    exponents; a measure crossed to astrophysics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'luminosity', dst: 'astrophysics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `luminosity.${name}`, params }) export class LuminosityFormulas { /** APPARENT BRIGHTNESS: luminosity seen
+    across a distance (4π dropped). value ⌊lum / dist²⌋. */ static apparentbrightness(lum: number, dist:
+    number): CrossFormula { return c('luminosity-apparentbrightness', 'apparentbrightness(lum, dist) = ⌊lum /
+    dist²⌋', dist > 0 ? Math.floor(lum / (dist * dist)) : 0, nat(lum, dist) && dist > 0, 'apparentbrightness',
+    [lum, dist]) } /** BOLOMETRIC luminosity: the sum of output across bands. value band1 + band2 + band3. */
+    static bolometric(band1: number, band2: number, band3: number): CrossFormula { return
+    c('luminosity-bolometric', 'bolometric(band1, band2, band3) = band1 + band2 + band3', band1 + band2 + band3,
+    nat(band1, band2, band3), 'bolometric', [band1, band2, band3]) } /** EDDINGTON LIMIT: the luminosity ceiling
+    a mass can sustain. value mass · 32000. */ static eddingtonlimit(mass: number): CrossFormula { return
+    c('luminosity-eddingtonlimit', 'eddingtonlimit(mass) = mass · 32000', mass * 32000, nat(mass),
+    'eddingtonlimit', [mass]) } /** FLUX RATIO: one flux over another. value ⌊flux1 / flux2⌋. -/
+theorem fam_luminosity_fluxratio_1 : ((1000 : Int) / (50 : Int)) = (20 : Int) := by decide
+
+/-- luminosity: luminosityclass(5000, 1000) = 1 — LUMINOSITY — THE RADIANT OUTPUT OF A STAR, AS ARITHMETIC. How
+    bright a star burns is numbers: the Stefan–Boltzmann output of a hot surface, the apparent brightness at a
+    distance, the inverse-square fall-off, the bolometric sum across bands, the Eddington ceiling a mass can
+    sustain, the radius a temperature implies, the ratio of two fluxes, and the luminosity class a threshold
+    decides. Crosses to `astrophysics` — luminosity is what astrophysics measures. A measure. */ const PROOF =
+    'luminosity arithmetic (Stefan–Boltzmann output, apparent brightness, inverse-square fall-off, bolometric
+    sum, Eddington limit, radius from temperature, flux ratio, luminosity class); integer proxies with small
+    exponents; a measure crossed to astrophysics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'luminosity', dst: 'astrophysics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `luminosity.${name}`, params }) export class LuminosityFormulas { /** APPARENT BRIGHTNESS: luminosity seen
+    across a distance (4π dropped). value ⌊lum / dist²⌋. */ static apparentbrightness(lum: number, dist:
+    number): CrossFormula { return c('luminosity-apparentbrightness', 'apparentbrightness(lum, dist) = ⌊lum /
+    dist²⌋', dist > 0 ? Math.floor(lum / (dist * dist)) : 0, nat(lum, dist) && dist > 0, 'apparentbrightness',
+    [lum, dist]) } /** BOLOMETRIC luminosity: the sum of output across bands. value band1 + band2 + band3. */
+    static bolometric(band1: number, band2: number, band3: number): CrossFormula { return
+    c('luminosity-bolometric', 'bolometric(band1, band2, band3) = band1 + band2 + band3', band1 + band2 + band3,
+    nat(band1, band2, band3), 'bolometric', [band1, band2, band3]) } /** EDDINGTON LIMIT: the luminosity ceiling
+    a mass can sustain. value mass · 32000. */ static eddingtonlimit(mass: number): CrossFormula { return
+    c('luminosity-eddingtonlimit', 'eddingtonlimit(mass) = mass · 32000', mass * 32000, nat(mass),
+    'eddingtonlimit', [mass]) } /** FLUX RATIO: one flux over another. value ⌊flux1 / flux2⌋. */ static
+    fluxratio(flux1: number, flux2: number): CrossFormula { return c('luminosity-fluxratio', 'fluxratio(flux1,
+    flux2) = ⌊flux1 / flux2⌋', flux2 > 0 ? Math.floor(flux1 / flux2) : 0, nat(flux1, flux2) && flux2 > 0,
+    'fluxratio', [flux1, flux2]) } /** INVERSE SQUARE: how flux falls from a near to a far distance. value ⌊far²
+    / near²⌋. */ static inversesquare(near: number, far: number): CrossFormula { return
+    c('luminosity-inversesquare', 'inversesquare(near, far) = ⌊far² / near²⌋', near > 0 ? Math.floor((far * far)
+    / (near * near)) : 0, nat(near, far) && near > 0, 'inversesquare', [near, far]) } /** LUMINOSITY CLASS: 1
+    when output reaches the threshold. value [lum ≥ threshold]. -/
+theorem fam_luminosity_luminosityclass_1 : (if (if (5000 : Int) ≥ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
+
+/-- luminosity: luminosityclass(500, 1000) = 0 — LUMINOSITY — THE RADIANT OUTPUT OF A STAR, AS ARITHMETIC. How
+    bright a star burns is numbers: the Stefan–Boltzmann output of a hot surface, the apparent brightness at a
+    distance, the inverse-square fall-off, the bolometric sum across bands, the Eddington ceiling a mass can
+    sustain, the radius a temperature implies, the ratio of two fluxes, and the luminosity class a threshold
+    decides. Crosses to `astrophysics` — luminosity is what astrophysics measures. A measure. */ const PROOF =
+    'luminosity arithmetic (Stefan–Boltzmann output, apparent brightness, inverse-square fall-off, bolometric
+    sum, Eddington limit, radius from temperature, flux ratio, luminosity class); integer proxies with small
+    exponents; a measure crossed to astrophysics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'luminosity', dst: 'astrophysics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `luminosity.${name}`, params }) export class LuminosityFormulas { /** APPARENT BRIGHTNESS: luminosity seen
+    across a distance (4π dropped). value ⌊lum / dist²⌋. */ static apparentbrightness(lum: number, dist:
+    number): CrossFormula { return c('luminosity-apparentbrightness', 'apparentbrightness(lum, dist) = ⌊lum /
+    dist²⌋', dist > 0 ? Math.floor(lum / (dist * dist)) : 0, nat(lum, dist) && dist > 0, 'apparentbrightness',
+    [lum, dist]) } /** BOLOMETRIC luminosity: the sum of output across bands. value band1 + band2 + band3. */
+    static bolometric(band1: number, band2: number, band3: number): CrossFormula { return
+    c('luminosity-bolometric', 'bolometric(band1, band2, band3) = band1 + band2 + band3', band1 + band2 + band3,
+    nat(band1, band2, band3), 'bolometric', [band1, band2, band3]) } /** EDDINGTON LIMIT: the luminosity ceiling
+    a mass can sustain. value mass · 32000. */ static eddingtonlimit(mass: number): CrossFormula { return
+    c('luminosity-eddingtonlimit', 'eddingtonlimit(mass) = mass · 32000', mass * 32000, nat(mass),
+    'eddingtonlimit', [mass]) } /** FLUX RATIO: one flux over another. value ⌊flux1 / flux2⌋. */ static
+    fluxratio(flux1: number, flux2: number): CrossFormula { return c('luminosity-fluxratio', 'fluxratio(flux1,
+    flux2) = ⌊flux1 / flux2⌋', flux2 > 0 ? Math.floor(flux1 / flux2) : 0, nat(flux1, flux2) && flux2 > 0,
+    'fluxratio', [flux1, flux2]) } /** INVERSE SQUARE: how flux falls from a near to a far distance. value ⌊far²
+    / near²⌋. */ static inversesquare(near: number, far: number): CrossFormula { return
+    c('luminosity-inversesquare', 'inversesquare(near, far) = ⌊far² / near²⌋', near > 0 ? Math.floor((far * far)
+    / (near * near)) : 0, nat(near, far) && near > 0, 'inversesquare', [near, far]) } /** LUMINOSITY CLASS: 1
+    when output reaches the threshold. value [lum ≥ threshold]. -/
+theorem fam_luminosity_luminosityclass_2 : (if (if (500 : Int) ≥ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide

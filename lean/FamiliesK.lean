@@ -1,7 +1,13 @@
--- lean/FamiliesK.lean — GENERATED. THE FAMILIES, K — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as Nat arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/FamiliesK.lean — GENERATED. THE FAMILIES, K — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
-def fmax (a b : Nat) : Nat := if a ≤ b then b else a
-def fmin (a b : Nat) : Nat := if a ≤ b then a else b
+def fmax (a b : Int) : Int := if a ≤ b then b else a
+def fmin (a b : Int) : Int := if a ≤ b then a else b
+def ffact : Nat → Nat
+  | 0 => 1
+  | n + 1 => (n + 1) * ffact n
+def fchoose (n : Nat) : Nat → Nat
+  | 0 => 1
+  | k + 1 => fchoose n k * (n - k) / (k + 1)
 
 /-- kalman: gain(3, 1) = 75 — KALMAN — THE RECURSIVE ESTIMATOR, AS ARITHMETIC. A filter is numbers: the gain
     that weighs a prediction against a measurement, the state carried forward, the estimate corrected, the error
@@ -15,52 +21,220 @@ def fmin (a b : Nat) : Nat := if a ≤ b then a else b
     'cybernetics', formula, value, proof: PROOF, ...extra }, holds, { name: `kalman.${name}`, params }) export
     class KalmanFormulas { /** THE GAIN: how much of the innovation to trust, from prediction and measurement
     variance. value ⌊p · 100 / (p + r)⌋. -/
-theorem fam_kalman_gain_1 : ((3 * 100) / (3 + 1)) = 75 := by decide
+theorem fam_kalman_gain_1 : (((3 : Int) * (100 : Int)) / ((3 : Int) + (1 : Int))) = (75 : Int) := by decide
 
-/-- kalman: predictedstate(100, 5, 2) = 110 — PREDICTED STATE: the state carried forward by the model. value x +
-    u · dt. -/
-theorem fam_kalman_predictedstate_1 : (100 + (5 * 2)) = 110 := by decide
+/-- kalman: predictedstate(100, 5, 2) = 110 — KALMAN — THE RECURSIVE ESTIMATOR, AS ARITHMETIC. A filter is
+    numbers: the gain that weighs a prediction against a measurement, the state carried forward, the estimate
+    corrected, the error covariance shrunk, the innovation and the residual, the process noise accrued, and the
+    steady-state gain it settles on. Crosses to `cybernetics` — a Kalman filter is feedback control made
+    precise. A measure. */ const PROOF = 'kalman arithmetic (gain, predicted state, updated estimate, error
+    covariance, innovation, measurement residual, process noise, steady-state gain); the recursive estimator as
+    integers; a measure crossed to cybernetics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kalman', dst: 'cybernetics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kalman.${name}`, params }) export class KalmanFormulas { /** THE GAIN: how much of the innovation to trust,
+    from prediction and measurement variance. value ⌊p · 100 / (p + r)⌋. */ static gain(p: number, r: number):
+    CrossFormula { return c('kalman-gain', 'gain(p, r) = ⌊p · 100 / (p + r)⌋', p + r > 0 ? Math.floor((p * 100)
+    / (p + r)) : 0, nat(p, r) && p + r > 0, 'gain', [p, r]) } /** PREDICTED STATE: the state carried forward by
+    the model. value x + u · dt. -/
+theorem fam_kalman_predictedstate_1 : ((100 : Int) + ((5 : Int) * (2 : Int))) = (110 : Int) := by decide
 
-/-- kalman: updatedestimate(100, 75, 8) = 106 — UPDATED ESTIMATE: the prediction corrected by a gained
-    innovation. value pred + ⌊gain · innov / 100⌋. -/
-theorem fam_kalman_updatedestimate_1 : (100 + ((75 * 8) / 100)) = 106 := by decide
+/-- kalman: updatedestimate(100, 75, 8) = 106 — KALMAN — THE RECURSIVE ESTIMATOR, AS ARITHMETIC. A filter is
+    numbers: the gain that weighs a prediction against a measurement, the state carried forward, the estimate
+    corrected, the error covariance shrunk, the innovation and the residual, the process noise accrued, and the
+    steady-state gain it settles on. Crosses to `cybernetics` — a Kalman filter is feedback control made
+    precise. A measure. */ const PROOF = 'kalman arithmetic (gain, predicted state, updated estimate, error
+    covariance, innovation, measurement residual, process noise, steady-state gain); the recursive estimator as
+    integers; a measure crossed to cybernetics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kalman', dst: 'cybernetics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kalman.${name}`, params }) export class KalmanFormulas { /** THE GAIN: how much of the innovation to trust,
+    from prediction and measurement variance. value ⌊p · 100 / (p + r)⌋. */ static gain(p: number, r: number):
+    CrossFormula { return c('kalman-gain', 'gain(p, r) = ⌊p · 100 / (p + r)⌋', p + r > 0 ? Math.floor((p * 100)
+    / (p + r)) : 0, nat(p, r) && p + r > 0, 'gain', [p, r]) } /** PREDICTED STATE: the state carried forward by
+    the model. value x + u · dt. */ static predictedstate(x: number, u: number, dt: number): CrossFormula {
+    return c('kalman-predictedstate', 'predictedstate(x, u, dt) = x + u · dt', x + u * dt, nat(x, u, dt),
+    'predictedstate', [x, u, dt]) } /** UPDATED ESTIMATE: the prediction corrected by a gained innovation. value
+    pred + ⌊gain · innov / 100⌋. -/
+theorem fam_kalman_updatedestimate_1 : ((100 : Int) + (((75 : Int) * (8 : Int)) / (100 : Int))) = (106 : Int) := by decide
 
-/-- kalman: errorcovariance(80, 75) = 20 — ERROR COVARIANCE: the prior covariance shrunk by the gain. value
-    ⌊(100 − gain) · p / 100⌋. -/
-theorem fam_kalman_errorcovariance_1 : (((100 - 75) * 80) / 100) = 20 := by decide
+/-- kalman: errorcovariance(80, 75) = 20 — KALMAN — THE RECURSIVE ESTIMATOR, AS ARITHMETIC. A filter is numbers:
+    the gain that weighs a prediction against a measurement, the state carried forward, the estimate corrected,
+    the error covariance shrunk, the innovation and the residual, the process noise accrued, and the
+    steady-state gain it settles on. Crosses to `cybernetics` — a Kalman filter is feedback control made
+    precise. A measure. */ const PROOF = 'kalman arithmetic (gain, predicted state, updated estimate, error
+    covariance, innovation, measurement residual, process noise, steady-state gain); the recursive estimator as
+    integers; a measure crossed to cybernetics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kalman', dst: 'cybernetics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kalman.${name}`, params }) export class KalmanFormulas { /** THE GAIN: how much of the innovation to trust,
+    from prediction and measurement variance. value ⌊p · 100 / (p + r)⌋. */ static gain(p: number, r: number):
+    CrossFormula { return c('kalman-gain', 'gain(p, r) = ⌊p · 100 / (p + r)⌋', p + r > 0 ? Math.floor((p * 100)
+    / (p + r)) : 0, nat(p, r) && p + r > 0, 'gain', [p, r]) } /** PREDICTED STATE: the state carried forward by
+    the model. value x + u · dt. */ static predictedstate(x: number, u: number, dt: number): CrossFormula {
+    return c('kalman-predictedstate', 'predictedstate(x, u, dt) = x + u · dt', x + u * dt, nat(x, u, dt),
+    'predictedstate', [x, u, dt]) } /** UPDATED ESTIMATE: the prediction corrected by a gained innovation. value
+    pred + ⌊gain · innov / 100⌋. */ static updatedestimate(pred: number, gain: number, innov: number):
+    CrossFormula { return c('kalman-updatedestimate', 'updatedestimate(pred, gain, innov) = pred + ⌊gain · innov
+    / 100⌋', pred + Math.floor((gain * innov) / 100), nat(pred, gain, innov), 'updatedestimate', [pred, gain,
+    innov]) } /** ERROR COVARIANCE: the prior covariance shrunk by the gain. value ⌊(100 − gain) · p / 100⌋. -/
+theorem fam_kalman_errorcovariance_1 : ((((100 : Int) - (75 : Int)) * (80 : Int)) / (100 : Int)) = (20 : Int) := by decide
 
-/-- kalman: innovation(110, 100) = 10 — INNOVATION: the measurement surprise against the prediction. value
-    max(0, measured − predicted). -/
-theorem fam_kalman_innovation_1 : (fmax 0 (110 - 100)) = 10 := by decide
+/-- kalman: innovation(110, 100) = 10 — KALMAN — THE RECURSIVE ESTIMATOR, AS ARITHMETIC. A filter is numbers:
+    the gain that weighs a prediction against a measurement, the state carried forward, the estimate corrected,
+    the error covariance shrunk, the innovation and the residual, the process noise accrued, and the
+    steady-state gain it settles on. Crosses to `cybernetics` — a Kalman filter is feedback control made
+    precise. A measure. */ const PROOF = 'kalman arithmetic (gain, predicted state, updated estimate, error
+    covariance, innovation, measurement residual, process noise, steady-state gain); the recursive estimator as
+    integers; a measure crossed to cybernetics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kalman', dst: 'cybernetics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kalman.${name}`, params }) export class KalmanFormulas { /** THE GAIN: how much of the innovation to trust,
+    from prediction and measurement variance. value ⌊p · 100 / (p + r)⌋. */ static gain(p: number, r: number):
+    CrossFormula { return c('kalman-gain', 'gain(p, r) = ⌊p · 100 / (p + r)⌋', p + r > 0 ? Math.floor((p * 100)
+    / (p + r)) : 0, nat(p, r) && p + r > 0, 'gain', [p, r]) } /** PREDICTED STATE: the state carried forward by
+    the model. value x + u · dt. */ static predictedstate(x: number, u: number, dt: number): CrossFormula {
+    return c('kalman-predictedstate', 'predictedstate(x, u, dt) = x + u · dt', x + u * dt, nat(x, u, dt),
+    'predictedstate', [x, u, dt]) } /** UPDATED ESTIMATE: the prediction corrected by a gained innovation. value
+    pred + ⌊gain · innov / 100⌋. */ static updatedestimate(pred: number, gain: number, innov: number):
+    CrossFormula { return c('kalman-updatedestimate', 'updatedestimate(pred, gain, innov) = pred + ⌊gain · innov
+    / 100⌋', pred + Math.floor((gain * innov) / 100), nat(pred, gain, innov), 'updatedestimate', [pred, gain,
+    innov]) } /** ERROR COVARIANCE: the prior covariance shrunk by the gain. value ⌊(100 − gain) · p / 100⌋. */
+    static errorcovariance(p: number, gain: number): CrossFormula { return c('kalman-errorcovariance',
+    'errorcovariance(p, gain) = ⌊(100 − gain) · p / 100⌋', Math.floor((Math.max(0, 100 - gain) * p) / 100),
+    nat(p, gain) && gain <= 100, 'errorcovariance', [p, gain]) } /** INNOVATION: the measurement surprise
+    against the prediction. value max(0, measured − predicted). -/
+theorem fam_kalman_innovation_1 : (fmax (0 : Int) ((110 : Int) - (100 : Int))) = (10 : Int) := by decide
 
-/-- kalman: measurementresidual(110, 106) = 4 — MEASUREMENT RESIDUAL: the measurement against the corrected
-    estimate. value max(0, measured − estimate). -/
-theorem fam_kalman_measurementresidual_1 : (fmax 0 (110 - 106)) = 4 := by decide
+/-- kalman: measurementresidual(110, 106) = 4 — KALMAN — THE RECURSIVE ESTIMATOR, AS ARITHMETIC. A filter is
+    numbers: the gain that weighs a prediction against a measurement, the state carried forward, the estimate
+    corrected, the error covariance shrunk, the innovation and the residual, the process noise accrued, and the
+    steady-state gain it settles on. Crosses to `cybernetics` — a Kalman filter is feedback control made
+    precise. A measure. */ const PROOF = 'kalman arithmetic (gain, predicted state, updated estimate, error
+    covariance, innovation, measurement residual, process noise, steady-state gain); the recursive estimator as
+    integers; a measure crossed to cybernetics' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kalman', dst: 'cybernetics', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kalman.${name}`, params }) export class KalmanFormulas { /** THE GAIN: how much of the innovation to trust,
+    from prediction and measurement variance. value ⌊p · 100 / (p + r)⌋. */ static gain(p: number, r: number):
+    CrossFormula { return c('kalman-gain', 'gain(p, r) = ⌊p · 100 / (p + r)⌋', p + r > 0 ? Math.floor((p * 100)
+    / (p + r)) : 0, nat(p, r) && p + r > 0, 'gain', [p, r]) } /** PREDICTED STATE: the state carried forward by
+    the model. value x + u · dt. */ static predictedstate(x: number, u: number, dt: number): CrossFormula {
+    return c('kalman-predictedstate', 'predictedstate(x, u, dt) = x + u · dt', x + u * dt, nat(x, u, dt),
+    'predictedstate', [x, u, dt]) } /** UPDATED ESTIMATE: the prediction corrected by a gained innovation. value
+    pred + ⌊gain · innov / 100⌋. */ static updatedestimate(pred: number, gain: number, innov: number):
+    CrossFormula { return c('kalman-updatedestimate', 'updatedestimate(pred, gain, innov) = pred + ⌊gain · innov
+    / 100⌋', pred + Math.floor((gain * innov) / 100), nat(pred, gain, innov), 'updatedestimate', [pred, gain,
+    innov]) } /** ERROR COVARIANCE: the prior covariance shrunk by the gain. value ⌊(100 − gain) · p / 100⌋. */
+    static errorcovariance(p: number, gain: number): CrossFormula { return c('kalman-errorcovariance',
+    'errorcovariance(p, gain) = ⌊(100 − gain) · p / 100⌋', Math.floor((Math.max(0, 100 - gain) * p) / 100),
+    nat(p, gain) && gain <= 100, 'errorcovariance', [p, gain]) } /** INNOVATION: the measurement surprise
+    against the prediction. value max(0, measured − predicted). */ static innovation(measured: number,
+    predicted: number): CrossFormula { return c('kalman-innovation', 'innovation(measured, predicted) = max(0,
+    measured − predicted)', Math.max(0, measured - predicted), nat(measured, predicted), 'innovation',
+    [measured, predicted]) } /** MEASUREMENT RESIDUAL: the measurement against the corrected estimate. value
+    max(0, measured − estimate). -/
+theorem fam_kalman_measurementresidual_1 : (fmax (0 : Int) ((110 : Int) - (106 : Int))) = (4 : Int) := by decide
 
-/-- kalman: processnoise(3, 4) = 12 — PROCESS NOISE: the noise accrued over the step. value q · dt. -/
-theorem fam_kalman_processnoise_1 : (3 * 4) = 12 := by decide
+/-- kalman: processnoise(3, 4) = 12 — KALMAN — THE RECURSIVE ESTIMATOR, AS ARITHMETIC. A filter is numbers: the
+    gain that weighs a prediction against a measurement, the state carried forward, the estimate corrected, the
+    error covariance shrunk, the innovation and the residual, the process noise accrued, and the steady-state
+    gain it settles on. Crosses to `cybernetics` — a Kalman filter is feedback control made precise. A measure.
+    */ const PROOF = 'kalman arithmetic (gain, predicted state, updated estimate, error covariance, innovation,
+    measurement residual, process noise, steady-state gain); the recursive estimator as integers; a measure
+    crossed to cybernetics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kalman', dst:
+    'cybernetics', formula, value, proof: PROOF, ...extra }, holds, { name: `kalman.${name}`, params }) export
+    class KalmanFormulas { /** THE GAIN: how much of the innovation to trust, from prediction and measurement
+    variance. value ⌊p · 100 / (p + r)⌋. */ static gain(p: number, r: number): CrossFormula { return
+    c('kalman-gain', 'gain(p, r) = ⌊p · 100 / (p + r)⌋', p + r > 0 ? Math.floor((p * 100) / (p + r)) : 0, nat(p,
+    r) && p + r > 0, 'gain', [p, r]) } /** PREDICTED STATE: the state carried forward by the model. value x + u
+    · dt. */ static predictedstate(x: number, u: number, dt: number): CrossFormula { return
+    c('kalman-predictedstate', 'predictedstate(x, u, dt) = x + u · dt', x + u * dt, nat(x, u, dt),
+    'predictedstate', [x, u, dt]) } /** UPDATED ESTIMATE: the prediction corrected by a gained innovation. value
+    pred + ⌊gain · innov / 100⌋. */ static updatedestimate(pred: number, gain: number, innov: number):
+    CrossFormula { return c('kalman-updatedestimate', 'updatedestimate(pred, gain, innov) = pred + ⌊gain · innov
+    / 100⌋', pred + Math.floor((gain * innov) / 100), nat(pred, gain, innov), 'updatedestimate', [pred, gain,
+    innov]) } /** ERROR COVARIANCE: the prior covariance shrunk by the gain. value ⌊(100 − gain) · p / 100⌋. */
+    static errorcovariance(p: number, gain: number): CrossFormula { return c('kalman-errorcovariance',
+    'errorcovariance(p, gain) = ⌊(100 − gain) · p / 100⌋', Math.floor((Math.max(0, 100 - gain) * p) / 100),
+    nat(p, gain) && gain <= 100, 'errorcovariance', [p, gain]) } /** INNOVATION: the measurement surprise
+    against the prediction. value max(0, measured − predicted). */ static innovation(measured: number,
+    predicted: number): CrossFormula { return c('kalman-innovation', 'innovation(measured, predicted) = max(0,
+    measured − predicted)', Math.max(0, measured - predicted), nat(measured, predicted), 'innovation',
+    [measured, predicted]) } /** MEASUREMENT RESIDUAL: the measurement against the corrected estimate. value
+    max(0, measured − estimate). */ static measurementresidual(measured: number, estimate: number): CrossFormula
+    { return c('kalman-measurementresidual', 'measurementresidual(measured, estimate) = max(0, measured −
+    estimate)', Math.max(0, measured - estimate), nat(measured, estimate), 'measurementresidual', [measured,
+    estimate]) } /** PROCESS NOISE: the noise accrued over the step. value q · dt. -/
+theorem fam_kalman_processnoise_1 : ((3 : Int) * (4 : Int)) = (12 : Int) := by decide
 
-/-- kalman: steadygain(2, 6) = 25 — STEADY-STATE GAIN: the gain the filter settles on from process and
-    measurement noise. value ⌊q · 100 / (q + r)⌋. -/
-theorem fam_kalman_steadygain_1 : ((2 * 100) / (2 + 6)) = 25 := by decide
+/-- kalman: steadygain(2, 6) = 25 — KALMAN — THE RECURSIVE ESTIMATOR, AS ARITHMETIC. A filter is numbers: the
+    gain that weighs a prediction against a measurement, the state carried forward, the estimate corrected, the
+    error covariance shrunk, the innovation and the residual, the process noise accrued, and the steady-state
+    gain it settles on. Crosses to `cybernetics` — a Kalman filter is feedback control made precise. A measure.
+    */ const PROOF = 'kalman arithmetic (gain, predicted state, updated estimate, error covariance, innovation,
+    measurement residual, process noise, steady-state gain); the recursive estimator as integers; a measure
+    crossed to cybernetics' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kalman', dst:
+    'cybernetics', formula, value, proof: PROOF, ...extra }, holds, { name: `kalman.${name}`, params }) export
+    class KalmanFormulas { /** THE GAIN: how much of the innovation to trust, from prediction and measurement
+    variance. value ⌊p · 100 / (p + r)⌋. */ static gain(p: number, r: number): CrossFormula { return
+    c('kalman-gain', 'gain(p, r) = ⌊p · 100 / (p + r)⌋', p + r > 0 ? Math.floor((p * 100) / (p + r)) : 0, nat(p,
+    r) && p + r > 0, 'gain', [p, r]) } /** PREDICTED STATE: the state carried forward by the model. value x + u
+    · dt. */ static predictedstate(x: number, u: number, dt: number): CrossFormula { return
+    c('kalman-predictedstate', 'predictedstate(x, u, dt) = x + u · dt', x + u * dt, nat(x, u, dt),
+    'predictedstate', [x, u, dt]) } /** UPDATED ESTIMATE: the prediction corrected by a gained innovation. value
+    pred + ⌊gain · innov / 100⌋. */ static updatedestimate(pred: number, gain: number, innov: number):
+    CrossFormula { return c('kalman-updatedestimate', 'updatedestimate(pred, gain, innov) = pred + ⌊gain · innov
+    / 100⌋', pred + Math.floor((gain * innov) / 100), nat(pred, gain, innov), 'updatedestimate', [pred, gain,
+    innov]) } /** ERROR COVARIANCE: the prior covariance shrunk by the gain. value ⌊(100 − gain) · p / 100⌋. */
+    static errorcovariance(p: number, gain: number): CrossFormula { return c('kalman-errorcovariance',
+    'errorcovariance(p, gain) = ⌊(100 − gain) · p / 100⌋', Math.floor((Math.max(0, 100 - gain) * p) / 100),
+    nat(p, gain) && gain <= 100, 'errorcovariance', [p, gain]) } /** INNOVATION: the measurement surprise
+    against the prediction. value max(0, measured − predicted). */ static innovation(measured: number,
+    predicted: number): CrossFormula { return c('kalman-innovation', 'innovation(measured, predicted) = max(0,
+    measured − predicted)', Math.max(0, measured - predicted), nat(measured, predicted), 'innovation',
+    [measured, predicted]) } /** MEASUREMENT RESIDUAL: the measurement against the corrected estimate. value
+    max(0, measured − estimate). */ static measurementresidual(measured: number, estimate: number): CrossFormula
+    { return c('kalman-measurementresidual', 'measurementresidual(measured, estimate) = max(0, measured −
+    estimate)', Math.max(0, measured - estimate), nat(measured, estimate), 'measurementresidual', [measured,
+    estimate]) } /** PROCESS NOISE: the noise accrued over the step. value q · dt. */ static processnoise(q:
+    number, dt: number): CrossFormula { return c('kalman-processnoise', 'processnoise(q, dt) = q · dt', q * dt,
+    nat(q, dt), 'processnoise', [q, dt]) } /** STEADY-STATE GAIN: the gain the filter settles on from process
+    and measurement noise. value ⌊q · 100 / (q + r)⌋. -/
+theorem fam_kalman_steadygain_1 : (((2 : Int) * (100 : Int)) / ((2 : Int) + (6 : Int))) = (25 : Int) := by decide
 
 /-- karst: cavelength(2000, 3) = 6000 -/
-theorem fam_karst_cavelength_1 : (2000 * 3) = 6000 := by decide
+theorem fam_karst_cavelength_1 : ((2000 : Int) * (3 : Int)) = (6000 : Int) := by decide
 
 /-- karst: dissolutionrate(100, 10) = 10 -/
-theorem fam_karst_dissolutionrate_1 : (100 / 10) = 10 := by decide
+theorem fam_karst_dissolutionrate_1 : ((100 : Int) / (10 : Int)) = (10 : Int) := by decide
 
 /-- karst: sinkholedensity(500, 50) = 10 -/
-theorem fam_karst_sinkholedensity_1 : (500 / 50) = 10 := by decide
+theorem fam_karst_sinkholedensity_1 : ((500 : Int) / (50 : Int)) = (10 : Int) := by decide
+
+/-- karst: conduitpairs(10, 2) = 45 -/
+theorem fam_karst_conduitpairs_1 : (Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int) := by decide
 
 /-- karst: porosity(30, 100) = 30 -/
-theorem fam_karst_porosity_1 : ((30 * 100) / 100) = 30 := by decide
+theorem fam_karst_porosity_1 : (((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int) := by decide
 
 /-- karst: rechargerate(6000, 60) = 100 -/
-theorem fam_karst_rechargerate_1 : (6000 / 60) = 100 := by decide
+theorem fam_karst_rechargerate_1 : ((6000 : Int) / (60 : Int)) = (100 : Int) := by decide
+
+/-- karst: passageorderings(5) = 120 -/
+theorem fam_karst_passageorderings_1 : (Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int) := by decide
 
 /-- karst: aquiferdepth(300, 50) = 250 -/
-theorem fam_karst_aquiferdepth_1 : (fmax 0 (300 - 50)) = 250 := by decide
+theorem fam_karst_aquiferdepth_1 : (fmax (0 : Int) ((300 : Int) - (50 : Int))) = (250 : Int) := by decide
 
 /-- kerning: pairadjust(120, 40) = 80 — KERNING — THE SPACING BETWEEN LETTERS, AS ARITHMETIC (in font design
     units, an em divided into 1000). Fitting type is numbers: a pair's adjustment, tracking across a run, a
@@ -74,35 +248,189 @@ theorem fam_karst_aquiferdepth_1 : (fmax 0 (300 - 50)) = 250 := by decide
     'typography', formula, value, proof: PROOF, ...extra }, holds, { name: `kerning.${name}`, params }) export
     class KerningFormulas { /** PAIR ADJUSTMENT: default spacing pulled in by a kern, never below zero. value
     max(0, space − kern). -/
-theorem fam_kerning_pairadjust_1 : (fmax 0 (120 - 40)) = 80 := by decide
+theorem fam_kerning_pairadjust_1 : (fmax (0 : Int) ((120 : Int) - (40 : Int))) = (80 : Int) := by decide
 
-/-- kerning: tracking(10, 20) = 200 — TRACKING: a per-glyph unit added across a run of glyphs. value glyphs ·
-    units. -/
-theorem fam_kerning_tracking_1 : (10 * 20) = 200 := by decide
+/-- kerning: tracking(10, 20) = 200 — KERNING — THE SPACING BETWEEN LETTERS, AS ARITHMETIC (in font design
+    units, an em divided into 1000). Fitting type is numbers: a pair's adjustment, tracking across a run, a
+    value as a per-mille ratio of the em, side bearings, the advance width, the space between words, total units
+    for a count of ems, and the optical-size adjustment. Crosses to `typography` — kerning is what typography
+    sets. A measure. */ const PROOF = 'kerning arithmetic (pair adjustment, tracking, em ratio, side bearing,
+    advance width, word spacing, units, optical size); font design units with the em divided into 1000; a
+    measure crossed to typography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kerning', dst:
+    'typography', formula, value, proof: PROOF, ...extra }, holds, { name: `kerning.${name}`, params }) export
+    class KerningFormulas { /** PAIR ADJUSTMENT: default spacing pulled in by a kern, never below zero. value
+    max(0, space − kern). */ static pairadjust(space: number, kern: number): CrossFormula { return
+    c('kerning-pairadjust', 'pairadjust(space, kern) = max(0, space − kern)', Math.max(0, space - kern),
+    nat(space, kern), 'pairadjust', [space, kern]) } /** TRACKING: a per-glyph unit added across a run of
+    glyphs. value glyphs · units. -/
+theorem fam_kerning_tracking_1 : ((10 : Int) * (20 : Int)) = (200 : Int) := by decide
 
-/-- kerning: emratio(750, 1000) = 750 — EM RATIO: a part of the em as per-mille of the whole em. value ⌊part ·
+/-- kerning: emratio(750, 1000) = 750 — KERNING — THE SPACING BETWEEN LETTERS, AS ARITHMETIC (in font design
+    units, an em divided into 1000). Fitting type is numbers: a pair's adjustment, tracking across a run, a
+    value as a per-mille ratio of the em, side bearings, the advance width, the space between words, total units
+    for a count of ems, and the optical-size adjustment. Crosses to `typography` — kerning is what typography
+    sets. A measure. */ const PROOF = 'kerning arithmetic (pair adjustment, tracking, em ratio, side bearing,
+    advance width, word spacing, units, optical size); font design units with the em divided into 1000; a
+    measure crossed to typography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kerning', dst:
+    'typography', formula, value, proof: PROOF, ...extra }, holds, { name: `kerning.${name}`, params }) export
+    class KerningFormulas { /** PAIR ADJUSTMENT: default spacing pulled in by a kern, never below zero. value
+    max(0, space − kern). */ static pairadjust(space: number, kern: number): CrossFormula { return
+    c('kerning-pairadjust', 'pairadjust(space, kern) = max(0, space − kern)', Math.max(0, space - kern),
+    nat(space, kern), 'pairadjust', [space, kern]) } /** TRACKING: a per-glyph unit added across a run of
+    glyphs. value glyphs · units. */ static tracking(glyphs: number, units: number): CrossFormula { return
+    c('kerning-tracking', 'tracking(glyphs, units) = glyphs · units', glyphs * units, nat(glyphs, units),
+    'tracking', [glyphs, units]) } /** EM RATIO: a part of the em as per-mille of the whole em. value ⌊part ·
     1000 / whole⌋. -/
-theorem fam_kerning_emratio_1 : ((750 * 1000) / 1000) = 750 := by decide
+theorem fam_kerning_emratio_1 : (((750 : Int) * (1000 : Int)) / (1000 : Int)) = (750 : Int) := by decide
 
-/-- kerning: sidebearing(80, 80) = 160 — SIDE BEARING: the left and right bearings of a glyph. value left +
+/-- kerning: sidebearing(80, 80) = 160 — KERNING — THE SPACING BETWEEN LETTERS, AS ARITHMETIC (in font design
+    units, an em divided into 1000). Fitting type is numbers: a pair's adjustment, tracking across a run, a
+    value as a per-mille ratio of the em, side bearings, the advance width, the space between words, total units
+    for a count of ems, and the optical-size adjustment. Crosses to `typography` — kerning is what typography
+    sets. A measure. */ const PROOF = 'kerning arithmetic (pair adjustment, tracking, em ratio, side bearing,
+    advance width, word spacing, units, optical size); font design units with the em divided into 1000; a
+    measure crossed to typography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kerning', dst:
+    'typography', formula, value, proof: PROOF, ...extra }, holds, { name: `kerning.${name}`, params }) export
+    class KerningFormulas { /** PAIR ADJUSTMENT: default spacing pulled in by a kern, never below zero. value
+    max(0, space − kern). */ static pairadjust(space: number, kern: number): CrossFormula { return
+    c('kerning-pairadjust', 'pairadjust(space, kern) = max(0, space − kern)', Math.max(0, space - kern),
+    nat(space, kern), 'pairadjust', [space, kern]) } /** TRACKING: a per-glyph unit added across a run of
+    glyphs. value glyphs · units. */ static tracking(glyphs: number, units: number): CrossFormula { return
+    c('kerning-tracking', 'tracking(glyphs, units) = glyphs · units', glyphs * units, nat(glyphs, units),
+    'tracking', [glyphs, units]) } /** EM RATIO: a part of the em as per-mille of the whole em. value ⌊part ·
+    1000 / whole⌋. */ static emratio(part: number, whole: number): CrossFormula { return c('kerning-emratio',
+    'emratio(part, whole) = ⌊part · 1000 / whole⌋', whole > 0 ? Math.floor((part * 1000) / whole) : 0, nat(part,
+    whole) && whole > 0, 'emratio', [part, whole]) } /** SIDE BEARING: the left and right bearings of a glyph.
+    value left + right. -/
+theorem fam_kerning_sidebearing_1 : ((80 : Int) + (80 : Int)) = (160 : Int) := by decide
+
+/-- kerning: advancewidth(500, 80, 80) = 660 — KERNING — THE SPACING BETWEEN LETTERS, AS ARITHMETIC (in font
+    design units, an em divided into 1000). Fitting type is numbers: a pair's adjustment, tracking across a run,
+    a value as a per-mille ratio of the em, side bearings, the advance width, the space between words, total
+    units for a count of ems, and the optical-size adjustment. Crosses to `typography` — kerning is what
+    typography sets. A measure. */ const PROOF = 'kerning arithmetic (pair adjustment, tracking, em ratio, side
+    bearing, advance width, word spacing, units, optical size); font design units with the em divided into 1000;
+    a measure crossed to typography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) &&
+    x >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params:
+    number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kerning', dst:
+    'typography', formula, value, proof: PROOF, ...extra }, holds, { name: `kerning.${name}`, params }) export
+    class KerningFormulas { /** PAIR ADJUSTMENT: default spacing pulled in by a kern, never below zero. value
+    max(0, space − kern). */ static pairadjust(space: number, kern: number): CrossFormula { return
+    c('kerning-pairadjust', 'pairadjust(space, kern) = max(0, space − kern)', Math.max(0, space - kern),
+    nat(space, kern), 'pairadjust', [space, kern]) } /** TRACKING: a per-glyph unit added across a run of
+    glyphs. value glyphs · units. */ static tracking(glyphs: number, units: number): CrossFormula { return
+    c('kerning-tracking', 'tracking(glyphs, units) = glyphs · units', glyphs * units, nat(glyphs, units),
+    'tracking', [glyphs, units]) } /** EM RATIO: a part of the em as per-mille of the whole em. value ⌊part ·
+    1000 / whole⌋. */ static emratio(part: number, whole: number): CrossFormula { return c('kerning-emratio',
+    'emratio(part, whole) = ⌊part · 1000 / whole⌋', whole > 0 ? Math.floor((part * 1000) / whole) : 0, nat(part,
+    whole) && whole > 0, 'emratio', [part, whole]) } /** SIDE BEARING: the left and right bearings of a glyph.
+    value left + right. */ static sidebearing(left: number, right: number): CrossFormula { return
+    c('kerning-sidebearing', 'sidebearing(left, right) = left + right', left + right, nat(left, right),
+    'sidebearing', [left, right]) } /** ADVANCE WIDTH: the ink width plus both side bearings. value ink + left +
     right. -/
-theorem fam_kerning_sidebearing_1 : (80 + 80) = 160 := by decide
+theorem fam_kerning_advancewidth_1 : (((500 : Int) + (80 : Int)) + (80 : Int)) = (660 : Int) := by decide
 
-/-- kerning: advancewidth(500, 80, 80) = 660 — ADVANCE WIDTH: the ink width plus both side bearings. value ink +
-    left + right. -/
-theorem fam_kerning_advancewidth_1 : ((500 + 80) + 80) = 660 := by decide
+/-- kerning: wordspacing(5, 250) = 1000 — KERNING — THE SPACING BETWEEN LETTERS, AS ARITHMETIC (in font design
+    units, an em divided into 1000). Fitting type is numbers: a pair's adjustment, tracking across a run, a
+    value as a per-mille ratio of the em, side bearings, the advance width, the space between words, total units
+    for a count of ems, and the optical-size adjustment. Crosses to `typography` — kerning is what typography
+    sets. A measure. */ const PROOF = 'kerning arithmetic (pair adjustment, tracking, em ratio, side bearing,
+    advance width, word spacing, units, optical size); font design units with the em divided into 1000; a
+    measure crossed to typography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x
+    >= 0) const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kerning', dst:
+    'typography', formula, value, proof: PROOF, ...extra }, holds, { name: `kerning.${name}`, params }) export
+    class KerningFormulas { /** PAIR ADJUSTMENT: default spacing pulled in by a kern, never below zero. value
+    max(0, space − kern). */ static pairadjust(space: number, kern: number): CrossFormula { return
+    c('kerning-pairadjust', 'pairadjust(space, kern) = max(0, space − kern)', Math.max(0, space - kern),
+    nat(space, kern), 'pairadjust', [space, kern]) } /** TRACKING: a per-glyph unit added across a run of
+    glyphs. value glyphs · units. */ static tracking(glyphs: number, units: number): CrossFormula { return
+    c('kerning-tracking', 'tracking(glyphs, units) = glyphs · units', glyphs * units, nat(glyphs, units),
+    'tracking', [glyphs, units]) } /** EM RATIO: a part of the em as per-mille of the whole em. value ⌊part ·
+    1000 / whole⌋. */ static emratio(part: number, whole: number): CrossFormula { return c('kerning-emratio',
+    'emratio(part, whole) = ⌊part · 1000 / whole⌋', whole > 0 ? Math.floor((part * 1000) / whole) : 0, nat(part,
+    whole) && whole > 0, 'emratio', [part, whole]) } /** SIDE BEARING: the left and right bearings of a glyph.
+    value left + right. */ static sidebearing(left: number, right: number): CrossFormula { return
+    c('kerning-sidebearing', 'sidebearing(left, right) = left + right', left + right, nat(left, right),
+    'sidebearing', [left, right]) } /** ADVANCE WIDTH: the ink width plus both side bearings. value ink + left +
+    right. */ static advancewidth(ink: number, left: number, right: number): CrossFormula { return
+    c('kerning-advancewidth', 'advancewidth(ink, left, right) = ink + left + right', ink + left + right,
+    nat(ink, left, right), 'advancewidth', [ink, left, right]) } /** WORD SPACING: the gaps between words at a
+    space each (one fewer gap than words). value max(0, words − 1) · space. -/
+theorem fam_kerning_wordspacing_1 : ((fmax (0 : Int) ((5 : Int) - (1 : Int))) * (250 : Int)) = (1000 : Int) := by decide
 
-/-- kerning: wordspacing(5, 250) = 1000 — WORD SPACING: the gaps between words at a space each (one fewer gap
-    than words). value max(0, words − 1) · space. -/
-theorem fam_kerning_wordspacing_1 : ((fmax 0 (5 - 1)) * 250) = 1000 := by decide
+/-- kerning: units(3, 1000) = 3000 — KERNING — THE SPACING BETWEEN LETTERS, AS ARITHMETIC (in font design units,
+    an em divided into 1000). Fitting type is numbers: a pair's adjustment, tracking across a run, a value as a
+    per-mille ratio of the em, side bearings, the advance width, the space between words, total units for a
+    count of ems, and the optical-size adjustment. Crosses to `typography` — kerning is what typography sets. A
+    measure. */ const PROOF = 'kerning arithmetic (pair adjustment, tracking, em ratio, side bearing, advance
+    width, word spacing, units, optical size); font design units with the em divided into 1000; a measure
+    crossed to typography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kerning', dst:
+    'typography', formula, value, proof: PROOF, ...extra }, holds, { name: `kerning.${name}`, params }) export
+    class KerningFormulas { /** PAIR ADJUSTMENT: default spacing pulled in by a kern, never below zero. value
+    max(0, space − kern). */ static pairadjust(space: number, kern: number): CrossFormula { return
+    c('kerning-pairadjust', 'pairadjust(space, kern) = max(0, space − kern)', Math.max(0, space - kern),
+    nat(space, kern), 'pairadjust', [space, kern]) } /** TRACKING: a per-glyph unit added across a run of
+    glyphs. value glyphs · units. */ static tracking(glyphs: number, units: number): CrossFormula { return
+    c('kerning-tracking', 'tracking(glyphs, units) = glyphs · units', glyphs * units, nat(glyphs, units),
+    'tracking', [glyphs, units]) } /** EM RATIO: a part of the em as per-mille of the whole em. value ⌊part ·
+    1000 / whole⌋. */ static emratio(part: number, whole: number): CrossFormula { return c('kerning-emratio',
+    'emratio(part, whole) = ⌊part · 1000 / whole⌋', whole > 0 ? Math.floor((part * 1000) / whole) : 0, nat(part,
+    whole) && whole > 0, 'emratio', [part, whole]) } /** SIDE BEARING: the left and right bearings of a glyph.
+    value left + right. */ static sidebearing(left: number, right: number): CrossFormula { return
+    c('kerning-sidebearing', 'sidebearing(left, right) = left + right', left + right, nat(left, right),
+    'sidebearing', [left, right]) } /** ADVANCE WIDTH: the ink width plus both side bearings. value ink + left +
+    right. */ static advancewidth(ink: number, left: number, right: number): CrossFormula { return
+    c('kerning-advancewidth', 'advancewidth(ink, left, right) = ink + left + right', ink + left + right,
+    nat(ink, left, right), 'advancewidth', [ink, left, right]) } /** WORD SPACING: the gaps between words at a
+    space each (one fewer gap than words). value max(0, words − 1) · space. */ static wordspacing(words: number,
+    space: number): CrossFormula { return c('kerning-wordspacing', 'wordspacing(words, space) = max(0, words −
+    1) · space', Math.max(0, words - 1) * space, nat(words, space), 'wordspacing', [words, space]) } /** UNITS:
+    the total design units for a count of ems at a units-per-em. value ems · upm. -/
+theorem fam_kerning_units_1 : ((3 : Int) * (1000 : Int)) = (3000 : Int) := by decide
 
-/-- kerning: units(3, 1000) = 3000 — UNITS: the total design units for a count of ems at a units-per-em. value
-    ems · upm. -/
-theorem fam_kerning_units_1 : (3 * 1000) = 3000 := by decide
-
-/-- kerning: optical(72, 950) = 68 — OPTICAL SIZE: a size scaled by a per-mille optical adjustment. value ⌊size
+/-- kerning: optical(72, 950) = 68 — KERNING — THE SPACING BETWEEN LETTERS, AS ARITHMETIC (in font design units,
+    an em divided into 1000). Fitting type is numbers: a pair's adjustment, tracking across a run, a value as a
+    per-mille ratio of the em, side bearings, the advance width, the space between words, total units for a
+    count of ems, and the optical-size adjustment. Crosses to `typography` — kerning is what typography sets. A
+    measure. */ const PROOF = 'kerning arithmetic (pair adjustment, tracking, em ratio, side bearing, advance
+    width, word spacing, units, optical size); font design units with the em divided into 1000; a measure
+    crossed to typography' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kerning', dst:
+    'typography', formula, value, proof: PROOF, ...extra }, holds, { name: `kerning.${name}`, params }) export
+    class KerningFormulas { /** PAIR ADJUSTMENT: default spacing pulled in by a kern, never below zero. value
+    max(0, space − kern). */ static pairadjust(space: number, kern: number): CrossFormula { return
+    c('kerning-pairadjust', 'pairadjust(space, kern) = max(0, space − kern)', Math.max(0, space - kern),
+    nat(space, kern), 'pairadjust', [space, kern]) } /** TRACKING: a per-glyph unit added across a run of
+    glyphs. value glyphs · units. */ static tracking(glyphs: number, units: number): CrossFormula { return
+    c('kerning-tracking', 'tracking(glyphs, units) = glyphs · units', glyphs * units, nat(glyphs, units),
+    'tracking', [glyphs, units]) } /** EM RATIO: a part of the em as per-mille of the whole em. value ⌊part ·
+    1000 / whole⌋. */ static emratio(part: number, whole: number): CrossFormula { return c('kerning-emratio',
+    'emratio(part, whole) = ⌊part · 1000 / whole⌋', whole > 0 ? Math.floor((part * 1000) / whole) : 0, nat(part,
+    whole) && whole > 0, 'emratio', [part, whole]) } /** SIDE BEARING: the left and right bearings of a glyph.
+    value left + right. */ static sidebearing(left: number, right: number): CrossFormula { return
+    c('kerning-sidebearing', 'sidebearing(left, right) = left + right', left + right, nat(left, right),
+    'sidebearing', [left, right]) } /** ADVANCE WIDTH: the ink width plus both side bearings. value ink + left +
+    right. */ static advancewidth(ink: number, left: number, right: number): CrossFormula { return
+    c('kerning-advancewidth', 'advancewidth(ink, left, right) = ink + left + right', ink + left + right,
+    nat(ink, left, right), 'advancewidth', [ink, left, right]) } /** WORD SPACING: the gaps between words at a
+    space each (one fewer gap than words). value max(0, words − 1) · space. */ static wordspacing(words: number,
+    space: number): CrossFormula { return c('kerning-wordspacing', 'wordspacing(words, space) = max(0, words −
+    1) · space', Math.max(0, words - 1) * space, nat(words, space), 'wordspacing', [words, space]) } /** UNITS:
+    the total design units for a count of ems at a units-per-em. value ems · upm. */ static units(ems: number,
+    upm: number): CrossFormula { return c('kerning-units', 'units(ems, upm) = ems · upm', ems * upm, nat(ems,
+    upm), 'units', [ems, upm]) } /** OPTICAL SIZE: a size scaled by a per-mille optical adjustment. value ⌊size
     · adjust / 1000⌋. -/
-theorem fam_kerning_optical_1 : ((72 * 950) / 1000) = 68 := by decide
+theorem fam_kerning_optical_1 : (((72 : Int) * (950 : Int)) / (1000 : Int)) = (68 : Int) := by decide
 
 /-- kinematics: velocity(100, 20) = 5 — KINEMATICS — MOTION AS ARITHMETIC (chosen by the mechanics registry, not
     by hand). Moving bodies are numbers: speed over a distance, how fast speed itself changes, the ground
@@ -115,20 +443,184 @@ theorem fam_kerning_optical_1 : ((72 * 950) / 1000) = 68 := by decide
     src: 'kinematics', dst: 'gravity', formula, value, proof: PROOF, ...extra }, holds, { name:
     `kinematics.${name}`, params }) export class KinematicsFormulas { /** VELOCITY: distance over time. value
     ⌊distance / time⌋. -/
-theorem fam_kinematics_velocity_1 : (100 / 20) = 5 := by decide
+theorem fam_kinematics_velocity_1 : ((100 : Int) / (20 : Int)) = (5 : Int) := by decide
 
-/-- kinematics: acceleration(60, 12) = 5 — ACCELERATION: change in velocity over time. value ⌊velocity / time⌋. -/
-theorem fam_kinematics_acceleration_1 : (60 / 12) = 5 := by decide
+/-- kinematics: acceleration(60, 12) = 5 — KINEMATICS — MOTION AS ARITHMETIC (chosen by the mechanics registry,
+    not by hand). Moving bodies are numbers: speed over a distance, how fast speed itself changes, the ground
+    covered, momentum and kinetic energy carried, a projectile's range, the fall under gravity, and the impulse
+    of a force. Crosses to `gravity` — motion is what gravity acts on. A measure. */ const PROOF = 'kinematics
+    arithmetic (velocity, acceleration, displacement, momentum, kinetic energy, projectile range, free fall,
+    impulse); motion as integers; a measure crossed to gravity' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinematics', dst: 'gravity', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinematics.${name}`, params }) export class KinematicsFormulas { /** VELOCITY: distance over time. value
+    ⌊distance / time⌋. */ static velocity(distance: number, time: number): CrossFormula { return
+    c('kinematics-velocity', 'velocity(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'velocity', [distance, time]) } /** ACCELERATION: change in
+    velocity over time. value ⌊velocity / time⌋. -/
+theorem fam_kinematics_acceleration_1 : ((60 : Int) / (12 : Int)) = (5 : Int) := by decide
 
-/-- kinematics: displacement(5, 20) = 100 — DISPLACEMENT: the ground covered at a velocity over time. value
-    velocity · time. -/
-theorem fam_kinematics_displacement_1 : (5 * 20) = 100 := by decide
+/-- kinematics: displacement(5, 20) = 100 — KINEMATICS — MOTION AS ARITHMETIC (chosen by the mechanics registry,
+    not by hand). Moving bodies are numbers: speed over a distance, how fast speed itself changes, the ground
+    covered, momentum and kinetic energy carried, a projectile's range, the fall under gravity, and the impulse
+    of a force. Crosses to `gravity` — motion is what gravity acts on. A measure. */ const PROOF = 'kinematics
+    arithmetic (velocity, acceleration, displacement, momentum, kinetic energy, projectile range, free fall,
+    impulse); motion as integers; a measure crossed to gravity' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinematics', dst: 'gravity', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinematics.${name}`, params }) export class KinematicsFormulas { /** VELOCITY: distance over time. value
+    ⌊distance / time⌋. */ static velocity(distance: number, time: number): CrossFormula { return
+    c('kinematics-velocity', 'velocity(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'velocity', [distance, time]) } /** ACCELERATION: change in
+    velocity over time. value ⌊velocity / time⌋. */ static acceleration(velocity: number, time: number):
+    CrossFormula { return c('kinematics-acceleration', 'acceleration(velocity, time) = ⌊velocity / time⌋', time
+    > 0 ? Math.floor(velocity / time) : 0, nat(velocity, time) && time > 0, 'acceleration', [velocity, time]) }
+    /** DISPLACEMENT: the ground covered at a velocity over time. value velocity · time. -/
+theorem fam_kinematics_displacement_1 : ((5 : Int) * (20 : Int)) = (100 : Int) := by decide
 
-/-- kinematics: momentum(10, 5) = 50 — MOMENTUM: mass carried at a velocity. value mass · velocity. -/
-theorem fam_kinematics_momentum_1 : (10 * 5) = 50 := by decide
+/-- kinematics: momentum(10, 5) = 50 — KINEMATICS — MOTION AS ARITHMETIC (chosen by the mechanics registry, not
+    by hand). Moving bodies are numbers: speed over a distance, how fast speed itself changes, the ground
+    covered, momentum and kinetic energy carried, a projectile's range, the fall under gravity, and the impulse
+    of a force. Crosses to `gravity` — motion is what gravity acts on. A measure. */ const PROOF = 'kinematics
+    arithmetic (velocity, acceleration, displacement, momentum, kinetic energy, projectile range, free fall,
+    impulse); motion as integers; a measure crossed to gravity' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinematics', dst: 'gravity', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinematics.${name}`, params }) export class KinematicsFormulas { /** VELOCITY: distance over time. value
+    ⌊distance / time⌋. */ static velocity(distance: number, time: number): CrossFormula { return
+    c('kinematics-velocity', 'velocity(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'velocity', [distance, time]) } /** ACCELERATION: change in
+    velocity over time. value ⌊velocity / time⌋. */ static acceleration(velocity: number, time: number):
+    CrossFormula { return c('kinematics-acceleration', 'acceleration(velocity, time) = ⌊velocity / time⌋', time
+    > 0 ? Math.floor(velocity / time) : 0, nat(velocity, time) && time > 0, 'acceleration', [velocity, time]) }
+    /** DISPLACEMENT: the ground covered at a velocity over time. value velocity · time. */ static
+    displacement(velocity: number, time: number): CrossFormula { return c('kinematics-displacement',
+    'displacement(velocity, time) = velocity · time', velocity * time, nat(velocity, time), 'displacement',
+    [velocity, time]) } /** MOMENTUM: mass carried at a velocity. value mass · velocity. -/
+theorem fam_kinematics_momentum_1 : ((10 : Int) * (5 : Int)) = (50 : Int) := by decide
 
-/-- kinematics: impulse(20, 5) = 100 — IMPULSE: a force applied over time. value force · time. -/
-theorem fam_kinematics_impulse_1 : (20 * 5) = 100 := by decide
+/-- kinematics: kinetic(10, 4) = 80 — KINEMATICS — MOTION AS ARITHMETIC (chosen by the mechanics registry, not
+    by hand). Moving bodies are numbers: speed over a distance, how fast speed itself changes, the ground
+    covered, momentum and kinetic energy carried, a projectile's range, the fall under gravity, and the impulse
+    of a force. Crosses to `gravity` — motion is what gravity acts on. A measure. */ const PROOF = 'kinematics
+    arithmetic (velocity, acceleration, displacement, momentum, kinetic energy, projectile range, free fall,
+    impulse); motion as integers; a measure crossed to gravity' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinematics', dst: 'gravity', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinematics.${name}`, params }) export class KinematicsFormulas { /** VELOCITY: distance over time. value
+    ⌊distance / time⌋. */ static velocity(distance: number, time: number): CrossFormula { return
+    c('kinematics-velocity', 'velocity(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'velocity', [distance, time]) } /** ACCELERATION: change in
+    velocity over time. value ⌊velocity / time⌋. */ static acceleration(velocity: number, time: number):
+    CrossFormula { return c('kinematics-acceleration', 'acceleration(velocity, time) = ⌊velocity / time⌋', time
+    > 0 ? Math.floor(velocity / time) : 0, nat(velocity, time) && time > 0, 'acceleration', [velocity, time]) }
+    /** DISPLACEMENT: the ground covered at a velocity over time. value velocity · time. */ static
+    displacement(velocity: number, time: number): CrossFormula { return c('kinematics-displacement',
+    'displacement(velocity, time) = velocity · time', velocity * time, nat(velocity, time), 'displacement',
+    [velocity, time]) } /** MOMENTUM: mass carried at a velocity. value mass · velocity. */ static
+    momentum(mass: number, velocity: number): CrossFormula { return c('kinematics-momentum', 'momentum(mass,
+    velocity) = mass · velocity', mass * velocity, nat(mass, velocity), 'momentum', [mass, velocity]) } /**
+    KINETIC ENERGY: the energy of a moving mass. value ⌊mass · velocity² / 2⌋. -/
+theorem fam_kinematics_kinetic_1 : (((10 : Int) * ((4 : Int) ^ (2 : Nat))) / (2 : Int)) = (80 : Int) := by decide
+
+/-- kinematics: projectile(10, 10) = 10 — KINEMATICS — MOTION AS ARITHMETIC (chosen by the mechanics registry,
+    not by hand). Moving bodies are numbers: speed over a distance, how fast speed itself changes, the ground
+    covered, momentum and kinetic energy carried, a projectile's range, the fall under gravity, and the impulse
+    of a force. Crosses to `gravity` — motion is what gravity acts on. A measure. */ const PROOF = 'kinematics
+    arithmetic (velocity, acceleration, displacement, momentum, kinetic energy, projectile range, free fall,
+    impulse); motion as integers; a measure crossed to gravity' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinematics', dst: 'gravity', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinematics.${name}`, params }) export class KinematicsFormulas { /** VELOCITY: distance over time. value
+    ⌊distance / time⌋. */ static velocity(distance: number, time: number): CrossFormula { return
+    c('kinematics-velocity', 'velocity(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'velocity', [distance, time]) } /** ACCELERATION: change in
+    velocity over time. value ⌊velocity / time⌋. */ static acceleration(velocity: number, time: number):
+    CrossFormula { return c('kinematics-acceleration', 'acceleration(velocity, time) = ⌊velocity / time⌋', time
+    > 0 ? Math.floor(velocity / time) : 0, nat(velocity, time) && time > 0, 'acceleration', [velocity, time]) }
+    /** DISPLACEMENT: the ground covered at a velocity over time. value velocity · time. */ static
+    displacement(velocity: number, time: number): CrossFormula { return c('kinematics-displacement',
+    'displacement(velocity, time) = velocity · time', velocity * time, nat(velocity, time), 'displacement',
+    [velocity, time]) } /** MOMENTUM: mass carried at a velocity. value mass · velocity. */ static
+    momentum(mass: number, velocity: number): CrossFormula { return c('kinematics-momentum', 'momentum(mass,
+    velocity) = mass · velocity', mass * velocity, nat(mass, velocity), 'momentum', [mass, velocity]) } /**
+    KINETIC ENERGY: the energy of a moving mass. value ⌊mass · velocity² / 2⌋. */ static kinetic(mass: number,
+    velocity: number): CrossFormula { return c('kinematics-kinetic', 'kinetic(mass, velocity) = ⌊mass ·
+    velocity² / 2⌋', Math.floor((mass * velocity * velocity) / 2), nat(mass, velocity), 'kinetic', [mass,
+    velocity]) } /** PROJECTILE: a range proxy from launch velocity under gravity. value ⌊velocity² / gravity⌋. -/
+theorem fam_kinematics_projectile_1 : (((10 : Int) ^ (2 : Nat)) / (10 : Int)) = (10 : Int) := by decide
+
+/-- kinematics: freefall(10, 3) = 45 — KINEMATICS — MOTION AS ARITHMETIC (chosen by the mechanics registry, not
+    by hand). Moving bodies are numbers: speed over a distance, how fast speed itself changes, the ground
+    covered, momentum and kinetic energy carried, a projectile's range, the fall under gravity, and the impulse
+    of a force. Crosses to `gravity` — motion is what gravity acts on. A measure. */ const PROOF = 'kinematics
+    arithmetic (velocity, acceleration, displacement, momentum, kinetic energy, projectile range, free fall,
+    impulse); motion as integers; a measure crossed to gravity' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinematics', dst: 'gravity', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinematics.${name}`, params }) export class KinematicsFormulas { /** VELOCITY: distance over time. value
+    ⌊distance / time⌋. */ static velocity(distance: number, time: number): CrossFormula { return
+    c('kinematics-velocity', 'velocity(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'velocity', [distance, time]) } /** ACCELERATION: change in
+    velocity over time. value ⌊velocity / time⌋. */ static acceleration(velocity: number, time: number):
+    CrossFormula { return c('kinematics-acceleration', 'acceleration(velocity, time) = ⌊velocity / time⌋', time
+    > 0 ? Math.floor(velocity / time) : 0, nat(velocity, time) && time > 0, 'acceleration', [velocity, time]) }
+    /** DISPLACEMENT: the ground covered at a velocity over time. value velocity · time. */ static
+    displacement(velocity: number, time: number): CrossFormula { return c('kinematics-displacement',
+    'displacement(velocity, time) = velocity · time', velocity * time, nat(velocity, time), 'displacement',
+    [velocity, time]) } /** MOMENTUM: mass carried at a velocity. value mass · velocity. */ static
+    momentum(mass: number, velocity: number): CrossFormula { return c('kinematics-momentum', 'momentum(mass,
+    velocity) = mass · velocity', mass * velocity, nat(mass, velocity), 'momentum', [mass, velocity]) } /**
+    KINETIC ENERGY: the energy of a moving mass. value ⌊mass · velocity² / 2⌋. */ static kinetic(mass: number,
+    velocity: number): CrossFormula { return c('kinematics-kinetic', 'kinetic(mass, velocity) = ⌊mass ·
+    velocity² / 2⌋', Math.floor((mass * velocity * velocity) / 2), nat(mass, velocity), 'kinetic', [mass,
+    velocity]) } /** PROJECTILE: a range proxy from launch velocity under gravity. value ⌊velocity² / gravity⌋.
+    */ static projectile(velocity: number, gravity_: number): CrossFormula { return c('kinematics-projectile',
+    'projectile(velocity, gravity) = ⌊velocity² / gravity⌋', gravity_ > 0 ? Math.floor((velocity * velocity) /
+    gravity_) : 0, nat(velocity, gravity_) && gravity_ > 0, 'projectile', [velocity, gravity_]) } /** FREE FALL:
+    the distance dropped under gravity over time. value ⌊gravity · time² / 2⌋. -/
+theorem fam_kinematics_freefall_1 : (((10 : Int) * ((3 : Int) ^ (2 : Nat))) / (2 : Int)) = (45 : Int) := by decide
+
+/-- kinematics: impulse(20, 5) = 100 — KINEMATICS — MOTION AS ARITHMETIC (chosen by the mechanics registry, not
+    by hand). Moving bodies are numbers: speed over a distance, how fast speed itself changes, the ground
+    covered, momentum and kinetic energy carried, a projectile's range, the fall under gravity, and the impulse
+    of a force. Crosses to `gravity` — motion is what gravity acts on. A measure. */ const PROOF = 'kinematics
+    arithmetic (velocity, acceleration, displacement, momentum, kinetic energy, projectile range, free fall,
+    impulse); motion as integers; a measure crossed to gravity' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinematics', dst: 'gravity', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinematics.${name}`, params }) export class KinematicsFormulas { /** VELOCITY: distance over time. value
+    ⌊distance / time⌋. */ static velocity(distance: number, time: number): CrossFormula { return
+    c('kinematics-velocity', 'velocity(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'velocity', [distance, time]) } /** ACCELERATION: change in
+    velocity over time. value ⌊velocity / time⌋. */ static acceleration(velocity: number, time: number):
+    CrossFormula { return c('kinematics-acceleration', 'acceleration(velocity, time) = ⌊velocity / time⌋', time
+    > 0 ? Math.floor(velocity / time) : 0, nat(velocity, time) && time > 0, 'acceleration', [velocity, time]) }
+    /** DISPLACEMENT: the ground covered at a velocity over time. value velocity · time. */ static
+    displacement(velocity: number, time: number): CrossFormula { return c('kinematics-displacement',
+    'displacement(velocity, time) = velocity · time', velocity * time, nat(velocity, time), 'displacement',
+    [velocity, time]) } /** MOMENTUM: mass carried at a velocity. value mass · velocity. */ static
+    momentum(mass: number, velocity: number): CrossFormula { return c('kinematics-momentum', 'momentum(mass,
+    velocity) = mass · velocity', mass * velocity, nat(mass, velocity), 'momentum', [mass, velocity]) } /**
+    KINETIC ENERGY: the energy of a moving mass. value ⌊mass · velocity² / 2⌋. */ static kinetic(mass: number,
+    velocity: number): CrossFormula { return c('kinematics-kinetic', 'kinetic(mass, velocity) = ⌊mass ·
+    velocity² / 2⌋', Math.floor((mass * velocity * velocity) / 2), nat(mass, velocity), 'kinetic', [mass,
+    velocity]) } /** PROJECTILE: a range proxy from launch velocity under gravity. value ⌊velocity² / gravity⌋.
+    */ static projectile(velocity: number, gravity_: number): CrossFormula { return c('kinematics-projectile',
+    'projectile(velocity, gravity) = ⌊velocity² / gravity⌋', gravity_ > 0 ? Math.floor((velocity * velocity) /
+    gravity_) : 0, nat(velocity, gravity_) && gravity_ > 0, 'projectile', [velocity, gravity_]) } /** FREE FALL:
+    the distance dropped under gravity over time. value ⌊gravity · time² / 2⌋. */ static freefall(gravity_:
+    number, time: number): CrossFormula { return c('kinematics-freefall', 'freefall(gravity, time) = ⌊gravity ·
+    time² / 2⌋', Math.floor((gravity_ * time * time) / 2), nat(gravity_, time), 'freefall', [gravity_, time]) }
+    /** IMPULSE: a force applied over time. value force · time. -/
+theorem fam_kinematics_impulse_1 : ((20 : Int) * (5 : Int)) = (100 : Int) := by decide
 
 /-- kinematics: velocity(100, 0) = 0 — KINEMATICS — MOTION AS ARITHMETIC (chosen by the mechanics registry, not
     by hand). Moving bodies are numbers: speed over a distance, how fast speed itself changes, the ground
@@ -141,7 +633,35 @@ theorem fam_kinematics_impulse_1 : (20 * 5) = 100 := by decide
     src: 'kinematics', dst: 'gravity', formula, value, proof: PROOF, ...extra }, holds, { name:
     `kinematics.${name}`, params }) export class KinematicsFormulas { /** VELOCITY: distance over time. value
     ⌊distance / time⌋. -/
-theorem fam_kinematics_velocity_2 : (100 / 0) = 0 := by decide
+theorem fam_kinematics_velocity_2 : ((100 : Int) / (0 : Int)) = (0 : Int) := by decide
+
+/-- kinematics: projectile(10, 0) = 0 — KINEMATICS — MOTION AS ARITHMETIC (chosen by the mechanics registry, not
+    by hand). Moving bodies are numbers: speed over a distance, how fast speed itself changes, the ground
+    covered, momentum and kinetic energy carried, a projectile's range, the fall under gravity, and the impulse
+    of a force. Crosses to `gravity` — motion is what gravity acts on. A measure. */ const PROOF = 'kinematics
+    arithmetic (velocity, acceleration, displacement, momentum, kinetic energy, projectile range, free fall,
+    impulse); motion as integers; a measure crossed to gravity' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinematics', dst: 'gravity', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinematics.${name}`, params }) export class KinematicsFormulas { /** VELOCITY: distance over time. value
+    ⌊distance / time⌋. */ static velocity(distance: number, time: number): CrossFormula { return
+    c('kinematics-velocity', 'velocity(distance, time) = ⌊distance / time⌋', time > 0 ? Math.floor(distance /
+    time) : 0, nat(distance, time) && time > 0, 'velocity', [distance, time]) } /** ACCELERATION: change in
+    velocity over time. value ⌊velocity / time⌋. */ static acceleration(velocity: number, time: number):
+    CrossFormula { return c('kinematics-acceleration', 'acceleration(velocity, time) = ⌊velocity / time⌋', time
+    > 0 ? Math.floor(velocity / time) : 0, nat(velocity, time) && time > 0, 'acceleration', [velocity, time]) }
+    /** DISPLACEMENT: the ground covered at a velocity over time. value velocity · time. */ static
+    displacement(velocity: number, time: number): CrossFormula { return c('kinematics-displacement',
+    'displacement(velocity, time) = velocity · time', velocity * time, nat(velocity, time), 'displacement',
+    [velocity, time]) } /** MOMENTUM: mass carried at a velocity. value mass · velocity. */ static
+    momentum(mass: number, velocity: number): CrossFormula { return c('kinematics-momentum', 'momentum(mass,
+    velocity) = mass · velocity', mass * velocity, nat(mass, velocity), 'momentum', [mass, velocity]) } /**
+    KINETIC ENERGY: the energy of a moving mass. value ⌊mass · velocity² / 2⌋. */ static kinetic(mass: number,
+    velocity: number): CrossFormula { return c('kinematics-kinetic', 'kinetic(mass, velocity) = ⌊mass ·
+    velocity² / 2⌋', Math.floor((mass * velocity * velocity) / 2), nat(mass, velocity), 'kinetic', [mass,
+    velocity]) } /** PROJECTILE: a range proxy from launch velocity under gravity. value ⌊velocity² / gravity⌋. -/
+theorem fam_kinematics_projectile_2 : (((10 : Int) ^ (2 : Nat)) / (0 : Int)) = (0 : Int) := by decide
 
 /-- kinesiology: rangeofmotion(150, 20) = 130 — KINESIOLOGY — HUMAN MOVEMENT AS ARITHMETIC (chosen by the
     registry, not by hand). Motion is numbers: the range a joint travels, flexion and extension of an angle, the
@@ -155,30 +675,229 @@ theorem fam_kinematics_velocity_2 : (100 / 0) = 0 := by decide
     src: 'kinesiology', dst: 'anatomy', formula, value, proof: PROOF, ...extra }, holds, { name:
     `kinesiology.${name}`, params }) export class KinesiologyFormulas { /** RANGE OF MOTION: the degrees a joint
     travels, extension limit minus flexion limit. value max(0, max − min). -/
-theorem fam_kinesiology_rangeofmotion_1 : (fmax 0 (150 - 20)) = 130 := by decide
+theorem fam_kinesiology_rangeofmotion_1 : (fmax (0 : Int) ((150 : Int) - (20 : Int))) = (130 : Int) := by decide
 
-/-- kinesiology: flexion(30, 60) = 90 — FLEXION: bending adds degrees to a joint angle. value angle + delta. -/
-theorem fam_kinesiology_flexion_1 : (30 + 60) = 90 := by decide
+/-- kinesiology: flexion(30, 60) = 90 — KINESIOLOGY — HUMAN MOVEMENT AS ARITHMETIC (chosen by the registry, not
+    by hand). Motion is numbers: the range a joint travels, flexion and extension of an angle, the fraction of
+    muscle fibres recruited, the angle at a joint, the torque a muscle makes at its moment arm, how far a muscle
+    shortens, and whether sway stays inside a limit. Crosses to `anatomy` — kinesiology is movement of the body
+    anatomy describes. A measure. */ const PROOF = 'kinesiology arithmetic (range of motion, flexion, extension,
+    muscle activation, joint angle, moment-arm torque, contraction, balance); movement of the anatomy; a measure
+    crossed to anatomy' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kinesiology', dst:
+    'anatomy', formula, value, proof: PROOF, ...extra }, holds, { name: `kinesiology.${name}`, params }) export
+    class KinesiologyFormulas { /** RANGE OF MOTION: the degrees a joint travels, extension limit minus flexion
+    limit. value max(0, max − min). */ static rangeofmotion(max: number, min: number): CrossFormula { return
+    c('kinesiology-rangeofmotion', 'rangeofmotion(max, min) = max(0, max − min)', Math.max(0, max - min),
+    nat(max, min) && max >= min, 'rangeofmotion', [max, min]) } /** FLEXION: bending adds degrees to a joint
+    angle. value angle + delta. -/
+theorem fam_kinesiology_flexion_1 : ((30 : Int) + (60 : Int)) = (90 : Int) := by decide
 
-/-- kinesiology: extension(90, 30) = 60 — EXTENSION: straightening removes degrees from a joint angle. value
-    max(0, angle − delta). -/
-theorem fam_kinesiology_extension_1 : (fmax 0 (90 - 30)) = 60 := by decide
+/-- kinesiology: extension(90, 30) = 60 — KINESIOLOGY — HUMAN MOVEMENT AS ARITHMETIC (chosen by the registry,
+    not by hand). Motion is numbers: the range a joint travels, flexion and extension of an angle, the fraction
+    of muscle fibres recruited, the angle at a joint, the torque a muscle makes at its moment arm, how far a
+    muscle shortens, and whether sway stays inside a limit. Crosses to `anatomy` — kinesiology is movement of
+    the body anatomy describes. A measure. */ const PROOF = 'kinesiology arithmetic (range of motion, flexion,
+    extension, muscle activation, joint angle, moment-arm torque, contraction, balance); movement of the
+    anatomy; a measure crossed to anatomy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinesiology', dst: 'anatomy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinesiology.${name}`, params }) export class KinesiologyFormulas { /** RANGE OF MOTION: the degrees a joint
+    travels, extension limit minus flexion limit. value max(0, max − min). */ static rangeofmotion(max: number,
+    min: number): CrossFormula { return c('kinesiology-rangeofmotion', 'rangeofmotion(max, min) = max(0, max −
+    min)', Math.max(0, max - min), nat(max, min) && max >= min, 'rangeofmotion', [max, min]) } /** FLEXION:
+    bending adds degrees to a joint angle. value angle + delta. */ static flexion(angle: number, delta: number):
+    CrossFormula { return c('kinesiology-flexion', 'flexion(angle, delta) = angle + delta', angle + delta,
+    nat(angle, delta), 'flexion', [angle, delta]) } /** EXTENSION: straightening removes degrees from a joint
+    angle. value max(0, angle − delta). -/
+theorem fam_kinesiology_extension_1 : (fmax (0 : Int) ((90 : Int) - (30 : Int))) = (60 : Int) := by decide
 
-/-- kinesiology: muscleactivation(300, 400) = 75 — MUSCLE ACTIVATION: the percentage of fibres recruited. value
-    ⌊active · 100 / total⌋. -/
-theorem fam_kinesiology_muscleactivation_1 : ((300 * 100) / 400) = 75 := by decide
+/-- kinesiology: muscleactivation(300, 400) = 75 — KINESIOLOGY — HUMAN MOVEMENT AS ARITHMETIC (chosen by the
+    registry, not by hand). Motion is numbers: the range a joint travels, flexion and extension of an angle, the
+    fraction of muscle fibres recruited, the angle at a joint, the torque a muscle makes at its moment arm, how
+    far a muscle shortens, and whether sway stays inside a limit. Crosses to `anatomy` — kinesiology is movement
+    of the body anatomy describes. A measure. */ const PROOF = 'kinesiology arithmetic (range of motion,
+    flexion, extension, muscle activation, joint angle, moment-arm torque, contraction, balance); movement of
+    the anatomy; a measure crossed to anatomy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinesiology', dst: 'anatomy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinesiology.${name}`, params }) export class KinesiologyFormulas { /** RANGE OF MOTION: the degrees a joint
+    travels, extension limit minus flexion limit. value max(0, max − min). */ static rangeofmotion(max: number,
+    min: number): CrossFormula { return c('kinesiology-rangeofmotion', 'rangeofmotion(max, min) = max(0, max −
+    min)', Math.max(0, max - min), nat(max, min) && max >= min, 'rangeofmotion', [max, min]) } /** FLEXION:
+    bending adds degrees to a joint angle. value angle + delta. */ static flexion(angle: number, delta: number):
+    CrossFormula { return c('kinesiology-flexion', 'flexion(angle, delta) = angle + delta', angle + delta,
+    nat(angle, delta), 'flexion', [angle, delta]) } /** EXTENSION: straightening removes degrees from a joint
+    angle. value max(0, angle − delta). */ static extension(angle: number, delta: number): CrossFormula { return
+    c('kinesiology-extension', 'extension(angle, delta) = max(0, angle − delta)', Math.max(0, angle - delta),
+    nat(angle, delta) && angle >= delta, 'extension', [angle, delta]) } /** MUSCLE ACTIVATION: the percentage of
+    fibres recruited. value ⌊active · 100 / total⌋. -/
+theorem fam_kinesiology_muscleactivation_1 : (((300 : Int) * (100 : Int)) / (400 : Int)) = (75 : Int) := by decide
 
-/-- kinesiology: jointangle(360, 4) = 90 — JOINT ANGLE: a travelled arc shared over its segments. value ⌊total /
-    count⌋. -/
-theorem fam_kinesiology_jointangle_1 : (360 / 4) = 90 := by decide
+/-- kinesiology: jointangle(360, 4) = 90 — KINESIOLOGY — HUMAN MOVEMENT AS ARITHMETIC (chosen by the registry,
+    not by hand). Motion is numbers: the range a joint travels, flexion and extension of an angle, the fraction
+    of muscle fibres recruited, the angle at a joint, the torque a muscle makes at its moment arm, how far a
+    muscle shortens, and whether sway stays inside a limit. Crosses to `anatomy` — kinesiology is movement of
+    the body anatomy describes. A measure. */ const PROOF = 'kinesiology arithmetic (range of motion, flexion,
+    extension, muscle activation, joint angle, moment-arm torque, contraction, balance); movement of the
+    anatomy; a measure crossed to anatomy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinesiology', dst: 'anatomy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinesiology.${name}`, params }) export class KinesiologyFormulas { /** RANGE OF MOTION: the degrees a joint
+    travels, extension limit minus flexion limit. value max(0, max − min). */ static rangeofmotion(max: number,
+    min: number): CrossFormula { return c('kinesiology-rangeofmotion', 'rangeofmotion(max, min) = max(0, max −
+    min)', Math.max(0, max - min), nat(max, min) && max >= min, 'rangeofmotion', [max, min]) } /** FLEXION:
+    bending adds degrees to a joint angle. value angle + delta. */ static flexion(angle: number, delta: number):
+    CrossFormula { return c('kinesiology-flexion', 'flexion(angle, delta) = angle + delta', angle + delta,
+    nat(angle, delta), 'flexion', [angle, delta]) } /** EXTENSION: straightening removes degrees from a joint
+    angle. value max(0, angle − delta). */ static extension(angle: number, delta: number): CrossFormula { return
+    c('kinesiology-extension', 'extension(angle, delta) = max(0, angle − delta)', Math.max(0, angle - delta),
+    nat(angle, delta) && angle >= delta, 'extension', [angle, delta]) } /** MUSCLE ACTIVATION: the percentage of
+    fibres recruited. value ⌊active · 100 / total⌋. */ static muscleactivation(active: number, total: number):
+    CrossFormula { return c('kinesiology-muscleactivation', 'muscleactivation(active, total) = ⌊active · 100 /
+    total⌋', total > 0 ? Math.floor((active * 100) / total) : 0, nat(active, total) && total > 0 && active <=
+    total, 'muscleactivation', [active, total]) } /** JOINT ANGLE: a travelled arc shared over its segments.
+    value ⌊total / count⌋. -/
+theorem fam_kinesiology_jointangle_1 : ((360 : Int) / (4 : Int)) = (90 : Int) := by decide
 
-/-- kinesiology: momentarm(50, 12) = 600 — MOMENT ARM: the torque a force makes at a lever distance. value force
-    · distance. -/
-theorem fam_kinesiology_momentarm_1 : (50 * 12) = 600 := by decide
+/-- kinesiology: momentarm(50, 12) = 600 — KINESIOLOGY — HUMAN MOVEMENT AS ARITHMETIC (chosen by the registry,
+    not by hand). Motion is numbers: the range a joint travels, flexion and extension of an angle, the fraction
+    of muscle fibres recruited, the angle at a joint, the torque a muscle makes at its moment arm, how far a
+    muscle shortens, and whether sway stays inside a limit. Crosses to `anatomy` — kinesiology is movement of
+    the body anatomy describes. A measure. */ const PROOF = 'kinesiology arithmetic (range of motion, flexion,
+    extension, muscle activation, joint angle, moment-arm torque, contraction, balance); movement of the
+    anatomy; a measure crossed to anatomy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinesiology', dst: 'anatomy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinesiology.${name}`, params }) export class KinesiologyFormulas { /** RANGE OF MOTION: the degrees a joint
+    travels, extension limit minus flexion limit. value max(0, max − min). */ static rangeofmotion(max: number,
+    min: number): CrossFormula { return c('kinesiology-rangeofmotion', 'rangeofmotion(max, min) = max(0, max −
+    min)', Math.max(0, max - min), nat(max, min) && max >= min, 'rangeofmotion', [max, min]) } /** FLEXION:
+    bending adds degrees to a joint angle. value angle + delta. */ static flexion(angle: number, delta: number):
+    CrossFormula { return c('kinesiology-flexion', 'flexion(angle, delta) = angle + delta', angle + delta,
+    nat(angle, delta), 'flexion', [angle, delta]) } /** EXTENSION: straightening removes degrees from a joint
+    angle. value max(0, angle − delta). */ static extension(angle: number, delta: number): CrossFormula { return
+    c('kinesiology-extension', 'extension(angle, delta) = max(0, angle − delta)', Math.max(0, angle - delta),
+    nat(angle, delta) && angle >= delta, 'extension', [angle, delta]) } /** MUSCLE ACTIVATION: the percentage of
+    fibres recruited. value ⌊active · 100 / total⌋. */ static muscleactivation(active: number, total: number):
+    CrossFormula { return c('kinesiology-muscleactivation', 'muscleactivation(active, total) = ⌊active · 100 /
+    total⌋', total > 0 ? Math.floor((active * 100) / total) : 0, nat(active, total) && total > 0 && active <=
+    total, 'muscleactivation', [active, total]) } /** JOINT ANGLE: a travelled arc shared over its segments.
+    value ⌊total / count⌋. */ static jointangle(total: number, count: number): CrossFormula { return
+    c('kinesiology-jointangle', 'jointangle(total, count) = ⌊total / count⌋', count > 0 ? Math.floor(total /
+    count) : 0, nat(total, count) && count > 0, 'jointangle', [total, count]) } /** MOMENT ARM: the torque a
+    force makes at a lever distance. value force · distance. -/
+theorem fam_kinesiology_momentarm_1 : ((50 : Int) * (12 : Int)) = (600 : Int) := by decide
 
-/-- kinesiology: contraction(100, 70) = 30 — CONTRACTION: how far a muscle shortens from rest. value max(0, rest
-    − current). -/
-theorem fam_kinesiology_contraction_1 : (fmax 0 (100 - 70)) = 30 := by decide
+/-- kinesiology: contraction(100, 70) = 30 — KINESIOLOGY — HUMAN MOVEMENT AS ARITHMETIC (chosen by the registry,
+    not by hand). Motion is numbers: the range a joint travels, flexion and extension of an angle, the fraction
+    of muscle fibres recruited, the angle at a joint, the torque a muscle makes at its moment arm, how far a
+    muscle shortens, and whether sway stays inside a limit. Crosses to `anatomy` — kinesiology is movement of
+    the body anatomy describes. A measure. */ const PROOF = 'kinesiology arithmetic (range of motion, flexion,
+    extension, muscle activation, joint angle, moment-arm torque, contraction, balance); movement of the
+    anatomy; a measure crossed to anatomy' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinesiology', dst: 'anatomy', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinesiology.${name}`, params }) export class KinesiologyFormulas { /** RANGE OF MOTION: the degrees a joint
+    travels, extension limit minus flexion limit. value max(0, max − min). */ static rangeofmotion(max: number,
+    min: number): CrossFormula { return c('kinesiology-rangeofmotion', 'rangeofmotion(max, min) = max(0, max −
+    min)', Math.max(0, max - min), nat(max, min) && max >= min, 'rangeofmotion', [max, min]) } /** FLEXION:
+    bending adds degrees to a joint angle. value angle + delta. */ static flexion(angle: number, delta: number):
+    CrossFormula { return c('kinesiology-flexion', 'flexion(angle, delta) = angle + delta', angle + delta,
+    nat(angle, delta), 'flexion', [angle, delta]) } /** EXTENSION: straightening removes degrees from a joint
+    angle. value max(0, angle − delta). */ static extension(angle: number, delta: number): CrossFormula { return
+    c('kinesiology-extension', 'extension(angle, delta) = max(0, angle − delta)', Math.max(0, angle - delta),
+    nat(angle, delta) && angle >= delta, 'extension', [angle, delta]) } /** MUSCLE ACTIVATION: the percentage of
+    fibres recruited. value ⌊active · 100 / total⌋. */ static muscleactivation(active: number, total: number):
+    CrossFormula { return c('kinesiology-muscleactivation', 'muscleactivation(active, total) = ⌊active · 100 /
+    total⌋', total > 0 ? Math.floor((active * 100) / total) : 0, nat(active, total) && total > 0 && active <=
+    total, 'muscleactivation', [active, total]) } /** JOINT ANGLE: a travelled arc shared over its segments.
+    value ⌊total / count⌋. */ static jointangle(total: number, count: number): CrossFormula { return
+    c('kinesiology-jointangle', 'jointangle(total, count) = ⌊total / count⌋', count > 0 ? Math.floor(total /
+    count) : 0, nat(total, count) && count > 0, 'jointangle', [total, count]) } /** MOMENT ARM: the torque a
+    force makes at a lever distance. value force · distance. */ static momentarm(force: number, distance:
+    number): CrossFormula { return c('kinesiology-momentarm', 'momentarm(force, distance) = force · distance',
+    force * distance, nat(force, distance), 'momentarm', [force, distance]) } /** CONTRACTION: how far a muscle
+    shortens from rest. value max(0, rest − current). -/
+theorem fam_kinesiology_contraction_1 : (fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int) := by decide
+
+/-- kinesiology: balance(5, 10) = 1 — KINESIOLOGY — HUMAN MOVEMENT AS ARITHMETIC (chosen by the registry, not by
+    hand). Motion is numbers: the range a joint travels, flexion and extension of an angle, the fraction of
+    muscle fibres recruited, the angle at a joint, the torque a muscle makes at its moment arm, how far a muscle
+    shortens, and whether sway stays inside a limit. Crosses to `anatomy` — kinesiology is movement of the body
+    anatomy describes. A measure. */ const PROOF = 'kinesiology arithmetic (range of motion, flexion, extension,
+    muscle activation, joint angle, moment-arm torque, contraction, balance); movement of the anatomy; a measure
+    crossed to anatomy' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kinesiology', dst:
+    'anatomy', formula, value, proof: PROOF, ...extra }, holds, { name: `kinesiology.${name}`, params }) export
+    class KinesiologyFormulas { /** RANGE OF MOTION: the degrees a joint travels, extension limit minus flexion
+    limit. value max(0, max − min). */ static rangeofmotion(max: number, min: number): CrossFormula { return
+    c('kinesiology-rangeofmotion', 'rangeofmotion(max, min) = max(0, max − min)', Math.max(0, max - min),
+    nat(max, min) && max >= min, 'rangeofmotion', [max, min]) } /** FLEXION: bending adds degrees to a joint
+    angle. value angle + delta. */ static flexion(angle: number, delta: number): CrossFormula { return
+    c('kinesiology-flexion', 'flexion(angle, delta) = angle + delta', angle + delta, nat(angle, delta),
+    'flexion', [angle, delta]) } /** EXTENSION: straightening removes degrees from a joint angle. value max(0,
+    angle − delta). */ static extension(angle: number, delta: number): CrossFormula { return
+    c('kinesiology-extension', 'extension(angle, delta) = max(0, angle − delta)', Math.max(0, angle - delta),
+    nat(angle, delta) && angle >= delta, 'extension', [angle, delta]) } /** MUSCLE ACTIVATION: the percentage of
+    fibres recruited. value ⌊active · 100 / total⌋. */ static muscleactivation(active: number, total: number):
+    CrossFormula { return c('kinesiology-muscleactivation', 'muscleactivation(active, total) = ⌊active · 100 /
+    total⌋', total > 0 ? Math.floor((active * 100) / total) : 0, nat(active, total) && total > 0 && active <=
+    total, 'muscleactivation', [active, total]) } /** JOINT ANGLE: a travelled arc shared over its segments.
+    value ⌊total / count⌋. */ static jointangle(total: number, count: number): CrossFormula { return
+    c('kinesiology-jointangle', 'jointangle(total, count) = ⌊total / count⌋', count > 0 ? Math.floor(total /
+    count) : 0, nat(total, count) && count > 0, 'jointangle', [total, count]) } /** MOMENT ARM: the torque a
+    force makes at a lever distance. value force · distance. */ static momentarm(force: number, distance:
+    number): CrossFormula { return c('kinesiology-momentarm', 'momentarm(force, distance) = force · distance',
+    force * distance, nat(force, distance), 'momentarm', [force, distance]) } /** CONTRACTION: how far a muscle
+    shortens from rest. value max(0, rest − current). */ static contraction(rest: number, current: number):
+    CrossFormula { return c('kinesiology-contraction', 'contraction(rest, current) = max(0, rest − current)',
+    Math.max(0, rest - current), nat(rest, current) && rest >= current, 'contraction', [rest, current]) } /**
+    BALANCE: 1 when measured sway stays inside the limit. value [sway ≤ limit]. -/
+theorem fam_kinesiology_balance_1 : (if (if (5 : Int) ≤ (10 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
+
+/-- kinesiology: balance(15, 10) = 0 — KINESIOLOGY — HUMAN MOVEMENT AS ARITHMETIC (chosen by the registry, not
+    by hand). Motion is numbers: the range a joint travels, flexion and extension of an angle, the fraction of
+    muscle fibres recruited, the angle at a joint, the torque a muscle makes at its moment arm, how far a muscle
+    shortens, and whether sway stays inside a limit. Crosses to `anatomy` — kinesiology is movement of the body
+    anatomy describes. A measure. */ const PROOF = 'kinesiology arithmetic (range of motion, flexion, extension,
+    muscle activation, joint angle, moment-arm torque, contraction, balance); movement of the anatomy; a measure
+    crossed to anatomy' const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
+    const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[],
+    extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kinesiology', dst:
+    'anatomy', formula, value, proof: PROOF, ...extra }, holds, { name: `kinesiology.${name}`, params }) export
+    class KinesiologyFormulas { /** RANGE OF MOTION: the degrees a joint travels, extension limit minus flexion
+    limit. value max(0, max − min). */ static rangeofmotion(max: number, min: number): CrossFormula { return
+    c('kinesiology-rangeofmotion', 'rangeofmotion(max, min) = max(0, max − min)', Math.max(0, max - min),
+    nat(max, min) && max >= min, 'rangeofmotion', [max, min]) } /** FLEXION: bending adds degrees to a joint
+    angle. value angle + delta. */ static flexion(angle: number, delta: number): CrossFormula { return
+    c('kinesiology-flexion', 'flexion(angle, delta) = angle + delta', angle + delta, nat(angle, delta),
+    'flexion', [angle, delta]) } /** EXTENSION: straightening removes degrees from a joint angle. value max(0,
+    angle − delta). */ static extension(angle: number, delta: number): CrossFormula { return
+    c('kinesiology-extension', 'extension(angle, delta) = max(0, angle − delta)', Math.max(0, angle - delta),
+    nat(angle, delta) && angle >= delta, 'extension', [angle, delta]) } /** MUSCLE ACTIVATION: the percentage of
+    fibres recruited. value ⌊active · 100 / total⌋. */ static muscleactivation(active: number, total: number):
+    CrossFormula { return c('kinesiology-muscleactivation', 'muscleactivation(active, total) = ⌊active · 100 /
+    total⌋', total > 0 ? Math.floor((active * 100) / total) : 0, nat(active, total) && total > 0 && active <=
+    total, 'muscleactivation', [active, total]) } /** JOINT ANGLE: a travelled arc shared over its segments.
+    value ⌊total / count⌋. */ static jointangle(total: number, count: number): CrossFormula { return
+    c('kinesiology-jointangle', 'jointangle(total, count) = ⌊total / count⌋', count > 0 ? Math.floor(total /
+    count) : 0, nat(total, count) && count > 0, 'jointangle', [total, count]) } /** MOMENT ARM: the torque a
+    force makes at a lever distance. value force · distance. */ static momentarm(force: number, distance:
+    number): CrossFormula { return c('kinesiology-momentarm', 'momentarm(force, distance) = force · distance',
+    force * distance, nat(force, distance), 'momentarm', [force, distance]) } /** CONTRACTION: how far a muscle
+    shortens from rest. value max(0, rest − current). */ static contraction(rest: number, current: number):
+    CrossFormula { return c('kinesiology-contraction', 'contraction(rest, current) = max(0, rest − current)',
+    Math.max(0, rest - current), nat(rest, current) && rest >= current, 'contraction', [rest, current]) } /**
+    BALANCE: 1 when measured sway stays inside the limit. value [sway ≤ limit]. -/
+theorem fam_kinesiology_balance_2 : (if (if (15 : Int) ≤ (10 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
 
 /-- kinship: coefficientrelatedness(2) = 250 — KINSHIP — BLOOD RELATION AS ARITHMETIC (the genealogy of a
     pedigree reduced to exact counts). How close two people are is numbers: the coefficient of relatedness that
@@ -193,7 +912,7 @@ theorem fam_kinesiology_contraction_1 : (fmax 0 (100 - 70)) = 30 := by decide
     src: 'kinship', dst: 'sociology', formula, value, proof: PROOF, ...extra }, holds, { name:
     `kinship.${name}`, params }) export class KinshipFormulas { /** COEFFICIENT OF RELATEDNESS in per-mille,
     halving once per meiosis (generation). value ⌊1000 / 2^gen⌋. -/
-theorem fam_kinship_coefficientrelatedness_1 : (1000 / (2 ^ 2)) = 250 := by decide
+theorem fam_kinship_coefficientrelatedness_1 : ((1000 : Int) / ((2 : Int) ^ (2 : Nat))) = (250 : Int) := by decide
 
 /-- kinship: coefficientrelatedness(1) = 500 — KINSHIP — BLOOD RELATION AS ARITHMETIC (the genealogy of a
     pedigree reduced to exact counts). How close two people are is numbers: the coefficient of relatedness that
@@ -208,34 +927,213 @@ theorem fam_kinship_coefficientrelatedness_1 : (1000 / (2 ^ 2)) = 250 := by deci
     src: 'kinship', dst: 'sociology', formula, value, proof: PROOF, ...extra }, holds, { name:
     `kinship.${name}`, params }) export class KinshipFormulas { /** COEFFICIENT OF RELATEDNESS in per-mille,
     halving once per meiosis (generation). value ⌊1000 / 2^gen⌋. -/
-theorem fam_kinship_coefficientrelatedness_2 : (1000 / (2 ^ 1)) = 500 := by decide
+theorem fam_kinship_coefficientrelatedness_2 : ((1000 : Int) / ((2 : Int) ^ (1 : Nat))) = (500 : Int) := by decide
 
-/-- kinship: generationdistance(2, 6) = 4 — GENERATION DISTANCE: the generations from an ancestor down to a
-    descendant. value max(0, descendant − ancestor). -/
-theorem fam_kinship_generationdistance_1 : (fmax 0 (6 - 2)) = 4 := by decide
+/-- kinship: generationdistance(2, 6) = 4 — KINSHIP — BLOOD RELATION AS ARITHMETIC (the genealogy of a pedigree
+    reduced to exact counts). How close two people are is numbers: the coefficient of relatedness that halves
+    each generation, the generations between them, the degree a cousin is removed, the coefficient of inbreeding
+    over a loop, the descendants a line produces, the ancestors a generation holds, the degree of cousinhood,
+    and the depth of a lineage in years. Crosses to `sociology` — kinship is the atom society is built on. A
+    measure. */ const PROOF = 'kinship arithmetic (relatedness per-mille, generation distance, degree removed,
+    consanguinity, descendants, ancestors, cousin degree, lineage depth); blood relation reduced to exact
+    counts; a measure crossed to sociology' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinship', dst: 'sociology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinship.${name}`, params }) export class KinshipFormulas { /** COEFFICIENT OF RELATEDNESS in per-mille,
+    halving once per meiosis (generation). value ⌊1000 / 2^gen⌋. */ static coefficientrelatedness(gen: number):
+    CrossFormula { return c('kinship-coefficientrelatedness', 'coefficientrelatedness(gen) = ⌊1000 / 2^gen⌋',
+    Math.floor(1000 / Math.pow(2, gen)), nat(gen), 'coefficientrelatedness', [gen]) } /** GENERATION DISTANCE:
+    the generations from an ancestor down to a descendant. value max(0, descendant − ancestor). -/
+theorem fam_kinship_generationdistance_1 : (fmax (0 : Int) ((6 : Int) - (2 : Int))) = (4 : Int) := by decide
 
-/-- kinship: degreeremoval(3, 5) = 2 — DEGREE OF REMOVAL between two cousins: the gap in their generations from
-    the common ancestor. value max − min. -/
-theorem fam_kinship_degreeremoval_1 : ((fmax 3 5) - (fmin 3 5)) = 2 := by decide
+/-- kinship: degreeremoval(3, 5) = 2 — KINSHIP — BLOOD RELATION AS ARITHMETIC (the genealogy of a pedigree
+    reduced to exact counts). How close two people are is numbers: the coefficient of relatedness that halves
+    each generation, the generations between them, the degree a cousin is removed, the coefficient of inbreeding
+    over a loop, the descendants a line produces, the ancestors a generation holds, the degree of cousinhood,
+    and the depth of a lineage in years. Crosses to `sociology` — kinship is the atom society is built on. A
+    measure. */ const PROOF = 'kinship arithmetic (relatedness per-mille, generation distance, degree removed,
+    consanguinity, descendants, ancestors, cousin degree, lineage depth); blood relation reduced to exact
+    counts; a measure crossed to sociology' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinship', dst: 'sociology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinship.${name}`, params }) export class KinshipFormulas { /** COEFFICIENT OF RELATEDNESS in per-mille,
+    halving once per meiosis (generation). value ⌊1000 / 2^gen⌋. */ static coefficientrelatedness(gen: number):
+    CrossFormula { return c('kinship-coefficientrelatedness', 'coefficientrelatedness(gen) = ⌊1000 / 2^gen⌋',
+    Math.floor(1000 / Math.pow(2, gen)), nat(gen), 'coefficientrelatedness', [gen]) } /** GENERATION DISTANCE:
+    the generations from an ancestor down to a descendant. value max(0, descendant − ancestor). */ static
+    generationdistance(ancestor: number, descendant: number): CrossFormula { return
+    c('kinship-generationdistance', 'generationdistance(ancestor, descendant) = max(0, descendant − ancestor)',
+    Math.max(0, descendant - ancestor), nat(ancestor, descendant), 'generationdistance', [ancestor, descendant])
+    } /** DEGREE OF REMOVAL between two cousins: the gap in their generations from the common ancestor. value
+    max − min. -/
+theorem fam_kinship_degreeremoval_1 : ((fmax (3 : Int) (5 : Int)) - (fmin (3 : Int) (5 : Int))) = (2 : Int) := by decide
 
-/-- kinship: consanguinity(3, 2) = 250 — CONSANGUINITY: the coefficient of inbreeding in per-mille over `loops`
-    ancestral loops of a path of length `pathlen`. value loops · ⌊1000 / 2^pathlen⌋. -/
-theorem fam_kinship_consanguinity_1 : (2 * (1000 / (2 ^ 3))) = 250 := by decide
+/-- kinship: consanguinity(3, 2) = 250 — KINSHIP — BLOOD RELATION AS ARITHMETIC (the genealogy of a pedigree
+    reduced to exact counts). How close two people are is numbers: the coefficient of relatedness that halves
+    each generation, the generations between them, the degree a cousin is removed, the coefficient of inbreeding
+    over a loop, the descendants a line produces, the ancestors a generation holds, the degree of cousinhood,
+    and the depth of a lineage in years. Crosses to `sociology` — kinship is the atom society is built on. A
+    measure. */ const PROOF = 'kinship arithmetic (relatedness per-mille, generation distance, degree removed,
+    consanguinity, descendants, ancestors, cousin degree, lineage depth); blood relation reduced to exact
+    counts; a measure crossed to sociology' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinship', dst: 'sociology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinship.${name}`, params }) export class KinshipFormulas { /** COEFFICIENT OF RELATEDNESS in per-mille,
+    halving once per meiosis (generation). value ⌊1000 / 2^gen⌋. */ static coefficientrelatedness(gen: number):
+    CrossFormula { return c('kinship-coefficientrelatedness', 'coefficientrelatedness(gen) = ⌊1000 / 2^gen⌋',
+    Math.floor(1000 / Math.pow(2, gen)), nat(gen), 'coefficientrelatedness', [gen]) } /** GENERATION DISTANCE:
+    the generations from an ancestor down to a descendant. value max(0, descendant − ancestor). */ static
+    generationdistance(ancestor: number, descendant: number): CrossFormula { return
+    c('kinship-generationdistance', 'generationdistance(ancestor, descendant) = max(0, descendant − ancestor)',
+    Math.max(0, descendant - ancestor), nat(ancestor, descendant), 'generationdistance', [ancestor, descendant])
+    } /** DEGREE OF REMOVAL between two cousins: the gap in their generations from the common ancestor. value
+    max − min. */ static degreeremoval(genA: number, genB: number): CrossFormula { return
+    c('kinship-degreeremoval', 'degreeremoval(genA, genB) = max(genA, genB) − min(genA, genB)', Math.max(genA,
+    genB) - Math.min(genA, genB), nat(genA, genB), 'degreeremoval', [genA, genB]) } /** CONSANGUINITY: the
+    coefficient of inbreeding in per-mille over `loops` ancestral loops of a path of length `pathlen`. value
+    loops · ⌊1000 / 2^pathlen⌋. -/
+theorem fam_kinship_consanguinity_1 : ((2 : Int) * ((1000 : Int) / ((2 : Int) ^ (3 : Nat)))) = (250 : Int) := by decide
 
-/-- kinship: descendants(2, 4) = 16 — DESCENDANTS at a generation with a fixed branching factor. value
-    children^gens. -/
-theorem fam_kinship_descendants_1 : (2 ^ 4) = 16 := by decide
+/-- kinship: descendants(2, 4) = 16 — KINSHIP — BLOOD RELATION AS ARITHMETIC (the genealogy of a pedigree
+    reduced to exact counts). How close two people are is numbers: the coefficient of relatedness that halves
+    each generation, the generations between them, the degree a cousin is removed, the coefficient of inbreeding
+    over a loop, the descendants a line produces, the ancestors a generation holds, the degree of cousinhood,
+    and the depth of a lineage in years. Crosses to `sociology` — kinship is the atom society is built on. A
+    measure. */ const PROOF = 'kinship arithmetic (relatedness per-mille, generation distance, degree removed,
+    consanguinity, descendants, ancestors, cousin degree, lineage depth); blood relation reduced to exact
+    counts; a measure crossed to sociology' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinship', dst: 'sociology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinship.${name}`, params }) export class KinshipFormulas { /** COEFFICIENT OF RELATEDNESS in per-mille,
+    halving once per meiosis (generation). value ⌊1000 / 2^gen⌋. */ static coefficientrelatedness(gen: number):
+    CrossFormula { return c('kinship-coefficientrelatedness', 'coefficientrelatedness(gen) = ⌊1000 / 2^gen⌋',
+    Math.floor(1000 / Math.pow(2, gen)), nat(gen), 'coefficientrelatedness', [gen]) } /** GENERATION DISTANCE:
+    the generations from an ancestor down to a descendant. value max(0, descendant − ancestor). */ static
+    generationdistance(ancestor: number, descendant: number): CrossFormula { return
+    c('kinship-generationdistance', 'generationdistance(ancestor, descendant) = max(0, descendant − ancestor)',
+    Math.max(0, descendant - ancestor), nat(ancestor, descendant), 'generationdistance', [ancestor, descendant])
+    } /** DEGREE OF REMOVAL between two cousins: the gap in their generations from the common ancestor. value
+    max − min. */ static degreeremoval(genA: number, genB: number): CrossFormula { return
+    c('kinship-degreeremoval', 'degreeremoval(genA, genB) = max(genA, genB) − min(genA, genB)', Math.max(genA,
+    genB) - Math.min(genA, genB), nat(genA, genB), 'degreeremoval', [genA, genB]) } /** CONSANGUINITY: the
+    coefficient of inbreeding in per-mille over `loops` ancestral loops of a path of length `pathlen`. value
+    loops · ⌊1000 / 2^pathlen⌋. */ static consanguinity(pathlen: number, loops: number): CrossFormula { return
+    c('kinship-consanguinity', 'consanguinity(pathlen, loops) = loops · ⌊1000 / 2^pathlen⌋', loops *
+    Math.floor(1000 / Math.pow(2, pathlen)), nat(pathlen, loops), 'consanguinity', [pathlen, loops]) } /**
+    DESCENDANTS at a generation with a fixed branching factor. value children^gens. -/
+theorem fam_kinship_descendants_1 : ((2 : Int) ^ (4 : Nat)) = (16 : Int) := by decide
 
-/-- kinship: ancestorcount(5) = 32 — ANCESTORS a generation back: two parents per person, doubling. value 2^gen. -/
-theorem fam_kinship_ancestorcount_1 : (2 ^ 5) = 32 := by decide
+/-- kinship: ancestorcount(5) = 32 — KINSHIP — BLOOD RELATION AS ARITHMETIC (the genealogy of a pedigree reduced
+    to exact counts). How close two people are is numbers: the coefficient of relatedness that halves each
+    generation, the generations between them, the degree a cousin is removed, the coefficient of inbreeding over
+    a loop, the descendants a line produces, the ancestors a generation holds, the degree of cousinhood, and the
+    depth of a lineage in years. Crosses to `sociology` — kinship is the atom society is built on. A measure. */
+    const PROOF = 'kinship arithmetic (relatedness per-mille, generation distance, degree removed,
+    consanguinity, descendants, ancestors, cousin degree, lineage depth); blood relation reduced to exact
+    counts; a measure crossed to sociology' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinship', dst: 'sociology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinship.${name}`, params }) export class KinshipFormulas { /** COEFFICIENT OF RELATEDNESS in per-mille,
+    halving once per meiosis (generation). value ⌊1000 / 2^gen⌋. */ static coefficientrelatedness(gen: number):
+    CrossFormula { return c('kinship-coefficientrelatedness', 'coefficientrelatedness(gen) = ⌊1000 / 2^gen⌋',
+    Math.floor(1000 / Math.pow(2, gen)), nat(gen), 'coefficientrelatedness', [gen]) } /** GENERATION DISTANCE:
+    the generations from an ancestor down to a descendant. value max(0, descendant − ancestor). */ static
+    generationdistance(ancestor: number, descendant: number): CrossFormula { return
+    c('kinship-generationdistance', 'generationdistance(ancestor, descendant) = max(0, descendant − ancestor)',
+    Math.max(0, descendant - ancestor), nat(ancestor, descendant), 'generationdistance', [ancestor, descendant])
+    } /** DEGREE OF REMOVAL between two cousins: the gap in their generations from the common ancestor. value
+    max − min. */ static degreeremoval(genA: number, genB: number): CrossFormula { return
+    c('kinship-degreeremoval', 'degreeremoval(genA, genB) = max(genA, genB) − min(genA, genB)', Math.max(genA,
+    genB) - Math.min(genA, genB), nat(genA, genB), 'degreeremoval', [genA, genB]) } /** CONSANGUINITY: the
+    coefficient of inbreeding in per-mille over `loops` ancestral loops of a path of length `pathlen`. value
+    loops · ⌊1000 / 2^pathlen⌋. */ static consanguinity(pathlen: number, loops: number): CrossFormula { return
+    c('kinship-consanguinity', 'consanguinity(pathlen, loops) = loops · ⌊1000 / 2^pathlen⌋', loops *
+    Math.floor(1000 / Math.pow(2, pathlen)), nat(pathlen, loops), 'consanguinity', [pathlen, loops]) } /**
+    DESCENDANTS at a generation with a fixed branching factor. value children^gens. */ static
+    descendants(children: number, gens: number): CrossFormula { return c('kinship-descendants',
+    'descendants(children, gens) = children^gens', Math.pow(children, gens), nat(children, gens), 'descendants',
+    [children, gens]) } /** ANCESTORS a generation back: two parents per person, doubling. value 2^gen. -/
+theorem fam_kinship_ancestorcount_1 : ((2 : Int) ^ (5 : Nat)) = (32 : Int) := by decide
 
-/-- kinship: cousindegree(4) = 3 — COUSIN DEGREE: first cousins share grandparents (gen 2), so the degree is one
-    less than the shared generation. value max(0, gen − 1). -/
-theorem fam_kinship_cousindegree_1 : (fmax 0 (4 - 1)) = 3 := by decide
+/-- kinship: cousindegree(4) = 3 — KINSHIP — BLOOD RELATION AS ARITHMETIC (the genealogy of a pedigree reduced
+    to exact counts). How close two people are is numbers: the coefficient of relatedness that halves each
+    generation, the generations between them, the degree a cousin is removed, the coefficient of inbreeding over
+    a loop, the descendants a line produces, the ancestors a generation holds, the degree of cousinhood, and the
+    depth of a lineage in years. Crosses to `sociology` — kinship is the atom society is built on. A measure. */
+    const PROOF = 'kinship arithmetic (relatedness per-mille, generation distance, degree removed,
+    consanguinity, descendants, ancestors, cousin degree, lineage depth); blood relation reduced to exact
+    counts; a measure crossed to sociology' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinship', dst: 'sociology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinship.${name}`, params }) export class KinshipFormulas { /** COEFFICIENT OF RELATEDNESS in per-mille,
+    halving once per meiosis (generation). value ⌊1000 / 2^gen⌋. */ static coefficientrelatedness(gen: number):
+    CrossFormula { return c('kinship-coefficientrelatedness', 'coefficientrelatedness(gen) = ⌊1000 / 2^gen⌋',
+    Math.floor(1000 / Math.pow(2, gen)), nat(gen), 'coefficientrelatedness', [gen]) } /** GENERATION DISTANCE:
+    the generations from an ancestor down to a descendant. value max(0, descendant − ancestor). */ static
+    generationdistance(ancestor: number, descendant: number): CrossFormula { return
+    c('kinship-generationdistance', 'generationdistance(ancestor, descendant) = max(0, descendant − ancestor)',
+    Math.max(0, descendant - ancestor), nat(ancestor, descendant), 'generationdistance', [ancestor, descendant])
+    } /** DEGREE OF REMOVAL between two cousins: the gap in their generations from the common ancestor. value
+    max − min. */ static degreeremoval(genA: number, genB: number): CrossFormula { return
+    c('kinship-degreeremoval', 'degreeremoval(genA, genB) = max(genA, genB) − min(genA, genB)', Math.max(genA,
+    genB) - Math.min(genA, genB), nat(genA, genB), 'degreeremoval', [genA, genB]) } /** CONSANGUINITY: the
+    coefficient of inbreeding in per-mille over `loops` ancestral loops of a path of length `pathlen`. value
+    loops · ⌊1000 / 2^pathlen⌋. */ static consanguinity(pathlen: number, loops: number): CrossFormula { return
+    c('kinship-consanguinity', 'consanguinity(pathlen, loops) = loops · ⌊1000 / 2^pathlen⌋', loops *
+    Math.floor(1000 / Math.pow(2, pathlen)), nat(pathlen, loops), 'consanguinity', [pathlen, loops]) } /**
+    DESCENDANTS at a generation with a fixed branching factor. value children^gens. */ static
+    descendants(children: number, gens: number): CrossFormula { return c('kinship-descendants',
+    'descendants(children, gens) = children^gens', Math.pow(children, gens), nat(children, gens), 'descendants',
+    [children, gens]) } /** ANCESTORS a generation back: two parents per person, doubling. value 2^gen. */
+    static ancestorcount(gen: number): CrossFormula { return c('kinship-ancestorcount', 'ancestorcount(gen) =
+    2^gen', Math.pow(2, gen), nat(gen), 'ancestorcount', [gen]) } /** COUSIN DEGREE: first cousins share
+    grandparents (gen 2), so the degree is one less than the shared generation. value max(0, gen − 1). -/
+theorem fam_kinship_cousindegree_1 : (fmax (0 : Int) ((4 : Int) - (1 : Int))) = (3 : Int) := by decide
 
-/-- kinship: lineagedepth(1900, 2000, 25) = 4 — LINEAGE DEPTH: the generations a lineage spans in years, at a
-    fixed generation span. value ⌊max(0, end − start) / span⌋. -/
-theorem fam_kinship_lineagedepth_1 : ((fmax 0 (2000 - 1900)) / 25) = 4 := by decide
+/-- kinship: lineagedepth(1900, 2000, 25) = 4 — KINSHIP — BLOOD RELATION AS ARITHMETIC (the genealogy of a
+    pedigree reduced to exact counts). How close two people are is numbers: the coefficient of relatedness that
+    halves each generation, the generations between them, the degree a cousin is removed, the coefficient of
+    inbreeding over a loop, the descendants a line produces, the ancestors a generation holds, the degree of
+    cousinhood, and the depth of a lineage in years. Crosses to `sociology` — kinship is the atom society is
+    built on. A measure. */ const PROOF = 'kinship arithmetic (relatedness per-mille, generation distance,
+    degree removed, consanguinity, descendants, ancestors, cousin degree, lineage depth); blood relation reduced
+    to exact counts; a measure crossed to sociology' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kinship', dst: 'sociology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `kinship.${name}`, params }) export class KinshipFormulas { /** COEFFICIENT OF RELATEDNESS in per-mille,
+    halving once per meiosis (generation). value ⌊1000 / 2^gen⌋. */ static coefficientrelatedness(gen: number):
+    CrossFormula { return c('kinship-coefficientrelatedness', 'coefficientrelatedness(gen) = ⌊1000 / 2^gen⌋',
+    Math.floor(1000 / Math.pow(2, gen)), nat(gen), 'coefficientrelatedness', [gen]) } /** GENERATION DISTANCE:
+    the generations from an ancestor down to a descendant. value max(0, descendant − ancestor). */ static
+    generationdistance(ancestor: number, descendant: number): CrossFormula { return
+    c('kinship-generationdistance', 'generationdistance(ancestor, descendant) = max(0, descendant − ancestor)',
+    Math.max(0, descendant - ancestor), nat(ancestor, descendant), 'generationdistance', [ancestor, descendant])
+    } /** DEGREE OF REMOVAL between two cousins: the gap in their generations from the common ancestor. value
+    max − min. */ static degreeremoval(genA: number, genB: number): CrossFormula { return
+    c('kinship-degreeremoval', 'degreeremoval(genA, genB) = max(genA, genB) − min(genA, genB)', Math.max(genA,
+    genB) - Math.min(genA, genB), nat(genA, genB), 'degreeremoval', [genA, genB]) } /** CONSANGUINITY: the
+    coefficient of inbreeding in per-mille over `loops` ancestral loops of a path of length `pathlen`. value
+    loops · ⌊1000 / 2^pathlen⌋. */ static consanguinity(pathlen: number, loops: number): CrossFormula { return
+    c('kinship-consanguinity', 'consanguinity(pathlen, loops) = loops · ⌊1000 / 2^pathlen⌋', loops *
+    Math.floor(1000 / Math.pow(2, pathlen)), nat(pathlen, loops), 'consanguinity', [pathlen, loops]) } /**
+    DESCENDANTS at a generation with a fixed branching factor. value children^gens. */ static
+    descendants(children: number, gens: number): CrossFormula { return c('kinship-descendants',
+    'descendants(children, gens) = children^gens', Math.pow(children, gens), nat(children, gens), 'descendants',
+    [children, gens]) } /** ANCESTORS a generation back: two parents per person, doubling. value 2^gen. */
+    static ancestorcount(gen: number): CrossFormula { return c('kinship-ancestorcount', 'ancestorcount(gen) =
+    2^gen', Math.pow(2, gen), nat(gen), 'ancestorcount', [gen]) } /** COUSIN DEGREE: first cousins share
+    grandparents (gen 2), so the degree is one less than the shared generation. value max(0, gen − 1). */ static
+    cousindegree(gen: number): CrossFormula { return c('kinship-cousindegree', 'cousindegree(gen) = max(0, gen −
+    1)', Math.max(0, gen - 1), nat(gen), 'cousindegree', [gen]) } /** LINEAGE DEPTH: the generations a lineage
+    spans in years, at a fixed generation span. value ⌊max(0, end − start) / span⌋. -/
+theorem fam_kinship_lineagedepth_1 : ((fmax (0 : Int) ((2000 : Int) - (1900 : Int))) / (25 : Int)) = (4 : Int) := by decide
 
 /-- knitting: gauge(22, 10) = 22 — KNITTING — FABRIC FORMATION AS ARITHMETIC. A knit is a grid of loops: the
     gauge (stitches per 10 cm), the courses (rows per 10 cm), the wales a width carries, the stitches a piece
@@ -248,35 +1146,182 @@ theorem fam_kinship_lineagedepth_1 : ((fmax 0 (2000 - 1900)) / 25) = 4 := by dec
     src: 'knitting', dst: 'materials', formula, value, proof: PROOF, ...extra }, holds, { name:
     `knitting.${name}`, params }) export class KnittingFormulas { /** GAUGE: stitches measured over a width,
     scaled to 10 cm. value ⌊stitches · 10 / cm⌋. -/
-theorem fam_knitting_gauge_1 : ((22 * 10) / 10) = 22 := by decide
+theorem fam_knitting_gauge_1 : (((22 : Int) * (10 : Int)) / (10 : Int)) = (22 : Int) := by decide
 
-/-- knitting: courses(30, 10) = 30 — COURSES: rows measured over a length, scaled to 10 cm. value ⌊rows · 10 /
-    cm⌋. -/
-theorem fam_knitting_courses_1 : ((30 * 10) / 10) = 30 := by decide
+/-- knitting: courses(30, 10) = 30 — KNITTING — FABRIC FORMATION AS ARITHMETIC. A knit is a grid of loops: the
+    gauge (stitches per 10 cm), the courses (rows per 10 cm), the wales a width carries, the stitches a piece
+    holds, the yarn each loop spends, the tightness of that loop, the loops a machine makes, and the finished
+    weight (gsm). Crosses to `materials` — knitting is what a material becomes. A measure. */ const PROOF =
+    'knitting arithmetic (gauge, courses, wales, stitch count, loop length, tightness, productivity, gsm); loops
+    on a grid of yarn; a measure crossed to materials' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'knitting', dst: 'materials', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knitting.${name}`, params }) export class KnittingFormulas { /** GAUGE: stitches measured over a width,
+    scaled to 10 cm. value ⌊stitches · 10 / cm⌋. */ static gauge(stitches: number, cm: number): CrossFormula {
+    return c('knitting-gauge', 'gauge(stitches, cm) = ⌊stitches · 10 / cm⌋', cm > 0 ? Math.floor((stitches * 10)
+    / cm) : 0, nat(stitches, cm) && cm > 0, 'gauge', [stitches, cm]) } /** COURSES: rows measured over a length,
+    scaled to 10 cm. value ⌊rows · 10 / cm⌋. -/
+theorem fam_knitting_courses_1 : (((30 : Int) * (10 : Int)) / (10 : Int)) = (30 : Int) := by decide
 
-/-- knitting: wales(3, 40) = 120 — WALES: the stitch columns a width carries at a per-cm density. value perCm ·
-    width. -/
-theorem fam_knitting_wales_1 : (3 * 40) = 120 := by decide
+/-- knitting: wales(3, 40) = 120 — KNITTING — FABRIC FORMATION AS ARITHMETIC. A knit is a grid of loops: the
+    gauge (stitches per 10 cm), the courses (rows per 10 cm), the wales a width carries, the stitches a piece
+    holds, the yarn each loop spends, the tightness of that loop, the loops a machine makes, and the finished
+    weight (gsm). Crosses to `materials` — knitting is what a material becomes. A measure. */ const PROOF =
+    'knitting arithmetic (gauge, courses, wales, stitch count, loop length, tightness, productivity, gsm); loops
+    on a grid of yarn; a measure crossed to materials' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'knitting', dst: 'materials', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knitting.${name}`, params }) export class KnittingFormulas { /** GAUGE: stitches measured over a width,
+    scaled to 10 cm. value ⌊stitches · 10 / cm⌋. */ static gauge(stitches: number, cm: number): CrossFormula {
+    return c('knitting-gauge', 'gauge(stitches, cm) = ⌊stitches · 10 / cm⌋', cm > 0 ? Math.floor((stitches * 10)
+    / cm) : 0, nat(stitches, cm) && cm > 0, 'gauge', [stitches, cm]) } /** COURSES: rows measured over a length,
+    scaled to 10 cm. value ⌊rows · 10 / cm⌋. */ static courses(rows: number, cm: number): CrossFormula { return
+    c('knitting-courses', 'courses(rows, cm) = ⌊rows · 10 / cm⌋', cm > 0 ? Math.floor((rows * 10) / cm) : 0,
+    nat(rows, cm) && cm > 0, 'courses', [rows, cm]) } /** WALES: the stitch columns a width carries at a per-cm
+    density. value perCm · width. -/
+theorem fam_knitting_wales_1 : ((3 : Int) * (40 : Int)) = (120 : Int) := by decide
 
-/-- knitting: stitch(120, 150) = 18000 — STITCH COUNT: the loops in a rectangular piece, wales by courses. value
-    wales · courses. -/
-theorem fam_knitting_stitch_1 : (120 * 150) = 18000 := by decide
+/-- knitting: stitch(120, 150) = 18000 — KNITTING — FABRIC FORMATION AS ARITHMETIC. A knit is a grid of loops:
+    the gauge (stitches per 10 cm), the courses (rows per 10 cm), the wales a width carries, the stitches a
+    piece holds, the yarn each loop spends, the tightness of that loop, the loops a machine makes, and the
+    finished weight (gsm). Crosses to `materials` — knitting is what a material becomes. A measure. */ const
+    PROOF = 'knitting arithmetic (gauge, courses, wales, stitch count, loop length, tightness, productivity,
+    gsm); loops on a grid of yarn; a measure crossed to materials' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'knitting', dst: 'materials', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knitting.${name}`, params }) export class KnittingFormulas { /** GAUGE: stitches measured over a width,
+    scaled to 10 cm. value ⌊stitches · 10 / cm⌋. */ static gauge(stitches: number, cm: number): CrossFormula {
+    return c('knitting-gauge', 'gauge(stitches, cm) = ⌊stitches · 10 / cm⌋', cm > 0 ? Math.floor((stitches * 10)
+    / cm) : 0, nat(stitches, cm) && cm > 0, 'gauge', [stitches, cm]) } /** COURSES: rows measured over a length,
+    scaled to 10 cm. value ⌊rows · 10 / cm⌋. */ static courses(rows: number, cm: number): CrossFormula { return
+    c('knitting-courses', 'courses(rows, cm) = ⌊rows · 10 / cm⌋', cm > 0 ? Math.floor((rows * 10) / cm) : 0,
+    nat(rows, cm) && cm > 0, 'courses', [rows, cm]) } /** WALES: the stitch columns a width carries at a per-cm
+    density. value perCm · width. */ static wales(perCm: number, width: number): CrossFormula { return
+    c('knitting-wales', 'wales(perCm, width) = perCm · width', perCm * width, nat(perCm, width), 'wales',
+    [perCm, width]) } /** STITCH COUNT: the loops in a rectangular piece, wales by courses. value wales ·
+    courses. -/
+theorem fam_knitting_stitch_1 : ((120 : Int) * (150 : Int)) = (18000 : Int) := by decide
 
-/-- knitting: looplength(6000, 1000) = 6 — LOOP LENGTH: millimetres of yarn spent per loop. value ⌊yarn /
-    stitches⌋. -/
-theorem fam_knitting_looplength_1 : (6000 / 1000) = 6 := by decide
+/-- knitting: looplength(6000, 1000) = 6 — KNITTING — FABRIC FORMATION AS ARITHMETIC. A knit is a grid of loops:
+    the gauge (stitches per 10 cm), the courses (rows per 10 cm), the wales a width carries, the stitches a
+    piece holds, the yarn each loop spends, the tightness of that loop, the loops a machine makes, and the
+    finished weight (gsm). Crosses to `materials` — knitting is what a material becomes. A measure. */ const
+    PROOF = 'knitting arithmetic (gauge, courses, wales, stitch count, loop length, tightness, productivity,
+    gsm); loops on a grid of yarn; a measure crossed to materials' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'knitting', dst: 'materials', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knitting.${name}`, params }) export class KnittingFormulas { /** GAUGE: stitches measured over a width,
+    scaled to 10 cm. value ⌊stitches · 10 / cm⌋. */ static gauge(stitches: number, cm: number): CrossFormula {
+    return c('knitting-gauge', 'gauge(stitches, cm) = ⌊stitches · 10 / cm⌋', cm > 0 ? Math.floor((stitches * 10)
+    / cm) : 0, nat(stitches, cm) && cm > 0, 'gauge', [stitches, cm]) } /** COURSES: rows measured over a length,
+    scaled to 10 cm. value ⌊rows · 10 / cm⌋. */ static courses(rows: number, cm: number): CrossFormula { return
+    c('knitting-courses', 'courses(rows, cm) = ⌊rows · 10 / cm⌋', cm > 0 ? Math.floor((rows * 10) / cm) : 0,
+    nat(rows, cm) && cm > 0, 'courses', [rows, cm]) } /** WALES: the stitch columns a width carries at a per-cm
+    density. value perCm · width. */ static wales(perCm: number, width: number): CrossFormula { return
+    c('knitting-wales', 'wales(perCm, width) = perCm · width', perCm * width, nat(perCm, width), 'wales',
+    [perCm, width]) } /** STITCH COUNT: the loops in a rectangular piece, wales by courses. value wales ·
+    courses. */ static stitch(wales: number, courses: number): CrossFormula { return c('knitting-stitch',
+    'stitch(wales, courses) = wales · courses', wales * courses, nat(wales, courses), 'stitch', [wales,
+    courses]) } /** LOOP LENGTH: millimetres of yarn spent per loop. value ⌊yarn / stitches⌋. -/
+theorem fam_knitting_looplength_1 : ((6000 : Int) / (1000 : Int)) = (6 : Int) := by decide
 
-/-- knitting: tightness(200, 5) = 40 — TIGHTNESS: the loop's tightness index, yarn fineness over loop length.
-    value ⌊tex / looplen⌋. -/
-theorem fam_knitting_tightness_1 : (200 / 5) = 40 := by decide
+/-- knitting: tightness(200, 5) = 40 — KNITTING — FABRIC FORMATION AS ARITHMETIC. A knit is a grid of loops: the
+    gauge (stitches per 10 cm), the courses (rows per 10 cm), the wales a width carries, the stitches a piece
+    holds, the yarn each loop spends, the tightness of that loop, the loops a machine makes, and the finished
+    weight (gsm). Crosses to `materials` — knitting is what a material becomes. A measure. */ const PROOF =
+    'knitting arithmetic (gauge, courses, wales, stitch count, loop length, tightness, productivity, gsm); loops
+    on a grid of yarn; a measure crossed to materials' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'knitting', dst: 'materials', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knitting.${name}`, params }) export class KnittingFormulas { /** GAUGE: stitches measured over a width,
+    scaled to 10 cm. value ⌊stitches · 10 / cm⌋. */ static gauge(stitches: number, cm: number): CrossFormula {
+    return c('knitting-gauge', 'gauge(stitches, cm) = ⌊stitches · 10 / cm⌋', cm > 0 ? Math.floor((stitches * 10)
+    / cm) : 0, nat(stitches, cm) && cm > 0, 'gauge', [stitches, cm]) } /** COURSES: rows measured over a length,
+    scaled to 10 cm. value ⌊rows · 10 / cm⌋. */ static courses(rows: number, cm: number): CrossFormula { return
+    c('knitting-courses', 'courses(rows, cm) = ⌊rows · 10 / cm⌋', cm > 0 ? Math.floor((rows * 10) / cm) : 0,
+    nat(rows, cm) && cm > 0, 'courses', [rows, cm]) } /** WALES: the stitch columns a width carries at a per-cm
+    density. value perCm · width. */ static wales(perCm: number, width: number): CrossFormula { return
+    c('knitting-wales', 'wales(perCm, width) = perCm · width', perCm * width, nat(perCm, width), 'wales',
+    [perCm, width]) } /** STITCH COUNT: the loops in a rectangular piece, wales by courses. value wales ·
+    courses. */ static stitch(wales: number, courses: number): CrossFormula { return c('knitting-stitch',
+    'stitch(wales, courses) = wales · courses', wales * courses, nat(wales, courses), 'stitch', [wales,
+    courses]) } /** LOOP LENGTH: millimetres of yarn spent per loop. value ⌊yarn / stitches⌋. */ static
+    looplength(yarn: number, stitches: number): CrossFormula { return c('knitting-looplength', 'looplength(yarn,
+    stitches) = ⌊yarn / stitches⌋', stitches > 0 ? Math.floor(yarn / stitches) : 0, nat(yarn, stitches) &&
+    stitches > 0, 'looplength', [yarn, stitches]) } /** TIGHTNESS: the loop's tightness index, yarn fineness
+    over loop length. value ⌊tex / looplen⌋. -/
+theorem fam_knitting_tightness_1 : ((200 : Int) / (5 : Int)) = (40 : Int) := by decide
 
-/-- knitting: productivity(84, 20, 60) = 100800 — PRODUCTIVITY: the loops a machine makes, needles turning at an
-    rpm for the minutes run. value needles · rpm · minutes. -/
-theorem fam_knitting_productivity_1 : ((84 * 20) * 60) = 100800 := by decide
+/-- knitting: productivity(84, 20, 60) = 100800 — KNITTING — FABRIC FORMATION AS ARITHMETIC. A knit is a grid of
+    loops: the gauge (stitches per 10 cm), the courses (rows per 10 cm), the wales a width carries, the stitches
+    a piece holds, the yarn each loop spends, the tightness of that loop, the loops a machine makes, and the
+    finished weight (gsm). Crosses to `materials` — knitting is what a material becomes. A measure. */ const
+    PROOF = 'knitting arithmetic (gauge, courses, wales, stitch count, loop length, tightness, productivity,
+    gsm); loops on a grid of yarn; a measure crossed to materials' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'knitting', dst: 'materials', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knitting.${name}`, params }) export class KnittingFormulas { /** GAUGE: stitches measured over a width,
+    scaled to 10 cm. value ⌊stitches · 10 / cm⌋. */ static gauge(stitches: number, cm: number): CrossFormula {
+    return c('knitting-gauge', 'gauge(stitches, cm) = ⌊stitches · 10 / cm⌋', cm > 0 ? Math.floor((stitches * 10)
+    / cm) : 0, nat(stitches, cm) && cm > 0, 'gauge', [stitches, cm]) } /** COURSES: rows measured over a length,
+    scaled to 10 cm. value ⌊rows · 10 / cm⌋. */ static courses(rows: number, cm: number): CrossFormula { return
+    c('knitting-courses', 'courses(rows, cm) = ⌊rows · 10 / cm⌋', cm > 0 ? Math.floor((rows * 10) / cm) : 0,
+    nat(rows, cm) && cm > 0, 'courses', [rows, cm]) } /** WALES: the stitch columns a width carries at a per-cm
+    density. value perCm · width. */ static wales(perCm: number, width: number): CrossFormula { return
+    c('knitting-wales', 'wales(perCm, width) = perCm · width', perCm * width, nat(perCm, width), 'wales',
+    [perCm, width]) } /** STITCH COUNT: the loops in a rectangular piece, wales by courses. value wales ·
+    courses. */ static stitch(wales: number, courses: number): CrossFormula { return c('knitting-stitch',
+    'stitch(wales, courses) = wales · courses', wales * courses, nat(wales, courses), 'stitch', [wales,
+    courses]) } /** LOOP LENGTH: millimetres of yarn spent per loop. value ⌊yarn / stitches⌋. */ static
+    looplength(yarn: number, stitches: number): CrossFormula { return c('knitting-looplength', 'looplength(yarn,
+    stitches) = ⌊yarn / stitches⌋', stitches > 0 ? Math.floor(yarn / stitches) : 0, nat(yarn, stitches) &&
+    stitches > 0, 'looplength', [yarn, stitches]) } /** TIGHTNESS: the loop's tightness index, yarn fineness
+    over loop length. value ⌊tex / looplen⌋. */ static tightness(tex: number, looplen: number): CrossFormula {
+    return c('knitting-tightness', 'tightness(tex, looplen) = ⌊tex / looplen⌋', looplen > 0 ? Math.floor(tex /
+    looplen) : 0, nat(tex, looplen) && looplen > 0, 'tightness', [tex, looplen]) } /** PRODUCTIVITY: the loops a
+    machine makes, needles turning at an rpm for the minutes run. value needles · rpm · minutes. -/
+theorem fam_knitting_productivity_1 : (((84 : Int) * (20 : Int)) * (60 : Int)) = (100800 : Int) := by decide
 
-/-- knitting: gsm(50, 2500) = 200 — GSM: finished weight, grams spread over an area (cm²), scaled to a square
-    metre. value ⌊mass · 10000 / area⌋. -/
-theorem fam_knitting_gsm_1 : ((50 * 10000) / 2500) = 200 := by decide
+/-- knitting: gsm(50, 2500) = 200 — KNITTING — FABRIC FORMATION AS ARITHMETIC. A knit is a grid of loops: the
+    gauge (stitches per 10 cm), the courses (rows per 10 cm), the wales a width carries, the stitches a piece
+    holds, the yarn each loop spends, the tightness of that loop, the loops a machine makes, and the finished
+    weight (gsm). Crosses to `materials` — knitting is what a material becomes. A measure. */ const PROOF =
+    'knitting arithmetic (gauge, courses, wales, stitch count, loop length, tightness, productivity, gsm); loops
+    on a grid of yarn; a measure crossed to materials' const nat = (...xs: number[]) => xs.every((x) =>
+    Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'knitting', dst: 'materials', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knitting.${name}`, params }) export class KnittingFormulas { /** GAUGE: stitches measured over a width,
+    scaled to 10 cm. value ⌊stitches · 10 / cm⌋. */ static gauge(stitches: number, cm: number): CrossFormula {
+    return c('knitting-gauge', 'gauge(stitches, cm) = ⌊stitches · 10 / cm⌋', cm > 0 ? Math.floor((stitches * 10)
+    / cm) : 0, nat(stitches, cm) && cm > 0, 'gauge', [stitches, cm]) } /** COURSES: rows measured over a length,
+    scaled to 10 cm. value ⌊rows · 10 / cm⌋. */ static courses(rows: number, cm: number): CrossFormula { return
+    c('knitting-courses', 'courses(rows, cm) = ⌊rows · 10 / cm⌋', cm > 0 ? Math.floor((rows * 10) / cm) : 0,
+    nat(rows, cm) && cm > 0, 'courses', [rows, cm]) } /** WALES: the stitch columns a width carries at a per-cm
+    density. value perCm · width. */ static wales(perCm: number, width: number): CrossFormula { return
+    c('knitting-wales', 'wales(perCm, width) = perCm · width', perCm * width, nat(perCm, width), 'wales',
+    [perCm, width]) } /** STITCH COUNT: the loops in a rectangular piece, wales by courses. value wales ·
+    courses. */ static stitch(wales: number, courses: number): CrossFormula { return c('knitting-stitch',
+    'stitch(wales, courses) = wales · courses', wales * courses, nat(wales, courses), 'stitch', [wales,
+    courses]) } /** LOOP LENGTH: millimetres of yarn spent per loop. value ⌊yarn / stitches⌋. */ static
+    looplength(yarn: number, stitches: number): CrossFormula { return c('knitting-looplength', 'looplength(yarn,
+    stitches) = ⌊yarn / stitches⌋', stitches > 0 ? Math.floor(yarn / stitches) : 0, nat(yarn, stitches) &&
+    stitches > 0, 'looplength', [yarn, stitches]) } /** TIGHTNESS: the loop's tightness index, yarn fineness
+    over loop length. value ⌊tex / looplen⌋. */ static tightness(tex: number, looplen: number): CrossFormula {
+    return c('knitting-tightness', 'tightness(tex, looplen) = ⌊tex / looplen⌋', looplen > 0 ? Math.floor(tex /
+    looplen) : 0, nat(tex, looplen) && looplen > 0, 'tightness', [tex, looplen]) } /** PRODUCTIVITY: the loops a
+    machine makes, needles turning at an rpm for the minutes run. value needles · rpm · minutes. */ static
+    productivity(needles: number, rpm: number, minutes: number): CrossFormula { return
+    c('knitting-productivity', 'productivity(needles, rpm, minutes) = needles · rpm · minutes', needles * rpm *
+    minutes, nat(needles, rpm, minutes), 'productivity', [needles, rpm, minutes]) } /** GSM: finished weight,
+    grams spread over an area (cm²), scaled to a square metre. value ⌊mass · 10000 / area⌋. -/
+theorem fam_knitting_gsm_1 : (((50 : Int) * (10000 : Int)) / (2500 : Int)) = (200 : Int) := by decide
 
 /-- knot: crossingnumber(3, 2) = 3 — KNOT — KNOT THEORY AS ARITHMETIC (chosen by the registry, not by hand). A
     knot is numbers: the crossings a diagram cannot shed, the genus of its Seifert surface, the bridges, the
@@ -289,30 +1334,146 @@ theorem fam_knitting_gsm_1 : ((50 * 10000) / 2500) = 200 := by decide
     crossFormulaOf({ id, src: 'knot', dst: 'topology', formula, value, proof: PROOF, ...extra }, holds, { name:
     `knot.${name}`, params }) export class KnotFormulas { /** CROSSING NUMBER of the torus knot T(p, q): the
     crossings no diagram can shed. value min(p·(q−1), q·(p−1)). -/
-theorem fam_knot_crossingnumber_1 : (fmin (3 * (2 - 1)) (2 * (3 - 1))) = 3 := by decide
+theorem fam_knot_crossingnumber_1 : (fmin ((3 : Int) * ((2 : Int) - (1 : Int))) ((2 : Int) * ((3 : Int) - (1 : Int)))) = (3 : Int) := by decide
 
-/-- knot: genus(3, 2) = 1 — SEIFERT GENUS from the crossings c and Seifert circles s. value ⌊(c − s + 1) / 2⌋. -/
-theorem fam_knot_genus_1 : (((3 - 2) + 1) / 2) = 1 := by decide
+/-- knot: genus(3, 2) = 1 — KNOT — KNOT THEORY AS ARITHMETIC (chosen by the registry, not by hand). A knot is
+    numbers: the crossings a diagram cannot shed, the genus of its Seifert surface, the bridges, the writhe, the
+    moves to the unknot, the link components, the determinant, and the sticks of a polygonal realization.
+    Crosses to `topology` — a knot is a topological invariant. A measure. */ const PROOF = 'knot arithmetic
+    (crossing number, genus, bridge number, writhe, unknotting number, components, determinant, stick count);
+    torus-knot and Seifert invariants; a measure crossed to topology' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'knot', dst: 'topology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knot.${name}`, params }) export class KnotFormulas { /** CROSSING NUMBER of the torus knot T(p, q): the
+    crossings no diagram can shed. value min(p·(q−1), q·(p−1)). */ static crossingnumber(p: number, q: number):
+    CrossFormula { return c('knot-crossingnumber', 'crossingnumber(p, q) = min(p·(q−1), q·(p−1))', Math.min(p *
+    Math.max(0, q - 1), q * Math.max(0, p - 1)), nat(p, q), 'crossingnumber', [p, q]) } /** SEIFERT GENUS from
+    the crossings c and Seifert circles s. value ⌊(c − s + 1) / 2⌋. -/
+theorem fam_knot_genus_1 : ((((3 : Int) - (2 : Int)) + (1 : Int)) / (2 : Int)) = (1 : Int) := by decide
 
-/-- knot: bridgenumber(2, 3) = 2 — BRIDGE NUMBER of the torus knot T(p, q): the maximal overpasses. value min(p,
-    q). -/
-theorem fam_knot_bridgenumber_1 : (fmin 2 3) = 2 := by decide
+/-- knot: bridgenumber(2, 3) = 2 — KNOT — KNOT THEORY AS ARITHMETIC (chosen by the registry, not by hand). A
+    knot is numbers: the crossings a diagram cannot shed, the genus of its Seifert surface, the bridges, the
+    writhe, the moves to the unknot, the link components, the determinant, and the sticks of a polygonal
+    realization. Crosses to `topology` — a knot is a topological invariant. A measure. */ const PROOF = 'knot
+    arithmetic (crossing number, genus, bridge number, writhe, unknotting number, components, determinant, stick
+    count); torus-knot and Seifert invariants; a measure crossed to topology' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'knot', dst: 'topology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knot.${name}`, params }) export class KnotFormulas { /** CROSSING NUMBER of the torus knot T(p, q): the
+    crossings no diagram can shed. value min(p·(q−1), q·(p−1)). */ static crossingnumber(p: number, q: number):
+    CrossFormula { return c('knot-crossingnumber', 'crossingnumber(p, q) = min(p·(q−1), q·(p−1))', Math.min(p *
+    Math.max(0, q - 1), q * Math.max(0, p - 1)), nat(p, q), 'crossingnumber', [p, q]) } /** SEIFERT GENUS from
+    the crossings c and Seifert circles s. value ⌊(c − s + 1) / 2⌋. */ static genus(c0: number, s: number):
+    CrossFormula { return c('knot-genus', 'genus(c, s) = ⌊(c − s + 1) / 2⌋', Math.floor(Math.max(0, c0 - s + 1)
+    / 2), nat(c0, s), 'genus', [c0, s]) } /** BRIDGE NUMBER of the torus knot T(p, q): the maximal overpasses.
+    value min(p, q). -/
+theorem fam_knot_bridgenumber_1 : (fmin (2 : Int) (3 : Int)) = (2 : Int) := by decide
 
-/-- knot: writhe(5, 2) = 3 — WRITHE: the net sign of the crossings, positive over negative. value max(0, pos −
-    neg). -/
-theorem fam_knot_writhe_1 : (fmax 0 (5 - 2)) = 3 := by decide
+/-- knot: writhe(5, 2) = 3 — KNOT — KNOT THEORY AS ARITHMETIC (chosen by the registry, not by hand). A knot is
+    numbers: the crossings a diagram cannot shed, the genus of its Seifert surface, the bridges, the writhe, the
+    moves to the unknot, the link components, the determinant, and the sticks of a polygonal realization.
+    Crosses to `topology` — a knot is a topological invariant. A measure. */ const PROOF = 'knot arithmetic
+    (crossing number, genus, bridge number, writhe, unknotting number, components, determinant, stick count);
+    torus-knot and Seifert invariants; a measure crossed to topology' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'knot', dst: 'topology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knot.${name}`, params }) export class KnotFormulas { /** CROSSING NUMBER of the torus knot T(p, q): the
+    crossings no diagram can shed. value min(p·(q−1), q·(p−1)). */ static crossingnumber(p: number, q: number):
+    CrossFormula { return c('knot-crossingnumber', 'crossingnumber(p, q) = min(p·(q−1), q·(p−1))', Math.min(p *
+    Math.max(0, q - 1), q * Math.max(0, p - 1)), nat(p, q), 'crossingnumber', [p, q]) } /** SEIFERT GENUS from
+    the crossings c and Seifert circles s. value ⌊(c − s + 1) / 2⌋. */ static genus(c0: number, s: number):
+    CrossFormula { return c('knot-genus', 'genus(c, s) = ⌊(c − s + 1) / 2⌋', Math.floor(Math.max(0, c0 - s + 1)
+    / 2), nat(c0, s), 'genus', [c0, s]) } /** BRIDGE NUMBER of the torus knot T(p, q): the maximal overpasses.
+    value min(p, q). */ static bridgenumber(p: number, q: number): CrossFormula { return c('knot-bridgenumber',
+    'bridgenumber(p, q) = min(p, q)', Math.min(p, q), nat(p, q), 'bridgenumber', [p, q]) } /** WRITHE: the net
+    sign of the crossings, positive over negative. value max(0, pos − neg). -/
+theorem fam_knot_writhe_1 : (fmax (0 : Int) ((5 : Int) - (2 : Int))) = (3 : Int) := by decide
 
-/-- knot: writhe(2, 5) = 0 — WRITHE: the net sign of the crossings, positive over negative. value max(0, pos −
-    neg). -/
-theorem fam_knot_writhe_2 : (fmax 0 (2 - 5)) = 0 := by decide
+/-- knot: writhe(2, 5) = 0 — KNOT — KNOT THEORY AS ARITHMETIC (chosen by the registry, not by hand). A knot is
+    numbers: the crossings a diagram cannot shed, the genus of its Seifert surface, the bridges, the writhe, the
+    moves to the unknot, the link components, the determinant, and the sticks of a polygonal realization.
+    Crosses to `topology` — a knot is a topological invariant. A measure. */ const PROOF = 'knot arithmetic
+    (crossing number, genus, bridge number, writhe, unknotting number, components, determinant, stick count);
+    torus-knot and Seifert invariants; a measure crossed to topology' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'knot', dst: 'topology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knot.${name}`, params }) export class KnotFormulas { /** CROSSING NUMBER of the torus knot T(p, q): the
+    crossings no diagram can shed. value min(p·(q−1), q·(p−1)). */ static crossingnumber(p: number, q: number):
+    CrossFormula { return c('knot-crossingnumber', 'crossingnumber(p, q) = min(p·(q−1), q·(p−1))', Math.min(p *
+    Math.max(0, q - 1), q * Math.max(0, p - 1)), nat(p, q), 'crossingnumber', [p, q]) } /** SEIFERT GENUS from
+    the crossings c and Seifert circles s. value ⌊(c − s + 1) / 2⌋. */ static genus(c0: number, s: number):
+    CrossFormula { return c('knot-genus', 'genus(c, s) = ⌊(c − s + 1) / 2⌋', Math.floor(Math.max(0, c0 - s + 1)
+    / 2), nat(c0, s), 'genus', [c0, s]) } /** BRIDGE NUMBER of the torus knot T(p, q): the maximal overpasses.
+    value min(p, q). */ static bridgenumber(p: number, q: number): CrossFormula { return c('knot-bridgenumber',
+    'bridgenumber(p, q) = min(p, q)', Math.min(p, q), nat(p, q), 'bridgenumber', [p, q]) } /** WRITHE: the net
+    sign of the crossings, positive over negative. value max(0, pos − neg). -/
+theorem fam_knot_writhe_2 : (fmax (0 : Int) ((2 : Int) - (5 : Int))) = (0 : Int) := by decide
 
-/-- knot: determinant(1) = 3 — DETERMINANT of the twist knot: an odd invariant of the twists. value 2·twists +
-    1. -/
-theorem fam_knot_determinant_1 : ((2 * 1) + 1) = 3 := by decide
+/-- knot: determinant(1) = 3 — KNOT — KNOT THEORY AS ARITHMETIC (chosen by the registry, not by hand). A knot is
+    numbers: the crossings a diagram cannot shed, the genus of its Seifert surface, the bridges, the writhe, the
+    moves to the unknot, the link components, the determinant, and the sticks of a polygonal realization.
+    Crosses to `topology` — a knot is a topological invariant. A measure. */ const PROOF = 'knot arithmetic
+    (crossing number, genus, bridge number, writhe, unknotting number, components, determinant, stick count);
+    torus-knot and Seifert invariants; a measure crossed to topology' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'knot', dst: 'topology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knot.${name}`, params }) export class KnotFormulas { /** CROSSING NUMBER of the torus knot T(p, q): the
+    crossings no diagram can shed. value min(p·(q−1), q·(p−1)). */ static crossingnumber(p: number, q: number):
+    CrossFormula { return c('knot-crossingnumber', 'crossingnumber(p, q) = min(p·(q−1), q·(p−1))', Math.min(p *
+    Math.max(0, q - 1), q * Math.max(0, p - 1)), nat(p, q), 'crossingnumber', [p, q]) } /** SEIFERT GENUS from
+    the crossings c and Seifert circles s. value ⌊(c − s + 1) / 2⌋. */ static genus(c0: number, s: number):
+    CrossFormula { return c('knot-genus', 'genus(c, s) = ⌊(c − s + 1) / 2⌋', Math.floor(Math.max(0, c0 - s + 1)
+    / 2), nat(c0, s), 'genus', [c0, s]) } /** BRIDGE NUMBER of the torus knot T(p, q): the maximal overpasses.
+    value min(p, q). */ static bridgenumber(p: number, q: number): CrossFormula { return c('knot-bridgenumber',
+    'bridgenumber(p, q) = min(p, q)', Math.min(p, q), nat(p, q), 'bridgenumber', [p, q]) } /** WRITHE: the net
+    sign of the crossings, positive over negative. value max(0, pos − neg). */ static writhe(pos: number, neg:
+    number): CrossFormula { return c('knot-writhe', 'writhe(pos, neg) = max(0, pos − neg)', Math.max(0, pos -
+    neg), nat(pos, neg), 'writhe', [pos, neg]) } /** UNKNOTTING NUMBER of the torus knot T(p, q): the crossing
+    changes to the unknot. value ⌊(p−1)(q−1) / 2⌋. */ static unknottingnumber(p: number, q: number):
+    CrossFormula { return c('knot-unknottingnumber', 'unknottingnumber(p, q) = ⌊(p−1)(q−1) / 2⌋',
+    Math.floor((Math.max(0, p - 1) * Math.max(0, q - 1)) / 2), nat(p, q), 'unknottingnumber', [p, q]) } /**
+    COMPONENTS of the (2, n) torus link: two when n is even, one when n is odd. value [n even] ? 2 : 1. */
+    static components(n: number): CrossFormula { return c('knot-components', 'components(n) = [n even] ? 2 : 1',
+    n % 2 === 0 ? 2 : 1, nat(n), 'components', [n]) } /** DETERMINANT of the twist knot: an odd invariant of the
+    twists. value 2·twists + 1. -/
+theorem fam_knot_determinant_1 : (((2 : Int) * (1 : Int)) + (1 : Int)) = (3 : Int) := by decide
 
-/-- knot: stickcount(3) = 6 — STICK NUMBER: the sticks of a polygonal realization from the crossings. value
-    crossings + 3. -/
-theorem fam_knot_stickcount_1 : (3 + 3) = 6 := by decide
+/-- knot: stickcount(3) = 6 — KNOT — KNOT THEORY AS ARITHMETIC (chosen by the registry, not by hand). A knot is
+    numbers: the crossings a diagram cannot shed, the genus of its Seifert surface, the bridges, the writhe, the
+    moves to the unknot, the link components, the determinant, and the sticks of a polygonal realization.
+    Crosses to `topology` — a knot is a topological invariant. A measure. */ const PROOF = 'knot arithmetic
+    (crossing number, genus, bridge number, writhe, unknotting number, components, determinant, stick count);
+    torus-knot and Seifert invariants; a measure crossed to topology' const nat = (...xs: number[]) =>
+    xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number,
+    holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
+    crossFormulaOf({ id, src: 'knot', dst: 'topology', formula, value, proof: PROOF, ...extra }, holds, { name:
+    `knot.${name}`, params }) export class KnotFormulas { /** CROSSING NUMBER of the torus knot T(p, q): the
+    crossings no diagram can shed. value min(p·(q−1), q·(p−1)). */ static crossingnumber(p: number, q: number):
+    CrossFormula { return c('knot-crossingnumber', 'crossingnumber(p, q) = min(p·(q−1), q·(p−1))', Math.min(p *
+    Math.max(0, q - 1), q * Math.max(0, p - 1)), nat(p, q), 'crossingnumber', [p, q]) } /** SEIFERT GENUS from
+    the crossings c and Seifert circles s. value ⌊(c − s + 1) / 2⌋. */ static genus(c0: number, s: number):
+    CrossFormula { return c('knot-genus', 'genus(c, s) = ⌊(c − s + 1) / 2⌋', Math.floor(Math.max(0, c0 - s + 1)
+    / 2), nat(c0, s), 'genus', [c0, s]) } /** BRIDGE NUMBER of the torus knot T(p, q): the maximal overpasses.
+    value min(p, q). */ static bridgenumber(p: number, q: number): CrossFormula { return c('knot-bridgenumber',
+    'bridgenumber(p, q) = min(p, q)', Math.min(p, q), nat(p, q), 'bridgenumber', [p, q]) } /** WRITHE: the net
+    sign of the crossings, positive over negative. value max(0, pos − neg). */ static writhe(pos: number, neg:
+    number): CrossFormula { return c('knot-writhe', 'writhe(pos, neg) = max(0, pos − neg)', Math.max(0, pos -
+    neg), nat(pos, neg), 'writhe', [pos, neg]) } /** UNKNOTTING NUMBER of the torus knot T(p, q): the crossing
+    changes to the unknot. value ⌊(p−1)(q−1) / 2⌋. */ static unknottingnumber(p: number, q: number):
+    CrossFormula { return c('knot-unknottingnumber', 'unknottingnumber(p, q) = ⌊(p−1)(q−1) / 2⌋',
+    Math.floor((Math.max(0, p - 1) * Math.max(0, q - 1)) / 2), nat(p, q), 'unknottingnumber', [p, q]) } /**
+    COMPONENTS of the (2, n) torus link: two when n is even, one when n is odd. value [n even] ? 2 : 1. */
+    static components(n: number): CrossFormula { return c('knot-components', 'components(n) = [n even] ? 2 : 1',
+    n % 2 === 0 ? 2 : 1, nat(n), 'components', [n]) } /** DETERMINANT of the twist knot: an odd invariant of the
+    twists. value 2·twists + 1. */ static determinant(twists: number): CrossFormula { return
+    c('knot-determinant', 'determinant(twists) = 2·twists + 1', 2 * twists + 1, nat(twists), 'determinant',
+    [twists]) } /** STICK NUMBER: the sticks of a polygonal realization from the crossings. value crossings + 3. -/
+theorem fam_knot_stickcount_1 : ((3 : Int) + (3 : Int)) = (6 : Int) := by decide
 
 /-- kyc: completeness(18, 20) = 90 — KYC — KNOWING A CUSTOMER BEFORE SERVING THEM, AS ARITHMETIC (chosen by the
     registry, not by hand). Due diligence is numbers: how complete the collected record is, how much of it
@@ -332,28 +1493,355 @@ theorem fam_knot_stickcount_1 : (3 + 3) = 6 := by decide
     ...extra }, holds, { name: `kyc.${name}`, params }) export class KycFormulas { /** COMPLETENESS as a
     percentage: CDD fields verified over fields required (built on what identity verified). value ⌊verified ·
     100 / required⌋. -/
-theorem fam_kyc_completeness_1 : ((18 * 100) / 20) = 90 := by decide
+theorem fam_kyc_completeness_1 : (((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int) := by decide
 
-/-- kyc: screening(3, 10000) = 3 — SCREENING in basis points: sanctions/PEP list hits over names checked. value
-    ⌊hits · 10000 / checks⌋. -/
-theorem fam_kyc_screening_1 : ((3 * 10000) / 10000) = 3 := by decide
+/-- kyc: screening(3, 10000) = 3 — KYC — KNOWING A CUSTOMER BEFORE SERVING THEM, AS ARITHMETIC (chosen by the
+    registry, not by hand). Due diligence is numbers: how complete the collected record is, how much of it
+    screens clean against sanctions and PEP lists, the customer's risk rating, whether a transaction is
+    reportable, whether enhanced diligence is required, how much of the beneficial ownership is identified, how
+    long until the next periodic review, and the ongoing monitoring cadence. It INVOLVES OTHER FAMILIES:
+    completeness is built on what `identity` verified; the risk rating is an `audit` score; the
+    reportable-transaction test is an `econ` threshold. Crosses to `law` — KYC is what the law requires before
+    service, as the FATF Recommendations and AML/CFT regimes write it. A measure, never a legal conclusion. */
+    const PROOF = 'kyc arithmetic (record completeness, sanctions/PEP screening, customer risk rating,
+    reportable transaction, enhanced diligence, beneficial ownership coverage, review expiry, monitoring
+    cadence); it involves identity (verified record), audit (risk score) and econ (reportable threshold); the
+    FATF/AML due-diligence a law requires before service, a measure crossed to law — never a legal conclusion'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kyc', dst: 'law', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `kyc.${name}`, params }) export class KycFormulas { /** COMPLETENESS as a
+    percentage: CDD fields verified over fields required (built on what identity verified). value ⌊verified ·
+    100 / required⌋. */ static completeness(verified: number, required: number): CrossFormula { return
+    c('kyc-completeness', 'completeness(verified, required) = ⌊verified · 100 / required⌋', required > 0 ?
+    Math.floor((verified * 100) / required) : 0, nat(verified, required) && required > 0 && verified <=
+    required, 'completeness', [verified, required]) } /** SCREENING in basis points: sanctions/PEP list hits
+    over names checked. value ⌊hits · 10000 / checks⌋. -/
+theorem fam_kyc_screening_1 : (((3 : Int) * (10000 : Int)) / (10000 : Int)) = (3 : Int) := by decide
 
-/-- kyc: risk(7, 10) = 70 — RISK RATING as a percentage: risk flags raised over factors assessed (an audit
-    score). value ⌊flags · 100 / factors⌋. -/
-theorem fam_kyc_risk_1 : ((7 * 100) / 10) = 70 := by decide
+/-- kyc: risk(7, 10) = 70 — KYC — KNOWING A CUSTOMER BEFORE SERVING THEM, AS ARITHMETIC (chosen by the registry,
+    not by hand). Due diligence is numbers: how complete the collected record is, how much of it screens clean
+    against sanctions and PEP lists, the customer's risk rating, whether a transaction is reportable, whether
+    enhanced diligence is required, how much of the beneficial ownership is identified, how long until the next
+    periodic review, and the ongoing monitoring cadence. It INVOLVES OTHER FAMILIES: completeness is built on
+    what `identity` verified; the risk rating is an `audit` score; the reportable-transaction test is an `econ`
+    threshold. Crosses to `law` — KYC is what the law requires before service, as the FATF Recommendations and
+    AML/CFT regimes write it. A measure, never a legal conclusion. */ const PROOF = 'kyc arithmetic (record
+    completeness, sanctions/PEP screening, customer risk rating, reportable transaction, enhanced diligence,
+    beneficial ownership coverage, review expiry, monitoring cadence); it involves identity (verified record),
+    audit (risk score) and econ (reportable threshold); the FATF/AML due-diligence a law requires before
+    service, a measure crossed to law — never a legal conclusion' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kyc', dst: 'law', formula, value, proof: PROOF, ...extra }, holds, { name: `kyc.${name}`, params })
+    export class KycFormulas { /** COMPLETENESS as a percentage: CDD fields verified over fields required (built
+    on what identity verified). value ⌊verified · 100 / required⌋. */ static completeness(verified: number,
+    required: number): CrossFormula { return c('kyc-completeness', 'completeness(verified, required) = ⌊verified
+    · 100 / required⌋', required > 0 ? Math.floor((verified * 100) / required) : 0, nat(verified, required) &&
+    required > 0 && verified <= required, 'completeness', [verified, required]) } /** SCREENING in basis points:
+    sanctions/PEP list hits over names checked. value ⌊hits · 10000 / checks⌋. */ static screening(hits: number,
+    checks: number): CrossFormula { return c('kyc-screening', 'screening(hits, checks) = ⌊hits · 10000 /
+    checks⌋', checks > 0 ? Math.floor((hits * 10000) / checks) : 0, nat(hits, checks) && checks > 0 && hits <=
+    checks, 'screening', [hits, checks]) } /** RISK RATING as a percentage: risk flags raised over factors
+    assessed (an audit score). value ⌊flags · 100 / factors⌋. -/
+theorem fam_kyc_risk_1 : (((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int) := by decide
 
-/-- kyc: ubo(4, 5) = 80 — BENEFICIAL OWNERSHIP as a percentage: ultimate owners identified over owners above the
-    control threshold. value ⌊identified · 100 / owners⌋. -/
-theorem fam_kyc_ubo_1 : ((4 * 100) / 5) = 80 := by decide
+/-- kyc: aml(15000, 10000) = 1 — KYC — KNOWING A CUSTOMER BEFORE SERVING THEM, AS ARITHMETIC (chosen by the
+    registry, not by hand). Due diligence is numbers: how complete the collected record is, how much of it
+    screens clean against sanctions and PEP lists, the customer's risk rating, whether a transaction is
+    reportable, whether enhanced diligence is required, how much of the beneficial ownership is identified, how
+    long until the next periodic review, and the ongoing monitoring cadence. It INVOLVES OTHER FAMILIES:
+    completeness is built on what `identity` verified; the risk rating is an `audit` score; the
+    reportable-transaction test is an `econ` threshold. Crosses to `law` — KYC is what the law requires before
+    service, as the FATF Recommendations and AML/CFT regimes write it. A measure, never a legal conclusion. */
+    const PROOF = 'kyc arithmetic (record completeness, sanctions/PEP screening, customer risk rating,
+    reportable transaction, enhanced diligence, beneficial ownership coverage, review expiry, monitoring
+    cadence); it involves identity (verified record), audit (risk score) and econ (reportable threshold); the
+    FATF/AML due-diligence a law requires before service, a measure crossed to law — never a legal conclusion'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kyc', dst: 'law', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `kyc.${name}`, params }) export class KycFormulas { /** COMPLETENESS as a
+    percentage: CDD fields verified over fields required (built on what identity verified). value ⌊verified ·
+    100 / required⌋. */ static completeness(verified: number, required: number): CrossFormula { return
+    c('kyc-completeness', 'completeness(verified, required) = ⌊verified · 100 / required⌋', required > 0 ?
+    Math.floor((verified * 100) / required) : 0, nat(verified, required) && required > 0 && verified <=
+    required, 'completeness', [verified, required]) } /** SCREENING in basis points: sanctions/PEP list hits
+    over names checked. value ⌊hits · 10000 / checks⌋. */ static screening(hits: number, checks: number):
+    CrossFormula { return c('kyc-screening', 'screening(hits, checks) = ⌊hits · 10000 / checks⌋', checks > 0 ?
+    Math.floor((hits * 10000) / checks) : 0, nat(hits, checks) && checks > 0 && hits <= checks, 'screening',
+    [hits, checks]) } /** RISK RATING as a percentage: risk flags raised over factors assessed (an audit score).
+    value ⌊flags · 100 / factors⌋. */ static risk(flags: number, factors: number): CrossFormula { return
+    c('kyc-risk', 'risk(flags, factors) = ⌊flags · 100 / factors⌋', factors > 0 ? Math.floor((flags * 100) /
+    factors) : 0, nat(flags, factors) && factors > 0 && flags <= factors, 'risk', [flags, factors]) } /**
+    REPORTABLE: whether a transaction amount meets the reporting threshold (an econ threshold; CTR/SAR trigger).
+    value [amount ≥ threshold]. -/
+theorem fam_kyc_aml_1 : (if (if (15000 : Int) ≥ (10000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
 
-/-- kyc: expiry(365, 100) = 265 — REVIEW EXPIRY: days remaining until the next periodic review. value max(0,
-    valid − elapsed). -/
-theorem fam_kyc_expiry_1 : (fmax 0 (365 - 100)) = 265 := by decide
+/-- kyc: aml(5000, 10000) = 0 — KYC — KNOWING A CUSTOMER BEFORE SERVING THEM, AS ARITHMETIC (chosen by the
+    registry, not by hand). Due diligence is numbers: how complete the collected record is, how much of it
+    screens clean against sanctions and PEP lists, the customer's risk rating, whether a transaction is
+    reportable, whether enhanced diligence is required, how much of the beneficial ownership is identified, how
+    long until the next periodic review, and the ongoing monitoring cadence. It INVOLVES OTHER FAMILIES:
+    completeness is built on what `identity` verified; the risk rating is an `audit` score; the
+    reportable-transaction test is an `econ` threshold. Crosses to `law` — KYC is what the law requires before
+    service, as the FATF Recommendations and AML/CFT regimes write it. A measure, never a legal conclusion. */
+    const PROOF = 'kyc arithmetic (record completeness, sanctions/PEP screening, customer risk rating,
+    reportable transaction, enhanced diligence, beneficial ownership coverage, review expiry, monitoring
+    cadence); it involves identity (verified record), audit (risk score) and econ (reportable threshold); the
+    FATF/AML due-diligence a law requires before service, a measure crossed to law — never a legal conclusion'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kyc', dst: 'law', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `kyc.${name}`, params }) export class KycFormulas { /** COMPLETENESS as a
+    percentage: CDD fields verified over fields required (built on what identity verified). value ⌊verified ·
+    100 / required⌋. */ static completeness(verified: number, required: number): CrossFormula { return
+    c('kyc-completeness', 'completeness(verified, required) = ⌊verified · 100 / required⌋', required > 0 ?
+    Math.floor((verified * 100) / required) : 0, nat(verified, required) && required > 0 && verified <=
+    required, 'completeness', [verified, required]) } /** SCREENING in basis points: sanctions/PEP list hits
+    over names checked. value ⌊hits · 10000 / checks⌋. */ static screening(hits: number, checks: number):
+    CrossFormula { return c('kyc-screening', 'screening(hits, checks) = ⌊hits · 10000 / checks⌋', checks > 0 ?
+    Math.floor((hits * 10000) / checks) : 0, nat(hits, checks) && checks > 0 && hits <= checks, 'screening',
+    [hits, checks]) } /** RISK RATING as a percentage: risk flags raised over factors assessed (an audit score).
+    value ⌊flags · 100 / factors⌋. */ static risk(flags: number, factors: number): CrossFormula { return
+    c('kyc-risk', 'risk(flags, factors) = ⌊flags · 100 / factors⌋', factors > 0 ? Math.floor((flags * 100) /
+    factors) : 0, nat(flags, factors) && factors > 0 && flags <= factors, 'risk', [flags, factors]) } /**
+    REPORTABLE: whether a transaction amount meets the reporting threshold (an econ threshold; CTR/SAR trigger).
+    value [amount ≥ threshold]. -/
+theorem fam_kyc_aml_2 : (if (if (5000 : Int) ≥ (10000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
 
-/-- kyc: expiry(100, 365) = 0 — REVIEW EXPIRY: days remaining until the next periodic review. value max(0, valid
-    − elapsed). -/
-theorem fam_kyc_expiry_2 : (fmax 0 (100 - 365)) = 0 := by decide
+/-- kyc: diligence(80, 70) = 1 — KYC — KNOWING A CUSTOMER BEFORE SERVING THEM, AS ARITHMETIC (chosen by the
+    registry, not by hand). Due diligence is numbers: how complete the collected record is, how much of it
+    screens clean against sanctions and PEP lists, the customer's risk rating, whether a transaction is
+    reportable, whether enhanced diligence is required, how much of the beneficial ownership is identified, how
+    long until the next periodic review, and the ongoing monitoring cadence. It INVOLVES OTHER FAMILIES:
+    completeness is built on what `identity` verified; the risk rating is an `audit` score; the
+    reportable-transaction test is an `econ` threshold. Crosses to `law` — KYC is what the law requires before
+    service, as the FATF Recommendations and AML/CFT regimes write it. A measure, never a legal conclusion. */
+    const PROOF = 'kyc arithmetic (record completeness, sanctions/PEP screening, customer risk rating,
+    reportable transaction, enhanced diligence, beneficial ownership coverage, review expiry, monitoring
+    cadence); it involves identity (verified record), audit (risk score) and econ (reportable threshold); the
+    FATF/AML due-diligence a law requires before service, a measure crossed to law — never a legal conclusion'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kyc', dst: 'law', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `kyc.${name}`, params }) export class KycFormulas { /** COMPLETENESS as a
+    percentage: CDD fields verified over fields required (built on what identity verified). value ⌊verified ·
+    100 / required⌋. */ static completeness(verified: number, required: number): CrossFormula { return
+    c('kyc-completeness', 'completeness(verified, required) = ⌊verified · 100 / required⌋', required > 0 ?
+    Math.floor((verified * 100) / required) : 0, nat(verified, required) && required > 0 && verified <=
+    required, 'completeness', [verified, required]) } /** SCREENING in basis points: sanctions/PEP list hits
+    over names checked. value ⌊hits · 10000 / checks⌋. */ static screening(hits: number, checks: number):
+    CrossFormula { return c('kyc-screening', 'screening(hits, checks) = ⌊hits · 10000 / checks⌋', checks > 0 ?
+    Math.floor((hits * 10000) / checks) : 0, nat(hits, checks) && checks > 0 && hits <= checks, 'screening',
+    [hits, checks]) } /** RISK RATING as a percentage: risk flags raised over factors assessed (an audit score).
+    value ⌊flags · 100 / factors⌋. */ static risk(flags: number, factors: number): CrossFormula { return
+    c('kyc-risk', 'risk(flags, factors) = ⌊flags · 100 / factors⌋', factors > 0 ? Math.floor((flags * 100) /
+    factors) : 0, nat(flags, factors) && factors > 0 && flags <= factors, 'risk', [flags, factors]) } /**
+    REPORTABLE: whether a transaction amount meets the reporting threshold (an econ threshold; CTR/SAR trigger).
+    value [amount ≥ threshold]. */ static aml(amount: number, threshold: number): CrossFormula { return
+    c('kyc-aml', 'aml(amount, threshold) = [amount ≥ threshold]', amount >= threshold ? 1 : 0, nat(amount,
+    threshold), 'aml', [amount, threshold]) } /** ENHANCED DILIGENCE: whether the risk rating demands EDD over
+    standard CDD. value [risk ≥ tier]. -/
+theorem fam_kyc_diligence_1 : (if (if (80 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int) := by decide
 
-/-- kyc: monitoring(12, 4) = 3 — MONITORING cadence: reviews performed over monitoring periods. value ⌊reviews /
-    periods⌋. -/
-theorem fam_kyc_monitoring_1 : (12 / 4) = 3 := by decide
+/-- kyc: diligence(50, 70) = 0 — KYC — KNOWING A CUSTOMER BEFORE SERVING THEM, AS ARITHMETIC (chosen by the
+    registry, not by hand). Due diligence is numbers: how complete the collected record is, how much of it
+    screens clean against sanctions and PEP lists, the customer's risk rating, whether a transaction is
+    reportable, whether enhanced diligence is required, how much of the beneficial ownership is identified, how
+    long until the next periodic review, and the ongoing monitoring cadence. It INVOLVES OTHER FAMILIES:
+    completeness is built on what `identity` verified; the risk rating is an `audit` score; the
+    reportable-transaction test is an `econ` threshold. Crosses to `law` — KYC is what the law requires before
+    service, as the FATF Recommendations and AML/CFT regimes write it. A measure, never a legal conclusion. */
+    const PROOF = 'kyc arithmetic (record completeness, sanctions/PEP screening, customer risk rating,
+    reportable transaction, enhanced diligence, beneficial ownership coverage, review expiry, monitoring
+    cadence); it involves identity (verified record), audit (risk score) and econ (reportable threshold); the
+    FATF/AML due-diligence a law requires before service, a measure crossed to law — never a legal conclusion'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kyc', dst: 'law', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `kyc.${name}`, params }) export class KycFormulas { /** COMPLETENESS as a
+    percentage: CDD fields verified over fields required (built on what identity verified). value ⌊verified ·
+    100 / required⌋. */ static completeness(verified: number, required: number): CrossFormula { return
+    c('kyc-completeness', 'completeness(verified, required) = ⌊verified · 100 / required⌋', required > 0 ?
+    Math.floor((verified * 100) / required) : 0, nat(verified, required) && required > 0 && verified <=
+    required, 'completeness', [verified, required]) } /** SCREENING in basis points: sanctions/PEP list hits
+    over names checked. value ⌊hits · 10000 / checks⌋. */ static screening(hits: number, checks: number):
+    CrossFormula { return c('kyc-screening', 'screening(hits, checks) = ⌊hits · 10000 / checks⌋', checks > 0 ?
+    Math.floor((hits * 10000) / checks) : 0, nat(hits, checks) && checks > 0 && hits <= checks, 'screening',
+    [hits, checks]) } /** RISK RATING as a percentage: risk flags raised over factors assessed (an audit score).
+    value ⌊flags · 100 / factors⌋. */ static risk(flags: number, factors: number): CrossFormula { return
+    c('kyc-risk', 'risk(flags, factors) = ⌊flags · 100 / factors⌋', factors > 0 ? Math.floor((flags * 100) /
+    factors) : 0, nat(flags, factors) && factors > 0 && flags <= factors, 'risk', [flags, factors]) } /**
+    REPORTABLE: whether a transaction amount meets the reporting threshold (an econ threshold; CTR/SAR trigger).
+    value [amount ≥ threshold]. */ static aml(amount: number, threshold: number): CrossFormula { return
+    c('kyc-aml', 'aml(amount, threshold) = [amount ≥ threshold]', amount >= threshold ? 1 : 0, nat(amount,
+    threshold), 'aml', [amount, threshold]) } /** ENHANCED DILIGENCE: whether the risk rating demands EDD over
+    standard CDD. value [risk ≥ tier]. -/
+theorem fam_kyc_diligence_2 : (if (if (50 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int) := by decide
+
+/-- kyc: ubo(4, 5) = 80 — KYC — KNOWING A CUSTOMER BEFORE SERVING THEM, AS ARITHMETIC (chosen by the registry,
+    not by hand). Due diligence is numbers: how complete the collected record is, how much of it screens clean
+    against sanctions and PEP lists, the customer's risk rating, whether a transaction is reportable, whether
+    enhanced diligence is required, how much of the beneficial ownership is identified, how long until the next
+    periodic review, and the ongoing monitoring cadence. It INVOLVES OTHER FAMILIES: completeness is built on
+    what `identity` verified; the risk rating is an `audit` score; the reportable-transaction test is an `econ`
+    threshold. Crosses to `law` — KYC is what the law requires before service, as the FATF Recommendations and
+    AML/CFT regimes write it. A measure, never a legal conclusion. */ const PROOF = 'kyc arithmetic (record
+    completeness, sanctions/PEP screening, customer risk rating, reportable transaction, enhanced diligence,
+    beneficial ownership coverage, review expiry, monitoring cadence); it involves identity (verified record),
+    audit (risk score) and econ (reportable threshold); the FATF/AML due-diligence a law requires before
+    service, a measure crossed to law — never a legal conclusion' const nat = (...xs: number[]) => xs.every((x)
+    => Number.isSafeInteger(x) && x >= 0) const c = (id: string, formula: string, value: number, holds: boolean,
+    name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula => crossFormulaOf({ id,
+    src: 'kyc', dst: 'law', formula, value, proof: PROOF, ...extra }, holds, { name: `kyc.${name}`, params })
+    export class KycFormulas { /** COMPLETENESS as a percentage: CDD fields verified over fields required (built
+    on what identity verified). value ⌊verified · 100 / required⌋. */ static completeness(verified: number,
+    required: number): CrossFormula { return c('kyc-completeness', 'completeness(verified, required) = ⌊verified
+    · 100 / required⌋', required > 0 ? Math.floor((verified * 100) / required) : 0, nat(verified, required) &&
+    required > 0 && verified <= required, 'completeness', [verified, required]) } /** SCREENING in basis points:
+    sanctions/PEP list hits over names checked. value ⌊hits · 10000 / checks⌋. */ static screening(hits: number,
+    checks: number): CrossFormula { return c('kyc-screening', 'screening(hits, checks) = ⌊hits · 10000 /
+    checks⌋', checks > 0 ? Math.floor((hits * 10000) / checks) : 0, nat(hits, checks) && checks > 0 && hits <=
+    checks, 'screening', [hits, checks]) } /** RISK RATING as a percentage: risk flags raised over factors
+    assessed (an audit score). value ⌊flags · 100 / factors⌋. */ static risk(flags: number, factors: number):
+    CrossFormula { return c('kyc-risk', 'risk(flags, factors) = ⌊flags · 100 / factors⌋', factors > 0 ?
+    Math.floor((flags * 100) / factors) : 0, nat(flags, factors) && factors > 0 && flags <= factors, 'risk',
+    [flags, factors]) } /** REPORTABLE: whether a transaction amount meets the reporting threshold (an econ
+    threshold; CTR/SAR trigger). value [amount ≥ threshold]. */ static aml(amount: number, threshold: number):
+    CrossFormula { return c('kyc-aml', 'aml(amount, threshold) = [amount ≥ threshold]', amount >= threshold ? 1
+    : 0, nat(amount, threshold), 'aml', [amount, threshold]) } /** ENHANCED DILIGENCE: whether the risk rating
+    demands EDD over standard CDD. value [risk ≥ tier]. */ static diligence(risk: number, tier: number):
+    CrossFormula { return c('kyc-diligence', 'diligence(risk, tier) = [risk ≥ tier]', risk >= tier ? 1 : 0,
+    nat(risk, tier), 'diligence', [risk, tier]) } /** BENEFICIAL OWNERSHIP as a percentage: ultimate owners
+    identified over owners above the control threshold. value ⌊identified · 100 / owners⌋. -/
+theorem fam_kyc_ubo_1 : (((4 : Int) * (100 : Int)) / (5 : Int)) = (80 : Int) := by decide
+
+/-- kyc: expiry(365, 100) = 265 — KYC — KNOWING A CUSTOMER BEFORE SERVING THEM, AS ARITHMETIC (chosen by the
+    registry, not by hand). Due diligence is numbers: how complete the collected record is, how much of it
+    screens clean against sanctions and PEP lists, the customer's risk rating, whether a transaction is
+    reportable, whether enhanced diligence is required, how much of the beneficial ownership is identified, how
+    long until the next periodic review, and the ongoing monitoring cadence. It INVOLVES OTHER FAMILIES:
+    completeness is built on what `identity` verified; the risk rating is an `audit` score; the
+    reportable-transaction test is an `econ` threshold. Crosses to `law` — KYC is what the law requires before
+    service, as the FATF Recommendations and AML/CFT regimes write it. A measure, never a legal conclusion. */
+    const PROOF = 'kyc arithmetic (record completeness, sanctions/PEP screening, customer risk rating,
+    reportable transaction, enhanced diligence, beneficial ownership coverage, review expiry, monitoring
+    cadence); it involves identity (verified record), audit (risk score) and econ (reportable threshold); the
+    FATF/AML due-diligence a law requires before service, a measure crossed to law — never a legal conclusion'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kyc', dst: 'law', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `kyc.${name}`, params }) export class KycFormulas { /** COMPLETENESS as a
+    percentage: CDD fields verified over fields required (built on what identity verified). value ⌊verified ·
+    100 / required⌋. */ static completeness(verified: number, required: number): CrossFormula { return
+    c('kyc-completeness', 'completeness(verified, required) = ⌊verified · 100 / required⌋', required > 0 ?
+    Math.floor((verified * 100) / required) : 0, nat(verified, required) && required > 0 && verified <=
+    required, 'completeness', [verified, required]) } /** SCREENING in basis points: sanctions/PEP list hits
+    over names checked. value ⌊hits · 10000 / checks⌋. */ static screening(hits: number, checks: number):
+    CrossFormula { return c('kyc-screening', 'screening(hits, checks) = ⌊hits · 10000 / checks⌋', checks > 0 ?
+    Math.floor((hits * 10000) / checks) : 0, nat(hits, checks) && checks > 0 && hits <= checks, 'screening',
+    [hits, checks]) } /** RISK RATING as a percentage: risk flags raised over factors assessed (an audit score).
+    value ⌊flags · 100 / factors⌋. */ static risk(flags: number, factors: number): CrossFormula { return
+    c('kyc-risk', 'risk(flags, factors) = ⌊flags · 100 / factors⌋', factors > 0 ? Math.floor((flags * 100) /
+    factors) : 0, nat(flags, factors) && factors > 0 && flags <= factors, 'risk', [flags, factors]) } /**
+    REPORTABLE: whether a transaction amount meets the reporting threshold (an econ threshold; CTR/SAR trigger).
+    value [amount ≥ threshold]. */ static aml(amount: number, threshold: number): CrossFormula { return
+    c('kyc-aml', 'aml(amount, threshold) = [amount ≥ threshold]', amount >= threshold ? 1 : 0, nat(amount,
+    threshold), 'aml', [amount, threshold]) } /** ENHANCED DILIGENCE: whether the risk rating demands EDD over
+    standard CDD. value [risk ≥ tier]. */ static diligence(risk: number, tier: number): CrossFormula { return
+    c('kyc-diligence', 'diligence(risk, tier) = [risk ≥ tier]', risk >= tier ? 1 : 0, nat(risk, tier),
+    'diligence', [risk, tier]) } /** BENEFICIAL OWNERSHIP as a percentage: ultimate owners identified over
+    owners above the control threshold. value ⌊identified · 100 / owners⌋. */ static ubo(identified: number,
+    owners: number): CrossFormula { return c('kyc-ubo', 'ubo(identified, owners) = ⌊identified · 100 / owners⌋',
+    owners > 0 ? Math.floor((identified * 100) / owners) : 0, nat(identified, owners) && owners > 0 &&
+    identified <= owners, 'ubo', [identified, owners]) } /** REVIEW EXPIRY: days remaining until the next
+    periodic review. value max(0, valid − elapsed). -/
+theorem fam_kyc_expiry_1 : (fmax (0 : Int) ((365 : Int) - (100 : Int))) = (265 : Int) := by decide
+
+/-- kyc: expiry(100, 365) = 0 — KYC — KNOWING A CUSTOMER BEFORE SERVING THEM, AS ARITHMETIC (chosen by the
+    registry, not by hand). Due diligence is numbers: how complete the collected record is, how much of it
+    screens clean against sanctions and PEP lists, the customer's risk rating, whether a transaction is
+    reportable, whether enhanced diligence is required, how much of the beneficial ownership is identified, how
+    long until the next periodic review, and the ongoing monitoring cadence. It INVOLVES OTHER FAMILIES:
+    completeness is built on what `identity` verified; the risk rating is an `audit` score; the
+    reportable-transaction test is an `econ` threshold. Crosses to `law` — KYC is what the law requires before
+    service, as the FATF Recommendations and AML/CFT regimes write it. A measure, never a legal conclusion. */
+    const PROOF = 'kyc arithmetic (record completeness, sanctions/PEP screening, customer risk rating,
+    reportable transaction, enhanced diligence, beneficial ownership coverage, review expiry, monitoring
+    cadence); it involves identity (verified record), audit (risk score) and econ (reportable threshold); the
+    FATF/AML due-diligence a law requires before service, a measure crossed to law — never a legal conclusion'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kyc', dst: 'law', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `kyc.${name}`, params }) export class KycFormulas { /** COMPLETENESS as a
+    percentage: CDD fields verified over fields required (built on what identity verified). value ⌊verified ·
+    100 / required⌋. */ static completeness(verified: number, required: number): CrossFormula { return
+    c('kyc-completeness', 'completeness(verified, required) = ⌊verified · 100 / required⌋', required > 0 ?
+    Math.floor((verified * 100) / required) : 0, nat(verified, required) && required > 0 && verified <=
+    required, 'completeness', [verified, required]) } /** SCREENING in basis points: sanctions/PEP list hits
+    over names checked. value ⌊hits · 10000 / checks⌋. */ static screening(hits: number, checks: number):
+    CrossFormula { return c('kyc-screening', 'screening(hits, checks) = ⌊hits · 10000 / checks⌋', checks > 0 ?
+    Math.floor((hits * 10000) / checks) : 0, nat(hits, checks) && checks > 0 && hits <= checks, 'screening',
+    [hits, checks]) } /** RISK RATING as a percentage: risk flags raised over factors assessed (an audit score).
+    value ⌊flags · 100 / factors⌋. */ static risk(flags: number, factors: number): CrossFormula { return
+    c('kyc-risk', 'risk(flags, factors) = ⌊flags · 100 / factors⌋', factors > 0 ? Math.floor((flags * 100) /
+    factors) : 0, nat(flags, factors) && factors > 0 && flags <= factors, 'risk', [flags, factors]) } /**
+    REPORTABLE: whether a transaction amount meets the reporting threshold (an econ threshold; CTR/SAR trigger).
+    value [amount ≥ threshold]. */ static aml(amount: number, threshold: number): CrossFormula { return
+    c('kyc-aml', 'aml(amount, threshold) = [amount ≥ threshold]', amount >= threshold ? 1 : 0, nat(amount,
+    threshold), 'aml', [amount, threshold]) } /** ENHANCED DILIGENCE: whether the risk rating demands EDD over
+    standard CDD. value [risk ≥ tier]. */ static diligence(risk: number, tier: number): CrossFormula { return
+    c('kyc-diligence', 'diligence(risk, tier) = [risk ≥ tier]', risk >= tier ? 1 : 0, nat(risk, tier),
+    'diligence', [risk, tier]) } /** BENEFICIAL OWNERSHIP as a percentage: ultimate owners identified over
+    owners above the control threshold. value ⌊identified · 100 / owners⌋. */ static ubo(identified: number,
+    owners: number): CrossFormula { return c('kyc-ubo', 'ubo(identified, owners) = ⌊identified · 100 / owners⌋',
+    owners > 0 ? Math.floor((identified * 100) / owners) : 0, nat(identified, owners) && owners > 0 &&
+    identified <= owners, 'ubo', [identified, owners]) } /** REVIEW EXPIRY: days remaining until the next
+    periodic review. value max(0, valid − elapsed). -/
+theorem fam_kyc_expiry_2 : (fmax (0 : Int) ((100 : Int) - (365 : Int))) = (0 : Int) := by decide
+
+/-- kyc: monitoring(12, 4) = 3 — KYC — KNOWING A CUSTOMER BEFORE SERVING THEM, AS ARITHMETIC (chosen by the
+    registry, not by hand). Due diligence is numbers: how complete the collected record is, how much of it
+    screens clean against sanctions and PEP lists, the customer's risk rating, whether a transaction is
+    reportable, whether enhanced diligence is required, how much of the beneficial ownership is identified, how
+    long until the next periodic review, and the ongoing monitoring cadence. It INVOLVES OTHER FAMILIES:
+    completeness is built on what `identity` verified; the risk rating is an `audit` score; the
+    reportable-transaction test is an `econ` threshold. Crosses to `law` — KYC is what the law requires before
+    service, as the FATF Recommendations and AML/CFT regimes write it. A measure, never a legal conclusion. */
+    const PROOF = 'kyc arithmetic (record completeness, sanctions/PEP screening, customer risk rating,
+    reportable transaction, enhanced diligence, beneficial ownership coverage, review expiry, monitoring
+    cadence); it involves identity (verified record), audit (risk score) and econ (reportable threshold); the
+    FATF/AML due-diligence a law requires before service, a measure crossed to law — never a legal conclusion'
+    const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const c = (id: string,
+    formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string,
+    unknown> = {}): CrossFormula => crossFormulaOf({ id, src: 'kyc', dst: 'law', formula, value, proof: PROOF,
+    ...extra }, holds, { name: `kyc.${name}`, params }) export class KycFormulas { /** COMPLETENESS as a
+    percentage: CDD fields verified over fields required (built on what identity verified). value ⌊verified ·
+    100 / required⌋. */ static completeness(verified: number, required: number): CrossFormula { return
+    c('kyc-completeness', 'completeness(verified, required) = ⌊verified · 100 / required⌋', required > 0 ?
+    Math.floor((verified * 100) / required) : 0, nat(verified, required) && required > 0 && verified <=
+    required, 'completeness', [verified, required]) } /** SCREENING in basis points: sanctions/PEP list hits
+    over names checked. value ⌊hits · 10000 / checks⌋. */ static screening(hits: number, checks: number):
+    CrossFormula { return c('kyc-screening', 'screening(hits, checks) = ⌊hits · 10000 / checks⌋', checks > 0 ?
+    Math.floor((hits * 10000) / checks) : 0, nat(hits, checks) && checks > 0 && hits <= checks, 'screening',
+    [hits, checks]) } /** RISK RATING as a percentage: risk flags raised over factors assessed (an audit score).
+    value ⌊flags · 100 / factors⌋. */ static risk(flags: number, factors: number): CrossFormula { return
+    c('kyc-risk', 'risk(flags, factors) = ⌊flags · 100 / factors⌋', factors > 0 ? Math.floor((flags * 100) /
+    factors) : 0, nat(flags, factors) && factors > 0 && flags <= factors, 'risk', [flags, factors]) } /**
+    REPORTABLE: whether a transaction amount meets the reporting threshold (an econ threshold; CTR/SAR trigger).
+    value [amount ≥ threshold]. */ static aml(amount: number, threshold: number): CrossFormula { return
+    c('kyc-aml', 'aml(amount, threshold) = [amount ≥ threshold]', amount >= threshold ? 1 : 0, nat(amount,
+    threshold), 'aml', [amount, threshold]) } /** ENHANCED DILIGENCE: whether the risk rating demands EDD over
+    standard CDD. value [risk ≥ tier]. */ static diligence(risk: number, tier: number): CrossFormula { return
+    c('kyc-diligence', 'diligence(risk, tier) = [risk ≥ tier]', risk >= tier ? 1 : 0, nat(risk, tier),
+    'diligence', [risk, tier]) } /** BENEFICIAL OWNERSHIP as a percentage: ultimate owners identified over
+    owners above the control threshold. value ⌊identified · 100 / owners⌋. */ static ubo(identified: number,
+    owners: number): CrossFormula { return c('kyc-ubo', 'ubo(identified, owners) = ⌊identified · 100 / owners⌋',
+    owners > 0 ? Math.floor((identified * 100) / owners) : 0, nat(identified, owners) && owners > 0 &&
+    identified <= owners, 'ubo', [identified, owners]) } /** REVIEW EXPIRY: days remaining until the next
+    periodic review. value max(0, valid − elapsed). */ static expiry(valid: number, elapsed: number):
+    CrossFormula { return c('kyc-expiry', 'expiry(valid, elapsed) = max(0, valid − elapsed)', Math.max(0, valid
+    - elapsed), nat(valid, elapsed), 'expiry', [valid, elapsed]) } /** MONITORING cadence: reviews performed
+    over monitoring periods. value ⌊reviews / periods⌋. -/
+theorem fam_kyc_monitoring_1 : ((12 : Int) / (4 : Int)) = (3 : Int) := by decide
