@@ -183,6 +183,9 @@ export function invokesFile(corpus: string, base: string): boolean {
   const named = new RegExp(base.replace(/-/g, '[-]') + '\\.(js|ts)\\b')
   const runner = /\b(node|execSync|spawn(Sync)?|npm run|x\s+--)\b/
   if (corpus.split('\n').some((line) => named.test(line) && runner.test(line))) return true
+  // THE CI DOOR IS AN INVOCATION. A workflow that is a thin MCP client runs a program as
+  // `uuidna_ci '{"step":"<name>"…}'`, and the door spawns dist/scripts/<name>.js — the runner and the name share the line.
+  if (new RegExp('uuidna_ci\\b.*"step":"' + base.replace(/-/g, '[-]') + '"').test(corpus)) return true
   // A MANIFEST ENTRY IS AN INVOCATION. The line-with-a-runner rule fits a shell chain, where the filename and
   // the `node` sit together. It does not fit a manifest: generate.ts lists its emitters as `{ file: 'gen-x.js' }`
   // and spawns them in a generic loop, so the name and the runner are never on one line and every generator it

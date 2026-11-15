@@ -106,16 +106,16 @@ jobs:
       - name: VERIFY — the landing's receipt on qpu.uuidna.com covers this commit
         id: qpu
         continue-on-error: true
-        run: node dist/scripts/receipt-verify-qpu.js "$GITHUB_SHA"
+        run: npm run -s mcp -- uuidna_ci '{"step":"receipt-verify-qpu","args":["'"$GITHUB_SHA"'"]}' --local
       - name: PROVE — the push-time proof covers this exact tree
         id: receipt
         if: steps.qpu.outcome == 'failure'
         continue-on-error: true
-        run: node dist/scripts/gate-receipt.js --verify
+        run: npm run -s mcp -- uuidna_ci '{"step":"gate-receipt","args":"--verify"}' --local
 
       - name: PROVE — guard, then only the tests that import or read what moved (only when no receipt covers this tree)
         if: steps.qpu.outcome == 'failure' && steps.receipt.outcome == 'failure'
-        run: node dist/scripts/guard.js && node dist/scripts/test-plan.js
+        run: npm run -s mcp -- uuidna_ci '{"step":"guard"}' --local && npm run -s mcp -- uuidna_ci '{"step":"test-plan"}' --local
 
       # NO DEPLOY STEP AND NO SECRETS HERE (the captain's call, 2026-08-31): Cloudflare Workers Builds is the
       # deploy path, running `npm run build && npx wrangler deploy` on push from Cloudflare's own side. This job

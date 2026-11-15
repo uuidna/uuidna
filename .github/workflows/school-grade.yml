@@ -82,7 +82,7 @@ jobs:
           # where learner code runs. Hence "records" rather than the obvious verb. The guard is blunt on purpose and
           # is worth more than the word; do not loosen it to fit a comment.
           set +e
-          node dist/scripts/school-grade.js school-verdicts.json
+          npm run -s mcp -- uuidna_ci '{"step":"school-grade","args":"school-verdicts.json"}' --local
           code=$?
           set -e
           if [ "$code" = "2" ]; then

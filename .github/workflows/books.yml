@@ -48,7 +48,7 @@ jobs:
           DRY: ${{ inputs.dry }}
         run: |
           npm run build
-          node dist/scripts/mine-books.js
+          npm run -s mcp -- uuidna_ci '{"step":"mine-books"}' --local
           if [ "$DRY" = "true" ]; then node dist/scripts/books-run.js --dry; else node dist/scripts/books-run.js; fi
       - name: land derived book leads, quality report, and pending wave (explicit paths only)
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry != true }}
@@ -67,4 +67,4 @@ jobs:
           git push origin HEAD || echo "::warning::push refused — another writer holds main; queue is local until next tick"
       - name: name the outcome
         if: always()
-        run: npm run state || echo "::warning::state unreadable"
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:state"}' --local || echo "::warning::state unreadable"

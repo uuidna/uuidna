@@ -55,7 +55,7 @@ jobs:
         id: harvest
         run: |
           set +e
-          node dist/scripts/audit-doi-harvest.js
+          npm run -s mcp -- uuidna_ci '{"step":"audit-doi-harvest"}' --local
           echo "code=$?" >> "$GITHUB_OUTPUT"
 
       # OUR OWN EDGE, ASKED FROM OUTSIDE. No Lean is installed here and none is needed: the probe records whether the
@@ -64,20 +64,20 @@ jobs:
         id: school
         run: |
           set +e
-          node dist/scripts/school-grade.js /tmp/school-verdicts.json
+          npm run -s mcp -- uuidna_ci '{"step":"school-grade","args":"/tmp/school-verdicts.json"}' --local
           echo "code=$?" >> "$GITHUB_OUTPUT"
 
       - name: npm · Zenodo · doi.org — is the released version actually there?
         id: live
         run: |
           set +e
-          node dist/scripts/release-live.js
+          npm run -s mcp -- uuidna_ci '{"step":"release-live"}' --local
           echo "code=$?" >> "$GITHUB_OUTPUT"
 
       # THE CENSUS IS THE VERDICT. leads-gate now reads every artefact above (src/api-leads.ts), so this is the one
       # place that says whether the outside world is holding a release — and it fails when it is.
       - name: The release gate, over the repository AND the APIs
-        run: node dist/scripts/leads-gate.js
+        run: npm run -s mcp -- uuidna_ci '{"step":"leads-gate"}' --local
 
       - uses: actions/upload-artifact@v7
         if: always()

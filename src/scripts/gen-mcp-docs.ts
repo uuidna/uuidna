@@ -44,6 +44,8 @@ export const EXAMPLES: Readonly<Record<string, { args: Record<string, unknown>; 
   // The address below is uuidna's own canonical doc-comment example, the one src/handle.ts:3 uses to show the split
   // (cc9c0011 becomes cc/9c/00/11). It is a fixture rather than a measurement, which is exactly what an example
   // wants: a reader can paste it and get the same answer, and no generator can move it.
+  uuidna_ci: { args: { step: 'mcp-call', args: ['--help'] },
+    why: 'step names a real program, and the sandbox refuses the spawn, so the example documents the door without running a CI step' },
   uuidna_handle: { args: { address: 'cc9c0011-0000-8000-8000-000000000000' },
     why: 'address is optional, and with none the tool answers about whatever the live tree offers — an example that moves with every stamp cannot be reproduced by the reader it is written for' },
 }

@@ -46,7 +46,7 @@ jobs:
           UUIDNA_TRACK_LATEST: '1'
         run: |
           set -uo pipefail
-          node dist/scripts/port-update.js
+          npm run -s mcp -- uuidna_ci '{"step":"port-update"}' --local
           code=$?
           if [ "$code" -eq 0 ]; then
             echo "stale=false" >> "$GITHUB_OUTPUT"
@@ -92,4 +92,4 @@ jobs:
         run: |
           git config user.name "uuidna-port"
           git config user.email "port@uuidna.com"
-          npm run reconcile
+          npm run -s mcp -- uuidna_ci '{"step":"npm:reconcile"}' --local

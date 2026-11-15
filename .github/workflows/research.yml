@@ -46,14 +46,14 @@ jobs:
       # SEARCH, one fabricated citation failed three nightly runs after 118 minutes each (2026-11-07…09). Run first,
       # it fails in a minute, and EDIT runs it again over what the search returned.
       - name: PRE-FLIGHT — the provenance audit the desk ends on, before the search
-        run: npm run build && node dist/scripts/provenance.js
+        run: npm run build && npm run -s mcp -- uuidna_ci '{"step":"provenance"}' --local
       - name: SEARCH — quantum scale, every wing, every source, each finding at trial
-        run: npm run search:trial:all
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:search:trial:all"}' --local
       - name: MINE — read the declared public-domain corpus and file every numeric claim it STATES as a candidate
         # network + deterministic (a number-word table and two regexes, no model), so it runs here in the DAILY
         # cron rather than in the fast guard — cheap gates stay cheap. It SEALS NOTHING: the two-handle law holds,
         # the desk proposes and only the captain disposes.
-        run: node dist/scripts/mine-books.js
+        run: npm run -s mcp -- uuidna_ci '{"step":"mine-books"}' --local
       # HEARTBEAT FOR THE SEVEN. Every test over school-apis.ts is PURE (a test needing the internet fails for
       # reasons that are not the code's), and every EU source is reached only through an MCP tool — so all of them
       # ran exactly when a human or an agent asked, and could have started answering 404 without a single test
@@ -63,27 +63,27 @@ jobs:
       # IT REPORTS, IT DOES NOT RAISE: an EU API being down is not this repository's defect, and the failure being
       # guarded against is not a source going dark, it is a source going dark UNNOTICED.
       - name: PROBE — the wired EU sources answer their own known-good query, or their silence is named
-        run: npm run probe:apis
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:probe:apis"}' --local
       - name: EDIT — the full editorial desk over everything, including what the search just returned
-        run: npm run editorial
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:editorial"}' --local
       - name: FEED — most-searched + wired APIs (unanswered math, EU education) ring Lean; open doors regrow
-        run: node dist/scripts/gen-search-feed.js --online && node dist/scripts/gen-open-questions.js
+        run: npm run -s mcp -- uuidna_ci '{"step":"gen-search-feed","args":"--online"}' --local && npm run -s mcp -- uuidna_ci '{"step":"gen-open-questions"}' --local
       # IT REPORTS, IT DOES NOT RAISE, like PROBE: a finding is a lead the release gate reads from
       # lean/github-audit.json (api-leads.ts), not a reason to stop the desk publishing.
       - name: AUDIT — GitHub issues, pull requests, alerts, failing workflows and branch protection across uuidna/*
         env:
           GH_TOKEN: ${{ secrets.GITHUB_AUDIT_TOKEN || github.token }}
-        run: node dist/scripts/github-audit.js uuidna || echo "::warning::github-audit exited $? (1 findings are leads, 2 GitHub could not be read)"
+        run: npm run -s mcp -- uuidna_ci '{"step":"github-audit","args":"uuidna"}' --local || echo "::warning::github-audit exited $? (1 findings are leads, 2 GitHub could not be read)"
       - name: GUARD — the fold accepts, or nothing publishes
-        run: npm run guard
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:guard"}' --local
       - name: DRIVE — the served MCP recomputes its receipts over its own wire (90 directed mixes, 3 folds, self conforms)
-        run: npm run mcp:drive
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:mcp:drive"}' --local
       # ONE CALL, NOT A HAND-WRITTEN QUERY. This step used to be a `node -e` shell one-liner re-implementing the
       # law checks that `npm run state` already computes — two copies of one question, and the copy in a workflow is
       # the one nobody runs locally. The operator asking "where am I" and the desk asking "may this publish" now ask
       # the SAME command, so the answer cannot drift between them, and --assert exits non-zero naming the broken law.
       - name: STATE — the laws, the ledger, the sync and the finders, asked once (MCP-first automation)
-        run: npm run state -- --assert
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:state","args":"--assert"}' --local
       # THE SIGNING GATE LIVES IN hooks/, AND A FRESH CHECKOUT DOES NOT KNOW THAT (2026-09-01). Measured over the
       # 27 commits since the entry-guard fix: 3 unsigned, ALL of them from workflow bots, ZERO from the
       # workstation. The gate was never broken here — it was never installed. actions/checkout writes a bare
@@ -152,18 +152,18 @@ jobs:
       - name: Install deps
         run: npm install --no-audit --no-fund
       - name: GUARD before reconcile — the law
-        run: npm run guard
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:guard"}' --local
       - name: RECONCILE — the fold; re-derive, re-prove, re-seal, push
         run: |
           git config user.name "uuidna-research"
           git config user.email "research@uuidna.com"
-          npm run reconcile
+          npm run -s mcp -- uuidna_ci '{"step":"npm:reconcile"}' --local
       # The odometer never returns — so nothing uncertified may burn a slot. v0.1.2, v0.2.0 and v0.4.0 each
       # spent a version on a tag whose audit then failed; the calendar tags AFTER the complete audit passes,
       # so every tick it mints is already certified (publish.yml re-runs the same audit as prepublishOnly —
       # the gate is cheap to run twice and a burned slot is forever).
       - name: CERTIFY before the tick — the complete audit at hexbit speed, or no tag
-        run: npm run gate-all
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:gate-all"}' --local
       # THE SILENCE LAW (the captain's, 2026-08-17): no release until ALL is lean green — nothing of uuidna's
       # own ships unproven. Lean green silences all: a theorem that computes needs no defense, and what is not
       # yet proven does not enter the release's voice at all. CERTIFY above already re-proved every theorem
@@ -176,7 +176,7 @@ jobs:
         # axiom-free comparison that `npm run state` already folds — a second copy of the question, living where
         # nobody runs it locally. --assert exits non-zero naming the broken law (a stale witness, a borrowed axiom,
         # a drained editorial, any blocking finder), so the law is enforced by the same answer the operator reads.
-        run: npm run state -- --assert
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:state","args":"--assert"}' --local
       - name: TICK — one step of the odometer, the commit, the tag
         id: tick
         run: |
@@ -213,12 +213,12 @@ jobs:
           # — twice in one session. The emitted section carries only what the ledger computes (counts, receipts, the
           # odometer step, the surfaces) and says plainly that the meaning is owed, so a human completing it later is
           # finishing the entry, not correcting it. Release PROSE is still never generated; a statistic is not a story.
-          node dist/scripts/gen-changelog-section.js
+          npm run -s mcp -- uuidna_ci '{"step":"gen-changelog-section"}' --local
           # RE-SEAL: CHANGELOG.md is a SEALED derived file, and this write lands AFTER reconcile's spin --seal — so
           # the tag carried a changelog whose coin no longer matched its seal, and publish's own audit rejected the
           # release with NON-QUANTUM DRIFT (measured on v0.1.6: editorial passed, publish died at spin --verify,
           # and live/zenodo/extension never ran). Whatever writes a sealed file re-spins it before committing.
-          node dist/scripts/spin.js --seal
+          npm run -s mcp -- uuidna_ci '{"step":"spin","args":"--seal"}' --local
           git add package.json package-lock.json CHANGELOG.md spin-manifest.json
           # Statistics, not prose — and taken from the ONE fold rather than recomputed. These three lines used to
           # re-read lean/axioms.json and quantum-fold.json directly, a third copy of a question `npm run state`

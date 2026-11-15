@@ -1695,6 +1695,37 @@ const TOOLS: Tool[] = ([
             + 'this says nothing about the ledger — nothing was walked. Run `npm run build` and retry.',
       } },
   },
+  // THE CI DOOR (the captain, 2026-11-15: "improve ci to be a thin mcp client"). Every workflow step that runs the
+  // repository's own logic calls this door instead of the script: a dist/scripts program by its file name (the run.ts
+  // dispatcher's namespace), or a package.json script by its key prefixed npm: — names the repository already
+  // declares, so no list is kept here. Output streams to the caller; the exit is the answer, and a failing step fails
+  // the call, so the workflow's pass/fail is unchanged. Host only: it spawns, which the edge cannot.
+  { name: 'uuidna_ci',
+    description: 'Run one CI step through the door: {step} names a dist/scripts program (leads-gate) or, prefixed npm:, a package.json script (npm:guard), with optional {args}; output streams, a non-zero exit fails the call. Host only.',
+    inputSchema: { type: 'object', required: ['step'], properties: {
+      step: { type: 'string', description: 'a dist/scripts program name without .js (leads-gate), or npm:<package.json script> (npm:guard)' },
+      args: { description: 'arguments: a string split on whitespace, or an argv array kept as given (no shell)' } } },
+    run: (a = {}) => {
+      const g = (process as unknown as { getBuiltinModule: (n: string) => unknown }).getBuiltinModule
+      const cp = g('node:child_process') as typeof import('node:child_process')
+      const fs = g('node:fs') as typeof import('node:fs')
+      const path = g('node:path') as typeof import('node:path')
+      const args = Array.isArray(a.args) ? a.args.map(String) : typeof a.args === 'string' && a.args.trim() ? a.args.trim().split(/\s+/) : []
+      let cmd: string, argv: string[], step: string
+      const name = typeof a.step === 'string' ? a.step : ''
+      const npm = name.startsWith('npm:') ? name.slice(4) : null
+      if (npm !== null) {
+        const scripts = (JSON.parse(fs.readFileSync(path.join(LIB_ROOT, 'package.json'), 'utf8')) as { scripts?: Record<string, string> }).scripts ?? {}
+        if (!Object.hasOwn(scripts, npm)) throw new Error(`ci: ${npm} is not a package.json script`)
+        cmd = 'npm'; argv = ['run', npm, ...(args.length ? ['--', ...args] : [])]; step = name
+      } else if (name) {
+        if (!/^[a-z0-9-]+$/.test(name) || !fs.existsSync(path.join(LIB_ROOT, 'dist', 'scripts', `${name}.js`))) throw new Error(`ci: ${name} is not a dist/scripts program`)
+        cmd = process.execPath; argv = [path.join(LIB_ROOT, 'dist', 'scripts', `${name}.js`), ...args]; step = name
+      } else throw new Error('ci: name a step — {step: "leads-gate"} or {step: "npm:guard"}')
+      const r = cp.spawnSync(cmd, argv, { cwd: LIB_ROOT, stdio: 'inherit', env: process.env })
+      if (r.error || r.status !== 0) throw new Error(`ci: ${step} exited ${r.status ?? r.signal ?? r.error?.message}`)
+      return { ok: true, step, args, exit: 0, receipt: toUuid(`${step} ${args.join(' ')}`) }
+    } },
   { name: 'uuidna_trial',
     description: 'Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by decide` proof, each address walked through runSequence (polarity, spin as period, angle as digit-step × seed, rosetta ray degrees). Content-addresses fold order-invariantly to ONE receipt. Returns {count,verified,receipt,sequence,verdicts}. Same lean/*.lean, same receipt.',
     inputSchema: { type: 'object', properties: {} },

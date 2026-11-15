@@ -52,10 +52,10 @@ jobs:
           FULL: ${{ inputs.full }}
         run: |
           if [ "$FULL" = "true" ]; then
-            npm run next:full
+            npm run -s mcp -- uuidna_ci '{"step":"npm:next:full"}' --local
           else
-            npm run next
+            npm run -s mcp -- uuidna_ci '{"step":"npm:next"}' --local
           fi
       - name: name the outcome (a silent runner is a runner nobody can audit)
         if: always()
-        run: npm run state || echo "::warning::state unreadable — next stopped before the tree settled"
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:state"}' --local || echo "::warning::state unreadable — next stopped before the tree settled"

@@ -13529,7 +13529,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"doors\":254,\"width\":8,\"bits\":32,\"distinct\":254,\"collisions\":[],\"programs\":254,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296,\"paramsInMiddle\":65536…"
+   "excerpt": "{\"doors\":255,\"width\":8,\"bits\":32,\"distinct\":255,\"collisions\":[],\"programs\":255,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296,\"paramsInMiddle\":65536…"
   }
  },
  "uuidna_lattice": {
@@ -17060,7 +17060,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":279,\"tools\":254,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
+   "excerpt": "{\"count\":280,\"tools\":255,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
   }
  },
  "uuidna_alpine": {
@@ -18931,6 +18931,39 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "excerpt": "gen-mcp-docs sandbox: spawnSync refused while documenting (node)"
   }
  },
+ "uuidna_ci": {
+  "name": "run_ci",
+  "title": "Run ci",
+  "annotations": {
+   "readOnlyHint": false,
+   "destructiveHint": false,
+   "idempotentHint": false,
+   "openWorldHint": true
+  },
+  "effects": {
+   "network": false,
+   "writes": false,
+   "deletes": false,
+   "spawns": true
+  },
+  "why": {
+   "spawns": "run"
+  },
+  "observed": [
+   "spawns"
+  ],
+  "description": "Run ci. Returns a result.",
+  "status": "sandboxed",
+  "example": {
+   "args": {
+    "step": "mcp-call",
+    "args": [
+     "--help"
+    ]
+   },
+   "excerpt": "gen-mcp-docs sandbox: spawnSync refused while documenting (/opt/homebrew/Cellar/node/26.0.0/bin/node)"
+  }
+ },
  "uuidna_trial": {
   "name": "run_trial",
   "title": "Run trial",
@@ -20048,7 +20081,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"tools\":254,\"zeroArgReusable\":122,\"totalRequiredKeys\":194,\"reusablePerKey\":1.309,\"avgRequiredKeys\":0.764,\"avgRating\":4.236,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
+   "excerpt": "{\"tools\":255,\"zeroArgReusable\":122,\"totalRequiredKeys\":195,\"reusablePerKey\":1.308,\"avgRequiredKeys\":0.765,\"avgRating\":4.235,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
   }
  },
  "uuidna_unify": {
@@ -20126,7 +20159,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"299132c7\",\"theorems\":{\"count\":71254,\"verified\":71254,\"receipt\":\"5d752851-5ae7-82be-a995-873fcc1229f8\"},\"domains\":{\"count\":131,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"9aea0a29\",\"theorems\":{\"count\":71254,\"verified\":71254,\"receipt\":\"5d752851-5ae7-82be-a995-873fcc1229f8\"},\"domains\":{\"count\":131,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {
@@ -20649,7 +20682,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":254,\"registry\":\"a2874e47-b0df-84b…"
+   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":255,\"registry\":\"8fa9d61e-d126-827…"
   }
  },
  "uuidna_send": {

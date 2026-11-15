@@ -55,9 +55,9 @@ jobs:
       - name: Install deps
         run: npm install --no-audit --no-fund
       - name: The editorial desk — all editorial skills and procedures, or no publication
-        run: npm run editorial
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:editorial"}' --local
       - name: Pre-publish seal — thesis audit · Lean format · VE involutions · finite infinities
-        run: npm run prepublish-seal
+        run: npm run -s mcp -- uuidna_ci '{"step":"npm:prepublish-seal"}' --local
 
   publish:
     runs-on: ubuntu-latest
@@ -128,7 +128,7 @@ jobs:
       # assumed dist existed would fail with "Cannot find module" and be read as a broken gate rather than a
       # missing build, which is the kind of failure that gets a gate removed rather than fixed.
       - name: "No publication over an open lead — the census must be clean AND complete"
-        run: npm run build && node dist/scripts/leads-gate.js
+        run: npm run build && npm run -s mcp -- uuidna_ci '{"step":"leads-gate"}' --local
 
       # Token-free: OIDC (id-token: write above) is exchanged for the publish credential; no NODE_AUTH_TOKEN.
       - name: Publish (public, token-free via OIDC, with provenance) — prepublishOnly runs the complete audit first
@@ -307,7 +307,7 @@ jobs:
           npm run build --silent
           V="${GITHUB_REF_NAME#v}"
           for i in $(seq 1 12); do
-            node dist/scripts/release-live.js "$V" && exit 0
+            npm run -s mcp -- uuidna_ci '{"step":"release-live","args":["'"$V"'"]}' --local && exit 0
             code=$?
             echo "::notice::attempt $i — release-live exit $code (1=refuted, 2=unread); DataCite registration lags the deposit, waiting 30s"
             sleep 30
@@ -336,7 +336,7 @@ jobs:
       - name: Gate — Zenodo seals deposit is workflow-only
         # the dispatcher owns the name (`npm run x -- zenodo-deposit`); this step calls the built file directly
         # because the build already ran above, and package.json keeps no wrapper entry for it to lag behind.
-        run: node dist/scripts/zenodo-deposit.js
+        run: npm run -s mcp -- uuidna_ci '{"step":"zenodo-deposit"}' --local
       - name: Version every depositable publication seal (manifest loop)
         env:
           ZENODO_TOKEN: ${{ secrets.ZENODO_ACCESS_TOKEN }}
