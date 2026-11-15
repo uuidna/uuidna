@@ -520,8 +520,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4.1-flash-1017:batch",
    "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000029",
-   "completionPrice": "0.000000252"
+   "promptPrice": "0.000000036",
+   "completionPrice": "0.000000319"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash:batch",
@@ -1143,8 +1143,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "minimax/minimax-m3.1-flash",
    "name": "MiniMax: MiniMax M3.1 Flash",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.0000006"
+   "promptPrice": "0.000000075",
+   "completionPrice": "0.0000003"
   },
   {
    "id": "minimax/minimax-m3:batch",
@@ -1367,15 +1367,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k3.1-pro",
    "name": "MoonshotAI: Kimi K3.1 Pro",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000002403",
-   "completionPrice": "0.0000084023"
+   "promptPrice": "0.000002",
+   "completionPrice": "0.00001"
   },
   {
    "id": "moonshotai/kimi-k3.1-pro:batch",
    "name": "MoonshotAI: Kimi K3.1 Pro (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000275",
-   "completionPrice": "0.000004125"
+   "promptPrice": "0.0000007",
+   "completionPrice": "0.000006"
   },
   {
    "id": "moonshotai/kimi-k3:batch",
@@ -2494,8 +2494,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-9b",
    "name": "Qwen: Qwen3.5-9B",
    "contextTokens": 262144,
-   "promptPrice": "0.000000024",
-   "completionPrice": "0.000000035"
+   "promptPrice": "0.000000084",
+   "completionPrice": "0.000000123"
   },
   {
    "id": "qwen/qwen3.5-flash-02-23",
@@ -2774,8 +2774,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.000000132",
-   "completionPrice": "0.000000528"
+   "promptPrice": "0.0000000825",
+   "completionPrice": "0.00000033"
   },
   {
    "id": "tencent/hy3-preview",
@@ -2795,8 +2795,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy4-preview",
    "name": "Tencent: Hy4 preview",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000834",
-   "completionPrice": "0.000002501"
+   "promptPrice": "0.0000007506",
+   "completionPrice": "0.0000022509"
   },
   {
    "id": "thedrummer/cydonia-24b-v4.1",

@@ -26,7 +26,7 @@ Content-addressed identity, honest by construction — mint + mind, holographic 
 
 ## Functions and their evidence (5.1.2.4, 5.1.5.1)
 
-Measured beside them: 254 MCP tools; 71254 sealed theorems, 71254 of 71254 audited axiom-free; exact
+Measured beside them: 255 MCP tools; 71254 sealed theorems, 71254 of 71254 audited axiom-free; exact
 simulation served locally up to 16 qubits.
 
 ### UUID quantum programs
@@ -59,7 +59,7 @@ simulation served locally up to 16 qubits.
 
 ## Limits and known limitations (5.1.5.4)
 
-291 open lead(s) ship as known limitations, each closing when a UUID program decides it (`run.program`) or a
+262 open lead(s) ship as known limitations, each closing when a UUID program decides it (`run.program`) or a
 verdict settles it:
 
 | Source | Open leads |
@@ -67,7 +67,6 @@ verdict settles it:
 | mcp-self-sufficiency | 181 |
 | refusals | 35 |
 | api-github-audit | 35 |
-| research | 29 |
 | api-search-feed | 9 |
 | expose | 1 |
 | api-school-queue | 1 |

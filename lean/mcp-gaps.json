@@ -1,7 +1,7 @@
 {
   "kind": "mcp-gap-census",
-  "records": 2227,
-  "distinct": 1769,
+  "records": 2237,
+  "distinct": 1779,
   "loadBearing": 181,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
@@ -2231,6 +2231,20 @@
       ]
     },
     {
+      "gap": "checks the cut started past the clean check",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "checks the dead folders and path mentions",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "checks the new theorems in the regenerated ledger",
       "hits": 1,
       "forms": [
@@ -2568,6 +2582,13 @@
     },
     {
       "gap": "compute the CrossFormulas census with and without the new wing",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "computes whether the support finder is grounded in a sealed theorem",
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
@@ -3351,6 +3372,13 @@
       ]
     },
     {
+      "gap": "finds the llm.txt writer",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "finds the quantum door hex in committed sources",
       "hits": 1,
       "forms": [
@@ -3758,6 +3786,13 @@
     },
     {
       "gap": "lists non-family research leads",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "lists the dead modules and who imports them",
       "hits": 1,
       "forms": [
         "export"
@@ -5210,6 +5245,13 @@
       "hits": 1,
       "forms": [
         "node /private/tmp/claude-501/-Users-ceci-github-uuidna-uuidna/360c56c8-8d48-475a-bfbe-b28478f8817f/scratchpad/nf.mjs"
+      ]
+    },
+    {
+      "gap": "no door lists working-tree changes outside another session's folder",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -9609,6 +9651,13 @@
       ]
     },
     {
+      "gap": "reads live mentions of dead paths",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads qpu uuid programs",
       "hits": 1,
       "forms": [
@@ -9826,6 +9875,13 @@
       ]
     },
     {
+      "gap": "reads why the clean worktree was dirty",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads why the hooked merge did not commit",
       "hits": 1,
       "forms": [
@@ -10030,6 +10086,20 @@
     },
     {
       "gap": "reruns the local lead flow on a clean D1",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reshapes the CI door to one required step and teaches invokesFile the door form",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "resolves imports of the dead modules exactly",
       "hits": 1,
       "forms": [
         "export"

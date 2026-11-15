@@ -6,7 +6,7 @@
  "dependencySets": {
   "(none)": 71254
  },
- "asked": "c8267a16-c403-8e4c-8ee9-01cca7ecf7ca",
+ "asked": "9fc0fe35-24cb-8486-8c8a-f1af4c48cdb6",
  "toolchain": "leanprover/lean4:v4.33.0",
  "wings": {
   "45bcb8b0.lean": {
@@ -630,7 +630,7 @@
    }
   },
   "CrossFormulas.lean": {
-   "asked": "815e9b93-9dfa-8b57-8b03-1aca17d1d6b7",
+   "asked": "3c24a267-f6a6-8d75-9690-c7f512a0e55c",
    "verdict": {
     "the_generated_closure_partitions_into_three_kinds": [],
     "the_arithmetic_alphabet_partitions_by_its_own_algebra": [],
@@ -689,7 +689,7 @@
    }
   },
   "Cyber.lean": {
-   "asked": "221883e2-39cd-8cd5-a4ef-9424fa51593f",
+   "asked": "92c82cdb-fcad-82ba-a240-f64dd9e0da1b",
    "verdict": {
     "the_store_footprint_is_its_folders": [],
     "the_third_level_already_shares": []
@@ -71089,7 +71089,7 @@
    }
   },
   "SiteBuild.lean": {
-   "asked": "9ee5f88e-e5e0-87d9-a02f-727f22c194e1",
+   "asked": "cde217f9-dc5e-8f1b-9ce8-073dc8475f20",
    "verdict": {
     "render_retention_exceeds_the_container": [],
     "counting_beats_composing_by_six_magnitudes": [],
@@ -72594,10 +72594,10 @@
    }
   }
  },
- "receipt": "f006200a-a047-8323-97af-76112394a905",
+ "receipt": "0535e808-ab73-839b-9c54-dfe8f6f07ff1",
  "crossed": {
-  "sorted": "f006200a-a047-8323-97af-76112394a905",
-  "reversed": "f006200a-a047-8323-97af-76112394a905",
+  "sorted": "0535e808-ab73-839b-9c54-dfe8f6f07ff1",
+  "reversed": "0535e808-ab73-839b-9c54-dfe8f6f07ff1",
   "agrees": true
  }
 }
