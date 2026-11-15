@@ -24035,7 +24035,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "of": "monitor"
    },
-   "excerpt": "{\"definition\":\"uuidnaos-monitor·vitepress\",\"present\":true,\"panels\":54,\"pages\":71,\"live\":21,\"static\":33,\"receipt\":\"b95a4a1f-3c08-8553-badb-76a053ef9649\",\"honest…"
+   "excerpt": "{\"definition\":\"uuidnaos-monitor·vitepress\",\"present\":true,\"panels\":55,\"pages\":72,\"live\":21,\"static\":34,\"receipt\":\"0a2ad305-a241-8be5-8d01-c0d882f994f5\",\"honest…"
   }
  },
  "uuidna_list_tools": {
