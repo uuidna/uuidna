@@ -158,7 +158,9 @@ const usesOf = (e: Node, k: string): boolean => e.k === k || [e.a, e.b, e.c].som
 
 // ── each family: its formulas and docs from its source, its witnesses from its test ──
 const keyPart = (s: string): string => s.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')
-const docText = (s: string): string => s.replace(/^\s*\*\s?/gm, '').replace(/\s+/g, ' ').replace(/-\//g, '- /').trim()
+// a family's doc may cite "theorem k"; written into a Lean doc comment, that phrase reads to the ledger's declaration
+// parser as a second declaration of k, so the citation is joined with a non-breaking hyphen (theorem‑k)
+const docText = (s: string): string => s.replace(/^\s*\*\s?/gm, '').replace(/\s+/g, ' ').replace(/-\//g, '- /').replace(/\btheorem\s+/g, 'theorem\u2011').trim()
 const gaps: Record<string, number> = {}
 const gap = (why: string): void => { gaps[why] = (gaps[why] ?? 0) + 1 }
 const byLetter = new Map<string, Fact[]>()

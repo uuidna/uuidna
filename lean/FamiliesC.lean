@@ -10899,12 +10899,12 @@ theorem fam_collateral_callthreshold_1 : (((1000 : Int) * (80 : Int)) / (100 : I
 /-- collide: events(19, 2, 0) = 38 — COLLIDE AND DISSOLVE — THE FORMULAS GROW NEW DOMAINS THE WAY A BEAM DOES,
     PROVEN BY CERN. Two quanta collide and their product is a new value; a value dissolves (decays) into its
     constituents. What the collisions reach that no family yet serves is a MISSING family — a lead, not a thing
-    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem cern, the record
+    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem‑cern, the record
     38 = 19·2 + 0), Euclidean division; the rest is conservation (a + b), the interaction product (a · b), decay
     to a prime constituent, the decay channels (divisors), the threshold and the invariants that survive. Each
     crosses to the `cern` domain that proves it; a product the discovery or a live reading reaches is confirmed,
     one it does not is a lead for the next family. */ const PROOF = 'collisions grow domains: events = files·q +
-    r (theorem cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
+    r (theorem‑cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
     constituent and its channels; a product no family serves is a missing-family lead' const nat = (...xs:
     number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
     value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
@@ -10915,19 +10915,19 @@ theorem fam_collateral_callthreshold_1 : (((1000 : Int) * (80 : Int)) / (100 : I
     divisors the value has. */ const divisors = (n: number): number => { if (n < 1) return 0; let c = 0; for
     (let d = 1; d * d <= n; d++) if (n % d === 0) c += d * d === n ? 1 : 2; return c } export class
     CollideFormulas { /** THE CERN-PROVEN RECORD: events = files · q + r (Euclidean division). Holds when r < q
-    — a valid division, the shape theorem cern proves (record 38 = 19·2 + 0). This is the arithmetic every
+    — a valid division, the shape theorem‑cern proves (record 38 = 19·2 + 0). This is the arithmetic every
     collision lead is measured against. -/
 theorem fam_collide_events_1 : (((19 : Int) * (2 : Int)) + (0 : Int)) = (38 : Int) := by decide
 
 /-- collide: collide(14, 13) = 27 — COLLIDE AND DISSOLVE — THE FORMULAS GROW NEW DOMAINS THE WAY A BEAM DOES,
     PROVEN BY CERN. Two quanta collide and their product is a new value; a value dissolves (decays) into its
     constituents. What the collisions reach that no family yet serves is a MISSING family — a lead, not a thing
-    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem cern, the record
+    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem‑cern, the record
     38 = 19·2 + 0), Euclidean division; the rest is conservation (a + b), the interaction product (a · b), decay
     to a prime constituent, the decay channels (divisors), the threshold and the invariants that survive. Each
     crosses to the `cern` domain that proves it; a product the discovery or a live reading reaches is confirmed,
     one it does not is a lead for the next family. */ const PROOF = 'collisions grow domains: events = files·q +
-    r (theorem cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
+    r (theorem‑cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
     constituent and its channels; a product no family serves is a missing-family lead' const nat = (...xs:
     number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
     value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
@@ -10938,7 +10938,7 @@ theorem fam_collide_events_1 : (((19 : Int) * (2 : Int)) + (0 : Int)) = (38 : In
     divisors the value has. */ const divisors = (n: number): number => { if (n < 1) return 0; let c = 0; for
     (let d = 1; d * d <= n; d++) if (n % d === 0) c += d * d === n ? 1 : 2; return c } export class
     CollideFormulas { /** THE CERN-PROVEN RECORD: events = files · q + r (Euclidean division). Holds when r < q
-    — a valid division, the shape theorem cern proves (record 38 = 19·2 + 0). This is the arithmetic every
+    — a valid division, the shape theorem‑cern proves (record 38 = 19·2 + 0). This is the arithmetic every
     collision lead is measured against. */ static events(files: number, q: number, r: number): CrossFormula {
     return f('collide-events', 'events(files, q, r) = files · q + r', files * q + r, nat(files, q, r) && q > 0
     && r < q, 'events', [files, q, r]) } /** CONSERVATION: two quanta collide head-on; the total is conserved.
@@ -10948,12 +10948,12 @@ theorem fam_collide_collide_1 : ((14 : Int) + (13 : Int)) = (27 : Int) := by dec
 /-- collide: product(7, 6) = 42 — COLLIDE AND DISSOLVE — THE FORMULAS GROW NEW DOMAINS THE WAY A BEAM DOES,
     PROVEN BY CERN. Two quanta collide and their product is a new value; a value dissolves (decays) into its
     constituents. What the collisions reach that no family yet serves is a MISSING family — a lead, not a thing
-    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem cern, the record
+    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem‑cern, the record
     38 = 19·2 + 0), Euclidean division; the rest is conservation (a + b), the interaction product (a · b), decay
     to a prime constituent, the decay channels (divisors), the threshold and the invariants that survive. Each
     crosses to the `cern` domain that proves it; a product the discovery or a live reading reaches is confirmed,
     one it does not is a lead for the next family. */ const PROOF = 'collisions grow domains: events = files·q +
-    r (theorem cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
+    r (theorem‑cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
     constituent and its channels; a product no family serves is a missing-family lead' const nat = (...xs:
     number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
     value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
@@ -10964,7 +10964,7 @@ theorem fam_collide_collide_1 : ((14 : Int) + (13 : Int)) = (27 : Int) := by dec
     divisors the value has. */ const divisors = (n: number): number => { if (n < 1) return 0; let c = 0; for
     (let d = 1; d * d <= n; d++) if (n % d === 0) c += d * d === n ? 1 : 2; return c } export class
     CollideFormulas { /** THE CERN-PROVEN RECORD: events = files · q + r (Euclidean division). Holds when r < q
-    — a valid division, the shape theorem cern proves (record 38 = 19·2 + 0). This is the arithmetic every
+    — a valid division, the shape theorem‑cern proves (record 38 = 19·2 + 0). This is the arithmetic every
     collision lead is measured against. */ static events(files: number, q: number, r: number): CrossFormula {
     return f('collide-events', 'events(files, q, r) = files · q + r', files * q + r, nat(files, q, r) && q > 0
     && r < q, 'events', [files, q, r]) } /** CONSERVATION: two quanta collide head-on; the total is conserved.
@@ -10976,12 +10976,12 @@ theorem fam_collide_product_1 : ((7 : Int) * (6 : Int)) = (42 : Int) := by decid
 /-- collide: invariant(3, 4) = 25 — COLLIDE AND DISSOLVE — THE FORMULAS GROW NEW DOMAINS THE WAY A BEAM DOES,
     PROVEN BY CERN. Two quanta collide and their product is a new value; a value dissolves (decays) into its
     constituents. What the collisions reach that no family yet serves is a MISSING family — a lead, not a thing
-    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem cern, the record
+    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem‑cern, the record
     38 = 19·2 + 0), Euclidean division; the rest is conservation (a + b), the interaction product (a · b), decay
     to a prime constituent, the decay channels (divisors), the threshold and the invariants that survive. Each
     crosses to the `cern` domain that proves it; a product the discovery or a live reading reaches is confirmed,
     one it does not is a lead for the next family. */ const PROOF = 'collisions grow domains: events = files·q +
-    r (theorem cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
+    r (theorem‑cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
     constituent and its channels; a product no family serves is a missing-family lead' const nat = (...xs:
     number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
     value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
@@ -10992,7 +10992,7 @@ theorem fam_collide_product_1 : ((7 : Int) * (6 : Int)) = (42 : Int) := by decid
     divisors the value has. */ const divisors = (n: number): number => { if (n < 1) return 0; let c = 0; for
     (let d = 1; d * d <= n; d++) if (n % d === 0) c += d * d === n ? 1 : 2; return c } export class
     CollideFormulas { /** THE CERN-PROVEN RECORD: events = files · q + r (Euclidean division). Holds when r < q
-    — a valid division, the shape theorem cern proves (record 38 = 19·2 + 0). This is the arithmetic every
+    — a valid division, the shape theorem‑cern proves (record 38 = 19·2 + 0). This is the arithmetic every
     collision lead is measured against. */ static events(files: number, q: number, r: number): CrossFormula {
     return f('collide-events', 'events(files, q, r) = files · q + r', files * q + r, nat(files, q, r) && q > 0
     && r < q, 'events', [files, q, r]) } /** CONSERVATION: two quanta collide head-on; the total is conserved.
@@ -11015,12 +11015,12 @@ theorem fam_collide_invariant_1 : (((3 : Int) ^ (2 : Nat)) + ((4 : Int) ^ (2 : N
 /-- collide: threshold(14, 13) = 1 — COLLIDE AND DISSOLVE — THE FORMULAS GROW NEW DOMAINS THE WAY A BEAM DOES,
     PROVEN BY CERN. Two quanta collide and their product is a new value; a value dissolves (decays) into its
     constituents. What the collisions reach that no family yet serves is a MISSING family — a lead, not a thing
-    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem cern, the record
+    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem‑cern, the record
     38 = 19·2 + 0), Euclidean division; the rest is conservation (a + b), the interaction product (a · b), decay
     to a prime constituent, the decay channels (divisors), the threshold and the invariants that survive. Each
     crosses to the `cern` domain that proves it; a product the discovery or a live reading reaches is confirmed,
     one it does not is a lead for the next family. */ const PROOF = 'collisions grow domains: events = files·q +
-    r (theorem cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
+    r (theorem‑cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
     constituent and its channels; a product no family serves is a missing-family lead' const nat = (...xs:
     number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
     value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
@@ -11031,7 +11031,7 @@ theorem fam_collide_invariant_1 : (((3 : Int) ^ (2 : Nat)) + ((4 : Int) ^ (2 : N
     divisors the value has. */ const divisors = (n: number): number => { if (n < 1) return 0; let c = 0; for
     (let d = 1; d * d <= n; d++) if (n % d === 0) c += d * d === n ? 1 : 2; return c } export class
     CollideFormulas { /** THE CERN-PROVEN RECORD: events = files · q + r (Euclidean division). Holds when r < q
-    — a valid division, the shape theorem cern proves (record 38 = 19·2 + 0). This is the arithmetic every
+    — a valid division, the shape theorem‑cern proves (record 38 = 19·2 + 0). This is the arithmetic every
     collision lead is measured against. */ static events(files: number, q: number, r: number): CrossFormula {
     return f('collide-events', 'events(files, q, r) = files · q + r', files * q + r, nat(files, q, r) && q > 0
     && r < q, 'events', [files, q, r]) } /** CONSERVATION: two quanta collide head-on; the total is conserved.
@@ -11051,12 +11051,12 @@ theorem fam_collide_threshold_1 : (if (if (14 : Int) ≥ (13 : Int) then (1 : In
 /-- collide: threshold(12, 13) = 0 — COLLIDE AND DISSOLVE — THE FORMULAS GROW NEW DOMAINS THE WAY A BEAM DOES,
     PROVEN BY CERN. Two quanta collide and their product is a new value; a value dissolves (decays) into its
     constituents. What the collisions reach that no family yet serves is a MISSING family — a lead, not a thing
-    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem cern, the record
+    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem‑cern, the record
     38 = 19·2 + 0), Euclidean division; the rest is conservation (a + b), the interaction product (a · b), decay
     to a prime constituent, the decay channels (divisors), the threshold and the invariants that survive. Each
     crosses to the `cern` domain that proves it; a product the discovery or a live reading reaches is confirmed,
     one it does not is a lead for the next family. */ const PROOF = 'collisions grow domains: events = files·q +
-    r (theorem cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
+    r (theorem‑cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
     constituent and its channels; a product no family serves is a missing-family lead' const nat = (...xs:
     number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
     value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
@@ -11067,7 +11067,7 @@ theorem fam_collide_threshold_1 : (if (if (14 : Int) ≥ (13 : Int) then (1 : In
     divisors the value has. */ const divisors = (n: number): number => { if (n < 1) return 0; let c = 0; for
     (let d = 1; d * d <= n; d++) if (n % d === 0) c += d * d === n ? 1 : 2; return c } export class
     CollideFormulas { /** THE CERN-PROVEN RECORD: events = files · q + r (Euclidean division). Holds when r < q
-    — a valid division, the shape theorem cern proves (record 38 = 19·2 + 0). This is the arithmetic every
+    — a valid division, the shape theorem‑cern proves (record 38 = 19·2 + 0). This is the arithmetic every
     collision lead is measured against. */ static events(files: number, q: number, r: number): CrossFormula {
     return f('collide-events', 'events(files, q, r) = files · q + r', files * q + r, nat(files, q, r) && q > 0
     && r < q, 'events', [files, q, r]) } /** CONSERVATION: two quanta collide head-on; the total is conserved.
@@ -11087,12 +11087,12 @@ theorem fam_collide_threshold_2 : (if (if (12 : Int) ≥ (13 : Int) then (1 : In
 /-- collide: gap(20, 14) = 6 — COLLIDE AND DISSOLVE — THE FORMULAS GROW NEW DOMAINS THE WAY A BEAM DOES, PROVEN
     BY CERN. Two quanta collide and their product is a new value; a value dissolves (decays) into its
     constituents. What the collisions reach that no family yet serves is a MISSING family — a lead, not a thing
-    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem cern, the record
+    to remove. The arithmetic is the one CERN Open Data proves: events = files · q + r (theorem‑cern, the record
     38 = 19·2 + 0), Euclidean division; the rest is conservation (a + b), the interaction product (a · b), decay
     to a prime constituent, the decay channels (divisors), the threshold and the invariants that survive. Each
     crosses to the `cern` domain that proves it; a product the discovery or a live reading reaches is confirmed,
     one it does not is a lead for the next family. */ const PROOF = 'collisions grow domains: events = files·q +
-    r (theorem cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
+    r (theorem‑cern, record 38 = 19·2) with conservation (a+b), the interaction product (a·b), decay to a prime
     constituent and its channels; a product no family serves is a missing-family lead' const nat = (...xs:
     number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string,
     value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}):
@@ -11103,7 +11103,7 @@ theorem fam_collide_threshold_2 : (if (if (12 : Int) ≥ (13 : Int) then (1 : In
     divisors the value has. */ const divisors = (n: number): number => { if (n < 1) return 0; let c = 0; for
     (let d = 1; d * d <= n; d++) if (n % d === 0) c += d * d === n ? 1 : 2; return c } export class
     CollideFormulas { /** THE CERN-PROVEN RECORD: events = files · q + r (Euclidean division). Holds when r < q
-    — a valid division, the shape theorem cern proves (record 38 = 19·2 + 0). This is the arithmetic every
+    — a valid division, the shape theorem‑cern proves (record 38 = 19·2 + 0). This is the arithmetic every
     collision lead is measured against. */ static events(files: number, q: number, r: number): CrossFormula {
     return f('collide-events', 'events(files, q, r) = files · q + r', files * q + r, nat(files, q, r) && q > 0
     && r < q, 'events', [files, q, r]) } /** CONSERVATION: two quanta collide head-on; the total is conserved.

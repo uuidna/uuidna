@@ -1768,6 +1768,30 @@ const TOOLS: Tool[] = ([
     description: 'THE QUANTUM CALCULATOR, founded on division by zero — ANY {input} in any format folds to one lean-green shape {verdict,cites,receipt}: a statement matching a SEALED theorem verbatim is VERIFIED by the kernel\'s prior decision and cited; fresh arithmetic is EVALUATED totally by a bounded grammar (never eval) mirroring Lean\'s Nat semantics — x/0 = 0 is well-defined (DivByZero.lean), subtraction floors at 0, every step exact BigInt — TRUE returns EVALUATED_TRUE and FALSE returns EVALUATED_FALSE (truth and falsehood wear different labels; an evaluation, not a kernel verdict — the kernel is the only verifier); a bare expression computes its exact value; anything else is prose and goes to the gate, language-blind. The same input always folds to the same receipt. Integrity, not truth (theorem provenance_integrity_not_content_truth) — decided about its arithmetic, never about the world.',
     inputSchema: { type: 'object', properties: { input: { type: 'string', description: 'anything: "2+2=4", "(110 - 108 = 2)", "7/0", a Lean statement, a claim in any language' } }, required: ['input'] },
     run: (a: Record<string, unknown>) => decide(String(a.input)) },
+  // THE ASK DOOR (the captain, 2026-11-15: "nothing manual whatsoever. all via lean"). uuidna_decide evaluates fresh
+  // arithmetic and says so: "an evaluation not yet a sealed theorem; only the kernel verifies". This is the road from
+  // that evaluation to the kernel: a decided arithmetic statement is recorded in lean/asked.json — as asked when it
+  // evaluates true, negated when false — and the lean-asked wing seals it with `decide +kernel`. Once sealed,
+  // uuidna_decide answers the same words VERIFIED through its sealed-index route, citing the theorem. Only pure
+  // arithmetic is recorded (digits, operators, comparisons), so nothing but a Nat statement reaches the kernel. Host only.
+  { name: 'uuidna_ask',
+    description: 'Ask the kernel: record an arithmetic statement uuidna_decide evaluates (true as asked, false negated) in lean/asked.json for the lean-asked wing to seal by decide +kernel; afterwards uuidna_decide answers it VERIFIED. Pure Nat arithmetic only. Host only.',
+    inputSchema: { type: 'object', required: ['input'], properties: { input: { type: 'string', description: 'a Nat arithmetic statement, e.g. "2^999 <= 7778…903" or "7778…903 % 4 = 3"' } } },
+    run: (a: Record<string, unknown>) => {
+      const input = String(a.input ?? '').trim()
+      if (!/^[0-9\s+\-*/%^()=<>!≤≥≠]+$/.test(input) || !/[=<>≤≥≠]/.test(input)) throw new Error('ask: only a Nat arithmetic statement (digits, + - * / % ^, parentheses, a comparison) is recorded')
+      const d = decide(input)
+      if (d.kind !== 'decided-arithmetic' && d.kind !== 'sealed-theorem') throw new Error(`ask: uuidna_decide did not decide this as arithmetic (${d.kind})`)
+      const g = (process as unknown as { getBuiltinModule: (n: string) => unknown }).getBuiltinModule
+      const fs = g('node:fs') as typeof import('node:fs')
+      const path = g('node:path') as typeof import('node:path')
+      const file = path.join(LIB_ROOT, 'lean', 'asked.json')
+      const asked = (fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : []) as { input: string; holds: boolean }[]
+      const holds = d.verdict !== 'EVALUATED_FALSE'
+      const fresh = !asked.some((q) => q.input === input)
+      if (fresh) { asked.push({ input, holds }); asked.sort((x, y) => (x.input < y.input ? -1 : x.input > y.input ? 1 : 0)); fs.writeFileSync(file, JSON.stringify(asked, null, 2) + '\n') }
+      return { input, verdict: d.verdict, holds, recorded: fresh, sealedAs: d.kind === 'sealed-theorem' ? d.cites[0] : null, next: d.kind === 'sealed-theorem' ? 'already sealed — uuidna_decide answers VERIFIED' : 'the lean-asked wing seals it on the next npm run lean', receipt: toUuid(`ask:${input}:${holds}`) }
+    } },
   { name: 'uuidna_optimise',
     description: 'THE EXACT LINEAR OPTIMISER — maximise c·x subject to A·x ≤ b over integer lattice points 0..bound per variable, by TOTAL enumeration: every candidate checked, nothing sampled, the optimum exact with a recomputable receipt. The search space is the qubit basis made literal (theorem optimisation_space_is_qubit_dimension) and the exponential walk is the honest cost — capped, never hidden; Grover would only halve the exponent (theorem grover_halves_the_search_exponent). Strong duality holds exact on the sealed instance (theorem lp_strong_duality_instance). Returns {optimum,argmax,candidates,feasible,receipt,honest}. NOT a solver at scale, NOT an NP claim.',
     inputSchema: { type: 'object', properties: { c: { type: 'array', items: { type: 'number' }, description: 'objective coefficients (1–4 variables)' }, A: { type: 'array', items: { type: 'array', items: { type: 'number' } }, description: 'constraint rows: A[i]·x ≤ b[i]' }, b: { type: 'array', items: { type: 'number' } }, bound: { type: 'integer', description: 'each variable ranges 0..bound (default 16, max 64)' } }, required: ['c', 'A', 'b'] },

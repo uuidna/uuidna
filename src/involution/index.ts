@@ -402,12 +402,15 @@ const mulScalar = (a: number | bigint, b: number | bigint): number | bigint => {
   if (Number.isSafeInteger(r)) return r
   return BigInt(a) * BigInt(b)
 }
-/** Lean Nat division — BigInt powers; `n / 0 = 0` on Nat. */
+/** Lean division — BigInt powers; `n / 0 = 0`. On Int it is Lean's `/`, the Euclidean division (Int.ediv): the
+ *  remainder is never negative, so (-100) / 12 = -9, where BigInt's truncating `/` gives -8. The ring was passed and
+ *  ignored, and the evaluator read 98 sealed statements as false — the kernel had proved every one. */
 const divScalar = (a: number | bigint, b: number | bigint, ring: Ring): number | bigint => {
   const bb = typeof b === 'bigint' ? b : BigInt(trunc(b as number))
   if (bb === 0n) return 0
   const aa = typeof a === 'bigint' ? a : BigInt(trunc(a as number))
-  const q = aa / bb
+  const t = aa / bb
+  const q = ring === 'Int' && aa % bb < 0n ? (bb > 0n ? t - 1n : t + 1n) : t
   return (q <= BigInt(Number.MAX_SAFE_INTEGER) && q >= BigInt(Number.MIN_SAFE_INTEGER)) ? Number(q) : q
 }
 const asLst = (v: Val): Val[] => {

@@ -185,6 +185,7 @@ export const EDGE_ABSENT: Record<string, string> = {
   "uuidna_publication": 'CAPABILITY: publicationStatus reads package.json and .zenodo.json — host-side',
   "uuidna_search_trial": 'POLICY: network fan-out (research sweep + mint extras) — hosted surface stays read-only recomputable',
   "uuidna_selftest": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
+  "uuidna_ask": 'CAPABILITY: records the asked statement in lean/asked.json for the kernel — a Worker has no filesystem; ask host-side with --local',
   "uuidna_ci": 'CAPABILITY: spawns the named CI step (a dist/scripts program or a package.json script) — a Worker has no process; CI runs it host-side with --local',
   "uuidna_run": 'CAPABILITY: requires filesystem + spawn (docker/chroot) — stdio/host only by design; Layer 1 uuidna_exec serves the browser',
 }

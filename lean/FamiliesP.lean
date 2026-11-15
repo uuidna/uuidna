@@ -1433,7 +1433,7 @@ theorem fam_partition_durfeecells_1 : ((3 : Int) ^ (2 : Nat)) = (9 : Int) := by 
     distinct positive parts. value n(n+1)/2. */ static triangular(n: number): CrossFormula { return
     g('partition-triangular', 'triangular(n) = n(n+1)/2 (least sum of n distinct parts)', (n * (n + 1)) / 2,
     nat(n), 'triangular', [n]) } /** PENTAGONAL — the generalized pentagonal number (Euler's pentagonal number
-    theorem exponent). value n(3n-1)/2. */ static pentagonal(n: number): CrossFormula { return
+    theorem‑exponent). value n(3n-1)/2. */ static pentagonal(n: number): CrossFormula { return
     g('partition-pentagonal', 'pentagonal(n) = n(3n-1)/2 (generalized pentagonal number)', (n * (3 * n - 1)) /
     2, nat(n), 'pentagonal', [n]) } /** DISTINCTMAX — the most distinct positive parts summing to at most n, the
     largest k with k(k+1)/2 ≤ n. value ⌊(√(8n+1)-1)/2⌋. */ static distinctmax(n: number): CrossFormula { return
@@ -1472,7 +1472,7 @@ theorem fam_partition_ferrers_1 : ((3 : Int) * (4 : Int)) = (12 : Int) := by dec
     distinct positive parts. value n(n+1)/2. */ static triangular(n: number): CrossFormula { return
     g('partition-triangular', 'triangular(n) = n(n+1)/2 (least sum of n distinct parts)', (n * (n + 1)) / 2,
     nat(n), 'triangular', [n]) } /** PENTAGONAL — the generalized pentagonal number (Euler's pentagonal number
-    theorem exponent). value n(3n-1)/2. */ static pentagonal(n: number): CrossFormula { return
+    theorem‑exponent). value n(3n-1)/2. */ static pentagonal(n: number): CrossFormula { return
     g('partition-pentagonal', 'pentagonal(n) = n(3n-1)/2 (generalized pentagonal number)', (n * (3 * n - 1)) /
     2, nat(n), 'pentagonal', [n]) } /** DISTINCTMAX — the most distinct positive parts summing to at most n, the
     largest k with k(k+1)/2 ≤ n. value ⌊(√(8n+1)-1)/2⌋. */ static distinctmax(n: number): CrossFormula { return
@@ -1514,7 +1514,7 @@ theorem fam_partition_conjugatecells_1 : (12 : Int) = (12 : Int) := by decide
     distinct positive parts. value n(n+1)/2. */ static triangular(n: number): CrossFormula { return
     g('partition-triangular', 'triangular(n) = n(n+1)/2 (least sum of n distinct parts)', (n * (n + 1)) / 2,
     nat(n), 'triangular', [n]) } /** PENTAGONAL — the generalized pentagonal number (Euler's pentagonal number
-    theorem exponent). value n(3n-1)/2. */ static pentagonal(n: number): CrossFormula { return
+    theorem‑exponent). value n(3n-1)/2. */ static pentagonal(n: number): CrossFormula { return
     g('partition-pentagonal', 'pentagonal(n) = n(3n-1)/2 (generalized pentagonal number)', (n * (3 * n - 1)) /
     2, nat(n), 'pentagonal', [n]) } /** DISTINCTMAX — the most distinct positive parts summing to at most n, the
     largest k with k(k+1)/2 ≤ n. value ⌊(√(8n+1)-1)/2⌋. */ static distinctmax(n: number): CrossFormula { return
@@ -1564,7 +1564,7 @@ theorem fam_partition_atmosttwo_1 : (((10 : Int) / (2 : Int)) + (1 : Int)) = (6 
     distinct positive parts. value n(n+1)/2. */ static triangular(n: number): CrossFormula { return
     g('partition-triangular', 'triangular(n) = n(n+1)/2 (least sum of n distinct parts)', (n * (n + 1)) / 2,
     nat(n), 'triangular', [n]) } /** PENTAGONAL — the generalized pentagonal number (Euler's pentagonal number
-    theorem exponent). value n(3n-1)/2. */ static pentagonal(n: number): CrossFormula { return
+    theorem‑exponent). value n(3n-1)/2. */ static pentagonal(n: number): CrossFormula { return
     g('partition-pentagonal', 'pentagonal(n) = n(3n-1)/2 (generalized pentagonal number)', (n * (3 * n - 1)) /
     2, nat(n), 'pentagonal', [n]) } /** DISTINCTMAX — the most distinct positive parts summing to at most n, the
     largest k with k(k+1)/2 ≤ n. value ⌊(√(8n+1)-1)/2⌋. */ static distinctmax(n: number): CrossFormula { return
@@ -1617,7 +1617,7 @@ theorem fam_partition_hook_1 : (((3 : Int) + (4 : Int)) - (1 : Int)) = (6 : Int)
     distinct positive parts. value n(n+1)/2. */ static triangular(n: number): CrossFormula { return
     g('partition-triangular', 'triangular(n) = n(n+1)/2 (least sum of n distinct parts)', (n * (n + 1)) / 2,
     nat(n), 'triangular', [n]) } /** PENTAGONAL — the generalized pentagonal number (Euler's pentagonal number
-    theorem exponent). value n(3n-1)/2. */ static pentagonal(n: number): CrossFormula { return
+    theorem‑exponent). value n(3n-1)/2. */ static pentagonal(n: number): CrossFormula { return
     g('partition-pentagonal', 'pentagonal(n) = n(3n-1)/2 (generalized pentagonal number)', (n * (3 * n - 1)) /
     2, nat(n), 'pentagonal', [n]) } /** DISTINCTMAX — the most distinct positive parts summing to at most n, the
     largest k with k(k+1)/2 ≤ n. value ⌊(√(8n+1)-1)/2⌋. */ static distinctmax(n: number): CrossFormula { return
@@ -1673,7 +1673,7 @@ theorem fam_partition_rank_1 : ((9 : Int) - (4 : Int)) = (5 : Int) := by decide
     distinct positive parts. value n(n+1)/2. */ static triangular(n: number): CrossFormula { return
     g('partition-triangular', 'triangular(n) = n(n+1)/2 (least sum of n distinct parts)', (n * (n + 1)) / 2,
     nat(n), 'triangular', [n]) } /** PENTAGONAL — the generalized pentagonal number (Euler's pentagonal number
-    theorem exponent). value n(3n-1)/2. */ static pentagonal(n: number): CrossFormula { return
+    theorem‑exponent). value n(3n-1)/2. */ static pentagonal(n: number): CrossFormula { return
     g('partition-pentagonal', 'pentagonal(n) = n(3n-1)/2 (generalized pentagonal number)', (n * (3 * n - 1)) /
     2, nat(n), 'pentagonal', [n]) } /** DISTINCTMAX — the most distinct positive parts summing to at most n, the
     largest k with k(k+1)/2 ≤ n. value ⌊(√(8n+1)-1)/2⌋. */ static distinctmax(n: number): CrossFormula { return
@@ -1699,7 +1699,7 @@ theorem fam_partition_rank_1 : ((9 : Int) - (4 : Int)) = (5 : Int) := by decide
     the largest part minus the number of parts. value largest - parts; holds largest ≥ parts. */ static
     rank(largest: number, parts: number): CrossFormula { return g('partition-rank', 'rank(largest, parts) =
     largest - parts (Dyson rank)', largest - parts, nat(largest, parts) && largest >= parts, 'rank', [largest,
-    parts]) } /** ODDAVAILABLE — the odd part-sizes in 1..n that Euler's theorem pairs with distinct parts.
+    parts]) } /** ODDAVAILABLE — the odd part-sizes in 1..n that Euler's theorem‑pairs with distinct parts.
     value ⌈n/2⌉. -/
 theorem fam_partition_oddavailable_1 : (-((-(10 : Int)) / (2 : Int))) = (5 : Int) := by decide
 

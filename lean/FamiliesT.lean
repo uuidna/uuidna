@@ -9561,15 +9561,15 @@ theorem fam_tsunami_warningtime_1 : ((3600 : Int) / (60 : Int)) = (60 : Int) := 
 
 /-- tune: harmonic(1) = 432 — A432 AS THE STARTER OF THE CHAIN, DIFFERENT WAVELENGTHS CROSSING THE FRACTAL AT
     ONCE. The fundamental is not chosen, it is derived: the lattice already proves 432 = 2^hexbit · (plane −
-    seed) = 16 · 27 (theorem presentation_stylesheet_hz, Qpu.Clay). From that one frequency the chain reacts — a
+    seed) = 16 · 27 (theorem‑presentation_stylesheet_hz, Qpu.Clay). From that one frequency the chain reacts — a
     vibrating string's modes are the integer harmonics n · f₀ (string theory's overtone series), the octaves are
     the self-similar doublings f₀ · 2^k (the fractal, every band at once by the mintOf doubling), and the fifths
     stack ×3/2 into the circle that never quite closes. Each wavelength is a natural; speed of sound 343 m/s
     gives the metre. The whole harmonic fractal crosses the lattice from 432. */ const L = { ...latticeNamesOf()
     } const PLANE = L.coins * L.coins * L.rays // 28 const A432 = mintOf(L.hexbit) * (PLANE - L.seed) // 16 · 27
-    = 432, from the lattice const SOUND = 343000 // mm/s, the speed of sound const PROOF = 'theorem
-    presentation_stylesheet_hz: 2^hexbit · (plane − seed) = 432 (Qpu.Clay); the harmonic series n·f₀ (a string’s
-    modes); octaves f₀·2^k; the Pythagorean fifth 3/2; sound 343 m/s' const nat = (...xs: number[]) =>
+    = 432, from the lattice const SOUND = 343000 // mm/s, the speed of sound const PROOF =
+    'theorem‑presentation_stylesheet_hz: 2^hexbit · (plane − seed) = 432 (Qpu.Clay); the harmonic series n·f₀ (a
+    string’s modes); octaves f₀·2^k; the Pythagorean fifth 3/2; sound 343 m/s' const nat = (...xs: number[]) =>
     xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number,
     holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
     crossFormulaOf({ id, src: 'tune', dst: 'physics', formula, value, proof: PROOF, ...extra }, holds, { name:
@@ -9583,15 +9583,15 @@ theorem fam_tune_harmonic_1 : ((1 : Int) * (432 : Int)) = (432 : Int) := by deci
 
 /-- tune: harmonic(3) = 1296 — A432 AS THE STARTER OF THE CHAIN, DIFFERENT WAVELENGTHS CROSSING THE FRACTAL AT
     ONCE. The fundamental is not chosen, it is derived: the lattice already proves 432 = 2^hexbit · (plane −
-    seed) = 16 · 27 (theorem presentation_stylesheet_hz, Qpu.Clay). From that one frequency the chain reacts — a
+    seed) = 16 · 27 (theorem‑presentation_stylesheet_hz, Qpu.Clay). From that one frequency the chain reacts — a
     vibrating string's modes are the integer harmonics n · f₀ (string theory's overtone series), the octaves are
     the self-similar doublings f₀ · 2^k (the fractal, every band at once by the mintOf doubling), and the fifths
     stack ×3/2 into the circle that never quite closes. Each wavelength is a natural; speed of sound 343 m/s
     gives the metre. The whole harmonic fractal crosses the lattice from 432. */ const L = { ...latticeNamesOf()
     } const PLANE = L.coins * L.coins * L.rays // 28 const A432 = mintOf(L.hexbit) * (PLANE - L.seed) // 16 · 27
-    = 432, from the lattice const SOUND = 343000 // mm/s, the speed of sound const PROOF = 'theorem
-    presentation_stylesheet_hz: 2^hexbit · (plane − seed) = 432 (Qpu.Clay); the harmonic series n·f₀ (a string’s
-    modes); octaves f₀·2^k; the Pythagorean fifth 3/2; sound 343 m/s' const nat = (...xs: number[]) =>
+    = 432, from the lattice const SOUND = 343000 // mm/s, the speed of sound const PROOF =
+    'theorem‑presentation_stylesheet_hz: 2^hexbit · (plane − seed) = 432 (Qpu.Clay); the harmonic series n·f₀ (a
+    string’s modes); octaves f₀·2^k; the Pythagorean fifth 3/2; sound 343 m/s' const nat = (...xs: number[]) =>
     xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number,
     holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
     crossFormulaOf({ id, src: 'tune', dst: 'physics', formula, value, proof: PROOF, ...extra }, holds, { name:
@@ -9605,15 +9605,15 @@ theorem fam_tune_harmonic_2 : ((3 : Int) * (432 : Int)) = (1296 : Int) := by dec
 
 /-- tune: octave(1) = 864 — A432 AS THE STARTER OF THE CHAIN, DIFFERENT WAVELENGTHS CROSSING THE FRACTAL AT
     ONCE. The fundamental is not chosen, it is derived: the lattice already proves 432 = 2^hexbit · (plane −
-    seed) = 16 · 27 (theorem presentation_stylesheet_hz, Qpu.Clay). From that one frequency the chain reacts — a
+    seed) = 16 · 27 (theorem‑presentation_stylesheet_hz, Qpu.Clay). From that one frequency the chain reacts — a
     vibrating string's modes are the integer harmonics n · f₀ (string theory's overtone series), the octaves are
     the self-similar doublings f₀ · 2^k (the fractal, every band at once by the mintOf doubling), and the fifths
     stack ×3/2 into the circle that never quite closes. Each wavelength is a natural; speed of sound 343 m/s
     gives the metre. The whole harmonic fractal crosses the lattice from 432. */ const L = { ...latticeNamesOf()
     } const PLANE = L.coins * L.coins * L.rays // 28 const A432 = mintOf(L.hexbit) * (PLANE - L.seed) // 16 · 27
-    = 432, from the lattice const SOUND = 343000 // mm/s, the speed of sound const PROOF = 'theorem
-    presentation_stylesheet_hz: 2^hexbit · (plane − seed) = 432 (Qpu.Clay); the harmonic series n·f₀ (a string’s
-    modes); octaves f₀·2^k; the Pythagorean fifth 3/2; sound 343 m/s' const nat = (...xs: number[]) =>
+    = 432, from the lattice const SOUND = 343000 // mm/s, the speed of sound const PROOF =
+    'theorem‑presentation_stylesheet_hz: 2^hexbit · (plane − seed) = 432 (Qpu.Clay); the harmonic series n·f₀ (a
+    string’s modes); octaves f₀·2^k; the Pythagorean fifth 3/2; sound 343 m/s' const nat = (...xs: number[]) =>
     xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number,
     holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
     crossFormulaOf({ id, src: 'tune', dst: 'physics', formula, value, proof: PROOF, ...extra }, holds, { name:
@@ -9630,15 +9630,15 @@ theorem fam_tune_octave_1 : ((432 : Int) * ((2 : Int) ^ (1 : Nat))) = (864 : Int
 
 /-- tune: cents(2, 1) = 1200 — A432 AS THE STARTER OF THE CHAIN, DIFFERENT WAVELENGTHS CROSSING THE FRACTAL AT
     ONCE. The fundamental is not chosen, it is derived: the lattice already proves 432 = 2^hexbit · (plane −
-    seed) = 16 · 27 (theorem presentation_stylesheet_hz, Qpu.Clay). From that one frequency the chain reacts — a
+    seed) = 16 · 27 (theorem‑presentation_stylesheet_hz, Qpu.Clay). From that one frequency the chain reacts — a
     vibrating string's modes are the integer harmonics n · f₀ (string theory's overtone series), the octaves are
     the self-similar doublings f₀ · 2^k (the fractal, every band at once by the mintOf doubling), and the fifths
     stack ×3/2 into the circle that never quite closes. Each wavelength is a natural; speed of sound 343 m/s
     gives the metre. The whole harmonic fractal crosses the lattice from 432. */ const L = { ...latticeNamesOf()
     } const PLANE = L.coins * L.coins * L.rays // 28 const A432 = mintOf(L.hexbit) * (PLANE - L.seed) // 16 · 27
-    = 432, from the lattice const SOUND = 343000 // mm/s, the speed of sound const PROOF = 'theorem
-    presentation_stylesheet_hz: 2^hexbit · (plane − seed) = 432 (Qpu.Clay); the harmonic series n·f₀ (a string’s
-    modes); octaves f₀·2^k; the Pythagorean fifth 3/2; sound 343 m/s' const nat = (...xs: number[]) =>
+    = 432, from the lattice const SOUND = 343000 // mm/s, the speed of sound const PROOF =
+    'theorem‑presentation_stylesheet_hz: 2^hexbit · (plane − seed) = 432 (Qpu.Clay); the harmonic series n·f₀ (a
+    string’s modes); octaves f₀·2^k; the Pythagorean fifth 3/2; sound 343 m/s' const nat = (...xs: number[]) =>
     xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number,
     holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
     crossFormulaOf({ id, src: 'tune', dst: 'physics', formula, value, proof: PROOF, ...extra }, holds, { name:
@@ -9665,15 +9665,15 @@ theorem fam_tune_cents_1 : ((1200 : Int) * (Int.ofNat (flog 2 64 (Int.toNat ((2 
 
 /-- tune: fractal(8) = 4 — A432 AS THE STARTER OF THE CHAIN, DIFFERENT WAVELENGTHS CROSSING THE FRACTAL AT ONCE.
     The fundamental is not chosen, it is derived: the lattice already proves 432 = 2^hexbit · (plane − seed) =
-    16 · 27 (theorem presentation_stylesheet_hz, Qpu.Clay). From that one frequency the chain reacts — a
+    16 · 27 (theorem‑presentation_stylesheet_hz, Qpu.Clay). From that one frequency the chain reacts — a
     vibrating string's modes are the integer harmonics n · f₀ (string theory's overtone series), the octaves are
     the self-similar doublings f₀ · 2^k (the fractal, every band at once by the mintOf doubling), and the fifths
     stack ×3/2 into the circle that never quite closes. Each wavelength is a natural; speed of sound 343 m/s
     gives the metre. The whole harmonic fractal crosses the lattice from 432. */ const L = { ...latticeNamesOf()
     } const PLANE = L.coins * L.coins * L.rays // 28 const A432 = mintOf(L.hexbit) * (PLANE - L.seed) // 16 · 27
-    = 432, from the lattice const SOUND = 343000 // mm/s, the speed of sound const PROOF = 'theorem
-    presentation_stylesheet_hz: 2^hexbit · (plane − seed) = 432 (Qpu.Clay); the harmonic series n·f₀ (a string’s
-    modes); octaves f₀·2^k; the Pythagorean fifth 3/2; sound 343 m/s' const nat = (...xs: number[]) =>
+    = 432, from the lattice const SOUND = 343000 // mm/s, the speed of sound const PROOF =
+    'theorem‑presentation_stylesheet_hz: 2^hexbit · (plane − seed) = 432 (Qpu.Clay); the harmonic series n·f₀ (a
+    string’s modes); octaves f₀·2^k; the Pythagorean fifth 3/2; sound 343 m/s' const nat = (...xs: number[]) =>
     xs.every((x) => Number.isSafeInteger(x) && x >= 0) const f = (id: string, formula: string, value: number,
     holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
     crossFormulaOf({ id, src: 'tune', dst: 'physics', formula, value, proof: PROOF, ...extra }, holds, { name:

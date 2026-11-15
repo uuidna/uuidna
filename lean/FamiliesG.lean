@@ -8200,7 +8200,7 @@ theorem fam_gripper_contactpressure_1 : ((200 : Int) / (4 : Int)) = (50 : Int) :
 theorem fam_gripper_slipmargin_1 : (((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int) := by decide
 
 /-- grouptheory: order(6, 4) = 24 — GROUPTHEORY — FINITE GROUPS AS ARITHMETIC. The structure of a finite group
-    is counting: the order of a direct product, the cosets Lagrange's theorem carves out, the order of a cyclic
+    is counting: the order of a direct product, the cosets Lagrange's theorem‑carves out, the order of a cyclic
     group, the index of a subgroup, how cosets tile a group, the factorial order of a symmetric group, a
     generator raised to a power, and the order of a single element. Crosses to `algebra` — group theory is the
     structure algebra reasons over. Exact, finite, hex-addressable. */ const PROOF = 'group theory arithmetic
@@ -8217,7 +8217,7 @@ theorem fam_gripper_slipmargin_1 : (((80 : Int) * (100 : Int)) / (100 : Int)) = 
 theorem fam_grouptheory_order_1 : ((6 : Int) * (4 : Int)) = (24 : Int) := by decide
 
 /-- grouptheory: cosets(24, 6) = 4 — GROUPTHEORY — FINITE GROUPS AS ARITHMETIC. The structure of a finite group
-    is counting: the order of a direct product, the cosets Lagrange's theorem carves out, the order of a cyclic
+    is counting: the order of a direct product, the cosets Lagrange's theorem‑carves out, the order of a cyclic
     group, the index of a subgroup, how cosets tile a group, the factorial order of a symmetric group, a
     generator raised to a power, and the order of a single element. Crosses to `algebra` — group theory is the
     structure algebra reasons over. Exact, finite, hex-addressable. */ const PROOF = 'group theory arithmetic
@@ -8236,7 +8236,7 @@ theorem fam_grouptheory_order_1 : ((6 : Int) * (4 : Int)) = (24 : Int) := by dec
 theorem fam_grouptheory_cosets_1 : ((24 : Int) / (6 : Int)) = (4 : Int) := by decide
 
 /-- grouptheory: cyclicorder(12) = 12 — GROUPTHEORY — FINITE GROUPS AS ARITHMETIC. The structure of a finite
-    group is counting: the order of a direct product, the cosets Lagrange's theorem carves out, the order of a
+    group is counting: the order of a direct product, the cosets Lagrange's theorem‑carves out, the order of a
     cyclic group, the index of a subgroup, how cosets tile a group, the factorial order of a symmetric group, a
     generator raised to a power, and the order of a single element. Crosses to `algebra` — group theory is the
     structure algebra reasons over. Exact, finite, hex-addressable. */ const PROOF = 'group theory arithmetic
@@ -8258,7 +8258,7 @@ theorem fam_grouptheory_cosets_1 : ((24 : Int) / (6 : Int)) = (4 : Int) := by de
 theorem fam_grouptheory_cyclicorder_1 : (12 : Int) = (12 : Int) := by decide
 
 /-- grouptheory: subgroupindex(60, 12) = 5 — GROUPTHEORY — FINITE GROUPS AS ARITHMETIC. The structure of a
-    finite group is counting: the order of a direct product, the cosets Lagrange's theorem carves out, the order
+    finite group is counting: the order of a direct product, the cosets Lagrange's theorem‑carves out, the order
     of a cyclic group, the index of a subgroup, how cosets tile a group, the factorial order of a symmetric
     group, a generator raised to a power, and the order of a single element. Crosses to `algebra` — group theory
     is the structure algebra reasons over. Exact, finite, hex-addressable. */ const PROOF = 'group theory
@@ -8282,7 +8282,7 @@ theorem fam_grouptheory_cyclicorder_1 : (12 : Int) = (12 : Int) := by decide
 theorem fam_grouptheory_subgroupindex_1 : ((60 : Int) / (12 : Int)) = (5 : Int) := by decide
 
 /-- grouptheory: cosetcount(100, 25) = 4 — GROUPTHEORY — FINITE GROUPS AS ARITHMETIC. The structure of a finite
-    group is counting: the order of a direct product, the cosets Lagrange's theorem carves out, the order of a
+    group is counting: the order of a direct product, the cosets Lagrange's theorem‑carves out, the order of a
     cyclic group, the index of a subgroup, how cosets tile a group, the factorial order of a symmetric group, a
     generator raised to a power, and the order of a single element. Crosses to `algebra` — group theory is the
     structure algebra reasons over. Exact, finite, hex-addressable. */ const PROOF = 'group theory arithmetic
@@ -8308,7 +8308,7 @@ theorem fam_grouptheory_subgroupindex_1 : ((60 : Int) / (12 : Int)) = (5 : Int) 
 theorem fam_grouptheory_cosetcount_1 : ((100 : Int) / (25 : Int)) = (4 : Int) := by decide
 
 /-- grouptheory: symmetricorder(5) = 120 — GROUPTHEORY — FINITE GROUPS AS ARITHMETIC. The structure of a finite
-    group is counting: the order of a direct product, the cosets Lagrange's theorem carves out, the order of a
+    group is counting: the order of a direct product, the cosets Lagrange's theorem‑carves out, the order of a
     cyclic group, the index of a subgroup, how cosets tile a group, the factorial order of a symmetric group, a
     generator raised to a power, and the order of a single element. Crosses to `algebra` — group theory is the
     structure algebra reasons over. Exact, finite, hex-addressable. */ const PROOF = 'group theory arithmetic
@@ -8337,7 +8337,7 @@ theorem fam_grouptheory_cosetcount_1 : ((100 : Int) / (25 : Int)) = (4 : Int) :=
 theorem fam_grouptheory_symmetricorder_1 : (Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int) := by decide
 
 /-- grouptheory: elementorder(4, 6) = 3 — GROUPTHEORY — FINITE GROUPS AS ARITHMETIC. The structure of a finite
-    group is counting: the order of a direct product, the cosets Lagrange's theorem carves out, the order of a
+    group is counting: the order of a direct product, the cosets Lagrange's theorem‑carves out, the order of a
     cyclic group, the index of a subgroup, how cosets tile a group, the factorial order of a symmetric group, a
     generator raised to a power, and the order of a single element. Crosses to `algebra` — group theory is the
     structure algebra reasons over. Exact, finite, hex-addressable. */ const PROOF = 'group theory arithmetic
@@ -8371,7 +8371,7 @@ theorem fam_grouptheory_symmetricorder_1 : (Int.ofNat (ffact (Int.toNat (5 : Int
 theorem fam_grouptheory_elementorder_1 : ((6 : Int) / (Int.ofNat (fgcd 100 (Int.toNat (4 : Int)) (Int.toNat (6 : Int))))) = (3 : Int) := by decide
 
 /-- grouptheory: elementorder(5, 6) = 6 — GROUPTHEORY — FINITE GROUPS AS ARITHMETIC. The structure of a finite
-    group is counting: the order of a direct product, the cosets Lagrange's theorem carves out, the order of a
+    group is counting: the order of a direct product, the cosets Lagrange's theorem‑carves out, the order of a
     cyclic group, the index of a subgroup, how cosets tile a group, the factorial order of a symmetric group, a
     generator raised to a power, and the order of a single element. Crosses to `algebra` — group theory is the
     structure algebra reasons over. Exact, finite, hex-addressable. */ const PROOF = 'group theory arithmetic
