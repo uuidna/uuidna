@@ -1,0 +1,12 @@
+{
+  "handle": "448449e4",
+  "address": "448449e4-7eb1-8045-a0f6-b942df158b9a",
+  "kind": "chunk",
+  "keys": [
+    "self_model_cantor"
+  ],
+  "statement": "∀ {α : Type} (f : α → α → Bool) (j : α), (fun i => !(f i i)) ≠ f j",
+  "files": [
+    "SelfModel.lean"
+  ]
+}

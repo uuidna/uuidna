@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "42c7378c05cf51be",
+ "digest": "6e9ed7d8c4ee6690",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -999,6 +999,11 @@ export const BOUND_SLICE: BoundSlice = {
    "key": "integrate_and_fire_resets",
    "wing": "Neuro.lean",
    "verdict": "load-bearing"
+  },
+  {
+   "key": "affect_group_cyclic",
+   "wing": "AffectTrinity.lean",
+   "verdict": "base-undecidable"
   },
   {
    "key": "no_reactionless_thrust",

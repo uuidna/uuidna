@@ -1,0 +1,12 @@
+{
+  "handle": "6875c01c",
+  "address": "6875c01c-4299-8b54-9cd5-99bd5893d92b",
+  "kind": "chunk",
+  "keys": [
+    "affect_flip_commutes_turn"
+  ],
+  "statement": "∀ a : Affect, (Affect.turn a).flip = (Affect.flip a).turn ∧ (Affect.flip a).corner = a.corner",
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}

@@ -87,14 +87,14 @@
  },
  "community": {
   "repo": "community",
-  "total": 22699,
-  "ported": 22699,
+  "total": 22700,
+  "ported": 22700,
   "missing": []
  },
  "all": {
   "repo": "all",
-  "total": 28660,
-  "ported": 28660,
+  "total": 28661,
+  "ported": 28661,
   "missing": []
  },
  "man": {
@@ -119,8 +119,8 @@
  },
  "selfTest": {
   "definition": "package-self-test",
-  "total": 28664,
-  "passed": 28664,
+  "total": 28665,
+  "passed": 28665,
   "failed": 0,
   "upstreamGaps": 0,
   "missing": [],
@@ -143,11 +143,11 @@
   "usableAddressesPow2": 128,
   "seals": "handle_capacity_is_quantum_by_architecture"
  },
- "receipt": "4be03da0-f661-8d68-9434-7a5bf4e084f9",
+ "receipt": "f128e464-373f-8fde-bb46-1f2fa6f4fde8",
  "honest": "Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide.",
  "crossed": {
-  "sorted": "4be03da0-f661-8d68-9434-7a5bf4e084f9",
-  "reversed": "4be03da0-f661-8d68-9434-7a5bf4e084f9",
+  "sorted": "f128e464-373f-8fde-bb46-1f2fa6f4fde8",
+  "reversed": "f128e464-373f-8fde-bb46-1f2fa6f4fde8",
   "agrees": true
  }
 }

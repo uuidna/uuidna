@@ -1,0 +1,12 @@
+{
+  "handle": "60f73478",
+  "address": "60f73478-471a-86f2-93d2-8c53ee2e351d",
+  "kind": "chunk",
+  "keys": [
+    "affect_flip_involution"
+  ],
+  "statement": "∀ v : Valence, Valence.flip (Valence.flip v) = v ∧ Valence.flip v ≠ v",
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}

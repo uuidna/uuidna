@@ -1,8 +1,8 @@
 {
   "kind": "mcp-gap-census",
-  "records": 2142,
-  "distinct": 1696,
-  "loadBearing": 174,
+  "records": 2210,
+  "distinct": 1755,
+  "loadBearing": 178,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
     {
@@ -136,6 +136,13 @@
     },
     {
       "gap": "no door reads qpu lean modules",
+      "hits": 6,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the separate qpu checkout source for development",
       "hits": 6,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -510,6 +517,13 @@
       ]
     },
     {
+      "gap": "pathspec list of this session's changed files for a by-path commit",
+      "hits": 3,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "read laws",
       "hits": 3,
       "forms": [
@@ -775,6 +789,13 @@
       "forms": [
         "S",
         "export"
+      ]
+    },
+    {
+      "gap": "no door reads the separate qpu checkout or uuidna reference source for development",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -1069,6 +1090,13 @@
       "hits": 2,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "prototype Lean for the observer and self-model theorems",
+      "hits": 2,
+      "forms": [
+        "S"
       ]
     },
     {
@@ -1517,6 +1545,13 @@
       ]
     },
     {
+      "gap": "add the uuidna_feel door beside uuidna_css",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "adding the dna half to the collection and the admin UI, and asserting the involution in the harness",
       "hits": 1,
       "forms": [
@@ -1594,6 +1629,13 @@
       ]
     },
     {
+      "gap": "advances main to the hooked merge without touching another session's staged files",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "an investigator's independent wire-bytes and negation census over dist/mcp.js and lean/*.lean has no MCP door",
       "hits": 1,
       "forms": [
@@ -1629,6 +1671,13 @@
       ]
     },
     {
+      "gap": "append the run_trial verdict as a trial row in lean/leads.json",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "applies main's tip diff in the qpu merge",
       "hits": 1,
       "forms": [
@@ -1647,6 +1696,13 @@
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "apply the observer fact to the trinity generator",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -1916,6 +1972,13 @@
       ]
     },
     {
+      "gap": "chains the edge-root bake into reconcile",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "check Affine/OneLeap wings for the merkaba star-tetrahedron of lead a8a8f3ea",
       "hits": 1,
       "forms": [
@@ -1927,6 +1990,20 @@
       "hits": 1,
       "forms": [
         "which"
+      ]
+    },
+    {
+      "gap": "check ledger and the band at HEAD",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
+      "gap": "check overlap with existing trinities and psychology wings",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -2252,6 +2329,13 @@
       ]
     },
     {
+      "gap": "commits the Clay gate by pathspec",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "commits the court path-reader fix",
       "hits": 1,
       "forms": [
@@ -2452,6 +2536,13 @@
       "hits": 1,
       "forms": [
         "S"
+      ]
+    },
+    {
+      "gap": "compute the CrossFormulas census with and without the new wing",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -2910,6 +3001,13 @@
       ]
     },
     {
+      "gap": "directory listing of side-session notes and lean-*.ts generators",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "duplicationCensus() — the ledger by algebraic FORM rather than by key: copies (one skill) against crosses (two skills, two meanings)",
       "hits": 1,
       "forms": [
@@ -3033,6 +3131,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "find the code that writes lean/leads.json trial rows",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -3197,6 +3302,13 @@
       ]
     },
     {
+      "gap": "finds tests that pin the land cures and the lean script",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "finds the command that proves one wing",
       "hits": 1,
       "forms": [
@@ -3330,6 +3442,13 @@
       ]
     },
     {
+      "gap": "guards and commits the Lean quantum MCP by pathspec",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "guards and commits the UUID program wing",
       "hits": 1,
       "forms": [
@@ -3351,6 +3470,13 @@
       ]
     },
     {
+      "gap": "how lean-all discovers generators; recent wing commits for a file list",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "identify theorem/code redundancy between qpu and uuidna for cross-formulation",
       "hits": 1,
       "forms": [
@@ -3362,6 +3488,13 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "inspect formulas() input and per-file counts",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -3526,6 +3659,13 @@
       ]
     },
     {
+      "gap": "learn the lead-deposit method from the last trial-lead commit",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "line refs",
       "hits": 1,
       "forms": [
@@ -3533,10 +3673,24 @@
       ]
     },
     {
+      "gap": "links each Clay theorem in the README block and adds the gate",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "list the untracked cross wing directory before committing it: no door lists a directory",
       "hits": 1,
       "forms": [
         "ls"
+      ]
+    },
+    {
+      "gap": "list tree changes after the lean pipeline",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -3624,10 +3778,31 @@
       ]
     },
     {
+      "gap": "locate site theme files, dark-mode convention, and the generator of docs/articles wing pages",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
+      "gap": "locate the census CrossFormulas reads",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "locate the mod-9 merkaba m0/m1/m2 construction for lead a8a8f3ea",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "locate the propext source",
+      "hits": 1,
+      "forms": [
+        "S"
       ]
     },
     {
@@ -3883,6 +4058,27 @@
       ]
     },
     {
+      "gap": "mechanical text substitution in my new generator",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "merges origin in a scratch worktree without touching another session's staged files",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "merges the CI books commits before landing",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "mintGate() — the ten pre-deposit audits with each failing check named and measured",
       "hits": 1,
       "forms": [
@@ -3932,6 +4128,13 @@
       ]
     },
     {
+      "gap": "names the local changes blocking the merge",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "naming the exact key the source holds and the derived layer lacks",
       "hits": 1,
       "forms": [
@@ -3978,6 +4181,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "neuro wing header and PRINCIPLE row",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -4787,6 +4997,13 @@
     },
     {
       "gap": "no door lists merkaba constructions or the m0/m1/m2 star-tetrahedron vertex sets a refuted lead's settlement measured",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door lists or edits files of the separate qpu checkout (qpu-strict) for source development",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -5616,6 +5833,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads qpu source",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -8419,6 +8643,13 @@
       ]
     },
     {
+      "gap": "place drafted new files",
+      "hits": 1,
+      "forms": [
+        "D"
+      ]
+    },
+    {
       "gap": "pre-flighting the ledger deposit piece sizes against qpu's heap bound",
       "hits": 1,
       "forms": [
@@ -8517,6 +8748,13 @@
       ]
     },
     {
+      "gap": "read bracket helper and the fact prose",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "read five legal-audit rows by seq so a person can class them: no door prints an audit row by seq",
       "hits": 1,
       "forms": [
@@ -8524,10 +8762,24 @@
       ]
     },
     {
+      "gap": "read gate-all script",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "read gen-edge-slices",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read how lean-ledger parses theorem statements and tactics",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -8542,6 +8794,20 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read INSIDE_OVER derivation in CrossFormulas",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
+      "gap": "read lean-gen emit signature and PRINCIPLE table shape",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -8594,6 +8860,27 @@
       ]
     },
     {
+      "gap": "read rosetta falsifier-leg rule and package scripts for a new wing",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
+      "gap": "read rosetta WITNESS regex and commentAbove; check name collisions for a new wing",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
+      "gap": "read run_trial contract",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "read test style before adding the cross-route test",
       "hits": 1,
       "forms": [
@@ -8605,6 +8892,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read the failing CrossFormulas fact",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -8657,10 +8951,31 @@
       ]
     },
     {
+      "gap": "read the trial door's contract from source while the lean pipeline holds dist",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "read the unit's citation reader to see which file it compares the bundled citation against: no door prints a module's source",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read typography/durationVars consumers and an existing neuro module location",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
+      "gap": "read uuidna_trial and uuidna_trial_deposit contracts",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -8717,6 +9032,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read-only wording audit of the trinity, self-model and feel prose",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -9161,6 +9483,13 @@
       ]
     },
     {
+      "gap": "reads Clay in the README and the ledger",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads contracts of the refusing hosted doors",
       "hits": 1,
       "forms": [
@@ -9210,6 +9539,13 @@
       ]
     },
     {
+      "gap": "reads the axiom audit's offenders shape",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads the edge package surface",
       "hits": 1,
       "forms": [
@@ -9238,6 +9574,13 @@
       ]
     },
     {
+      "gap": "reads the gate failures",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads the generator's fact shapes",
       "hits": 1,
       "forms": [
@@ -9256,6 +9599,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "reads the land cure and the lean and axioms scripts",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -9291,6 +9641,20 @@
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "reads the README Clay block and its generator",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the reconcile result",
+      "hits": 1,
+      "forms": [
+        "cat"
       ]
     },
     {
@@ -9364,6 +9728,13 @@
       ]
     },
     {
+      "gap": "reads why the hooked merge did not commit",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "recompute both theorem addresses under renaming, and the ledger rename census",
       "hits": 1,
       "forms": [
@@ -9410,6 +9781,20 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "records the read result of the unmatched court call",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "redoes the scratch merge with hooks running",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -9686,6 +10071,20 @@
       ]
     },
     {
+      "gap": "single-file #print axioms probe before the full ledger audit",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
+      "gap": "single-file #print axioms probe for the two wings",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "splitting the 68 expose leads by kind, and listing the API leads that a network run would settle",
       "hits": 1,
       "forms": [
@@ -9886,6 +10285,13 @@
       "hits": 1,
       "forms": [
         "S"
+      ]
+    },
+    {
+      "gap": "theme import conventions and type-scale var names",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -10187,6 +10593,13 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e`, `cd"
+      ]
+    },
+    {
+      "gap": "wires merge-behind, the derive heal and the lean chain links",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {

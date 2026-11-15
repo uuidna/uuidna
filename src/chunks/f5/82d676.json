@@ -1,0 +1,12 @@
+{
+  "handle": "f582d676",
+  "address": "f582d676-01ad-8c35-9aa4-5fa4efca55ee",
+  "statement": "(∀ a : Affect, iter (fun b => (Affect.turn b).flip) 6 a = a) ∧ (List.range 5).all (fun k => states.map (iter (fun b => (Affect.turn b).flip) (k + 1)) != states) = true",
+  "tactic": "decide",
+  "keys": [
+    "affect_group_cyclic"
+  ],
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}

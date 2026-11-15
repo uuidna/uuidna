@@ -1,0 +1,12 @@
+{
+  "handle": "f28efe55",
+  "address": "f28efe55-75df-86bd-95c9-d82b2c45fd22",
+  "statement": "∀ e : Episode, (Episode.turn e).flip = Episode.turn (Episode.flip e) ∧ Episode.flip (Episode.flip e) = e ∧ (Episode.flip e).feel.arousal = e.feel.arousal ∧ (Episode.flip e).corner = e.corner",
+  "tactic": "decide",
+  "keys": [
+    "affect_feel_flip"
+  ],
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}

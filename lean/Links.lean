@@ -50,7 +50,7 @@ def generateManifest : List String :=
 
 /-- Every dist script src/scripts/reconcile.ts runs directly, in the order its run() calls name them. -/
 def reconcileDirect : List String :=
-  ["guard.js", "one-receipt.js", "generate.js", "sync-changelog.js", "lean-axioms.js", "lean-heartbeats.js", "support.js", "audit-citations.js", "account.js", "trial-refusals.js", "spin.js", "gate-receipt.js"]
+  ["guard.js", "one-receipt.js", "ledger-deposit.js", "generate.js", "sync-changelog.js", "lean-axioms.js", "lean-heartbeats.js", "support.js", "audit-citations.js", "account.js", "trial-refusals.js", "spin.js", "gate-receipt.js"]
 
 /-- What reconcile runs: its direct scripts and then the whole manifest. -/
 def reconcileRuns : List String := reconcileDirect ++ generateManifest
@@ -191,7 +191,7 @@ theorem the_aura_pair_the_wheel_cannot_separate : (4316331 / 65536 = 65) ∧ (43
 theorem the_barren_claim_fails_exactly_at_the_dz_fixed_points : ((List.range 10).filter (fun s => ([s, dz s]).eraseDups.length != 2) = [0, 5]) ∧ ((List.range 10).filter (fun s => dz s == s) = [0, 5]) ∧ ((List.range 10).filter (fun s => (dz s == s) && (dbl s == s)) = [0]) ∧ (dz 0 = 0) ∧ (dbl 0 = 0) ∧ (dz 5 = 5) ∧ (dbl 5 = 1) ∧ (((List.range 10).map dz).eraseDups.length = 10) ∧ (((List.range 10).map dbl).eraseDups.length = 9) := by decide
 
 /-- RECONCILED GENERATOR SAT INSIDE THE TRUNCATED RUN. Six positions read off the two lists themselves — all 69
-    manifest entries and all 12 direct scripts — placing three named generators inside the sealed window of 47
+    manifest entries and all 13 direct scripts — placing three named generators inside the sealed window of 47
     listed generators cut at 6. The lonely theorem reconciled_b13fd37a says only that the string
     gen-prose-evidence.js is a member of the list reconcile runs — it is the ledger ONLY membership theorem over
     strings, which is why nothing relates to it. The sealed theorem truncated_run_counted_47 seals the

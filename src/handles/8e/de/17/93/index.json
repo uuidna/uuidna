@@ -1,0 +1,12 @@
+{
+  "handle": "8ede1793",
+  "address": "8ede1793-4f04-8d47-b692-6a95e97b02ff",
+  "kind": "chunk",
+  "keys": [
+    "affect_feel_defined"
+  ],
+  "statement": "(∀ f : Feel, feels.contains f = true) ∧ feels.length = 4 ∧ (∀ f : Feel, (feel f).corner = .feeling ∧ (feel f).feel = f)",
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}

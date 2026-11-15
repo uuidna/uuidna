@@ -1,0 +1,12 @@
+{
+  "handle": "44eb99f3",
+  "address": "44eb99f3-3df7-8187-bd85-15ec88833995",
+  "statement": "(∀ p : Point, Point.turn p = p ↔ p = .centre) ∧ (∀ c : Corner, rot (coord c) = coord (Corner.turn c)) ∧ ((coord .feeling).1 + (coord .thought).1 + (coord .emotion).1 = 0 ∧ (coord .feeling).2 + (coord .thought).2 + (coord .emotion).2 = 0) ∧ box.all (fun p => (rot p == p) == (p == (0, 0))) = true ∧ box.length = 49",
+  "tactic": "decide +kernel",
+  "keys": [
+    "affect_observer_fixed_point"
+  ],
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}

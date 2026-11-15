@@ -1,0 +1,12 @@
+{
+  "handle": "1eecf138",
+  "address": "1eecf138-c2f1-8723-873e-e8e3c702e02d",
+  "kind": "chunk",
+  "keys": [
+    "affect_feel_turns_into"
+  ],
+  "statement": "∀ f : Feel, Episode.turn (feel f) = ⟨.thought, f⟩ ∧ Episode.turn (Episode.turn (feel f)) = ⟨.emotion, f⟩ ∧ Episode.turn (Episode.turn (Episode.turn (feel f))) = feel f",
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1e3a9fdf",
+  "address": "1e3a9fdf-3bee-8e01-8f32-eb43a885937e",
+  "statement": "(1607105 * 83 < 134217728) ∧ (1607105 * 84 > 134217728)",
+  "tactic": "decide",
+  "keys": [
+    "the_key_index_fits_where_the_rows_do_not"
+  ],
+  "files": [
+    "DoorSurface.lean"
+  ]
+}

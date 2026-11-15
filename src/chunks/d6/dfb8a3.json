@@ -1,0 +1,12 @@
+{
+  "handle": "d6dfb8a3",
+  "address": "d6dfb8a3-98b7-8fa1-93ee-86f4362fefb8",
+  "statement": "((126453 * 4 < 524527) ∧ (126453 * 5 > 524527)) ∧ (126453 < 524527)",
+  "tactic": "decide",
+  "keys": [
+    "most_of_the_unstated_remainder_stays_inside_one_wing"
+  ],
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

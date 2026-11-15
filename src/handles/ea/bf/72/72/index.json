@@ -1,0 +1,12 @@
+{
+  "handle": "eabf7272",
+  "address": "eabf7272-6bdc-807e-a350-9d7baef7e8a6",
+  "kind": "chunk",
+  "keys": [
+    "self_model_negation_no_fixed_point"
+  ],
+  "statement": "∀ b : Bool, (!b) ≠ b",
+  "files": [
+    "SelfModel.lean"
+  ]
+}

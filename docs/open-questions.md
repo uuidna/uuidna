@@ -215,7 +215,7 @@ page regrows without it.
 
 - **Water itself as fuel**
   <br><small>door: the leads in trial</small>
-  <br><small>involutions around: [`dna_base_pairing_involution`](/theorem/dna_base_pairing_involution) · [`dz_involution_digits`](/theorem/dz_involution_digits) · [`dz_swaps_the_thirds_and_fixes_the_axis`](/theorem/dz_swaps_the_thirds_and_fixes_the_axis) </small>
+  <br><small>involutions around: [`affect_flip_involution`](/theorem/affect_flip_involution) · [`dna_base_pairing_involution`](/theorem/dna_base_pairing_involution) · [`dz_involution_digits`](/theorem/dz_involution_digits) </small>
   <br><small>sealed neighbors: [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) · [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself) · [`nbl_trains_by_the_floor`](/theorem/nbl_trains_by_the_floor) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 

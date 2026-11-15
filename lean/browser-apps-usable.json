@@ -296,7 +296,7 @@
   {
    "topic": "apk list --all",
    "ok": true,
-   "detail": "catalogue 28664 packages"
+   "detail": "catalogue 28665 packages"
   },
   {
    "topic": "ls /catalogue",
@@ -489,10 +489,10 @@
  "gaps": [],
  "ok": true,
  "honest": "Honest scope: store interactive mounts + uuidnaOS terminal (man samples + catalogue census via apk/ls + driver/device) + default-install routes + manDrivenPortCoverage (man→app→hexbit). Not 28k browser sessions. Orphan -doc rows are named, never padded.",
- "receipt": "e5f4276d-6b51-8637-95b0-36087f634c7d",
+ "receipt": "e47de36f-f411-8a00-a035-1ae16b123d55",
  "crossed": {
-  "sorted": "e5f4276d-6b51-8637-95b0-36087f634c7d",
-  "reversed": "e5f4276d-6b51-8637-95b0-36087f634c7d",
+  "sorted": "e47de36f-f411-8a00-a035-1ae16b123d55",
+  "reversed": "e47de36f-f411-8a00-a035-1ae16b123d55",
   "agrees": true
  }
 }

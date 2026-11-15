@@ -30,24 +30,24 @@ the sweep is reported live by `uuidna_quantum_advantage`, where a measurement of
 | hexbit tile | 2^4 | declared | 10^0 ns per hexbit tile compiled from an address | 10^9 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | handle | 2^32 | declared | 10^2 ns per handle read to its value and residue | 10^7 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | uuid | 2^128 | declared | 10^3 ns per address folded from a distinct seed | 10^6 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
-| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 71237 | 0 | better than 1 in 71237 | 71 errors |
+| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 71254 | 0 | better than 1 in 71254 | 71 errors |
 
 ### The witness battery
 
 Each witness cites a sealed theorem key — the Pauli group, the Clifford count, the CNOT and Toffoli
 permutations, the Bell and GHZ stabilisers, the Deutsch–Jozsa amplitudes — and decides the same proposition here
 in exact Gaussian integers, with no floating point at any step; each result is compared to the value the Lean
-kernel sealed. **70 witnesses · 109 sweeps ·
-497476 decisions · 0 disagreements · verdict EXACT.**
+kernel sealed. **73 witnesses · 109 sweeps ·
+502272 decisions · 0 disagreements · verdict EXACT.**
 
-**Coverage: 66 of the quantum wing's 69 theorems**, and the 3 this battery
-does not decide are named rather than counted: `uuidprog_tableau_cnot`, `uuidprog_tableau_h`, `uuidprog_tableau_s`. The battery is a
+**Coverage: 69 of the quantum wing's 69 theorems**, and the 0 this battery
+does not decide are named rather than counted: ``. The battery is a
 hand-written list and a hand-written list can only lag the ledger it draws from — one of those keys was sealed by
 another session on the night this was written, and nothing noticed until the denominator was printed. Several of
 the rest state things this exact state-vector arithmetic cannot decide exactly (the W state's √3 normalisation), and a witness that
 half-checks its theorem is worse than none. What the count buys is that the gap is visible and moves.
 
-Better than one disagreement per 497476 executions on this host, across 66 of the wing's 69 theorems — a bound from the count, not a proof of zero, and not a claim about the 3 this battery does not decide.
+Better than one disagreement per 502272 executions on this host, across 69 of the wing's 69 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide.
 
 A witness whose theorem is not sealed in the ledger is refused before it runs, so a shrinking battery shows up
 as a shrinking count and not as an unchanged green verdict. This run refused 0.
@@ -122,6 +122,9 @@ as a shrinking count and not as an unchanged green verdict. This run refused 0.
 | [uuidprog_paulis_unitary](https://uuidna.com/theorem/uuidprog_paulis_unitary) | 16 | 1744 | 0 | X and Z undo themselves, S·S† = I and S·S = Z, on the basis and the superposed states |
 | [uuidprog_cnot_swap](https://uuidna.com/theorem/uuidprog_cnot_swap) | 10 | 1090 | 0 | CNOT and SWAP undo themselves on every 2-qubit basis state and on the Bell state |
 | [uuidprog_toffoli](https://uuidna.com/theorem/uuidprog_toffoli) | 9 | 981 | 0 | Toffoli undoes itself on every 3-qubit basis state and on GHZ(3) |
+| [uuidprog_tableau_h](https://uuidna.com/theorem/uuidprog_tableau_h) | 12 | 1308 | 0 | H·X·H = Z, H·Z·H = X and H·Y·H = −Y on every 1-qubit basis state and both superposed ones |
+| [uuidprog_tableau_s](https://uuidna.com/theorem/uuidprog_tableau_s) | 12 | 1308 | 0 | S·X·S† = Y, S·Y·S† = −X and S·Z·S† = Z on every 1-qubit basis state and both superposed ones |
+| [uuidprog_tableau_cnot](https://uuidna.com/theorem/uuidprog_tableau_cnot) | 20 | 2180 | 0 | CNOT carries X⊗I to X⊗X, I⊗X to I⊗X, Z⊗I to Z⊗I and I⊗Z to Z⊗Z on every 2-qubit basis state and the Bell state |
 | [uuidprog_bell_runs](https://uuidna.com/theorem/uuidprog_bell_runs) | 4 | 436 | 0 | the Bell circuit run on QState puts weight exactly where the sealed weights do, in equal shares |
 | [uuidprog_ghz_runs](https://uuidna.com/theorem/uuidprog_ghz_runs) | 8 | 872 | 0 | GHZ(3) run on QState puts weight exactly where the sealed weights do, in equal shares |
 
@@ -141,7 +144,7 @@ costs every leaf, while checking one proof costs log2(N) siblings.
 | 64 | 6 | 10^1 |
 | 256 | 8 | 10^1 |
 | 1024 | 10 | 10^2 |
-| 4096 | 12 | 10^2 |
+| 4096 | 12 | 10^3 |
 | 16384 | 14 | 10^3 |
 | 65536 | 16 | 10^4 |
 
@@ -168,9 +171,9 @@ seals that n qubits span 2^n amplitudes.
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `d8af9692-4035-82a9-87a6-a90ea7122f0c`.
+*exist* cannot see. Dispatch receipt: `b7e1f73b-aa24-872a-92e8-849f6cff87cd`.
 
-Report receipt: `4acda199-d2eb-8bfa-a387-86d3a76c21fa` · measured-when as its own handle: `4acda199`.
+Report receipt: `ba588736-8738-80f5-aa15-52845a0632a0` · measured-when as its own handle: `ba588736`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->

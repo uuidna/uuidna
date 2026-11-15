@@ -1,0 +1,12 @@
+{
+  "handle": "f3c0c2a2",
+  "address": "f3c0c2a2-9dac-81d3-83eb-680f4f346ded",
+  "statement": "∀ {α : Type}, ¬ ∃ e : α → α → Bool, ∀ p : α → Bool, ∃ a, e a = p",
+  "tactic": "intro α ⟨e, h⟩ obtain ⟨a, ha⟩ := h (fun i => !(e i i)) exact self_model_cantor e a ha.symm",
+  "keys": [
+    "self_model_lawvere"
+  ],
+  "files": [
+    "SelfModel.lean"
+  ]
+}

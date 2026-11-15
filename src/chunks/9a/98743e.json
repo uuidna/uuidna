@@ -1,0 +1,12 @@
+{
+  "handle": "9a98743e",
+  "address": "9a98743e-ee0e-8dde-af4e-cc165565fabe",
+  "statement": "∀ f : Feel, ∀ g : Feel, Episode.turn (feel f) = Episode.turn (feel g) → f = g",
+  "tactic": "decide",
+  "keys": [
+    "affect_feel_carried"
+  ],
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}

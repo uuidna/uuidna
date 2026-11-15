@@ -1,8 +1,8 @@
 
 # uuidna — Advantage Metrics
 
-**Generated:** 2026-11-10
-**Data source:** Live ledger (71237 sealed theorems)
+**Generated:** 2026-11-15
+**Data source:** Live ledger (71254 sealed theorems)
 
 ---
 
@@ -11,13 +11,13 @@
 ### Proof & Verification
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **Theorems proven** | 71237 | Every theorem by decidable computation (no axioms) |
-| **Axiom-free** | 71114/71237 (100%) | Kernel-only proofs, recomputable offline |
-| **Principles** | 264 | Mathematical domains (ring, rosette, quantum, etc.) |
+| **Theorems proven** | 71254 | Every theorem by decidable computation (no axioms) |
+| **Axiom-free** | 71254/71254 (100%) | Kernel-only proofs, recomputable offline |
+| **Principles** | 266 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 131 | Capability axes across the ledger |
-| **Proof cost** | 214586478 decide-steps | MEASURED per theorem in lean/heartbeats.json |
-| **Verification work** | 71237 addresses | one recomputed per theorem |
-| **Steps per address** | 3012 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
+| **Proof cost** | 269114226 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Verification work** | 71254 addresses | one recomputed per theorem |
+| **Steps per address** | 3776 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
 | Metric | Value | Interpretation |
@@ -25,16 +25,16 @@
 | **Security checks** | 6 | Automated audits (axioms, gates, defences, Clay problems) |
 | **Gate clean** | 100% | Zero fabricated theorem citations |
 | **Determinism clean** | 100% | No Math.*/Date/RNG in core (non-harmonic boundary named) |
-| **Supported modules** | 3861/3861 | Every module reachable (no dead code) |
+| **Supported modules** | 3868/3868 | Every module reachable (no dead code) |
 | **Runtime dependencies** | 0 | Zero third-party code executes |
 | **Coins conserved** | ✓ | Fair-exchange invariant proven (two_coins theorem) |
 
 ### Scope & Capabilities
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **MCP tools** | 253 | In 37 categories |
-| **Publications** | 264 | Monographs linked to sealed theorems |
-| **Vocabulary terms** | 395 | `vocabulary()` — ledger domains and skills |
+| **MCP tools** | 254 | In 37 categories |
+| **Publications** | 266 | Monographs linked to sealed theorems |
+| **Vocabulary terms** | 397 | `vocabulary()` — ledger domains and skills |
 | **Content addressing** | SHA-256 (cryptographic) + FNV-1a (non-cryptographic) | Two address spaces: cryptographic + deterministic |
 
 ---
@@ -57,8 +57,8 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself �
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 214586478 kernel decide-steps, measured
-- Every later push (verify): 71237 address recomputations
+- First push (prove): 269114226 kernel decide-steps, measured
+- Every later push (verify): 71254 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
 
@@ -84,13 +84,13 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 ## The Ledger at a Glance
 
 ```
-Total theorems:       71237
-Axiom-free (decide):  71114 (99.8%)
-Principles:           264 domains
-Publications:         264 monographs
-MCP tools:            253 capabilities
+Total theorems:       71254
+Axiom-free (decide):  71254 (100.0%)
+Principles:           266 domains
+Publications:         266 monographs
+MCP tools:            254 capabilities
 Security checks:      6 automated
-Languages:            395 vocabulary terms
+Languages:            397 vocabulary terms
 Runtime deps:         0 (zero)
 Code coverage:        100% reachable modules
 ```
@@ -106,9 +106,9 @@ table or it is not a measurement):
 | census | measured | where it is sealed / served |
 |---|---|---|
 | Default Alpine installs ported | 25 packages · 832 boot states (26 pages × 32) | [/os](/os) · `Installs.lean` |
-| Public model feed | 465 models · widest window 2,000,000 tokens · 2,191,398,672 transient hexbits across all windows | [/models](/models) · `Models.lean` |
+| Public model feed | 470 models · widest window 2,000,000 tokens · 2,262,379,952 transient hexbits across all windows | [/models](/models) · `Models.lean` |
 | Terminal singularity | 3 builtin words · 0 hardcoded tool names (the toolbox is learned live) | [/terminal](/terminal) · tested |
-| Ledger | 71237 theorems · 264 principles · 131 skills | [/theorems](/theorems) · every wing |
+| Ledger | 71254 theorems · 266 principles · 131 skills | [/theorems](/theorems) · every wing |
 
 ## How to Verify These Numbers
 

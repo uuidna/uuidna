@@ -1,0 +1,12 @@
+{
+  "handle": "ada7d5a7",
+  "address": "ada7d5a7-83e2-823c-a9d8-41128c99c8dd",
+  "statement": "(1607105 * 26 < 41943040) ∧ (1607105 * 27 > 41943040) ∧ (26 > 1)",
+  "tactic": "decide",
+  "keys": [
+    "the_keys_are_a_small_fraction_of_the_rows"
+  ],
+  "files": [
+    "DoorSurface.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1bd54bc4",
+  "address": "1bd54bc4-4d73-864a-8172-4bbcace56073",
+  "statement": "(∀ a : Affect, states.contains a = true) ∧ generated.contains states = true ∧ generated.all (fun t => generated.contains (t.map Affect.turn) && generated.contains (t.map Affect.flip)) = true ∧ generated.length = 6",
+  "tactic": "decide",
+  "keys": [
+    "affect_group_order_six"
+  ],
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}

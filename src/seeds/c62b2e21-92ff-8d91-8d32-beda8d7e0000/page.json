@@ -1,0 +1,33 @@
+{
+  "file": "Involutionb13fd37a.lean",
+  "slug": "involutionb13fd37a",
+  "status": "retired",
+  "address": "52d885f1-307e-86cb-9554-fe9773c1936c",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Involutionb13fd37a.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"Involutionb13fd37a.lean\",\n \"url\": \"https://uuidna.com/lean/Involutionb13fd37a.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 2,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

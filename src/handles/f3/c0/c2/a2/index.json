@@ -1,0 +1,12 @@
+{
+  "handle": "f3c0c2a2",
+  "address": "f3c0c2a2-9dac-81d3-83eb-680f4f346ded",
+  "kind": "chunk",
+  "keys": [
+    "self_model_lawvere"
+  ],
+  "statement": "∀ {α : Type}, ¬ ∃ e : α → α → Bool, ∀ p : α → Bool, ∃ a, e a = p",
+  "files": [
+    "SelfModel.lean"
+  ]
+}

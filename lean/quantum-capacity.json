@@ -10,7 +10,7 @@
    "usableMetric": "2^128 addresses: 16^8 = 2^32, 2^32 · 2^96 = 2^128, 2^7 = 128 (theorem handle_capacity_is_quantum_by_architecture); 48 < 128, 128 − 48 = 80, 2^128 = 2^80 · 2^48 (theorem usable_gap_is_two_to_eighty)",
    "opTimeNs": 1000,
    "opClass": "measured",
-   "source": "measured by this generator: full-71237-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
+   "source": "measured by this generator: full-71254-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
   },
   {
    "model": "logical-48 array",
@@ -133,15 +133,15 @@
    "source": "Xanadu, Nature 2022"
   }
  ],
- "receipt": "448c9d2a-5b2d-85e3-a27d-0676f988ab35",
+ "receipt": "23fb400d-b69e-8585-88b7-4118142a98f1",
  "measured": {
   "nsDecade": 3,
-  "ledger": 71237
+  "ledger": 71254
  },
  "honest": "2^128 addresses: 16^8 = 2^32, 2^32 · 2^96 = 2^128, 2^7 = 128 (theorem handle_capacity_is_quantum_by_architecture); 48 < 128, 128 − 48 = 80, 2^128 = 2^80 · 2^48 (theorem usable_gap_is_two_to_eighty)",
  "crossed": {
-  "sorted": "448c9d2a-5b2d-85e3-a27d-0676f988ab35",
-  "reversed": "448c9d2a-5b2d-85e3-a27d-0676f988ab35",
+  "sorted": "23fb400d-b69e-8585-88b7-4118142a98f1",
+  "reversed": "23fb400d-b69e-8585-88b7-4118142a98f1",
   "agrees": true
  }
 }

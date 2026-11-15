@@ -1,0 +1,12 @@
+{
+  "handle": "86c8ff03",
+  "address": "86c8ff03-eba4-8dd6-9ed3-ce3404fbc79f",
+  "statement": "Corner.turn .feeling = .thought ∧ Corner.turn .thought = .emotion ∧ Corner.turn .emotion = .feeling",
+  "tactic": "decide",
+  "keys": [
+    "affect_loop_order"
+  ],
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}

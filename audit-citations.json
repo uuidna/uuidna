@@ -1,18 +1,18 @@
 {
-  "key": "dc060fba-f964-833d-abc5-69c04aebafd7",
-  "publications": 264,
-  "sealedTheorems": 71237,
+  "key": "20f90eac-e8f7-86f3-bc81-e6a710d30b10",
+  "publications": 266,
+  "sealedTheorems": 71254,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2793,
-    "theorems": 71237,
+    "claims": 2810,
+    "theorems": 71254,
     "bijection": false,
     "digitalRoots": {
-      "claims": 3,
-      "theorems": 2,
-      "publications": 3
+      "claims": 2,
+      "theorems": 1,
+      "publications": 5
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -213,6 +213,22 @@
       "slug": "neuro",
       "claims": 18,
       "cited": 18,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "affect-trinity",
+      "claims": 13,
+      "cited": 13,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "self-model",
+      "claims": 4,
+      "cited": 4,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

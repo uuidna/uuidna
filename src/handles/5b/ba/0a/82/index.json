@@ -1,0 +1,12 @@
+{
+  "handle": "5bba0a82",
+  "address": "5bba0a82-f19d-85cf-bc43-9c6c7aec805d",
+  "kind": "chunk",
+  "keys": [
+    "affect_turn_back"
+  ],
+  "statement": "∀ c : Corner, Corner.back (Corner.turn c) = c ∧ Corner.turn (Corner.back c) = c ∧ Corner.back c = Corner.turn (Corner.turn c)",
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}

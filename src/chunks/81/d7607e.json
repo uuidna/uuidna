@@ -1,0 +1,12 @@
+{
+  "handle": "81d7607e",
+  "address": "81d7607e-e4c5-8543-9297-bc659e2bec4f",
+  "statement": "(models 3).all (fun t => t.all (fun r => r != diag t)) = true ∧ (models 3).length = 512",
+  "tactic": "decide +kernel",
+  "keys": [
+    "self_model_diagonal_escapes"
+  ],
+  "files": [
+    "SelfModel.lean"
+  ]
+}

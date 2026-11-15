@@ -1,0 +1,12 @@
+{
+  "handle": "026c31b3",
+  "address": "026c31b3-924c-8392-add2-f53515af70d7",
+  "statement": "∀ c : Corner, Corner.turn c ≠ c ∧ Corner.turn (Corner.turn c) ≠ c",
+  "tactic": "decide",
+  "keys": [
+    "affect_turn_fixes_no_corner"
+  ],
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}

@@ -1,11 +1,11 @@
 {
   "definition": "alpine-port·theorem·axiom·discovery",
-  "packages": 28664,
+  "packages": 28665,
   "origins": 16101,
   "bindings": {
     "harmonised": 2054,
     "crypto": 3088,
-    "port": 23522
+    "port": 23523
   },
   "bindingOrigins": {
     "harmonised": 1288,
@@ -15,7 +15,7 @@
   "theorems": [
     {
       "key": "the_os_is_bootable_quantum",
-      "packages": 23522,
+      "packages": 23523,
       "origins": 13850
     },
     {
@@ -79,7 +79,7 @@
       "origins": 6
     },
     {
-      "key": "manipulation_never_faster",
+      "key": "self_model_diagonal_escapes",
       "packages": 6,
       "origins": 4
     },
@@ -96,10 +96,10 @@
   ],
   "harvest": [
     {
-      "key": "alpine_bindings_partition_packages_28664",
-      "fragment": "2054+3088+23522=28664",
-      "lean": "theorem alpine_bindings_partition_packages_28664 : (2054 + 3088 + 23522 = 28664) := by decide",
-      "packages": 28664,
+      "key": "alpine_bindings_partition_packages_28665",
+      "fragment": "2054+3088+23523=28665",
+      "lean": "theorem alpine_bindings_partition_packages_28665 : (2054 + 3088 + 23523 = 28665) := by decide",
+      "packages": 28665,
       "origins": 16101,
       "sample": "every package holds exactly one binding — the classes are exhaustive and disjoint"
     },
@@ -107,7 +107,7 @@
       "key": "alpine_binding_origins_overcount_16101",
       "fragment": "1288+2820+13850=17958",
       "lean": "theorem alpine_binding_origins_overcount_16101 : (1288 + 2820 + 13850 = 17958) ∧ (17958 - 16101 = 1857) := by decide",
-      "packages": 28664,
+      "packages": 28665,
       "origins": 16101,
       "sample": "1857 origins ship into more than one class — origins do NOT partition"
     }
@@ -119,6 +119,6 @@
     "exposed": 0,
     "refuted": 0
   },
-  "receipt": "ca6cba72-ac72-881e-8fc6-05541bf97114",
+  "receipt": "caafc271-2c54-86f6-893a-f3f3afa28437",
   "honest": "Alpine port census: harmonised skill witnesses, crypto-census bindings, port-only identities, harvest fragments decide() confirms but the ledger does not seal, and axiom-hunt exposed runtime assumptions. Integrity and meaning only — nothing installed, linked, or executed. Desk proposes; captain seals."
 }

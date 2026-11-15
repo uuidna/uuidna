@@ -11,7 +11,7 @@ description: The mission board, derived — open work with an exact deliverable,
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
 **295 missions** — 28 seal-finding · 136 decide-bound · 131 symbol-leg — derived from the
-rosetta mirror, the sealed bound census (`42c7378c05cf51be`) and the research ledger. The captain of every mission
+rosetta mirror, the sealed bound census (`6e9ed7d8c4ee6690`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [`uuidna_agent_contribute`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
@@ -43,7 +43,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | reflection | 21 | 3 | 4 | `c5c25997` |
 | z7-rosette | 150 | 2 | 4 | `3560147c` |
 | links | 17 | 2 | 3 | `e872009a` |
-| neuro | 19 | 2 | 3 | `c912e182` |
+| neuro | 32 | 3 | 3 | `c912e182` |
 | quantum | 69 | 3 | 3 | `2efc2c84` |
 | audit | 33 | 2 | 2 | `15f4bed8` |
 | chess | 37 | 2 | 2 | `ec90748c` |
@@ -85,7 +85,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | propulsion | 5 | 1 | 1 | `e15944e8` |
 | psychology | 8 | 1 | 1 | `1fcaca7c` |
 | readings | 17 | 1 | 1 | `533cb60d` |
-| reasoning | 25 | 1 | 1 | `9deab1f9` |
+| reasoning | 29 | 2 | 1 | `9deab1f9` |
 | referrer | 15 | 1 | 1 | `4d1f67c8` |
 | reversal | 6 | 1 | 1 | `b09cba1c` |
 | scripture | 6 | 1 | 1 | `800c5368` |

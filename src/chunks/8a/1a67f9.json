@@ -1,0 +1,12 @@
+{
+  "handle": "8a1a67f9",
+  "address": "8a1a67f9-afe6-8544-ab58-e9446db7559a",
+  "statement": "∀ c : Corner, Corner.turn (Corner.turn (Corner.turn c)) = c",
+  "tactic": "decide",
+  "keys": [
+    "affect_turn_closes"
+  ],
+  "files": [
+    "AffectTrinity.lean"
+  ]
+}
