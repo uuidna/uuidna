@@ -6,9 +6,10 @@
 // by walking src/affect-trinity.ts, the module the design matrix draws the trinity from, so the picture on the site
 // and the theorem it cites read one source.
 import { emit } from './lean-gen.js'
-import { CORNERS, VALENCES, trinity, turn, back, flip, onCorner, onValence, states, pow, orderOn, fixedOn, commutes, generated } from '../affect-trinity.js'
+import { CORNERS, VALENCES, trinity, turn, back, flip, onCorner, onValence, states, pow, orderOn, fixedOn, commutes, generated, observer, coordOf } from '../affect-trinity.js'
 
 const T = trinity()
+const O = observer()
 const eqN = (a: number, b: number): boolean => a === b
 const LAZARUS = 'Lazarus 1991, doi 10.1037/0003-066X.46.8.819'
 const SCHERER = 'Scherer 2009, doi 10.1080/02699930902928969'
@@ -70,6 +71,33 @@ ${VALENCES.map((_, i) => `  | ${vtor(i)} => ${vtor(flip(i))}`).join('\n')}
 def Affect.turn (a : Affect) : Affect := ⟨a.corner.turn, a.valence⟩
 def Affect.flip (a : Affect) : Affect := ⟨a.corner, a.valence.flip⟩
 
+/-- a point of the drawn lens: one of the corners, or the centre they turn around -/
+inductive Point where
+  | corner (c : Corner)
+  | centre
+deriving DecidableEq
+
+/-- a property holds of every point exactly when it holds of every corner and of the centre -/
+instance (P : Point → Prop) [DecidablePred P] : Decidable (∀ p, P p) :=
+  decidable_of_iff ((∀ c, P (.corner c)) ∧ P .centre)
+    ⟨fun ⟨h, h'⟩ p => by cases p <;> first | exact h _ | exact h', fun h => ⟨fun _ => h _, h _⟩⟩
+
+/-- the turn on points: each corner to the next, the centre to itself -/
+def Point.turn : Point → Point
+  | .corner c => .corner c.turn
+  | .centre => .centre
+
+/-- the plane in Eisenstein coordinates: (a, b) is a + bω, ω a primitive cube root of unity; the turn is multiplication by ω, exact on integers -/
+def rot (p : Int × Int) : Int × Int := (-p.2, p.1 - p.2)
+
+/-- each corner drawn at ω to the power of its place in the loop -/
+def coord : Corner → Int × Int
+${CORNERS.map((_, i) => `  | ${ctor(i)} => (${coordOf(i)[0]}, ${coordOf(i)[1]})`).join('\n')}
+
+/-- the lattice points within ${O.radius} of the centre on both coordinates -/
+def span : List Int := (List.range ${2 * O.radius + 1}).map (fun i => Int.ofNat i - ${O.radius})
+def box : List (Int × Int) := span.flatMap (fun a => span.map (fun b => (a, b)))
+
 /-- f applied n times -/
 def iter {α : Type} (f : α → α) : Nat → α → α
   | 0, a => a
@@ -100,6 +128,9 @@ const FACTS = [
   { key: 'affect_turn_fixes_no_corner', why: `no turn short of a full loop (ρ${nontrivial.map(sup).join(", ρ")}) leaves any corner where it was: the observer is the axis the loop turns around, not a fourth corner it lands on`,
     js: () => T.turnFixed === 0 && fixedOn(turn, [0, 1, 2], eqN).length === 0,
     lean: `theorem affect_turn_fixes_no_corner : ∀ c : Corner, ${nontrivial.map((k) => turned(k, "c") + " ≠ c").join(" ∧ ")} := by decide` },
+  { key: 'affect_observer_fixed_point', why: `the observer is the fixed point of the turn, not a corner: on the drawn lens the turn moves every corner and leaves only the centre where it is; in the plane, with the corners at 1, ω and ω² in Eisenstein coordinates and the turn multiplication by ω, the corners follow the loop and sum to the centre (1 + ω + ω² = 0), and of the ${O.points} lattice points within ${O.radius} of the centre the rotation fixes exactly one, the centre`,
+    js: () => O.centreOnly && O.cornersFollowTurn && O.closes && O.centroid[0] === 0 && O.centroid[1] === 0,
+    lean: `theorem affect_observer_fixed_point : (∀ p : Point, Point.turn p = p ↔ p = .centre) ∧ (∀ c : Corner, rot (coord c) = coord (Corner.turn c)) ∧ (${CORNERS.map((c) => '(coord .' + c + ').1').join(' + ')} = 0 ∧ ${CORNERS.map((c) => '(coord .' + c + ').2').join(' + ')} = 0) ∧ box.all (fun p => (rot p == p) == (p == (0, 0))) = true ∧ box.length = ${O.points} := by decide +kernel` },
   { key: 'affect_turn_back', why: `the loop also runs backward: ρ⁻¹ undoes the turn on either side, and running back once is turning forward ${T.turnOrder - 1} times, ρ⁻¹ = ρ${sup(T.turnOrder - 1)}`,
     js: () => T.backIsInverse,
     lean: `theorem affect_turn_back : ∀ c : Corner, Corner.back (Corner.turn c) = c ∧ Corner.turn (Corner.back c) = c ∧ Corner.back c = ${turned(T.turnOrder - 1, "c")} := by decide` },

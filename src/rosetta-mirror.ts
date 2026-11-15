@@ -34,6 +34,7 @@ intensity_inverse_square 27
 affect_loop_order 31
 affect_turn_closes 27
 affect_turn_fixes_no_corner 27
+affect_observer_fixed_point 27
 affect_turn_back 27
 affect_flip_involution 31
 affect_flip_commutes_turn 27
@@ -70078,6 +70079,11 @@ collisions_under_one 27
 verify_cheaper_than_forge 27
 wait_covers_margin 27
 no_maximum_only_bounds 27
+#SelfModel.lean
+self_model_cantor 31
+self_model_lawvere 31
+self_model_diagonal_escapes 27
+self_model_negation_no_fixed_point 27
 #Sequence.lean
 seal_ten 27
 mirror_congruence 27
@@ -71542,6 +71548,8 @@ planck_margin_bounded CODATA
 product_isolates_quantum CODATA
 ratio_isolates_gravity CODATA
 reversible_erases_nothing Landauer
+self_model_cantor 10.1007/BFb0080769
+self_model_lawvere 10.1007/BFb0080769
 the_defining_constants_are_exact_integers SI
 the_metre_is_defined_by_the_second SI
 the_pairing_cancels_the_constant SI
@@ -71549,7 +71557,7 @@ two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 32, falsifier: 63 }
+export const FLOOR = { witness: 34, falsifier: 63 }
 
 // Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
 // wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as

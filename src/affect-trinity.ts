@@ -83,6 +83,35 @@ export function generated(gens: readonly MapA[]): { tables: string[]; rounds: nu
   return { tables, rounds, closed }
 }
 
+// THE PLANE THE CORNERS ARE DRAWN IN, in Eisenstein coordinates: (a, b) is a + bω with ω a primitive cube root of
+// unity, so the turn is multiplication by ω, exact on integers: ω(a + bω) = −b + (a − b)ω, since ω² = −1 − ω. The
+// corners are 1, ω and ω², and the observer is the point the rotation leaves where it is.
+export type Pt = readonly [number, number]
+/** ρ on the plane: multiplication by ω */
+export const rotate = (p: Pt): Pt => [-p[1], p[0] - p[1]]
+/** corner k drawn at ω^k */
+export const coordOf = (c: number): Pt => pow(rotate, c)([1, 0])
+/** every lattice point with both coordinates within r of the centre */
+export const lattice = (r: number): Pt[] => range(2 * r + 1).flatMap((a) => range(2 * r + 1).map((b): Pt => [a - r, b - r]))
+export const eqP = (p: Pt, q: Pt): boolean => p[0] === q[0] && p[1] === q[1]
+
+/** what the rotation fixes on a box a corner-count wide: the centre and nothing else, and no corner */
+export function observer(r: number = C) {
+  const box = lattice(r)
+  const fixed = fixedOn(rotate, box, eqP)
+  const corners = range(C).map(coordOf)
+  return {
+    radius: r,
+    points: box.length,
+    fixed,
+    centreOnly: fixed.length === 1 && eqP(fixed[0]!, [0, 0]),
+    cornersFollowTurn: range(C).every((c) => eqP(rotate(coordOf(c)), coordOf(turn(c)))),
+    closes: box.every((p) => eqP(pow(rotate, C)(p), p)),
+    /** the corners sum to the centre: 1 + ω + ω² = 0, so the observer is their centroid */
+    centroid: corners.reduce<Pt>((s, p) => [s[0] + p[0], s[1] + p[1]], [0, 0]),
+  }
+}
+
 /** the lens as the model states it, every figure read off the maps */
 export function trinity() {
   const turnA = onCorner(turn)

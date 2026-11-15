@@ -4,7 +4,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { theoremFor } from './theorems/index.js'
-import { CORNERS, VALENCES, trinity, turn, back, flip, onCorner, onValence, states, pow, orderOn, fixedOn, commutes, generated, type Affect, type MapA } from './affect-trinity.js'
+import { CORNERS, VALENCES, trinity, turn, back, flip, onCorner, onValence, states, pow, orderOn, fixedOn, commutes, generated, observer, rotate, coordOf, lattice, eqP, type Affect, type MapA, type Pt } from './affect-trinity.js'
 import { matrixCss, trinityVars } from './css.js'
 
 const eqN = (a: number, b: number): boolean => a === b
@@ -45,7 +45,24 @@ test('affect_turn_fixes_no_corner — every turn short of the full loop moves ev
   for (let k = 1; k < order; k++) assert.deepEqual(fixedOn(pow(turn, k), corners, eqN), [], `ρ^${k}`)
 })
 
-test('affect_turn_back — back undoes the turn on both sides and equals the turn applied order − 1 times', () => {
+test('affect_observer_fixed_point — the rotation of the plane fixes the centre and only the centre, over the sealed box', () => {
+  const points = Number(/box\.length = (\d+)/.exec(sealed('affect_observer_fixed_point'))?.[1])
+  const o = observer()
+  assert.equal(o.points, points)
+  assert.ok(o.centreOnly && o.cornersFollowTurn && o.closes)
+  assert.deepEqual(o.centroid, [0, 0])
+  assert.equal(fixedOn(rotate, corners.map(coordOf), eqP).length, 0, 'no corner is fixed')
+})
+
+test('CONTROL: a reflection of the plane fixes a whole line, and a shift fixes nothing — neither is the observer\'s rotation', () => {
+  const box = lattice(observer().radius)
+  const reflect = (p: Pt): Pt => [p[0] - p[1], -p[1]]   // a + bω ↦ a + bω², complex conjugation
+  assert.ok(fixedOn(reflect, box, eqP).length > 1)
+  const shift = (p: Pt): Pt => [p[0] + 1, p[1]]
+  assert.equal(fixedOn(shift, box, eqP).length, 0)
+})
+
+test('affect_turn_back —back undoes the turn on both sides and equals the turn applied order − 1 times', () => {
   assert.equal(count(sealed('affect_turn_back').split('Corner.back c =')[1] ?? '', 'Corner.turn'), sealedTurnOrder() - 1)
   for (const c of corners) {
     assert.equal(back(turn(c)), c)

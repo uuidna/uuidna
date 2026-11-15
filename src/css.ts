@@ -105,7 +105,7 @@ export function trinityEffects(): string {
 .q-trinity-${corner}::after  { background: var(--trinity-${corner}-${UNPLEASANT}); }`).join('\n')
   return `
 /* q-trinity — THE AFFECT TRINITY (lean/AffectTrinity.lean): ${T.corners} corners ${T.step}deg apart around an axis that
-   is no corner (affect_turn_fixes_no_corner). The wheel spans the base (${BASE}em); each corner sits a trinity
+   is no corner (affect_turn_fixes_no_corner) but the one point the turn fixes (affect_observer_fixed_point). The wheel spans the base (${BASE}em); each corner sits a trinity
    (${TRINITY}em) from the axis. */
 .q-trinity { display: grid; justify-items: center; gap: var(--type-1); }
 .q-trinity-wheel { position: relative; inline-size: ${BASE}em; block-size: ${BASE}em; max-inline-size: 100%; }

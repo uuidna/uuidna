@@ -1,12 +1,12 @@
 {
- "audited": 71245,
- "total": 71245,
- "axiomFree": 71245,
+ "audited": 71250,
+ "total": 71250,
+ "axiomFree": 71250,
  "offenders": {},
  "dependencySets": {
-  "(none)": 71245
+  "(none)": 71250
  },
- "asked": "330850a7-dce5-8b99-a1ef-497c0fd59bf2",
+ "asked": "898539f5-4e46-82ef-b07e-e59857afcbdd",
  "toolchain": "leanprover/lean4:v4.33.0",
  "wings": {
   "45bcb8b0.lean": {
@@ -43,11 +43,12 @@
    }
   },
   "AffectTrinity.lean": {
-   "asked": "010481f7-5d01-8804-9004-e867200f81e3",
+   "asked": "b4252568-3991-8b4d-b03a-7c7c6729859e",
    "verdict": {
     "affect_loop_order": [],
     "affect_turn_closes": [],
     "affect_turn_fixes_no_corner": [],
+    "affect_observer_fixed_point": [],
     "affect_turn_back": [],
     "affect_flip_involution": [],
     "affect_flip_commutes_turn": [],
@@ -139,7 +140,7 @@
    }
   },
   "Audit.lean": {
-   "asked": "49b40870-c1f5-8349-bda7-9424d424e7ac",
+   "asked": "125da99c-521c-897a-b4ee-bfb5d6e9a41c",
    "verdict": {
     "wall_steady_state": [],
     "flag_truth_table": [],
@@ -625,7 +626,7 @@
    }
   },
   "CrossFormulas.lean": {
-   "asked": "02c668d9-3047-8617-99ef-724f4407405c",
+   "asked": "de4a1a9c-d37d-84ce-98e6-cb233ff0cba9",
    "verdict": {
     "the_generated_closure_partitions_into_three_kinds": [],
     "the_arithmetic_alphabet_partitions_by_its_own_algebra": [],
@@ -643,7 +644,7 @@
    }
   },
   "Crosslink.lean": {
-   "asked": "5f805f0a-d77d-85fc-a8db-e92b00efd21b",
+   "asked": "e1d48224-fcc8-829c-9a6e-9adc0997f00b",
    "verdict": {
     "a_tree_uses_one_link_per_leaf_and_no_more": [],
     "the_measured_store_uses_a_vanishing_share": [],
@@ -684,7 +685,7 @@
    }
   },
   "Cyber.lean": {
-   "asked": "d39242bc-c558-87a1-8056-4fec75b2a8e5",
+   "asked": "89b3d379-f1e9-8ea9-8850-f9da6a5d5056",
    "verdict": {
     "the_store_footprint_is_its_folders": [],
     "the_third_level_already_shares": []
@@ -780,7 +781,7 @@
    }
   },
   "DoorSurface.lean": {
-   "asked": "626094d8-1d9f-812e-89da-eb38ff89be38",
+   "asked": "10911844-aade-843a-8e32-4c7cb55aa1b5",
    "verdict": {
     "the_key_index_fits_where_the_rows_do_not": [],
     "the_keys_are_a_small_fraction_of_the_rows": [],
@@ -3575,7 +3576,7 @@
    }
   },
   "Forensics.lean": {
-   "asked": "6f52bd8c-5683-84dc-84cc-a6c53ec9f212",
+   "asked": "98d8c958-eabd-851a-bcae-d5cb3b2e782d",
    "verdict": {
     "forged_address_odds_are_negligible": [],
     "forged_handle_odds_are_small": [],
@@ -3636,7 +3637,7 @@
    }
   },
   "HandleStore.lean": {
-   "asked": "08685e37-0600-85f4-bda1-3da5120699d2",
+   "asked": "d373a6dc-06ed-86cc-898a-9d7271d97f18",
    "verdict": {
     "the_path_spells_the_handle": [],
     "every_level_branches_the_same_way": [],
@@ -69350,7 +69351,7 @@
    }
   },
   "Infinity.lean": {
-   "asked": "c45e3bee-6ab8-8e38-9c08-f796dc15f533",
+   "asked": "6d56d053-4301-8fa9-9706-c0d8f6bcdb39",
    "verdict": {
     "zeno_finite_sum": [],
     "uv_partition_closed": [],
@@ -71018,6 +71019,15 @@
     "no_maximum_only_bounds": []
    }
   },
+  "SelfModel.lean": {
+   "asked": "39007436-c507-82b9-85e1-668d99aeb59c",
+   "verdict": {
+    "self_model_cantor": [],
+    "self_model_lawvere": [],
+    "self_model_diagonal_escapes": [],
+    "self_model_negation_no_fixed_point": []
+   }
+  },
   "Sequence.lean": {
    "asked": "5855b726-ab71-8593-93a5-98ef57ae8947",
    "verdict": {
@@ -71075,7 +71085,7 @@
    }
   },
   "SiteBuild.lean": {
-   "asked": "49087808-5429-8293-b413-2425ddeff5ec",
+   "asked": "6f4ba45a-ada1-8c86-9c27-8e65d5a81db4",
    "verdict": {
     "render_retention_exceeds_the_container": [],
     "counting_beats_composing_by_six_magnitudes": [],
@@ -71095,7 +71105,7 @@
    }
   },
   "Software.lean": {
-   "asked": "0b005e64-8f7c-85d4-ac4a-2aeb77a57fc9",
+   "asked": "7d405a8a-58aa-8c95-9844-2d557feb05ad",
    "verdict": {
     "codec_split_recompose_lossless": [],
     "map_preserves_length": [],
@@ -72580,10 +72590,10 @@
    }
   }
  },
- "receipt": "8d0c972a-438a-8efd-8599-b41b25a717b3",
+ "receipt": "25c82e09-74bb-864c-a4fb-83fbf281e6f0",
  "crossed": {
-  "sorted": "8d0c972a-438a-8efd-8599-b41b25a717b3",
-  "reversed": "8d0c972a-438a-8efd-8599-b41b25a717b3",
+  "sorted": "25c82e09-74bb-864c-a4fb-83fbf281e6f0",
+  "reversed": "25c82e09-74bb-864c-a4fb-83fbf281e6f0",
   "agrees": true
  }
 }
