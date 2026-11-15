@@ -161,3 +161,20 @@ test('a moved file under a chained directory seeds its reader, and a move elsewh
   assert.ok(hit.mode === 'delta' && hit.files.includes('dist/a.test.js'), 'a move under the chained directory seeds its reader')
   assert.ok(miss.mode === 'delta' && !miss.files.includes('dist/a.test.js'), 'a move elsewhere does not')
 })
+
+test('a path assembled from literals is read as the import it names; an open variable, a fragment label and a template mention are each classified exactly', () => {
+  const root = mkdtempSync(join(tmpdir(), 'graph-fold-'))
+  mkdirSync(join(root, 'dist', 'scripts'), { recursive: true })
+  writeFileSync(join(root, 'dist', 'scripts', 'reader.js'), 'export const x = 1\n')
+  const write = (name: string, body: string): string => { writeFileSync(join(root, 'dist', name), body); return `dist/${name}` }
+  const joined = moduleOf(root, write('joined.js', "const READER = ['.', 'scripts', 'reader.js'].join('/')\nexport const r = () => import(READER)\n"))
+  assert.equal(joined.importsUnknown, false)
+  assert.ok(joined.imports.includes('dist/scripts/reader.js'), 'the joined constant resolves to the module it names')
+  const template = moduleOf(root, write('template.js', 'export const src = (m) => `await import(${JSON.stringify(m)});`\n'))
+  assert.equal(template.importsUnknown, false, 'an import written into a template string is a mention')
+  const label = moduleOf(root, write('label.js', "import { readFileSync } from 'node:fs'\nexport const at = 'src/mcp/print-chips.ts#printChipsOf'\nexport const r = () => readFileSync('x')\n"))
+  assert.equal(label.readsSourceTree, false, 'a file#export label names one file, not the source tree')
+  // controls: a variable that is not a joined literal stays unknown, and a bare src directory still reads the tree
+  assert.equal(moduleOf(root, write('open.js', 'export const r = (p) => import(p)\n')).importsUnknown, true)
+  assert.equal(moduleOf(root, write('tree.js', "import { readdirSync } from 'node:fs'\nexport const r = () => readdirSync('src')\n")).readsSourceTree, true)
+})

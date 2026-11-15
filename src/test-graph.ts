@@ -46,7 +46,13 @@ export type TestGraph = { modules: Map<string, GraphModule>; importers: Map<stri
 const SKIP = /^dist\/(seeds|chunks|handles)\//
 const IMPORT_RE = /(?:^|[^\w$])(?:import|export)\s*(?:[\w${},*\s]+from\s*)?['"]((?:\.{1,2}\/|#)[^'"]+)['"]/g
 const DYNAMIC_LITERAL_RE = /import\(\s*['"]((?:\.{1,2}\/|#)[^'"]+)['"]\s*\)/g
-const DYNAMIC_OPEN_RE = /import\(\s*(?!['"])/
+const DYNAMIC_OPEN_RE = /import\(\s*(?!['"])/g
+// A PATH ASSEMBLED FROM LITERALS IS STILL A LITERAL. mcp.ts names its host-only readers as
+// `const HOST_READER = ['.', 'scripts', 'device-readings.js'].join('/')` so the Worker's bundler does not follow them
+// into the edge; read as an open import, that one hub module made every test in the tree "reach" every change, and a
+// two-file delta ran 1459 of 1600 test files. The constant is read here, so `import(HOST_READER)` is the import it names.
+const JOINED_CONST_RE = /const\s+([A-Za-z_$][\w$]*)\s*=\s*\[((?:\s*['"][^'"]*['"]\s*,?)+)\]\.join\(\s*['"]\/['"]\s*\)/g
+const OPEN_ARG_RE = /import\(\s*([A-Za-z_$][\w$]*)\s*\)/y
 const FS_READ_RE = /\b(?:readFileSync|readdirSync|readFile|readdir|statSync|existsSync|createReadStream|opendirSync)\b/
 /** a quoted literal that IS a source path: 'src' or 'src/...' at the start of the string, nothing before it */
 const SRC_LITERAL_RE = /['"](src(?:\/[^'"\s]*)?)['"]/g
@@ -152,7 +158,9 @@ export const moduleOf = (root: string, file: string): GraphModule => {
   }
   if (readsFs) {
     for (const m of scan.matchAll(SRC_LITERAL_RE)) {
-      const lit = m[1]!
+      // 'src/mcp/print-chips.ts#printChipsOf' names one file and an export in it: the fragment is a label, and read
+      // with it the path had no extension and counted as the whole source tree (mcp/papers.js reached 1160 tests)
+      const lit = m[1]!.replace(/#.*$/, '')
       if (/\.[a-z]+$/i.test(lit) && !readsOnLine(scan, m.index ?? 0)) continue   // a path in a table, not a read
       if (lit === 'src' && joinsHandles) continue   // the 'src' segment of join(root,'src','handles') is the handles dir
       if (lit.startsWith('src/handles')) continue    // owned by DATA_LITERAL_RE above
@@ -161,7 +169,18 @@ export const moduleOf = (root: string, file: string): GraphModule => {
       else readsFiles.add(lit)
     }
   }
-  const importsUnknown = DYNAMIC_OPEN_RE.test(text)
+  const joined = new Map<string, string>()
+  for (const m of text.matchAll(JOINED_CONST_RE)) joined.set(m[1]!, [...m[2]!.matchAll(/['"]([^'"]*)['"]/g)].map((x) => x[1]!).join('/'))
+  let importsUnknown = false
+  for (const m of text.matchAll(DYNAMIC_OPEN_RE)) {
+    // `import(${…})` sits inside a template literal: source this module WRITES for another process (mcp/job.ts builds
+    // its child's script this way), a mention and never an import of its own
+    if (text.startsWith('${', m.index! + m[0].length)) continue
+    OPEN_ARG_RE.lastIndex = m.index!
+    const spec = joined.get(OPEN_ARG_RE.exec(text)?.[1] ?? '')
+    if (spec && /^(?:\.{1,2}\/|#)/.test(spec)) for (const p of resolveImports(root, file, spec)) imports.add(p)
+    else importsUnknown = true
+  }
   const readsEverything = importsUnknown || readsSourceTree
   return { file, imports: [...imports], reads: [...reads], readsFiles: [...readsFiles, ...dataFiles], readsSourceDirs: [...readsSourceDirs], readsSourceTree, importsUnknown, readsEverything, test: file.endsWith('.test.js') }
 }
