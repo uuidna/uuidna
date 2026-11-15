@@ -63,8 +63,8 @@ export const QPU_PORTS: Record<string, Port> = {
   events: { domain: 'value', relates: ['stream'], how: 'the stream family carries events' },
   buffer: { domain: 'value', relates: ['stream', 'string_decoder', 'crypto'], how: 'bytesOf/hexOf over Uint8Array — a Web value, no Buffer' },
   string_decoder: { domain: 'value', relates: ['buffer'], how: 'TextDecoder — a Web value' },
-  util: { domain: 'value', relates: ['sys'], how: 'src/core/ops — the unit’s own helpers' },
-  sys: { domain: 'value', relates: ['util'], how: 'an alias of util — src/core/ops' },
+  util: { domain: 'value', relates: ['sys'], how: 'not ported — the unit carries no util helpers' },
+  sys: { domain: 'value', relates: ['util'], how: 'an alias of util — not ported' },
   constants: { domain: 'value', relates: [], how: 'the lattice constants (latticeNamesOf) — named, not imported' },
   domain: { domain: 'value', relates: ['events'], how: 'deprecated in node; errors ride the receipt — domain modules are receipt failures, not node:domain' },
   // compress domain — compression is a formula
