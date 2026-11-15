@@ -53,6 +53,30 @@ export const KNOWN_DEFS: Record<string, (args: number[]) => number | null> = {
   },
 }
 
+/** each known helper's argument count; a helper not named here takes three */
+export const KNOWN_ARITY: Record<string, number> = { ordOf: 2, fmax: 2, fmin: 2, ffact: 1, fchoose: 2, fperm: 2, fgcd: 3, flog: 3, fclog: 2, fsqrt: 1, powmod: 3 }
+
+// THE FAMILIES' AND THE ASKED WING'S HELPERS, by their plain mathematical meaning in exact BigInt arithmetic. The wings
+// compute them by fuel-bounded recursion (lean-families, lean-asked); each value here is computed another way — the
+// binomial as a product, the root by Newton's method, the power by repeated squaring over BigInt — so the two agreeing
+// is the check. A helper whose recursion gives no plain meaning at these arguments (a base-1 log, a zero modulus)
+// returns null, and the statement stays unreachable rather than half-checked.
+const isqrt = (n: bigint): bigint => { if (n < 2n) return n; let x = n, y = (x + 1n) / 2n; while (y < x) { x = y; y = (x + n / x) / 2n } return x }
+const flogOf = (b: bigint, n: bigint): bigint | null => { if (b < 2n) return null; let k = 0n; while (n >= b) { n /= b; k++ } return k }
+export const KNOWN_BIG_DEFS: Record<string, (args: bigint[]) => bigint | null> = {
+  fmax: ([a, b]) => (a! <= b! ? b! : a!),
+  fmin: ([a, b]) => (a! <= b! ? a! : b!),
+  ffact: ([n]) => { let r = 1n; for (let i = 2n; i <= n!; i++) r *= i; return r },
+  fchoose: ([n, k]) => { if (k! > n!) return 0n; let r = 1n; for (let i = 0n; i < k!; i++) r = (r * (n! - i)) / (i + 1n); return r },
+  fperm: ([n, k]) => { let r = 1n; for (let i = 0n; i < k!; i++) r *= n! > i ? n! - i : 0n; return r },
+  // the fuel the wing passes (100) exceeds Euclid's steps at any witness below 2^53, so the plain gcd is its meaning
+  fgcd: ([, a, b]) => { let x = a!, y = b!; while (y) [x, y] = [y, x % y]; return x },
+  flog: ([b, , n]) => flogOf(b!, n!),
+  fclog: ([b, n]) => { if (n! <= 1n) return 0n; const l = flogOf(b!, n! - 1n); return l === null ? null : l + 1n },
+  fsqrt: ([n]) => isqrt(n!),
+  powmod: ([b, e, m]) => { if (m! === 0n) return null; let r = 1n % m!, x = b! % m!, k = e!; while (k > 0n) { if (k & 1n) r = (r * x) % m!; x = (x * x) % m!; k >>= 1n } return r },
+}
+
 /** one simple definition, as source: its parameter names and its body expression */
 export interface SimpleDef {
   name: string

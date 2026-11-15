@@ -69,6 +69,10 @@ test('no fan-out carries a hand-typed lane count — every width comes from the 
       const width = args[1]
       if (width === undefined) continue
       if (!/^\d+$/.test(width)) continue          // a variable, capacity().lanes, or an override — fused
+      // text inside a string literal calls nothing: the ledger's statement "backend: pool(120, 100) = 100" names the
+      // family's formula, and an odd count of unescaped double quotes before it on its line places it in a string
+      const lineStart = src.lastIndexOf('\n', m.index) + 1
+      if ((src.slice(lineStart, m.index).replace(/\\./g, '').match(/"/g) ?? []).length % 2) continue
       const line = src.slice(0, m.index).split('\n').length
       offenders.push(`${f.slice(SRC.length - 3)}:${line} — pool(…, ${width}, …)`)
     }

@@ -1775,11 +1775,11 @@ const TOOLS: Tool[] = ([
   // uuidna_decide answers the same words VERIFIED through its sealed-index route, citing the theorem. Only pure
   // arithmetic is recorded (digits, operators, comparisons), so nothing but a Nat statement reaches the kernel. Host only.
   { name: 'uuidna_ask',
-    description: 'Ask the kernel: record an arithmetic statement uuidna_decide evaluates (true as asked, false negated) in lean/asked.json for the lean-asked wing to seal by decide +kernel; afterwards uuidna_decide answers it VERIFIED. Pure Nat arithmetic only. Host only.',
+    description: 'Ask the kernel: record an arithmetic statement uuidna_decide evaluates (true as asked, false negated) in lean/asked.json for the lean-asked wing to seal by decide +kernel; afterwards uuidna_decide answers it VERIFIED. Pure Nat arithmetic only, with powmod(b, e, m) for b^e mod m. Host only.',
     inputSchema: { type: 'object', required: ['input'], properties: { input: { type: 'string', description: 'a Nat arithmetic statement, e.g. "2^999 <= 7778…903" or "7778…903 % 4 = 3"' } } },
     run: (a: Record<string, unknown>) => {
       const input = String(a.input ?? '').trim()
-      if (!/^[0-9\s+\-*/%^()=<>!≤≥≠]+$/.test(input) || !/[=<>≤≥≠]/.test(input)) throw new Error('ask: only a Nat arithmetic statement (digits, + - * / % ^, parentheses, a comparison) is recorded')
+      if (!/^(?:[0-9\s+\-*/%^()=<>!≤≥≠,]|powmod)+$/.test(input) || !/[=<>≤≥≠]/.test(input)) throw new Error('ask: only a Nat arithmetic statement (digits, + - * / % ^, powmod(b, e, m), parentheses, a comparison) is recorded')
       const d = decide(input)
       if (d.kind !== 'decided-arithmetic' && d.kind !== 'sealed-theorem') throw new Error(`ask: uuidna_decide did not decide this as arithmetic (${d.kind})`)
       const g = (process as unknown as { getBuiltinModule: (n: string) => unknown }).getBuiltinModule

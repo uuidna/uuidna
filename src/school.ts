@@ -164,6 +164,8 @@ const lowerMedian = (sorted: number[]): number => sorted.length === 0 ? 0 : sort
 
 /** unmeasured courses and levels sort LAST — an absent measure is not a low one. */
 const unmeasuredLast = (level: number): number => level === 0 ? 1 : 0
+/** the course-code width courses() last derived, so a composed course is coded at the width its parents carry */
+let courseCodeWidth = 4
 
 /** A course IS a proof wing. The lesson count is the theorems in it — not a syllabus someone maintains. Its LEVEL
  *  and its place in the reading order are read from the measured kernel cost of its own lessons; see levelOf.
@@ -190,7 +192,7 @@ export function courses(cost?: Record<string, number>, measure: Basis['measure']
     const steps = lowerMedian(measured)
     const level = levelOf(steps)
     return {
-      code: 'UU-' + toUuid(wing).slice(0, 4).toUpperCase(),
+      code: toUuid(wing).replace(/-/g, ''),
       title: wing.replace(/\.lean$/, '').replace(/([a-z])([A-Z])/g, '$1 $2'),
       wing,
       lessons: ts.length,
@@ -199,6 +201,13 @@ export function courses(cost?: Record<string, number>, measure: Basis['measure']
       measure: basisMeasure,
     }
   })
+  // A COURSE CODE IS THE SHORTEST PREFIX OF ITS WING'S ADDRESS THAT NO OTHER WING SHARES, at one width for all: four
+  // hex digits collided at 293 wings (two wings, one code, and the school's anchors and crosslinks
+  // followed the wrong one). The width is read from the wings themselves, never typed.
+  let width = 4
+  while (new Set(graded.map((c) => c.code.slice(0, width))).size < graded.length) width++
+  for (const c of graded) c.code = 'UU-' + c.code.slice(0, width).toUpperCase()
+  courseCodeWidth = width
   graded.sort((a, b) => unmeasuredLast(a.level) - unmeasuredLast(b.level)
     || a.level - b.level || a.steps - b.steps || a.entry - b.entry || (a.code < b.code ? -1 : 1))
   return graded.map((c, i) => ({ ...c, rank: i + 1 }))
@@ -392,7 +401,7 @@ export function composeCourse(a: Course, b: Course): Composed {
   const level = levelOf(steps)
   const address = merge(toUuid(a.wing), toUuid(b.wing))
   return {
-    code: 'UU-' + address.replace(/-/g, '').slice(0, 4).toUpperCase(),
+    code: 'UU-' + address.replace(/-/g, '').slice(0, courseCodeWidth).toUpperCase(),
     title: `${a.title} with ${b.title}`,
     wing: `${a.wing}+${b.wing}`,
     lessons: roll.length,

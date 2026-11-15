@@ -156,35 +156,35 @@ const bareOf = (rhs: string, params: Set<string>): string => {
 }
 const usesOf = (e: Node, k: string): boolean => e.k === k || [e.a, e.b, e.c].some((n) => n !== undefined && usesOf(n, k))
 
-// ── each family: its formulas and docs from its source, its witnesses from its test ──
+// ── each family: its formulas from its source, its witnesses from its test ──
 const keyPart = (s: string): string => s.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '')
-// a family's doc may cite "theorem k"; written into a Lean doc comment, that phrase reads to the ledger's declaration
-// parser as a second declaration of k, so the citation is joined with a non-breaking hyphen (theorem‑k)
-const docText = (s: string): string => s.replace(/^\s*\*\s?/gm, '').replace(/\s+/g, ' ').replace(/-\//g, '- /').replace(/\btheorem\s+/g, 'theorem\u2011').trim()
 const gaps: Record<string, number> = {}
 const gap = (why: string): void => { gaps[why] = (gaps[why] ?? 0) + 1 }
 const byLetter = new Map<string, Fact[]>()
 let families = 0
+let witnessesSealed = 0
 
 for (const d of readdirSync(FAM).sort()) {
   const src = join(FAM, d, 'index.ts'), tst = join(FAM, d, 'index.test.ts')
   if (!existsSync(src) || !existsSync(tst)) continue
   const s = readFileSync(src, 'utf8'), t = readFileSync(tst, 'utf8')
-  // a method's formula is the first `helper('id', 'formula'` its body calls, whatever the helper is named; its doc is
-  // the block comment that ends right before it
-  const formOf = (name: string): { formula: string; doc: string } | undefined => {
+  // a method's formula is the first `helper('id', 'formula'` its body calls, whatever the helper is named. The name
+  // carries the calls and values only: the family's prose stays in its source, where a doc once copied whole carried
+  // the header's code into the ledger and tripped every finder that reads it
+  const formOf = (name: string): { formula: string } | undefined => {
     const at = s.search(new RegExp(`static ${name}\\(`))
     if (at < 0) return undefined
     const m = /\b[A-Za-z_]\w*\(\s*'[^']*',\s*'([^']*)'/.exec(s.slice(at, at + 4000))
-    if (!m) return undefined
-    const doc = /\/\*\*([\s\S]*?)\*\/\s*$/.exec(s.slice(0, at))
-    return { formula: m[1]!, doc: docText(doc?.[1] ?? '') }
+    return m ? { formula: m[1]! } : undefined
   }
   const witnesses = [...t.matchAll(/(\w+Formulas)\.(\w+)\(([^)]*)\)\.value,\s*(-?\d+)\b/g)]
   if (!witnesses.length) continue
   const mod = await import(pathToFileURL(join(DIST_FAM, d, 'index.js')).href) as Record<string, Record<string, (...x: number[]) => { value: unknown }>>
   families++
-  const seen = new Map<string, number>()
+  // ONE THEOREM PER FAMILY: the conjunction of every witness its test states. A theorem per witness gave 9,524 rows
+  // and, at a page and a chunk page each, 25,531 dynamic pages against the sealed render budget of 16,446; the same
+  // witnesses sealed as one statement per family are the same kernel facts in 1,134 rows
+  const parts: { call: string; lean: string; js: () => boolean; defs: string[] }[] = []
   for (const [, cls, name, argText, exp] of witnesses) {
     const form = formOf(name!)
     if (!form) { gap('method shape not read'); continue }
@@ -204,22 +204,29 @@ for (const d of readdirSync(FAM).sort()) {
     if (v !== big(exp!)) { gap('test value disagrees with its formula'); continue }
     const fn = mod[cls!]?.[name!]
     if (typeof fn !== 'function') { gap('method not exported'); continue }
-    const n = (seen.get(name!) ?? 0) + 1
-    seen.set(name!, n)
-    const key = `fam_${keyPart(d)}_${keyPart(name!)}_${n}`
-    const call = `${name}(${args.join(', ')})`
+    const call = `${name}(${args.join(', ')}) = ${exp}`
+    if (parts.some((p) => p.call === call)) continue
     const nums = args.map((a) => Number(big(a))), want = Number(big(exp!))
-    const letter = d[0]!.toUpperCase()
-    const facts = byLetter.get(letter) ?? []
-    facts.push({
-      key,
-      name: `${d}: ${call} = ${exp}${form.doc ? ` — ${form.doc}` : ''}`,
+    parts.push({
+      call,
+      lean: `${leanOf(e, env)} = ${lit(big(exp!))}`,
       js: () => fn.apply(mod[cls!], nums).value === want,
-      lean: `theorem ${key} : ${leanOf(e, env)} = ${lit(big(exp!))} := by decide`,
-      defs: ['max', 'min', 'fact', 'C', 'P', 'gcd', 'log', 'clog', 'sqrt'].filter((k) => usesOf(e, k)).join(','),
+      defs: ['max', 'min', 'fact', 'C', 'P', 'gcd', 'log', 'clog', 'sqrt'].filter((k) => usesOf(e, k)),
     })
-    byLetter.set(letter, facts)
   }
+  if (!parts.length) continue
+  const key = `fam_${keyPart(d)}`
+  const letter = d[0]!.toUpperCase()
+  const facts = byLetter.get(letter) ?? []
+  facts.push({
+    key,
+    name: `${d}: ${parts.map((p) => p.call).join('; ')}`,
+    js: () => parts.every((p) => p.js()),
+    lean: `theorem ${key} : ${parts.map((p) => `(${p.lean})`).join(' ∧ ')} := by decide`,
+    defs: [...new Set(parts.flatMap((p) => p.defs))].join(','),
+  })
+  byLetter.set(letter, facts)
+  witnessesSealed += parts.length
 }
 
 const FMAX = 'def fmax (a b : Int) : Int := if a ≤ b then b else a'
@@ -248,4 +255,4 @@ for (const [letter, facts] of [...byLetter].sort()) {
   })
 }
 const open = Object.values(gaps).reduce((a, b) => a + b, 0)
-console.log(`✓ lean-families — ${sealed} witnesses sealed across ${families} families; ${open} still open (${Object.entries(gaps).map(([k, v]) => `${v} ${k}`).join(', ') || 'none'})`)
+console.log(`✓ lean-families — ${witnessesSealed} witnesses sealed as ${sealed} family theorems (of ${families} families with witnesses); ${open} still open (${Object.entries(gaps).map(([k, v]) => `${v} ${k}`).join(', ') || 'none'})`)

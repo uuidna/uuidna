@@ -51,6 +51,15 @@ const natPow = (a: bigint, b: bigint): bigint => {
   for (let i = 0n; i < b; i++) { r *= a; if (r >> BigInt(MAX_BITS)) throw new Error('magnitude beyond the honest cap') }
   return r
 }
+// powmod(b, e, m) — square-and-multiply, the same steps as the asked wing's Lean `powmod`: the base reduced mod m, each
+// low bit of e multiplying the accumulator, the base squared, e halved, and the result reduced once more. A zero
+// modulus is a full power (x % 0 = x), which the honest cap refuses rather than computes
+const natPowmod = (b: bigint, e: bigint, m: bigint): bigint => {
+  if (m === 0n) throw new Error('powmod modulo 0 is a full power, beyond the honest cap')
+  let base = b % m, acc = 1n, x = e
+  while (x > 0n) { if (x % 2n === 1n) acc = (acc * base) % m; base = (base * base) % m; x /= 2n }
+  return acc % m
+}
 
 // ── normalization — one spelling for the index and the grammar alike ──
 const normalize = (s: string): string => s
@@ -69,7 +78,7 @@ const sealedIndex = (): Map<string, string> => {
 
 // ── the bounded grammar (recursive descent
 // prop := cmpOrExpr ('&&' cmpOrExpr)* ; cmp := expr (op expr)? ; expr := term (± term)* ;
-// term := pow (*,/,% pow)* ; pow := atom (^ pow)? ; atom := INT | '(' prop ')' | '!' atom
+// term := pow (*,/,% pow)* ; pow := atom (^ pow)? ; atom := INT | '(' prop ')' | '!' atom | 'powmod(' expr ',' expr ',' expr ')'
 type Val = { b?: boolean; n?: bigint }
 class Parser {
   private i = 0
@@ -118,6 +127,12 @@ class Parser {
   private atom(): Val {
     if (this.eat('!')) return { b: !this.asB(this.atom()) }
     if (this.eat('(')) { const v = this.prop(); if (!this.eat(')')) throw new Error('missing )'); return v }
+    if (this.eat('powmod(')) {
+      const b = this.asN(this.expr()); if (!this.eat(',')) throw new Error('powmod takes three arguments')
+      const e = this.asN(this.expr()); if (!this.eat(',')) throw new Error('powmod takes three arguments')
+      const m = this.asN(this.expr()); if (!this.eat(')')) throw new Error('missing )')
+      return { n: natPowmod(b, e, m) }
+    }
     const m = /^\d+/.exec(this.s.slice(this.i))
     if (!m) throw new Error('expected a number at ' + this.i)
     this.i += m[0].length

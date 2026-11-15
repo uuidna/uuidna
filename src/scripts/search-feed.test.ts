@@ -18,11 +18,17 @@ test('the same declared corpus folds the same receipt', () => {
   assert.equal(searchFeed().receipt, searchFeed().receipt)
 })
 
-test('cricket stays silent — a most-searched query with no sealed neighbour is a lead, not a fake match', () => {
+test('ufc stays silent — a most-searched query with no sealed neighbour is a lead, not a fake match', () => {
   const f = searchFeed()
-  assert.ok(f.silent.includes('cricket'), 'cricket has no loud theorem neighbour')
-  assert.ok(f.leads.some((l) => l.query === 'cricket' && !l.harvest), 'silence is a lead the desk proposes')
-  assert.ok(!f.results.some((d) => d.query === 'cricket'), 'silence never becomes a door')
+  assert.ok(f.silent.includes('ufc'), 'ufc has no loud theorem neighbour')
+  assert.ok(f.leads.some((l) => l.query === 'ufc' && !l.harvest), 'silence is a lead the desk proposes')
+  assert.ok(!f.results.some((d) => d.query === 'ufc'), 'silence never becomes a door')
+})
+
+test('a silent query rings once its gap is filled — cricket answers with its sealed family', () => {
+  const f = searchFeed()
+  assert.ok(!f.silent.includes('cricket'), 'the families wing sealed fam_cricket')
+  assert.ok(f.results.some((d) => d.query === 'cricket' && d.key === 'fam_cricket'))
 })
 
 test('FIFA is not chess — stuffing a neighbour into the query is the accident this mill refuses', () => {
@@ -51,7 +57,7 @@ test('loud results are sealed theorem keys, never a count pin on the corpus', ()
 test('a custom corpus is the set — order of listing does not move the receipt', () => {
   const q = [
     { id: 'a', query: 'uuid handle hexbit', source: 'test' },
-    { id: 'b', query: 'cricket', source: 'test' },
+    { id: 'b', query: 'ufc', source: 'test' },
   ] as const
   const r1 = searchFeed(q)
   const r2 = searchFeed([...q].reverse())

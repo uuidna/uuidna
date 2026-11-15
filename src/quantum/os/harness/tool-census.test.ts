@@ -87,12 +87,12 @@ test('reflects, reveal, holofractal, security_audit, cloudflare_audit — the re
   assert.ok(call('uuidna_cloudflare_audit').clean !== undefined, 'the cloudflare posture audit reports clean-ness')
 })
 
-test('search_feed — most-searched queries ring Lean; meaning stays null; cricket is a lead not a door', () => {
+test('search_feed — most-searched queries ring Lean; meaning stays null; a silent query is a lead not a door', () => {
   const r = call('uuidna_search_feed')
   assert.equal(r.meaning, null)
   assert.match(r.receipt, /^[0-9a-f-]{36}$/)
   assert.ok(Array.isArray(r.results) && Array.isArray(r.leads) && Array.isArray(r.silent))
-  assert.ok(r.silent.includes('cricket'))
+  assert.ok(r.silent.includes('ufc'))
   assert.equal(call('uuidna_search_feed').receipt, r.receipt, 'same corpus, same receipt')
 })
 

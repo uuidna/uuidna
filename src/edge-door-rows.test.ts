@@ -19,8 +19,9 @@ import { searchLedger, searchChunksOf, scanChunk } from './ledger-search.js'
 import { SEARCH_CHUNK_BYTES } from './edge-ledger.js'
 import { ROOT } from './scripts/api.js'
 
-// the bits of one UUID register: a query with hits in every search chunk, so a chunk the edge skips changes its answer
-const SEARCHED = '128'
+// a query with hits in every search chunk, so a chunk the edge skips changes its answer: '128' (the bits of one UUID
+// register) missed the chunks the families wings fill with small-integer witnesses, and the digit 1 reaches them all
+const SEARCHED = '1'
 const CALLS: [string, Record<string, unknown>][] = [
   ['uuidna_adjudicate', { statement: 'handle capacity is quantum by architecture, by theorem handle_capacity_is_quantum_by_architecture' }],
   ['uuidna_adjudicate', { statement: 'the moon is made of cheese, by theorem handle_capacity_is_quantum_by_architecture' }],

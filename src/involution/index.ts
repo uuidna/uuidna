@@ -35,7 +35,7 @@
 // belongs to passes the second. Whether that root MEANS anything is a separate question, and `control` below
 // is the reason it is not asserted: a digital root computed from one pile is not evidence until same-sized
 // piles drawn at random are shown to do something else.
-import { KNOWN_DEFS, simpleDefs } from '../wing-defs.js'
+import { KNOWN_DEFS, KNOWN_ARITY, KNOWN_BIG_DEFS, simpleDefs } from '../wing-defs.js'
 import { theorems } from '../theorems/index.js'
 import { merkleGravity } from '../gravity/index.js'
 import {
@@ -111,7 +111,7 @@ export const stripAscriptions = (s: string): string => {
  *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl`/`.foldr` (dot / fun / Nat.min·max), `.flatMap`/`.zipWith`/`.flatten`,
  *  and bounded `fun` (multi-binder) with `.all`/`.map`/`.filter`/`.any`. Sealed Legal/Audit/Command/Editor mirrors
  *  (`lp`/`flag`/`accept`/`dfold`/…) stay name-gated. Admitted names are stripped before the character gate. */
-const NAMED_OP = /\b(?:Nat\.gcd|Nat\.lcm|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.foldr|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List\.replicate|List|mergeIdx|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|set|eraseDups|Nodup|nthI|nth|nthI|nthR|nthS|foldl|foldr|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLastD|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|installEdges|installNames|installRoutes|installMeanings|bfsOrder|invOrder|bootPages|rootfsNibbles|releaseAddress|modelContextRows|modelTransientRows|modelUuidCountRows|replicate|lcm|∀)\b/g
+const NAMED_OP = /\b(?:Int\.toNat|Nat\.gcd|Nat\.lcm|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.foldr|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List\.replicate|List|mergeIdx|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|set|eraseDups|Nodup|nthI|nth|nthI|nthR|nthS|foldl|foldr|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLastD|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|installEdges|installNames|installRoutes|installMeanings|bfsOrder|invOrder|bootPages|rootfsNibbles|releaseAddress|modelContextRows|modelTransientRows|modelUuidCountRows|replicate|lcm|∀)\b/g
 /** Drop Lean line comments so sealed theorems with `-- …` stay reachable.
  *  Mid-statement commentary stops at `∧`/`∨`/newline — or at `(` when a proposition follows (`List`, `Nat`, …). */
 const stripComments = (s: string): string => {
@@ -199,7 +199,7 @@ export function desugarFinForall(statement: string): string {
  *  the environment ever gets a chance to interpret it. */
 const wingNames = (wingSource: string): RegExp | null => {
   if (!wingSource) return null
-  const names = new Set<string>(Object.keys(KNOWN_DEFS))
+  const names = new Set<string>([...Object.keys(KNOWN_DEFS), ...Object.keys(KNOWN_BIG_DEFS)])
   for (const d of simpleDefs(wingSource)) { names.add(d.name); for (const p of d.params) names.add(p) }
   const live = [...names].filter((n) => new RegExp('\\b' + n + '\\b').test(wingSource))
   if (!live.length) return null
@@ -1264,7 +1264,9 @@ const atom = (c: Cursor): Val => {
   }
   if (eat(c, 'Nat.ble')) return postfix(c, asNum(atom(c)) <= asNum(atom(c)))
   if (eat(c, 'Nat.blt') || eat(c, 'blt')) return postfix(c, asNum(atom(c)) < asNum(atom(c)))
-  if (eat(c, 'Int.ofNat')) return postfix(c, asNum(atom(c)))
+  if (eat(c, 'Int.ofNat')) return postfix(c, forceScalar(atom(c)))
+  // Int.toNat — a negative integer reads as 0, Lean's own definition
+  if (eat(c, 'Int.toNat')) { const x = forceScalar(atom(c)); return postfix(c, x < 0 ? 0 : x) }
   if (eat(c, 'Nat')) {
     if (!eat(c, '(')) throw new Error('Nat')
     const save = c.ring
@@ -1938,13 +1940,25 @@ function wingEnv(wingSource: string, ring: Ring): Env {
       const n = typeof x === 'bigint' ? Number(x) : x
       if (typeof n !== 'number') throw new Error('non-numeric argument')
       const next = [...got, n]
-      const want = fn.length === 1 ? (name === 'ordOf' ? 2 : 3) : 3
+      const want = KNOWN_ARITY[name] ?? 3
       if (next.length < want) return curried(next)
       const v = fn(next)
       if (v === null) throw new Error('undefined at these arguments')
       return v
     } })
     if (new RegExp('\\b' + name + '\\b').test(wingSource)) env.set(name, curried([]))
+  }
+  // the BigInt helpers take their arguments whole: a 1,000-bit modulus read as a Number would lose its low digits
+  for (const [name, fn] of Object.entries(KNOWN_BIG_DEFS)) {
+    const curried = (got: bigint[]): Val => ({ t: 'f', run: (x: Val): Val => {
+      const s = forceScalar(x)
+      const next = [...got, typeof s === 'bigint' ? s : BigInt(s)]
+      if (next.length < (KNOWN_ARITY[name] ?? 3)) return curried(next)
+      const v = fn(next)
+      if (v === null) throw new Error('undefined at these arguments')
+      return v >= BigInt(Number.MIN_SAFE_INTEGER) && v <= BigInt(Number.MAX_SAFE_INTEGER) ? Number(v) : v
+    } })
+    if (new RegExp('\\bdef ' + name + '\\b').test(wingSource)) env.set(name, curried([]))
   }
   for (const d of simpleDefs(wingSource)) {
     if (env.has(d.name)) continue

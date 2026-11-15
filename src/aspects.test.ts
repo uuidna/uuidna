@@ -30,9 +30,10 @@ test('rare concepts outrank stopwords — maps rings topography, not the whole l
   assert.ok(!keys.includes('a_claim_is_verified_or_unverified'), 'substring accidents are not the loud band')
 })
 
-test('a query with no sealed neighbour is silent — cricket is not a wing', () => {
-  const c = aspectCensus([{ id: 'cricket', text: 'cricket india england' }])
-  assert.deepEqual(c.silent, ['cricket'])
+// cricket was the silent probe until the families wing sealed fam_cricket; ufc has no sealed neighbour today
+test('a query with no sealed neighbour is silent — ufc is not a wing', () => {
+  const c = aspectCensus([{ id: 'ufc', text: 'ufc' }])
+  assert.deepEqual(c.silent, ['ufc'])
   assert.equal(c.aspects[0]!.loud.length, 0)
 })
 
