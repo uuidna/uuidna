@@ -119,7 +119,18 @@ writeFileSync(join(ROOT, 'research-leads.json'), JSON.stringify({ leads, receipt
 // --check: a non-zero exit when a dead module exists, so CI/the pre-push gate BLOCKS on unsupported code the same way
 // it blocks on an overreaching claim. The lead is ALREADY captured in research-leads.json before the block, so the
 // gate says "route it, then purge" — never "silently keep dead code". Without --check it only reports the decision.
+//
+// THE REFUSAL HAS A GROUND OR IT REPORTS (the captain, 2026-11-08: every finder refuses only on a sealed theorem;
+// written rules report). The ground is read the way the guard reads every finder's — from this file's own source,
+// through groundOfFinder — so citing a sealed theorem here restores the block, and no list decides it. Nothing is
+// purged either way: the leads are already in research-leads.json.
 if (process.argv.includes('--check') && unsupported.length > 0) {
-  console.log(`  ✗ ${unsupported.length} unsupported module(s) — dead code no root reaches. Their leads are in research-leads.json; purge them from the main line or wire them to a root.`)
-  process.exit(1)
+  const { groundOfFinder } = await import('./audit-refusal-grounds.js')
+  const { theorems } = await import('../theorems/index.js')
+  const ground = groundOfFinder('support', readFileSync(join(ROOT, 'src/scripts/support.ts'), 'utf8'), readFileSync(join(ROOT, 'src/scripts/one-receipt.ts'), 'utf8'), new Set(theorems().map((t) => t.key)))
+  if (ground.grounded) {
+    console.log(`  ✗ ${unsupported.length} unsupported module(s) — dead code no root reaches. Their leads are in research-leads.json; purge them from the main line or wire them to a root.`)
+    process.exit(1)
+  }
+  console.log(`  · ${unsupported.length} unsupported module(s) REPORTED not refused — no theorem the ledger seals backs a refusal here; their leads are in research-leads.json`)
 }
