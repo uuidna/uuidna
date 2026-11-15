@@ -2,7 +2,7 @@
  *
  * computed from the ℤ/9 sequence and the vortex orbit — no hex literal, no pixel value is authored; a surface that renders a different receipt is rendering a different matrix
  *
- * vars 31 · receipt 083821d1-f734-83ab-820f-99416d424eb9
+ * vars 41 · receipt a613108f-51f0-8d6d-b12b-2041492de44c
  *
  * The receipt folds this exact text. A surface serving a different receipt is serving a different matrix, which
  * is the whole point of computing it: uuidna_css answers the same bytes to any client that asks.
@@ -27,6 +27,16 @@
   --seq-dark: hsl(120 66% 36%);
   --seq-last: hsl(84 66% 68%);
   --seq-light: hsl(120 33% 82%);
+  --trinity-emotion-pleasant: hsl(0 var(--trinity-sat) var(--trinity-light));
+  --trinity-emotion-unpleasant: hsl(180 var(--trinity-sat) var(--trinity-light));
+  --trinity-feeling-pleasant: hsl(120 var(--trinity-sat) var(--trinity-light));
+  --trinity-feeling-unpleasant: hsl(300 var(--trinity-sat) var(--trinity-light));
+  --trinity-light: 55%;
+  --trinity-sat: 66%;
+  --trinity-step: 120deg;
+  --trinity-thought-pleasant: hsl(240 var(--trinity-sat) var(--trinity-light));
+  --trinity-thought-unpleasant: hsl(60 var(--trinity-sat) var(--trinity-light));
+  --trinity-valence-turn: 180deg;
   --type-1: 1.111rem;
   --type-2: 1.222rem;
   --type-4: 1.444rem;
@@ -93,3 +103,60 @@
 :root[data-dim-motion="simple"] .q-superposition::before,
 :root[data-dim-motion="simple"] .q-superposition::after,
 :root[data-dim-motion="simple"] .q-fold { transition: none; animation: none; }
+
+/* q-trinity — THE AFFECT TRINITY (lean/AffectTrinity.lean): 3 corners 120deg apart around an axis that
+   is no corner (affect_turn_fixes_no_corner). The wheel spans the base (9em); each corner sits a trinity
+   (3em) from the axis. */
+.q-trinity { display: grid; justify-items: center; gap: var(--type-1); }
+.q-trinity-wheel { position: relative; inline-size: 9em; block-size: 9em; max-inline-size: 100%; }
+.q-trinity-axis, .q-trinity-corner, .q-trinity-marker {
+  position: absolute; inset-inline-start: 50%; inset-block-start: 50%;
+}
+.q-trinity-axis { transform: translate(-50%, -50%); opacity: 0.333; }
+.q-trinity-corner {
+  isolation: isolate; padding: 0 0.500em; border-radius: 3em; white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(calc(var(--k) * var(--trinity-step))) translateY(-3em) rotate(calc(var(--k) * var(--trinity-step) * -1));
+}
+.q-trinity-corner::before, .q-trinity-corner::after {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+  transition: opacity var(--dur-4) linear; will-change: opacity;
+}
+.q-trinity-corner::before { opacity: 0.333; }
+.q-trinity-corner::after  { opacity: 0; }
+.q-trinity-feeling { --k: 0; }
+.q-trinity-feeling::before { background: var(--trinity-feeling-pleasant); }
+.q-trinity-feeling::after  { background: var(--trinity-feeling-unpleasant); }
+.q-trinity-thought { --k: 1; }
+.q-trinity-thought::before { background: var(--trinity-thought-pleasant); }
+.q-trinity-thought::after  { background: var(--trinity-thought-unpleasant); }
+.q-trinity-emotion { --k: 2; }
+.q-trinity-emotion::before { background: var(--trinity-emotion-pleasant); }
+.q-trinity-emotion::after  { background: var(--trinity-emotion-unpleasant); }
+
+/* q-trinity-turn — ρ: the marker visits the corners in 3 discrete steps and the last lands
+   where it began (affect_turn_closes), so the loop closes rather than drifting. TRANSFORM only. */
+.q-trinity-marker {
+  inline-size: 6em; block-size: 6em; margin: -3em 0 0 -3em;
+  border-radius: 50%; border-block-start: 2px solid var(--seq-center);
+  animation: q-trinity-turn calc(var(--dur-8) * 3) steps(3, end) infinite;
+  will-change: transform;
+}
+@keyframes q-trinity-turn { to { transform: rotate(360deg); } }
+.q-trinity[data-direction="back"] .q-trinity-marker { animation-direction: reverse; }
+
+/* q-trinity-valence — σ: one flip crossfades EVERY corner at once to its hue a half turn on (180deg),
+   leaving every corner in place, so it commutes with the turn (affect_flip_commutes_turn). OPACITY only. */
+.q-trinity:has(.q-trinity-valence:checked) .q-trinity-corner::before,
+.q-trinity[data-valence="unpleasant"] .q-trinity-corner::before { opacity: 0; }
+.q-trinity:has(.q-trinity-valence:checked) .q-trinity-corner::after,
+.q-trinity[data-valence="unpleasant"] .q-trinity-corner::after { opacity: 0.333; }
+
+/* the dark theme: the same hues, lighter by the trinity's share of the base */
+.dark { --trinity-light: 73%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .q-trinity-marker, .q-trinity-corner::before, .q-trinity-corner::after { animation: none; transition: none; }
+}
+:root[data-dim-motion="simple"] .q-trinity-marker,
+:root[data-dim-motion="simple"] .q-trinity-corner::before,
+:root[data-dim-motion="simple"] .q-trinity-corner::after { animation: none; transition: none; }

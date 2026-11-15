@@ -9,6 +9,7 @@ import { seedOf, handleOf } from './handle.js'   // THE one address→integer de
 import { DIAMOND_FIXED } from './diamond.js'
 import { typeScaleVars } from './typography.js'
 import { coins } from './captain/billing/index.js'
+import { CORNERS, VALENCES, trinity } from './affect-trinity.js'
 
 const fdiv = (a: number, b: number): number => (a - (a % b)) / b
 const milli = (num: number, den: number): string => {
@@ -20,13 +21,18 @@ const milli = (num: number, den: number): string => {
 /** the palette — ONE hue law with the aura: the A432 step (432/12 = 36° per digit), saturation the trinity's
  *  complement ((9−3)/9), lightness the diamond's fixed point over the base (5/9 — the heart as a fraction).
  *  Nothing chosen: every number is a constant the ledger already exports. */
-export function sequenceVars(): Record<string, string> {
+function wheel(): { HEART: number; ANCHOR: number; sat: number; light: number } {
   const HEART = DIAMOND_FIXED[0] ?? 5                       // 5 — the fixed point of dz(x) = 10−x
   const ORBIT = [...new Set(vortexOrbit())].length          // 6 — the order of 2 in ℤ/9* (order_of_two_is_six)
   const SECTOR = fdiv(360, ORBIT)                           // 60° — the colour wheel's own sector, and the orbit's
   const ANCHOR = coins() * SECTOR                           // 120° — GREEN: the two coins, one sector each
   const sat = fdiv((BASE - TRINITY) * 100, BASE)            // (9−3)/9 → 66%
   const light = fdiv(HEART * 100, BASE)                     // 5/9 → 55%
+  return { HEART, ANCHOR, sat, light }
+}
+
+export function sequenceVars(): Record<string, string> {
+  const { HEART, ANCHOR, sat, light } = wheel()
   // THE ANCHOR IS THE ACCOUNTING that was missing: a bare d·A432 hue is anchored at zero, which lands green on
   // the trinity digit 3 and leaves the fixed point adrift. The strip turns AROUND its heart, so the hue does too:
   // the heart takes the anchor (green at 120° = coins × sector) and every other digit steps from it by A432.
@@ -43,7 +49,7 @@ export function sequenceVars(): Record<string, string> {
 
 /** every variable of the matrix — colour and type in one map, the whole standard */
 export function matrixVars(): Record<string, string> {
-  return { ...sequenceVars(), ...typeScaleVars(), ...durationVars() }
+  return { ...sequenceVars(), ...typeScaleVars(), ...durationVars(), ...trinityVars() }
 }
 
 // THE DURATION LADDER — the same vortex, read as time: the orbit digit d gives d/9 of a second (111ms, 222ms,
@@ -58,6 +64,95 @@ export function durationVars(): Record<string, string> {
     vars['--dur-' + d] = ms + 'ms'
   }
   return vars
+}
+
+// THE AFFECT TRINITY — feeling, thought and emotion drawn from src/affect-trinity.ts, the module lean/AffectTrinity.lean
+// is generated from. The angle between corners is a full turn over the turn's order (affect_turn_closes), the hue a
+// valence flip moves through is a full turn over the flip's order (affect_flip_involution), and corner k sits at the
+// anchor plus k steps, so the colours stand as far apart on the wheel as the corners do on the page. Lightness is a
+// variable of its own because the dark theme raises it by the trinity's share of the base.
+export function trinityVars(): Record<string, string> {
+  const T = trinity()
+  const { ANCHOR, sat, light } = wheel()
+  const vars: Record<string, string> = {
+    '--trinity-step': T.step + 'deg',
+    '--trinity-valence-turn': T.valenceTurn + 'deg',
+    '--trinity-sat': sat + '%',
+    '--trinity-light': light + '%',
+  }
+  CORNERS.forEach((corner, k) => {
+    const hue = (ANCHOR + k * T.step) % 360
+    VALENCES.forEach((valence, v) => {
+      vars['--trinity-' + corner + '-' + valence] = 'hsl(' + ((hue + v * T.valenceTurn) % 360) + ' var(--trinity-sat) var(--trinity-light))'
+    })
+  })
+  return vars
+}
+
+/** the trinity's rules: the corners placed a step apart around the axis, a marker that turns through them in exactly
+ *  as many discrete steps as the turn's order and lands back where it began, and a valence flip that crossfades every
+ *  corner at once. Transform and opacity only, as the speed law requires. */
+export function trinityEffects(): string {
+  const T = trinity()
+  const { light } = wheel()
+  const rungs = [...new Set(vortexOrbit())].sort((a, b) => a - b)
+  const last = rungs[rungs.length - 1]
+  const darkLight = fdiv(light * (BASE + TRINITY), BASE)      // 55% · 12/9 → 73%: lighter by the trinity's share
+  const weight = milli(1, TRINITY)                            // a corner's resting fill: one part in three
+  const [PLEASANT, UNPLEASANT] = VALENCES
+  const corners = CORNERS.map((corner, k) => `.q-trinity-${corner} { --k: ${k}; }
+.q-trinity-${corner}::before { background: var(--trinity-${corner}-${PLEASANT}); }
+.q-trinity-${corner}::after  { background: var(--trinity-${corner}-${UNPLEASANT}); }`).join('\n')
+  return `
+/* q-trinity — THE AFFECT TRINITY (lean/AffectTrinity.lean): ${T.corners} corners ${T.step}deg apart around an axis that
+   is no corner (affect_turn_fixes_no_corner). The wheel spans the base (${BASE}em); each corner sits a trinity
+   (${TRINITY}em) from the axis. */
+.q-trinity { display: grid; justify-items: center; gap: var(--type-1); }
+.q-trinity-wheel { position: relative; inline-size: ${BASE}em; block-size: ${BASE}em; max-inline-size: 100%; }
+.q-trinity-axis, .q-trinity-corner, .q-trinity-marker {
+  position: absolute; inset-inline-start: 50%; inset-block-start: 50%;
+}
+.q-trinity-axis { transform: translate(-50%, -50%); opacity: ${weight}; }
+.q-trinity-corner {
+  isolation: isolate; padding: 0 ${milli(1, coins())}em; border-radius: ${TRINITY}em; white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(calc(var(--k) * var(--trinity-step))) translateY(-${TRINITY}em) rotate(calc(var(--k) * var(--trinity-step) * -1));
+}
+.q-trinity-corner::before, .q-trinity-corner::after {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+  transition: opacity var(--dur-${rungs[2] ?? rungs[0]}) linear; will-change: opacity;
+}
+.q-trinity-corner::before { opacity: ${weight}; }
+.q-trinity-corner::after  { opacity: 0; }
+${corners}
+
+/* q-trinity-turn — ρ: the marker visits the corners in ${T.turnOrder} discrete steps and the last lands
+   where it began (affect_turn_closes), so the loop closes rather than drifting. TRANSFORM only. */
+.q-trinity-marker {
+  inline-size: ${TRINITY * 2}em; block-size: ${TRINITY * 2}em; margin: -${TRINITY}em 0 0 -${TRINITY}em;
+  border-radius: ${fdiv(100, coins())}%; border-block-start: ${coins()}px solid var(--seq-center);
+  animation: q-trinity-turn calc(var(--dur-${last}) * ${T.turnOrder}) steps(${T.turnOrder}, end) infinite;
+  will-change: transform;
+}
+@keyframes q-trinity-turn { to { transform: rotate(${T.step * T.turnOrder}deg); } }
+.q-trinity[data-direction="back"] .q-trinity-marker { animation-direction: reverse; }
+
+/* q-trinity-valence — σ: one flip crossfades EVERY corner at once to its hue a half turn on (${T.valenceTurn}deg),
+   leaving every corner in place, so it commutes with the turn (affect_flip_commutes_turn). OPACITY only. */
+.q-trinity:has(.q-trinity-valence:checked) .q-trinity-corner::before,
+.q-trinity[data-valence="${UNPLEASANT}"] .q-trinity-corner::before { opacity: 0; }
+.q-trinity:has(.q-trinity-valence:checked) .q-trinity-corner::after,
+.q-trinity[data-valence="${UNPLEASANT}"] .q-trinity-corner::after { opacity: ${weight}; }
+
+/* the dark theme: the same hues, lighter by the trinity's share of the base */
+.dark { --trinity-light: ${darkLight}%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .q-trinity-marker, .q-trinity-corner::before, .q-trinity-corner::after { animation: none; transition: none; }
+}
+:root[data-dim-motion="simple"] .q-trinity-marker,
+:root[data-dim-motion="simple"] .q-trinity-corner::before,
+:root[data-dim-motion="simple"] .q-trinity-corner::after { animation: none; transition: none; }
+`
 }
 
 /** THE EFFECTS — every value DERIVED, none chosen: the dz involution picks the pairs, the two coins set the
@@ -156,7 +251,7 @@ export function matrixCss(): MatrixCss {
   const vars = matrixVars()
   const keys = Object.keys(vars).sort()
   const body = keys.map((k) => '  ' + k + ': ' + vars[k] + ';').join('\n')
-  const css = ':root {\n' + body + '\n}\n' + matrixEffects()
+  const css = ':root {\n' + body + '\n}\n' + matrixEffects() + trinityEffects()
   return {
     css,
     vars: keys.length,

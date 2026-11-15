@@ -57,5 +57,6 @@ export default {
     app.component('DomainPort', defineAsyncComponent(() => import('./DomainPort.vue')))
     app.component('PortsConsole', defineAsyncComponent(() => import('./PortsConsole.vue')))
     app.component('ArchMetrics', defineAsyncComponent(() => import('./ArchMetrics.vue')))
+    app.component('AffectTrinity', defineAsyncComponent(() => import('./AffectTrinity.vue')))
   }
 } satisfies Theme
