@@ -1,0 +1,12 @@
+{
+  "handle": "90b756f2",
+  "address": "90b756f2-037e-873f-ae2a-251f4d103271",
+  "kind": "chunk",
+  "keys": [
+    "the_measured_store_uses_a_vanishing_share"
+  ],
+  "statement": "(2584050105 = (71890 * (71890 - 1)) / 2) ∧ (2584050105 > 2000 * 71889)",
+  "files": [
+    "Crosslink.lean"
+  ]
+}

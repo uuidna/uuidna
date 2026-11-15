@@ -384,7 +384,7 @@ pipeline's own gates version what they archive — the Zenodo deposit job names 
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-<!-- LEDGER:CURRENT -->Ledger: **71168 distinct propositions** under **71254 keys** (86 re-namings — a statement sealed in two wings is one theorem with two names) across **266 principles**, folded to receipt `9f43fb05-b992-80cf-8bed-c8345ce61082`<!-- /LEDGER:CURRENT -->
+<!-- LEDGER:CURRENT -->Ledger: **71168 distinct propositions** under **71254 keys** (86 re-namings — a statement sealed in two wings is one theorem with two names) across **266 principles**, folded to receipt `5d752851-5ae7-82be-a995-873fcc1229f8`<!-- /LEDGER:CURRENT -->
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added

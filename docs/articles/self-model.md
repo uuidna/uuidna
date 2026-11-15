@@ -40,6 +40,13 @@ The ledger holds this as [self_model_negation_no_fixed_point](/theorem/self_mode
 ```
 
 
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. Lawvere, F. William. (1969). Diagonal arguments and cartesian closed categories. Lecture Notes in Mathematics. [https://doi.org/10.1007/BFb0080769](https://doi.org/10.1007/BFb0080769)
+1. Kleene, S. C. (1938). On notation for ordinal numbers. Journal of Symbolic Logic. [https://doi.org/10.2307/2267778](https://doi.org/10.2307/2267778)
+
 ::: warning 
 THE SELF-MODEL — no system's states map onto all predicates on its states, so no system holds a complete model of itself (Cantor, Lawvere); checked universally and over every self-model of the affect trinity's 3 corners. The boundary is confirmed by the wing's own sealed theorems — e.g. [self_model_cantor](/theorem/self_model_cantor) — never merely denied.
 :::

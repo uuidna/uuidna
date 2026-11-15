@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The four-hex span, part 1 (4096)",
         "smallestPrinciple": "The six-cube translation by 9 (1)",
-        "ledgerReceipt": "9f43fb05-b992-80cf-8bed-c8345ce61082"
+        "ledgerReceipt": "5d752851-5ae7-82be-a995-873fcc1229f8"
       },
-      "address": "89d46cde-b935-8ccf-9057-ee114bd6004d"
+      "address": "129e5024-c12e-821d-ad2d-f42eb6d556f3"
     },
     {
       "title": "Heartbeat coverage",
@@ -35,24 +35,24 @@
       "source": "audit-citations.json",
       "present": true,
       "facts": {
-        "publications": 264,
-        "sealedTheorems": 71237,
+        "publications": 266,
+        "sealedTheorems": 71254,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "a70462ba-641a-838b-a8c3-1160ccf65862"
+      "address": "481f715f-e45d-8a26-aa84-f07c685eba8e"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 3897,
-        "roots": 2116,
-        "supported": 3868,
+        "modules": 3907,
+        "roots": 2124,
+        "supported": 3878,
         "dead": 29,
-        "receipt": "9920bbed-404c-8cca-9b9e-ca4b79010700"
+        "receipt": "97829088-4306-8e2f-b775-7fcd06874854"
       },
-      "address": "dab3a5b3-b406-865e-8b7c-61c29029eb12"
+      "address": "31e59641-6f3b-8439-b444-1e8b96f3f34e"
     },
     {
       "title": "Package inventory",
@@ -70,11 +70,11 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "6312e5c4a0cc2475",
-        "unifiedFold": "ab4c51e6946472c4",
+        "foldReceipt": "67ce188237fe4fe9",
+        "unifiedFold": "c3cf2612d825a95f",
         "zeroEntropy": "true"
       },
-      "address": "46d20a7d-c1c4-89df-8551-8c7fedec11ee"
+      "address": "aca0c973-4e07-8b1b-b62a-ba3936523414"
     },
     {
       "title": "Gate receipt",
@@ -102,67 +102,67 @@
       "address": "3f394279-2fb4-8227-b49c-6f00c29fc057"
     }
   ],
-  "receipt": "9819b266-ed82-84be-827c-98d168ca8877",
-  "handle": "9819b266",
+  "receipt": "6bc5f0f2-95be-8593-b2e7-dd796ceb77cd",
+  "handle": "6bc5f0f2",
   "hexbits": [
-    9,
-    8,
-    1,
-    9,
+    6,
     11,
+    12,
+    5,
+    15,
+    0,
+    15,
     2,
-    6,
-    6,
-    14,
-    13,
-    8,
-    2,
-    8,
-    4,
+    9,
+    5,
     11,
     14,
     8,
-    2,
-    7,
-    12,
+    5,
     9,
-    8,
-    13,
-    1,
-    6,
-    8,
-    12,
-    10,
-    8,
-    8,
+    3,
+    11,
+    2,
+    14,
     7,
-    7
+    13,
+    13,
+    7,
+    9,
+    6,
+    12,
+    14,
+    11,
+    7,
+    7,
+    12,
+    13
   ],
-  "door": "https://uuidna.com/9819b266",
+  "door": "https://uuidna.com/6bc5f0f2",
   "coin": [
-    9,
-    8,
-    1,
-    9,
+    6,
     11,
+    12,
+    5,
+    15,
+    0,
+    15,
     2,
-    6,
-    6,
+    9,
+    5,
+    11,
     14,
-    13,
     8,
-    2,
-    8,
-    4,
-    11,
-    14
+    5,
+    9,
+    3
   ],
   "place": {
-    "handle": "9819b266",
-    "value": 2551820902,
+    "handle": "6bc5f0f2",
+    "value": 1808134386,
     "span": 4294967296,
-    "residue": 7,
-    "nilpotent": false,
+    "residue": 6,
+    "nilpotent": true,
     "hexbits": 8
   },
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess. Frozen root JSON twins fold here rather than remaining unaddressed snapshots."

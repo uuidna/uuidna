@@ -103,6 +103,16 @@ The ledger holds this as [affect_group_cyclic](/theorem/affect_group_cyclic) —
 ```
 
 
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. Lazarus, Richard S. (1991). Progress on a cognitive-motivational-relational theory of emotion. American Psychologist. [https://doi.org/10.1037/0003-066X.46.8.819](https://doi.org/10.1037/0003-066X.46.8.819)
+1. Russell, James A. (2003). Core affect and the psychological construction of emotion. Psychological Review. [https://doi.org/10.1037/0033-295X.110.1.145](https://doi.org/10.1037/0033-295X.110.1.145)
+1. Russell, James A. (1980). A circumplex model of affect. Journal of Personality and Social Psychology. [https://doi.org/10.1037/h0077714](https://doi.org/10.1037/h0077714)
+1. Scherer, Klaus R. (2009). The dynamic architecture of emotion: Evidence for the component process model. Cognition and Emotion. [https://doi.org/10.1080/02699930902928969](https://doi.org/10.1080/02699930902928969)
+1. Barrett, Lisa Feldman. (2016). The theory of constructed emotion: an active inference account of interoception and categorization. Social Cognitive and Affective Neuroscience. [https://doi.org/10.1093/scan/nsw154](https://doi.org/10.1093/scan/nsw154)
+
 ::: warning 
 THE AFFECT TRINITY — feeling, thought and emotion as 3 corners a turn carries round, 120° apart, with valence a flip on every corner at once; together a 6-element cyclic group. The boundary is confirmed by the wing's own sealed theorems — e.g. [affect_loop_order](/theorem/affect_loop_order) — never merely denied.
 :::

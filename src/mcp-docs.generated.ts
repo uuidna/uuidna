@@ -13618,7 +13618,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"stations\":65536,\"occupied\":6007,\"vacant\":59529,\"theoremsSeated\":5718,\"axiomsSeated\":576,\"problemsSeated\":18,\"collisions\":[{\"station\":\"000e\",\"keys\":[\"euler_ph…"
+   "excerpt": "{\"stations\":65536,\"occupied\":6006,\"vacant\":59530,\"theoremsSeated\":5718,\"axiomsSeated\":576,\"problemsSeated\":18,\"collisions\":[{\"station\":\"000e\",\"keys\":[\"euler_ph…"
   }
  },
  "uuidna_skills": {
@@ -15002,7 +15002,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"polarities\":{\"minus\":28593,\"neutral\":14175,\"plus\":28486,\"capacity\":{\"minus\":4,\"neutral\":2,\"plus\":4},\"byRay\":[{\"ray\":0,\"minus\":4114,\"neutral\":2007,\"plus\":4068…"
+   "excerpt": "{\"polarities\":{\"minus\":28595,\"neutral\":14173,\"plus\":28486,\"capacity\":{\"minus\":4,\"neutral\":2,\"plus\":4},\"byRay\":[{\"ray\":0,\"minus\":4112,\"neutral\":2007,\"plus\":4070…"
   }
  },
  "uuidna_treason": {
@@ -15488,7 +15488,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":71254,\"total\":true,\"failures\":[],\"receipt\":\"a1b46a18-6abc-8e15-857f-92857ad33132\",\"honest\":\"THE TOTALITY SEAL: secure messaging is a TOTAL function on…"
+   "excerpt": "{\"count\":71254,\"total\":true,\"failures\":[],\"receipt\":\"8105aa4b-1831-8e9d-b5ac-8bc8c3128c02\",\"honest\":\"THE TOTALITY SEAL: secure messaging is a TOTAL function on…"
   }
  },
  "uuidna_dictionary": {
@@ -15530,7 +15530,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"terms\":71254,\"skills\":131,\"principles\":266,\"receipt\":\"9f43fb05-b992-80cf-8bed-c8345ce61082\",\"honest\":\"the lexicon is the ledger — every term sealed, every de…"
+   "excerpt": "{\"terms\":71254,\"skills\":131,\"principles\":266,\"receipt\":\"5d752851-5ae7-82be-a995-873fcc1229f8\",\"honest\":\"the lexicon is the ledger — every term sealed, every de…"
   }
  },
  "uuidna_quantum_voting": {
@@ -18370,7 +18370,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"verifiedAll\":{\"theorems\":71254,\"verified\":71254,\"unverified\":0,\"receipt\":\"9f43fb05-b992-80cf-8bed-c8345ce61082\"},\"guarantees\":[{\"key\":\"legal_verdict_is_exact…"
+   "excerpt": "{\"verifiedAll\":{\"theorems\":71254,\"verified\":71254,\"unverified\":0,\"receipt\":\"5d752851-5ae7-82be-a995-873fcc1229f8\"},\"guarantees\":[{\"key\":\"legal_verdict_is_exact…"
   }
  },
  "uuidna_cloudflare_audit": {
@@ -18691,7 +18691,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":71254,\"fnvReceipt\":\"9f43fb05-b992-80cf-8bed-c8345ce61082\",\"sha256\":\"315f7f7a64ed7e070a70106b02967df156ce86423cb3070c198170c21470c219\",\"tamperCost\":\"A …"
+   "excerpt": "{\"count\":71254,\"fnvReceipt\":\"5d752851-5ae7-82be-a995-873fcc1229f8\",\"sha256\":\"e7a2e72c80f7f5e9a58b42ecda7e12477fe0c1429320fd61bd0b1d1b26d898e9\",\"tamperCost\":\"A …"
   }
  },
  "uuidna_forensics": {
@@ -19074,7 +19074,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":71254,\"verified\":71254,\"unverified\":0,\"leanBacked\":71254,\"receipt\":\"9f43fb05-b992-80cf-8bed-c8345ce61082\",\"verdicts\":[{\"key\":\"mul9_1_1\",\"name\":\"1·1 ≡ …"
+   "excerpt": "{\"count\":71254,\"verified\":71254,\"unverified\":0,\"leanBacked\":71254,\"receipt\":\"5d752851-5ae7-82be-a995-873fcc1229f8\",\"verdicts\":[{\"key\":\"mul9_1_1\",\"name\":\"1·1 ≡ …"
   }
  },
  "uuidna_css": {
@@ -20126,7 +20126,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"4e13552f\",\"theorems\":{\"count\":71254,\"verified\":71254,\"receipt\":\"9f43fb05-b992-80cf-8bed-c8345ce61082\"},\"domains\":{\"count\":131,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"299132c7\",\"theorems\":{\"count\":71254,\"verified\":71254,\"receipt\":\"5d752851-5ae7-82be-a995-873fcc1229f8\"},\"domains\":{\"count\":131,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {
@@ -20241,7 +20241,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"7d7de999\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":34,\"hsl\":\"hsl(34, 66%, 54%)\",\"rgb\":\"#d7…"
+   "excerpt": "{\"handle\":\"fdbd81f5\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":34,\"hsl\":\"hsl(34, 66%, 54%)\",\"rgb\":\"#d7…"
   }
  },
  "uuidna_social_profile": {
@@ -21495,7 +21495,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"fingerprint\":{\"count\":71254,\"fnvReceipt\":\"9f43fb05-b992-80cf-8bed-c8345ce61082\",\"sha256\":\"315f7f7a64ed7e070a70106b02967df156ce86423cb3070c198170c21470c219\",\"…"
+   "excerpt": "{\"fingerprint\":{\"count\":71254,\"fnvReceipt\":\"5d752851-5ae7-82be-a995-873fcc1229f8\",\"sha256\":\"e7a2e72c80f7f5e9a58b42ecda7e12477fe0c1429320fd61bd0b1d1b26d898e9\",\"…"
   }
  },
  "uuidna_audit_agent_statement": {

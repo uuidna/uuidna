@@ -1,0 +1,12 @@
+{
+  "handle": "5e4f3210",
+  "address": "5e4f3210-fb25-87ff-83e6-ef761981b5af",
+  "kind": "chunk",
+  "keys": [
+    "sixteen_bit_handles_would_collide"
+  ],
+  "statement": "71890 > 2 ^ 16",
+  "files": [
+    "Forensics.lean"
+  ]
+}

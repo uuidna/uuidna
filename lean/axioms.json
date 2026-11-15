@@ -6,7 +6,7 @@
  "dependencySets": {
   "(none)": 71254
  },
- "asked": "b7846a80-a195-8459-9b01-ae2bd236a0fa",
+ "asked": "c8267a16-c403-8e4c-8ee9-01cca7ecf7ca",
  "toolchain": "leanprover/lean4:v4.33.0",
  "wings": {
   "45bcb8b0.lean": {
@@ -630,7 +630,7 @@
    }
   },
   "CrossFormulas.lean": {
-   "asked": "fc2363ad-f54a-865b-b729-878a075b05a6",
+   "asked": "815e9b93-9dfa-8b57-8b03-1aca17d1d6b7",
    "verdict": {
     "the_generated_closure_partitions_into_three_kinds": [],
     "the_arithmetic_alphabet_partitions_by_its_own_algebra": [],
@@ -648,7 +648,7 @@
    }
   },
   "Crosslink.lean": {
-   "asked": "25ee0388-3bdb-8376-8b6a-0477001b9425",
+   "asked": "84692a08-649d-87b0-a757-8d062eebf84b",
    "verdict": {
     "a_tree_uses_one_link_per_leaf_and_no_more": [],
     "the_measured_store_uses_a_vanishing_share": [],
@@ -689,7 +689,7 @@
    }
   },
   "Cyber.lean": {
-   "asked": "7742be35-aa4e-87b8-a1ab-2b8d6e322b74",
+   "asked": "221883e2-39cd-8cd5-a4ef-9424fa51593f",
    "verdict": {
     "the_store_footprint_is_its_folders": [],
     "the_third_level_already_shares": []
@@ -3580,7 +3580,7 @@
    }
   },
   "Forensics.lean": {
-   "asked": "7675bd72-cc95-8ab2-8b75-2bb25544be30",
+   "asked": "e3348902-00ee-84d0-af0b-044c3866251a",
    "verdict": {
     "forged_address_odds_are_negligible": [],
     "forged_handle_odds_are_small": [],
@@ -3641,7 +3641,7 @@
    }
   },
   "HandleStore.lean": {
-   "asked": "bdb11023-9860-8ff4-a9f0-7dab85bb7812",
+   "asked": "0f2d0c62-a77c-8477-bcb6-4f9ba7250254",
    "verdict": {
     "the_path_spells_the_handle": [],
     "every_level_branches_the_same_way": [],
@@ -69910,7 +69910,7 @@
    }
   },
   "Models.lean": {
-   "asked": "6f8d041b-33a3-8267-aa9d-29560143712f",
+   "asked": "e7e22275-6a80-87d1-955f-f2d9d39b975c",
    "verdict": {
     "a_token_approximates_eight_hexbits": [],
     "context_windows_are_transient_hexbits": [],
@@ -71089,7 +71089,7 @@
    }
   },
   "SiteBuild.lean": {
-   "asked": "f3116f2d-eb66-8f9f-aa96-e0cb8dd7d32a",
+   "asked": "9ee5f88e-e5e0-87d9-a02f-727f22c194e1",
    "verdict": {
     "render_retention_exceeds_the_container": [],
     "counting_beats_composing_by_six_magnitudes": [],
@@ -72594,10 +72594,10 @@
    }
   }
  },
- "receipt": "51ed2072-286e-84bc-b6d6-68142c19b872",
+ "receipt": "f006200a-a047-8323-97af-76112394a905",
  "crossed": {
-  "sorted": "51ed2072-286e-84bc-b6d6-68142c19b872",
-  "reversed": "51ed2072-286e-84bc-b6d6-68142c19b872",
+  "sorted": "f006200a-a047-8323-97af-76112394a905",
+  "reversed": "f006200a-a047-8323-97af-76112394a905",
   "agrees": true
  }
 }
