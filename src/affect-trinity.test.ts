@@ -4,7 +4,8 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { theoremFor } from './theorems/index.js'
-import { CORNERS, VALENCES, trinity, turn, back, flip, onCorner, onValence, states, pow, orderOn, fixedOn, commutes, generated, observer, rotate, coordOf, lattice, eqP, type Affect, type MapA, type Pt } from './affect-trinity.js'
+import { CORNERS, VALENCES, trinity, turn, back, flip, onCorner, onValence, states, pow, orderOn, fixedOn, commutes, generated, observer, rotate, coordOf, lattice, eqP, AROUSALS, feels, feel, turnsInto, turnEpisode, flipEpisode, eqE, episodes, feelCall, type Affect, type MapA, type Pt, type Episode } from './affect-trinity.js'
+import { callTool } from './mcp.js'
 import { matrixCss, trinityVars } from './css.js'
 
 const eqN = (a: number, b: number): boolean => a === b
@@ -60,6 +61,58 @@ test('CONTROL: a reflection of the plane fixes a whole line, and a shift fixes n
   assert.ok(fixedOn(reflect, box, eqP).length > 1)
   const shift = (p: Pt): Pt => [p[0] + 1, p[1]]
   assert.equal(fixedOn(shift, box, eqP).length, 0)
+})
+
+test('affect_feel_defined — a feeling is one valence and one arousal, and the sealed count is their product', () => {
+  const count = Number(/feels\.length = (\d+)/.exec(sealed('affect_feel_defined'))?.[1])
+  assert.equal(count, VALENCES.length * AROUSALS.length)
+  assert.equal(feels().length, count)
+  for (const f of feels()) assert.deepEqual(feel(f), { corner: 0, feel: f })
+})
+
+test('affect_feel_turns_into — every feeling is read by thought, completed as emotion, and is the same feeling after the full loop', () => {
+  const s = sealed('affect_feel_turns_into')
+  for (const c of CORNERS.slice(1)) assert.ok(s.includes(`⟨.${c}, f⟩`), c)
+  for (const f of feels()) {
+    const r = turnsInto(f)
+    assert.deepEqual(r.loop.map((e) => e.corner), [...CORNERS])
+    assert.ok(r.returns && r.carried)
+  }
+})
+
+test('affect_feel_carried — distinct feelings stay distinct after the turn', () => {
+  assert.match(sealed('affect_feel_carried'), /Episode\.turn \(feel f\) = Episode\.turn \(feel g\) → f = g/)
+  const after = feels().map((f) => JSON.stringify(turnEpisode(feel(f))))
+  assert.equal(new Set(after).size, feels().length)
+})
+
+test('affect_feel_flip — the valence flip on episodes keeps arousal and corner, undoes itself, commutes with the turn', () => {
+  assert.match(sealed('affect_feel_flip'), /\(Episode\.turn e\)\.flip = Episode\.turn \(Episode\.flip e\)/)
+  for (const e of episodes()) {
+    assert.ok(eqE(flipEpisode(turnEpisode(e)), turnEpisode(flipEpisode(e))))
+    assert.ok(eqE(flipEpisode(flipEpisode(e)), e))
+    assert.equal(flipEpisode(e).feel.arousal, e.feel.arousal)
+  }
+})
+
+test('CONTROL: a turn that calms the feeling as it reads it is not carried, and the loop never returns to a charged feeling', () => {
+  const calming = (e: Episode): Episode => ({ corner: turn(e.corner), feel: { valence: e.feel.valence, arousal: 0 } })
+  const charged = feels().find((f) => f.arousal === 1)!
+  const r = turnsInto(charged, calming)
+  assert.equal(r.carried, false)
+  assert.equal(r.returns, false)
+})
+
+test('uuidna_feel — the door answers what a feeling turns into, refuses an unknown name, and cites the feel theorems', () => {
+  const one = callTool('uuidna_feel', { valence: VALENCES[1], arousal: AROUSALS[1] }) as ReturnType<typeof feelCall>
+  assert.equal(one.feels.length, 1)
+  assert.deepEqual(one.feels[0]!.loop.map((e) => e.corner), [...CORNERS])
+  assert.ok(one.feels[0]!.loop.every((e) => e.valence === VALENCES[1] && e.arousal === AROUSALS[1]))
+  for (const key of one.backedBy) assert.ok(theoremFor(key), `${key} is sealed`)
+  assert.equal((callTool('uuidna_feel', {}) as ReturnType<typeof feelCall>).feels.length, feels().length)
+  const bad = callTool('uuidna_feel', { valence: 'bittersweet' }) as ReturnType<typeof feelCall>
+  assert.equal(bad.feels.length, 0)
+  assert.ok(bad.refused?.length)
 })
 
 test('affect_turn_back —back undoes the turn on both sides and equals the turn applied order − 1 times', () => {

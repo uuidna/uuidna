@@ -1,0 +1,33 @@
+{
+  "file": "SelfModel.lean",
+  "slug": "selfmodel",
+  "status": "retired",
+  "address": "1df3c19f-0df9-835a-a003-4cb16ea0c2fa",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "SelfModel.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"SelfModel.lean\",\n \"url\": \"https://uuidna.com/lean/SelfModel.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 0,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

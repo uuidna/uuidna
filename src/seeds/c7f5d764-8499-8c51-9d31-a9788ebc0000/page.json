@@ -1,0 +1,177 @@
+{
+  "file": "SelfModel.lean",
+  "slug": "selfmodel",
+  "status": "usable",
+  "address": "5fec745e-75c1-858a-9380-29af8d9e4678",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "SelfModel.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"SelfModel.lean\",\n \"url\": \"https://uuidna.com/lean/SelfModel.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 4,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-self_model_cantor",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "no state's predicate is the diagonal one: for any states at all and any map f from states to predicates on states, the predicate i ↦ ¬ f i i differs from f j at j itself — Cantor's diagonal in Lawvere's form (Lawvere 1969, doi 10.1007/BFb0080769)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ {α : Type} (f : α → α → Bool) (j : α), (fun i => !(f i i)) ≠ f j"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem self_model_cantor : ∀ {α : Type} (f : α → α → Bool) (j : α), (fun i => !(f i i)) ≠ f j := by intro α f j h have h2 := congrFun h j revert h2 cases f j j <;> decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-self_model_lawvere",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "so no system's states map onto all predicates on its states: a complete self-model would have to represent the diagonal, and the diagonal escapes every state — there is no complete self-model (Lawvere 1969, doi 10.1007/BFb0080769). Self-reference itself is not refused: Kleene's recursion theorem builds programs that print their own text (Kleene 1938, doi 10.2307/2267778), proved mathematics this wing cites and does not seal"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ {α : Type}, ¬ ∃ e : α → α → Bool, ∀ p : α → Bool, ∃ a, e a = p"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem self_model_lawvere : ∀ {α : Type}, ¬ ∃ e : α → α → Bool, ∀ p : α → Bool, ∃ a, e a = p := by intro α ⟨e, h⟩ obtain ⟨a, ha⟩ := h (fun i => !(e i i)) exact self_model_cantor e a ha.symm"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-self_model_diagonal_escapes",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "checked over every self-model of the 3 corners of the affect trinity (feeling, thought, emotion): in all 512 tables the diagonal predicate is no row of the table"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(models 3).all (fun t => t.all (fun r => r != diag t)) = true ∧ (models 3).length = 512"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem self_model_diagonal_escapes : (models 3).all (fun t => t.all (fun r => r != diag t)) = true ∧ (models 3).length = 512 := by decide +kernel"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-self_model_negation_no_fixed_point",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "negation on Bool fixes neither value — Lawvere's corollary: an onto self-model would give every map on Bool a fixed point, and this one has none"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ b : Bool, (!b) ≠ b"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem self_model_negation_no_fixed_point : ∀ b : Bool, (!b) ≠ b := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

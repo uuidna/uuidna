@@ -37,6 +37,7 @@ import {
   reAddress, type EditorState,
   articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll, publicApiRegistry, searchFeed, runSequence } from './index.js'
 import { latticeCall, fillLattice } from './lattice.js'
+import { feelCall } from './affect-trinity.js'
 import { PKG_VERSION } from './package-version.js'
 import { typeset, formulaCensus } from './formula.js'
 import {
@@ -1702,6 +1703,10 @@ const TOOLS: Tool[] = ([
     description: 'THE DESIGN MATRIX AS ONE SERVED STANDARD — every colour and every type size COMPUTED, none authored: the ℤ/9 sequence sets each hue (5 → green, the fixed point the diamond reflection holds; dz mirrors 1↔9, 2↔8, 3↔7, 4↔6) and the vortex orbit sets the type ladder\'s six rungs (six because 2 has order 6 in ℤ/9* — theorem order_of_two_is_six), each rung a ninth above the base with its line height in the sealed 3:4 rectangle. Returns {css,vars,receipt,honest} — the site, the design system and any client render the SAME receipt or they are not rendering the same matrix. No hex literal, no pixel value, no host intrinsics.',
     inputSchema: { type: 'object', properties: {} },
     run: () => matrixCss() },
+  { name: 'uuidna_feel',
+    description: 'WHAT DOES THIS FEELING TURN INTO — the affect trinity\'s feel, as sealed in lean/AffectTrinity.lean: a feeling is one valence (pleasant|unpleasant) and one arousal (calm|charged), core affect; feel f begins an episode at the feeling corner, and the turn carries it to a thought reading it, an emotion completing it, and back to the feeling, losing none of it. Pass {valence?, arousal?}; omit both for all four feelings. Returns {feels:[{feel,loop,returns,carried}],backedBy,honest,receipt}. Honest scope: exact for the model; whether experience divides into three is an open question, not a theorem.',
+    inputSchema: { type: 'object', properties: { valence: { type: 'string', description: 'pleasant or unpleasant' }, arousal: { type: 'string', description: 'calm or charged' } } },
+    run: (a) => feelCall(a as { valence?: unknown; arousal?: unknown }) },
   { name: 'uuidna_by_lean',
     description: 'RESOLVE A THEOREM BY ITS LEAN IDENTITY — theorems are uniquely indexed by their LEAN uuid (the address of the statement, never of the key), and every other surface uses them from here. Pass {query} as the lean uuid, ANY key that wears it, or the statement text itself; returns {leanUuid,statement,keys,files,entries} — the one proposition and every name it goes by. Two entries proving the same thing resolve to ONE identity however they are named or filed.',
     inputSchema: { type: 'object', properties: { query: { type: 'string', description: 'a lean uuid, a theorem key, or the statement text' } }, required: ['query'] },

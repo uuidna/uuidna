@@ -35,6 +35,10 @@ affect_loop_order 31
 affect_turn_closes 27
 affect_turn_fixes_no_corner 27
 affect_observer_fixed_point 27
+affect_feel_defined 31
+affect_feel_turns_into 27
+affect_feel_carried 27
+affect_feel_flip 27
 affect_turn_back 27
 affect_flip_involution 31
 affect_flip_commutes_turn 27
@@ -71523,6 +71527,7 @@ the_vortex_and_the_rosette_are_one_six_cycle 27
 the_ten_complement_involutes_the_vortex_through_the_axis 27`
 
 export const CLAIMS = `abo_klein_four 10.1038/345229a0
+affect_feel_defined 10.1037/0033-295X.110.1.145
 affect_flip_involution 10.1037/h0077714
 affect_loop_order 10.1037/0003-066X.46.8.819
 blood_types_eight 10.3181/00379727-43-11151
@@ -71557,7 +71562,7 @@ two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 34, falsifier: 63 }
+export const FLOOR = { witness: 35, falsifier: 63 }
 
 // Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
 // wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as

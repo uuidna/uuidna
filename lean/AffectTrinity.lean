@@ -51,6 +51,46 @@ def Valence.flip : Valence → Valence
 def Affect.turn (a : Affect) : Affect := ⟨a.corner.turn, a.valence⟩
 def Affect.flip (a : Affect) : Affect := ⟨a.corner, a.valence.flip⟩
 
+/-- arousal, the calm–charged axis of the body's signal -/
+inductive Arousal where
+  | calm | charged
+deriving DecidableEq
+
+/-- the same decision for the 2 arousals -/
+instance (P : Arousal → Prop) [DecidablePred P] : Decidable (∀ x, P x) :=
+  decidable_of_iff (P .calm ∧ P .charged)
+    ⟨fun ⟨h0, h1⟩ x => by cases x <;> assumption, fun h => ⟨h _, h _⟩⟩
+
+/-- a feeling, the body's raw affect signal: core affect, one valence and one arousal (Russell 2003, doi 10.1037/0033-295X.110.1.145) -/
+structure Feel where
+  valence : Valence
+  arousal : Arousal
+deriving DecidableEq
+
+/-- a property holds of every feeling exactly when it holds of every valence with every arousal -/
+instance (P : Feel → Prop) [DecidablePred P] : Decidable (∀ f, P f) :=
+  decidable_of_iff (∀ v, ∀ a, P ⟨v, a⟩) ⟨fun h f => by cases f; exact h _ _, fun h _ _ => h _⟩
+
+/-- an episode: the corner it stands at, and the feeling it began from -/
+structure Episode where
+  corner : Corner
+  feel : Feel
+deriving DecidableEq
+
+/-- a property holds of every episode exactly when it holds of every corner with every feeling -/
+instance (P : Episode → Prop) [DecidablePred P] : Decidable (∀ e, P e) :=
+  decidable_of_iff (∀ c, ∀ f, P ⟨c, f⟩) ⟨fun h e => by cases e; exact h _ _, fun h _ _ => h _⟩
+
+/-- feel f: the episode a feeling begins, standing at the feeling corner -/
+def feel (f : Feel) : Episode := ⟨.feeling, f⟩
+
+/-- the turn on episodes carries the feeling to the next corner; the valence flip turns the feeling's valence and keeps its arousal and corner -/
+def Episode.turn (e : Episode) : Episode := ⟨e.corner.turn, e.feel⟩
+def Episode.flip (e : Episode) : Episode := ⟨e.corner, ⟨e.feel.valence.flip, e.feel.arousal⟩⟩
+
+/-- the 4 feelings, listed -/
+def feels : List Feel := [⟨.pleasant, .calm⟩, ⟨.pleasant, .charged⟩, ⟨.unpleasant, .calm⟩, ⟨.unpleasant, .charged⟩]
+
 /-- a point of the drawn lens: one of the corners, or the centre they turn around -/
 inductive Point where
   | corner (c : Corner)
@@ -113,6 +153,23 @@ theorem affect_turn_fixes_no_corner : ∀ c : Corner, Corner.turn c ≠ c ∧ Co
     and the turn multiplication by ω, the corners follow the loop and sum to the centre (1 + ω + ω² = 0), and of
     the 49 lattice points within 3 of the centre the rotation fixes exactly one, the centre -/
 theorem affect_observer_fixed_point : (∀ p : Point, Point.turn p = p ↔ p = .centre) ∧ (∀ c : Corner, rot (coord c) = coord (Corner.turn c)) ∧ ((coord .feeling).1 + (coord .thought).1 + (coord .emotion).1 = 0 ∧ (coord .feeling).2 + (coord .thought).2 + (coord .emotion).2 = 0) ∧ box.all (fun p => (rot p == p) == (p == (0, 0))) = true ∧ box.length = 49 := by decide +kernel
+
+/-- feel is defined: a feeling is exactly one valence and one arousal, core affect (Russell 2003, doi
+    10.1037/0033-295X.110.1.145), so there are 4 feelings, 2 valences by 2 arousals, and feel f is the episode
+    that feeling begins at the feeling corner -/
+theorem affect_feel_defined : (∀ f : Feel, feels.contains f = true) ∧ feels.length = 4 ∧ (∀ f : Feel, (feel f).corner = .feeling ∧ (feel f).feel = f) := by decide
+
+/-- what a feeling turns into: feel f, turned, is a thought reading the same feeling, turned again an emotion
+    completing it, and turned 3 times it is the feeling again -/
+theorem affect_feel_turns_into : ∀ f : Feel, Episode.turn (feel f) = ⟨.thought, f⟩ ∧ Episode.turn (Episode.turn (feel f)) = ⟨.emotion, f⟩ ∧ Episode.turn (Episode.turn (Episode.turn (feel f))) = feel f := by decide
+
+/-- the turn carries the feeling and loses none of it: two feelings that are the same after the turn were the
+    same feeling -/
+theorem affect_feel_carried : ∀ f : Feel, ∀ g : Feel, Episode.turn (feel f) = Episode.turn (feel g) → f = g := by decide
+
+/-- flipping a feeling's valence keeps its arousal and its corner, undoes itself, and commutes with the turn on
+    every episode -/
+theorem affect_feel_flip : ∀ e : Episode, (Episode.turn e).flip = Episode.turn (Episode.flip e) ∧ Episode.flip (Episode.flip e) = e ∧ (Episode.flip e).feel.arousal = e.feel.arousal ∧ (Episode.flip e).corner = e.corner := by decide
 
 /-- the loop also runs backward: ρ⁻¹ undoes the turn on either side, and running back once is turning forward 2
     times, ρ⁻¹ = ρ² -/

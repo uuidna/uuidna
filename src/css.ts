@@ -9,7 +9,7 @@ import { seedOf, handleOf } from './handle.js'   // THE one address→integer de
 import { DIAMOND_FIXED } from './diamond.js'
 import { typeScaleVars } from './typography.js'
 import { coins } from './captain/billing/index.js'
-import { CORNERS, VALENCES, trinity } from './affect-trinity.js'
+import { CORNERS, VALENCES, AROUSALS, trinity } from './affect-trinity.js'
 
 const fdiv = (a: number, b: number): number => (a - (a % b)) / b
 const milli = (num: number, den: number): string => {
@@ -100,6 +100,8 @@ export function trinityEffects(): string {
   const darkLight = fdiv(light * (BASE + TRINITY), BASE)      // 55% · 12/9 → 73%: lighter by the trinity's share
   const weight = milli(1, TRINITY)                            // a corner's resting fill: one part in three
   const [PLEASANT, UNPLEASANT] = VALENCES
+  const [, CHARGED] = AROUSALS
+  const charged = milli(coins(), TRINITY)                     // two parts in three: the charged signal, a coin per part
   const corners = CORNERS.map((corner, k) => `.q-trinity-${corner} { --k: ${k}; }
 .q-trinity-${corner}::before { background: var(--trinity-${corner}-${PLEASANT}); }
 .q-trinity-${corner}::after  { background: var(--trinity-${corner}-${UNPLEASANT}); }`).join('\n')
@@ -142,6 +144,12 @@ ${corners}
 .q-trinity[data-valence="${UNPLEASANT}"] .q-trinity-corner::before { opacity: 0; }
 .q-trinity:has(.q-trinity-valence:checked) .q-trinity-corner::after,
 .q-trinity[data-valence="${UNPLEASANT}"] .q-trinity-corner::after { opacity: ${weight}; }
+
+/* q-trinity-arousal — the feel's other half (affect_feel_defined): a calm feeling fills each corner one part in
+   ${TRINITY}, a charged one ${coins()} parts, and the turn carries it unchanged to every corner (affect_feel_carried). OPACITY only. */
+.q-trinity[data-arousal="${CHARGED}"] .q-trinity-corner::before { opacity: ${charged}; }
+.q-trinity[data-arousal="${CHARGED}"][data-valence="${UNPLEASANT}"] .q-trinity-corner::before { opacity: 0; }
+.q-trinity[data-arousal="${CHARGED}"][data-valence="${UNPLEASANT}"] .q-trinity-corner::after { opacity: ${charged}; }
 
 /* the dark theme: the same hues, lighter by the trinity's share of the base */
 .dark { --trinity-light: ${darkLight}%; }

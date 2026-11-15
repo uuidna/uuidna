@@ -6,7 +6,7 @@
 // by walking src/affect-trinity.ts, the module the design matrix draws the trinity from, so the picture on the site
 // and the theorem it cites read one source.
 import { emit } from './lean-gen.js'
-import { CORNERS, VALENCES, trinity, turn, back, flip, onCorner, onValence, states, pow, orderOn, fixedOn, commutes, generated, observer, coordOf } from '../affect-trinity.js'
+import { CORNERS, VALENCES, trinity, turn, back, flip, onCorner, onValence, states, pow, orderOn, fixedOn, commutes, generated, observer, coordOf, AROUSALS, feels, turnsInto, episodes, turnEpisode, flipEpisode, eqE } from '../affect-trinity.js'
 
 const T = trinity()
 const O = observer()
@@ -15,6 +15,9 @@ const LAZARUS = 'Lazarus 1991, doi 10.1037/0003-066X.46.8.819'
 const SCHERER = 'Scherer 2009, doi 10.1080/02699930902928969'
 const BARRETT = 'Barrett 2017, doi 10.1093/scan/nsw154'
 const RUSSELL = 'Russell 1980, doi 10.1037/h0077714'
+const CORE = 'Russell 2003, doi 10.1037/0033-295X.110.1.145'
+const atom = (i: number): string => '.' + AROUSALS[i]
+const ep = (k: number, x: string): string => (k === 0 ? x : 'Episode.turn ' + (k > 1 ? '(' + ep(k - 1, x) + ')' : x))
 const [FEELING, THOUGHT, EMOTION] = CORNERS
 const [PLEASANT, UNPLEASANT] = VALENCES
 const ctor = (c: number): string => '.' + CORNERS[c]
@@ -70,6 +73,46 @@ ${VALENCES.map((_, i) => `  | ${vtor(i)} => ${vtor(flip(i))}`).join('\n')}
 /-- the turn and the flip lifted to the states: each moves its own coordinate and leaves the other -/
 def Affect.turn (a : Affect) : Affect := ⟨a.corner.turn, a.valence⟩
 def Affect.flip (a : Affect) : Affect := ⟨a.corner, a.valence.flip⟩
+
+/-- arousal, the calm–charged axis of the body's signal -/
+inductive Arousal where
+  | ${AROUSALS.join(' | ')}
+deriving DecidableEq
+
+/-- the same decision for the ${AROUSALS.length} arousals -/
+instance (P : Arousal → Prop) [DecidablePred P] : Decidable (∀ x, P x) :=
+  decidable_of_iff (${AROUSALS.map((a) => 'P .' + a).join(' ∧ ')})
+    ⟨fun ⟨${AROUSALS.map((_, i) => 'h' + i).join(', ')}⟩ x => by cases x <;> assumption, fun h => ⟨${AROUSALS.map(() => 'h _').join(', ')}⟩⟩
+
+/-- a feeling, the body's raw affect signal: core affect, one valence and one arousal (${CORE}) -/
+structure Feel where
+  valence : Valence
+  arousal : Arousal
+deriving DecidableEq
+
+/-- a property holds of every feeling exactly when it holds of every valence with every arousal -/
+instance (P : Feel → Prop) [DecidablePred P] : Decidable (∀ f, P f) :=
+  decidable_of_iff (∀ v, ∀ a, P ⟨v, a⟩) ⟨fun h f => by cases f; exact h _ _, fun h _ _ => h _⟩
+
+/-- an episode: the corner it stands at, and the feeling it began from -/
+structure Episode where
+  corner : Corner
+  feel : Feel
+deriving DecidableEq
+
+/-- a property holds of every episode exactly when it holds of every corner with every feeling -/
+instance (P : Episode → Prop) [DecidablePred P] : Decidable (∀ e, P e) :=
+  decidable_of_iff (∀ c, ∀ f, P ⟨c, f⟩) ⟨fun h e => by cases e; exact h _ _, fun h _ _ => h _⟩
+
+/-- feel f: the episode a feeling begins, standing at the ${FEELING} corner -/
+def feel (f : Feel) : Episode := ⟨${ctor(0)}, f⟩
+
+/-- the turn on episodes carries the feeling to the next corner; the valence flip turns the feeling's valence and keeps its arousal and corner -/
+def Episode.turn (e : Episode) : Episode := ⟨e.corner.turn, e.feel⟩
+def Episode.flip (e : Episode) : Episode := ⟨e.corner, ⟨e.feel.valence.flip, e.feel.arousal⟩⟩
+
+/-- the ${feels().length} feelings, listed -/
+def feels : List Feel := [${feels().map((f) => '⟨' + vtor(f.valence) + ', ' + atom(f.arousal) + '⟩').join(', ')}]
 
 /-- a point of the drawn lens: one of the corners, or the centre they turn around -/
 inductive Point where
@@ -131,6 +174,18 @@ const FACTS = [
   { key: 'affect_observer_fixed_point', why: `the observer is the fixed point of the turn, not a corner: on the drawn lens the turn moves every corner and leaves only the centre where it is; in the plane, with the corners at 1, ω and ω² in Eisenstein coordinates and the turn multiplication by ω, the corners follow the loop and sum to the centre (1 + ω + ω² = 0), and of the ${O.points} lattice points within ${O.radius} of the centre the rotation fixes exactly one, the centre`,
     js: () => O.centreOnly && O.cornersFollowTurn && O.closes && O.centroid[0] === 0 && O.centroid[1] === 0,
     lean: `theorem affect_observer_fixed_point : (∀ p : Point, Point.turn p = p ↔ p = .centre) ∧ (∀ c : Corner, rot (coord c) = coord (Corner.turn c)) ∧ (${CORNERS.map((c) => '(coord .' + c + ').1').join(' + ')} = 0 ∧ ${CORNERS.map((c) => '(coord .' + c + ').2').join(' + ')} = 0) ∧ box.all (fun p => (rot p == p) == (p == (0, 0))) = true ∧ box.length = ${O.points} := by decide +kernel` },
+  { key: 'affect_feel_defined', why: `feel is defined: a feeling is exactly one valence and one arousal, core affect (${CORE}), so there are ${feels().length} feelings, ${VALENCES.length} valences by ${AROUSALS.length} arousals, and feel f is the episode that feeling begins at the ${FEELING} corner`,
+    js: () => feels().length === VALENCES.length * AROUSALS.length && turnsInto(feels()[0]!).feel.corner === FEELING,
+    lean: `theorem affect_feel_defined : (∀ f : Feel, feels.contains f = true) ∧ feels.length = ${feels().length} ∧ (∀ f : Feel, (feel f).corner = ${ctor(0)} ∧ (feel f).feel = f) := by decide` },
+  { key: 'affect_feel_turns_into', why: `what a feeling turns into: feel f, turned, is a ${THOUGHT} reading the same feeling, turned again an ${EMOTION} completing it, and turned ${T.turnOrder} times it is the feeling again`,
+    js: () => feels().every((f) => { const r = turnsInto(f); return r.returns && r.carried && r.loop.map((x) => x.corner).join() === CORNERS.join() }),
+    lean: `theorem affect_feel_turns_into : ∀ f : Feel, ${[...Array(T.turnOrder - 1).keys()].map((k) => ep(k + 1, '(feel f)') + ' = ⟨' + ctor(pow(turn, k + 1)(0)) + ', f⟩').join(' ∧ ')} ∧ ${ep(T.turnOrder, '(feel f)')} = feel f := by decide` },
+  { key: 'affect_feel_carried', why: 'the turn carries the feeling and loses none of it: two feelings that are the same after the turn were the same feeling',
+    js: () => feels().every((f) => feels().every((g) => !eqE(turnEpisode({ corner: 0, feel: f }), turnEpisode({ corner: 0, feel: g })) || (f.valence === g.valence && f.arousal === g.arousal))),
+    lean: 'theorem affect_feel_carried : ∀ f : Feel, ∀ g : Feel, Episode.turn (feel f) = Episode.turn (feel g) → f = g := by decide' },
+  { key: 'affect_feel_flip', why: 'flipping a feeling\'s valence keeps its arousal and its corner, undoes itself, and commutes with the turn on every episode',
+    js: () => episodes().every((e) => eqE(flipEpisode(turnEpisode(e)), turnEpisode(flipEpisode(e))) && eqE(flipEpisode(flipEpisode(e)), e) && flipEpisode(e).feel.arousal === e.feel.arousal),
+    lean: 'theorem affect_feel_flip : ∀ e : Episode, (Episode.turn e).flip = Episode.turn (Episode.flip e) ∧ Episode.flip (Episode.flip e) = e ∧ (Episode.flip e).feel.arousal = e.feel.arousal ∧ (Episode.flip e).corner = e.corner := by decide' },
   { key: 'affect_turn_back', why: `the loop also runs backward: ρ⁻¹ undoes the turn on either side, and running back once is turning forward ${T.turnOrder - 1} times, ρ⁻¹ = ρ${sup(T.turnOrder - 1)}`,
     js: () => T.backIsInverse,
     lean: `theorem affect_turn_back : ∀ c : Corner, Corner.back (Corner.turn c) = c ∧ Corner.turn (Corner.back c) = c ∧ Corner.back c = ${turned(T.turnOrder - 1, "c")} := by decide` },

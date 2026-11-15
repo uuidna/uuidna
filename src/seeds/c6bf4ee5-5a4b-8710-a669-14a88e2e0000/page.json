@@ -1,0 +1,357 @@
+{
+  "file": "AffectTrinity.lean",
+  "slug": "affecttrinity",
+  "status": "usable",
+  "address": "4a87ac1b-b744-8907-b96d-54fef13c5df8",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "AffectTrinity.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"AffectTrinity.lean\",\n \"url\": \"https://uuidna.com/lean/AffectTrinity.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 9,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-affect_loop_order",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the loop runs feeling → thought → emotion → feeling: a feeling, the body's raw affect signal, is read by a thought, the appraisal (Lazarus 1991, doi 10.1037/0003-066X.46.8.819; Scherer 2009, doi 10.1080/02699930902928969), and the reading completes an emotion, the whole episode of affect joined to a concept (Barrett 2017, doi 10.1093/scan/nsw154), which is felt again"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Corner.turn .feeling = .thought ∧ Corner.turn .thought = .emotion ∧ Corner.turn .emotion = .feeling"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem affect_loop_order : Corner.turn .feeling = .thought ∧ Corner.turn .thought = .emotion ∧ Corner.turn .emotion = .feeling := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-affect_turn_closes",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "3 turns of 120° return every corner to itself: ρ³ = id, so the loop closes"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ c : Corner, Corner.turn (Corner.turn (Corner.turn c)) = c"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem affect_turn_closes : ∀ c : Corner, Corner.turn (Corner.turn (Corner.turn c)) = c := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-affect_turn_fixes_no_corner",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "no turn short of a full loop (ρ¹, ρ²) leaves any corner where it was: the observer is the axis the loop turns around, not a fourth corner it lands on"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ c : Corner, Corner.turn c ≠ c ∧ Corner.turn (Corner.turn c) ≠ c"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem affect_turn_fixes_no_corner : ∀ c : Corner, Corner.turn c ≠ c ∧ Corner.turn (Corner.turn c) ≠ c := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-affect_observer_fixed_point",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the observer is the fixed point of the turn, not a corner: on the drawn lens the turn moves every corner and leaves only the centre where it is; in the plane, with the corners at 1, ω and ω² in Eisenstein coordinates and the turn multiplication by ω, the corners follow the loop and sum to the centre (1 + ω + ω² = 0), and of the 49 lattice points within 3 of the centre the rotation fixes exactly one, the centre"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(∀ p : Point, Point.turn p = p ↔ p = .centre) ∧ (∀ c : Corner, rot (coord c) = coord (Corner.turn c)) ∧ ((coord .feeling).1 + (coord .thought).1 + (coord .emotion).1 = 0 ∧ (coord .feeling).2 + (coord .thought).2 + (coord .emotion).2 = 0) ∧ box.all (fun p => (rot p == p) == (p == (0, 0))) = true ∧ box.length = 49"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem affect_observer_fixed_point : (∀ p : Point, Point.turn p = p ↔ p = .centre) ∧ (∀ c : Corner, rot (coord c) = coord (Corner.turn c)) ∧ ((coord .feeling).1 + (coord .thought).1 + (coord .emotion).1 = 0 ∧ (coord .feeling).2 + (coord .thought).2 + (coord .emotion).2 = 0) ∧ box.all (fun p => (rot p == p) == (p == (0, 0))) = true ∧ box.length = 49 := by decide +kernel"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-affect_turn_back",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the loop also runs backward: ρ⁻¹ undoes the turn on either side, and running back once is turning forward 2 times, ρ⁻¹ = ρ²"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ c : Corner, Corner.back (Corner.turn c) = c ∧ Corner.turn (Corner.back c) = c ∧ Corner.back c = Corner.turn (Corner.turn c)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem affect_turn_back : ∀ c : Corner, Corner.back (Corner.turn c) = c ∧ Corner.turn (Corner.back c) = c ∧ Corner.back c = Corner.turn (Corner.turn c) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-affect_flip_involution",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the valence flip, pleasant ↔ unpleasant (Russell 1980, doi 10.1037/h0077714), undone by itself and fixing neither valence: σ² = id"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ v : Valence, Valence.flip (Valence.flip v) = v ∧ Valence.flip v ≠ v"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem affect_flip_involution : ∀ v : Valence, Valence.flip (Valence.flip v) = v ∧ Valence.flip v ≠ v := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-affect_flip_commutes_turn",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the valence flip acts on every corner at once, leaving each corner where it is, and commutes with the turn: σρ = ρσ on every state"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ a : Affect, (Affect.turn a).flip = (Affect.flip a).turn ∧ (Affect.flip a).corner = a.corner"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem affect_flip_commutes_turn : ∀ a : Affect, (Affect.turn a).flip = (Affect.flip a).turn ∧ (Affect.flip a).corner = a.corner := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-affect_group_order_six",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the turn and the flip generate a group of exactly 6 elements, 3 turns times 2 flips (ℤ/3 × ℤ/2): the closure of the identity under both holds the identity, is closed under each generator, and has 6 action tables on the 6 states"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(∀ a : Affect, states.contains a = true) ∧ generated.contains states = true ∧ generated.all (fun t => generated.contains (t.map Affect.turn) && generated.contains (t.map Affect.flip)) = true ∧ generated.length = 6"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem affect_group_order_six : (∀ a : Affect, states.contains a = true) ∧ generated.contains states = true ∧ generated.all (fun t => generated.contains (t.map Affect.turn) && generated.contains (t.map Affect.flip)) = true ∧ generated.length = 6 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-affect_group_cyclic",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "turning and flipping together has order exactly 6, so the 6-element group is cyclic: ℤ/3 × ℤ/2 ≅ ℤ/6, and the lens is abelian, not the triangle's dihedral symmetry"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(∀ a : Affect, iter (fun b => (Affect.turn b).flip) 6 a = a) ∧ (List.range 5).all (fun k => states.map (iter (fun b => (Affect.turn b).flip) (k + 1)) != states) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem affect_group_cyclic : (∀ a : Affect, iter (fun b => (Affect.turn b).flip) 6 a = a) ∧ (List.range 5).all (fun k => states.map (iter (fun b => (Affect.turn b).flip) (k + 1)) != states) = true := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

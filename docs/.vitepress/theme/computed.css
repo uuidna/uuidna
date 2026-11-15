@@ -2,7 +2,7 @@
  *
  * computed from the ℤ/9 sequence and the vortex orbit — no hex literal, no pixel value is authored; a surface that renders a different receipt is rendering a different matrix
  *
- * vars 41 · receipt 2ce47f1e-3df0-8ba4-b626-6da731f7e535
+ * vars 41 · receipt a6e2f93b-f2e3-857b-83a1-bb2a54fc9047
  *
  * The receipt folds this exact text. A surface serving a different receipt is serving a different matrix, which
  * is the whole point of computing it: uuidna_css answers the same bytes to any client that asks.
@@ -150,6 +150,12 @@
 .q-trinity[data-valence="unpleasant"] .q-trinity-corner::before { opacity: 0; }
 .q-trinity:has(.q-trinity-valence:checked) .q-trinity-corner::after,
 .q-trinity[data-valence="unpleasant"] .q-trinity-corner::after { opacity: 0.333; }
+
+/* q-trinity-arousal — the feel's other half (affect_feel_defined): a calm feeling fills each corner one part in
+   3, a charged one 2 parts, and the turn carries it unchanged to every corner (affect_feel_carried). OPACITY only. */
+.q-trinity[data-arousal="charged"] .q-trinity-corner::before { opacity: 0.666; }
+.q-trinity[data-arousal="charged"][data-valence="unpleasant"] .q-trinity-corner::before { opacity: 0; }
+.q-trinity[data-arousal="charged"][data-valence="unpleasant"] .q-trinity-corner::after { opacity: 0.666; }
 
 /* the dark theme: the same hues, lighter by the trinity's share of the base */
 .dark { --trinity-light: 73%; }

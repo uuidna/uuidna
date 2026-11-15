@@ -22,6 +22,14 @@ The turns and flips together make a group whose size the kernel counts
 ([`affect_group_order_six`](/theorem/affect_group_order_six)), and it is cyclic, not the triangle's dihedral
 symmetry ([`affect_group_cyclic`](/theorem/affect_group_cyclic)).
 
+A feeling has content of its own: one valence and one arousal, calm or charged
+([`affect_feel_defined`](/theorem/affect_feel_defined)). It begins an episode at the feeling corner, and the turn
+carries it to a thought that reads it, an emotion that completes it, and back to the same feeling
+([`affect_feel_turns_into`](/theorem/affect_feel_turns_into)), losing none of it on the way
+([`affect_feel_carried`](/theorem/affect_feel_carried)). Flipping its valence keeps its arousal and commutes with
+the turn ([`affect_feel_flip`](/theorem/affect_feel_flip)). The figure draws arousal as how full each corner is, and
+the `uuidna_feel` door answers what any feeling turns into.
+
 **Honest scope.** The algebra is exact for the model, and every sentence above cites the theorem that holds it. No
 theorem says that experience really divides into three, or that a mixed state such as bittersweet keeps to the loop.
 That is an open empirical question for measurement, and the trial door answers it UNVERIFIED, never as a claim.

@@ -7,6 +7,8 @@
 // Scope, which no theorem here closes: the algebra is exact for this model. Whether experience divides into three
 // corners, and whether a mixed state (bittersweet) breaks the loop, is an open empirical question.
 
+import { toUuid } from './address.js'
+
 export const CORNERS = ['feeling', 'thought', 'emotion'] as const
 export const VALENCES = ['pleasant', 'unpleasant'] as const
 
@@ -81,6 +83,53 @@ export function generated(gens: readonly MapA[]): { tables: string[]; rounds: nu
   }
   const closed = maps.every((f) => gens.every((g) => tables.includes(tableOf((a) => g(f(a))))))
   return { tables, rounds, closed }
+}
+
+// FEEL — the feeling corner given content: core affect, a valence and an arousal (Russell 2003). A feeling is where
+// an episode begins; the turn carries it through thought and emotion and back, and the feeling rides along unchanged,
+// so "what does this feeling turn into" has an exact answer: the same feeling, read, then completed, then felt again.
+export const AROUSALS = ['calm', 'charged'] as const
+/** a feeling: one valence and one arousal, as indices */
+export interface Feel { valence: number; arousal: number }
+/** an episode: the corner it stands at, and the feeling it began from */
+export interface Episode { corner: number; feel: Feel }
+/** every feeling, valence by arousal */
+export const feels = (): Feel[] => range(V).flatMap((valence) => range(AROUSALS.length).map((arousal) => ({ valence, arousal })))
+/** feel(f): the episode a feeling begins — at the feeling corner */
+export const feel = (f: Feel): Episode => ({ corner: 0, feel: f })
+/** the turn on episodes: the next corner, the feeling carried */
+export const turnEpisode = (e: Episode): Episode => ({ corner: turn(e.corner), feel: e.feel })
+/** the valence flip on episodes: the feeling's valence flipped, its arousal and corner kept */
+export const flipEpisode = (e: Episode): Episode => ({ corner: e.corner, feel: { valence: flip(e.feel.valence), arousal: e.feel.arousal } })
+export const eqE = (a: Episode, b: Episode): boolean => a.corner === b.corner && a.feel.valence === b.feel.valence && a.feel.arousal === b.feel.arousal
+/** every episode: every corner with every feeling */
+export const episodes = (): Episode[] => range(C).flatMap((corner) => feels().map((f) => ({ corner, feel: f })))
+
+/** what a feeling turns into: the loop from feel(f), corner by corner, until it is the feeling again */
+export function turnsInto(f: Feel, step: (e: Episode) => Episode = turnEpisode) {
+  const start = feel(f)
+  const loop: Episode[] = [start]
+  let e = step(start)
+  while (!eqE(e, start) && loop.length <= episodes().length) { loop.push(e); e = step(e) }
+  const named = (x: Episode) => ({ corner: CORNERS[x.corner], valence: VALENCES[x.feel.valence], arousal: AROUSALS[x.feel.arousal] })
+  return { feel: named(start), loop: loop.map(named), returns: eqE(e, start), carried: loop.every((x) => x.feel.valence === f.valence && x.feel.arousal === f.arousal) }
+}
+
+/** the uuidna_feel door: what each named feeling (or every feeling) turns into, with the theorems that hold it. A
+ *  name outside the valences or arousals selects nothing and says so, rather than defaulting to some feeling. */
+export function feelCall(args: { valence?: unknown; arousal?: unknown } = {}) {
+  const pick = (names: readonly string[], v: unknown): number | null | undefined =>
+    v === undefined || v === null || v === '' ? undefined : (names.includes(String(v)) ? names.indexOf(String(v)) : null)
+  const v = pick(VALENCES, args.valence), a = pick(AROUSALS, args.arousal)
+  const refused = [v === null ? `valence "${String(args.valence)}" is not one of ${VALENCES.join('|')}` : '', a === null ? `arousal "${String(args.arousal)}" is not one of ${AROUSALS.join('|')}` : ''].filter(Boolean)
+  const chosen = refused.length ? [] : feels().filter((f) => (v === undefined || f.valence === v) && (a === undefined || f.arousal === a))
+  const answer = {
+    feels: chosen.map((f) => turnsInto(f)),
+    backedBy: ['affect_feel_defined', 'affect_feel_turns_into', 'affect_feel_carried', 'affect_feel_flip'],
+    honest: 'exact for the model sealed in lean/AffectTrinity.lean; whether experience divides into three, and whether a mixed state keeps to the loop, is an open question, not a theorem',
+    ...(refused.length ? { refused } : {}),
+  }
+  return { ...answer, receipt: toUuid(JSON.stringify(answer)) }
 }
 
 // THE PLANE THE CORNERS ARE DRAWN IN, in Eisenstein coordinates: (a, b) is a + bω with ω a primitive cube root of

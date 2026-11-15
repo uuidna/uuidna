@@ -1146,7 +1146,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"coins\":2,\"unit\":2,\"seals\":71237,\"minted\":142474,\"capacity\":128,\"referrerDoors\":6,\"combinations\":42,\"max\":5376,\"remaining\":-137098,\"capSeals\":2688,\"unsealed\":…"
+   "excerpt": "{\"coins\":2,\"unit\":2,\"seals\":71254,\"minted\":142508,\"capacity\":128,\"referrerDoors\":6,\"combinations\":42,\"max\":5376,\"remaining\":-137132,\"capSeals\":2688,\"unsealed\":…"
   }
  },
  "uuidna_license": {
@@ -1298,7 +1298,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"selfReported\":true,\"label\":null,\"dimensions\":{\"input\":0,\"output\":0,\"cached\":0,\"reasoning\":0},\"total\":0,\"theorems\":71237,\"tokensPerTheorem\":0,\"distribution\":{…"
+   "excerpt": "{\"selfReported\":true,\"label\":null,\"dimensions\":{\"input\":0,\"output\":0,\"cached\":0,\"reasoning\":0},\"total\":0,\"theorems\":71254,\"tokensPerTheorem\":0,\"distribution\":{…"
   }
  },
  "uuidna_cost": {
@@ -1376,7 +1376,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":71237,\"formalBytes\":7678013,\"bytesPerTheorem\":107.7812513160296,\"verifyOps\":71237,\"produceOverVerify\":107.7812513160296,\"largest\":{\"key\":\"a_template_d…"
+   "excerpt": "{\"count\":71254,\"formalBytes\":7681171,\"bytesPerTheorem\":107.79985685014175,\"verifyOps\":71254,\"produceOverVerify\":107.79985685014175,\"largest\":{\"key\":\"a_template…"
   }
  },
  "uuidna_unlocks": {
@@ -1550,7 +1550,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"surfaces\":{\"wings\":71237,\"ledger\":71237,\"paper\":5701,\"selfChecked\":5701},\"leads\":[],\"byKind\":{},\"agree\":true,\"receipt\":\"93929a2d-4810-8ac6-9f32-4ed07d9e016c\"…"
+   "excerpt": "{\"surfaces\":{\"wings\":71254,\"ledger\":71254,\"paper\":5718,\"selfChecked\":5718},\"leads\":[],\"byKind\":{},\"agree\":true,\"receipt\":\"93929a2d-4810-8ac6-9f32-4ed07d9e016c\"…"
   }
  },
  "uuidna_verify_statement": {
@@ -12168,7 +12168,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"total\":71237,\"formula\":1644,\"program\":69593,\"refused\":0,\"manuscript\":\"https://uuidna.com/uuidna-ledger.tex\"}"
+   "excerpt": "{\"total\":71254,\"formula\":1644,\"program\":69610,\"refused\":0,\"manuscript\":\"https://uuidna.com/uuidna-ledger.tex\"}"
   }
  },
  "uuidna_through_void": {
@@ -13529,7 +13529,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"doors\":253,\"width\":8,\"bits\":32,\"distinct\":253,\"collisions\":[],\"programs\":253,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296,\"paramsInMiddle\":65536…"
+   "excerpt": "{\"doors\":254,\"width\":8,\"bits\":32,\"distinct\":254,\"collisions\":[],\"programs\":254,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296,\"paramsInMiddle\":65536…"
   }
  },
  "uuidna_lattice": {
@@ -13618,7 +13618,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"stations\":65536,\"occupied\":5968,\"vacant\":59568,\"theoremsSeated\":5701,\"axiomsSeated\":555,\"problemsSeated\":18,\"collisions\":[{\"station\":\"000e\",\"keys\":[\"euler_ph…"
+   "excerpt": "{\"stations\":65536,\"occupied\":6007,\"vacant\":59529,\"theoremsSeated\":5718,\"axiomsSeated\":576,\"problemsSeated\":18,\"collisions\":[{\"station\":\"000e\",\"keys\":[\"euler_ph…"
   }
  },
  "uuidna_skills": {
@@ -14053,7 +14053,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"total\":71237,\"covered\":71237,\"uncovered\":[],\"uncoveredFiles\":[],\"ready\":true,\"receipt\":\"93f122fc-4278-8f4b-b0a1-7e9cd69d13b6\"}"
+   "excerpt": "{\"total\":71254,\"covered\":71254,\"uncovered\":[],\"uncoveredFiles\":[],\"ready\":true,\"receipt\":\"ae269dc8-a4df-8c18-a67f-3ffef5cb531c\"}"
   }
  },
  "uuidna_reactor": {
@@ -14758,7 +14758,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"sections\":[{\"title\":\"Theorem accounting (ledger balance)\",\"source\":null,\"present\":true,\"facts\":{\"distinct\":71151,\"keys\":71237,\"renamings\":86,\"principles\":264…"
+   "excerpt": "{\"sections\":[{\"title\":\"Theorem accounting (ledger balance)\",\"source\":null,\"present\":true,\"facts\":{\"distinct\":71168,\"keys\":71254,\"renamings\":86,\"principles\":266…"
   }
  },
  "uuidna_analytics": {
@@ -15002,7 +15002,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"polarities\":{\"minus\":28592,\"neutral\":14172,\"plus\":28473,\"capacity\":{\"minus\":4,\"neutral\":2,\"plus\":4},\"byRay\":[{\"ray\":0,\"minus\":4113,\"neutral\":2008,\"plus\":4069…"
+   "excerpt": "{\"polarities\":{\"minus\":28594,\"neutral\":14178,\"plus\":28482,\"capacity\":{\"minus\":4,\"neutral\":2,\"plus\":4},\"byRay\":[{\"ray\":0,\"minus\":4112,\"neutral\":2010,\"plus\":4068…"
   }
  },
  "uuidna_treason": {
@@ -15050,7 +15050,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"clean\":true,\"scanned\":71237,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invariants\",\"seal-integrity\",\"hex…"
+   "excerpt": "{\"clean\":true,\"scanned\":71254,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invariants\",\"seal-integrity\",\"hex…"
   }
  },
  "uuidna_guard_lessons": {
@@ -15147,7 +15147,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"shipped\":true,\"measured\":true,\"holds\":true,\"audited\":71237,\"axiomFree\":71237,\"ledger\":71237,\"offenders\":{},\"receipt\":\"87ec267d-3d96-84e2-bf82-7cfaca9ea6de\",\"…"
+   "excerpt": "{\"shipped\":true,\"measured\":true,\"holds\":true,\"audited\":71254,\"axiomFree\":71254,\"ledger\":71254,\"offenders\":{},\"receipt\":\"5a0e70ba-7eb0-801c-a7e1-a980ac75883c\",\"…"
   }
  },
  "uuidna_rosetta_seals": {
@@ -15488,7 +15488,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":71237,\"total\":true,\"failures\":[],\"receipt\":\"c9b14dad-27b2-83c6-80fb-d0c5f4754dc3\",\"honest\":\"THE TOTALITY SEAL: secure messaging is a TOTAL function on…"
+   "excerpt": "{\"count\":71254,\"total\":true,\"failures\":[],\"receipt\":\"1c4798e8-bb9a-87c1-aa4d-3b1449a4511a\",\"honest\":\"THE TOTALITY SEAL: secure messaging is a TOTAL function on…"
   }
  },
  "uuidna_dictionary": {
@@ -15530,7 +15530,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"terms\":71237,\"skills\":131,\"principles\":264,\"receipt\":\"0759b9ad-0a59-861b-bced-d3528e6e9835\",\"honest\":\"the lexicon is the ledger — every term sealed, every de…"
+   "excerpt": "{\"terms\":71254,\"skills\":131,\"principles\":266,\"receipt\":\"993c4c6f-76f0-8b63-aea8-c5c9488da534\",\"honest\":\"the lexicon is the ledger — every term sealed, every de…"
   }
  },
  "uuidna_quantum_voting": {
@@ -16114,7 +16114,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"version\":\"6.0\",\"spec\":\"https://github.com/open-education-api/specification/blob/main/oeapi.json\",\"counts\":{\"organisations\":2,\"programmes\":131,\"courses\":264,\"…"
+   "excerpt": "{\"version\":\"6.0\",\"spec\":\"https://github.com/open-education-api/specification/blob/main/oeapi.json\",\"counts\":{\"organisations\":2,\"programmes\":131,\"courses\":266,\"…"
   }
  },
  "uuidna_predict": {
@@ -16172,7 +16172,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "likelihood": "all"
    },
-   "excerpt": "{\"total\":66,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":66,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
+   "excerpt": "{\"total\":67,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":67,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
   }
  },
  "uuidna_school_apis": {
@@ -17060,7 +17060,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":278,\"tools\":253,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
+   "excerpt": "{\"count\":279,\"tools\":254,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
   }
  },
  "uuidna_alpine": {
@@ -17484,7 +17484,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"total\":71237,\"historical\":1630,\"contextual\":1136,\"captainAlone\":68471,\"address\":\"79d6d9cd-4490-84b8-86ef-f1787cd0471d\"}"
+   "excerpt": "{\"total\":71254,\"historical\":1635,\"contextual\":1136,\"captainAlone\":68483,\"address\":\"62bd08a8-dd1d-819b-9a6f-d87cf1c2c7f3\"}"
   }
  },
  "uuidna_neighbours": {
@@ -18370,7 +18370,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"verifiedAll\":{\"theorems\":71237,\"verified\":71237,\"unverified\":0,\"receipt\":\"0759b9ad-0a59-861b-bced-d3528e6e9835\"},\"guarantees\":[{\"key\":\"legal_verdict_is_exact…"
+   "excerpt": "{\"verifiedAll\":{\"theorems\":71254,\"verified\":71254,\"unverified\":0,\"receipt\":\"993c4c6f-76f0-8b63-aea8-c5c9488da534\"},\"guarantees\":[{\"key\":\"legal_verdict_is_exact…"
   }
  },
  "uuidna_cloudflare_audit": {
@@ -18691,7 +18691,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":71237,\"fnvReceipt\":\"0759b9ad-0a59-861b-bced-d3528e6e9835\",\"sha256\":\"b12e6c916ab0049e29061f389eee527ee2dcadc552a011a08e636577722c6a66\",\"tamperCost\":\"A …"
+   "excerpt": "{\"count\":71254,\"fnvReceipt\":\"993c4c6f-76f0-8b63-aea8-c5c9488da534\",\"sha256\":\"665dd7ba3173bd4bb75d31efd9d69c76223e73b24f886e4d1718362c0c0eac0c\",\"tamperCost\":\"A …"
   }
  },
  "uuidna_forensics": {
@@ -19074,7 +19074,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":71237,\"verified\":71237,\"unverified\":0,\"leanBacked\":71237,\"receipt\":\"0759b9ad-0a59-861b-bced-d3528e6e9835\",\"verdicts\":[{\"key\":\"mul9_1_1\",\"name\":\"1·1 ≡ …"
+   "excerpt": "{\"count\":71254,\"verified\":71254,\"unverified\":0,\"leanBacked\":71254,\"receipt\":\"993c4c6f-76f0-8b63-aea8-c5c9488da534\",\"verdicts\":[{\"key\":\"mul9_1_1\",\"name\":\"1·1 ≡ …"
   }
  },
  "uuidna_css": {
@@ -19114,6 +19114,51 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "example": {
    "args": {},
    "excerpt": "{\"css\":\":root {\\n  --dur-1: 111ms;\\n  --dur-2: 222ms;\\n  --dur-4: 444ms;\\n  --dur-5: 555ms;\\n  --dur-7: 777ms;\\n  --dur-8: 888ms;\\n  --seq-1: hsl(336 66% 55%);…"
+  }
+ },
+ "uuidna_feel": {
+  "name": "get_feel",
+  "title": "Get feel",
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  },
+  "effects": {
+   "network": false,
+   "writes": false,
+   "deletes": false,
+   "spawns": false
+  },
+  "description": "Get feel. Returns {feels,backedBy,honest,receipt}.",
+  "outputSchema": {
+   "type": "object",
+   "properties": {
+    "feels": {
+     "type": "array",
+     "items": {
+      "type": "object"
+     }
+    },
+    "backedBy": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "honest": {
+     "type": "string"
+    },
+    "receipt": {
+     "type": "string"
+    }
+   }
+  },
+  "status": "documented",
+  "example": {
+   "args": {},
+   "excerpt": "{\"feels\":[{\"feel\":{\"corner\":\"feeling\",\"valence\":\"pleasant\",\"arousal\":\"calm\"},\"loop\":[{\"corner\":\"feeling\",\"valence\":\"pleasant\",\"arousal\":\"calm\"},{\"corner\":\"thou…"
   }
  },
  "uuidna_by_lean": {
@@ -19187,7 +19232,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"propositions\":71151,\"entries\":71237,\"index\":[{\"leanUuid\":\"0764f3a2-a09a-83fe-9d81-8c6928d7de1a\",\"statement\":\"(1 * 1) % 9 = 1\",\"keys\":[\"mul9_1_1\",\"z9mul_1_1\"]…"
+   "excerpt": "{\"propositions\":71168,\"entries\":71254,\"index\":[{\"leanUuid\":\"0764f3a2-a09a-83fe-9d81-8c6928d7de1a\",\"statement\":\"(1 * 1) % 9 = 1\",\"keys\":[\"mul9_1_1\",\"z9mul_1_1\"]…"
   }
  },
  "uuidna_statement_census": {
@@ -19229,7 +19274,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"entries\":71237,\"distinct\":71151,\"renamings\":86,\"groups\":[{\"statement\":\"(1 * 1) % 9 = 1\",\"keys\":[\"mul9_1_1\",\"z9mul_1_1\"],\"files\":[\"Core.lean\",\"Ring.lean\"]},{\"…"
+   "excerpt": "{\"entries\":71254,\"distinct\":71168,\"renamings\":86,\"groups\":[{\"statement\":\"(1 * 1) % 9 = 1\",\"keys\":[\"mul9_1_1\",\"z9mul_1_1\"],\"files\":[\"Core.lean\",\"Ring.lean\"]},{\"…"
   }
  },
  "uuidna_coin_ledger": {
@@ -19594,7 +19639,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "q": "mul9_1_1"
    },
-   "excerpt": "{\"q\":\"mul9_1_1\",\"count\":1,\"total\":71237,\"receipt\":\"f0b58c9c-d571-81ff-b82d-07db3a0e2aea\",\"handle\":\"f0b58c9c\",\"hexbits\":[15,0,11,5,8,12,9,12,13,5,7,1,8,1,15,15,…"
+   "excerpt": "{\"q\":\"mul9_1_1\",\"count\":1,\"total\":71254,\"receipt\":\"f0b58c9c-d571-81ff-b82d-07db3a0e2aea\",\"handle\":\"f0b58c9c\",\"hexbits\":[15,0,11,5,8,12,9,12,13,5,7,1,8,1,15,15,…"
   }
  },
  "uuidna_search_feed": {
@@ -20003,7 +20048,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"tools\":253,\"zeroArgReusable\":121,\"totalRequiredKeys\":194,\"reusablePerKey\":1.304,\"avgRequiredKeys\":0.767,\"avgRating\":4.233,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
+   "excerpt": "{\"tools\":254,\"zeroArgReusable\":122,\"totalRequiredKeys\":194,\"reusablePerKey\":1.309,\"avgRequiredKeys\":0.764,\"avgRating\":4.236,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
   }
  },
  "uuidna_unify": {
@@ -20081,7 +20126,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"98c428db\",\"theorems\":{\"count\":71237,\"verified\":71237,\"receipt\":\"0759b9ad-0a59-861b-bced-d3528e6e9835\"},\"domains\":{\"count\":131,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"cccff81a\",\"theorems\":{\"count\":71254,\"verified\":71254,\"receipt\":\"993c4c6f-76f0-8b63-aea8-c5c9488da534\"},\"domains\":{\"count\":131,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {
@@ -20196,7 +20241,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"161aa168\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":34,\"hsl\":\"hsl(34, 66%, 54%)\",\"rgb\":\"#d7…"
+   "excerpt": "{\"handle\":\"7ca6a4c2\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":34,\"hsl\":\"hsl(34, 66%, 54%)\",\"rgb\":\"#d7…"
   }
  },
  "uuidna_social_profile": {
@@ -20300,7 +20345,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"@uuidna\",\"name\":\"uuidna\",\"bio\":\"Content-addressed identity, honest by construction — 71237 Lean theorems, all by decide, kernel-only, folded to one …"
+   "excerpt": "{\"handle\":\"@uuidna\",\"name\":\"uuidna\",\"bio\":\"Content-addressed identity, honest by construction — 71254 Lean theorems, all by decide, kernel-only, folded to one …"
   }
  },
  "uuidna_grow_life": {
@@ -20604,7 +20649,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":253,\"registry\":\"ad95ad31-fe8b-84f…"
+   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":254,\"registry\":\"a2874e47-b0df-84b…"
   }
  },
  "uuidna_send": {
@@ -21096,7 +21141,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"receipt\":\"f853d98a-7d9e-8eb7-9010-564573ae2564\",\"handle\":\"f853d98a\",\"hexbits\":[15,8,5,3,13,9,8,10,7,13,9,14,8,14,11,7,9,0,1,0,5,6,4,5,7,3,10,14,2,5,6,4],\"doo…"
+   "excerpt": "{\"receipt\":\"b131e718-4d6b-8499-81b4-857a2d2573a0\",\"handle\":\"b131e718\",\"hexbits\":[11,1,3,1,14,7,1,8,4,13,6,11,8,4,9,9,8,1,11,4,8,5,7,10,2,13,2,5,7,3,10,0],\"door…"
   }
  },
  "uuidna_detect_forgery": {
@@ -21400,7 +21445,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"traitors\":{\"clean\":true,\"scanned\":71237,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invariants\",\"seal-int…"
+   "excerpt": "{\"traitors\":{\"clean\":true,\"scanned\":71254,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invariants\",\"seal-int…"
   }
  },
  "uuidna_audit_ledger_fingerprint": {
@@ -21450,7 +21495,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"fingerprint\":{\"count\":71237,\"fnvReceipt\":\"0759b9ad-0a59-861b-bced-d3528e6e9835\",\"sha256\":\"b12e6c916ab0049e29061f389eee527ee2dcadc552a011a08e636577722c6a66\",\"…"
+   "excerpt": "{\"fingerprint\":{\"count\":71254,\"fnvReceipt\":\"993c4c6f-76f0-8b63-aea8-c5c9488da534\",\"sha256\":\"665dd7ba3173bd4bb75d31efd9d69c76223e73b24f886e4d1718362c0c0eac0c\",\"…"
   }
  },
  "uuidna_audit_agent_statement": {
@@ -21574,7 +21619,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"intrusions\":{\"traitors\":{\"clean\":true,\"scanned\":71237,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invaria…"
+   "excerpt": "{\"intrusions\":{\"traitors\":{\"clean\":true,\"scanned\":71254,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invaria…"
   }
  },
  "uuidna_quantum_message_demo": {
