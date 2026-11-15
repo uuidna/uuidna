@@ -2,7 +2,7 @@
  *
  * computed from the ℤ/9 sequence and the vortex orbit — no hex literal, no pixel value is authored; a surface that renders a different receipt is rendering a different matrix
  *
- * vars 41 · receipt a613108f-51f0-8d6d-b12b-2041492de44c
+ * vars 41 · receipt 2ce47f1e-3df0-8ba4-b626-6da731f7e535
  *
  * The receipt folds this exact text. A surface serving a different receipt is serving a different matrix, which
  * is the whole point of computing it: uuidna_css answers the same bytes to any client that asks.
@@ -105,7 +105,7 @@
 :root[data-dim-motion="simple"] .q-fold { transition: none; animation: none; }
 
 /* q-trinity — THE AFFECT TRINITY (lean/AffectTrinity.lean): 3 corners 120deg apart around an axis that
-   is no corner (affect_turn_fixes_no_corner). The wheel spans the base (9em); each corner sits a trinity
+   is no corner (affect_turn_fixes_no_corner) but the one point the turn fixes (affect_observer_fixed_point). The wheel spans the base (9em); each corner sits a trinity
    (3em) from the axis. */
 .q-trinity { display: grid; justify-items: center; gap: var(--type-1); }
 .q-trinity-wheel { position: relative; inline-size: 9em; block-size: 9em; max-inline-size: 100%; }
