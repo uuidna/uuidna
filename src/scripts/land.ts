@@ -39,7 +39,8 @@ const CURES: { name: string; when: RegExp; cmd: string }[] = [
   // must never guess. The merge cites a sealed theorem so the commit is SIGNED: an automated merge that cannot
   // pay the citation coin is a hand-amend waiting to happen, and three were amended by hand the day this landed.
   { name: 'behind the shared tree', when: /\[rejected\][^\n]*\((?:fetch first|non-fast-forward)\)|tip of your current branch is behind/,
-    cmd: 'git fetch origin && { git merge --no-edit -m "Merge origin/main: the shared tree moved while the gate was walked.\n\nBacked by theorem two_coins." origin/main || { git merge --abort; false; }; }' },
+    // merged in a scratch worktree so another session's staged work never blocks it (scripts/merge-behind.ts)
+    cmd: 'node dist/scripts/merge-behind.js' },
   // THE DENIAL THIS LOOP MEETS EVERY TIME IT CHANGES SOURCE (taught 2026-09-01, the day the receipt arm shipped).
   // --court --proven refuses a push whose tree the green receipt no longer covers, which is exactly right and is
   // exactly what a landing that edited src/ has just caused. The cure is not to weaken the arm: it is to EARN a
@@ -98,7 +99,14 @@ for (let round = 1; round <= ROUNDS; round++) {
     // PUSH-PATH VERIFY (verify_beats_recompute_by_magnitudes; fuse-two-coins): seal moved means remint over a
     // clean worktree of HEAD after the drain commit below — not develop+reconcile first. Develop before verify
     // was the heat that blew DEPLOY_BUDGET_MS; remint already runs guard+tests and names GAP+FIX on refuse.
-    console.log('land — seal moved; skip develop/reconcile — remint after drain commit (PUSH-PATH VERIFY)')
+    // THE ONE EXCEPTION, AND IT IS NARROW: a commit that changes what DERIVES the drain (a Lean wing, a lean-*/gen-*
+    // generator, the ledger) left committed without its derived records cannot mint — on 2026-11-15 a new wing left
+    // README, the bound census, coverage, the capacity record and .zenodo.json behind and the remint failed fifteen
+    // tests later, a whole landing spent to learn it. Only then is the drain derived once, here, before staging.
+    const derives = run('git diff --name-only origin/main...HEAD').out.split('\n')
+      .some((f) => /^lean\/.*\.lean$|^src\/scripts\/(lean|gen)-.*\.ts$|^src\/theorems\/generated\.ts$/.test(f))
+    if (derives) { console.log('land — the commits since origin change what derives the drain; deriving it once before the mint'); run('node dist/scripts/reconcile.js --derive-only') }
+    else console.log('land — seal moved; skip develop/reconcile — remint after drain commit (PUSH-PATH VERIFY)')
   } else {
     console.log('land — gate-receipt covers this tree; skip develop/lean (verify_beats_recompute_by_magnitudes)')
   }
