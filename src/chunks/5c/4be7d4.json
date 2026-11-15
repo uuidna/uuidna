@@ -1,0 +1,18 @@
+{
+  "handle": "5c4be7d4",
+  "address": "5c4be7d4-c675-8e67-979e-7ad79eae79e7",
+  "statement": "(fmax (0 : Int) ((150 : Int) - (100 : Int))) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_derivative_intrinsic_1",
+    "fam_monopoly_pricemargin_1",
+    "fam_respiration_gasexchange_1",
+    "fam_timeseries_differencing_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesM.lean",
+    "FamiliesR.lean",
+    "FamiliesT.lean"
+  ]
+}

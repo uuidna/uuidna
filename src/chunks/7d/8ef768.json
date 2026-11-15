@@ -1,0 +1,12 @@
+{
+  "handle": "7d8ef768",
+  "address": "7d8ef768-bc26-86d5-98bc-0c9746c512d1",
+  "statement": "(((5 : Int) * (60 : Int)) / (15 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_transit_frequency_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

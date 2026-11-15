@@ -1,0 +1,12 @@
+{
+  "handle": "95ed02aa",
+  "address": "95ed02aa-d514-882b-9eff-8f71f2f7a180",
+  "statement": "((60000 : Int) / (20 : Int)) = (3000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_interestrate_simpleinterest_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f6cfca5e",
+  "address": "f6cfca5e-687d-81b6-9ae3-849f3d8e81a7",
+  "statement": "(((300 : Int) * (1000 : Int)) / (10000 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_geothermal_gradient_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

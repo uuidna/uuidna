@@ -1,0 +1,12 @@
+{
+  "handle": "ae8fd2c4",
+  "address": "ae8fd2c4-607e-810b-846e-6de861421def",
+  "kind": "chunk",
+  "keys": [
+    "fam_gradient_clip_2"
+  ],
+  "statement": "(fmin (20 : Int) (30 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

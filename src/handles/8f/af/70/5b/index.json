@@ -1,0 +1,12 @@
+{
+  "handle": "8faf705b",
+  "address": "8faf705b-9b88-85ad-be43-befb151770cc",
+  "kind": "chunk",
+  "keys": [
+    "fam_electrochemistry_cellpotential_2"
+  ],
+  "statement": "((30 : Int) - (80 : Int)) = (-50 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

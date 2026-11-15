@@ -1,0 +1,12 @@
+{
+  "handle": "61d8844f",
+  "address": "61d8844f-4b86-8594-82ab-5aeb72d6ff57",
+  "statement": "(if (if (78 : Int) ≤ (75 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hvac_setpoint_2"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

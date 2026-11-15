@@ -1,0 +1,12 @@
+{
+  "handle": "2cf1fec6",
+  "address": "2cf1fec6-192c-8427-9eb0-635c6acc5e79",
+  "kind": "chunk",
+  "keys": [
+    "fam_nursing_droprate_1"
+  ],
+  "statement": "((1000 : Int) / (480 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

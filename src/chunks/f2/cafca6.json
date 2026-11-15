@@ -1,0 +1,14 @@
+{
+  "handle": "f2cafca6",
+  "address": "f2cafca6-c556-8c48-b797-e86c2b1cb00b",
+  "statement": "((10000 : Int) / (5 : Int)) = (2000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_oncology_burden_1",
+    "fam_reliability_mtbf_1"
+  ],
+  "files": [
+    "FamiliesO.lean",
+    "FamiliesR.lean"
+  ]
+}

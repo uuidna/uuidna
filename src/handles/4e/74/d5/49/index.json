@@ -1,0 +1,12 @@
+{
+  "handle": "4e74d549",
+  "address": "4e74d549-d25e-8ca8-b530-e7f66c77f233",
+  "kind": "chunk",
+  "keys": [
+    "fam_banking_capital_1"
+  ],
+  "statement": "(((500000 : Int) * (8 : Int)) / (100 : Int)) = (40000 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

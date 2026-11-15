@@ -1,0 +1,12 @@
+{
+  "handle": "e0861ac8",
+  "address": "e0861ac8-fa7e-8eb6-9e5b-2b352943767d",
+  "statement": "((1000000 : Int) / (5 : Int)) = (200000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_virology_load_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "15c3a596",
+  "address": "15c3a596-35b7-8401-bcab-829bafc20bb7",
+  "statement": "((15 : Int) / (3 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_phonetics_rate_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "63c1ffc3",
+  "address": "63c1ffc3-2142-8452-ae44-97ac27e97016",
+  "statement": "(if (if (100 : Int) ≥ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_throughput_saturation_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

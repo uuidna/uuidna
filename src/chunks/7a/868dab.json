@@ -1,0 +1,12 @@
+{
+  "handle": "7a868dab",
+  "address": "7a868dab-884f-8460-a84f-1d85b32dbf11",
+  "statement": "((100 : Int) / (1 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_drone_batterykwh_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

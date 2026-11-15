@@ -1,0 +1,12 @@
+{
+  "handle": "80d4393c",
+  "address": "80d4393c-5844-839d-ae65-81c7b550a74a",
+  "statement": "(fmax (0 : Int) ((90 : Int) - (23 : Int))) = (67 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_planet_axialtilt_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

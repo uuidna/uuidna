@@ -1,0 +1,14 @@
+{
+  "handle": "ef63f119",
+  "address": "ef63f119-d97b-8bdf-9d0e-c7a9459faacc",
+  "kind": "chunk",
+  "keys": [
+    "fam_vaccination_efficacy_1",
+    "fam_walkability_pedestriansafety_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((100 : Int) - (5 : Int))) * (100 : Int)) / (100 : Int)) = (95 : Int)",
+  "files": [
+    "FamiliesV.lean",
+    "FamiliesW.lean"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "handle": "0d88325e",
+  "address": "0d88325e-a383-8527-806f-5073cbe35642",
+  "kind": "chunk",
+  "keys": [
+    "fam_ceramic_grains_1",
+    "fam_clustering_inertia_1",
+    "fam_opendata_records_1",
+    "fam_silviculture_volume_1"
+  ],
+  "statement": "((100 : Int) * (20 : Int)) = (2000 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesO.lean",
+    "FamiliesS.lean"
+  ]
+}

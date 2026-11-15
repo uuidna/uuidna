@@ -1,0 +1,12 @@
+{
+  "handle": "77c67848",
+  "address": "77c67848-7b03-872c-a567-54ae89083eb7",
+  "kind": "chunk",
+  "keys": [
+    "fam_logicgates_or_1"
+  ],
+  "statement": "(if (1 : Int) ≠ 0 ∨ (0 : Int) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

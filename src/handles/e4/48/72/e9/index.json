@@ -1,0 +1,14 @@
+{
+  "handle": "e44872e9",
+  "address": "e44872e9-90f8-892d-93a5-4efd09f18f00",
+  "kind": "chunk",
+  "keys": [
+    "fam_api_remaining_2",
+    "fam_serialization_payload_2"
+  ],
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (2000 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesS.lean"
+  ]
+}

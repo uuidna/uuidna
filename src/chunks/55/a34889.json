@@ -1,0 +1,12 @@
+{
+  "handle": "55a34889",
+  "address": "55a34889-275b-873f-99b6-40871474fb15",
+  "statement": "((12 : Int) + (2 : Int)) = (14 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pilgrimage_stagecount_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "handle": "547eef5c",
+  "address": "547eef5c-b492-8e2a-b649-54c6338881a0",
+  "kind": "chunk",
+  "keys": [
+    "fam_gastronomy_covers_1",
+    "fam_navigation_distance_1",
+    "fam_vibration_resonance_1"
+  ],
+  "statement": "((60 : Int) * (3 : Int)) = (180 : Int)",
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesN.lean",
+    "FamiliesV.lean"
+  ]
+}

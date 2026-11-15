@@ -1,0 +1,14 @@
+{
+  "handle": "2af297f8",
+  "address": "2af297f8-6528-8f1e-8d61-bbe9c16ecd2b",
+  "kind": "chunk",
+  "keys": [
+    "fam_amplifiers_inputimpedance_1",
+    "fam_monopoly_profitmax_1"
+  ],
+  "statement": "((10000 : Int) / (2 : Int)) = (5000 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesM.lean"
+  ]
+}

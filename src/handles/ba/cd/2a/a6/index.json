@@ -1,0 +1,12 @@
+{
+  "handle": "bacd2aa6",
+  "address": "bacd2aa6-2f15-8930-a9a1-ae9567eda735",
+  "kind": "chunk",
+  "keys": [
+    "fam_limnology_stratification_1"
+  ],
+  "statement": "(fmax (0 : Int) ((22 : Int) - (7 : Int))) = (15 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

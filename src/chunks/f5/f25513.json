@@ -1,0 +1,14 @@
+{
+  "handle": "f5f25513",
+  "address": "f5f25513-a28e-8b79-b7aa-6a414fae8c4c",
+  "statement": "((12 : Int) / (2 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_scales_intervalpattern_1",
+    "fam_vaccination_boosterinterval_1"
+  ],
+  "files": [
+    "FamiliesS.lean",
+    "FamiliesV.lean"
+  ]
+}

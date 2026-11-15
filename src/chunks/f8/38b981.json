@@ -1,0 +1,12 @@
+{
+  "handle": "f838b981",
+  "address": "f838b981-1ea1-8009-a59e-cdfd0bf67c79",
+  "statement": "(((1000000 : Int) * (80 : Int)) / (100 : Int)) = (800000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_upload_quality_1"
+  ],
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e24f13cd",
+  "address": "e24f13cd-b123-8aab-a59b-6a5af45846e1",
+  "kind": "chunk",
+  "keys": [
+    "fam_convection_rayleigh_1"
+  ],
+  "statement": "((600 : Int) * (7 : Int)) = (4200 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

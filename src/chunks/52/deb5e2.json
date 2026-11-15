@@ -1,0 +1,14 @@
+{
+  "handle": "52deb5e2",
+  "address": "52deb5e2-5733-8827-a5d4-cc653d4ca7ca",
+  "statement": "(25 : Int) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_attention_span_1",
+    "fam_lidar_resolution_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesL.lean"
+  ]
+}

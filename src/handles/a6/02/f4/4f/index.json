@@ -1,0 +1,12 @@
+{
+  "handle": "a602f44f",
+  "address": "a602f44f-40f7-8ada-a9bb-cfcf039307ba",
+  "kind": "chunk",
+  "keys": [
+    "fam_scripture_readingplan_1"
+  ],
+  "statement": "((1189 : Int) / (365 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

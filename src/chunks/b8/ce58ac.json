@@ -1,0 +1,18 @@
+{
+  "handle": "b8ce58ac",
+  "address": "b8ce58ac-3775-8691-ba78-3c49d151a9b4",
+  "statement": "((Int.ofNat (ffact (Int.toNat (8 : Int)))) / (Int.ofNat (ffact (Int.toNat ((8 : Int) - (3 : Int)))))) = (336 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_apocrypha_orderingchoices_1",
+    "fam_chronology_sequencechoices_1",
+    "fam_folklore_transmissionpaths_1",
+    "fam_shogi_movepaths_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesF.lean",
+    "FamiliesS.lean"
+  ]
+}

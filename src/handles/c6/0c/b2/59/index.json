@@ -1,0 +1,14 @@
+{
+  "handle": "c60cb259",
+  "address": "c60cb259-c323-81c4-aede-8000a91aa602",
+  "kind": "chunk",
+  "keys": [
+    "fam_interaction_targetsize_1",
+    "fam_linguistics_phonemes_1"
+  ],
+  "statement": "(44 : Int) = (44 : Int)",
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesL.lean"
+  ]
+}

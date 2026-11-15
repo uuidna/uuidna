@@ -1,0 +1,12 @@
+{
+  "handle": "ff5b73db",
+  "address": "ff5b73db-7d2f-8a07-8f2a-2e36ecfb2f7d",
+  "kind": "chunk",
+  "keys": [
+    "fam_construction_materials_1"
+  ],
+  "statement": "((80 : Int) * (25 : Int)) = (2000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "733b5f0d",
+  "address": "733b5f0d-7de1-80ce-a8ea-d0c78356c136",
+  "statement": "(((250 : Int) * (100 : Int)) / (10000 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_yield_dividendyield_1"
+  ],
+  "files": [
+    "FamiliesY.lean"
+  ]
+}

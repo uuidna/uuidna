@@ -1,0 +1,12 @@
+{
+  "handle": "fe5d894b",
+  "address": "fe5d894b-66b0-8dff-a5e4-47c7fa7e1a93",
+  "statement": "(((24 : Int) - (0 : Int)) / (12 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_winemaking_fermentation_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "03c08b2b",
+  "address": "03c08b2b-2c86-868f-a384-8193183127b1",
+  "statement": "((1 : Int) * (3 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_backlash_gearplay_1",
+    "fam_parable_moralcount_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesP.lean"
+  ]
+}

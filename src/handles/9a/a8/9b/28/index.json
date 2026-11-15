@@ -1,0 +1,12 @@
+{
+  "handle": "9aa89b28",
+  "address": "9aa89b28-ba7a-8c70-bd6d-5162b80086f8",
+  "kind": "chunk",
+  "keys": [
+    "fam_hvac_tonnage_1"
+  ],
+  "statement": "((36000 : Int) / (12000 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2ca267ef",
+  "address": "2ca267ef-f52f-8c98-8532-1f4ec35e8929",
+  "kind": "chunk",
+  "keys": [
+    "fam_inequality_giniscaled_1"
+  ],
+  "statement": "((40 : Int) / (1 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

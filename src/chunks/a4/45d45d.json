@@ -1,0 +1,18 @@
+{
+  "handle": "a445d45d",
+  "address": "a445d45d-ffc5-8ce8-aacb-c749a3a9904f",
+  "statement": "(((900 : Int) * (100 : Int)) / (100 : Int)) = (900 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_caching_speedup_1",
+    "fam_dedup_ratio_1",
+    "fam_observability_signal_1",
+    "fam_propulsion_bypass_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean"
+  ]
+}

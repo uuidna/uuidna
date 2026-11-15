@@ -1,0 +1,12 @@
+{
+  "handle": "70346749",
+  "address": "70346749-71ba-8007-a04a-73fea36c7d40",
+  "statement": "(((140 : Int) * (100 : Int)) / (70 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_climbing_grip_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b6ee9498",
+  "address": "b6ee9498-798f-8115-87a3-0408a5cdd515",
+  "kind": "chunk",
+  "keys": [
+    "fam_linehaul_laneprofit_1"
+  ],
+  "statement": "(fmax (0 : Int) ((3000 : Int) - (2000 : Int))) = (1000 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

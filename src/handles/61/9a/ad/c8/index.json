@@ -1,0 +1,12 @@
+{
+  "handle": "619aadc8",
+  "address": "619aadc8-f48b-8476-a0d0-62314c8a5201",
+  "kind": "chunk",
+  "keys": [
+    "fam_prophecy_numbersum_1"
+  ],
+  "statement": "(((12 : Int) + (12 : Int)) + (12 : Int)) = (36 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "903e2de5",
+  "address": "903e2de5-db1c-85e8-8693-a8c28619f1fe",
+  "statement": "(fmax (0 : Int) ((72 : Int) - (60 : Int))) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_arpeggio_notespan_1",
+    "fam_scales_chromaticfill_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesS.lean"
+  ]
+}

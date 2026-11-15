@@ -1,0 +1,12 @@
+{
+  "handle": "ed8eea78",
+  "address": "ed8eea78-dd25-8a6d-8281-aa854b28733a",
+  "kind": "chunk",
+  "keys": [
+    "fam_indexing_speedup_1"
+  ],
+  "statement": "(((5000 : Int) * (100 : Int)) / (100 : Int)) = (5000 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

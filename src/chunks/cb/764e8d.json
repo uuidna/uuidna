@@ -1,0 +1,16 @@
+{
+  "handle": "cb764e8d",
+  "address": "cb764e8d-d44b-88ea-ae10-d8cd84c0541c",
+  "statement": "(((74 : Int) * (100 : Int)) / (100 : Int)) = (74 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_crystallography_packing_1",
+    "fam_lattice_packingfraction_1",
+    "fam_physiology_ph_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean"
+  ]
+}

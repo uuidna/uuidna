@@ -1,0 +1,12 @@
+{
+  "handle": "58daa63e",
+  "address": "58daa63e-5768-8c0b-a995-f7e05b661661",
+  "statement": "((28 : Int) / (14 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_convolution_stride_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

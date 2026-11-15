@@ -1,0 +1,12 @@
+{
+  "handle": "461974a3",
+  "address": "461974a3-2085-8d47-accb-0d5e7b95f27f",
+  "statement": "((20 : Int) + (40 : Int)) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gear_teeth_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

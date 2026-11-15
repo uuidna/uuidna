@@ -1,0 +1,12 @@
+{
+  "handle": "66a79588",
+  "address": "66a79588-8a83-8fe1-a257-07ddbd3a997f",
+  "statement": "(fmax (0 : Int) ((50 : Int) - ((20 : Int) / (2 : Int)))) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_windchill_index_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

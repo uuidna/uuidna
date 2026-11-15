@@ -1,0 +1,17 @@
+{
+  "handle": "b215677f",
+  "address": "b215677f-b83b-86d0-a109-b24714b74175",
+  "statement": "(((1500 : Int) * (100 : Int)) / (1000 : Int)) = (150 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dairy_feedefficiency_1",
+    "fam_datacenter_pue_1",
+    "fam_rocketry_twr_1",
+    "fam_solvency_ratio_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

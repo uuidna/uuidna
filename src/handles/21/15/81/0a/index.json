@@ -1,0 +1,12 @@
+{
+  "handle": "2115810a",
+  "address": "2115810a-e975-8284-ac6c-8c3658bfe804",
+  "kind": "chunk",
+  "keys": [
+    "fam_filters_cutoff_1"
+  ],
+  "statement": "(((10 : Int) ^ (6 : Nat)) / ((1000 : Int) * (10 : Int))) = (100 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

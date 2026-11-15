@@ -1,0 +1,12 @@
+{
+  "handle": "e856785d",
+  "address": "e856785d-4387-8da2-80b8-bac921781ec6",
+  "statement": "(fmax (0 : Int) (((10 : Int) + (8 : Int)) - (15 : Int))) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_entropy_mutualinformation_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

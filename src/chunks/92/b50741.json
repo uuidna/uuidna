@@ -1,0 +1,12 @@
+{
+  "handle": "92b50741",
+  "address": "92b50741-a293-8bab-bce3-b9523bce8764",
+  "statement": "((((1000 : Int) - (600 : Int)) * (100 : Int)) / (1000 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_recycling_landfill_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

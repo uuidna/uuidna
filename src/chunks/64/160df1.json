@@ -1,0 +1,21 @@
+{
+  "handle": "64160df1",
+  "address": "64160df1-8cdb-86f3-8bfa-8b6093587ecc",
+  "statement": "((200 : Int) * (1 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_airship_lengthm_1",
+    "fam_alloy_hardness_1",
+    "fam_coverage_testcount_1",
+    "fam_engine_torque_1",
+    "fam_telescope_aperture_1",
+    "fam_tornado_windspeed_1",
+    "fam_tsunami_wavelength_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesT.lean"
+  ]
+}

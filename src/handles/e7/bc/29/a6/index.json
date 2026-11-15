@@ -1,0 +1,12 @@
+{
+  "handle": "e7bc29a6",
+  "address": "e7bc29a6-bc51-8f6c-9224-4dbebcb76bb1",
+  "kind": "chunk",
+  "keys": [
+    "fam_vet_gestation_1"
+  ],
+  "statement": "((100 : Int) + (63 : Int)) = (163 : Int)",
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

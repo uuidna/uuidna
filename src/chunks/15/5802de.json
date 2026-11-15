@@ -1,0 +1,12 @@
+{
+  "handle": "155802de",
+  "address": "155802de-c4cf-83e8-b148-32e77cb6bca4",
+  "statement": "(fmax (0 : Int) ((67 : Int) - (70 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_econ_worklife_2"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "45b96d56",
+  "address": "45b96d56-f257-835a-ae66-9cd9359a7a90",
+  "statement": "(if (if (3 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (3 : Int) else (0 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_activation_threshold_2"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

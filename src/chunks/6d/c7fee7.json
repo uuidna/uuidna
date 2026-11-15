@@ -1,0 +1,14 @@
+{
+  "handle": "6dc7fee7",
+  "address": "6dc7fee7-fc3e-8f79-b08a-3463b421f539",
+  "statement": "(((60 : Int) * (100 : Int)) / (120 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cardiology_ejection_1",
+    "fam_sustainability_regeneration_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesS.lean"
+  ]
+}

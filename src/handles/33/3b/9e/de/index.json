@@ -1,0 +1,12 @@
+{
+  "handle": "333b9ede",
+  "address": "333b9ede-8bc3-833c-99ab-88633122c8b9",
+  "kind": "chunk",
+  "keys": [
+    "fam_exoplanets_radius_1"
+  ],
+  "statement": "((12742 : Int) / (2 : Int)) = (6371 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

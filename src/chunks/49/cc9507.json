@@ -1,0 +1,12 @@
+{
+  "handle": "49cc9507",
+  "address": "49cc9507-2d9f-8643-9245-e2f08a7fd228",
+  "statement": "((1120 : Int) + (300 : Int)) = (1420 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nanomaterials_bandgap_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

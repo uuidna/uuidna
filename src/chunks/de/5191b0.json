@@ -1,0 +1,12 @@
+{
+  "handle": "de5191b0",
+  "address": "de5191b0-e3bb-84b2-8c7c-96c3be83bd19",
+  "statement": "((24 : Int) * (42 : Int)) = (1008 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_datacenter_capacity_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

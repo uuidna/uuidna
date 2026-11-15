@@ -1,0 +1,12 @@
+{
+  "handle": "1229270a",
+  "address": "1229270a-02cc-8438-bee9-2744f0d15b0c",
+  "statement": "((1000 : Int) + ((80 : Int) / (8 : Int))) = (1010 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_barometry_sealevel_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

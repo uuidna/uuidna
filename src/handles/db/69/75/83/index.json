@@ -1,0 +1,16 @@
+{
+  "handle": "db697583",
+  "address": "db697583-33d7-8c7e-832c-bc77f20bb8fc",
+  "kind": "chunk",
+  "keys": [
+    "fam_learning_params_1",
+    "fam_option_contracts_1",
+    "fam_pediatrics_caloricneed_1"
+  ],
+  "statement": "((10 : Int) * (100 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean"
+  ]
+}

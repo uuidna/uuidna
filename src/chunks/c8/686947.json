@@ -1,0 +1,12 @@
+{
+  "handle": "c8686947",
+  "address": "c8686947-18e7-8789-82c9-f127706a1c5f",
+  "statement": "(fmax (0 : Int) ((18 : Int) - (14 : Int))) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_journalism_deadline_1"
+  ],
+  "files": [
+    "FamiliesJ.lean"
+  ]
+}

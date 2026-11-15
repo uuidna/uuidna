@@ -1,0 +1,12 @@
+{
+  "handle": "684239a8",
+  "address": "684239a8-b50b-8480-b30b-e41547988cdc",
+  "statement": "((100 : Int) + (365 : Int)) = (465 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_permitting_expiry_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

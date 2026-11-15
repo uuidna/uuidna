@@ -1,0 +1,24 @@
+{
+  "handle": "7defd2b9",
+  "address": "7defd2b9-c8ef-8ecd-9976-27f17b7e141b",
+  "statement": "(((30 : Int) * (100 : Int)) / (1000 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_analytics_ctr_1",
+    "fam_apiculture_mite_1",
+    "fam_backend_error_2",
+    "fam_dataquality_duplicaterate_1",
+    "fam_delivery_returns_1",
+    "fam_networking_loss_2",
+    "fam_payment_decline_1",
+    "fam_retail_shrinkage_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

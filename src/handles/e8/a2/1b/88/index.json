@@ -1,0 +1,12 @@
+{
+  "handle": "e8a21b88",
+  "address": "e8a21b88-d0f8-8476-90a1-c1e6a626b73f",
+  "kind": "chunk",
+  "keys": [
+    "fam_colorgrading_lift_1"
+  ],
+  "statement": "((40 : Int) + (15 : Int)) = (55 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

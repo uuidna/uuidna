@@ -1,0 +1,12 @@
+{
+  "handle": "de297bae",
+  "address": "de297bae-cd02-81b0-9c06-3ddbed38cdf8",
+  "kind": "chunk",
+  "keys": [
+    "fam_cpu_turbo_1"
+  ],
+  "statement": "((3000 : Int) + (500 : Int)) = (3500 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

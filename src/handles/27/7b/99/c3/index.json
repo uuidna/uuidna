@@ -1,0 +1,12 @@
+{
+  "handle": "277b99c3",
+  "address": "277b99c3-1c89-8a93-852c-dea6db99cac2",
+  "kind": "chunk",
+  "keys": [
+    "fam_costing_target_1"
+  ],
+  "statement": "(((100 : Int) * ((100 : Int) - (40 : Int))) / (100 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

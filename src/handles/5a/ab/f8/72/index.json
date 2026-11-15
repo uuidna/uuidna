@@ -1,0 +1,12 @@
+{
+  "handle": "5aabf872",
+  "address": "5aabf872-2132-8d0d-a568-626c12e2385a",
+  "kind": "chunk",
+  "keys": [
+    "fam_triangulation_bearingsum_1"
+  ],
+  "statement": "(((200 : Int) + (200 : Int)) % (360 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

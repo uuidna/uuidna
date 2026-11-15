@@ -1,0 +1,12 @@
+{
+  "handle": "a3b5265d",
+  "address": "a3b5265d-961a-8fc6-b8ae-2fedd5da4ca7",
+  "statement": "(((5000 : Int) * (8 : Int)) / (1000 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_devtools_bugs_2"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bbd5a13c",
+  "address": "bbd5a13c-2152-8a21-ad7c-cf84fdfab715",
+  "kind": "chunk",
+  "keys": [
+    "fam_basketball_plusminus_2"
+  ],
+  "statement": "((100 : Int) - (110 : Int)) = (-10 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

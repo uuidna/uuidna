@@ -1,0 +1,12 @@
+{
+  "handle": "b8619a69",
+  "address": "b8619a69-b3f0-8644-8717-7d3fcd2a2add",
+  "statement": "(((500 : Int) * (20 : Int)) / (100 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_parasitology_transmission_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

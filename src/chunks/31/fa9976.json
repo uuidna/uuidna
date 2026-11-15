@@ -1,0 +1,12 @@
+{
+  "handle": "31fa9976",
+  "address": "31fa9976-7602-8fd1-b0d0-a380d84f78a7",
+  "statement": "((6000 : Int) / (500 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ventilation_respiratoryrate_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

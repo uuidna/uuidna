@@ -1,0 +1,12 @@
+{
+  "handle": "fab18a0e",
+  "address": "fab18a0e-373c-8ea2-a8ea-8dcf5d658da8",
+  "kind": "chunk",
+  "keys": [
+    "fam_interleaving_span_1"
+  ],
+  "statement": "((32 : Int) * (10 : Int)) = (320 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "handle": "0f50486b",
+  "address": "0f50486b-6ab9-89f8-8509-c610bb74f00a",
+  "kind": "chunk",
+  "keys": [
+    "fam_pragmatics_deixis_1",
+    "fam_ramsey_monochromatic_1",
+    "fam_routing_nested_1",
+    "fam_semantics_polysemy_1"
+  ],
+  "statement": "((10 : Int) / (3 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

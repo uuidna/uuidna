@@ -1,0 +1,12 @@
+{
+  "handle": "b409159f",
+  "address": "b409159f-f8e2-87b9-ae37-330c6878a68b",
+  "kind": "chunk",
+  "keys": [
+    "fam_website_gap_1"
+  ],
+  "statement": "(fmax (0 : Int) ((30 : Int) - (26 : Int))) = (4 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

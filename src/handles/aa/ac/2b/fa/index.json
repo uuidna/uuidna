@@ -1,0 +1,16 @@
+{
+  "handle": "aaac2bfa",
+  "address": "aaac2bfa-b581-8273-b875-691799518c47",
+  "kind": "chunk",
+  "keys": [
+    "fam_branding_reach_1",
+    "fam_collateral_loantovalue_1",
+    "fam_lemmatization_coverage_1"
+  ],
+  "statement": "(((8000 : Int) * (100 : Int)) / (10000 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesL.lean"
+  ]
+}

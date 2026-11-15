@@ -1,0 +1,12 @@
+{
+  "handle": "8aeab882",
+  "address": "8aeab882-8ff1-8767-aaa6-9f6462280caf",
+  "kind": "chunk",
+  "keys": [
+    "fam_compliance_penalty_1"
+  ],
+  "statement": "(((1000000 : Int) * (4 : Int)) / (100 : Int)) = (40000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

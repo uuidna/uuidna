@@ -1,0 +1,12 @@
+{
+  "handle": "8446ff66",
+  "address": "8446ff66-5c2b-8841-8454-5d80449c9155",
+  "kind": "chunk",
+  "keys": [
+    "fam_rectifiers_formfactor_1"
+  ],
+  "statement": "(((111 : Int) * (100 : Int)) / (100 : Int)) = (111 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "handle": "b4775c75",
+  "address": "b4775c75-0040-8a87-9717-39d1a329d34b",
+  "statement": "(((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_actuarial_mortality_1",
+    "fam_herpetology_venom_1",
+    "fam_lasers_beamdivergence_1",
+    "fam_mechanical_strain_1",
+    "fam_mutation_frequency_1",
+    "fam_ngram_probability_1",
+    "fam_propulsion_specificfuel_1",
+    "fam_railway_gradient_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

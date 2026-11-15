@@ -1,0 +1,12 @@
+{
+  "handle": "7875d9e8",
+  "address": "7875d9e8-022a-8b2f-aa14-9ec06f8cc8fd",
+  "kind": "chunk",
+  "keys": [
+    "fam_meiosis_segregation_2"
+  ],
+  "statement": "(((100 : Int) * (1 : Int)) / (0 : Int)) = (0 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

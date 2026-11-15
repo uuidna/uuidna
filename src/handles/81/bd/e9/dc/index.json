@@ -1,0 +1,12 @@
+{
+  "handle": "81bde9dc",
+  "address": "81bde9dc-9d11-8f8b-89eb-e16d1aa65c59",
+  "kind": "chunk",
+  "keys": [
+    "fam_syllogism_soundnessratio_1"
+  ],
+  "statement": "(((15 : Int) * (100 : Int)) / (256 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

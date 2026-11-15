@@ -1,0 +1,12 @@
+{
+  "handle": "2f9f00e9",
+  "address": "2f9f00e9-b311-89b3-a99b-b4aac40398f2",
+  "kind": "chunk",
+  "keys": [
+    "fam_stellar_spectralclass_1"
+  ],
+  "statement": "((5800 : Int) / (1000 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

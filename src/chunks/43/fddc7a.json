@@ -1,0 +1,14 @@
+{
+  "handle": "43fddc7a",
+  "address": "43fddc7a-a06f-8fcf-a346-47a0e8544d08",
+  "statement": "((6000 : Int) / (6 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_electrocardiography_rraverage_1",
+    "fam_orbital_velocity_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesO.lean"
+  ]
+}

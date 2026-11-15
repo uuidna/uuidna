@@ -1,0 +1,12 @@
+{
+  "handle": "dfd9f326",
+  "address": "dfd9f326-ef78-8da3-adda-fe9416659cc7",
+  "kind": "chunk",
+  "keys": [
+    "fam_packet_fragments_1"
+  ],
+  "statement": "(-((-(5000 : Int)) / (1480 : Int))) = (4 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

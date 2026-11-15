@@ -1,0 +1,12 @@
+{
+  "handle": "0168a70e",
+  "address": "0168a70e-1a28-8b2d-bcda-104da52b561f",
+  "statement": "((((500 : Int) - (300 : Int)) * (1000 : Int)) / ((500 : Int) + (300 : Int))) = (250 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_orbit_eccentricity_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

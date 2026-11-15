@@ -1,0 +1,12 @@
+{
+  "handle": "c8082239",
+  "address": "c8082239-873d-8092-b744-9f3a045a6400",
+  "kind": "chunk",
+  "keys": [
+    "fam_volatility_zscore_1"
+  ],
+  "statement": "((fmax (0 : Int) ((120 : Int) - (100 : Int))) / (10 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

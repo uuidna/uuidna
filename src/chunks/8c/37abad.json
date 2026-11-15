@@ -1,0 +1,12 @@
+{
+  "handle": "8c37abad",
+  "address": "8c37abad-27aa-8eca-9f36-db741bc21ecd",
+  "statement": "(((250 : Int) * (100 : Int)) / (300 : Int)) = (83 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_steering_wheelbaseratio_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

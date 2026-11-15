@@ -1,0 +1,12 @@
+{
+  "handle": "13884a0a",
+  "address": "13884a0a-df40-8268-8eab-2b0213a4608a",
+  "statement": "(((200 : Int) ^ (2 : Nat)) / (10 : Int)) = (4000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_waypoint_turnradius_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

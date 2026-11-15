@@ -1,0 +1,12 @@
+{
+  "handle": "86361772",
+  "address": "86361772-89b7-8282-a0c6-c12cb4bbacc0",
+  "kind": "chunk",
+  "keys": [
+    "fam_kinship_coefficientrelatedness_1"
+  ],
+  "statement": "((1000 : Int) / ((2 : Int) ^ (2 : Nat))) = (250 : Int)",
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

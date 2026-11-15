@@ -1,0 +1,12 @@
+{
+  "handle": "e0acd1b4",
+  "address": "e0acd1b4-1dc4-8bf1-a2d3-e545c11e2be2",
+  "kind": "chunk",
+  "keys": [
+    "fam_tiling_vertexconfig_2"
+  ],
+  "statement": "((((4 : Int) - (2 : Int)) * (180 : Int)) / (4 : Int)) = (90 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "91981859",
+  "address": "91981859-47e8-8465-9f28-fc54ba9d9975",
+  "kind": "chunk",
+  "keys": [
+    "fam_equine_heartrate_1"
+  ],
+  "statement": "((240 : Int) / (5 : Int)) = (48 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

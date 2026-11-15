@@ -1,0 +1,12 @@
+{
+  "handle": "63a44b05",
+  "address": "63a44b05-5305-852a-9d88-eb7c3f5f3473",
+  "kind": "chunk",
+  "keys": [
+    "fam_textiles_shrinkage_1"
+  ],
+  "statement": "((((100 : Int) - (95 : Int)) * (100 : Int)) / (100 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

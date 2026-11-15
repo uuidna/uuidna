@@ -1,0 +1,12 @@
+{
+  "handle": "17006a1a",
+  "address": "17006a1a-ecdf-83cb-831b-ba965dafbe47",
+  "statement": "(((150 : Int) * (100 : Int)) / (450 : Int)) = (33 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hematocrit_mchc_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

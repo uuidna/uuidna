@@ -1,0 +1,13 @@
+{
+  "handle": "ffb8451a",
+  "address": "ffb8451a-8ac0-8427-ae77-b3bfe3348f14",
+  "statement": "((6000 : Int) / (100 : Int)) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_feedlot_energydensity_1",
+    "fam_forms_time_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

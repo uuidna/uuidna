@@ -1,0 +1,12 @@
+{
+  "handle": "0dc8b2d4",
+  "address": "0dc8b2d4-d1d5-87b9-9ff0-bbded1b2f2d4",
+  "statement": "((120 : Int) + (45 : Int)) = (165 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_feed_signal_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

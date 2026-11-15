@@ -1,0 +1,12 @@
+{
+  "handle": "7884a7b9",
+  "address": "7884a7b9-cc3a-8e18-b727-8e1b520b7275",
+  "statement": "(fmax (0 : Int) ((0 : Int) - (5 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ngram_conditionalcount_2"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

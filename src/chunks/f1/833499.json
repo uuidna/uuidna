@@ -1,0 +1,14 @@
+{
+  "handle": "f1833499",
+  "address": "f1833499-17a9-8f4e-b271-1308423f3b2e",
+  "statement": "(((300 : Int) * (100 : Int)) / (200 : Int)) = (150 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_timbre_oddevenratio_1",
+    "fam_vibration_transmissibility_2"
+  ],
+  "files": [
+    "FamiliesT.lean",
+    "FamiliesV.lean"
+  ]
+}

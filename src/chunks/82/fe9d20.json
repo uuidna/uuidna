@@ -1,0 +1,12 @@
+{
+  "handle": "82fe9d20",
+  "address": "82fe9d20-ed2b-818b-8cae-5d4d4c2233ab",
+  "statement": "(((1200 : Int) * (1000 : Int)) / (60 : Int)) = (20000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_primatology_encephalization_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

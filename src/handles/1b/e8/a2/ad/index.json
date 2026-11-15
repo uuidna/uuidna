@@ -1,0 +1,12 @@
+{
+  "handle": "1be8a2ad",
+  "address": "1be8a2ad-1ec0-8411-8040-037a8d94d698",
+  "kind": "chunk",
+  "keys": [
+    "fam_petrology_graindensity_1"
+  ],
+  "statement": "((5300 : Int) / (2 : Int)) = (2650 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

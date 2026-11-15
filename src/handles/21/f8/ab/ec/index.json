@@ -1,0 +1,12 @@
+{
+  "handle": "21f8abec",
+  "address": "21f8abec-5f7d-8862-9668-c038748d336a",
+  "kind": "chunk",
+  "keys": [
+    "fam_recovery_hydrationgap_1"
+  ],
+  "statement": "(fmax (0 : Int) ((3000 : Int) - (2500 : Int))) = (500 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0c5fa0b5",
+  "address": "0c5fa0b5-ae57-8a04-80a8-552fbca529f7",
+  "statement": "((10000 : Int) / (((100 : Int) - (90 : Int)) + (((90 : Int) * (100 : Int)) / (10 : Int)))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_concurrency_amdahl_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

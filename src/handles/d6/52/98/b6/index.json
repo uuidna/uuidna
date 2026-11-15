@@ -1,0 +1,12 @@
+{
+  "handle": "d65298b6",
+  "address": "d65298b6-ac1f-8d83-851d-66c5d59db740",
+  "kind": "chunk",
+  "keys": [
+    "fam_numen_nine_2"
+  ],
+  "statement": "((((10 : Int) - (1 : Int)) % (9 : Int)) + (1 : Int)) = (1 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

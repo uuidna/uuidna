@@ -1,0 +1,12 @@
+{
+  "handle": "db37a666",
+  "address": "db37a666-c02b-8feb-ad01-f93d3db9f9fa",
+  "statement": "(((80 : Int) * (100 : Int)) / (400 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_discourse_connectives_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "082988e9",
+  "address": "082988e9-eafa-87f9-849f-6693427129c6",
+  "kind": "chunk",
+  "keys": [
+    "fam_mythology_pantheonsize_1"
+  ],
+  "statement": "((12 : Int) + (3 : Int)) = (15 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

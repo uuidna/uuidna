@@ -1,0 +1,12 @@
+{
+  "handle": "0de26647",
+  "address": "0de26647-d1e9-8c82-a02b-0a6483d9e436",
+  "statement": "(((10 : Int) * (45 : Int)) % (360 : Int)) = (90 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_orbit_meananomaly_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

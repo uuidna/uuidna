@@ -1,0 +1,12 @@
+{
+  "handle": "ac1d2306",
+  "address": "ac1d2306-ad81-820a-9ae2-bec6333f3036",
+  "statement": "((Int.ofNat (flog 2 64 (Int.toNat (8 : Int)))) + (1 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tune_fractal_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

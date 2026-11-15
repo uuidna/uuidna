@@ -1,0 +1,20 @@
+{
+  "handle": "57593125",
+  "address": "57593125-eda3-8931-a69f-b7d332bce13f",
+  "kind": "chunk",
+  "keys": [
+    "fam_firmware_otadelta_2",
+    "fam_fourier_leakage_2",
+    "fam_geography_elevation_2",
+    "fam_permitting_backlog_2",
+    "fam_pomology_thinning_2",
+    "fam_rail_gauge_2"
+  ],
+  "statement": "(fmax (0 : Int) ((100 : Int) - (200 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

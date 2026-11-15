@@ -1,0 +1,12 @@
+{
+  "handle": "cd359a70",
+  "address": "cd359a70-b0b6-84dc-a797-69c0cfe63fde",
+  "kind": "chunk",
+  "keys": [
+    "fam_seismology_intensity_2"
+  ],
+  "statement": "(((7 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

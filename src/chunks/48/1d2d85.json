@@ -1,0 +1,20 @@
+{
+  "handle": "481d2d85",
+  "address": "481d2d85-2d28-8a86-9d59-9347fb59f77c",
+  "statement": "(((fmax (0 : Int) ((120 : Int) - (100 : Int))) * (100 : Int)) / (100 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_combustion_excessair_1",
+    "fam_control_overshoot_1",
+    "fam_conversion_uplift_1",
+    "fam_feedback_overshoot_1",
+    "fam_performance_improvement_1",
+    "fam_rectifiers_regulation_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesF.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8398ae77",
+  "address": "8398ae77-259f-8142-bd0f-f84ae9e6d701",
+  "statement": "(fmax (0 : Int) ((11000 : Int) - (10900 : Int))) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_exchangerate_pippips_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

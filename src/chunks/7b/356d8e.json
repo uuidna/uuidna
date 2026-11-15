@@ -1,0 +1,12 @@
+{
+  "handle": "7b356d8e",
+  "address": "7b356d8e-e5ba-8f3e-b9b1-902448a9d953",
+  "statement": "(if (if (120 : Int) > (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tox_threshold_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

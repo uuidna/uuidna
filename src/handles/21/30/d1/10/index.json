@@ -1,0 +1,12 @@
+{
+  "handle": "2130d110",
+  "address": "2130d110-4d5b-823e-8e29-11a865b6dca7",
+  "kind": "chunk",
+  "keys": [
+    "fam_acquisition_ltvratio_1"
+  ],
+  "statement": "(((600 : Int) * (100 : Int)) / (200 : Int)) = (300 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

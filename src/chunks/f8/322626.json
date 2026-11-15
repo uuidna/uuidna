@@ -1,0 +1,14 @@
+{
+  "handle": "f8322626",
+  "address": "f8322626-51f1-85ee-97e0-c8ef19a9f429",
+  "statement": "((2 : Int) * (16 : Int)) = (32 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_stoichiometry_molarmass_1",
+    "fam_volatility_annualized_1"
+  ],
+  "files": [
+    "FamiliesS.lean",
+    "FamiliesV.lean"
+  ]
+}

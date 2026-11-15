@@ -1,0 +1,12 @@
+{
+  "handle": "8dd9fd24",
+  "address": "8dd9fd24-1905-860e-bdb1-a8aafdea43a4",
+  "statement": "((48 : Int) + (0 : Int)) = (48 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_router_interfaces_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

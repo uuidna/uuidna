@@ -1,0 +1,12 @@
+{
+  "handle": "174a6ea5",
+  "address": "174a6ea5-7430-889f-a704-47abf9b6634a",
+  "kind": "chunk",
+  "keys": [
+    "fam_drilling_mudweight_1"
+  ],
+  "statement": "((5200 : Int) / (100 : Int)) = (52 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

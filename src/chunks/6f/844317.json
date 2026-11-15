@@ -1,0 +1,16 @@
+{
+  "handle": "6f844317",
+  "address": "6f844317-f20d-8bc2-84e4-723e25fbb1b7",
+  "statement": "(fmax (0 : Int) ((300 : Int) - (120 : Int))) = (180 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fluid_pressuredrop_1",
+    "fam_prosody_pitchrange_1",
+    "fam_rest_cachettl_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

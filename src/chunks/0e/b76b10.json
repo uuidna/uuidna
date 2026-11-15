@@ -1,0 +1,12 @@
+{
+  "handle": "0eb76b10",
+  "address": "0eb76b10-dfd7-8031-a33d-403dabf1a30d",
+  "statement": "((3260 : Int) / (1000 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_star_parsecs_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

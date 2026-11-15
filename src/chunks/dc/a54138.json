@@ -1,0 +1,12 @@
+{
+  "handle": "dca54138",
+  "address": "dca54138-ea84-80d2-8cca-ee26c2b067fd",
+  "statement": "(((60 : Int) * (15 : Int)) / (100 : Int)) = (9 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sentence_goodtime_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

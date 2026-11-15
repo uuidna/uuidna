@@ -1,0 +1,12 @@
+{
+  "handle": "677fdf57",
+  "address": "677fdf57-a2a6-840f-93a8-58dad1b57f6f",
+  "kind": "chunk",
+  "keys": [
+    "fam_transcription_readthrough_2"
+  ],
+  "statement": "(if (if (60 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2ec9266c",
+  "address": "2ec9266c-1c0b-8346-b0f4-1f552101dfa1",
+  "kind": "chunk",
+  "keys": [
+    "fam_glomerular_plasmaflow_1"
+  ],
+  "statement": "(((1000 : Int) * ((100 : Int) - (45 : Int))) / (100 : Int)) = (550 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

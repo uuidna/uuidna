@@ -1,0 +1,12 @@
+{
+  "handle": "f90018f4",
+  "address": "f90018f4-1267-86b1-9a94-af8f40450e2d",
+  "statement": "((1 : Int) * (700 : Int)) = (700 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fuelcell_cellvoltage_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

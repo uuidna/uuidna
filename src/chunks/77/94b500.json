@@ -1,0 +1,12 @@
+{
+  "handle": "7794b500",
+  "address": "7794b500-4097-8c07-abe4-0f9b4a9e54f0",
+  "statement": "((5 : Int) * (15 : Int)) = (75 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_modulation_deviation_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

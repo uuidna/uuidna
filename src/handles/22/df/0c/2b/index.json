@@ -1,0 +1,12 @@
+{
+  "handle": "22df0c2b",
+  "address": "22df0c2b-5346-8862-af32-3ba20d1dcfc4",
+  "kind": "chunk",
+  "keys": [
+    "fam_waypoint_crosstrack_1"
+  ],
+  "statement": "(fmax (0 : Int) (((50 : Int) ^ (2 : Nat)) - ((30 : Int) ^ (2 : Nat)))) = (1600 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

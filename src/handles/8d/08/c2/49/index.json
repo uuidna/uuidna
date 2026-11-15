@@ -1,0 +1,12 @@
+{
+  "handle": "8d08c249",
+  "address": "8d08c249-fc59-8e28-96d2-d087460e9159",
+  "kind": "chunk",
+  "keys": [
+    "fam_aquaculture_oxygen_1"
+  ],
+  "statement": "(((8 : Int) * (100 : Int)) / (5 : Int)) = (160 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

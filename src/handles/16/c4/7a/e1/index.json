@@ -1,0 +1,12 @@
+{
+  "handle": "16c47ae1",
+  "address": "16c47ae1-d869-8f90-a137-2d64bf01cc8f",
+  "kind": "chunk",
+  "keys": [
+    "fam_loadplanning_loadbalance_1"
+  ],
+  "statement": "(((50 : Int) * (100 : Int)) / (50 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

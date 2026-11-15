@@ -1,0 +1,16 @@
+{
+  "handle": "3153d197",
+  "address": "3153d197-2ec6-8ba4-af14-8fba32bff8eb",
+  "kind": "chunk",
+  "keys": [
+    "fam_crossdock_transferlag_1",
+    "fam_marination_phshift_1",
+    "fam_turnaround_idlegap_1"
+  ],
+  "statement": "(fmax (0 : Int) ((60 : Int) - (45 : Int))) = (15 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesM.lean",
+    "FamiliesT.lean"
+  ]
+}

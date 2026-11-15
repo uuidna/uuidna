@@ -1,0 +1,12 @@
+{
+  "handle": "c1659ef7",
+  "address": "c1659ef7-296d-83d5-9afb-3f0bf88776b8",
+  "statement": "(if (if (21 : Int) ≥ (28 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_law_notice_2"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "handle": "1e6f7aa7",
+  "address": "1e6f7aa7-930c-8757-948e-f3873932886b",
+  "statement": "(((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_airship_ballastratio_1",
+    "fam_backlash_stiffnessloss_1",
+    "fam_cheesemaking_yield_1",
+    "fam_events_noshow_1",
+    "fam_fatigue_stressratio_1",
+    "fam_geochemistry_ph_1",
+    "fam_ichthyology_mortality_1",
+    "fam_invoice_discount_1",
+    "fam_logging_samplingrate_1",
+    "fam_memory_forgetting_1",
+    "fam_mosaic_groutratio_1",
+    "fam_obs_samplingrate_1",
+    "fam_observability_sampling_1",
+    "fam_telemetry_samplingrate_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesO.lean",
+    "FamiliesT.lean"
+  ]
+}

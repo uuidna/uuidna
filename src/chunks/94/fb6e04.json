@@ -1,0 +1,12 @@
+{
+  "handle": "94fb6e04",
+  "address": "94fb6e04-ff33-8d75-97b5-43de061ead6c",
+  "statement": "(-((-(96 : Int)) / (5 : Int))) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_orthopedics_implantsize_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

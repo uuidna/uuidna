@@ -1,0 +1,12 @@
+{
+  "handle": "888ecc96",
+  "address": "888ecc96-a626-80da-b9a3-7fec70c28a5c",
+  "statement": "(if (if (121 : Int) ≥ (116 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_canning_sterilize_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

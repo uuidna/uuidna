@@ -1,0 +1,12 @@
+{
+  "handle": "7502fade",
+  "address": "7502fade-fccb-830f-bce6-ee37598a486d",
+  "statement": "((9400 : Int) / (10 : Int)) = (940 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bandwidth_goodput_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

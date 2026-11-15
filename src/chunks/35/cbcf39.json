@@ -1,0 +1,20 @@
+{
+  "handle": "35cbcf39",
+  "address": "35cbcf39-4931-8754-870c-a3c7fbc2e115",
+  "statement": "((10 : Int) * (2 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_antenna_gain_1",
+    "fam_bond_payments_1",
+    "fam_logicgates_propagation_1",
+    "fam_mutation_hotspots_1",
+    "fam_pathogen_generations_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean"
+  ]
+}

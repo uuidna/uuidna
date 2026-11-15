@@ -1,0 +1,12 @@
+{
+  "handle": "0f56e344",
+  "address": "0f56e344-291d-8b20-b3b0-75be4e25246a",
+  "kind": "chunk",
+  "keys": [
+    "fam_projectile_angle_1"
+  ],
+  "statement": "(fmax (0 : Int) ((90 : Int) - (45 : Int))) = (45 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

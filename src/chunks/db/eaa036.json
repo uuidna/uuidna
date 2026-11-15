@@ -1,0 +1,12 @@
+{
+  "handle": "dbeaa036",
+  "address": "dbeaa036-1226-819f-91b1-fe78a7e43e32",
+  "statement": "(((100 : Int) * (61 : Int)) / ((6000 : Int) + (100 : Int))) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gravity_center_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

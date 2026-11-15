@@ -1,0 +1,18 @@
+{
+  "handle": "5fb75d99",
+  "address": "5fb75d99-3a0d-8c44-9208-574f5076c67e",
+  "kind": "chunk",
+  "keys": [
+    "fam_bilingualism_codeswitchrate_1",
+    "fam_ceramics_porosity_1",
+    "fam_geology_grade_1",
+    "fam_surgery_complication_1"
+  ],
+  "statement": "(((15 : Int) * (100 : Int)) / (200 : Int)) = (7 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8759776d",
+  "address": "8759776d-e94e-8333-b706-ddfbea4d546b",
+  "statement": "(fmax (0 : Int) ((11 : Int) - (14 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_trucking_hoursofservice_2"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "07688d10",
+  "address": "07688d10-9170-8a47-96d6-3505b1cacafd",
+  "kind": "chunk",
+  "keys": [
+    "fam_histology_magnification_1"
+  ],
+  "statement": "((4000 : Int) / (10 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "48ea0461",
+  "address": "48ea0461-8322-8157-94f1-9e9d8827ee32",
+  "kind": "chunk",
+  "keys": [
+    "fam_auditing_findings_1",
+    "fam_testing_regression_1"
+  ],
+  "statement": "(((2 : Int) * (100 : Int)) / (40 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "042ee8dd",
+  "address": "042ee8dd-5ce6-805c-ae29-f5bd7f53439f",
+  "statement": "(((8000 : Int) * (1000 : Int)) / (1000000 : Int)) = (8 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_demographics_deathrate_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

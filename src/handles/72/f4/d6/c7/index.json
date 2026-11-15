@@ -1,0 +1,12 @@
+{
+  "handle": "72f4d6c7",
+  "address": "72f4d6c7-e3c1-8a36-b54c-7cea10125464",
+  "kind": "chunk",
+  "keys": [
+    "fam_arbitrage_transactioncost_1"
+  ],
+  "statement": "(((50000 : Int) * (25 : Int)) / (10000 : Int)) = (125 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

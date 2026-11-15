@@ -1,0 +1,12 @@
+{
+  "handle": "85f736e1",
+  "address": "85f736e1-f6ff-8cc1-8c1d-fe5b28594aa5",
+  "statement": "(fmax (0 : Int) ((14 : Int) - (14 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_law_redirected_2"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7e8278ad",
+  "address": "7e8278ad-d49d-8ee6-a16d-d63073263fcb",
+  "statement": "(((20 : Int) * (5 : Int)) / (10 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_titration_concentration_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

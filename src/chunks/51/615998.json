@@ -1,0 +1,12 @@
+{
+  "handle": "51615998",
+  "address": "51615998-4083-8e76-a976-5172d955ada4",
+  "statement": "((450 : Int) / (100 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hospitality_satisfaction_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

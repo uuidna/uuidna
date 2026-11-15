@@ -1,0 +1,12 @@
+{
+  "handle": "f72c756c",
+  "address": "f72c756c-593f-84a5-8a80-86db7aaddef8",
+  "kind": "chunk",
+  "keys": [
+    "fam_livestock_weightgain_1"
+  ],
+  "statement": "(fmax (0 : Int) ((450 : Int) - (120 : Int))) = (330 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

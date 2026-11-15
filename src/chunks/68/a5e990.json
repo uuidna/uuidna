@@ -1,0 +1,12 @@
+{
+  "handle": "68a5e990",
+  "address": "68a5e990-a33b-8485-a0c7-9d23ecc51f24",
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (50 : Int))) = (950 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_throughput_effectiverate_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

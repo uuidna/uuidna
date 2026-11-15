@@ -1,0 +1,12 @@
+{
+  "handle": "f03fac61",
+  "address": "f03fac61-1ea8-8d50-b78b-3cde4fd17162",
+  "kind": "chunk",
+  "keys": [
+    "fam_automotive_ratio_1"
+  ],
+  "statement": "(((39 : Int) * (100 : Int)) / (10 : Int)) = (390 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

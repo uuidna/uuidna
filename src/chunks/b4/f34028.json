@@ -1,0 +1,12 @@
+{
+  "handle": "b4f34028",
+  "address": "b4f34028-acda-812c-b595-8dacd13c0570",
+  "statement": "(((11 : Int) + (8 : Int)) + (5 : Int)) = (24 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mitosis_cyclelength_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

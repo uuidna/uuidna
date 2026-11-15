@@ -1,0 +1,14 @@
+{
+  "handle": "acf62b97",
+  "address": "acf62b97-8c4e-8249-af0d-a402f1770bca",
+  "statement": "(fmax (0 : Int) ((200 : Int) - (180 : Int))) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gastronomy_waste_1",
+    "fam_proofing_overproofrisk_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesP.lean"
+  ]
+}

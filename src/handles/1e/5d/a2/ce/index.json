@@ -1,0 +1,14 @@
+{
+  "handle": "1e5da2ce",
+  "address": "1e5da2ce-f6a5-849c-a1ef-f241c76181b7",
+  "kind": "chunk",
+  "keys": [
+    "fam_mobility_triprate_2",
+    "fam_zeroshot_partitions_2"
+  ],
+  "statement": "((10 : Int) / (0 : Int)) = (0 : Int)",
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesZ.lean"
+  ]
+}

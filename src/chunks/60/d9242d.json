@@ -1,0 +1,12 @@
+{
+  "handle": "60d9242d",
+  "address": "60d9242d-4f2b-8ca3-a097-f8106954bae7",
+  "statement": "((1800 : Int) * (3 : Int)) = (5400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_depreciation_accumulated_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "11b53b03",
+  "address": "11b53b03-e35e-8cdd-a6d1-eff034aca870",
+  "statement": "(((10 : Int) * (693 : Int)) / ((5 : Int) * (1000 : Int))) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_endocrinology_halflife_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

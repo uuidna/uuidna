@@ -1,0 +1,12 @@
+{
+  "handle": "b5a7f809",
+  "address": "b5a7f809-8f25-8dbb-9c63-c9fa1c975aa6",
+  "statement": "(((10 : Int) * (6 : Int)) / (4 : Int)) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_diffusion_permeability_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

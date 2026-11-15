@@ -1,0 +1,12 @@
+{
+  "handle": "b7b3f95d",
+  "address": "b7b3f95d-2dfb-85a8-8cd3-29acb65ec6f7",
+  "statement": "(((410 : Int) * (100 : Int)) / (1000 : Int)) = (41 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_genetics_gc_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

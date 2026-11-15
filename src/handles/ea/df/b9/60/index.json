@@ -1,0 +1,15 @@
+{
+  "handle": "eadfb960",
+  "address": "eadfb960-da6d-8c57-a675-2491cc9fc22e",
+  "kind": "chunk",
+  "keys": [
+    "fam_cheese_salt_1",
+    "fam_convection_boundarylayer_1",
+    "fam_tectonics_straindrate_1"
+  ],
+  "statement": "(((5 : Int) * (100 : Int)) / (50 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesT.lean"
+  ]
+}

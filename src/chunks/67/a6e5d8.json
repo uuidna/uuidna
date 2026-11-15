@@ -1,0 +1,12 @@
+{
+  "handle": "67a6e5d8",
+  "address": "67a6e5d8-1808-8726-b2ba-99e3b88c70b8",
+  "statement": "((850 : Int) / (5 : Int)) = (170 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_underwriting_score_1"
+  ],
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

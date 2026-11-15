@@ -1,0 +1,12 @@
+{
+  "handle": "41786972",
+  "address": "41786972-c577-861f-a573-dca25c88f159",
+  "kind": "chunk",
+  "keys": [
+    "fam_court_cap_1"
+  ],
+  "statement": "(fmin (500000 : Int) (250000 : Int)) = (250000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

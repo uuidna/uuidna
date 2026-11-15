@@ -1,0 +1,12 @@
+{
+  "handle": "114ed53f",
+  "address": "114ed53f-bdbe-8e0d-8bd1-66d517ea49f2",
+  "kind": "chunk",
+  "keys": [
+    "fam_preservation_phlevel_1"
+  ],
+  "statement": "((42 : Int) / (10 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

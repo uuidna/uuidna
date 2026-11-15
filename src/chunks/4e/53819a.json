@@ -1,0 +1,12 @@
+{
+  "handle": "4e53819a",
+  "address": "4e53819a-ba83-8610-b88e-df26b3752817",
+  "statement": "(fmin (4 : Int) (6 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_controllability_matrixrank_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

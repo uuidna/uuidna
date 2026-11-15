@@ -1,0 +1,14 @@
+{
+  "handle": "54e61a6d",
+  "address": "54e61a6d-ca35-83de-9abc-ea59084e075a",
+  "statement": "((1 : Int) + (1 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dialectic_thesisantithesis_1",
+    "fam_puppetry_manipulators_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesP.lean"
+  ]
+}

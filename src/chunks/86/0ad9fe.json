@@ -1,0 +1,12 @@
+{
+  "handle": "860ad9fe",
+  "address": "860ad9fe-53b0-83c0-8b7e-c73690d17464",
+  "statement": "((1000 : Int) - ((1000 : Int) / ((2 : Int) ^ (3 : Nat)))) = (875 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nuclearphysics_decay_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

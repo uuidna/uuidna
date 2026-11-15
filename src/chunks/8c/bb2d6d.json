@@ -1,0 +1,12 @@
+{
+  "handle": "8cbb2d6d",
+  "address": "8cbb2d6d-a340-8ac1-a3d4-226316845c5f",
+  "statement": "((78 : Int) * (1 : Int)) = (78 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fluid_pipearea_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "49eadf35",
+  "address": "49eadf35-ee21-8427-a346-063de2231b1f",
+  "statement": "(((60 : Int) * (100 : Int)) / (480 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dispatch_overtimeratio_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4f7a4afd",
+  "address": "4f7a4afd-7e54-8236-b243-44dde2e626cd",
+  "statement": "((7000 : Int) * (2 : Int)) = (14000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cern_energygev_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

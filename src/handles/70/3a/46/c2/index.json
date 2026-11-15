@@ -1,0 +1,14 @@
+{
+  "handle": "703a46c2",
+  "address": "703a46c2-25db-8992-84f1-94eb732094af",
+  "kind": "chunk",
+  "keys": [
+    "fam_curriculum_alignment_1",
+    "fam_onboarding_satisfaction_1"
+  ],
+  "statement": "(if (if (90 : Int) ≥ (80 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesO.lean"
+  ]
+}

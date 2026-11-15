@@ -1,0 +1,12 @@
+{
+  "handle": "e029b8e8",
+  "address": "e029b8e8-fd98-8b7c-b81e-7544f983d034",
+  "kind": "chunk",
+  "keys": [
+    "fam_creditscore_exposureatdefault_1"
+  ],
+  "statement": "((100 : Int) + (((200 : Int) * (50 : Int)) / (100 : Int))) = (200 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

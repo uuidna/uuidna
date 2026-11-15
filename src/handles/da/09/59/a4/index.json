@@ -1,0 +1,12 @@
+{
+  "handle": "da0959a4",
+  "address": "da0959a4-eb30-8713-b88b-f47a3c855a09",
+  "kind": "chunk",
+  "keys": [
+    "fam_dosage_divided_1"
+  ],
+  "statement": "((750 : Int) / (3 : Int)) = (250 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

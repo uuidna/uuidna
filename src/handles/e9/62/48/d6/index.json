@@ -1,0 +1,12 @@
+{
+  "handle": "e96248d6",
+  "address": "e96248d6-1649-8d56-9031-427b4bd845b3",
+  "kind": "chunk",
+  "keys": [
+    "fam_swaps_swaprate_1"
+  ],
+  "statement": "(((500 : Int) * (10000 : Int)) / (10000 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

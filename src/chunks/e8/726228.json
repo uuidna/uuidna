@@ -1,0 +1,12 @@
+{
+  "handle": "e8726228",
+  "address": "e8726228-5e60-8d1e-bacc-d514257de30f",
+  "statement": "((12 : Int) * (80 : Int)) = (960 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_journalism_wordcount_1"
+  ],
+  "files": [
+    "FamiliesJ.lean"
+  ]
+}

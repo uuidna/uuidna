@@ -1,0 +1,12 @@
+{
+  "handle": "4aa481c3",
+  "address": "4aa481c3-7023-8df1-84b9-752cb6a17dca",
+  "statement": "((20 : Int) - (100 : Int)) = (-80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_electrochemistry_nernst_2"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

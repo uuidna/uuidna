@@ -1,0 +1,14 @@
+{
+  "handle": "52e1ae87",
+  "address": "52e1ae87-7428-8aec-934d-dc178027decc",
+  "kind": "chunk",
+  "keys": [
+    "fam_migration_pushpull_1",
+    "fam_personality_extraversion_1"
+  ],
+  "statement": "(fmax (0 : Int) ((70 : Int) - (30 : Int))) = (40 : Int)",
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesP.lean"
+  ]
+}

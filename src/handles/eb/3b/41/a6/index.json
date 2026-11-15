@@ -1,0 +1,12 @@
+{
+  "handle": "eb3b41a6",
+  "address": "eb3b41a6-aa74-8308-b0cf-deeec712fae1",
+  "kind": "chunk",
+  "keys": [
+    "fam_pediatrics_bsa_1"
+  ],
+  "statement": "(((36 : Int) * (100 : Int)) / (3600 : Int)) = (1 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

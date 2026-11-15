@@ -1,0 +1,12 @@
+{
+  "handle": "c6da513d",
+  "address": "c6da513d-1f89-829a-a018-fd9984b13e10",
+  "statement": "(((200 : Int) * (1000 : Int)) / (4 : Int)) = (50000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_enzymology_catalyticefficiency_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a921a021",
+  "address": "a921a021-011d-8b7e-af07-64733533b021",
+  "statement": "(((fmax (0 : Int) ((130 : Int) - (100 : Int))) * (100 : Int)) / (15 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_psychometrics_standardscore_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

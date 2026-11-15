@@ -1,0 +1,12 @@
+{
+  "handle": "3505528c",
+  "address": "3505528c-7983-80cd-8c46-78d29b536416",
+  "statement": "((((2 : Int) * (1000 : Int)) * (50 : Int)) / (20 : Int)) = (5000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_replenishment_eoq_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

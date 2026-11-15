@@ -1,0 +1,16 @@
+{
+  "handle": "55fa331c",
+  "address": "55fa331c-86f8-8692-a49c-b7a3b5f7dfd8",
+  "kind": "chunk",
+  "keys": [
+    "fam_derivatives_margin_1",
+    "fam_estimating_overhead_1",
+    "fam_partner_commission_1"
+  ],
+  "statement": "(((10000 : Int) * (15 : Int)) / (100 : Int)) = (1500 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "808ceea5",
+  "address": "808ceea5-7099-88fe-8869-7b062f21b674",
+  "kind": "chunk",
+  "keys": [
+    "fam_athletics_points_1"
+  ],
+  "statement": "(((950 : Int) * (1000 : Int)) / (1000 : Int)) = (950 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

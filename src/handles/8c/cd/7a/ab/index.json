@@ -1,0 +1,12 @@
+{
+  "handle": "8ccd7aab",
+  "address": "8ccd7aab-b7d9-8481-b2b5-6e0afd92887d",
+  "kind": "chunk",
+  "keys": [
+    "fam_dedup_pinned_1"
+  ],
+  "statement": "(if (if (2 : Int) > (0 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

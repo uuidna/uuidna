@@ -1,0 +1,12 @@
+{
+  "handle": "e565e1c1",
+  "address": "e565e1c1-540d-8ff7-856d-8e945df91300",
+  "kind": "chunk",
+  "keys": [
+    "fam_drag_parasitic_1"
+  ],
+  "statement": "((20 : Int) + (15 : Int)) = (35 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

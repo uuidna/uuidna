@@ -1,0 +1,12 @@
+{
+  "handle": "e6cf6340",
+  "address": "e6cf6340-fffe-8166-be18-89245e1a69b6",
+  "kind": "chunk",
+  "keys": [
+    "fam_numerology_masternumbers_1"
+  ],
+  "statement": "((11 : Int) + (22 : Int)) = (33 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

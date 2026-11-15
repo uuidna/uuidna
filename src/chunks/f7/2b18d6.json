@@ -1,0 +1,12 @@
+{
+  "handle": "f72b18d6",
+  "address": "f72b18d6-72af-88da-9982-db9e01bfef09",
+  "statement": "(((500 : Int) * (60000 : Int)) / (100000 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_prevalence_caseload_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

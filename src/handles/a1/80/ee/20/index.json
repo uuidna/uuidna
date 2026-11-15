@@ -1,0 +1,35 @@
+{
+  "handle": "a180ee20",
+  "address": "a180ee20-b475-89ab-abbf-a9df2104bdf7",
+  "kind": "chunk",
+  "keys": [
+    "fam_biomass_digestion_1",
+    "fam_cohort_engagement_1",
+    "fam_demography_dependencyratio_1",
+    "fam_grazing_forageutilization_1",
+    "fam_landuse_residentialshare_1",
+    "fam_lift_coefficient_1",
+    "fam_nanomaterials_dispersion_1",
+    "fam_podcasting_retention_1",
+    "fam_project_budget_1",
+    "fam_recycling_diversion_1",
+    "fam_turbine_capacity_1",
+    "fam_underwriting_ratio_1",
+    "fam_warehousing_cube_1",
+    "fam_welfare_replacement_1"
+  ],
+  "statement": "(((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesG.lean",
+    "FamiliesL.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesT.lean",
+    "FamiliesU.lean",
+    "FamiliesW.lean"
+  ]
+}

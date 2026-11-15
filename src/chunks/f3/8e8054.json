@@ -1,0 +1,12 @@
+{
+  "handle": "f38e8054",
+  "address": "f38e8054-601e-837a-922a-d42940fa6ba3",
+  "statement": "((72 : Int) * (5 : Int)) = (360 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_chocolate_conche_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

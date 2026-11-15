@@ -1,0 +1,12 @@
+{
+  "handle": "a96a53ae",
+  "address": "a96a53ae-fcef-85b4-a493-90f474f21f0f",
+  "statement": "((200 : Int) * (6 : Int)) = (1200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_monorail_capacity_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

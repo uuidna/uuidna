@@ -1,0 +1,12 @@
+{
+  "handle": "f140f634",
+  "address": "f140f634-d713-89c9-9988-c4bd73af2f1f",
+  "kind": "chunk",
+  "keys": [
+    "fam_genealogy_generations_1"
+  ],
+  "statement": "((400 : Int) / (25 : Int)) = (16 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f7d5e239",
+  "address": "f7d5e239-e253-8302-a4be-f0974fe8ca79",
+  "statement": "((850 : Int) / (200 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_events_satisfaction_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cfe27a56",
+  "address": "cfe27a56-6203-8afc-8c8e-2cbc5374bfa4",
+  "kind": "chunk",
+  "keys": [
+    "fam_tune_cents_1"
+  ],
+  "statement": "((1200 : Int) * (Int.ofNat (flog 2 64 (Int.toNat ((2 : Int) / (1 : Int)))))) = (1200 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

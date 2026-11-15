@@ -1,0 +1,12 @@
+{
+  "handle": "d0f093f0",
+  "address": "d0f093f0-0f27-8561-99b2-c4e2745fae2e",
+  "statement": "(((35 : Int) * (100 : Int)) / (50 : Int)) = (70 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_socialnetwork_homophily_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

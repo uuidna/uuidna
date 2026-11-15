@@ -1,0 +1,12 @@
+{
+  "handle": "17b28361",
+  "address": "17b28361-17c2-80a6-8e46-f3db1df0a0df",
+  "kind": "chunk",
+  "keys": [
+    "fam_cropyield_yieldgap_1"
+  ],
+  "statement": "(fmax (0 : Int) ((5000 : Int) - (3500 : Int))) = (1500 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "be191327",
+  "address": "be191327-ced0-82f4-a515-5cbdc89014ae",
+  "statement": "(((45 : Int) * (20 : Int)) / (10 : Int)) = (90 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_personality_agreeableness_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "aebe6873",
+  "address": "aebe6873-9db6-84ff-8022-94460ed48a75",
+  "kind": "chunk",
+  "keys": [
+    "fam_hemodynamics_pulserate_1"
+  ],
+  "statement": "((360 : Int) / (5 : Int)) = (72 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

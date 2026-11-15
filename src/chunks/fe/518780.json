@@ -1,0 +1,19 @@
+{
+  "handle": "fe518780",
+  "address": "fe518780-8fec-83f4-b376-3aee13d3b4d5",
+  "statement": "(Int.ofNat (fchoose (Int.toNat (5 : Int)) (Int.toNat (2 : Int)))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cloudflare_choose_2",
+    "fam_codicology_inkcombos_1",
+    "fam_cosmogony_elementcombos_1",
+    "fam_creditscore_factorcombos_1",
+    "fam_epistemology_gettiercases_1",
+    "fam_taoism_elementcombos_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesT.lean"
+  ]
+}

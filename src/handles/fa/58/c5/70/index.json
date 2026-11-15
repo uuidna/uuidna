@@ -1,0 +1,12 @@
+{
+  "handle": "fa58c570",
+  "address": "fa58c570-3194-8624-aaa4-3b6f4f26f4d2",
+  "kind": "chunk",
+  "keys": [
+    "fam_treasury_cashflow_1"
+  ],
+  "statement": "((100 : Int) - (60 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

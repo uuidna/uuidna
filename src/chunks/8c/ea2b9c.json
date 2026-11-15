@@ -1,0 +1,12 @@
+{
+  "handle": "8cea2b9c",
+  "address": "8cea2b9c-09f7-8882-8f7b-84308d8179ce",
+  "statement": "(if (if (200 : Int) ≥ (250 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_floriculture_forcing_2"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

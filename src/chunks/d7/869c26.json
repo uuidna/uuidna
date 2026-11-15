@@ -1,0 +1,12 @@
+{
+  "handle": "d7869c26",
+  "address": "d7869c26-886e-8e9b-a841-e17745d4abbe",
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (24 : Int))) = (976 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_warehouse_materialized_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

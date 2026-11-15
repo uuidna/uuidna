@@ -1,0 +1,16 @@
+{
+  "handle": "7e92fda3",
+  "address": "7e92fda3-a72a-81b2-bd9c-45a9e9b50920",
+  "statement": "((8 : Int) * (5 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_editing_coverage_1",
+    "fam_failure_criticality_1",
+    "fam_reasoning_syllogismscore_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesR.lean"
+  ]
+}

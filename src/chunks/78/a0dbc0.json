@@ -1,0 +1,12 @@
+{
+  "handle": "78a0dbc0",
+  "address": "78a0dbc0-f948-8e30-aebe-8424a6e610cf",
+  "statement": "(((333 : Int) * (4000 : Int)) / (1000 : Int)) = (1332 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bayesian_update_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

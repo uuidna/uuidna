@@ -1,0 +1,12 @@
+{
+  "handle": "2d80f6db",
+  "address": "2d80f6db-89ce-87de-b973-44c252cce4b5",
+  "kind": "chunk",
+  "keys": [
+    "fam_poker_expectedvalue_1"
+  ],
+  "statement": "((fmax (0 : Int) (((50 : Int) * (200 : Int)) - (((100 : Int) - (50 : Int)) * (100 : Int)))) / (100 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

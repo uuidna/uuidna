@@ -1,0 +1,12 @@
+{
+  "handle": "55b9b3a8",
+  "address": "55b9b3a8-e293-8867-b32a-29f92015fd05",
+  "statement": "((101 : Int) * (10 : Int)) = (1010 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_barometry_millibars_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

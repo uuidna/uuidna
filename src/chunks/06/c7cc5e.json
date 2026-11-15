@@ -1,0 +1,12 @@
+{
+  "handle": "06c7cc5e",
+  "address": "06c7cc5e-ae84-8549-9084-1aab78d8ae72",
+  "statement": "(((285 : Int) * (1000 : Int)) / (1000 : Int)) = (285 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_physiology_osmolality_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

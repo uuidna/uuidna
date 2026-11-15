@@ -1,0 +1,24 @@
+{
+  "handle": "0dfa061b",
+  "address": "0dfa061b-1bbf-88bd-be16-7f4356ab7e2e",
+  "kind": "chunk",
+  "keys": [
+    "fam_auction_proxy_1",
+    "fam_backend_queue_1",
+    "fam_hedging_delta_1",
+    "fam_liquidity_workingcapital_1",
+    "fam_pomology_thinning_1",
+    "fam_realestate_equity_1",
+    "fam_treasury_workingcapital_1"
+  ],
+  "statement": "(fmax (0 : Int) ((500 : Int) - (300 : Int))) = (200 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "60780945",
+  "address": "60780945-5497-8f99-9951-f9596a9fede3",
+  "statement": "((108 : Int) * (1 : Int)) = (108 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hinduism_mantrarepetitions_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

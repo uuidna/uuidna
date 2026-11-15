@@ -1,0 +1,12 @@
+{
+  "handle": "624d6746",
+  "address": "624d6746-a95e-832c-b9ce-87b6313e7af4",
+  "kind": "chunk",
+  "keys": [
+    "fam_forms_dropoff_1"
+  ],
+  "statement": "(((40 : Int) * (100 : Int)) / (500 : Int)) = (8 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

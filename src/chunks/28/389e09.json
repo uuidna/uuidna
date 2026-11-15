@@ -1,0 +1,12 @@
+{
+  "handle": "28389e09",
+  "address": "28389e09-9476-8c13-8d79-1a10a46cfd0c",
+  "statement": "((25 : Int) + (10 : Int)) = (35 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_rheumatology_inflammation_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

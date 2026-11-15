@@ -1,0 +1,12 @@
+{
+  "handle": "6e70b617",
+  "address": "6e70b617-faad-877f-b108-dbfbb3bad2d5",
+  "kind": "chunk",
+  "keys": [
+    "fam_swine_farrowing_1"
+  ],
+  "statement": "(((220 : Int) * (100 : Int)) / (100 : Int)) = (220 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "handle": "2370c0fa",
+  "address": "2370c0fa-3a57-8505-b664-304f71e99f52",
+  "kind": "chunk",
+  "keys": [
+    "fam_wind_farm_1",
+    "fam_windpower_farmoutput_1"
+  ],
+  "statement": "((20 : Int) * (2000 : Int)) = (40000 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

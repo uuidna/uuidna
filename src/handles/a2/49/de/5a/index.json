@@ -1,0 +1,14 @@
+{
+  "handle": "a249de5a",
+  "address": "a249de5a-37a5-82f8-a492-3c29f88cea41",
+  "kind": "chunk",
+  "keys": [
+    "fam_dermatology_pigmentation_1",
+    "fam_pricing_upgrade_1"
+  ],
+  "statement": "(fmax (0 : Int) ((90 : Int) - (50 : Int))) = (40 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "352efb82",
+  "address": "352efb82-9dda-8aed-9c53-939203666900",
+  "kind": "chunk",
+  "keys": [
+    "fam_absorption_nrc_1"
+  ],
+  "statement": "(((60 : Int) + (80 : Int)) / (2 : Int)) = (70 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

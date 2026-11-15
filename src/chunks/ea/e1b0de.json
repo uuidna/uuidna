@@ -1,0 +1,12 @@
+{
+  "handle": "eae1b0de",
+  "address": "eae1b0de-f404-8001-8e21-941e3b099c98",
+  "statement": "(((fmax (0 : Int) ((500 : Int) - (700 : Int))) * (1000 : Int)) / (700 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_redshift_z_2"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

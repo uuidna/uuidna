@@ -1,0 +1,12 @@
+{
+  "handle": "19049bbc",
+  "address": "19049bbc-987c-89e7-a022-c61722c52fa5",
+  "statement": "(fmax (0 : Int) ((45 : Int) - (50 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_lodging_leadtime_2"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

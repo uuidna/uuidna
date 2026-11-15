@@ -1,0 +1,12 @@
+{
+  "handle": "48239026",
+  "address": "48239026-c520-838d-ba6a-5d12165081ba",
+  "statement": "((1000 : Int) / (256 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_firmware_pages_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

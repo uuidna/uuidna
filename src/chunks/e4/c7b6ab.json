@@ -1,0 +1,12 @@
+{
+  "handle": "e4c7b6ab",
+  "address": "e4c7b6ab-3742-807c-a935-567fc412b774",
+  "statement": "(((660 : Int) * (100 : Int)) / (1000 : Int)) = (66 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_governance_turnout_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

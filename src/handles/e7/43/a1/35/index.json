@@ -1,0 +1,12 @@
+{
+  "handle": "e743a135",
+  "address": "e743a135-3594-839a-a512-72d307f6315f",
+  "kind": "chunk",
+  "keys": [
+    "fam_viticulture_acidity_1"
+  ],
+  "statement": "(((6 : Int) * (1000 : Int)) / (1000 : Int)) = (6 : Int)",
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

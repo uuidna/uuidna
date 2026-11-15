@@ -1,0 +1,12 @@
+{
+  "handle": "32903655",
+  "address": "32903655-5d37-8690-85b2-146a8fdf62a2",
+  "kind": "chunk",
+  "keys": [
+    "fam_rocketry_thrust_1"
+  ],
+  "statement": "((300 : Int) * (3000 : Int)) = (900000 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

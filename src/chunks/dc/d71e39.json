@@ -1,0 +1,14 @@
+{
+  "handle": "dcd71e39",
+  "address": "dcd71e39-2b78-83be-91f9-d01c84197377",
+  "statement": "((1024 : Int) * (1 : Int)) = (1024 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hanoi_transfertime_1",
+    "fam_quantum_shots_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesQ.lean"
+  ]
+}

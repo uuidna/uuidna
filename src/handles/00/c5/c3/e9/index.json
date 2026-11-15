@@ -1,0 +1,12 @@
+{
+  "handle": "00c5c3e9",
+  "address": "00c5c3e9-2210-8803-8715-f43960f591e5",
+  "kind": "chunk",
+  "keys": [
+    "fam_bioindicator_pollutionload_1"
+  ],
+  "statement": "((50 : Int) * (200 : Int)) = (10000 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

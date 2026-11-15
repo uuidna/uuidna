@@ -1,0 +1,12 @@
+{
+  "handle": "351c3c10",
+  "address": "351c3c10-da79-870a-8c19-d35303423680",
+  "statement": "(((3 : Int) * (100 : Int)) / (250 : Int)) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_firewall_falseblock_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

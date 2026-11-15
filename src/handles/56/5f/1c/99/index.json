@@ -1,0 +1,12 @@
+{
+  "handle": "565f1c99",
+  "address": "565f1c99-286b-8a65-94d0-a9e5e1b11517",
+  "kind": "chunk",
+  "keys": [
+    "fam_gps_satellites_1"
+  ],
+  "statement": "(fmax (0 : Int) ((31 : Int) - (7 : Int))) = (24 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

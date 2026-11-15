@@ -1,0 +1,12 @@
+{
+  "handle": "e441c9be",
+  "address": "e441c9be-4f33-8c85-a37c-7f849f3903a5",
+  "statement": "(Int.ofNat (fchoose (Int.toNat (14 : Int)) (Int.toNat (2 : Int)))) = (91 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pilgrimage_stationpairs_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

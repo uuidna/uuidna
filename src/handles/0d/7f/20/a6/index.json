@@ -1,0 +1,12 @@
+{
+  "handle": "0d7f20a6",
+  "address": "0d7f20a6-40ae-8813-8c87-8115ec5dc128",
+  "kind": "chunk",
+  "keys": [
+    "fam_lean_oee_1"
+  ],
+  "statement": "((((90 : Int) * (95 : Int)) * (99 : Int)) / (10000 : Int)) = (84 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

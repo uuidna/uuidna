@@ -1,0 +1,12 @@
+{
+  "handle": "e67944c9",
+  "address": "e67944c9-6c3a-843c-b7b6-f74bb4ad4ee9",
+  "kind": "chunk",
+  "keys": [
+    "fam_semiconductors_wafer_1"
+  ],
+  "statement": "((31416 : Int) / (100 : Int)) = (314 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

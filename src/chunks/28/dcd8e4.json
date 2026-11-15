@@ -1,0 +1,14 @@
+{
+  "handle": "28dcd8e4",
+  "address": "28dcd8e4-4386-81f1-b1c6-2c18756ff64a",
+  "statement": "(if (if (2 : Int) ≤ (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_court_compliant_1",
+    "fam_reasoning_deductionvalidity_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesR.lean"
+  ]
+}

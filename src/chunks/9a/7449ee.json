@@ -1,0 +1,20 @@
+{
+  "handle": "9a7449ee",
+  "address": "9a7449ee-7bb8-8c0a-a5c8-074978f8392f",
+  "statement": "(((500 : Int) * (100 : Int)) / (1000 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_aquafarming_survivalrate_2",
+    "fam_bioavailability_absolute_1",
+    "fam_brewing_mash_1",
+    "fam_census_dependency_1",
+    "fam_cuisine_ratio_1",
+    "fam_mycology_efficiency_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesM.lean"
+  ]
+}

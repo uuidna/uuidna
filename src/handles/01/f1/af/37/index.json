@@ -1,0 +1,22 @@
+{
+  "handle": "01f1af37",
+  "address": "01f1af37-dcc6-81e1-a707-f4b95d282cfe",
+  "kind": "chunk",
+  "keys": [
+    "fam_bond_maturity_1",
+    "fam_hanoi_disks_1",
+    "fam_hanoi_recursiondepth_1",
+    "fam_inequality_deciles_1",
+    "fam_ontology_categories_1",
+    "fam_sikhism_gurus_1",
+    "fam_submarine_ballasttanks_1"
+  ],
+  "statement": "((10 : Int) + (0 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesO.lean",
+    "FamiliesS.lean"
+  ]
+}

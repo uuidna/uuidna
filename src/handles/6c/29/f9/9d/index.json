@@ -1,0 +1,12 @@
+{
+  "handle": "6c29f99d",
+  "address": "6c29f99d-fab3-8baf-ab2a-dbe757f86b6a",
+  "kind": "chunk",
+  "keys": [
+    "fam_woodworking_hardness_1"
+  ],
+  "statement": "(1290 : Int) = (1290 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

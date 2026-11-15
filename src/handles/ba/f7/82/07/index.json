@@ -1,0 +1,14 @@
+{
+  "handle": "baf78207",
+  "address": "baf78207-3fa8-853b-a7ad-808abaef0bd7",
+  "kind": "chunk",
+  "keys": [
+    "fam_logistics_eta_1",
+    "fam_rail_consist_1"
+  ],
+  "statement": "(-((-(1000 : Int)) / (80 : Int))) = (13 : Int)",
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesR.lean"
+  ]
+}

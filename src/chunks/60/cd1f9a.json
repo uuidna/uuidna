@@ -1,0 +1,12 @@
+{
+  "handle": "60cd1f9a",
+  "address": "60cd1f9a-911a-8d99-840b-a8308429babe",
+  "statement": "(if (if (2 : Int) ≥ (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cadence_finalitytype_2"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

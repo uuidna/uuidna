@@ -1,0 +1,16 @@
+{
+  "handle": "e4fc155d",
+  "address": "e4fc155d-e17d-8f6f-89be-efae86c4f62f",
+  "kind": "chunk",
+  "keys": [
+    "fam_conservation_threatened_1",
+    "fam_leverage_marginratio_1",
+    "fam_metabolomics_turnover_1"
+  ],
+  "statement": "(((25 : Int) * (100 : Int)) / (200 : Int)) = (12 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "25273fa1",
+  "address": "25273fa1-6622-89f0-8484-31e2666a9a8e",
+  "kind": "chunk",
+  "keys": [
+    "fam_arbitrage_pricedifference_1",
+    "fam_futures_rollyield_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((110 : Int) - (100 : Int))) * (100 : Int)) / (100 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesF.lean"
+  ]
+}

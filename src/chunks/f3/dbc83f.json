@@ -1,0 +1,12 @@
+{
+  "handle": "f3dbc83f",
+  "address": "f3dbc83f-cbd8-809e-b9ce-b3dda822183c",
+  "statement": "(fmax (0 : Int) ((10 : Int) - (14 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_law_fast_3"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

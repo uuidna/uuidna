@@ -1,0 +1,12 @@
+{
+  "handle": "798f30e9",
+  "address": "798f30e9-d5c4-8dc9-91df-fa19df3e78ff",
+  "kind": "chunk",
+  "keys": [
+    "fam_turbine_sweep_1"
+  ],
+  "statement": "((((10 : Int) * (10 : Int)) * (314 : Int)) / (100 : Int)) = (314 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

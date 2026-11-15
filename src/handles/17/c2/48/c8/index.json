@@ -1,0 +1,19 @@
+{
+  "handle": "17c248c8",
+  "address": "17c248c8-cd51-8362-b560-aa6c959e093a",
+  "kind": "chunk",
+  "keys": [
+    "fam_cloud_sla_2",
+    "fam_comparison_winner_2",
+    "fam_distribution_reach_2",
+    "fam_nuclearphysics_criticality_2",
+    "fam_phycology_nutrientuptake_2"
+  ],
+  "statement": "(if (if (90 : Int) ≥ (95 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean"
+  ]
+}

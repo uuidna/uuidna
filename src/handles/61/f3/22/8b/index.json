@@ -1,0 +1,12 @@
+{
+  "handle": "61f3228b",
+  "address": "61f3228b-23f9-8ce3-89b2-bd0c4a4b1d0f",
+  "kind": "chunk",
+  "keys": [
+    "fam_tpu_memory_1"
+  ],
+  "statement": "((1000000 : Int) * (2 : Int)) = (2000000 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

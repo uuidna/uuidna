@@ -1,0 +1,12 @@
+{
+  "handle": "f9e805fc",
+  "address": "f9e805fc-3ed7-80cf-a709-6d5eaecbcafe",
+  "kind": "chunk",
+  "keys": [
+    "fam_mechanical_gear_1"
+  ],
+  "statement": "(((60 : Int) * (100 : Int)) / (20 : Int)) = (300 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

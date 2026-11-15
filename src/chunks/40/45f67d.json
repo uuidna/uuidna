@@ -1,0 +1,20 @@
+{
+  "handle": "4045f67d",
+  "address": "4045f67d-4f3b-8aad-a627-665068245ce3",
+  "statement": "(((80 : Int) * (100 : Int)) / (20 : Int)) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_audiology_masking_1",
+    "fam_basketball_assists_1",
+    "fam_distillation_reflux_1",
+    "fam_geochemistry_partition_1",
+    "fam_spectroscopy_absorbance_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesG.lean",
+    "FamiliesS.lean"
+  ]
+}

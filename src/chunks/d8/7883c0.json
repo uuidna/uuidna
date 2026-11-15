@@ -1,0 +1,12 @@
+{
+  "handle": "d87883c0",
+  "address": "d87883c0-98dc-8049-8d8d-1222dc8e0975",
+  "statement": "(fmax (0 : Int) ((100 : Int) - (250 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_observability_errorbudget_2"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

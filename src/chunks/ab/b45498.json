@@ -1,0 +1,38 @@
+{
+  "handle": "abb45498",
+  "address": "abb45498-7f07-8a6c-b96b-5eac21a5ce68",
+  "statement": "((1000 : Int) / (25 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_anthropology_migration_1",
+    "fam_biodiversity_abundance_1",
+    "fam_blockchain_difficulty_1",
+    "fam_conversion_cpa_1",
+    "fam_drag_terminalvelocity_1",
+    "fam_ecology_density_1",
+    "fam_floriculture_spacing_1",
+    "fam_fluiddynamics_velocity_1",
+    "fam_glaciology_age_1",
+    "fam_interference_fringecount_1",
+    "fam_mechanical_thermal_1",
+    "fam_metallurgy_grain_1",
+    "fam_policy_efficiency_1",
+    "fam_rheology_flow_1",
+    "fam_tiling_rowtiles_1",
+    "fam_titration_titer_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesT.lean"
+  ]
+}

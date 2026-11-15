@@ -1,0 +1,12 @@
+{
+  "handle": "fa92e061",
+  "address": "fa92e061-30ad-800a-9f77-8e4699b2abfe",
+  "kind": "chunk",
+  "keys": [
+    "fam_pasteurization_cooling_2"
+  ],
+  "statement": "(fmax (0 : Int) ((4 : Int) - (75 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

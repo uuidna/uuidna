@@ -1,0 +1,12 @@
+{
+  "handle": "79327b0a",
+  "address": "79327b0a-4cf6-8bd4-8e49-0268660198f4",
+  "statement": "((2 : Int) * (64 : Int)) = (128 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_serology_dilutionfactor_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

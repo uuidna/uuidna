@@ -1,0 +1,12 @@
+{
+  "handle": "62442d6f",
+  "address": "62442d6f-3979-8ac4-962f-1d0902a6252a",
+  "kind": "chunk",
+  "keys": [
+    "fam_formant_bandwidth_1"
+  ],
+  "statement": "(fmax (0 : Int) ((700 : Int) - (500 : Int))) = (200 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

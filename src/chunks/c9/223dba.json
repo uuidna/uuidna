@@ -1,0 +1,12 @@
+{
+  "handle": "c9223dba",
+  "address": "c9223dba-985a-8965-9c82-2e37dc9c3f5a",
+  "statement": "((11 : Int) * (1000 : Int)) = (11000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_spaceflight_escapevelocity_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

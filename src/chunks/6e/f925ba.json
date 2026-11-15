@@ -1,0 +1,12 @@
+{
+  "handle": "6ef925ba",
+  "address": "6ef925ba-6791-8d2c-ba3d-0f6fdb22a213",
+  "statement": "((360 : Int) / (8 : Int)) = (45 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_polygon_exteriorangle_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0598a21d",
+  "address": "0598a21d-2911-8e99-9e1c-ba6e76185b66",
+  "kind": "chunk",
+  "keys": [
+    "fam_refrigeration_capacity_1"
+  ],
+  "statement": "((5 : Int) * (12000 : Int)) = (60000 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

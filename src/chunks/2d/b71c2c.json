@@ -1,0 +1,12 @@
+{
+  "handle": "2db71c2c",
+  "address": "2db71c2c-1469-8b06-b0d5-93874146441c",
+  "statement": "(((fmax (0 : Int) ((100 : Int) - (110 : Int))) * (100 : Int)) / (110 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_arbitrage_pricedifference_2"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cb5a576a",
+  "address": "cb5a576a-1df9-8900-a322-59ec88e492b3",
+  "statement": "((10 : Int) * (24 : Int)) = (240 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_typography_rhythm_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

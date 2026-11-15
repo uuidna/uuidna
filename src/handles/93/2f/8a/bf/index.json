@@ -1,0 +1,12 @@
+{
+  "handle": "932f8abf",
+  "address": "932f8abf-1a05-8979-b7e8-0ddb7c2aed2b",
+  "kind": "chunk",
+  "keys": [
+    "fam_rectifiers_conductionangle_1"
+  ],
+  "statement": "(((1 : Int) * (360 : Int)) / (2 : Int)) = (180 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

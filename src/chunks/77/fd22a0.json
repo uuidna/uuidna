@@ -1,0 +1,12 @@
+{
+  "handle": "77fd22a0",
+  "address": "77fd22a0-ab58-8f9c-86fb-744004d3c289",
+  "statement": "((110 : Int) / (10 : Int)) = (11 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_swine_litter_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

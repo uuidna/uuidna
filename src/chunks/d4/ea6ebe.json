@@ -1,0 +1,12 @@
+{
+  "handle": "d4ea6ebe",
+  "address": "d4ea6ebe-c399-8b4a-be93-ec41f0b7f79d",
+  "statement": "((10 : Int) * (9 : Int)) = (90 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_blackhole_isco_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a5044e05",
+  "address": "a5044e05-51dd-8225-8801-5d4f8e65d9da",
+  "statement": "80808 * 2 ^ 105 < 2 ^ 122",
+  "tactic": "decide",
+  "keys": [
+    "forged_address_odds_are_negligible"
+  ],
+  "files": [
+    "Forensics.lean"
+  ]
+}

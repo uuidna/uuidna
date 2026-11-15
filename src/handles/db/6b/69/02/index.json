@@ -1,0 +1,12 @@
+{
+  "handle": "db6b6902",
+  "address": "db6b6902-bf27-8ccb-9eb6-2e2290e3eea4",
+  "kind": "chunk",
+  "keys": [
+    "fam_neuron_dendrites_1"
+  ],
+  "statement": "((1000 : Int) + (0 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

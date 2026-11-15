@@ -1,0 +1,12 @@
+{
+  "handle": "0f4b4770",
+  "address": "0f4b4770-b941-8a6e-b46c-fdf4ac92adfe",
+  "kind": "chunk",
+  "keys": [
+    "fam_claims_incurred_1"
+  ],
+  "statement": "((4000 : Int) + (6000 : Int)) = (10000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

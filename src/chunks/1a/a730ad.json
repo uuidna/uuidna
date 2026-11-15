@@ -1,0 +1,18 @@
+{
+  "handle": "1aa730ad",
+  "address": "1aa730ad-89cb-8c98-84db-5c04c377761e",
+  "statement": "(fmax (0 : Int) ((50 : Int) - (70 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_assessment_improvement_2",
+    "fam_microeconomics_surplus_2",
+    "fam_numeracy_growth_2",
+    "fam_reasoning_confidencecalibration_2"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesM.lean",
+    "FamiliesN.lean",
+    "FamiliesR.lean"
+  ]
+}

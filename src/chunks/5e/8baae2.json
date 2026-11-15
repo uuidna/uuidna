@@ -1,0 +1,12 @@
+{
+  "handle": "5e8baae2",
+  "address": "5e8baae2-1fa1-87c2-b9d3-e7ba54c0833d",
+  "statement": "(((300 : Int) * (100 : Int)) / (50 : Int)) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cricket_runrate_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

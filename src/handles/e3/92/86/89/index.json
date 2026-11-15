@@ -1,0 +1,12 @@
+{
+  "handle": "e3928689",
+  "address": "e3928689-8103-8508-802a-5f4de6ebdb4f",
+  "kind": "chunk",
+  "keys": [
+    "fam_translation_throughput_1"
+  ],
+  "statement": "((2500 : Int) / (5 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

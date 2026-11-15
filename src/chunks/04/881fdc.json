@@ -1,0 +1,12 @@
+{
+  "handle": "04881fdc",
+  "address": "04881fdc-6e30-8b94-b41f-d6dcdf4fd3b2",
+  "statement": "((((20 : Int) - (5 : Int)) * (100 : Int)) / (20 : Int)) = (75 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_psychiatry_response_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "37939323",
+  "address": "37939323-461a-8bb8-9e98-8afd1884e6f2",
+  "kind": "chunk",
+  "keys": [
+    "fam_oceanography_thermocline_1",
+    "fam_preservation_temperaturec_1"
+  ],
+  "statement": "(fmax (0 : Int) ((25 : Int) - (4 : Int))) = (21 : Int)",
+  "files": [
+    "FamiliesO.lean",
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b8ebef64",
+  "address": "b8ebef64-0075-849c-bd41-16e5a544119e",
+  "kind": "chunk",
+  "keys": [
+    "fam_unemployment_okunsgap_1"
+  ],
+  "statement": "(fmax (0 : Int) ((5 : Int) - (4 : Int))) = (1 : Int)",
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

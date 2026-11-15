@@ -1,0 +1,12 @@
+{
+  "handle": "a0b626c5",
+  "address": "a0b626c5-ec0d-8920-9d2f-e5ddce5bfc2c",
+  "kind": "chunk",
+  "keys": [
+    "fam_soilscience_organicmatter_1"
+  ],
+  "statement": "(((20 : Int) * (1724 : Int)) / (1000 : Int)) = (34 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

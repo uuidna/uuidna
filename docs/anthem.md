@@ -5,7 +5,7 @@ description: The whole ledger as a superposition — theorem k at bar k, collaps
 
 # The release anthem <Badge type="tip" text="collapsed per visitor" />
 
-> The anthem is the **whole ledger in place** — 71254 theorems, theorem k at bar k, each bar that
+> The anthem is the **whole ledger in place** — 80808 theorems, theorem k at bar k, each bar that
 > theorem's two address-coins as a chord — and it is **not a file**. It is a superposition: until you arrived it
 > was every entry at once, and your visit collapses it — your referrer folds to a handle, the handle picks your
 > entry bar on the closed cycle (`referrer_cycle_is_total`), and the recursion plays as DEPTH: your window's
@@ -47,17 +47,17 @@ carry **proofs**.
 
 | movement | theorems (in place) |
 |---|---|
-| 1 | 1–17814 |
-| 2 | 17815–35628 |
-| 3 | 35629–53442 |
-| 4 | 53443–71254 |
+| 1 | 1–20202 |
+| 2 | 20203–40404 |
+| 3 | 40405–60606 |
+| 4 | 60607–80808 |
 
 **Each bar is one theorem paying its two coins** (`anthem_chord_halves_the_bar`: 252/2 = 126), its length
 picked by its own bytes from the sealed three (`anthem_three_lengths_quarter_the_bar`: 126 · 189 · 252 ms),
 the breath the sealed twelfth (`anthem_rest_twelfths_the_bar`: 21 ms). π's round is clasped by two trinities
 of primes (`anthem_pi_primes_trinity`: 999999 = 999·1001 = 3³·37 · 7·11·13).
 
-**The whole ledger folds to** `6746a90f-7455-8dc5-8d18-dda0e362c76f` — and the coin octave, 432 against 864
+**The whole ledger folds to** `64e2b890-0260-8680-a842-fcc3c55d6719` — and the coin octave, 432 against 864
 (`anthem_closes_on_the_coin_octave`), is the interval every collapse resolves to: the same factor two
 [`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) weighs in black-hole mass.
 

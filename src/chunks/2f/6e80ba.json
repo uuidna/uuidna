@@ -1,0 +1,16 @@
+{
+  "handle": "2f6e80ba",
+  "address": "2f6e80ba-68b9-81fa-995d-d57e92a20a62",
+  "statement": "(((97 : Int) * (100 : Int)) / (100 : Int)) = (97 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cycling_efficiency_1",
+    "fam_hematology_oxygen_1",
+    "fam_oxygenation_saturation_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesH.lean",
+    "FamiliesO.lean"
+  ]
+}

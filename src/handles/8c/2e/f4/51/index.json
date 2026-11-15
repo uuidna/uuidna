@@ -1,0 +1,12 @@
+{
+  "handle": "8c2ef451",
+  "address": "8c2ef451-cb1c-8ef7-82d6-93cad1164a3e",
+  "kind": "chunk",
+  "keys": [
+    "fam_yield_nominal_1"
+  ],
+  "statement": "(((60 : Int) * (100 : Int)) / (1000 : Int)) = (6 : Int)",
+  "files": [
+    "FamiliesY.lean"
+  ]
+}

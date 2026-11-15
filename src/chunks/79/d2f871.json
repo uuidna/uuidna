@@ -1,0 +1,12 @@
+{
+  "handle": "79d2f871",
+  "address": "79d2f871-8604-8a0d-a624-933d99b28930",
+  "statement": "(((5000 : Int) * (47 : Int)) / (100 : Int)) = (2350 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_forestry_carbon_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

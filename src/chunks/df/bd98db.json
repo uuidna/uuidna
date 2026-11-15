@@ -1,0 +1,12 @@
+{
+  "handle": "dfbd98db",
+  "address": "dfbd98db-5e72-86ff-8198-c661df53f35d",
+  "statement": "(((3 : Int) + (4 : Int)) - (1 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_partition_hook_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "ed092c21",
+  "address": "ed092c21-04fd-85cd-b4d8-38822d70dba7",
+  "statement": "(fmax (0 : Int) ((12 : Int) - (5 : Int))) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_polyphony_overlapcount_1",
+    "fam_stemming_suffixstripped_1"
+  ],
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

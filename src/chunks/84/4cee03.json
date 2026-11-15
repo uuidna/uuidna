@@ -1,0 +1,12 @@
+{
+  "handle": "844cee03",
+  "address": "844cee03-a801-8563-8414-86e8bd6c5626",
+  "statement": "(((84 : Int) * (20 : Int)) * (60 : Int)) = (100800 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_knitting_productivity_1"
+  ],
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

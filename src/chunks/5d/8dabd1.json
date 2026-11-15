@@ -1,0 +1,12 @@
+{
+  "handle": "5d8dabd1",
+  "address": "5d8dabd1-ba06-8be7-bb38-7c25d92c2aea",
+  "statement": "(fmax (0 : Int) ((1500 : Int) + (((400 : Int) * ((8 : Int) - (2 : Int))) / ((8 : Int) + (2 : Int))))) = (1740 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_elo_performance_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

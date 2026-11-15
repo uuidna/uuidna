@@ -1,0 +1,12 @@
+{
+  "handle": "09b3027c",
+  "address": "09b3027c-20ba-8016-9c35-8a2b6e1c3968",
+  "statement": "(((5 : Int) * (24 : Int)) / (12 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pharmacokinetics_accumulation_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

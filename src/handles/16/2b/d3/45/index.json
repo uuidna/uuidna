@@ -1,0 +1,14 @@
+{
+  "handle": "162bd345",
+  "address": "162bd345-7b0e-8dca-b2e6-8e0f0392492c",
+  "kind": "chunk",
+  "keys": [
+    "fam_bio_bmi_1",
+    "fam_dietetics_bmi_1"
+  ],
+  "statement": "((7000 : Int) / (324 : Int)) = (21 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesD.lean"
+  ]
+}

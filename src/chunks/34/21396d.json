@@ -1,0 +1,12 @@
+{
+  "handle": "3421396d",
+  "address": "3421396d-c4de-801e-8440-213afffbead8",
+  "statement": "((40 : Int) * (15 : Int)) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pest_treatmentcost_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

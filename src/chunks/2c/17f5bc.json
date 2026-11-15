@@ -1,0 +1,12 @@
+{
+  "handle": "2c17f5bc",
+  "address": "2c17f5bc-b778-8091-bce4-0c411fcc8eb9",
+  "statement": "(fmax (0 : Int) ((98 : Int) - (90 : Int))) = (8 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_learning_overfit_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

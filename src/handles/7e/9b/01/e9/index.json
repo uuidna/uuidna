@@ -1,0 +1,12 @@
+{
+  "handle": "7e9b01e9",
+  "address": "7e9b01e9-aa96-8f2d-a85c-013695a13f92",
+  "kind": "chunk",
+  "keys": [
+    "fam_solid_spherevolumeproxy_1"
+  ],
+  "statement": "((((4 : Int) * (314 : Int)) * ((3 : Int) ^ (3 : Nat))) / (300 : Int)) = (113 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "handle": "603e2299",
+  "address": "603e2299-78bc-8d8a-b4e1-86f653406924",
+  "kind": "chunk",
+  "keys": [
+    "fam_climate_offset_1",
+    "fam_epigraphy_datingrange_1",
+    "fam_osmosis_gradient_1",
+    "fam_osmosis_waterpotential_1",
+    "fam_stratigraphy_unconformity_1",
+    "fam_thermodynamics_internal_1"
+  ],
+  "statement": "(fmax (0 : Int) ((500 : Int) - (200 : Int))) = (300 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesO.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

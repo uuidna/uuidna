@@ -1,0 +1,24 @@
+{
+  "handle": "41a69479",
+  "address": "41a69479-9911-8c3c-823f-0d8a29e7a42b",
+  "kind": "chunk",
+  "keys": [
+    "fam_bioavailability_dosecorrected_1",
+    "fam_graphql_resolvers_1",
+    "fam_helminthology_wormburden_1",
+    "fam_observability_cardinality_1",
+    "fam_protozoology_cystcount_1",
+    "fam_silviculture_density_1",
+    "fam_strength_density_1",
+    "fam_structural_deflection_1"
+  ],
+  "statement": "((5000 : Int) / (50 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

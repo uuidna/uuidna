@@ -1,0 +1,18 @@
+{
+  "handle": "4b4ebc06",
+  "address": "4b4ebc06-52a5-8369-a195-83c6d5d53bf2",
+  "kind": "chunk",
+  "keys": [
+    "fam_anthropology_language_1",
+    "fam_paleontology_completeness_1",
+    "fam_proteomics_coverage_1",
+    "fam_psychiatry_remission_1",
+    "fam_tox_ld_1"
+  ],
+  "statement": "(((60 : Int) * (100 : Int)) / (200 : Int)) = (30 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

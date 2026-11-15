@@ -1,0 +1,32 @@
+{
+  "handle": "45a5f666",
+  "address": "45a5f666-4ea0-8622-b383-a36d1d2126a0",
+  "kind": "chunk",
+  "keys": [
+    "fam_apiculture_foraging_1",
+    "fam_equity_eps_1",
+    "fam_exoplanets_density_1",
+    "fam_freight_ton_1",
+    "fam_hashing_distribution_1",
+    "fam_heliophysics_flareclass_1",
+    "fam_lasers_pulseenergy_1",
+    "fam_leverage_interestcoverage_1",
+    "fam_lexicography_frequencyrank_1",
+    "fam_orthography_density_1",
+    "fam_parasitology_abundance_1",
+    "fam_vulcanology_explosivity_1",
+    "fam_warehousing_turnover_1"
+  ],
+  "statement": "((5000 : Int) / (1000 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesV.lean",
+    "FamiliesW.lean"
+  ]
+}

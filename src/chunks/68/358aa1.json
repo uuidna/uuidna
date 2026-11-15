@@ -1,0 +1,12 @@
+{
+  "handle": "68358aa1",
+  "address": "68358aa1-8460-8fb4-a6b9-4a858582c767",
+  "statement": "(((((255 : Int) * (54 : Int)) + ((0 : Int) * (183 : Int))) + ((0 : Int) * (19 : Int))) / (256 : Int)) = (53 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_colortheory_luminance_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

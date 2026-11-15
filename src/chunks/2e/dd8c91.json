@@ -1,0 +1,12 @@
+{
+  "handle": "2edd8c91",
+  "address": "2edd8c91-9b1f-8949-ad6e-78cfb349c784",
+  "statement": "(((5000 : Int) * (2 : Int)) / (1000 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nuclear_activity_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

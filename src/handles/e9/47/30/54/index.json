@@ -1,0 +1,14 @@
+{
+  "handle": "e9473054",
+  "address": "e9473054-3a63-8e7d-81ed-f72c4ad31f19",
+  "kind": "chunk",
+  "keys": [
+    "fam_hydroponics_ec_1",
+    "fam_semiconductor_mobility_1"
+  ],
+  "statement": "((1400 : Int) / (2 : Int)) = (700 : Int)",
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesS.lean"
+  ]
+}

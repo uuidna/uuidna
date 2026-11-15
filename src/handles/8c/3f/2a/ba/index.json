@@ -1,0 +1,12 @@
+{
+  "handle": "8c3f2aba",
+  "address": "8c3f2aba-6bb1-89da-892d-d5c542bdafd9",
+  "kind": "chunk",
+  "keys": [
+    "fam_sports_pace_1"
+  ],
+  "statement": "((2400 : Int) / (10 : Int)) = (240 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "handle": "bb368790",
+  "address": "bb368790-56df-8dd6-b409-0f29fe85f447",
+  "statement": "((90 : Int) / (30 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_auction_competition_1",
+    "fam_forging_upsetratio_1",
+    "fam_microeconomics_utility_1",
+    "fam_restaurant_preptime_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesF.lean",
+    "FamiliesM.lean",
+    "FamiliesR.lean"
+  ]
+}

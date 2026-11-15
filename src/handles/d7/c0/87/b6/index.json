@@ -1,0 +1,12 @@
+{
+  "handle": "d7c087b6",
+  "address": "d7c087b6-3ec9-86e6-a0fc-9e9d8f950a3b",
+  "kind": "chunk",
+  "keys": [
+    "fam_sharding_rebalance_1"
+  ],
+  "statement": "((1000 : Int) / ((3 : Int) + (1 : Int))) = (250 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

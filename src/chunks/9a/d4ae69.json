@@ -1,0 +1,17 @@
+{
+  "handle": "9ad4ae69",
+  "address": "9ad4ae69-e3f4-885c-8591-36bb4d62a64f",
+  "statement": "(((80 : Int) * (100 : Int)) / (200 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_acquisition_organic_1",
+    "fam_informatics_recall_1",
+    "fam_partner_listing_1",
+    "fam_publishing_backlist_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesI.lean",
+    "FamiliesP.lean"
+  ]
+}

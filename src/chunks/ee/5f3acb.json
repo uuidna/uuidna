@@ -1,0 +1,12 @@
+{
+  "handle": "ee5f3acb",
+  "address": "ee5f3acb-9f0c-821e-aab9-883506094450",
+  "statement": "((20 : Int) + (45 : Int)) = (65 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_composting_temperature_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

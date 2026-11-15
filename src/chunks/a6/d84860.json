@@ -1,0 +1,12 @@
+{
+  "handle": "a6d84860",
+  "address": "a6d84860-976a-8aab-b017-c9acc75fc3b3",
+  "statement": "(((4 : Int) + (6 : Int)) / (2 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_curvature_mean_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

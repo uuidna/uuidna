@@ -1,0 +1,12 @@
+{
+  "handle": "c1cac295",
+  "address": "c1cac295-f8df-8994-b3fd-e4b2820f704e",
+  "kind": "chunk",
+  "keys": [
+    "fam_woodworking_jointstrength_1"
+  ],
+  "statement": "((12 : Int) * (250 : Int)) = (3000 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

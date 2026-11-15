@@ -1,0 +1,12 @@
+{
+  "handle": "57e620a1",
+  "address": "57e620a1-3b00-8cce-8014-b114b74bdf86",
+  "statement": "((3474 : Int) * (1 : Int)) = (3474 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_moon_diameter_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

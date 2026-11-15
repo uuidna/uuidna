@@ -1,0 +1,12 @@
+{
+  "handle": "b5b45384",
+  "address": "b5b45384-ec43-80a3-b7e2-35fe0d0f794b",
+  "statement": "(fmin (500 : Int) (800 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dosage_maximum_2"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

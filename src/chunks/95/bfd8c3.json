@@ -1,0 +1,12 @@
+{
+  "handle": "95bfd8c3",
+  "address": "95bfd8c3-671f-8d55-abd4-3f89b53b5063",
+  "statement": "(((10 : Int) * (100 : Int)) / (14 : Int)) = (71 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_golf_fairways_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

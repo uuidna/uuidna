@@ -1,0 +1,12 @@
+{
+  "handle": "0db8ee5d",
+  "address": "0db8ee5d-2646-8f41-b959-948a285853ba",
+  "kind": "chunk",
+  "keys": [
+    "fam_securities_marketcap_1"
+  ],
+  "statement": "((1000000 : Int) * (50 : Int)) = (50000000 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

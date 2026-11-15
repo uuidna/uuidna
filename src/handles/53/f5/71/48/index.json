@@ -1,0 +1,12 @@
+{
+  "handle": "53f57148",
+  "address": "53f57148-c1b8-86ae-afd6-cf0e14272722",
+  "kind": "chunk",
+  "keys": [
+    "fam_spirometry_totalcapacity_1"
+  ],
+  "statement": "((4500 : Int) + (1500 : Int)) = (6000 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

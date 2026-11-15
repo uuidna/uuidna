@@ -1,0 +1,12 @@
+{
+  "handle": "e948bbaa",
+  "address": "e948bbaa-ee5b-8b72-b737-7bb283bb52d3",
+  "kind": "chunk",
+  "keys": [
+    "fam_performance_appraisal_1"
+  ],
+  "statement": "(((80 : Int) + (90 : Int)) / (2 : Int)) = (85 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

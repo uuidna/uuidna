@@ -1,0 +1,12 @@
+{
+  "handle": "93c80807",
+  "address": "93c80807-dfd3-8e05-bbf5-b065b71b527d",
+  "kind": "chunk",
+  "keys": [
+    "fam_ferry_throughput_1"
+  ],
+  "statement": "((400 : Int) * (16 : Int)) = (6400 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

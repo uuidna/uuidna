@@ -1,0 +1,12 @@
+{
+  "handle": "1d38cb14",
+  "address": "1d38cb14-71d8-8af3-8edb-a3f0a01e057a",
+  "kind": "chunk",
+  "keys": [
+    "fam_recovery_musclerepair_1"
+  ],
+  "statement": "((4800 : Int) / (48 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

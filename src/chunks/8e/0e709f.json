@@ -1,0 +1,20 @@
+{
+  "handle": "8e0e709f",
+  "address": "8e0e709f-2df5-8185-bdb5-e23d884c58f2",
+  "statement": "(((100 : Int) * (100 : Int)) / (50 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_anesthesiology_oxygenation_1",
+    "fam_climbing_steepness_1",
+    "fam_diffusion_effusionratio_1",
+    "fam_melody_density_1",
+    "fam_oxygenation_pao2fio2ratio_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesM.lean",
+    "FamiliesO.lean"
+  ]
+}

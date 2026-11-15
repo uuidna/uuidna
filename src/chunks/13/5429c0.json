@@ -1,0 +1,12 @@
+{
+  "handle": "135429c0",
+  "address": "135429c0-edaa-8a62-b6a8-6ff2fa50c2d9",
+  "statement": "(((7 : Int) * (1000 : Int)) / (1000 : Int)) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_winemaking_acidity_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

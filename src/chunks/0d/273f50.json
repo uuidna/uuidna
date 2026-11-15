@@ -1,0 +1,14 @@
+{
+  "handle": "0d273f50",
+  "address": "0d273f50-8a35-89b2-aeb3-a12291d5514f",
+  "statement": "(Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (3 : Int)))) = (1140 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_folklore_motifcombos_1",
+    "fam_ml_featurecombos_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesM.lean"
+  ]
+}

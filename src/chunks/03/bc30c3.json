@@ -1,0 +1,12 @@
+{
+  "handle": "03bc30c3",
+  "address": "03bc30c3-5f70-8974-ac27-b7319378eccc",
+  "statement": "(if (if (1000 : Int) ≥ (2000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_loyalty_reward_2"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

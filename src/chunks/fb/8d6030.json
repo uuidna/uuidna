@@ -1,0 +1,12 @@
+{
+  "handle": "fb8d6030",
+  "address": "fb8d6030-ef8f-8212-975a-c34e93e50390",
+  "statement": "((110 : Int) - (95 : Int)) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sports_differential_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

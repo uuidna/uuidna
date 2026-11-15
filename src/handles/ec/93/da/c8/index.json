@@ -1,0 +1,12 @@
+{
+  "handle": "ec93dac8",
+  "address": "ec93dac8-1612-878b-9f5e-fd15f23fb26a",
+  "kind": "chunk",
+  "keys": [
+    "fam_atmospheric_stability_1"
+  ],
+  "statement": "(fmax (0 : Int) ((25 : Int) - (15 : Int))) = (10 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

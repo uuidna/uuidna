@@ -1,0 +1,12 @@
+{
+  "handle": "21c25308",
+  "address": "21c25308-4669-8386-85bb-f6fa667cbde0",
+  "kind": "chunk",
+  "keys": [
+    "fam_autoscaling_targetutilization_1"
+  ],
+  "statement": "(((140 : Int) * (100 : Int)) / (200 : Int)) = (70 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

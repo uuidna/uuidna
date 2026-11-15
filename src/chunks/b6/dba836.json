@@ -1,0 +1,12 @@
+{
+  "handle": "b6dba836",
+  "address": "b6dba836-2d4a-8570-96c6-5e71aed63908",
+  "statement": "(fmax (0 : Int) ((40 : Int) - (15 : Int))) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bioindicator_sensitivity_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

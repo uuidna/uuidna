@@ -1,0 +1,12 @@
+{
+  "handle": "df408baf",
+  "address": "df408baf-9bc9-8c2e-b1ea-a72b0c4b9fd1",
+  "kind": "chunk",
+  "keys": [
+    "fam_inflation_realvalue_1"
+  ],
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (40 : Int))) = (960 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

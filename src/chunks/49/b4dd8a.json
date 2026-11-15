@@ -1,0 +1,12 @@
+{
+  "handle": "49b4dd8a",
+  "address": "49b4dd8a-2626-8c13-8063-575dcde5fa7e",
+  "statement": "((1000 : Int) * (24 : Int)) = (24000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_smartgrid_meterdata_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

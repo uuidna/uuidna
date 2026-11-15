@@ -1,0 +1,12 @@
+{
+  "handle": "e6ec7423",
+  "address": "e6ec7423-039c-81c1-bfd3-69c5de86e6b0",
+  "kind": "chunk",
+  "keys": [
+    "fam_oncology_staging_1"
+  ],
+  "statement": "(((3 : Int) + (2 : Int)) + (1 : Int)) = (6 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

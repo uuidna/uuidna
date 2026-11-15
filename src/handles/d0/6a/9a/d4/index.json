@@ -1,0 +1,12 @@
+{
+  "handle": "d06a9ad4",
+  "address": "d06a9ad4-3418-8fd1-b393-a369c8ed1eeb",
+  "kind": "chunk",
+  "keys": [
+    "fam_waterquality_phindex_1"
+  ],
+  "statement": "(fmax (0 : Int) ((9 : Int) - (7 : Int))) = (2 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

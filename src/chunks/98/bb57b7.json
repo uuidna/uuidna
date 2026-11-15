@@ -1,0 +1,12 @@
+{
+  "handle": "98bb57b7",
+  "address": "98bb57b7-66c9-8917-b907-379b118529d1",
+  "statement": "((((1500 : Int) * (10 : Int)) * (628 : Int)) / (6000 : Int)) = (1570 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_turbine_tipspeed_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

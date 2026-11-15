@@ -1,0 +1,12 @@
+{
+  "handle": "d8256358",
+  "address": "d8256358-4bb2-899b-8ac0-38e21c36e6aa",
+  "statement": "(((1000 : Int) * (fmax (0 : Int) ((8 : Int) - (4 : Int)))) / (8 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sharding_resharding_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

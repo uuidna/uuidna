@@ -1,0 +1,15 @@
+{
+  "handle": "1c427381",
+  "address": "1c427381-9e5f-8ed9-9a89-d311dc990238",
+  "kind": "chunk",
+  "keys": [
+    "fam_pid_setpoint_2",
+    "fam_procurement_savings_2",
+    "fam_safety_margin_2"
+  ],
+  "statement": "(fmax (0 : Int) ((70 : Int) - (100 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

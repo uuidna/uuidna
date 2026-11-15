@@ -1,0 +1,12 @@
+{
+  "handle": "14c761f2",
+  "address": "14c761f2-2ba5-8094-9d23-cbcc57813271",
+  "kind": "chunk",
+  "keys": [
+    "fam_combinatorics_stars_1"
+  ],
+  "statement": "(Int.ofNat (fchoose (Int.toNat (((5 : Int) + (3 : Int)) - (1 : Int))) (Int.toNat ((3 : Int) - (1 : Int))))) = (21 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

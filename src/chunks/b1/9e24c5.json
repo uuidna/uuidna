@@ -1,0 +1,20 @@
+{
+  "handle": "b19e24c5",
+  "address": "b19e24c5-e3bf-8a78-b8d6-f43c3c159f6c",
+  "statement": "((500 : Int) * (4 : Int)) = (2000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_apoptosis_caspaseactivity_1",
+    "fam_engine_displacement_1",
+    "fam_photochemistry_excitation_1",
+    "fam_photodiode_photocurrent_1",
+    "fam_piston_displacement_1",
+    "fam_reinsurance_treaty_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesE.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

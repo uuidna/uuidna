@@ -1,0 +1,12 @@
+{
+  "handle": "a7cd975f",
+  "address": "a7cd975f-f01c-806f-8eda-3b8f889d26ef",
+  "kind": "chunk",
+  "keys": [
+    "fam_statics_centroid_1"
+  ],
+  "statement": "(((30 : Int) * (8 : Int)) / ((10 : Int) + (30 : Int))) = (6 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

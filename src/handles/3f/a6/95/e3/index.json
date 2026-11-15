@@ -1,0 +1,12 @@
+{
+  "handle": "3fa695e3",
+  "address": "3fa695e3-2ba6-8883-9885-6ef3af77585f",
+  "kind": "chunk",
+  "keys": [
+    "fam_scheduling_float_1"
+  ],
+  "statement": "(fmax (0 : Int) ((50 : Int) - (35 : Int))) = (15 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

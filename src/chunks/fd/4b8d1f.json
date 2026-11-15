@@ -1,0 +1,20 @@
+{
+  "handle": "fd4b8d1f",
+  "address": "fd4b8d1f-3694-86ee-84dd-2c3bb61551e7",
+  "statement": "((4 : Int) * (100 : Int)) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_federated_aggregated_1",
+    "fam_raid_raid0capacity_1",
+    "fam_star_luminosity_1",
+    "fam_typography_weight_1",
+    "fam_xai_limesamples_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean",
+    "FamiliesX.lean"
+  ]
+}

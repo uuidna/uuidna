@@ -1,0 +1,12 @@
+{
+  "handle": "71e1f961",
+  "address": "71e1f961-54fc-8107-9341-ed2d7521ad9f",
+  "statement": "((200 : Int) * (12 : Int)) = (2400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_savings_deposit_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

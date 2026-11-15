@@ -1,0 +1,12 @@
+{
+  "handle": "261cf6ff",
+  "address": "261cf6ff-d735-8bcd-ad0a-404b30c33151",
+  "kind": "chunk",
+  "keys": [
+    "fam_transformer_power_1"
+  ],
+  "statement": "((240 : Int) * (5 : Int)) = (1200 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0bd82cbb",
+  "address": "0bd82cbb-8e88-8c54-9d9d-b25ea1c3f3c5",
+  "kind": "chunk",
+  "keys": [
+    "fam_quantization_snr_1"
+  ],
+  "statement": "((6 : Int) * (16 : Int)) = (96 : Int)",
+  "files": [
+    "FamiliesQ.lean"
+  ]
+}

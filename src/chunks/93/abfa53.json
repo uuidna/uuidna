@@ -1,0 +1,12 @@
+{
+  "handle": "93abfa53",
+  "address": "93abfa53-5bf8-8cd2-9c40-5e088bdc583b",
+  "statement": "((10000 : Int) / (130 : Int)) = (76 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_trading_position_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

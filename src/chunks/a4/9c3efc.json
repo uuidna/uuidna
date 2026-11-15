@@ -1,0 +1,12 @@
+{
+  "handle": "a49c3efc",
+  "address": "a49c3efc-1b82-8a3d-97b4-a983b28bea78",
+  "statement": "(((1000 : Int) * (1000 : Int)) / (1000 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bioinformatics_expression_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

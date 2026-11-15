@@ -1,0 +1,12 @@
+{
+  "handle": "ff29da5c",
+  "address": "ff29da5c-7f6a-88e5-bec1-303930582471",
+  "kind": "chunk",
+  "keys": [
+    "fam_endurance_fatigueindex_1"
+  ],
+  "statement": "(((30 : Int) * (100 : Int)) / (300 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bb35961c",
+  "address": "bb35961c-dc3e-8da3-b926-6b934e56b470",
+  "kind": "chunk",
+  "keys": [
+    "fam_prevalence_burden_1"
+  ],
+  "statement": "((1200 : Int) * (20 : Int)) = (24000 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

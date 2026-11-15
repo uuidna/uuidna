@@ -1,0 +1,12 @@
+{
+  "handle": "6230b245",
+  "address": "6230b245-3505-82e6-a1d2-22905eb54fc2",
+  "kind": "chunk",
+  "keys": [
+    "fam_lexicon_lexicaldensity_1"
+  ],
+  "statement": "(((240 : Int) * (100 : Int)) / (600 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

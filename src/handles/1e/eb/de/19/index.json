@@ -1,0 +1,14 @@
+{
+  "handle": "1eebde19",
+  "address": "1eebde19-01ab-8056-a9ec-0ee1ff10a0cc",
+  "kind": "chunk",
+  "keys": [
+    "fam_feed_velocity_1",
+    "fam_mtbf_mttr_1"
+  ],
+  "statement": "((48 : Int) / (6 : Int)) = (8 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesM.lean"
+  ]
+}

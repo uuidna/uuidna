@@ -1,0 +1,12 @@
+{
+  "handle": "21c1ed00",
+  "address": "21c1ed00-77bb-8776-ba16-c0129f633319",
+  "statement": "(((100 : Int) * (90 : Int)) / (90 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sailing_vmg_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

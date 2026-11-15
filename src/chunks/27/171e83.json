@@ -1,0 +1,12 @@
+{
+  "handle": "27171e83",
+  "address": "27171e83-8c90-8cdd-a7f9-b2a812376bec",
+  "statement": "(fmax (0 : Int) (((100 : Int) - (40 : Int)) - (40 : Int))) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_soilscience_texture_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

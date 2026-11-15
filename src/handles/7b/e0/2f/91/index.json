@@ -1,0 +1,23 @@
+{
+  "handle": "7be02f91",
+  "address": "7be02f91-3c28-8ee8-a1d3-d2f340303952",
+  "kind": "chunk",
+  "keys": [
+    "fam_cloudflare_ordered_1",
+    "fam_deontology_obligationchains_1",
+    "fam_helminthology_transmissionpaths_1",
+    "fam_idealism_thesisorderings_1",
+    "fam_invariant_checkpaths_1",
+    "fam_permutation_permutations_1",
+    "fam_teleology_orderingpaths_1"
+  ],
+  "statement": "((Int.ofNat (ffact (Int.toNat (5 : Int)))) / (Int.ofNat (ffact (Int.toNat ((5 : Int) - (2 : Int)))))) = (20 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

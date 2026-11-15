@@ -1,0 +1,12 @@
+{
+  "handle": "8c2bccbc",
+  "address": "8c2bccbc-cc6a-8c44-84a5-0f439b3b7772",
+  "statement": "((35000 : Int) / (1000 : Int)) = (35 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_desalination_salinity_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1788299e",
+  "address": "1788299e-7318-8fff-833a-027693ba939a",
+  "kind": "chunk",
+  "keys": [
+    "fam_zoroastrianism_hymncount_1"
+  ],
+  "statement": "((17 : Int) * (1 : Int)) = (17 : Int)",
+  "files": [
+    "FamiliesZ.lean"
+  ]
+}

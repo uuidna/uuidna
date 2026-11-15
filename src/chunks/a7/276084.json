@@ -1,0 +1,12 @@
+{
+  "handle": "a7276084",
+  "address": "a7276084-63d5-8a08-b3cd-1771dcc11bf0",
+  "statement": "((25 : Int) / (1 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cern_bunchspacing_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

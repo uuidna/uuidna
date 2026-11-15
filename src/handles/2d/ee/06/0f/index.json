@@ -1,0 +1,12 @@
+{
+  "handle": "2dee060f",
+  "address": "2dee060f-0def-8a6b-9543-34483fdfcc50",
+  "kind": "chunk",
+  "keys": [
+    "fam_family_support_1"
+  ],
+  "statement": "(((60000 : Int) * (20 : Int)) / (100 : Int)) = (12000 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

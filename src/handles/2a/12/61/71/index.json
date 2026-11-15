@@ -1,0 +1,12 @@
+{
+  "handle": "2a126171",
+  "address": "2a126171-d3e1-8abd-bbf7-bcab3558b253",
+  "kind": "chunk",
+  "keys": [
+    "the_keys_are_a_small_fraction_of_the_rows"
+  ],
+  "statement": "(1851684 * 22 < 41943040) ∧ (1851684 * 23 > 41943040) ∧ (22 > 1)",
+  "files": [
+    "DoorSurface.lean"
+  ]
+}

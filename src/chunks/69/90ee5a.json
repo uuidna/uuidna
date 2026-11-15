@@ -1,0 +1,14 @@
+{
+  "handle": "6990ee5a",
+  "address": "6990ee5a-1183-856c-993c-17dbf3fa4221",
+  "statement": "(((100 : Int) * (100 : Int)) / (500 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_husbandry_stockingdensity_1",
+    "fam_trucking_deadhead_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesT.lean"
+  ]
+}

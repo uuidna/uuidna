@@ -1,0 +1,12 @@
+{
+  "handle": "45ccdfb7",
+  "address": "45ccdfb7-3ca5-8dd9-97b0-3b820c5f4ff8",
+  "kind": "chunk",
+  "keys": [
+    "fam_dietetics_waterml_1"
+  ],
+  "statement": "((35 : Int) * (70 : Int)) = (2450 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

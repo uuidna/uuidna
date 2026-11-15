@@ -1,0 +1,12 @@
+{
+  "handle": "f6950230",
+  "address": "f6950230-f3f1-885a-b177-c973bc639f0f",
+  "kind": "chunk",
+  "keys": [
+    "fam_prototyping_velocity_1"
+  ],
+  "statement": "((30 : Int) / (6 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

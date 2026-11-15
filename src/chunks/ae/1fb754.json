@@ -1,0 +1,14 @@
+{
+  "handle": "ae1fb754",
+  "address": "ae1fb754-e54f-864a-b8e2-6f1d85065c16",
+  "statement": "(((2000 : Int) * (5 : Int)) / (100 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_canning_brine_1",
+    "fam_storage_cost_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesS.lean"
+  ]
+}

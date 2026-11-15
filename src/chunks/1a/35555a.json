@@ -1,0 +1,12 @@
+{
+  "handle": "1a35555a",
+  "address": "1a35555a-a91b-8636-9c44-e00db79d54f4",
+  "statement": "(fmax (0 : Int) ((4000 : Int) - (900 : Int))) = (3100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_employment_net_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

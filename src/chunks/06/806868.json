@@ -1,0 +1,12 @@
+{
+  "handle": "06806868",
+  "address": "06806868-b018-8515-b7a5-d17a8933c6ce",
+  "statement": "((2400 : Int) * (3 : Int)) = (7200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_energy_energy_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

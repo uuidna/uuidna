@@ -1,0 +1,12 @@
+{
+  "handle": "cf066f8e",
+  "address": "cf066f8e-2a30-86f9-8710-e829cc613ea0",
+  "kind": "chunk",
+  "keys": [
+    "fam_tracing_latencybudget_1"
+  ],
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (650 : Int))) = (350 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

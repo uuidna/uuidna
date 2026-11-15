@@ -1,0 +1,12 @@
+{
+  "handle": "f9dc1efe",
+  "address": "f9dc1efe-48bc-8c54-930a-874fafde3db2",
+  "kind": "chunk",
+  "keys": [
+    "fam_viticulture_gdd_2"
+  ],
+  "statement": "(fmax (0 : Int) ((5 : Int) - (10 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "228ae42b",
+  "address": "228ae42b-bc9c-884b-8c47-30af55e1b1c1",
+  "kind": "chunk",
+  "keys": [
+    "fam_authorization_grantratio_1",
+    "fam_events_capacity_1"
+  ],
+  "statement": "(((450 : Int) * (100 : Int)) / (500 : Int)) = (90 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e7ecbff5",
+  "address": "e7ecbff5-7c97-8c04-a120-837a6deb2875",
+  "statement": "(((2 : Int) * (100 : Int)) / (20 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_admin_hidden_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

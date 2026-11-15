@@ -1,0 +1,12 @@
+{
+  "handle": "f9eda756",
+  "address": "f9eda756-f843-8a47-8c20-645a801e8c86",
+  "statement": "(-((-(12500 : Int)) / (1000 : Int))) = (13 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_amortization_payoffmonths_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

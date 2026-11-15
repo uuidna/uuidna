@@ -1,0 +1,12 @@
+{
+  "handle": "1d0f58be",
+  "address": "1d0f58be-5f1c-8d3f-90d4-cf7961774820",
+  "kind": "chunk",
+  "keys": [
+    "fam_endocrinology_a1c_1"
+  ],
+  "statement": "(((5400 : Int) + (4600 : Int)) / (1000 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b43c6cfc",
+  "address": "b43c6cfc-aa61-8f74-a286-e0af461e636b",
+  "statement": "(if (if (30 : Int) ≤ (40 : Int) then (1 : Int) else 0) ≠ 0 then (30 : Int) else ((40 : Int) + (((30 : Int) - (40 : Int)) / (4 : Int)))) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mixing_compression_2"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

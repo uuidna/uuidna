@@ -1,0 +1,14 @@
+{
+  "handle": "b18df777",
+  "address": "b18df777-7e87-89fd-96f6-0acb8881f490",
+  "kind": "chunk",
+  "keys": [
+    "fam_bilingualism_dominanceratio_1",
+    "fam_screening_npv_1"
+  ],
+  "statement": "(((70 : Int) * (100 : Int)) / ((70 : Int) + (30 : Int))) = (70 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesS.lean"
+  ]
+}

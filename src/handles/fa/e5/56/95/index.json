@@ -1,0 +1,13 @@
+{
+  "handle": "fae55695",
+  "address": "fae55695-b319-8e0e-8667-c3d60afeaf0b",
+  "kind": "chunk",
+  "keys": [
+    "fam_pathology_mitotic_1",
+    "fam_portfolio_diversification_1"
+  ],
+  "statement": "((30 : Int) / (10 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

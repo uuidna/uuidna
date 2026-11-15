@@ -1,0 +1,12 @@
+{
+  "handle": "ee0f7499",
+  "address": "ee0f7499-a122-85c1-8d2a-5d292bc213fb",
+  "kind": "chunk",
+  "keys": [
+    "fam_astronomy_orbital_1"
+  ],
+  "statement": "((365 : Int) / (5 : Int)) = (73 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

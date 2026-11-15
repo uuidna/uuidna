@@ -1,0 +1,13 @@
+{
+  "handle": "3d588f26",
+  "address": "3d588f26-b9ad-8e38-b67f-296c435aa931",
+  "statement": "(((30 : Int) * (100 : Int)) / (30 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_website_blocks_1",
+    "fam_website_coverage_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

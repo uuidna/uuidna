@@ -1,0 +1,12 @@
+{
+  "handle": "8994f52c",
+  "address": "8994f52c-6284-811d-8d3e-e268734288be",
+  "statement": "((40 : Int) * (7 : Int)) = (280 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_locale_storage_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

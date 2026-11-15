@@ -1,0 +1,12 @@
+{
+  "handle": "ac8b1c74",
+  "address": "ac8b1c74-cce4-89e2-a8d7-3a14dfedd7fb",
+  "statement": "((7 : Int) % (5 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_slider_loop_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

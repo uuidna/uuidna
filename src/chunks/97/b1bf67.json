@@ -1,0 +1,12 @@
+{
+  "handle": "97b1bf67",
+  "address": "97b1bf67-0130-8378-811f-789210fe8410",
+  "statement": "(((fmax (0 : Int) ((200 : Int) - (150 : Int))) * (100 : Int)) / (200 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_volatility_drawdown_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

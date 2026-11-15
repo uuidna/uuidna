@@ -1,0 +1,14 @@
+{
+  "handle": "e65c9855",
+  "address": "e65c9855-e5c7-8a78-9ad3-623f7b833ec5",
+  "kind": "chunk",
+  "keys": [
+    "fam_aerodynamics_stall_1",
+    "fam_structural_slenderness_1"
+  ],
+  "statement": "((3000 : Int) / (50 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesS.lean"
+  ]
+}

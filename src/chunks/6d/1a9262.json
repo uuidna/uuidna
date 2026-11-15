@@ -1,0 +1,12 @@
+{
+  "handle": "6d1a9262",
+  "address": "6d1a9262-6cde-81fd-b289-efb8b18378bf",
+  "statement": "((10 : Int) ^ (3 : Nat)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_solid_cubevolume_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

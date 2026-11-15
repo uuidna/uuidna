@@ -1,0 +1,23 @@
+{
+  "handle": "22a3a0a1",
+  "address": "22a3a0a1-40a7-8638-aa53-b5e7c02ea149",
+  "statement": "((4 : Int) * (25 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_api_latency_1",
+    "fam_astrobiology_habitablezone_1",
+    "fam_bandwidth_lanes_1",
+    "fam_discourse_utterancecount_1",
+    "fam_electromagnetism_flux_1",
+    "fam_robotics_reach_1",
+    "fam_transcription_promoterstrength_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesR.lean",
+    "FamiliesT.lean"
+  ]
+}

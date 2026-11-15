@@ -1,0 +1,12 @@
+{
+  "handle": "0a26290d",
+  "address": "0a26290d-090c-8c3d-9236-06d31a811cbd",
+  "kind": "chunk",
+  "keys": [
+    "fam_psu_dissipation_1"
+  ],
+  "statement": "((600 : Int) - (540 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ec5e6722",
+  "address": "ec5e6722-1baf-869a-a20d-6028e925aabd",
+  "statement": "((4 : Int) * (3000 : Int)) = (12000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cpu_mips_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

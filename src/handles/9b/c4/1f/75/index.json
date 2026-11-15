@@ -1,0 +1,12 @@
+{
+  "handle": "9bc41f75",
+  "address": "9bc41f75-5883-8554-b367-c525241f31bf",
+  "kind": "chunk",
+  "keys": [
+    "fam_loadplanning_weightlimit_1"
+  ],
+  "statement": "(fmax (0 : Int) ((20000 : Int) - (18000 : Int))) = (2000 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

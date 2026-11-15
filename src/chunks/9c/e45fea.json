@@ -1,0 +1,14 @@
+{
+  "handle": "9ce45fea",
+  "address": "9ce45fea-90a8-8730-b3e2-82a614031611",
+  "statement": "((44100 : Int) * (2 : Int)) = (88200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_audio_samples_1",
+    "fam_codec_samples_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean"
+  ]
+}

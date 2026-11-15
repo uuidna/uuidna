@@ -1,0 +1,12 @@
+{
+  "handle": "f1bb7b94",
+  "address": "f1bb7b94-a7af-86e0-9475-bab4c0a1e3bc",
+  "kind": "chunk",
+  "keys": [
+    "fam_drag_force_1"
+  ],
+  "statement": "((((1000 : Int) * (2 : Int)) * (5 : Int)) / (1000 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

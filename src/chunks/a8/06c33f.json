@@ -1,0 +1,12 @@
+{
+  "handle": "a806c33f",
+  "address": "a806c33f-2d61-8f66-9ca5-63b256f34130",
+  "statement": "((1000 : Int) + (3600 : Int)) = (4600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sessionmgmt_tokenttl_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

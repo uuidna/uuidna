@@ -1,0 +1,14 @@
+{
+  "handle": "1108b5f2",
+  "address": "1108b5f2-e206-8a49-a807-aacf5d6be0fe",
+  "statement": "((2 : Int) * (60 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cooling_liquidflow_1",
+    "fam_hydration_sweatloss_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesH.lean"
+  ]
+}

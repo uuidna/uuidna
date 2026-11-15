@@ -1,0 +1,12 @@
+{
+  "handle": "9033ac8d",
+  "address": "9033ac8d-8105-8210-83e6-0e4dda039641",
+  "statement": "((214 : Int) + (0 : Int)) = (214 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_logogram_radicals_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

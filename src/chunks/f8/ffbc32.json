@@ -1,0 +1,12 @@
+{
+  "handle": "f8ffbc32",
+  "address": "f8ffbc32-770c-8cda-8355-7b158bdfea1b",
+  "statement": "(((50000 : Int) - (5000 : Int)) / (9 : Int)) = (5000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_accounting_depreciation_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

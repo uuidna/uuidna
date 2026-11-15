@@ -1,0 +1,21 @@
+{
+  "handle": "a191dfcb",
+  "address": "a191dfcb-5745-856e-b430-e5105a4451d9",
+  "kind": "chunk",
+  "keys": [
+    "fam_auth_strength_1",
+    "fam_failure_modecount_1",
+    "fam_historiography_crosschecks_1",
+    "fam_huffman_weightedpath_1",
+    "fam_myrmecology_pheromonetrails_1",
+    "fam_sculpture_facetcount_1"
+  ],
+  "statement": "((12 : Int) * (4 : Int)) = (48 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesS.lean"
+  ]
+}

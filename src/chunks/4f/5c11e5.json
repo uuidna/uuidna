@@ -1,0 +1,12 @@
+{
+  "handle": "4f5c11e5",
+  "address": "4f5c11e5-cba4-8731-8345-a804f1f1b5bf",
+  "statement": "(-((-((15 : Int) * (100 : Int))) / (75 : Int))) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_evapotranspiration_irrigationneed_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

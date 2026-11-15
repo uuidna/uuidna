@@ -1,0 +1,12 @@
+{
+  "handle": "ae327ca1",
+  "address": "ae327ca1-73f7-802a-986b-97c5718f7a5d",
+  "statement": "(((2550 : Int) * (100 : Int)) / (1000 : Int)) = (255 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_typology_syntheticindex_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

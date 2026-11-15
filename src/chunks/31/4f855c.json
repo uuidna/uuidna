@@ -1,0 +1,12 @@
+{
+  "handle": "314f855c",
+  "address": "314f855c-7c76-83ca-8125-2ac807dc7854",
+  "statement": "((16000 : Int) / (1000 : Int)) = (16 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sculpture_masskg_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

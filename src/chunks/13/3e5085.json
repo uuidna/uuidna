@@ -1,0 +1,14 @@
+{
+  "handle": "133e5085",
+  "address": "133e5085-2231-887b-997d-640d7a106f55",
+  "statement": "(200 : Int) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_interaction_responsetime_1",
+    "fam_tennis_servespeed_1"
+  ],
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesT.lean"
+  ]
+}

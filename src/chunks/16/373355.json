@@ -1,0 +1,12 @@
+{
+  "handle": "16373355",
+  "address": "16373355-1c69-863e-bd79-cb81f6d45e8b",
+  "statement": "(((6 : Int) * (100 : Int)) / (24 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mitosis_phasefraction_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

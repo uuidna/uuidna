@@ -1,0 +1,12 @@
+{
+  "handle": "5fc26751",
+  "address": "5fc26751-3ead-813a-9f84-5f703fc55aed",
+  "statement": "((180 : Int) / (6 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_metabolism_glucose_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

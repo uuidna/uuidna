@@ -1,0 +1,12 @@
+{
+  "handle": "1df12951",
+  "address": "1df12951-005e-8c4c-a34d-c619759c83c4",
+  "statement": "(((1500 : Int) * (1000 : Int)) / (0 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_optometry_refraction_2"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

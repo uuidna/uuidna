@@ -1,0 +1,12 @@
+{
+  "handle": "cd7e38fe",
+  "address": "cd7e38fe-dd09-8cfe-a179-3afba4ba37bb",
+  "statement": "(((100 : Int) * (2 : Int)) / (10 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_clearance_renal_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

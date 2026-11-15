@@ -1,0 +1,39 @@
+{
+  "handle": "f5427fbe",
+  "address": "f5427fbe-de98-8749-a272-6c07c5dd2800",
+  "kind": "chunk",
+  "keys": [
+    "fam_beam_moment_1",
+    "fam_carbon_footprint_1",
+    "fam_climate_emissions_1",
+    "fam_electrolyte_conductivity_1",
+    "fam_empiricism_observations_1",
+    "fam_enzyme_vmax_1",
+    "fam_glomerular_filteredload_1",
+    "fam_gradient_step_1",
+    "fam_invoice_subtotal_1",
+    "fam_lexicon_frequencyrank_1",
+    "fam_localization_particlecount_1",
+    "fam_malacology_radulateeth_1",
+    "fam_mechanical_torque_1",
+    "fam_metabolism_enzymes_1",
+    "fam_procurement_spend_1",
+    "fam_sessionmgmt_concurrentlimit_1",
+    "fam_survey_traverse_1",
+    "fam_thermodynamics_work_1",
+    "fam_torsion_torque_1"
+  ],
+  "statement": "((100 : Int) * (5 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

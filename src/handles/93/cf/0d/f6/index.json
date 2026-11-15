@@ -1,0 +1,12 @@
+{
+  "handle": "93cf0df6",
+  "address": "93cf0df6-f2aa-8ded-81dd-345a6bf6ce3c",
+  "kind": "chunk",
+  "keys": [
+    "fam_restaurant_margin_1"
+  ],
+  "statement": "((((40 : Int) - (10 : Int)) * (100 : Int)) / (40 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "85125871",
+  "address": "85125871-b3f4-8ee2-9103-8578d0824492",
+  "statement": "(if (if (30 : Int) ≥ (30 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_scale_pclr_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

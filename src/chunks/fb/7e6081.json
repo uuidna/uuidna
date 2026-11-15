@@ -1,0 +1,14 @@
+{
+  "handle": "fb7e6081",
+  "address": "fb7e6081-07d0-8a04-828a-d3329080c145",
+  "statement": "((1000 : Int) * (25 : Int)) = (25000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_compensation_equity_1",
+    "fam_tariff_revenue_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesT.lean"
+  ]
+}

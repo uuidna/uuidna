@@ -1,0 +1,12 @@
+{
+  "handle": "b9a3db23",
+  "address": "b9a3db23-7870-86aa-85f3-b51c4ca46dd8",
+  "kind": "chunk",
+  "keys": [
+    "fam_graphtheory_edges_1"
+  ],
+  "statement": "(((10 : Int) * ((10 : Int) - (1 : Int))) / (2 : Int)) = (45 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

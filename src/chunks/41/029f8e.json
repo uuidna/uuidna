@@ -1,0 +1,12 @@
+{
+  "handle": "41029f8e",
+  "address": "41029f8e-131b-836e-a72c-adcd7c3d6ed0",
+  "statement": "(((fmax (0 : Int) ((150 : Int) - (100 : Int))) * (100 : Int)) / (100 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_partitioning_skew_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

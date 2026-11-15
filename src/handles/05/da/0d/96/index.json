@@ -1,0 +1,26 @@
+{
+  "handle": "05da0d96",
+  "address": "05da0d96-2ca0-88e1-8a39-310340d81060",
+  "kind": "chunk",
+  "keys": [
+    "fam_biophysics_conductance_1",
+    "fam_distilling_refluxratio_1",
+    "fam_dyeing_concentration_1",
+    "fam_leavening_acidityph_1",
+    "fam_morphology_derivation_1",
+    "fam_odometry_driftrate_1",
+    "fam_simulation_convergence_1",
+    "fam_sociology_cohesion_1",
+    "fam_translation_glossary_1"
+  ],
+  "statement": "((50 : Int) / (10 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesO.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

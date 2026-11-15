@@ -1,0 +1,14 @@
+{
+  "handle": "0f1a7ffd",
+  "address": "0f1a7ffd-9b50-8d1a-98e2-eccf7c861003",
+  "statement": "(21 : Int) = (21 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_malware_dwell_1",
+    "fam_psychiatry_phq_1"
+  ],
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesP.lean"
+  ]
+}

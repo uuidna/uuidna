@@ -1,0 +1,12 @@
+{
+  "handle": "a7ec231d",
+  "address": "a7ec231d-dbec-892a-b21f-98919347d2d4",
+  "statement": "(((100 : Int) * (100 : Int)) / (25 : Int)) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_concurrency_speedup_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "54f15c69",
+  "address": "54f15c69-e49f-8d1c-92e2-e7ab0854ffc1",
+  "statement": "((25 : Int) * (4 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_oligopoly_hhindex_1",
+    "fam_psychophysics_magnitude_1"
+  ],
+  "files": [
+    "FamiliesO.lean",
+    "FamiliesP.lean"
+  ]
+}

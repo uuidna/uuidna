@@ -1,0 +1,29 @@
+{
+  "handle": "f9a85711",
+  "address": "f9a85711-e988-82d9-a567-ab0ab7eb380b",
+  "statement": "(fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_epistemology_doubtmargin_1",
+    "fam_feedback_errorsignal_1",
+    "fam_insurance_solvencymargin_1",
+    "fam_kinesiology_contraction_1",
+    "fam_meteoritics_survival_1",
+    "fam_microeconomics_surplus_1",
+    "fam_pid_setpoint_1",
+    "fam_procurement_savings_1",
+    "fam_safety_margin_1",
+    "fam_subsidy_pricereduction_1",
+    "fam_tanning_shrinkage_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesI.lean",
+    "FamiliesK.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

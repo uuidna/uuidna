@@ -1,0 +1,12 @@
+{
+  "handle": "f2e4cdce",
+  "address": "f2e4cdce-3241-88cc-93c0-1ef17e077119",
+  "statement": "(fmax (0 : Int) ((67 : Int) - (30 : Int))) = (37 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_econ_worklife_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

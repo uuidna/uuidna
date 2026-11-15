@@ -1,0 +1,12 @@
+{
+  "handle": "871a157c",
+  "address": "871a157c-41da-82c1-9fd5-f8288f5f7051",
+  "statement": "((10 : Int) + (1 : Int)) = (11 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_image_mipmaps_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

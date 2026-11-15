@@ -1,0 +1,12 @@
+{
+  "handle": "6fc3b7aa",
+  "address": "6fc3b7aa-5e85-845a-8df1-a57d8dea1278",
+  "statement": "(Int.ofNat (fchoose (Int.toNat (16 : Int)) (Int.toNat (3 : Int)))) = (560 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_choreography_stepcombos_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

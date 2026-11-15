@@ -1,0 +1,12 @@
+{
+  "handle": "1d11a17e",
+  "address": "1d11a17e-c8d6-866b-a338-20e16929e10d",
+  "statement": "(fmax (0 : Int) ((64 : Int) - (50 : Int))) = (14 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_warehouse_partitionprune_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

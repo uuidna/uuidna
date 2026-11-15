@@ -1,0 +1,12 @@
+{
+  "handle": "d229f300",
+  "address": "d229f300-5889-8582-8c01-c731defd3c14",
+  "statement": "(((2 : Int) ^ (5 : Nat)) - (1 : Int)) = (31 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_canon_selections_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0fcb0d86",
+  "address": "0fcb0d86-b888-868f-8a2a-f280d50831ca",
+  "kind": "chunk",
+  "keys": [
+    "fam_aerospace_lift_1"
+  ],
+  "statement": "(((120 : Int) * (500 : Int)) / (100 : Int)) = (600 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "b3d167e7",
+  "address": "b3d167e7-2907-8afa-9601-d31c516ab506",
+  "kind": "chunk",
+  "keys": [
+    "fam_semiotics_signs_1",
+    "fam_telemetry_metrics_1"
+  ],
+  "statement": "((50 : Int) + (30 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

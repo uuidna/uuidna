@@ -1,0 +1,31 @@
+{
+  "handle": "ee08c72f",
+  "address": "ee08c72f-fdf7-86a8-85c0-7077195fae0f",
+  "kind": "chunk",
+  "keys": [
+    "fam_cache_ways_1",
+    "fam_causal_backdoorsets_1",
+    "fam_cloudphysics_phasesubsets_1",
+    "fam_fractal_boxcount_1",
+    "fam_gear_stages_1",
+    "fam_hinduism_gunasubsets_1",
+    "fam_jainism_liberationpaths_1",
+    "fam_lattice_millerindices_1",
+    "fam_logic_truthtable_1",
+    "fam_monasticism_obediencelevels_1",
+    "fam_photography_dynamicrange_1",
+    "fam_route_redundantpaths_1"
+  ],
+  "statement": "((2 : Int) ^ (3 : Nat)) = (8 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesJ.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

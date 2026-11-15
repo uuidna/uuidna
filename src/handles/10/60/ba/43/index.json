@@ -1,0 +1,12 @@
+{
+  "handle": "1060ba43",
+  "address": "1060ba43-d819-826a-84bf-a6950190417f",
+  "kind": "chunk",
+  "keys": [
+    "fam_refraction_totalinternal_2"
+  ],
+  "statement": "(if (if (40 : Int) ≥ (48 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

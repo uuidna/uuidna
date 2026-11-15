@@ -1,0 +1,12 @@
+{
+  "handle": "5cdf409a",
+  "address": "5cdf409a-c9b3-8692-852a-8fb03a7971a2",
+  "statement": "(((230 : Int) * (100 : Int)) / (10 : Int)) = (2300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_composites_anisotropy_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

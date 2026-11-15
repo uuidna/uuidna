@@ -1,0 +1,16 @@
+{
+  "handle": "81a80cd9",
+  "address": "81a80cd9-171a-841c-9427-c24ba2a3442b",
+  "kind": "chunk",
+  "keys": [
+    "fam_conduction_seriesresistance_1",
+    "fam_gematria_wordtotal_1",
+    "fam_route_latencysum_1"
+  ],
+  "statement": "(((10 : Int) + (20 : Int)) + (30 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesR.lean"
+  ]
+}

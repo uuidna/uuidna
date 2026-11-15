@@ -1,0 +1,12 @@
+{
+  "handle": "c0a71ab0",
+  "address": "c0a71ab0-d594-8952-a68e-8fcc83b91314",
+  "kind": "chunk",
+  "keys": [
+    "fam_banking_loan_1"
+  ],
+  "statement": "(fmax (0 : Int) ((1000000 : Int) - (100000 : Int))) = (900000 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

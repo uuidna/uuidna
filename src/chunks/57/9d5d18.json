@@ -1,0 +1,12 @@
+{
+  "handle": "579d5d18",
+  "address": "579d5d18-7ea1-84bd-b7a9-1cfcce4f6599",
+  "statement": "((50 : Int) - (30 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_churn_netrevenue_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

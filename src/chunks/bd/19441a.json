@@ -1,0 +1,12 @@
+{
+  "handle": "bd19441a",
+  "address": "bd19441a-c028-89ea-896c-1e289ee5c459",
+  "statement": "(fmax (0 : Int) ((32 : Int) - (96 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_passwords_keyspacebits_2"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "37135536",
+  "address": "37135536-a1af-8eed-9c40-16aaac3430bd",
+  "kind": "chunk",
+  "keys": [
+    "fam_sounddesign_reverbms_1"
+  ],
+  "statement": "((2000 : Int) / (1 : Int)) = (2000 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

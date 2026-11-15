@@ -1,0 +1,14 @@
+{
+  "handle": "324dc8ee",
+  "address": "324dc8ee-1f2a-81f8-b5fe-12caeabc5cf6",
+  "kind": "chunk",
+  "keys": [
+    "fam_hashing_collisions_1",
+    "fam_solvency_capital_1"
+  ],
+  "statement": "(fmax (0 : Int) ((1500 : Int) - (1000 : Int))) = (500 : Int)",
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesS.lean"
+  ]
+}

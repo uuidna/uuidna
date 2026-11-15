@@ -1,0 +1,14 @@
+{
+  "handle": "8f389a00",
+  "address": "8f389a00-7063-8dc5-9f6d-ccf656831054",
+  "statement": "(400 : Int) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_highlights_duration_1",
+    "fam_photography_iso_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesP.lean"
+  ]
+}

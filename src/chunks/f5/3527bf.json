@@ -1,0 +1,12 @@
+{
+  "handle": "f53527bf",
+  "address": "f53527bf-4d70-8938-bd09-4e9ab093f554",
+  "statement": "(fmax (0 : Int) ((100 : Int) - ((50 : Int) * (10 : Int)))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tox_clearance_2"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6ee1d40c",
+  "address": "6ee1d40c-ae23-8b3f-ba41-3c80b09953b8",
+  "kind": "chunk",
+  "keys": [
+    "fam_estimating_contingency_1"
+  ],
+  "statement": "(((20000 : Int) * (10 : Int)) / (100 : Int)) = (2000 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

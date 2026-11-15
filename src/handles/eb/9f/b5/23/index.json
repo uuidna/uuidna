@@ -1,0 +1,12 @@
+{
+  "handle": "eb9fb523",
+  "address": "eb9fb523-b60d-8678-861f-96f74b9728f5",
+  "kind": "chunk",
+  "keys": [
+    "fam_tennis_winners_1"
+  ],
+  "statement": "(((40 : Int) * (100 : Int)) / (20 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

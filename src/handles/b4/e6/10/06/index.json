@@ -1,0 +1,12 @@
+{
+  "handle": "b4e61006",
+  "address": "b4e61006-b987-834b-91a1-08c1b7756415",
+  "kind": "chunk",
+  "keys": [
+    "fam_submarine_displacement_1"
+  ],
+  "statement": "((8000 : Int) * (1 : Int)) = (8000 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

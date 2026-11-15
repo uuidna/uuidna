@@ -1,0 +1,12 @@
+{
+  "handle": "459524cf",
+  "address": "459524cf-b776-8f87-a291-939a74a1aa4e",
+  "kind": "chunk",
+  "keys": [
+    "fam_pomology_brix_1"
+  ],
+  "statement": "(((13 : Int) * (100 : Int)) / (100 : Int)) = (13 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

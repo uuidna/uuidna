@@ -1,0 +1,12 @@
+{
+  "handle": "44182d2e",
+  "address": "44182d2e-d51b-83e8-95de-4823c8257c0b",
+  "statement": "(if (if (300 : Int) > (150 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_osmosis_tonicity_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

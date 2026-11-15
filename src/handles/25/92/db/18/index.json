@@ -1,0 +1,12 @@
+{
+  "handle": "2592db18",
+  "address": "2592db18-c96c-8cd2-b8db-1711978f037e",
+  "kind": "chunk",
+  "keys": [
+    "fam_photogrammetry_scale_1"
+  ],
+  "statement": "(((50 : Int) * (1000000 : Int)) / (10000 : Int)) = (5000 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cd30a786",
+  "address": "cd30a786-ad40-87ec-8913-c33d19a45885",
+  "statement": "(fmax (0 : Int) ((1200 : Int) - (5000 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_locale_words_2"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

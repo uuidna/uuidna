@@ -1,0 +1,12 @@
+{
+  "handle": "1931ec26",
+  "address": "1931ec26-e4ca-80f1-beb8-f2e129c36738",
+  "kind": "chunk",
+  "keys": [
+    "fam_thermocouple_driftcompensation_1"
+  ],
+  "statement": "(fmax (0 : Int) ((4100 : Int) - (50 : Int))) = (4050 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e09d4ff4",
+  "address": "e09d4ff4-012c-82da-912a-95734504558d",
+  "kind": "chunk",
+  "keys": [
+    "fam_parity_evenbit_1"
+  ],
+  "statement": "((7 : Int) % (2 : Int)) = (1 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

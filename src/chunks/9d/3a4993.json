@@ -1,0 +1,12 @@
+{
+  "handle": "9d3a4993",
+  "address": "9d3a4993-9f6f-83d6-bed3-55a9038bb19e",
+  "statement": "(((2 : Int) * (1000 : Int)) / (120 : Int)) = (16 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_rendering_latency_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

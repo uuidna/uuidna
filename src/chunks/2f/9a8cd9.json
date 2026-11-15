@@ -1,0 +1,12 @@
+{
+  "handle": "2f9a8cd9",
+  "address": "2f9a8cd9-2d88-8be8-893c-3fd2955b6bf7",
+  "statement": "(((2 : Int) * (3 : Int)) * (100 : Int)) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_photochemistry_absorbance_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2062a0a9",
+  "address": "2062a0a9-d4ec-8fb3-9635-ea0e65c44ca3",
+  "statement": "((32 : Int) * (2 : Int)) = (64 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cpu_threads_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

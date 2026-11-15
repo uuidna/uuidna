@@ -1,0 +1,12 @@
+{
+  "handle": "894f5a48",
+  "address": "894f5a48-2311-8809-9df3-2225475eb784",
+  "statement": "(fmax (0 : Int) ((1600 : Int) - (1400 : Int))) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_elo_ratingdiff_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

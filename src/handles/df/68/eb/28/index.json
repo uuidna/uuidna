@@ -1,0 +1,16 @@
+{
+  "handle": "df68eb28",
+  "address": "df68eb28-51eb-8a08-a870-c38e05f0aeb2",
+  "kind": "chunk",
+  "keys": [
+    "fam_cosmology_recession_1",
+    "fam_gravity_weight_1",
+    "fam_pharma_dose_1"
+  ],
+  "statement": "((70 : Int) * (10 : Int)) = (700 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesP.lean"
+  ]
+}

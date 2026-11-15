@@ -1,0 +1,12 @@
+{
+  "handle": "45effc61",
+  "address": "45effc61-4f21-8665-95c3-4eec26de043b",
+  "kind": "chunk",
+  "keys": [
+    "fam_knitting_tightness_1"
+  ],
+  "statement": "((200 : Int) / (5 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

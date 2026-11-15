@@ -1,0 +1,12 @@
+{
+  "handle": "86eb3a12",
+  "address": "86eb3a12-8f67-8ff9-8d6f-e0648e5cfc6d",
+  "statement": "((200000 : Int) - (150000 : Int)) = (50000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_accounting_net_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

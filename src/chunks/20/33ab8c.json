@@ -1,0 +1,12 @@
+{
+  "handle": "2033ab8c",
+  "address": "2033ab8c-887c-87c6-89cc-88694b062893",
+  "statement": "((5 : Int) * (500 : Int)) = (2500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ergometry_distance_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

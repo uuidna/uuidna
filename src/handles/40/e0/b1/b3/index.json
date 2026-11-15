@@ -1,0 +1,12 @@
+{
+  "handle": "40e0b1b3",
+  "address": "40e0b1b3-23d7-8918-9874-d7c2c87a74ea",
+  "kind": "chunk",
+  "keys": [
+    "fam_marketing_reach_1"
+  ],
+  "statement": "(((15000 : Int) * (1000 : Int)) / (5 : Int)) = (3000000 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

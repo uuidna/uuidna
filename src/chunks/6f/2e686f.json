@@ -1,0 +1,12 @@
+{
+  "handle": "6f2e686f",
+  "address": "6f2e686f-cd70-88e0-93ba-bd64d0d88093",
+  "statement": "(((1000 : Int) * (90 : Int)) / (100 : Int)) = (900 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_carbon_capture_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

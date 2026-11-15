@@ -1,0 +1,12 @@
+{
+  "handle": "540c9be9",
+  "address": "540c9be9-697a-8733-a203-2a7256a0bec4",
+  "statement": "((1189 : Int) / (66 : Int)) = (18 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_scripture_chaptersperbook_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

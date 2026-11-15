@@ -1,0 +1,12 @@
+{
+  "handle": "3831f2d9",
+  "address": "3831f2d9-f43c-8707-8c8b-e87267a0a242",
+  "statement": "((50000 : Int) / (5000 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_zoning_lotsize_1"
+  ],
+  "files": [
+    "FamiliesZ.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "29fac2a8",
+  "address": "29fac2a8-db4a-88ea-8f3d-25d100c0c673",
+  "statement": "(((100 : Int) * (12 : Int)) - ((((100 : Int) * (12 : Int)) * (10 : Int)) / (100 : Int))) = (1080 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_annuity_presentvalue_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

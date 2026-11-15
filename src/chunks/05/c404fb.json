@@ -1,0 +1,12 @@
+{
+  "handle": "05c404fb",
+  "address": "05c404fb-3958-8c32-b7e7-acc196400e2d",
+  "statement": "((35 : Int) * (54 : Int)) = (1890 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_salinity_freezingpoint_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

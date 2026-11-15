@@ -1,0 +1,16 @@
+{
+  "handle": "be4fa523",
+  "address": "be4fa523-7807-8ccb-853a-bec98d777bdd",
+  "kind": "chunk",
+  "keys": [
+    "fam_fertilization_leachingloss_1",
+    "fam_pricing_discount_1",
+    "fam_virality_coefficient_1"
+  ],
+  "statement": "(((200 : Int) * (15 : Int)) / (100 : Int)) = (30 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesP.lean",
+    "FamiliesV.lean"
+  ]
+}

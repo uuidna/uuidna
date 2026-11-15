@@ -1,0 +1,14 @@
+{
+  "handle": "059bceb8",
+  "address": "059bceb8-2df7-8d51-9a05-6a37a20aa470",
+  "statement": "((12 : Int) * (30 : Int)) = (360 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_merchandising_assortment_1",
+    "fam_pickling_shelflife_1"
+  ],
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesP.lean"
+  ]
+}

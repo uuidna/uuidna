@@ -1,0 +1,12 @@
+{
+  "handle": "7356bd02",
+  "address": "7356bd02-78bb-85d0-b3f5-2f853d1512c7",
+  "kind": "chunk",
+  "keys": [
+    "fam_gps_fixquality_2"
+  ],
+  "statement": "(if (if (2 : Int) ≥ (4 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

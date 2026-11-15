@@ -1,0 +1,12 @@
+{
+  "handle": "d811ff80",
+  "address": "d811ff80-cf08-81d4-90a4-b99434c3761d",
+  "statement": "(fmax (0 : Int) ((200 : Int) - (230 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_inverter_clipping_2"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

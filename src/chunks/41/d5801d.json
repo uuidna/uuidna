@@ -1,0 +1,12 @@
+{
+  "handle": "41d5801d",
+  "address": "41d5801d-26ed-8d9f-b524-2853710fb393",
+  "statement": "(((100 : Int) * (2 : Int)) / (4 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_convection_reynolds_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

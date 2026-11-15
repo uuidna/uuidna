@@ -1,0 +1,12 @@
+{
+  "handle": "4b57276c",
+  "address": "4b57276c-a45a-8763-bb91-2713b0131c3c",
+  "kind": "chunk",
+  "keys": [
+    "fam_moon_distance_1"
+  ],
+  "statement": "((384 : Int) * (1000 : Int)) = (384000 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

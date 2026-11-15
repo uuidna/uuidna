@@ -1,0 +1,16 @@
+{
+  "handle": "cfc5c132",
+  "address": "cfc5c132-9ed0-8ac5-b2fa-0d2c417f4bcd",
+  "kind": "chunk",
+  "keys": [
+    "fam_hydration_electrolyteneed_1",
+    "fam_logogram_frequencyrank_1",
+    "fam_nuclear_fission_1"
+  ],
+  "statement": "((2000 : Int) / (10 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesN.lean"
+  ]
+}

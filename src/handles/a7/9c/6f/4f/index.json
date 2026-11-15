@@ -1,0 +1,12 @@
+{
+  "handle": "a79c6f4f",
+  "address": "a79c6f4f-68e0-8686-a7de-37eea77df36f",
+  "kind": "chunk",
+  "keys": [
+    "fam_bathymetry_swathwidth_1"
+  ],
+  "statement": "((3000 : Int) * (7 : Int)) = (21000 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

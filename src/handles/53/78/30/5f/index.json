@@ -1,0 +1,12 @@
+{
+  "handle": "5378305f",
+  "address": "5378305f-b97a-8385-808e-a6639668e7a5",
+  "kind": "chunk",
+  "keys": [
+    "fam_evapotranspiration_waterdeficit_2"
+  ],
+  "statement": "(fmax (0 : Int) ((10 : Int) - (25 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

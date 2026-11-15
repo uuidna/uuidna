@@ -1,0 +1,12 @@
+{
+  "handle": "4e72b22f",
+  "address": "4e72b22f-f9f9-8888-87c6-3979cdc88ea0",
+  "kind": "chunk",
+  "keys": [
+    "fam_testing_mutation_1"
+  ],
+  "statement": "(((76 : Int) * (100 : Int)) / (100 : Int)) = (76 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "eac8406b",
+  "address": "eac8406b-2a70-8463-bf52-07b62f3c9024",
+  "statement": "((3900 : Int) / (100 : Int)) = (39 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_demographics_median_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

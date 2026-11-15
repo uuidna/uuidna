@@ -1,0 +1,12 @@
+{
+  "handle": "a3af581c",
+  "address": "a3af581c-f065-8a71-b875-9423f424903b",
+  "kind": "chunk",
+  "keys": [
+    "fam_opendata_size_1"
+  ],
+  "statement": "((1000 : Int) * (64 : Int)) = (64000 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

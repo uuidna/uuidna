@@ -1,0 +1,12 @@
+{
+  "handle": "16f25c9c",
+  "address": "16f25c9c-3389-8fc1-b199-87a0c72560c8",
+  "statement": "(((2 : Int) * (8 : Int)) - (1 : Int)) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_huffman_treenodes_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

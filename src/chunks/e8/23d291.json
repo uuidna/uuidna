@@ -1,0 +1,12 @@
+{
+  "handle": "e823d291",
+  "address": "e823d291-c607-891f-9f99-ead174934fa4",
+  "statement": "((250 : Int) * (5 : Int)) = (1250 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_respiration_metabolicrate_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

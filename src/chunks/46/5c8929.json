@@ -1,0 +1,24 @@
+{
+  "handle": "465c8929",
+  "address": "465c8929-0c54-8b65-b571-8370e1a61e36",
+  "statement": "(((200 : Int) * (100 : Int)) / (100 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_baking_leavening_1",
+    "fam_biochemistry_equilibrium_1",
+    "fam_cybernetics_gain_1",
+    "fam_leavening_riseratio_1",
+    "fam_portfolio_sharpe_1",
+    "fam_stability_gainmargin_1",
+    "fam_tanning_float_1",
+    "fam_treasury_liquidity_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

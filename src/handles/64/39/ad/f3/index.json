@@ -1,0 +1,12 @@
+{
+  "handle": "6439adf3",
+  "address": "6439adf3-77b5-89f5-bd13-7617444e8874",
+  "kind": "chunk",
+  "keys": [
+    "fam_counterpoint_cantusspan_1"
+  ],
+  "statement": "(fmax (0 : Int) ((24 : Int) - (12 : Int))) = (12 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

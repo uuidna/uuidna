@@ -1,0 +1,12 @@
+{
+  "handle": "a161a0f0",
+  "address": "a161a0f0-ef53-81ff-8f30-10207f91814d",
+  "kind": "chunk",
+  "keys": [
+    "fam_fertilization_efficiency_1"
+  ],
+  "statement": "(((120 : Int) * (100 : Int)) / (200 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

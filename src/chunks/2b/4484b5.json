@@ -1,0 +1,12 @@
+{
+  "handle": "2b4484b5",
+  "address": "2b4484b5-b762-8890-b5d1-2a7a042f9906",
+  "statement": "(((2 : Int) * (600 : Int)) / ((2 : Int) * (300 : Int))) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_diffraction_braggangle_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

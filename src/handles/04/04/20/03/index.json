@@ -1,0 +1,12 @@
+{
+  "handle": "04042003",
+  "address": "04042003-cd09-81fb-b9d8-7b2433d87a79",
+  "kind": "chunk",
+  "keys": [
+    "fam_tracing_samplerate_1"
+  ],
+  "statement": "(((100 : Int) * (100 : Int)) / (1000 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

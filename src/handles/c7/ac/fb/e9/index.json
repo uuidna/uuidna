@@ -1,0 +1,12 @@
+{
+  "handle": "c7acfbe9",
+  "address": "c7acfbe9-3b7f-89a6-ad13-51d7e2e047a4",
+  "kind": "chunk",
+  "keys": [
+    "fam_horticulture_lightdays_1"
+  ],
+  "statement": "((14 : Int) * (90 : Int)) = (1260 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

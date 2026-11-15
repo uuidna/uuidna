@@ -1,0 +1,12 @@
+{
+  "handle": "7ec64b7e",
+  "address": "7ec64b7e-aafe-8c26-9480-17400e018b33",
+  "kind": "chunk",
+  "keys": [
+    "fam_chocolate_temper_2"
+  ],
+  "statement": "(if (if (27 : Int) ≥ (29 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

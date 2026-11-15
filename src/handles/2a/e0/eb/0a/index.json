@@ -1,0 +1,12 @@
+{
+  "handle": "2ae0eb0a",
+  "address": "2ae0eb0a-afb4-86b0-ba84-9f72f8401a38",
+  "kind": "chunk",
+  "keys": [
+    "fam_surgery_duration_2"
+  ],
+  "statement": "(fmax (0 : Int) ((60 : Int) - (180 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

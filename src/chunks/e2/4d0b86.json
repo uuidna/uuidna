@@ -1,0 +1,12 @@
+{
+  "handle": "e24d0b86",
+  "address": "e24d0b86-46ea-8cc0-b01c-dc24efb0f0b2",
+  "statement": "(85 : Int) = (85 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ergonomics_noise_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

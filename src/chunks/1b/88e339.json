@@ -1,0 +1,12 @@
+{
+  "handle": "1b88e339",
+  "address": "1b88e339-fd14-87c7-9af1-8c4034a088d7",
+  "statement": "((((80 : Int) - (40 : Int)) * (100 : Int)) / ((80 : Int) + (40 : Int))) = (33 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_remotesensing_ndvi_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

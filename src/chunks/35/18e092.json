@@ -1,0 +1,12 @@
+{
+  "handle": "3518e092",
+  "address": "3518e092-7d85-885b-8e0d-628a010d8536",
+  "statement": "(fmax (0 : Int) ((1435 : Int) - (35 : Int))) = (1400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_rail_gauge_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

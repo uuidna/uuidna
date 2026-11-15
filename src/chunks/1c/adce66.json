@@ -1,0 +1,12 @@
+{
+  "handle": "1cadce66",
+  "address": "1cadce66-bf7d-8efc-a1a4-166463d87c45",
+  "statement": "((75 : Int) + (5 : Int)) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gerontology_lifeexpectancy_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

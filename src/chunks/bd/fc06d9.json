@@ -1,0 +1,13 @@
+{
+  "handle": "bdfc06d9",
+  "address": "bdfc06d9-9760-889d-9105-22583609a5a4",
+  "statement": "((6000 : Int) / (2 : Int)) = (3000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_geophysics_density_1",
+    "fam_geophysics_seismicvelocity_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

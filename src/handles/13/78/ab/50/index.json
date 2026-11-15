@@ -1,0 +1,12 @@
+{
+  "handle": "1378ab50",
+  "address": "1378ab50-9efb-8c23-8c97-146f18eb08a9",
+  "kind": "chunk",
+  "keys": [
+    "fam_checksum_onescomplement_1"
+  ],
+  "statement": "(((256 : Int) - (1 : Int)) - ((300 : Int) % (256 : Int))) = (211 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

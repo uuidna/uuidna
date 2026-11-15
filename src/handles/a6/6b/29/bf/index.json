@@ -1,0 +1,12 @@
+{
+  "handle": "a66b29bf",
+  "address": "a66b29bf-f8c5-8eac-952d-ac160df99670",
+  "kind": "chunk",
+  "keys": [
+    "fam_modular_classes_1"
+  ],
+  "statement": "((1000 : Int) % (26 : Int)) = (12 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

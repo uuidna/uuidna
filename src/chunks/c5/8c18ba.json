@@ -1,0 +1,12 @@
+{
+  "handle": "c58c18ba",
+  "address": "c58c18ba-6f41-8ec0-bbce-0b1d6795dc82",
+  "statement": "(((40000 : Int) * (100 : Int)) / (50000 : Int)) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_retirement_replacementratio_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

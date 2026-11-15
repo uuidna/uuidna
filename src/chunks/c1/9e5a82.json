@@ -1,0 +1,16 @@
+{
+  "handle": "c19e5a82",
+  "address": "c19e5a82-b31e-8858-b7fb-9b984c488f07",
+  "statement": "((8 : Int) * (10 : Int)) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_caramelization_colorindex_1",
+    "fam_smoking_surfacecolor_1",
+    "fam_zeroshot_prompts_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesS.lean",
+    "FamiliesZ.lean"
+  ]
+}

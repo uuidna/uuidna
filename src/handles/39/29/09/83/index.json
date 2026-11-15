@@ -1,0 +1,12 @@
+{
+  "handle": "39290983",
+  "address": "39290983-4217-8403-b585-c986a652bc6e",
+  "kind": "chunk",
+  "keys": [
+    "fam_orbital_deltav_1"
+  ],
+  "statement": "((3000 : Int) + (2000 : Int)) = (5000 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

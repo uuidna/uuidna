@@ -1,0 +1,12 @@
+{
+  "handle": "83062e20",
+  "address": "83062e20-3d7b-806e-8d0a-7560ddffd3f9",
+  "kind": "chunk",
+  "keys": [
+    "fam_datacenter_density_1"
+  ],
+  "statement": "((10000 : Int) * (24 : Int)) = (240000 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

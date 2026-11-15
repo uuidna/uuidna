@@ -1,0 +1,14 @@
+{
+  "handle": "8c76eed2",
+  "address": "8c76eed2-82c9-8cf0-ac50-948abf035522",
+  "statement": "(((150 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_savings_rate_2",
+    "fam_volatility_beta_2"
+  ],
+  "files": [
+    "FamiliesS.lean",
+    "FamiliesV.lean"
+  ]
+}

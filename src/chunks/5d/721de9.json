@@ -1,0 +1,12 @@
+{
+  "handle": "5d721de9",
+  "address": "5d721de9-fd42-8efd-a33e-8576128bdb26",
+  "statement": "(340 : Int) = (340 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_equine_gestation_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

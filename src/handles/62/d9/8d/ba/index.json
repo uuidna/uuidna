@@ -1,0 +1,12 @@
+{
+  "handle": "62d98dba",
+  "address": "62d98dba-919b-872b-8cd0-1e3a9e07fc6d",
+  "kind": "chunk",
+  "keys": [
+    "fam_sixsigma_rolledthroughput_1"
+  ],
+  "statement": "((((95 : Int) * (90 : Int)) * (90 : Int)) / (10000 : Int)) = (76 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "72aab4b9",
+  "address": "72aab4b9-9535-8823-a94f-6ba3b4468505",
+  "statement": "((38 : Int) / (10 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pickling_phlevel_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

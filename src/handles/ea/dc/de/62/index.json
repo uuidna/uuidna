@@ -1,0 +1,13 @@
+{
+  "handle": "eadcde62",
+  "address": "eadcde62-6c76-879c-a2c8-97ef15a3b55f",
+  "kind": "chunk",
+  "keys": [
+    "fam_photosynthesis_lightefficiency_1",
+    "fam_psychometrics_percentile_1"
+  ],
+  "statement": "(((84 : Int) * (100 : Int)) / (100 : Int)) = (84 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

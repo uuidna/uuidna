@@ -1,0 +1,12 @@
+{
+  "handle": "957b063a",
+  "address": "957b063a-3c74-8945-bf4f-8481d3eab3dc",
+  "statement": "((5000 : Int) - (2000 : Int)) = (3000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_demographics_migration_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

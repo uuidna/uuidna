@@ -1,0 +1,12 @@
+{
+  "handle": "8ee8e733",
+  "address": "8ee8e733-0847-87c3-a004-d9752417ab7f",
+  "kind": "chunk",
+  "keys": [
+    "fam_pollination_foragerange_1"
+  ],
+  "statement": "((15 : Int) * (40 : Int)) = (600 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

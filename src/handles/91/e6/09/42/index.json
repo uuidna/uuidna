@@ -1,0 +1,14 @@
+{
+  "handle": "91e60942",
+  "address": "91e60942-bd7e-8817-9979-22fe06456c50",
+  "kind": "chunk",
+  "keys": [
+    "fam_gastronomy_portioncost_1",
+    "fam_primatology_foraging_1"
+  ],
+  "statement": "((2000 : Int) / (8 : Int)) = (250 : Int)",
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesP.lean"
+  ]
+}

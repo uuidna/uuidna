@@ -1,0 +1,24 @@
+{
+  "handle": "3749bbd6",
+  "address": "3749bbd6-2acb-8f87-85a7-7be79510e9de",
+  "statement": "((12 : Int) * (100 : Int)) = (1200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_federated_params_1",
+    "fam_glaciology_flow_1",
+    "fam_licensing_renewal_1",
+    "fam_manufacturing_capacity_1",
+    "fam_paleontology_size_1",
+    "fam_serialization_overhead_1",
+    "fam_tuning_centsoffset_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

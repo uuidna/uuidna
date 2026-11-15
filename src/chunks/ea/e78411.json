@@ -1,0 +1,14 @@
+{
+  "handle": "eae78411",
+  "address": "eae78411-20b5-881c-8620-799ca01bf834",
+  "statement": "((60 : Int) / (1 : Int)) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ferry_crossingtime_1",
+    "fam_telescope_fieldofview_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesT.lean"
+  ]
+}

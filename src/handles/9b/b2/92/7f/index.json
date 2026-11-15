@@ -1,0 +1,12 @@
+{
+  "handle": "9bb2927f",
+  "address": "9bb2927f-d767-81a9-b938-37fefdbdfd7b",
+  "kind": "chunk",
+  "keys": [
+    "fam_manipulator_dof_1"
+  ],
+  "statement": "(fmax (0 : Int) ((6 : Int) - (0 : Int))) = (6 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

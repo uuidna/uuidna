@@ -1,0 +1,12 @@
+{
+  "handle": "a1909bb4",
+  "address": "a1909bb4-e7c5-877b-a573-c5587f2a9f07",
+  "kind": "chunk",
+  "keys": [
+    "fam_gaming_score_1"
+  ],
+  "statement": "((1500 : Int) * (3 : Int)) = (4500 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

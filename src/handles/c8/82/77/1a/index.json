@@ -1,0 +1,12 @@
+{
+  "handle": "c882771a",
+  "address": "c882771a-b023-862c-b3c7-6e844b982399",
+  "kind": "chunk",
+  "keys": [
+    "fam_law_limitation_1"
+  ],
+  "statement": "((6 : Int) * (365 : Int)) = (2190 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

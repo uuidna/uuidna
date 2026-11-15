@@ -1,0 +1,12 @@
+{
+  "handle": "3f9823df",
+  "address": "3f9823df-d8d9-8887-8944-fb1764b8b4d4",
+  "kind": "chunk",
+  "keys": [
+    "fam_antitrust_damages_1"
+  ],
+  "statement": "((5 : Int) * (100000 : Int)) = (500000 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

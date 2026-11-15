@@ -1,0 +1,26 @@
+{
+  "handle": "72a79e1d",
+  "address": "72a79e1d-d767-8f53-bc17-d64e86cccbb1",
+  "statement": "((3600 : Int) / (60 : Int)) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_emulsification_coalescencetime_1",
+    "fam_ergometry_caloriesper_1",
+    "fam_frontend_isr_1",
+    "fam_gaming_framerate_1",
+    "fam_geo_degrees_1",
+    "fam_iot_heartbeat_1",
+    "fam_noisepollution_leq_1",
+    "fam_rotation_rpm_1",
+    "fam_tsunami_warningtime_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesN.lean",
+    "FamiliesR.lean",
+    "FamiliesT.lean"
+  ]
+}

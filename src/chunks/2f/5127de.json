@@ -1,0 +1,12 @@
+{
+  "handle": "2f5127de",
+  "address": "2f5127de-7c2d-8470-af8f-e582d381a717",
+  "statement": "((256 : Int) * (256 : Int)) = (65536 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tpu_macs_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

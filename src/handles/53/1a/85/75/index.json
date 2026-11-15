@@ -1,0 +1,12 @@
+{
+  "handle": "531a8575",
+  "address": "531a8575-a231-8be6-b59e-ebe94ee6d53c",
+  "kind": "chunk",
+  "keys": [
+    "fam_monitoring_mttf_1"
+  ],
+  "statement": "((8760 : Int) / (12 : Int)) = (730 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

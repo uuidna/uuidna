@@ -1,0 +1,12 @@
+{
+  "handle": "375d717a",
+  "address": "375d717a-c6a1-8548-a498-970abc5bc96e",
+  "statement": "((fmax (0 : Int) ((300 : Int) - (100 : Int))) / (2 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fatigue_amplitude_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

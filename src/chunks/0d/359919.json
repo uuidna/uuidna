@@ -1,0 +1,12 @@
+{
+  "handle": "0d359919",
+  "address": "0d359919-d93c-8920-9b61-ded6171ca45c",
+  "statement": "(((50 : Int) * (80 : Int)) / (100 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_evapotranspiration_actual_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

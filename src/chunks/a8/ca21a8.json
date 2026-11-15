@@ -1,0 +1,12 @@
+{
+  "handle": "a8ca21a8",
+  "address": "a8ca21a8-9814-89cf-8cba-f180dac1ef16",
+  "statement": "(fmax (0 : Int) ((4096 : Int) - (1024 : Int))) = (3072 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_virtualization_ballooning_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9b748f0f",
+  "address": "9b748f0f-618e-8da3-8a6b-cbfcf830f87e",
+  "kind": "chunk",
+  "keys": [
+    "fam_monsoon_onsetday_1"
+  ],
+  "statement": "((150 : Int) + (10 : Int)) = (160 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

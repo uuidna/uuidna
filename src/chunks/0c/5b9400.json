@@ -1,0 +1,12 @@
+{
+  "handle": "0c5b9400",
+  "address": "0c5b9400-a3aa-8ffe-a3ca-ad90cc4c7089",
+  "statement": "((60000 : Int) / (2000 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_retirement_yearsofincome_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

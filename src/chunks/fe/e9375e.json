@@ -1,0 +1,12 @@
+{
+  "handle": "fee9375e",
+  "address": "fee9375e-d7f3-8f91-a71c-9fcbdb0738f4",
+  "statement": "(((60 : Int) * (100 : Int)) / (25 : Int)) = (240 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_audiology_loss_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

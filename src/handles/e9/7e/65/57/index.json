@@ -1,0 +1,12 @@
+{
+  "handle": "e97e6557",
+  "address": "e97e6557-8796-8496-94a8-205e64f58745",
+  "kind": "chunk",
+  "keys": [
+    "fam_ray_opposite_2"
+  ],
+  "statement": "(((20 : Int) + (16 : Int)) % (32 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

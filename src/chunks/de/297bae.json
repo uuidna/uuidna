@@ -1,0 +1,12 @@
+{
+  "handle": "de297bae",
+  "address": "de297bae-cd02-81b0-9c06-3ddbed38cdf8",
+  "statement": "((3000 : Int) + (500 : Int)) = (3500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cpu_turbo_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

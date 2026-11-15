@@ -1,0 +1,12 @@
+{
+  "handle": "2e26f4c3",
+  "address": "2e26f4c3-7546-8b53-aebd-bf2cd7062652",
+  "kind": "chunk",
+  "keys": [
+    "fam_photometry_magnitude_1"
+  ],
+  "statement": "(fmax (0 : Int) ((25 : Int) - (10 : Int))) = (15 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

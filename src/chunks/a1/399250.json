@@ -1,0 +1,12 @@
+{
+  "handle": "a1399250",
+  "address": "a1399250-8df6-8cbd-82d3-3c27252fcd98",
+  "statement": "(((24 : Int) * (100 : Int)) / (100 : Int)) = (24 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_podiatry_arch_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

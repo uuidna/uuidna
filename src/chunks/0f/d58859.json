@@ -1,0 +1,12 @@
+{
+  "handle": "0fd58859",
+  "address": "0fd58859-3004-8995-b88f-20e85a67e3fc",
+  "statement": "(fmax (1 : Int) (0 : Int)) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_logic_disjunction_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

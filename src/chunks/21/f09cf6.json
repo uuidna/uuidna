@@ -1,0 +1,12 @@
+{
+  "handle": "21f09cf6",
+  "address": "21f09cf6-399c-86ae-a065-62f128d29b04",
+  "statement": "((80 : Int) - (75 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_regression_residual_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

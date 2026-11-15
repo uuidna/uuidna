@@ -1,0 +1,12 @@
+{
+  "handle": "5fda524a",
+  "address": "5fda524a-2ee9-8807-81b1-8ff2c559a67e",
+  "statement": "((16 : Int) / (2 : Int)) = (8 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_firmware_checksumwords_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

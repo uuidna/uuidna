@@ -1,0 +1,14 @@
+{
+  "handle": "2dc05825",
+  "address": "2dc05825-fd38-84d9-9173-6755751e3fce",
+  "kind": "chunk",
+  "keys": [
+    "fam_biochemistry_michaelis_1",
+    "fam_enzymology_michaelis_1"
+  ],
+  "statement": "(((100 : Int) * (50 : Int)) / ((50 : Int) + (50 : Int))) = (50 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesE.lean"
+  ]
+}

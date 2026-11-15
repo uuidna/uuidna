@@ -1,0 +1,12 @@
+{
+  "handle": "b1cad57a",
+  "address": "b1cad57a-7592-8ca8-bca7-cd7b569198e2",
+  "statement": "((10 : Int) * (1600 : Int)) = (16000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_patent_maintenance_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

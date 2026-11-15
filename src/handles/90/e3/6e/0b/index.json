@@ -1,0 +1,12 @@
+{
+  "handle": "90e36e0b",
+  "address": "90e36e0b-960f-85f9-a690-f537577405b6",
+  "kind": "chunk",
+  "keys": [
+    "fam_foodsafety_cookingtempc_1"
+  ],
+  "statement": "(fmax (74 : Int) (75 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "handle": "1866c4dd",
+  "address": "1866c4dd-7c8b-83c5-a10e-03278bbff49b",
+  "kind": "chunk",
+  "keys": [
+    "fam_api_ratelimit_1",
+    "fam_api_window_1",
+    "fam_casting_coolingrate_1",
+    "fam_catalysis_rate_1",
+    "fam_electrochemistry_current_1",
+    "fam_glycolysis_flux_1",
+    "fam_hail_growthtime_1",
+    "fam_hydroponics_flowrate_1",
+    "fam_landslide_velocity_1",
+    "fam_linehaul_driverhours_1",
+    "fam_masonry_coverage_1",
+    "fam_ratelimiting_refillrate_1",
+    "fam_state_actions_1"
+  ],
+  "statement": "((600 : Int) / (60 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

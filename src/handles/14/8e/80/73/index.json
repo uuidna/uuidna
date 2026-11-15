@@ -1,0 +1,12 @@
+{
+  "handle": "148e8073",
+  "address": "148e8073-1682-80b0-a4ca-8e47aefcc873",
+  "kind": "chunk",
+  "keys": [
+    "fam_clearance_filtration_1"
+  ],
+  "statement": "(((120 : Int) * (100 : Int)) / (600 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

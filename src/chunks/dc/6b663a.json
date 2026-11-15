@@ -1,0 +1,17 @@
+{
+  "handle": "dc6b663a",
+  "address": "dc6b663a-98fb-81b1-a4fd-e115cea45015",
+  "statement": "((180 : Int) / (18 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_biochemistry_molarity_1",
+    "fam_chem_moles_1",
+    "fam_chemistry_moles_1",
+    "fam_stoichiometry_moles_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1e6d0bf9",
+  "address": "1e6d0bf9-4526-85ff-bafc-2abfd3a09ee8",
+  "kind": "chunk",
+  "keys": [
+    "fam_redistricting_efficiencygap_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((3000 : Int) - (1000 : Int))) * (100 : Int)) / (10000 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

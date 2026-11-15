@@ -1,0 +1,13 @@
+{
+  "handle": "5e174eb4",
+  "address": "5e174eb4-d42a-8917-b01f-cfceec91ebd7",
+  "kind": "chunk",
+  "keys": [
+    "fam_watershed_timeofconcentration_1",
+    "fam_welding_deposition_1"
+  ],
+  "statement": "((3600 : Int) / (2 : Int)) = (1800 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

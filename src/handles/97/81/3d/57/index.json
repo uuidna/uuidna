@@ -1,0 +1,16 @@
+{
+  "handle": "97813d57",
+  "address": "97813d57-bcb8-8167-b690-9d61045eee8c",
+  "kind": "chunk",
+  "keys": [
+    "fam_cuneiform_logovalues_1",
+    "fam_hieroglyphs_determinatives_1",
+    "fam_scrabble_tiles_1"
+  ],
+  "statement": "((100 : Int) + (0 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesH.lean",
+    "FamiliesS.lean"
+  ]
+}

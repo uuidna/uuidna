@@ -1,0 +1,12 @@
+{
+  "handle": "6a56e136",
+  "address": "6a56e136-66fd-8508-a452-112595dae789",
+  "kind": "chunk",
+  "keys": [
+    "fam_windchill_windfactor_1"
+  ],
+  "statement": "(((20 : Int) * (3 : Int)) / (2 : Int)) = (30 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

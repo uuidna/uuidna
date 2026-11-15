@@ -1,0 +1,12 @@
+{
+  "handle": "588f308b",
+  "address": "588f308b-48b7-87fc-8b7b-99f55f38df13",
+  "statement": "((3 : Int) - (2 : Int)) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_psu_redundancy_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

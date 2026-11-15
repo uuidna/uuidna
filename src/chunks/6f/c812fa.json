@@ -1,0 +1,16 @@
+{
+  "handle": "6fc812fa",
+  "address": "6fc812fa-4437-85f4-8dd0-bd093c28a837",
+  "statement": "(((18 : Int) * (100 : Int)) / (100 : Int)) = (18 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_aquifer_specificyield_1",
+    "fam_metallurgy_alloy_1",
+    "fam_tax_effective_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesM.lean",
+    "FamiliesT.lean"
+  ]
+}

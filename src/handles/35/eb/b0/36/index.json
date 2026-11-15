@@ -1,0 +1,18 @@
+{
+  "handle": "35ebb036",
+  "address": "35ebb036-d0ba-8f00-b8c4-ba9b23cbc9b0",
+  "kind": "chunk",
+  "keys": [
+    "fam_braking_bias_1",
+    "fam_leverage_gearingratio_1",
+    "fam_portfolio_allocation_1",
+    "fam_screening_ppv_1"
+  ],
+  "statement": "(((60 : Int) * (100 : Int)) / ((60 : Int) + (40 : Int))) = (60 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

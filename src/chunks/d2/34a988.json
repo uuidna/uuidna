@@ -1,0 +1,14 @@
+{
+  "handle": "d234a988",
+  "address": "d234a988-5d1a-8e11-a5d7-a2e4ac233250",
+  "statement": "(((60000 : Int) * (100 : Int)) / (100000 : Int)) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bankruptcy_ratio_1",
+    "fam_claims_lossratio_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean"
+  ]
+}

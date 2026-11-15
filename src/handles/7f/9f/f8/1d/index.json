@@ -1,0 +1,14 @@
+{
+  "handle": "7f9ff81d",
+  "address": "7f9ff81d-b545-82f7-8781-00b094a10b2c",
+  "kind": "chunk",
+  "keys": [
+    "fam_pathplanning_pathcost_1",
+    "fam_synthesis_tokens_1"
+  ],
+  "statement": "((10 : Int) * (7 : Int)) = (70 : Int)",
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

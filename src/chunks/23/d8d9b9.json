@@ -1,0 +1,12 @@
+{
+  "handle": "23d8d9b9",
+  "address": "23d8d9b9-49ae-885d-b42e-28de33092244",
+  "statement": "((620000 : Int) / (620 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_blackhole_hawkingtemp_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

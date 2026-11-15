@@ -1,0 +1,12 @@
+{
+  "handle": "ce599d01",
+  "address": "ce599d01-c7df-82c6-be93-6d2a9e85fd6f",
+  "statement": "(fmax (0 : Int) (((90 : Int) + (85 : Int)) - (100 : Int))) = (75 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_screening_youdenindex_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

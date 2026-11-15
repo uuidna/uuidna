@@ -1,0 +1,12 @@
+{
+  "handle": "2546eabd",
+  "address": "2546eabd-da72-8363-95d4-1c5cdcdbab44",
+  "kind": "chunk",
+  "keys": [
+    "fam_rhythm_swingratio_1"
+  ],
+  "statement": "(((2 : Int) * (100 : Int)) / (1 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

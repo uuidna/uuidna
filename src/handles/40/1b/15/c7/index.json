@@ -1,0 +1,12 @@
+{
+  "handle": "401b15c7",
+  "address": "401b15c7-eb36-852d-a50e-cced566a106c",
+  "kind": "chunk",
+  "keys": [
+    "fam_project_overrun_2"
+  ],
+  "statement": "(fmax (0 : Int) ((8 : Int) - (10 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

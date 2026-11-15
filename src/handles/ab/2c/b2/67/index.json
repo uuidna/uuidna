@@ -1,0 +1,12 @@
+{
+  "handle": "ab2cb267",
+  "address": "ab2cb267-214d-8e49-bbdc-f0e6c35a349a",
+  "kind": "chunk",
+  "keys": [
+    "fam_wavelet_detailcoeffs_1"
+  ],
+  "statement": "(-((-(1000 : Int)) / (16 : Int))) = (63 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

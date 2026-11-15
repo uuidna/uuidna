@@ -1,0 +1,12 @@
+{
+  "handle": "5e50a8cc",
+  "address": "5e50a8cc-4d1d-8d47-b265-30e1be096e5a",
+  "statement": "(fmax (0 : Int) ((7 : Int) - (22 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_limnology_stratification_2"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

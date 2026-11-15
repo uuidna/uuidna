@@ -1,0 +1,14 @@
+{
+  "handle": "8708ed37",
+  "address": "8708ed37-7913-898e-b453-13637c0da320",
+  "kind": "chunk",
+  "keys": [
+    "fam_dosage_cumulative_1",
+    "fam_mining_cost_1"
+  ],
+  "statement": "((500 : Int) * (7 : Int)) = (3500 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesM.lean"
+  ]
+}

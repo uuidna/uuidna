@@ -1,0 +1,14 @@
+{
+  "handle": "96ebad18",
+  "address": "96ebad18-7dbb-8094-a806-460d17ab0c98",
+  "kind": "chunk",
+  "keys": [
+    "fam_fractal_piececount_1",
+    "fam_synthesis_candidates_1"
+  ],
+  "statement": "((3 : Int) ^ (4 : Nat)) = (81 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesS.lean"
+  ]
+}

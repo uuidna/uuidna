@@ -1,0 +1,12 @@
+{
+  "handle": "b5d7478e",
+  "address": "b5d7478e-7acf-8a8a-9605-8fb0dd4db609",
+  "statement": "(((1000 : Int) * (36 : Int)) / (50 : Int)) = (720 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_lenses_fieldofview_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

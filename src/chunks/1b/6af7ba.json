@@ -1,0 +1,20 @@
+{
+  "handle": "1b6af7ba",
+  "address": "1b6af7ba-f7c8-831a-ab1c-f4008ee620a1",
+  "statement": "(((980 : Int) * (100 : Int)) / (1000 : Int)) = (98 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_assembly_yield_1",
+    "fam_email_deliverability_1",
+    "fam_fulfillment_accuracy_1",
+    "fam_orthography_legibility_1",
+    "fam_telecom_packet_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesO.lean",
+    "FamiliesT.lean"
+  ]
+}

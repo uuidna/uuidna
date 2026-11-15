@@ -1,0 +1,16 @@
+{
+  "handle": "d803e02b",
+  "address": "d803e02b-9820-8267-8756-1588cc23ba45",
+  "statement": "(((50 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_amplifiers_efficiency_2",
+    "fam_fertilization_efficiency_2",
+    "fam_hazard_exposure_2"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesF.lean",
+    "FamiliesH.lean"
+  ]
+}

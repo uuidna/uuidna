@@ -1,0 +1,12 @@
+{
+  "handle": "4b1fbfc5",
+  "address": "4b1fbfc5-3f5b-82fb-b64b-fd7b130ce55a",
+  "statement": "((((300 : Int) + (200 : Int)) * (100000 : Int)) / (50000 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_prevalence_periodprevalence_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

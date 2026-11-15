@@ -1,0 +1,12 @@
+{
+  "handle": "40a11e1b",
+  "address": "40a11e1b-a68d-8b0f-9e1c-d17238104ac0",
+  "statement": "(if (if (120 : Int) > (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_incident_slaimpact_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

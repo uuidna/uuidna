@@ -1,0 +1,12 @@
+{
+  "handle": "a8f114ec",
+  "address": "a8f114ec-c002-8d71-9635-1822d3d49060",
+  "statement": "((500 : Int) + (220 : Int)) = (720 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_odometry_pathdistance_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

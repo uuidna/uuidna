@@ -1,0 +1,19 @@
+{
+  "handle": "0730d8d0",
+  "address": "0730d8d0-6854-82b5-b902-13d0a4c33887",
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (900 : Int))) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_autoscaling_queuebacklog_1",
+    "fam_bandwidth_overhead_1",
+    "fam_earnedvalue_schedulevariance_1",
+    "fam_etl_dedupe_1",
+    "fam_hash_collisions_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesE.lean",
+    "FamiliesH.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "274d269a",
+  "address": "274d269a-2309-8248-82e0-544b6a2a65b7",
+  "statement": "(-((-(10 : Int)) / (4 : Int))) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_job_agents_1",
+    "fam_onboarding_milestone_1"
+  ],
+  "files": [
+    "FamiliesJ.lean",
+    "FamiliesO.lean"
+  ]
+}

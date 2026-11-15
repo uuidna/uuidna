@@ -1,0 +1,12 @@
+{
+  "handle": "3b370dcf",
+  "address": "3b370dcf-ba3c-8310-9419-b7483a4b449b",
+  "statement": "((64 : Int) + ((4 : Int) * (3 : Int))) = (76 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_arpeggio_velocitycurve_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

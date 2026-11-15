@@ -1,0 +1,14 @@
+{
+  "handle": "f323326f",
+  "address": "f323326f-1927-8af4-88ec-2cc7028f9def",
+  "statement": "(fmin (10 : Int) (3 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_auth_sessions_1",
+    "fam_messaging_retry_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesM.lean"
+  ]
+}

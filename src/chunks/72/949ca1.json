@@ -1,0 +1,12 @@
+{
+  "handle": "72949ca1",
+  "address": "72949ca1-1e5d-8e1f-b5de-d3adbd70d0dc",
+  "statement": "(((2 : Int) * (7500 : Int)) / (1500 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ultrasonics_timeofflight_1"
+  ],
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

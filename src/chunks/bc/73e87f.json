@@ -1,0 +1,12 @@
+{
+  "handle": "bc73e87f",
+  "address": "bc73e87f-1e25-859f-a10c-1787724ca8d0",
+  "statement": "((7 : Int) * (4 : Int)) = (28 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_reasoning_workingmemoryload_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

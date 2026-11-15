@@ -1,0 +1,12 @@
+{
+  "handle": "77c9069e",
+  "address": "77c9069e-d8c5-8dc4-aa38-99b33be52260",
+  "kind": "chunk",
+  "keys": [
+    "fam_irrigation_evapotranspiration_1"
+  ],
+  "statement": "(((60 : Int) * (90 : Int)) / (100 : Int)) = (54 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

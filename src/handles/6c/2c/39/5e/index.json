@@ -1,0 +1,17 @@
+{
+  "handle": "6c2c395e",
+  "address": "6c2c395e-a749-85a0-8d2f-d2ab44f8f128",
+  "kind": "chunk",
+  "keys": [
+    "fam_airquality_exposureindex_1",
+    "fam_analytics_ltv_1",
+    "fam_environment_emissions_1",
+    "fam_parasitology_burden_1"
+  ],
+  "statement": "((50 : Int) * (24 : Int)) = (1200 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesE.lean",
+    "FamiliesP.lean"
+  ]
+}

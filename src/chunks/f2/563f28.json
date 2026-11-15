@@ -1,0 +1,12 @@
+{
+  "handle": "f2563f28",
+  "address": "f2563f28-427b-8683-bc06-cabf3743a552",
+  "statement": "((100 : Int) * (9 : Int)) = (900 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_friction_normal_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

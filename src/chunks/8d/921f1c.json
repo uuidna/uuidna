@@ -1,0 +1,12 @@
+{
+  "handle": "8d921f1c",
+  "address": "8d921f1c-d6e0-84c4-89e6-fe4189394160",
+  "statement": "(-((-(10000 : Int)) / (500 : Int))) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_savings_goalmonths_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

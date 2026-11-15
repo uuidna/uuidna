@@ -1,0 +1,12 @@
+{
+  "handle": "40728f11",
+  "address": "40728f11-fa02-8396-9bf3-64ee2716978c",
+  "statement": "(((50 : Int) * (100 : Int)) * (2 : Int)) = (10000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_futures_notional_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

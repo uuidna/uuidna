@@ -1,0 +1,12 @@
+{
+  "handle": "83f6ea1b",
+  "address": "83f6ea1b-3409-84b0-8a81-31f1e32174e7",
+  "kind": "chunk",
+  "keys": [
+    "fam_physics_power_1"
+  ],
+  "statement": "((150 : Int) / (3 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

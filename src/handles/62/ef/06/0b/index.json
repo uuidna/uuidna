@@ -1,0 +1,12 @@
+{
+  "handle": "62ef060b",
+  "address": "62ef060b-cf18-8eb9-9a7f-ce8af8de5ffe",
+  "kind": "chunk",
+  "keys": [
+    "fam_parallax_distance_1"
+  ],
+  "statement": "((1000000 : Int) / (10 : Int)) = (100000 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

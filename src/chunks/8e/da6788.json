@@ -1,0 +1,12 @@
+{
+  "handle": "8eda6788",
+  "address": "8eda6788-fdcc-8eb5-bd95-28dc4b643cd5",
+  "statement": "(fmax (150 : Int) (160 : Int)) = (160 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_confectionery_sugarstage_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

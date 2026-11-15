@@ -1,0 +1,14 @@
+{
+  "handle": "3bae303b",
+  "address": "3bae303b-6634-8732-92fe-6dd48fb3ed45",
+  "kind": "chunk",
+  "keys": [
+    "fam_probability_expected_1",
+    "fam_volatility_impliedmove_1"
+  ],
+  "statement": "(((200 : Int) * (25 : Int)) / (100 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesV.lean"
+  ]
+}

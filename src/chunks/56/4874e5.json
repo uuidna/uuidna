@@ -1,0 +1,12 @@
+{
+  "handle": "564874e5",
+  "address": "564874e5-c676-8e80-9d53-d2e671fed62b",
+  "statement": "(fmax (0 : Int) ((1013 : Int) - (950 : Int))) = (63 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cyclone_pressuredrop_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

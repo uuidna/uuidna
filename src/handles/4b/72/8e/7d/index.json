@@ -1,0 +1,12 @@
+{
+  "handle": "4b728e7d",
+  "address": "4b728e7d-f6b4-8212-92d9-e742e46ac12e",
+  "kind": "chunk",
+  "keys": [
+    "fam_location_within_2"
+  ],
+  "statement": "(if (if (120 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

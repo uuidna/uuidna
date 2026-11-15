@@ -1,0 +1,12 @@
+{
+  "handle": "ba5531b4",
+  "address": "ba5531b4-b4c2-8af9-91dc-40beeec3729a",
+  "statement": "(fmax (0 : Int) ((2460010 : Int) - (2460000 : Int))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_feed_recency_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "handle": "63a30197",
+  "address": "63a30197-743c-8bbd-ad6e-22c7491d3cd5",
+  "statement": "(fmax (0 : Int) ((50 : Int) - (40 : Int))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_burndown_variance_1",
+    "fam_inequality_lorenzgap_1",
+    "fam_staffing_overtime_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesI.lean",
+    "FamiliesS.lean"
+  ]
+}

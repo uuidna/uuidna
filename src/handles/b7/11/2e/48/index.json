@@ -1,0 +1,12 @@
+{
+  "handle": "b7112e48",
+  "address": "b7112e48-9c37-8148-bdad-cc918dafccac",
+  "kind": "chunk",
+  "keys": [
+    "fam_property_afford_1"
+  ],
+  "statement": "((40000 : Int) * (4 : Int)) = (160000 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

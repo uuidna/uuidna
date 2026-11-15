@@ -1,0 +1,14 @@
+{
+  "handle": "6ebf141e",
+  "address": "6ebf141e-3cbf-89f7-8eae-5ca729e520cd",
+  "kind": "chunk",
+  "keys": [
+    "fam_api_statusclass_1",
+    "fam_rest_statusclass_1"
+  ],
+  "statement": "((404 : Int) / (100 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesR.lean"
+  ]
+}

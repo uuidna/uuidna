@@ -1,0 +1,12 @@
+{
+  "handle": "fc4efa6e",
+  "address": "fc4efa6e-1b72-8711-af02-4e786f67cf27",
+  "kind": "chunk",
+  "keys": [
+    "fam_polymers_degreeofpolymerization_1"
+  ],
+  "statement": "((28000 : Int) / (28 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

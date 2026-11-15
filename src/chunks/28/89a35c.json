@@ -1,0 +1,16 @@
+{
+  "handle": "2889a35c",
+  "address": "2889a35c-122f-80cb-b5fe-c872e8cbf5b1",
+  "statement": "(fmax (0 : Int) ((100 : Int) - (85 : Int))) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_actionpotential_overshoot_1",
+    "fam_budget_variance_1",
+    "fam_security_exposure_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesS.lean"
+  ]
+}

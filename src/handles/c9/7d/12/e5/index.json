@@ -1,0 +1,12 @@
+{
+  "handle": "c97d12e5",
+  "address": "c97d12e5-275f-8fde-a144-b43705d30f3a",
+  "kind": "chunk",
+  "keys": [
+    "fam_poker_equity_1"
+  ],
+  "statement": "(((9 : Int) * (2 : Int)) * (2 : Int)) = (36 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

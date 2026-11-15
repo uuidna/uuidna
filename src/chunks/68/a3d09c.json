@@ -1,0 +1,14 @@
+{
+  "handle": "68a3d09c",
+  "address": "68a3d09c-03a6-8520-9efd-388ccc25b432",
+  "statement": "(((60 : Int) * (100 : Int)) / (90 : Int)) = (66 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_rheumatology_mobility_1",
+    "fam_soccer_possession_1"
+  ],
+  "files": [
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

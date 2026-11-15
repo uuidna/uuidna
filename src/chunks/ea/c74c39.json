@@ -1,0 +1,12 @@
+{
+  "handle": "eac74c39",
+  "address": "eac74c39-fbfb-8b5a-88f9-56ed422a6ea4",
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (950 : Int))) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_inverter_loss_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

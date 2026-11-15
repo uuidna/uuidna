@@ -1,0 +1,17 @@
+{
+  "handle": "979ee064",
+  "address": "979ee064-fb62-81ad-bfa8-7bef637bfd3a",
+  "statement": "((48 : Int) / (12 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_education_gpa_1",
+    "fam_opera_rangeoctaves_1",
+    "fam_ornithology_clutch_1",
+    "fam_personality_trait_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean"
+  ]
+}

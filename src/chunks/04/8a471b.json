@@ -1,0 +1,12 @@
+{
+  "handle": "048a471b",
+  "address": "048a471b-db89-8943-a62f-0d16f1751dab",
+  "statement": "(fmax (0 : Int) ((490 : Int) - (70 : Int))) = (420 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_prophecy_intervalspan_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2d94451b",
+  "address": "2d94451b-167e-8fc6-bab6-4d28e1385844",
+  "statement": "(if (if (10 : Int) ≥ (90 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_authorization_policyeval_2"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

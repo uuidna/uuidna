@@ -1,0 +1,12 @@
+{
+  "handle": "1e7730ac",
+  "address": "1e7730ac-fbc5-81e0-bf9a-6887a9508add",
+  "kind": "chunk",
+  "keys": [
+    "fam_entropy_relativeentropy_1"
+  ],
+  "statement": "(fmax (0 : Int) ((Int.ofNat (flog 2 64 (Int.toNat (2000 : Int)))) - (Int.ofNat (flog 2 64 (Int.toNat (500 : Int)))))) = (2 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "09855350",
+  "address": "09855350-ec78-8e47-b0b7-d166a540d1fc",
+  "kind": "chunk",
+  "keys": [
+    "fam_crystal_lattice_1",
+    "fam_matrix_mults_1"
+  ],
+  "statement": "(((4 : Int) * (4 : Int)) * (4 : Int)) = (64 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesM.lean"
+  ]
+}

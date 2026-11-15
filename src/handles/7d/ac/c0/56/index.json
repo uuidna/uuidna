@@ -1,0 +1,12 @@
+{
+  "handle": "7dacc056",
+  "address": "7dacc056-c54c-83ad-9d17-7a7cd20c7b19",
+  "kind": "chunk",
+  "keys": [
+    "fam_futures_marginrequirement_1"
+  ],
+  "statement": "(((10000 : Int) * (10 : Int)) / (100 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

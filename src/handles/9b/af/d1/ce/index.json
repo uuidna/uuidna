@@ -1,0 +1,12 @@
+{
+  "handle": "9bafd1ce",
+  "address": "9bafd1ce-3bb6-8e68-b6ea-c57f1eae1a04",
+  "kind": "chunk",
+  "keys": [
+    "fam_ray_free_1"
+  ],
+  "statement": "(122 : Int) = (122 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

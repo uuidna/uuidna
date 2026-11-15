@@ -1,0 +1,12 @@
+{
+  "handle": "ec7acfce",
+  "address": "ec7acfce-e8e2-81d4-84f5-1ec491457079",
+  "statement": "(((22 : Int) * (10 : Int)) / (10 : Int)) = (22 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_knitting_gauge_1"
+  ],
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

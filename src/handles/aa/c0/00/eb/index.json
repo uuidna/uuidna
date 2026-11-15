@@ -1,0 +1,12 @@
+{
+  "handle": "aac000eb",
+  "address": "aac000eb-9ede-85c3-861d-0e3ce29f0cf6",
+  "kind": "chunk",
+  "keys": [
+    "fam_actionpotential_depolarization_1"
+  ],
+  "statement": "(fmax (0 : Int) ((55 : Int) - (30 : Int))) = (25 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

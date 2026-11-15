@@ -1,0 +1,12 @@
+{
+  "handle": "15ef1f6c",
+  "address": "15ef1f6c-6dce-81d9-ac3d-1bc29be99ad6",
+  "statement": "(((125 : Int) * ((100 : Int) - (20 : Int))) / (100 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_excavation_compaction_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

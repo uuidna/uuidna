@@ -1,0 +1,12 @@
+{
+  "handle": "42ca32e6",
+  "address": "42ca32e6-5109-83c6-88d3-098da0acc748",
+  "statement": "(((9 : Int) * (100 : Int)) / (50 : Int)) = (18 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cheese_phacidity_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

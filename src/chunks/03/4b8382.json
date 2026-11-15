@@ -1,0 +1,12 @@
+{
+  "handle": "034b8382",
+  "address": "034b8382-64e6-866e-a9ed-7d214f4bc491",
+  "statement": "(((622 : Int) * (20 : Int)) / ((1020 : Int) - (20 : Int))) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_humidity_ratio_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9d319e1d",
+  "address": "9d319e1d-e807-8358-a8f4-1ba8a5cc6c7d",
+  "statement": "(((100000 : Int) * (10 : Int)) / (100 : Int)) = (10000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_contract_deposit_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

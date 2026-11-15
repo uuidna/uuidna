@@ -1,0 +1,14 @@
+{
+  "handle": "e7846a41",
+  "address": "e7846a41-7085-811e-bc02-551966b49ff7",
+  "kind": "chunk",
+  "keys": [
+    "fam_depreciation_decliningbalance_1",
+    "fam_fishery_spawning_1"
+  ],
+  "statement": "(((10000 : Int) * (20 : Int)) / (100 : Int)) = (2000 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesF.lean"
+  ]
+}

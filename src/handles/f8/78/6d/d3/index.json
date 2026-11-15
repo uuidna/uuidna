@@ -1,0 +1,12 @@
+{
+  "handle": "f8786dd3",
+  "address": "f8786dd3-043a-8b22-bb70-ff1b20093a69",
+  "kind": "chunk",
+  "keys": [
+    "fam_property_mortgage_1"
+  ],
+  "statement": "((10000 : Int) + ((((10000 : Int) * (5 : Int)) * (10 : Int)) / (100 : Int))) = (15000 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

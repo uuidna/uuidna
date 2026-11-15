@@ -1,0 +1,12 @@
+{
+  "handle": "3b70059b",
+  "address": "3b70059b-27c1-837b-a8bf-30b5f255e51d",
+  "statement": "(fmax (0 : Int) ((45000 : Int) - (60000 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_retirement_shortfall_2"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e03642cb",
+  "address": "e03642cb-e7f1-8bb6-9093-3d8803ecfd3e",
+  "kind": "chunk",
+  "keys": [
+    "fam_feed_trend_1"
+  ],
+  "statement": "((30 : Int) - (12 : Int)) = (18 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

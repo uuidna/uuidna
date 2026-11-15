@@ -1,0 +1,30 @@
+{
+  "handle": "06360ecd",
+  "address": "06360ecd-f508-850e-9ad7-5637adbc3ac5",
+  "kind": "chunk",
+  "keys": [
+    "fam_animism_ritualtypes_1",
+    "fam_fpga_pipeline_1",
+    "fam_invariant_conditions_1",
+    "fam_jetstream_meandercount_1",
+    "fam_magnetometry_reversalcount_1",
+    "fam_painting_layercount_1",
+    "fam_phenomenology_intentionalacts_1",
+    "fam_proof_axiomsused_1",
+    "fam_rheumatology_jointcount_1",
+    "fam_route_hopcount_1",
+    "fam_stagecraft_scenechanges_1",
+    "fam_storyboarding_transitiontypes_1"
+  ],
+  "statement": "((5 : Int) + (3 : Int)) = (8 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesF.lean",
+    "FamiliesI.lean",
+    "FamiliesJ.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

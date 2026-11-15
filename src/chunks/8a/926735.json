@@ -1,0 +1,12 @@
+{
+  "handle": "8a926735",
+  "address": "8a926735-ae19-834c-acdd-5f420a7fcc8c",
+  "statement": "(((60 : Int) * (100 : Int)) / (2000 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_aquaculture_feeding_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

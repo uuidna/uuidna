@@ -1,0 +1,12 @@
+{
+  "handle": "b0eaa8c9",
+  "address": "b0eaa8c9-f0e0-86f2-bb46-0ce78271ffb3",
+  "statement": "(fmax (0 : Int) ((90 : Int) - (51 : Int))) = (39 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_satellite_inclination_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

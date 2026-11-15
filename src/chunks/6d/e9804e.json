@@ -1,0 +1,12 @@
+{
+  "handle": "6de9804e",
+  "address": "6de9804e-a94c-8d81-b258-cd838bd63b16",
+  "statement": "(((400 : Int) * (100 : Int)) / (600 : Int)) = (66 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cogeneration_powertoheat_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

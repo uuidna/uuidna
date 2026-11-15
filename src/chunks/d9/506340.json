@@ -1,0 +1,12 @@
+{
+  "handle": "d9506340",
+  "address": "d9506340-ad74-84b5-ab42-fe1d55aad163",
+  "statement": "(((20000 : Int) * (5 : Int)) / (100 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_contract_penalty_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

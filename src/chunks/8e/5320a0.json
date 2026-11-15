@@ -1,0 +1,12 @@
+{
+  "handle": "8e5320a0",
+  "address": "8e5320a0-8e51-8fe0-8867-ea4dd18b9ec2",
+  "statement": "((5000 : Int) / (200 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_estimating_unitcost_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

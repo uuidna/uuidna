@@ -1,0 +1,12 @@
+{
+  "handle": "340a4d30",
+  "address": "340a4d30-346d-820f-a6e5-976f56861a70",
+  "kind": "chunk",
+  "keys": [
+    "fam_elections_swing_1"
+  ],
+  "statement": "(fmax (0 : Int) ((55 : Int) - (40 : Int))) = (15 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

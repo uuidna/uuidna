@@ -1,0 +1,12 @@
+{
+  "handle": "e38feb52",
+  "address": "e38feb52-1512-86f0-ad5f-1bdbc600223c",
+  "kind": "chunk",
+  "keys": [
+    "fam_dominoes_totaltiles_1"
+  ],
+  "statement": "((21 : Int) + (7 : Int)) = (28 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

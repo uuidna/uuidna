@@ -1,0 +1,12 @@
+{
+  "handle": "50a93aaf",
+  "address": "50a93aaf-994b-8fc5-b0b1-74f300395b76",
+  "kind": "chunk",
+  "keys": [
+    "fam_rest_errorrate_2"
+  ],
+  "statement": "(((1000 : Int) * (100 : Int)) / (1000 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

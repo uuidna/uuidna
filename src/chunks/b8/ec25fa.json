@@ -1,0 +1,12 @@
+{
+  "handle": "b8ec25fa",
+  "address": "b8ec25fa-70e7-87a1-8ffd-74cd86ba3a99",
+  "statement": "((6000000 : Int) / (2 : Int)) = (3000000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_broadcasting_bitrate_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

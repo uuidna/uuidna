@@ -1,0 +1,12 @@
+{
+  "handle": "d99dfd1a",
+  "address": "d99dfd1a-a478-80c9-978c-6949abe8b13b",
+  "statement": "(((1000 : Int) * (100 : Int)) / (100 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_plasma_fusion_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

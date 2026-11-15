@@ -1,0 +1,12 @@
+{
+  "handle": "d51d9117",
+  "address": "d51d9117-d876-87c1-9d81-00a2cefad9d9",
+  "statement": "((150 : Int) / (50 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tourism_length_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

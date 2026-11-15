@@ -1,0 +1,12 @@
+{
+  "handle": "aa228176",
+  "address": "aa228176-f96a-8137-9f0a-535c70ca91fb",
+  "statement": "((10 : Int) * (10 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sprint_distancecovered_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

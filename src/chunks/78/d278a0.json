@@ -1,0 +1,12 @@
+{
+  "handle": "78d278a0",
+  "address": "78d278a0-190f-8c49-bf14-9e6b7b802323",
+  "statement": "(fmax (0 : Int) ((75 : Int) - (65 : Int))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_noisepollution_exceedance_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

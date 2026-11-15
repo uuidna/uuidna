@@ -1,0 +1,12 @@
+{
+  "handle": "207bac00",
+  "address": "207bac00-bbaf-8de1-a517-ab2018b5dca2",
+  "kind": "chunk",
+  "keys": [
+    "fam_campaign_impressions_1"
+  ],
+  "statement": "((30000 : Int) * (3 : Int)) = (90000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

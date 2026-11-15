@@ -1,0 +1,12 @@
+{
+  "handle": "8b0458fe",
+  "address": "8b0458fe-886d-8e95-b7af-7f1a052a6f87",
+  "kind": "chunk",
+  "keys": [
+    "fam_cloud_cost_1"
+  ],
+  "statement": "((720 : Int) * (5 : Int)) = (3600 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

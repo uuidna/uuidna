@@ -1,0 +1,12 @@
+{
+  "handle": "15cc206a",
+  "address": "15cc206a-b63a-81d2-9dfe-4f9728c68f63",
+  "statement": "((80 : Int) + (20 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hieroglyphs_biliterals_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

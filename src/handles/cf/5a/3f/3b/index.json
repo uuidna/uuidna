@@ -1,0 +1,12 @@
+{
+  "handle": "cf5a3f3b",
+  "address": "cf5a3f3b-cbf3-8a1b-b4ba-9092e757cfdd",
+  "kind": "chunk",
+  "keys": [
+    "fam_savings_apy_1"
+  ],
+  "statement": "((20 : Int) + (((20 : Int) ^ (2 : Nat)) / (400 : Int))) = (21 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

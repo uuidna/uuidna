@@ -1,0 +1,12 @@
+{
+  "handle": "fdc5ea5b",
+  "address": "fdc5ea5b-4dc6-892e-96ab-466c41f6f9dd",
+  "kind": "chunk",
+  "keys": [
+    "fam_hovercraft_liftpressure_1"
+  ],
+  "statement": "((5000 : Int) / (2 : Int)) = (2500 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

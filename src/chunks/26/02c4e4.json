@@ -1,0 +1,12 @@
+{
+  "handle": "2602c4e4",
+  "address": "2602c4e4-11df-80cb-ab70-684d0b78284d",
+  "statement": "((5 : Int) - (4 : Int)) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_datacenter_redundancy_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

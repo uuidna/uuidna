@@ -1,0 +1,12 @@
+{
+  "handle": "16538393",
+  "address": "16538393-4c4a-8382-9aad-ddd3a3786139",
+  "statement": "(((600 : Int) * (10000 : Int)) / (60000 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_campaign_ctr_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

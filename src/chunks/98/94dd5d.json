@@ -1,0 +1,14 @@
+{
+  "handle": "9894dd5d",
+  "address": "9894dd5d-0c24-8cf2-9fa5-faf368f2ad89",
+  "statement": "((750 : Int) / (100 : Int)) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_creditscore_tier_1",
+    "fam_seismology_magnitude_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesS.lean"
+  ]
+}

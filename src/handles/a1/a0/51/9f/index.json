@@ -1,0 +1,12 @@
+{
+  "handle": "a1a0519f",
+  "address": "a1a0519f-74f5-8038-a09b-5472ff18b4e6",
+  "kind": "chunk",
+  "keys": [
+    "fam_soilscience_porosity_1"
+  ],
+  "statement": "((((265 : Int) - (130 : Int)) * (100 : Int)) / (265 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a5e81a65",
+  "address": "a5e81a65-1765-849d-9c3f-465a8a9ae217",
+  "kind": "chunk",
+  "keys": [
+    "fam_backgammon_rolloutcomes_1"
+  ],
+  "statement": "((6 : Int) * (6 : Int)) = (36 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "080eb54e",
+  "address": "080eb54e-2e01-88e9-bf15-51db6db54289",
+  "statement": "(fmax (0 : Int) ((122 : Int) - (200 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_astrobiology_extremophile_2"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

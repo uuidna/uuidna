@@ -1,0 +1,17 @@
+{
+  "handle": "a062661d",
+  "address": "a062661d-5776-8fe7-ade1-ab9a68e494a5",
+  "statement": "(fmax (0 : Int) ((3 : Int) - (10 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_activation_relu_2",
+    "fam_cosmology_expansion_2",
+    "fam_pathplanning_clearance_2",
+    "fam_philosophy_virtue_2"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesP.lean"
+  ]
+}

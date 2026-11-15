@@ -1,0 +1,12 @@
+{
+  "handle": "00374054",
+  "address": "00374054-826a-8eac-a568-c9927f438788",
+  "kind": "chunk",
+  "keys": [
+    "fam_ram_refresh_1"
+  ],
+  "statement": "(8192 : Int) = (8192 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

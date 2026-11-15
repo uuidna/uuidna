@@ -1,0 +1,12 @@
+{
+  "handle": "5ac535d7",
+  "address": "5ac535d7-f4d5-8741-9b79-dff6551216ab",
+  "statement": "((130 : Int) / (10 : Int)) = (13 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_precipitation_snowratio_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

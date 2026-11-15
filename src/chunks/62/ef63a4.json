@@ -1,0 +1,12 @@
+{
+  "handle": "62ef63a4",
+  "address": "62ef63a4-32b8-85fe-b9d6-58d67bdb7352",
+  "statement": "(if (if (8 : Int) > (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_evidence_admissible_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

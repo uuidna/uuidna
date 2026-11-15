@@ -41,7 +41,7 @@ the ISO paywall; the claim rests on the published previews and is stated as such
 
 ### Package
 
-`@uuidna/uuidna` 0.3.1: 16 export paths, 1 workspace pattern(s) (`packages/*`), 266 Lean wings in `lean/`.
+`@uuidna/uuidna` 0.3.1: 16 export paths, 1 workspace pattern(s) (`packages/*`), 293 Lean wings in `lean/`.
 
 ### Workflows
 

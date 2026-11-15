@@ -1,0 +1,20 @@
+{
+  "handle": "41c33783",
+  "address": "41c33783-9d34-81fa-a881-b9cd02f7a15d",
+  "kind": "chunk",
+  "keys": [
+    "fam_baking_scaling_1",
+    "fam_estimating_takeoff_1",
+    "fam_replication_sync_1",
+    "fam_securities_dividend_1",
+    "fam_tooling_wear_1"
+  ],
+  "statement": "((500 : Int) * (3 : Int)) = (1500 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesE.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

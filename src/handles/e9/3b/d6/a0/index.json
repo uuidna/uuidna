@@ -1,0 +1,14 @@
+{
+  "handle": "e93bd6a0",
+  "address": "e93bd6a0-c946-8903-ae4a-64817ec2f05a",
+  "kind": "chunk",
+  "keys": [
+    "fam_exegesis_rootmatches_1",
+    "fam_tillage_fuelperhectare_1"
+  ],
+  "statement": "((300 : Int) / (15 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesT.lean"
+  ]
+}

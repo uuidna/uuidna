@@ -1,0 +1,14 @@
+{
+  "handle": "20415c18",
+  "address": "20415c18-4947-8434-913e-f611fcc7295d",
+  "statement": "((12 : Int) * (1000 : Int)) = (12000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_heliophysics_coronalmass_1",
+    "fam_vulcanology_ashheight_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesV.lean"
+  ]
+}

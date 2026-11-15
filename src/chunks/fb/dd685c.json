@@ -1,0 +1,12 @@
+{
+  "handle": "fbdd685c",
+  "address": "fbdd685c-3107-820a-a72c-17fd0de7cf9c",
+  "statement": "(if (if (200 : Int) ≥ (100 : Int) then (1 : Int) else 0) ≠ 0 then (100 : Int) else (((200 : Int) * (100 : Int)) / (100 : Int))) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_activation_hardsigmoid_2"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

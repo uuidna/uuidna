@@ -1,0 +1,23 @@
+{
+  "handle": "406e20e5",
+  "address": "406e20e5-2afe-8d0b-ba97-2351162cdab2",
+  "statement": "((100 : Int) / (2 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ballet_jumpheight_1",
+    "fam_calligraphy_xheight_1",
+    "fam_glycolysis_glucoseconsumed_1",
+    "fam_inductor_energy_1",
+    "fam_inductor_quality_1",
+    "fam_prime_sieve_1",
+    "fam_tectonics_spreadingrate_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

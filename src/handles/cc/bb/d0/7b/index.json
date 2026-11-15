@@ -1,0 +1,12 @@
+{
+  "handle": "ccbbd07b",
+  "address": "ccbbd07b-41ab-865e-b0d4-ffb06d9a8889",
+  "kind": "chunk",
+  "keys": [
+    "fam_quality_defectrate_1"
+  ],
+  "statement": "(((3 : Int) * (1000000 : Int)) / (1000 : Int)) = (3000 : Int)",
+  "files": [
+    "FamiliesQ.lean"
+  ]
+}

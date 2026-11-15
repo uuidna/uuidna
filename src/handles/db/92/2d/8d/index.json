@@ -1,0 +1,12 @@
+{
+  "handle": "db922d8d",
+  "address": "db922d8d-b15c-84b7-ac3d-d32a29769514",
+  "kind": "chunk",
+  "keys": [
+    "fam_backlash_hysteresis_1"
+  ],
+  "statement": "(fmax (0 : Int) ((50 : Int) - (45 : Int))) = (5 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

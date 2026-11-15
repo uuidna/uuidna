@@ -1,0 +1,12 @@
+{
+  "handle": "8d55f734",
+  "address": "8d55f734-7f73-842f-8693-6281123ce1b8",
+  "kind": "chunk",
+  "keys": [
+    "fam_watershed_drainagedensity_1"
+  ],
+  "statement": "((1500 : Int) / (30 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

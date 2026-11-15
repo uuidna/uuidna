@@ -1,0 +1,14 @@
+{
+  "handle": "503a0a53",
+  "address": "503a0a53-1452-8977-bee7-c596ecd84d64",
+  "statement": "((8 : Int) * (1000 : Int)) = (8000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_shinto_kamicount_1",
+    "fam_tsunami_energyindex_1"
+  ],
+  "files": [
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

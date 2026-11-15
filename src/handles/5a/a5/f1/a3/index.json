@@ -1,0 +1,14 @@
+{
+  "handle": "5aa5f1a3",
+  "address": "5aa5f1a3-3558-88ee-8854-e175efe7727d",
+  "kind": "chunk",
+  "keys": [
+    "fam_lever_load_1",
+    "fam_pulley_load_1"
+  ],
+  "statement": "((250 : Int) * (4 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesP.lean"
+  ]
+}

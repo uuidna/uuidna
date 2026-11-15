@@ -1,0 +1,16 @@
+{
+  "handle": "daec3413",
+  "address": "daec3413-051b-8902-ae80-8f2e5348a658",
+  "statement": "((8 : Int) * (25 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fertilization_nutrientuptake_1",
+    "fam_silviculture_yield_1",
+    "fam_tracing_fanout_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

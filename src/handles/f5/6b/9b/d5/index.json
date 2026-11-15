@@ -1,0 +1,12 @@
+{
+  "handle": "f56b9bd5",
+  "address": "f56b9bd5-5c0b-88c0-aa32-b416e918020e",
+  "kind": "chunk",
+  "keys": [
+    "fam_bilingualism_proficiencygap_1"
+  ],
+  "statement": "(fmax (0 : Int) ((90 : Int) - (75 : Int))) = (15 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

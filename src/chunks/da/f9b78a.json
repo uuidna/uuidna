@@ -1,0 +1,12 @@
+{
+  "handle": "daf9b78a",
+  "address": "daf9b78a-8e1d-8ed8-88c2-1b9a62d437c8",
+  "statement": "(fmax (11 : Int) (12 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sprint_topspeed_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

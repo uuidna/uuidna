@@ -1,0 +1,12 @@
+{
+  "handle": "73d75668",
+  "address": "73d75668-235e-8fa1-baa9-d0c6509dc415",
+  "kind": "chunk",
+  "keys": [
+    "fam_electrochemistry_electrolysis_1"
+  ],
+  "statement": "((9650 : Int) / (965 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "720ded05",
+  "address": "720ded05-584d-81c1-8dc1-7ea9f67226ef",
+  "statement": "((((6 : Int) - (2 : Int)) * (180 : Int)) / (6 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_polygon_interiorangle_1",
+    "fam_tiling_vertexconfig_1"
+  ],
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

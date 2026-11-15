@@ -1,0 +1,14 @@
+{
+  "handle": "b911779e",
+  "address": "b911779e-a1bc-82a0-b292-03e5fcf0d68b",
+  "kind": "chunk",
+  "keys": [
+    "fam_civil_trafficflow_1",
+    "fam_editing_runtime_1"
+  ],
+  "statement": "((6000 : Int) / (24 : Int)) = (250 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean"
+  ]
+}

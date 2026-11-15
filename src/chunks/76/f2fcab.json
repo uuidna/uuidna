@@ -1,0 +1,12 @@
+{
+  "handle": "76f2fcab",
+  "address": "76f2fcab-b9ac-865b-afbb-1a38f0088eb1",
+  "statement": "(((40 : Int) * (3 : Int)) / (100 : Int)) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_vet_feed_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

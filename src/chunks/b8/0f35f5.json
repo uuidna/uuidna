@@ -1,0 +1,12 @@
+{
+  "handle": "b80f35f5",
+  "address": "b80f35f5-8494-8acf-9b00-400b98c3677f",
+  "statement": "((200 : Int) * (8 : Int)) = (1600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_floriculture_yield_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

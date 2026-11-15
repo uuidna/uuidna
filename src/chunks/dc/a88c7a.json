@@ -1,0 +1,12 @@
+{
+  "handle": "dca88c7a",
+  "address": "dca88c7a-f7ba-88e7-b6bd-575a7aeec203",
+  "statement": "((64 : Int) / (2 : Int)) = (32 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_checkers_playablesquares_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

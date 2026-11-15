@@ -1,0 +1,12 @@
+{
+  "handle": "6ff4a571",
+  "address": "6ff4a571-c97e-872b-b6a0-ec8d3297da5d",
+  "kind": "chunk",
+  "keys": [
+    "fam_xai_coalitions_2"
+  ],
+  "statement": "((2 : Int) ^ (0 : Nat)) = (1 : Int)",
+  "files": [
+    "FamiliesX.lean"
+  ]
+}

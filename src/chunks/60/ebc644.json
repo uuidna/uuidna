@@ -1,0 +1,12 @@
+{
+  "handle": "60ebc644",
+  "address": "60ebc644-441b-8655-a567-bc37bca0e9f9",
+  "statement": "((60 : Int) * (8 : Int)) = (480 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_conditioning_load_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b691089d",
+  "address": "b691089d-7d9a-85ff-9fa9-a7a1469b7c66",
+  "kind": "chunk",
+  "keys": [
+    "fam_conversion_cart_1"
+  ],
+  "statement": "((((1000 : Int) - (300 : Int)) * (100 : Int)) / (1000 : Int)) = (70 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

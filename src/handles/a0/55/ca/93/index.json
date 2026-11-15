@@ -1,0 +1,12 @@
+{
+  "handle": "a055ca93",
+  "address": "a055ca93-1aba-8364-b17b-b7316640afdd",
+  "kind": "chunk",
+  "keys": [
+    "fam_cargo_deadweight_1"
+  ],
+  "statement": "(((40000 : Int) + (5000 : Int)) + (3000 : Int)) = (48000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

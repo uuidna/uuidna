@@ -1,0 +1,14 @@
+{
+  "handle": "8d2addc6",
+  "address": "8d2addc6-d81a-895c-9036-1043e2480f6a",
+  "kind": "chunk",
+  "keys": [
+    "fam_barometry_altitudepressure_1",
+    "fam_weather_pressure_1"
+  ],
+  "statement": "(fmax (0 : Int) ((1013 : Int) - ((800 : Int) / (8 : Int)))) = (913 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesW.lean"
+  ]
+}

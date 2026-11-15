@@ -1,0 +1,14 @@
+{
+  "handle": "a0e5f753",
+  "address": "a0e5f753-e5b8-84c3-bb82-90705caa4d3c",
+  "statement": "((5 : Int) * (50 : Int)) = (250 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_motion_stagger_1",
+    "fam_respiration_oxygenuptake_1"
+  ],
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "5f92f8aa",
+  "address": "5f92f8aa-b7fc-8aa0-933f-27761af1a6f6",
+  "statement": "(((fmax (0 : Int) ((60 : Int) - (40 : Int))) * (100 : Int)) / ((60 : Int) + (40 : Int))) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_neuropsychology_lateralization_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

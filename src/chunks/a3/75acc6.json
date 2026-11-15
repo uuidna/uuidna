@@ -1,0 +1,12 @@
+{
+  "handle": "a375acc6",
+  "address": "a375acc6-0c07-8832-9bd8-a8f450dd6cdf",
+  "statement": "((2 : Int) ^ (2 : Nat)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_latinsquare_subsquare_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

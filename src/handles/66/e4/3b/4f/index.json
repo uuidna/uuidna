@@ -1,0 +1,12 @@
+{
+  "handle": "66e43b4f",
+  "address": "66e43b4f-bd90-83b2-8b3d-b02d7e643bdc",
+  "kind": "chunk",
+  "keys": [
+    "fam_apiculture_queen_1"
+  ],
+  "statement": "((30000 : Int) / (20 : Int)) = (1500 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

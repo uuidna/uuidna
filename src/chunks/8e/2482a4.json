@@ -1,0 +1,12 @@
+{
+  "handle": "8e2482a4",
+  "address": "8e2482a4-abcb-8d9b-907d-96a4cc5d45db",
+  "statement": "(fmax (0 : Int) ((1340 : Int) - (1330 : Int))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_refraction_dispersion_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

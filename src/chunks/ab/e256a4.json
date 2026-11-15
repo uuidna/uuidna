@@ -1,0 +1,12 @@
+{
+  "handle": "abe256a4",
+  "address": "abe256a4-39bf-8998-8239-283312c4f26c",
+  "statement": "(((50 : Int) * (1000 : Int)) / (10 : Int)) = (5000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_brewing_gravity_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

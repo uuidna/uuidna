@@ -1,0 +1,12 @@
+{
+  "handle": "cf63d04f",
+  "address": "cf63d04f-c273-87d1-b966-c0155e73e941",
+  "kind": "chunk",
+  "keys": [
+    "fam_criticalchain_fevermargin_1"
+  ],
+  "statement": "(fmax (0 : Int) ((500 : Int) - (180 : Int))) = (320 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

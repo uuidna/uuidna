@@ -1,0 +1,12 @@
+{
+  "handle": "f7049ccb",
+  "address": "f7049ccb-97dd-8e9f-a569-dba2ea9a43b8",
+  "statement": "(((130 : Int) * (128 : Int)) / (130 : Int)) = (128 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_interconnect_throughput_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

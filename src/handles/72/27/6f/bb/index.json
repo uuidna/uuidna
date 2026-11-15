@@ -1,0 +1,12 @@
+{
+  "handle": "72276fbb",
+  "address": "72276fbb-c982-8fc7-8ef2-f22aa20d6794",
+  "kind": "chunk",
+  "keys": [
+    "fam_waveform_crestfactor_1"
+  ],
+  "statement": "(((1000 : Int) * (1000 : Int)) / (707 : Int)) = (1414 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "handle": "40f1276f",
+  "address": "40f1276f-1ff4-8cf7-9b70-297cce819336",
+  "kind": "chunk",
+  "keys": [
+    "fam_assay_replicates_1",
+    "fam_genetics_codons_1",
+    "fam_transcription_codons_1"
+  ],
+  "statement": "((300 : Int) / (3 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesG.lean",
+    "FamiliesT.lean"
+  ]
+}

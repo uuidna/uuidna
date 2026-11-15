@@ -1,0 +1,12 @@
+{
+  "handle": "5e1f5777",
+  "address": "5e1f5777-e6dc-82c3-b0a1-4c2dfc44b585",
+  "kind": "chunk",
+  "keys": [
+    "fam_security_mttr_1"
+  ],
+  "statement": "((480 : Int) / (12 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

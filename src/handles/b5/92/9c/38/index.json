@@ -1,0 +1,12 @@
+{
+  "handle": "b5929c38",
+  "address": "b5929c38-a578-8486-aa68-64f372855082",
+  "kind": "chunk",
+  "keys": [
+    "fam_collide_events_1"
+  ],
+  "statement": "(((19 : Int) * (2 : Int)) + (0 : Int)) = (38 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

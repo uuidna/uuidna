@@ -1,0 +1,14 @@
+{
+  "handle": "d773f043",
+  "address": "d773f043-cc8e-8f73-a6aa-f6b6c5d7b90b",
+  "kind": "chunk",
+  "keys": [
+    "fam_coagulation_bleedingtime_1",
+    "fam_poker_outs_1"
+  ],
+  "statement": "(fmax (0 : Int) ((9 : Int) - (2 : Int))) = (7 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesP.lean"
+  ]
+}

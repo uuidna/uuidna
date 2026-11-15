@@ -1,0 +1,12 @@
+{
+  "handle": "ec5ee018",
+  "address": "ec5ee018-4178-8574-b7c2-2c75f4742cb4",
+  "kind": "chunk",
+  "keys": [
+    "fam_roasting_developmenttime_1"
+  ],
+  "statement": "((((600 : Int) - (480 : Int)) * (100 : Int)) / (600 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

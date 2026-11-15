@@ -1,0 +1,12 @@
+{
+  "handle": "341e8f34",
+  "address": "341e8f34-ed2e-8e18-a245-db0b15d0e33d",
+  "statement": "((2 : Int) ^ (9 : Nat)) = (512 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sudoku_candidatesubsets_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

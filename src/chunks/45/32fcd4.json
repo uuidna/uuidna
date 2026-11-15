@@ -1,0 +1,12 @@
+{
+  "handle": "4532fcd4",
+  "address": "4532fcd4-d453-8137-96ec-806f6b4b2b67",
+  "statement": "((3 : Int) * (18 : Int)) = (54 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_chem_mass_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

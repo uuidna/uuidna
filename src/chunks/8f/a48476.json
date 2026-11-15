@@ -1,0 +1,14 @@
+{
+  "handle": "8fa48476",
+  "address": "8fa48476-68ee-8a2c-bd63-78ba55199ef1",
+  "statement": "((8 : Int) * (15 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cpu_tdp_1",
+    "fam_lean_changeover_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1ddbc632",
+  "address": "1ddbc632-861d-813d-9329-b6e643740545",
+  "statement": "(((28 : Int) * (183 : Int)) / (365 : Int)) = (14 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_employment_holiday_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

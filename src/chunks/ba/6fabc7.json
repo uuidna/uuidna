@@ -1,0 +1,12 @@
+{
+  "handle": "ba6fabc7",
+  "address": "ba6fabc7-4170-89a8-9647-91bf5238c39e",
+  "statement": "(((fmax (0 : Int) ((300 : Int) - (60 : Int))) * (100 : Int)) / (60 : Int)) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_chromatography_capacity_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

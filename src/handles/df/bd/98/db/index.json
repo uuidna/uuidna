@@ -1,0 +1,12 @@
+{
+  "handle": "dfbd98db",
+  "address": "dfbd98db-5e72-86ff-8198-c661df53f35d",
+  "kind": "chunk",
+  "keys": [
+    "fam_partition_hook_1"
+  ],
+  "statement": "(((3 : Int) + (4 : Int)) - (1 : Int)) = (6 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

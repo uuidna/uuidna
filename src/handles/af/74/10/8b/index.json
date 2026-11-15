@@ -1,0 +1,12 @@
+{
+  "handle": "af74108b",
+  "address": "af74108b-7056-894f-a3df-c8aab186c52e",
+  "kind": "chunk",
+  "keys": [
+    "fam_herpetology_thermoregulation_2"
+  ],
+  "statement": "(fmax (0 : Int) ((15 : Int) - (20 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6c4dea93",
+  "address": "6c4dea93-15aa-89b1-ac52-295759b5a400",
+  "kind": "chunk",
+  "keys": [
+    "fam_papyrology_joinpairs_1"
+  ],
+  "statement": "(Int.ofNat (fchoose (Int.toNat (40 : Int)) (Int.toNat (2 : Int)))) = (780 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

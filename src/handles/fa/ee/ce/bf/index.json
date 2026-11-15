@@ -1,0 +1,16 @@
+{
+  "handle": "faeecebf",
+  "address": "faeecebf-4d21-81aa-8c77-93558e092afe",
+  "kind": "chunk",
+  "keys": [
+    "fam_cuisine_hydration_1",
+    "fam_landuse_buildableratio_1",
+    "fam_silage_moisture_1"
+  ],
+  "statement": "(((650 : Int) * (100 : Int)) / (1000 : Int)) = (65 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesL.lean",
+    "FamiliesS.lean"
+  ]
+}

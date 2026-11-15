@@ -1,0 +1,12 @@
+{
+  "handle": "129dd8e2",
+  "address": "129dd8e2-923c-8875-a618-80b153a5f40c",
+  "statement": "((((100 : Int) - (75 : Int)) * (80 : Int)) / (100 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_kalman_errorcovariance_1"
+  ],
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8053cbc5",
+  "address": "8053cbc5-e1e9-82c8-98f0-39d6c4465eae",
+  "statement": "((120 : Int) / (30 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_discourse_referencechains_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

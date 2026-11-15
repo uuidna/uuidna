@@ -1,0 +1,12 @@
+{
+  "handle": "a324eaf7",
+  "address": "a324eaf7-f095-822d-a0b5-f54dc374f0f5",
+  "kind": "chunk",
+  "keys": [
+    "fam_trigonometry_tangent_1"
+  ],
+  "statement": "(((100 : Int) * (1000 : Int)) / (100 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

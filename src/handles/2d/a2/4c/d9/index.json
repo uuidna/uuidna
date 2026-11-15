@@ -1,0 +1,12 @@
+{
+  "handle": "2da24cd9",
+  "address": "2da24cd9-8e43-83e8-a0f1-dee93f27cf11",
+  "kind": "chunk",
+  "keys": [
+    "fam_turnaround_loadtime_1"
+  ],
+  "statement": "((30 : Int) + (20 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

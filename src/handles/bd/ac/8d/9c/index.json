@@ -1,0 +1,18 @@
+{
+  "handle": "bdac8d9c",
+  "address": "bdac8d9c-fab9-8f71-9cbe-0f46c442c96a",
+  "kind": "chunk",
+  "keys": [
+    "fam_autoscaling_headroom_1",
+    "fam_evapotranspiration_netirrigation_1",
+    "fam_forging_draft_1",
+    "fam_hermeneutics_ambiguityspread_1"
+  ],
+  "statement": "(fmax (0 : Int) ((100 : Int) - (60 : Int))) = (40 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesH.lean"
+  ]
+}

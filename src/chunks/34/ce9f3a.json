@@ -1,0 +1,12 @@
+{
+  "handle": "34ce9f3a",
+  "address": "34ce9f3a-579b-8e36-9f10-94cf710f1bc1",
+  "statement": "(((1 : Int) * (3 : Int)) + ((2 : Int) * (4 : Int))) = (11 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_vector_anglecosnum_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

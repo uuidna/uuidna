@@ -1,0 +1,16 @@
+{
+  "handle": "fd95b104",
+  "address": "fd95b104-674d-8c15-9a8d-b21892df9ee9",
+  "kind": "chunk",
+  "keys": [
+    "fam_mobility_congestion_1",
+    "fam_podcasting_adload_1",
+    "fam_transport_congestion_1"
+  ],
+  "statement": "(((90 : Int) * (100 : Int)) / (60 : Int)) = (150 : Int)",
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

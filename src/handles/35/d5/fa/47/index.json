@@ -1,0 +1,14 @@
+{
+  "handle": "35d5fa47",
+  "address": "35d5fa47-7bdb-8edc-999f-4057d6a551a1",
+  "kind": "chunk",
+  "keys": [
+    "fam_enterprise_leadtime_2",
+    "fam_supplychain_leadtime_2"
+  ],
+  "statement": "(fmax (0 : Int) ((10 : Int) - (17 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesS.lean"
+  ]
+}

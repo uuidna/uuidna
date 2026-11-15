@@ -1,0 +1,12 @@
+{
+  "handle": "efb41893",
+  "address": "efb41893-4622-8798-9f03-34700af20ecd",
+  "statement": "((fmax (0 : Int) ((30 : Int) - (20 : Int))) * (125 : Int)) = (1250 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dewpoint_condensationlevel_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

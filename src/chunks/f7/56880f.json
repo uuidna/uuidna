@@ -1,0 +1,12 @@
+{
+  "handle": "f756880f",
+  "address": "f756880f-157e-8ae7-9fb9-ef9863775e84",
+  "statement": "(((13 : Int) * (100 : Int)) / (12 : Int)) = (108 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hematology_inr_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9b9c0b6f",
+  "address": "9b9c0b6f-5c5e-8419-8da6-7d4b1b87fd1c",
+  "kind": "chunk",
+  "keys": [
+    "fam_deadreckoning_driftangle_1"
+  ],
+  "statement": "(((10 : Int) * (60 : Int)) / (60 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

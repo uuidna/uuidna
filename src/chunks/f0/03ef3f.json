@@ -1,0 +1,12 @@
+{
+  "handle": "f003ef3f",
+  "address": "f003ef3f-1cbd-8d17-ad73-f25069509a78",
+  "statement": "(((161 : Int) * (1000 : Int)) / ((100 : Int) * (20 : Int))) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_reverb_rt60_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

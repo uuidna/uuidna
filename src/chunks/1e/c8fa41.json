@@ -1,0 +1,12 @@
+{
+  "handle": "1ec8fa41",
+  "address": "1ec8fa41-40a3-8e58-bf26-f7170c7e9b81",
+  "statement": "(((53 : Int) * (100 : Int)) / (12 : Int)) = (441 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cycling_gearratio_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

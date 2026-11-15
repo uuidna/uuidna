@@ -1,0 +1,30 @@
+{
+  "handle": "f0d19af2",
+  "address": "f0d19af2-b772-8715-adb6-339df6566cfe",
+  "statement": "((12 : Int) * (8 : Int)) = (96 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_authorization_scopebreadth_1",
+    "fam_distribution_spokes_1",
+    "fam_geopolitics_allianceweight_1",
+    "fam_harvest_laborhours_1",
+    "fam_maillard_flavorcompounds_1",
+    "fam_pentomino_orientations_1",
+    "fam_photovoltaic_power_1",
+    "fam_pollination_crosspollination_1",
+    "fam_stainedglass_panecount_1",
+    "fam_ui_gridcells_1",
+    "fam_xai_heads_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesD.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesU.lean",
+    "FamiliesX.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "df88656b",
+  "address": "df88656b-0cc7-8d7f-90b0-b66629ab86c2",
+  "kind": "chunk",
+  "keys": [
+    "fam_court_cap_2"
+  ],
+  "statement": "(fmin (100000 : Int) (250000 : Int)) = (100000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

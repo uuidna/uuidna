@@ -1,0 +1,12 @@
+{
+  "handle": "c5ab70ba",
+  "address": "c5ab70ba-1bca-856e-9b9b-536fca6d7687",
+  "kind": "chunk",
+  "keys": [
+    "fam_ceramic_density_1"
+  ],
+  "statement": "((3900 : Int) / (1 : Int)) = (3900 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

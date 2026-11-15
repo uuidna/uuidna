@@ -1,0 +1,12 @@
+{
+  "handle": "560baf71",
+  "address": "560baf71-bc67-8b6b-89e3-2f0eb746d9b9",
+  "statement": "(((999 : Int) * (1000 : Int)) / (1000 : Int)) = (999 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_availability_nines_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

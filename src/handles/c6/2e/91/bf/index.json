@@ -1,0 +1,20 @@
+{
+  "handle": "c62e91bf",
+  "address": "c62e91bf-7720-89bc-9211-45968cf37c45",
+  "kind": "chunk",
+  "keys": [
+    "fam_horticulture_fertilizer_1",
+    "fam_inequality_quintileratio_1",
+    "fam_liquidity_coverageratio_1",
+    "fam_outbreak_growthfactor_1",
+    "fam_spinning_draft_1"
+  ],
+  "statement": "((800 : Int) / (100 : Int)) = (8 : Int)",
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesO.lean",
+    "FamiliesS.lean"
+  ]
+}

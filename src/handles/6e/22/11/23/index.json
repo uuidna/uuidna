@@ -1,0 +1,12 @@
+{
+  "handle": "6e221123",
+  "address": "6e221123-e1a7-8e66-8966-44115aae4427",
+  "kind": "chunk",
+  "keys": [
+    "fam_rehabilitation_sessions_1"
+  ],
+  "statement": "((6 : Int) * (3 : Int)) = (18 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

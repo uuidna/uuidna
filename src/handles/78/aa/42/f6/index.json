@@ -1,0 +1,12 @@
+{
+  "handle": "78aa42f6",
+  "address": "78aa42f6-8131-8bcc-8dc7-5273a360cd50",
+  "kind": "chunk",
+  "keys": [
+    "fam_bioenergetics_yield_1"
+  ],
+  "statement": "((1 : Int) * (38 : Int)) = (38 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "744088f2",
+  "address": "744088f2-40d0-816e-9296-b49fd1896906",
+  "kind": "chunk",
+  "keys": [
+    "fam_melody_stepleap_1"
+  ],
+  "statement": "(((80 : Int) * (100 : Int)) / ((80 : Int) + (20 : Int))) = (80 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d51c2357",
+  "address": "d51c2357-1656-8738-990f-494555268a56",
+  "kind": "chunk",
+  "keys": [
+    "fam_manifold_genus_1"
+  ],
+  "statement": "(fmax (0 : Int) (((2 : Int) - (0 : Int)) / (2 : Int))) = (1 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

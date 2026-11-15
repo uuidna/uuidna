@@ -1,0 +1,12 @@
+{
+  "handle": "365756cb",
+  "address": "365756cb-19ef-889d-bff8-16e039e43cd5",
+  "statement": "((60000 : Int) / (800 : Int)) = (75 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_demography_lifeexpectancy_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

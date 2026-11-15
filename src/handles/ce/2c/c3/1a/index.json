@@ -1,0 +1,12 @@
+{
+  "handle": "ce2cc31a",
+  "address": "ce2cc31a-ba01-8d13-bf34-907d6c431d1c",
+  "kind": "chunk",
+  "keys": [
+    "fam_hemodynamics_perfusionpressure_2"
+  ],
+  "statement": "(fmax (0 : Int) ((13 : Int) - (93 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e48c091d",
+  "address": "e48c091d-089e-87a5-9c09-45fa1165fd58",
+  "kind": "chunk",
+  "keys": [
+    "fam_frontend_pages_1"
+  ],
+  "statement": "((120 : Int) * (3 : Int)) = (360 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

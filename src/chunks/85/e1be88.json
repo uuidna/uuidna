@@ -1,0 +1,16 @@
+{
+  "handle": "85e1be88",
+  "address": "85e1be88-6b35-8db8-840b-3e8bb41f0ae8",
+  "statement": "(((200 : Int) * (100 : Int)) / (50 : Int)) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_incidence_oddsratio_1",
+    "fam_leverage_equitymultiplier_1",
+    "fam_stability_marginratio_1"
+  ],
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "379930f2",
+  "address": "379930f2-ba0a-84eb-b645-a439c2cc5f0c",
+  "statement": "(Int.ofNat (fchoose (Int.toNat (5 : Int)) (Int.toNat (3 : Int)))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_chat_groups_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

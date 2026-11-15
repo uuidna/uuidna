@@ -1,0 +1,12 @@
+{
+  "handle": "71d44452",
+  "address": "71d44452-6211-82a4-8e60-b7e1b501ab6b",
+  "statement": "(((10000 : Int) * (290 : Int)) / (10000 : Int)) = (290 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_payment_fee_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

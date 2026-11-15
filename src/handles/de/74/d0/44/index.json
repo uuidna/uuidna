@@ -1,0 +1,14 @@
+{
+  "handle": "de74d044",
+  "address": "de74d044-cf00-86ae-b027-ffd181ba0529",
+  "kind": "chunk",
+  "keys": [
+    "fam_colortheory_saturation_1",
+    "fam_remediation_reduction_1"
+  ],
+  "statement": "((((200 : Int) - (50 : Int)) * (100 : Int)) / (200 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesR.lean"
+  ]
+}

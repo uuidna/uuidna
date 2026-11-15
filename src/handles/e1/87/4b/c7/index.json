@@ -1,0 +1,16 @@
+{
+  "handle": "e1874bc7",
+  "address": "e1874bc7-ad15-83af-95ad-dd01868b2f68",
+  "kind": "chunk",
+  "keys": [
+    "fam_floriculture_petalcount_1",
+    "fam_hazard_risk_1",
+    "fam_jumping_horizontalrange_1"
+  ],
+  "statement": "((5 : Int) * (8 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesJ.lean"
+  ]
+}

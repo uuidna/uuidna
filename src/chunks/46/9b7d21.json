@@ -1,0 +1,12 @@
+{
+  "handle": "469b7d21",
+  "address": "469b7d21-1f08-85e2-8c1c-a620ef3db68d",
+  "statement": "((140 : Int) / (1 : Int)) = (140 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nephrology_electrolyte_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

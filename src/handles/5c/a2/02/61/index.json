@@ -1,0 +1,14 @@
+{
+  "handle": "5ca20261",
+  "address": "5ca20261-9aeb-8d13-9bf9-e7ad042cdd96",
+  "kind": "chunk",
+  "keys": [
+    "fam_fuzzing_inputspace_1",
+    "fam_socket_ports_1"
+  ],
+  "statement": "((2 : Int) ^ (16 : Nat)) = (65536 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesS.lean"
+  ]
+}

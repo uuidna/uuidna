@@ -1,0 +1,12 @@
+{
+  "handle": "039242ea",
+  "address": "039242ea-118b-82c8-ba3b-cf3140d69d0e",
+  "statement": "(((10 : Int) * (100 : Int)) * (5 : Int)) = (5000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_vaccination_campaignreach_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

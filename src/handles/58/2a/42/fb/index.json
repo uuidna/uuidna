@@ -1,0 +1,12 @@
+{
+  "handle": "582a42fb",
+  "address": "582a42fb-7290-8eb9-a535-09f457758a26",
+  "kind": "chunk",
+  "keys": [
+    "fam_fuelcell_stackvoltage_1"
+  ],
+  "statement": "((100 : Int) * (700 : Int)) = (70000 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

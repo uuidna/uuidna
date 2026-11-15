@@ -1,0 +1,12 @@
+{
+  "handle": "2ab4a884",
+  "address": "2ab4a884-4d39-8285-9e23-289890de9b30",
+  "statement": "((4500 : Int) / (9 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_avionics_airspeed_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

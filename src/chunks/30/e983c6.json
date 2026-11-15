@@ -1,0 +1,14 @@
+{
+  "handle": "30e983c6",
+  "address": "30e983c6-aab8-8152-a272-51c4d94a52db",
+  "statement": "((10000 : Int) / (25 : Int)) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_machining_toollife_1",
+    "fam_pomology_treedensity_1"
+  ],
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesP.lean"
+  ]
+}

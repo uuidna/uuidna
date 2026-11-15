@@ -1,0 +1,14 @@
+{
+  "handle": "8f127957",
+  "address": "8f127957-a877-8566-b287-51fb8d1a07f7",
+  "statement": "((((150 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_costing_markup_1",
+    "fam_realestate_appreciation_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9d88d51a",
+  "address": "9d88d51a-fb2a-8e2d-934b-ee5983eb4b71",
+  "kind": "chunk",
+  "keys": [
+    "fam_typology_geneticdistance_1"
+  ],
+  "statement": "(fmax (0 : Int) ((144 : Int) - (100 : Int))) = (44 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

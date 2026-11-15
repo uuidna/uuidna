@@ -1,0 +1,12 @@
+{
+  "handle": "7794d0c4",
+  "address": "7794d0c4-42f8-8518-b05d-c96ee4631164",
+  "statement": "((70 : Int) * (70 : Int)) = (4900 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hemodynamics_cardiacoutput_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f4a46f48",
+  "address": "f4a46f48-47db-85af-ab05-f7ea80d21d41",
+  "statement": "(-((-(1000 : Int)) / (3 : Int))) = (334 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_text_base64_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

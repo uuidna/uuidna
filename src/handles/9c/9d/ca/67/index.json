@@ -1,0 +1,12 @@
+{
+  "handle": "9c9dca67",
+  "address": "9c9dca67-7a8e-8cfd-9471-c5ceb712b0cd",
+  "kind": "chunk",
+  "keys": [
+    "fam_topology_genus_1"
+  ],
+  "statement": "(fmax (0 : Int) ((2 : Int) - (2 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

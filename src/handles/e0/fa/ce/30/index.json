@@ -1,0 +1,12 @@
+{
+  "handle": "e0face30",
+  "address": "e0face30-4975-8735-b005-a03cd48d7276",
+  "kind": "chunk",
+  "keys": [
+    "fam_derivative_settlement_1"
+  ],
+  "statement": "((fmax (0 : Int) ((120 : Int) - (100 : Int))) * (10 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6e6eb0e2",
+  "address": "6e6eb0e2-0e83-813a-85a2-229b27f8eb00",
+  "statement": "((8 : Int) * (16 : Int)) = (128 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_serialization_delta_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

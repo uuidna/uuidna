@@ -1,0 +1,12 @@
+{
+  "handle": "5797754b",
+  "address": "5797754b-281f-87d3-bccd-db867558093a",
+  "kind": "chunk",
+  "keys": [
+    "fam_algebra_discriminant_2"
+  ],
+  "statement": "(((1 : Int) ^ (2 : Nat)) - ((4 : Int) * (1 : Int))) = (-3 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

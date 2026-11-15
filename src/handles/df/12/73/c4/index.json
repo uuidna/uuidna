@@ -1,0 +1,12 @@
+{
+  "handle": "df1273c4",
+  "address": "df1273c4-6439-835d-abd6-f50f682c973d",
+  "kind": "chunk",
+  "keys": [
+    "fam_interconnect_transfers_1"
+  ],
+  "statement": "((32 : Int) * (16 : Int)) = (512 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

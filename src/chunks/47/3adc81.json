@@ -1,0 +1,12 @@
+{
+  "handle": "473adc81",
+  "address": "473adc81-97da-84c3-acb5-f27cea25ac09",
+  "statement": "(Int.ofNat (fclog 2 (Int.toNat (1 : Int)))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_job_rounds_2"
+  ],
+  "files": [
+    "FamiliesJ.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "2cb037b6",
+  "address": "2cb037b6-39b9-883a-b39c-41b3a7b6effc",
+  "statement": "((12 : Int) * (10 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_physiology_clearance_1",
+    "fam_stagecraft_stagearea_1"
+  ],
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

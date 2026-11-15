@@ -1,0 +1,12 @@
+{
+  "handle": "06f4c49c",
+  "address": "06f4c49c-7144-882d-abb1-8c064077e03f",
+  "statement": "(((10 : Int) * (100 : Int)) / (80 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tennis_acerate_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8b985894",
+  "address": "8b985894-265c-864a-8483-d79792312396",
+  "kind": "chunk",
+  "keys": [
+    "fam_advertising_conversion_1"
+  ],
+  "statement": "(((10 : Int) * (100 : Int)) / (50 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

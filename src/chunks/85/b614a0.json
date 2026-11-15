@@ -1,0 +1,12 @@
+{
+  "handle": "85b614a0",
+  "address": "85b614a0-3614-80fc-991e-815d348b5621",
+  "statement": "((57 : Int) * (1 : Int)) = (57 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_jewelry_facetcount_1"
+  ],
+  "files": [
+    "FamiliesJ.lean"
+  ]
+}

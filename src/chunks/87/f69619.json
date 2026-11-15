@@ -1,0 +1,12 @@
+{
+  "handle": "87f69619",
+  "address": "87f69619-d4fa-874c-9194-2c55c0ab647a",
+  "statement": "(((40 : Int) * (30 : Int)) / (2 : Int)) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_surveying_area_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

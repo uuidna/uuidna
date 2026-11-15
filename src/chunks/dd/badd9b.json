@@ -1,0 +1,12 @@
+{
+  "handle": "ddbadd9b",
+  "address": "ddbadd9b-de02-8eaf-9679-dbc07f4b0c79",
+  "statement": "((2000 : Int) / (400 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_heliophysics_solarwind_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

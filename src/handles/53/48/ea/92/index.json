@@ -1,0 +1,12 @@
+{
+  "handle": "5348ea92",
+  "address": "5348ea92-db1e-85fe-aeae-5618d6ffd1f9",
+  "kind": "chunk",
+  "keys": [
+    "fam_concrete_cure_1"
+  ],
+  "statement": "(fmax (0 : Int) ((28 : Int) - (7 : Int))) = (21 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

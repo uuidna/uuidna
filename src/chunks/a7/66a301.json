@@ -1,0 +1,12 @@
+{
+  "handle": "a766a301",
+  "address": "a766a301-39f0-8ce4-9947-6c5c8a5de111",
+  "statement": "((720 : Int) / (6 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_geometry_angle_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

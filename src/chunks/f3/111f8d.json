@@ -1,0 +1,12 @@
+{
+  "handle": "f3111f8d",
+  "address": "f3111f8d-c3e6-8e3a-a25d-895f9dd23e31",
+  "statement": "((((200 : Int) - (150 : Int)) * (100 : Int)) / (200 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_costing_margin_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

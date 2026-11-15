@@ -1,0 +1,14 @@
+{
+  "handle": "a32f91aa",
+  "address": "a32f91aa-4a8a-8e3c-ae36-15a66bc56238",
+  "statement": "(((2500 : Int) * (100 : Int)) / (10000 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_prevalence_lifetimeprevalence_1",
+    "fam_virality_saturation_1"
+  ],
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesV.lean"
+  ]
+}

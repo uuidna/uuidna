@@ -1,0 +1,20 @@
+{
+  "handle": "ac8d2c2f",
+  "address": "ac8d2c2f-8bc6-8a7e-9982-02ad415bf7a8",
+  "kind": "chunk",
+  "keys": [
+    "fam_bundling_dedupe_2",
+    "fam_diffusion_concentrationdrop_2",
+    "fam_gaming_damage_2",
+    "fam_herpetology_growth_2",
+    "fam_relativity_interval_2"
+  ],
+  "statement": "(fmax (0 : Int) ((20 : Int) - (50 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesR.lean"
+  ]
+}

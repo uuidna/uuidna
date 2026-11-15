@@ -1,0 +1,14 @@
+{
+  "handle": "595a2cd3",
+  "address": "595a2cd3-0e87-83e1-806f-490ff9f566b7",
+  "statement": "(((30 : Int) * (100 : Int)) / (90 : Int)) = (33 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ergonomics_posture_1",
+    "fam_project_schedule_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesP.lean"
+  ]
+}

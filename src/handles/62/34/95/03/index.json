@@ -1,0 +1,12 @@
+{
+  "handle": "62349503",
+  "address": "62349503-f695-8a1d-99b2-54e588bbeac7",
+  "kind": "chunk",
+  "keys": [
+    "fam_modulation_sidebands_1"
+  ],
+  "statement": "(((2 : Int) * (3 : Int)) + (1 : Int)) = (7 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

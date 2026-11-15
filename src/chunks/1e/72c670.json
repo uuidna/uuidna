@@ -1,0 +1,12 @@
+{
+  "handle": "1e72c670",
+  "address": "1e72c670-78c6-814f-974f-6508c04253a2",
+  "statement": "((640 : Int) / (8 : Int)) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_profiling_flamegraph_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

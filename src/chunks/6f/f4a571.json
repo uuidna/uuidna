@@ -1,0 +1,12 @@
+{
+  "handle": "6ff4a571",
+  "address": "6ff4a571-c97e-872b-b6a0-ec8d3297da5d",
+  "statement": "((2 : Int) ^ (0 : Nat)) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_xai_coalitions_2"
+  ],
+  "files": [
+    "FamiliesX.lean"
+  ]
+}

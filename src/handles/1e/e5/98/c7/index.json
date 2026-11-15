@@ -1,0 +1,12 @@
+{
+  "handle": "1ee598c7",
+  "address": "1ee598c7-9cdd-8d04-864c-46342577363d",
+  "kind": "chunk",
+  "keys": [
+    "fam_amortization_schedulepayment_1"
+  ],
+  "statement": "((24000 : Int) / (24 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

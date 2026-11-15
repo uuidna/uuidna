@@ -1,0 +1,12 @@
+{
+  "handle": "0a9f7454",
+  "address": "0a9f7454-2afd-82b0-bd88-86b78c63c612",
+  "statement": "((1000 : Int) / (400 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_baking_crumb_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

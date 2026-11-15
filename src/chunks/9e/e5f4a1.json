@@ -1,0 +1,12 @@
+{
+  "handle": "9ee5f4a1",
+  "address": "9ee5f4a1-5f63-8bae-8277-5dc2a102d355",
+  "statement": "((90 : Int) / (3 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_passwords_rotationdays_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

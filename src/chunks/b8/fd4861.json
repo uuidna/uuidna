@@ -1,0 +1,24 @@
+{
+  "handle": "b8fd4861",
+  "address": "b8fd4861-9571-8a1c-8401-ab463a8dd976",
+  "statement": "((600 : Int) / (30 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_funnel_velocity_1",
+    "fam_humidity_absolute_1",
+    "fam_leavening_fermentationrate_1",
+    "fam_papyrology_linespercolumn_1",
+    "fam_permitting_throughput_1",
+    "fam_podiatry_pressure_1",
+    "fam_spinning_twist_1",
+    "fam_throwing_releasevelocity_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

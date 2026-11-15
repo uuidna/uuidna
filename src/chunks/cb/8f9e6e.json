@@ -1,0 +1,14 @@
+{
+  "handle": "cb8f9e6e",
+  "address": "cb8f9e6e-3929-8e93-8094-fd6644b10f01",
+  "statement": "((20 : Int) * (6 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_aquafarming_waterexchange_1",
+    "fam_ergonomics_lift_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesE.lean"
+  ]
+}

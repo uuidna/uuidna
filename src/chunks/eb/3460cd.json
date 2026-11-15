@@ -1,0 +1,15 @@
+{
+  "handle": "eb3460cd",
+  "address": "eb3460cd-ea5f-854e-9403-9ffa24ed2d64",
+  "statement": "(((45 : Int) * (100 : Int)) / (90 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_metabolomics_ratio_1",
+    "fam_pharmacokinetics_extraction_2",
+    "fam_prototyping_feedback_1"
+  ],
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesP.lean"
+  ]
+}

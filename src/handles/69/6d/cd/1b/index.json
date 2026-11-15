@@ -1,0 +1,12 @@
+{
+  "handle": "696dcd1b",
+  "address": "696dcd1b-0525-8a48-a5ab-d34e1e61c24a",
+  "kind": "chunk",
+  "keys": [
+    "fam_retirement_contributions_1"
+  ],
+  "statement": "(((500 : Int) * (12 : Int)) * (30 : Int)) = (180000 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

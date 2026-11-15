@@ -1,0 +1,14 @@
+{
+  "handle": "44842e72",
+  "address": "44842e72-63ed-8770-a7ab-e98274edd92d",
+  "statement": "((6 : Int) + (3 : Int)) = (9 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_drought_recoverymonths_1",
+    "fam_electronics_series_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesE.lean"
+  ]
+}

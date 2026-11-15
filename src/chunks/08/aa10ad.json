@@ -1,0 +1,12 @@
+{
+  "handle": "08aa10ad",
+  "address": "08aa10ad-b92c-8d9f-83bb-ae2bd9a7ac51",
+  "statement": "((2 : Int) * ((75 : Int) + (15 : Int))) = (180 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_modulation_bandwidth_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

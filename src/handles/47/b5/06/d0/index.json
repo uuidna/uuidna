@@ -1,0 +1,12 @@
+{
+  "handle": "47b506d0",
+  "address": "47b506d0-4299-8995-8313-6f8c13f00747",
+  "kind": "chunk",
+  "keys": [
+    "fam_suspension_stiffness_1"
+  ],
+  "statement": "(((2000 : Int) * (1000 : Int)) / (40 : Int)) = (50000 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

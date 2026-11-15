@@ -1,0 +1,12 @@
+{
+  "handle": "ffc15878",
+  "address": "ffc15878-e9a6-8bde-bb8a-616cc9b65689",
+  "kind": "chunk",
+  "keys": [
+    "fam_costing_contribution_1"
+  ],
+  "statement": "(fmax (0 : Int) ((50 : Int) - (30 : Int))) = (20 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

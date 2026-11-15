@@ -1,0 +1,12 @@
+{
+  "handle": "2e0469ab",
+  "address": "2e0469ab-2fcd-8f73-93d0-0a83d0a9fa3e",
+  "kind": "chunk",
+  "keys": [
+    "fam_walkability_transitproximity_1"
+  ],
+  "statement": "(fmax (0 : Int) ((100 : Int) - (((200 : Int) * (100 : Int)) / (800 : Int)))) = (75 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

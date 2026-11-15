@@ -1,0 +1,12 @@
+{
+  "handle": "629c9403",
+  "address": "629c9403-3747-8cd5-bd8c-ea8c08b39c02",
+  "statement": "(((70 : Int) * (10000 : Int)) / ((175 : Int) ^ (2 : Nat))) = (22 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cardiology_bmi_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

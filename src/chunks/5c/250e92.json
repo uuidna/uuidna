@@ -1,0 +1,12 @@
+{
+  "handle": "5c250e92",
+  "address": "5c250e92-fc9a-8aad-a094-b051065abc1d",
+  "statement": "(((10 : Int) * (125000000 : Int)) / (1500 : Int)) = (833333 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nic_packets_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

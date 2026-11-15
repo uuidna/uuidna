@@ -1,0 +1,12 @@
+{
+  "handle": "abfc7477",
+  "address": "abfc7477-eef8-8533-8b9f-a756e5a4ae1c",
+  "kind": "chunk",
+  "keys": [
+    "fam_bundling_cachehash_1"
+  ],
+  "statement": "((((1000 : Int) * (31 : Int)) + (7 : Int)) % (65536 : Int)) = (31007 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

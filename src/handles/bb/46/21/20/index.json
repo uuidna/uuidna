@@ -1,0 +1,12 @@
+{
+  "handle": "bb462120",
+  "address": "bb462120-36ea-865c-a1af-3091db9cd037",
+  "kind": "chunk",
+  "keys": [
+    "fam_coagulation_aptt_1"
+  ],
+  "statement": "(((60 : Int) * (100 : Int)) / (30 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

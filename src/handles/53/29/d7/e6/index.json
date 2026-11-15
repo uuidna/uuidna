@@ -1,0 +1,12 @@
+{
+  "handle": "5329d7e6",
+  "address": "5329d7e6-ef3c-8ab9-9a0d-cd7ba0e8b0f0",
+  "kind": "chunk",
+  "keys": [
+    "fam_api_quota_1"
+  ],
+  "statement": "((1000 : Int) - (400 : Int)) = (600 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

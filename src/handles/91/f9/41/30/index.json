@@ -1,0 +1,12 @@
+{
+  "handle": "91f94130",
+  "address": "91f94130-c5c8-8f3a-8193-57424575fb94",
+  "kind": "chunk",
+  "keys": [
+    "fam_campaign_frequency_1"
+  ],
+  "statement": "((90000 : Int) / (30000 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

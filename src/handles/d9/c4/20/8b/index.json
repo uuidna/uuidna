@@ -1,0 +1,21 @@
+{
+  "handle": "d9c4208b",
+  "address": "d9c4208b-6d12-823f-8e5b-fd4bffe0d9d4",
+  "kind": "chunk",
+  "keys": [
+    "fam_aerodynamics_lift_1",
+    "fam_hydrology_watershed_1",
+    "fam_logistics_route_1",
+    "fam_passwords_hashcost_1",
+    "fam_psu_watts_1",
+    "fam_speleology_extent_1"
+  ],
+  "statement": "((12 : Int) * (50 : Int)) = (600 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

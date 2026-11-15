@@ -1,0 +1,12 @@
+{
+  "handle": "f746bc1e",
+  "address": "f746bc1e-3a70-8cbb-a572-fbcc79d18fc0",
+  "statement": "((45 : Int) + (45 : Int)) = (90 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_projectile_arc_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

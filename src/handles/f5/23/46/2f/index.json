@@ -1,0 +1,17 @@
+{
+  "handle": "f523462f",
+  "address": "f523462f-3b1a-8977-9def-4b77de60afd6",
+  "kind": "chunk",
+  "keys": [
+    "fam_asteroid_rotation_1",
+    "fam_cricket_bowlingaverage_1",
+    "fam_electrical_resistance_1",
+    "fam_electromagnetism_impedance_1"
+  ],
+  "statement": "((240 : Int) / (10 : Int)) = (24 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean"
+  ]
+}

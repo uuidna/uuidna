@@ -1,0 +1,12 @@
+{
+  "handle": "f5b9546b",
+  "address": "f5b9546b-e250-82b9-b0ca-5919ffb8841a",
+  "statement": "((60 : Int) * (10 : Int)) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_rotation_revolutions_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

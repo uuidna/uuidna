@@ -1,0 +1,12 @@
+{
+  "handle": "39dd2f3e",
+  "address": "39dd2f3e-505b-8b39-a26e-f15ebcd9ae81",
+  "statement": "(fmax (0 : Int) ((100 : Int) - (5 : Int))) = (95 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gear_backlash_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

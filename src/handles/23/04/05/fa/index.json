@@ -1,0 +1,12 @@
+{
+  "handle": "230405fa",
+  "address": "230405fa-e4b9-8549-a1fa-582ee4eca9ea",
+  "kind": "chunk",
+  "keys": [
+    "fam_leverage_gearingratio_2"
+  ],
+  "statement": "(((0 : Int) * (100 : Int)) / ((0 : Int) + (0 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

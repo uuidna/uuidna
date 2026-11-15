@@ -1,0 +1,12 @@
+{
+  "handle": "d1bc0176",
+  "address": "d1bc0176-a66e-8e72-9a5e-3ddffc23f76e",
+  "kind": "chunk",
+  "keys": [
+    "fam_tooling_speed_1"
+  ],
+  "statement": "(((1000 : Int) * (314 : Int)) / (1000 : Int)) = (314 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

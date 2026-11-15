@@ -1,0 +1,22 @@
+{
+  "handle": "36aaa644",
+  "address": "36aaa644-4cb7-887d-b61b-d649ed55db99",
+  "statement": "((600 : Int) / (20 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_alerting_mttd_1",
+    "fam_automotive_range_1",
+    "fam_biophysics_tension_1",
+    "fam_dispatch_queuewait_1",
+    "fam_entomology_foraging_1",
+    "fam_paleontology_abundance_1",
+    "fam_pilgrimage_daysrequired_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d1e7a478",
+  "address": "d1e7a478-1cb8-8a28-996f-e03a19adeb50",
+  "kind": "chunk",
+  "keys": [
+    "fam_acoustics_reverb_1"
+  ],
+  "statement": "(((1000 : Int) * (161 : Int)) / ((1 : Int) * (1000 : Int))) = (161 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

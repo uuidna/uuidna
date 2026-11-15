@@ -1,0 +1,12 @@
+{
+  "handle": "14cd8ead",
+  "address": "14cd8ead-49f7-81c3-91e3-a6dbdd5d8c75",
+  "kind": "chunk",
+  "keys": [
+    "fam_chronology_epochdivisions_1"
+  ],
+  "statement": "((3000 : Int) / (500 : Int)) = (6 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

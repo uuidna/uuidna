@@ -1,0 +1,14 @@
+{
+  "handle": "6f971518",
+  "address": "6f971518-96af-8acc-8272-546d983dba8a",
+  "statement": "(fmax (0 : Int) ((3 : Int) - (7 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_evidence_margin_2",
+    "fam_stemming_stemlength_2"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesS.lean"
+  ]
+}

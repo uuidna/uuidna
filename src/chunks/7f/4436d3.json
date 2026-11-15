@@ -1,0 +1,35 @@
+{
+  "handle": "7f4436d3",
+  "address": "7f4436d3-0aa8-8c1e-b3e3-fe34c910a8bf",
+  "statement": "((100 : Int) * (2 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_colorgrading_contrast_1",
+    "fam_determinism_causallinks_1",
+    "fam_glomerular_excretion_1",
+    "fam_hydroponics_dosing_1",
+    "fam_jetstream_windspeed_1",
+    "fam_latency_processing_1",
+    "fam_lever_moment_1",
+    "fam_linguistics_syllables_1",
+    "fam_nic_duplex_1",
+    "fam_planetology_roche_1",
+    "fam_prosody_syllablecount_1",
+    "fam_rectifiers_pivrating_1",
+    "fam_shipping_teu_1",
+    "fam_tourism_capacity_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesJ.lean",
+    "FamiliesL.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

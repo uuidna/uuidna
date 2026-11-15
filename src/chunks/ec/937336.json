@@ -1,0 +1,12 @@
+{
+  "handle": "ec937336",
+  "address": "ec937336-2baf-89d1-9c7c-3f321bc945da",
+  "statement": "(((120000 : Int) * (100 : Int)) / (100000 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_banking_liquidity_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

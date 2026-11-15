@@ -1,0 +1,12 @@
+{
+  "handle": "7eb6d081",
+  "address": "7eb6d081-1b1f-84a6-82e1-7f4d982b14d9",
+  "statement": "(((7 : Int) * (100 : Int)) / (100 : Int)) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nuclearpower_decayheat_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "656e864b",
+  "address": "656e864b-3985-83ef-a539-58a8725a7542",
+  "statement": "(((900 : Int) * (8 : Int)) / (60 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_entertainment_bitrate_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

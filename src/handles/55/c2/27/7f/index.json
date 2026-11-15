@@ -1,0 +1,14 @@
+{
+  "handle": "55c2277f",
+  "address": "55c2277f-ea25-8801-b1f0-01a92fe34482",
+  "kind": "chunk",
+  "keys": [
+    "fam_learning_f1_2",
+    "fam_search_f1_2"
+  ],
+  "statement": "((((2 : Int) * (0 : Int)) * (0 : Int)) / ((0 : Int) + (0 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesS.lean"
+  ]
+}

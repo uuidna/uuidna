@@ -1,0 +1,12 @@
+{
+  "handle": "2d6c7cd2",
+  "address": "2d6c7cd2-6a0f-85e3-b6e3-2a28b52104a9",
+  "statement": "(if (if (30 : Int) ≥ (50 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_parasitology_infectivity_2"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

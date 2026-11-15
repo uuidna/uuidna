@@ -1,0 +1,12 @@
+{
+  "handle": "4eb340a6",
+  "address": "4eb340a6-75ca-8e7a-84d5-fcacf7fc7a42",
+  "kind": "chunk",
+  "keys": [
+    "fam_creditscore_score_1"
+  ],
+  "statement": "((700 : Int) + (50 : Int)) = (750 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

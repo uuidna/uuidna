@@ -1,0 +1,15 @@
+{
+  "handle": "3d807aec",
+  "address": "3d807aec-0c2c-8f82-8898-dc7be49b0abb",
+  "kind": "chunk",
+  "keys": [
+    "fam_podcasting_completion_1",
+    "fam_psychiatry_adherence_1",
+    "fam_urology_continence_1"
+  ],
+  "statement": "(((27 : Int) * (100 : Int)) / (30 : Int)) = (90 : Int)",
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesU.lean"
+  ]
+}

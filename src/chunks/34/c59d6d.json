@@ -1,0 +1,12 @@
+{
+  "handle": "34c59d6d",
+  "address": "34c59d6d-5d27-822e-a378-4ca9ebd60354",
+  "statement": "(((20 : Int) * (1000 : Int)) / (40 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_microscopy_fieldofview_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

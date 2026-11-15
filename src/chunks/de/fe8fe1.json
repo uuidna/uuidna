@@ -1,0 +1,12 @@
+{
+  "handle": "defe8fe1",
+  "address": "defe8fe1-8215-8c08-a048-ec697fddfc43",
+  "statement": "(((300 : Int) * (1000 : Int)) / (2 : Int)) = (150000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_lidar_range_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

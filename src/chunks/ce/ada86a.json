@@ -1,0 +1,12 @@
+{
+  "handle": "ceada86a",
+  "address": "ceada86a-fd31-8f6f-a7d0-bf944dc82b4b",
+  "statement": "(if (if (100 : Int) ≥ (95 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nuclearphysics_criticality_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "handle": "7ea335d6",
+  "address": "7ea335d6-ef9c-83af-a7db-80b5461daf88",
+  "kind": "chunk",
+  "keys": [
+    "fam_screenwriting_beatcombos_1",
+    "fam_spicetrade_blendcombos_1"
+  ],
+  "statement": "(Int.ofNat (fchoose (Int.toNat (15 : Int)) (Int.toNat (3 : Int)))) = (455 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b26ccd9a",
+  "address": "b26ccd9a-ae8f-8bda-8cd7-41b614104a56",
+  "kind": "chunk",
+  "keys": [
+    "fam_sounddesign_dynamicrangedb_1"
+  ],
+  "statement": "((96 : Int) / (1 : Int)) = (96 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

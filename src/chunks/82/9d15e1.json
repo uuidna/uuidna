@@ -1,0 +1,12 @@
+{
+  "handle": "829d15e1",
+  "address": "829d15e1-7214-8feb-bfaf-056900e8f2cf",
+  "statement": "((72 : Int) + (8 : Int)) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_assessment_gradecurve_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

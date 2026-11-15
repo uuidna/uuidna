@@ -1,0 +1,12 @@
+{
+  "handle": "74301d1b",
+  "address": "74301d1b-170c-8c60-b705-fd8c44866f3b",
+  "kind": "chunk",
+  "keys": [
+    "fam_rheumatology_das28_1"
+  ],
+  "statement": "(((5 : Int) + (3 : Int)) + ((20 : Int) / (10 : Int))) = (10 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

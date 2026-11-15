@@ -1,0 +1,12 @@
+{
+  "handle": "ee796323",
+  "address": "ee796323-a24f-8cb8-8f03-a97a3cba1e08",
+  "statement": "(((512 : Int) * (100 : Int)) / (2048 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_virtualization_overhead_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

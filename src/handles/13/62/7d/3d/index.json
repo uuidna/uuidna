@@ -1,0 +1,21 @@
+{
+  "handle": "13627d3d",
+  "address": "13627d3d-3bd3-8b08-8a00-aca739d22648",
+  "kind": "chunk",
+  "keys": [
+    "fam_actuarial_annuity_1",
+    "fam_annuity_futurevalue_1",
+    "fam_annuity_totalpaid_1",
+    "fam_battery_capacity_1",
+    "fam_budgeting_forecast_1",
+    "fam_capacitor_charge_1",
+    "fam_receipts_total_1"
+  ],
+  "statement": "((100 : Int) * (12 : Int)) = (1200 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesR.lean"
+  ]
+}

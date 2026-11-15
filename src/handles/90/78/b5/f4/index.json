@@ -1,0 +1,14 @@
+{
+  "handle": "9078b5f4",
+  "address": "9078b5f4-a214-83c0-a840-5ee131037cdf",
+  "kind": "chunk",
+  "keys": [
+    "fam_genomics_n50_1",
+    "fam_notice_duration_1"
+  ],
+  "statement": "(5000 : Int) = (5000 : Int)",
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesN.lean"
+  ]
+}

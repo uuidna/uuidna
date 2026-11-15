@@ -1,0 +1,12 @@
+{
+  "handle": "005f31fa",
+  "address": "005f31fa-d448-8358-b618-a1908b0b33e5",
+  "kind": "chunk",
+  "keys": [
+    "fam_counterpoint_intervalconsonance_1"
+  ],
+  "statement": "(if (if (7 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

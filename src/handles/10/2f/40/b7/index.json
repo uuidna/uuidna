@@ -1,0 +1,14 @@
+{
+  "handle": "102f40b7",
+  "address": "102f40b7-f35d-849f-a86a-d2e0f09cd494",
+  "kind": "chunk",
+  "keys": [
+    "fam_entomology_swarm_1",
+    "fam_scripture_lexicaltypes_1"
+  ],
+  "statement": "((12000 : Int) / (3 : Int)) = (4000 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesS.lean"
+  ]
+}

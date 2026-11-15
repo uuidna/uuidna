@@ -1,0 +1,12 @@
+{
+  "handle": "3421396d",
+  "address": "3421396d-c4de-801e-8440-213afffbead8",
+  "kind": "chunk",
+  "keys": [
+    "fam_pest_treatmentcost_1"
+  ],
+  "statement": "((40 : Int) * (15 : Int)) = (600 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

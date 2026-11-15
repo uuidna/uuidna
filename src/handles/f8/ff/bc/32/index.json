@@ -1,0 +1,12 @@
+{
+  "handle": "f8ffbc32",
+  "address": "f8ffbc32-770c-8cda-8355-7b158bdfea1b",
+  "kind": "chunk",
+  "keys": [
+    "fam_accounting_depreciation_1"
+  ],
+  "statement": "(((50000 : Int) - (5000 : Int)) / (9 : Int)) = (5000 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

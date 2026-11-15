@@ -1,0 +1,12 @@
+{
+  "handle": "eaa4e18e",
+  "address": "eaa4e18e-b846-8403-9fcc-52799c28e333",
+  "kind": "chunk",
+  "keys": [
+    "fam_parity_checkbits_1"
+  ],
+  "statement": "(-((-(64 : Int)) / (8 : Int))) = (8 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

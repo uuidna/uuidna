@@ -1,0 +1,14 @@
+{
+  "handle": "269014e1",
+  "address": "269014e1-1709-8eef-b0c1-2b4b4372383a",
+  "statement": "((1000 : Int) / (1 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_buoyancy_density_1",
+    "fam_fuelcell_currentdensity_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesF.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "05c0c2c0",
+  "address": "05c0c2c0-3c33-8460-82de-6e1ebe0dbb71",
+  "statement": "((10000 : Int) / (250 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_robotics_battery_1",
+    "fam_tooling_life_1"
+  ],
+  "files": [
+    "FamiliesR.lean",
+    "FamiliesT.lean"
+  ]
+}

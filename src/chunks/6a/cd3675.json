@@ -1,0 +1,12 @@
+{
+  "handle": "6acd3675",
+  "address": "6acd3675-130a-8921-9707-755ec55bf395",
+  "statement": "(((25 : Int) * (2 : Int)) / (1 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_titration_equivalence_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

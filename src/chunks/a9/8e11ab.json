@@ -1,0 +1,12 @@
+{
+  "handle": "a98e11ab",
+  "address": "a98e11ab-389b-87ee-81d3-7af4f5d0255a",
+  "statement": "((10000 : Int) / (188 : Int)) = (53 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_stream_segments_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

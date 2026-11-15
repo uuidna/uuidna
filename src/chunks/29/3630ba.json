@@ -1,0 +1,12 @@
+{
+  "handle": "293630ba",
+  "address": "293630ba-2882-89c5-a7ac-79dac6bde8e9",
+  "statement": "(((40000 : Int) * (100 : Int)) / (10000 : Int)) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_marketing_roas_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

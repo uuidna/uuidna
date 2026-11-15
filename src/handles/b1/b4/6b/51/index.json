@@ -1,0 +1,13 @@
+{
+  "handle": "b1b46b51",
+  "address": "b1b46b51-47e0-8a83-9edf-31ecf89a60e6",
+  "kind": "chunk",
+  "keys": [
+    "fam_sedimentology_bedform_2",
+    "fam_stoichiometry_moles_2"
+  ],
+  "statement": "((5 : Int) / (0 : Int)) = (0 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

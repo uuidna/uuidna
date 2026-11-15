@@ -1,0 +1,12 @@
+{
+  "handle": "1a0e91d3",
+  "address": "1a0e91d3-464e-8b34-91a7-4a0d71b92acb",
+  "kind": "chunk",
+  "keys": [
+    "fam_anesthesiology_mapp_1"
+  ],
+  "statement": "(((120 : Int) + ((2 : Int) * (60 : Int))) / (3 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

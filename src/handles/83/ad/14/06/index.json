@@ -1,0 +1,14 @@
+{
+  "handle": "83ad1406",
+  "address": "83ad1406-235a-881b-bc92-e6ecb50f3fc3",
+  "kind": "chunk",
+  "keys": [
+    "fam_churn_netrevenue_2",
+    "fam_glaciology_massbalance_2"
+  ],
+  "statement": "((30 : Int) - (50 : Int)) = (-20 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesG.lean"
+  ]
+}

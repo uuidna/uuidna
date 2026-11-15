@@ -1,0 +1,14 @@
+{
+  "handle": "ae9b1de8",
+  "address": "ae9b1de8-6178-8595-bc0d-87737b17391e",
+  "statement": "(((12 : Int) * (100 : Int)) / (40 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bioindicator_tolerancescore_1",
+    "fam_locale_fields_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesL.lean"
+  ]
+}

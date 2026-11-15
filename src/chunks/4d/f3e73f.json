@@ -1,0 +1,12 @@
+{
+  "handle": "4df3e73f",
+  "address": "4df3e73f-a28e-897e-a29f-2327018c837f",
+  "statement": "(fmax (0 : Int) ((122 : Int) - (80 : Int))) = (42 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_astrobiology_extremophile_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

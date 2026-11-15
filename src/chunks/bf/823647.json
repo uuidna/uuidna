@@ -1,0 +1,14 @@
+{
+  "handle": "bf823647",
+  "address": "bf823647-4e3b-8b8a-9156-4491cb841911",
+  "statement": "(fmax (0 : Int) ((130 : Int) - (100 : Int))) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_backlog_agedays_1",
+    "fam_derivatives_payoff_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesD.lean"
+  ]
+}

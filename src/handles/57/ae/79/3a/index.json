@@ -1,0 +1,12 @@
+{
+  "handle": "57ae793a",
+  "address": "57ae793a-039d-88e5-9a67-64fb223009d2",
+  "kind": "chunk",
+  "keys": [
+    "fam_matrix_rank_1"
+  ],
+  "statement": "(fmin (4 : Int) (3 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "69eea6f3",
+  "address": "69eea6f3-d20e-8202-b279-8ff27d8b1913",
+  "statement": "((800 : Int) * (3 : Int)) = (2400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_jumping_power_1"
+  ],
+  "files": [
+    "FamiliesJ.lean"
+  ]
+}

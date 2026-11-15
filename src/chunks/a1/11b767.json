@@ -1,0 +1,15 @@
+{
+  "handle": "a111b767",
+  "address": "a111b767-b808-8b28-9c85-c87b9ba6399e",
+  "statement": "(fmax (0 : Int) ((2500 : Int) - (2000 : Int))) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dietetics_deficit_1",
+    "fam_hydration_deficit_1",
+    "fam_hydration_fluidbalance_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesH.lean"
+  ]
+}

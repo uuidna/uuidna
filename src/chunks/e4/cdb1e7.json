@@ -1,0 +1,12 @@
+{
+  "handle": "e4cdb1e7",
+  "address": "e4cdb1e7-1735-887a-ab6f-2955a91f8bbe",
+  "statement": "((100 : Int) * (7 : Int)) = (700 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sikhism_communitymeals_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

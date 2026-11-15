@@ -1,0 +1,12 @@
+{
+  "handle": "c930c385",
+  "address": "c930c385-1d0f-89c4-a769-4ee773184827",
+  "statement": "((6 : Int) * (60 : Int)) = (360 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_smoking_smoketime_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

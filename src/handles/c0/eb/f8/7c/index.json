@@ -1,0 +1,12 @@
+{
+  "handle": "c0ebf87c",
+  "address": "c0ebf87c-ee86-80e4-a942-346f117dc5b9",
+  "kind": "chunk",
+  "keys": [
+    "fam_galactic_escapevelocity_1"
+  ],
+  "statement": "(((2 : Int) * (60000 : Int)) / (300 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

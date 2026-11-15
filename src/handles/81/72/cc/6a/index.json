@@ -1,0 +1,12 @@
+{
+  "handle": "8172cc6a",
+  "address": "8172cc6a-dbb3-8022-b832-3d19a86013de",
+  "kind": "chunk",
+  "keys": [
+    "fam_estimating_markup_1"
+  ],
+  "statement": "((8000 : Int) + (((8000 : Int) * (20 : Int)) / (100 : Int))) = (9600 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

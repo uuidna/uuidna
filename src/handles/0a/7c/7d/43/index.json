@@ -1,0 +1,12 @@
+{
+  "handle": "0a7c7d43",
+  "address": "0a7c7d43-1b6f-8176-9758-97d1c5feee5d",
+  "kind": "chunk",
+  "keys": [
+    "fam_claims_frequency_1"
+  ],
+  "statement": "(((250 : Int) * (1000 : Int)) / (1000 : Int)) = (250 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

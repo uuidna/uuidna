@@ -1,0 +1,12 @@
+{
+  "handle": "7b129c2d",
+  "address": "7b129c2d-d5ed-8ce7-8668-d2b072c5c2c3",
+  "statement": "(((1920 : Int) * (50 : Int)) / (100 : Int)) = (960 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_upload_resize_1"
+  ],
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

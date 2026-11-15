@@ -1,0 +1,12 @@
+{
+  "handle": "fe156555",
+  "address": "fe156555-c266-8446-ba4a-19f5b099b3be",
+  "statement": "((111 : Int) / (100 : Int)) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_rectifier_formfactor_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

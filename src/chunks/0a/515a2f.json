@@ -1,0 +1,16 @@
+{
+  "handle": "0a515a2f",
+  "address": "0a515a2f-0373-8029-b7a1-af84048db7cd",
+  "statement": "((500 : Int) / (50 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_karst_sinkholedensity_1",
+    "fam_manufacturing_inventory_1",
+    "fam_slotting_pickdensity_1"
+  ],
+  "files": [
+    "FamiliesK.lean",
+    "FamiliesM.lean",
+    "FamiliesS.lean"
+  ]
+}

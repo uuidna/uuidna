@@ -1,0 +1,14 @@
+{
+  "handle": "70b8403c",
+  "address": "70b8403c-0fba-87dd-aa57-7a274678e608",
+  "kind": "chunk",
+  "keys": [
+    "fam_cloudflare_choose_1",
+    "fam_paleography_graphemecombos_1"
+  ],
+  "statement": "(Int.ofNat (fchoose (Int.toNat (22 : Int)) (Int.toNat (3 : Int)))) = (1540 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesP.lean"
+  ]
+}

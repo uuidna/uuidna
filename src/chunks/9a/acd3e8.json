@@ -1,0 +1,12 @@
+{
+  "handle": "9aacd3e8",
+  "address": "9aacd3e8-8f8a-859b-8b1c-a4c952c0bf62",
+  "statement": "(Int.ofNat (fsqrt (Int.toNat ((50 : Int) * (2 : Int))))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pulsar_magneticfield_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "handle": "5f1576b1",
+  "address": "5f1576b1-028f-8a7f-876a-6bade621cd57",
+  "statement": "((1000 : Int) * (1000 : Int)) = (1000000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_asteroid_count_1",
+    "fam_bandwidth_bits_1",
+    "fam_equity_shares_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesE.lean"
+  ]
+}

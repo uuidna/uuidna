@@ -1,0 +1,12 @@
+{
+  "handle": "0d4ee1ee",
+  "address": "0d4ee1ee-e577-816f-b677-2db446476d94",
+  "statement": "((11 : Int) + (0 : Int)) = (11 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_socket_states_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

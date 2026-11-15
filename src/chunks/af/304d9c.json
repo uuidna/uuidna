@@ -1,0 +1,12 @@
+{
+  "handle": "af304d9c",
+  "address": "af304d9c-7ef6-824d-9887-5519ee0a6720",
+  "statement": "(((1 : Int) * (100 : Int)) / (20 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_reasoning_biasrate_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

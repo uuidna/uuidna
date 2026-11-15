@@ -1,0 +1,13 @@
+{
+  "handle": "c04f95fc",
+  "address": "c04f95fc-daf1-85a6-919d-c58099fd1986",
+  "statement": "(1000 : Int) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cloudflare_subrequests_1",
+    "fam_cohort_size_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

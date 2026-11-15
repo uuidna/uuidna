@@ -1,0 +1,12 @@
+{
+  "handle": "1f2101b5",
+  "address": "1f2101b5-417d-870f-8950-9e9235580452",
+  "kind": "chunk",
+  "keys": [
+    "fam_education_cost_1"
+  ],
+  "statement": "((15 : Int) * (200 : Int)) = (3000 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

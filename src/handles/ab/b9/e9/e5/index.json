@@ -1,0 +1,16 @@
+{
+  "handle": "abb9e9e5",
+  "address": "abb9e9e5-3966-864d-90dd-ae7713e28761",
+  "kind": "chunk",
+  "keys": [
+    "fam_optometry_field_1",
+    "fam_phonetics_duration_1",
+    "fam_swine_market_1"
+  ],
+  "statement": "(120 : Int) = (120 : Int)",
+  "files": [
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

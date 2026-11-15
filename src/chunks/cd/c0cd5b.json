@@ -1,0 +1,12 @@
+{
+  "handle": "cdc0cd5b",
+  "address": "cdc0cd5b-9275-84ae-a7d1-49ad64bae9e0",
+  "statement": "((500 : Int) / (4 : Int)) = (125 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_rhythm_subdivision_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

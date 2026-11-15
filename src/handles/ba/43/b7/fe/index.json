@@ -1,0 +1,12 @@
+{
+  "handle": "ba43b7fe",
+  "address": "ba43b7fe-71f7-86a4-bbc3-002945dbf4d4",
+  "kind": "chunk",
+  "keys": [
+    "fam_campaign_reach_1"
+  ],
+  "statement": "(((50000 : Int) * (60 : Int)) / (100 : Int)) = (30000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

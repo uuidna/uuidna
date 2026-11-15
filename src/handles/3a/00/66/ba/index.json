@@ -1,0 +1,16 @@
+{
+  "handle": "3a0066ba",
+  "address": "3a0066ba-dace-807b-a337-9204a9d2a2e0",
+  "kind": "chunk",
+  "keys": [
+    "fam_cyclone_stormsurge_1",
+    "fam_nanomaterials_surfacevolume_1",
+    "fam_sixsigma_sigma_1"
+  ],
+  "statement": "((600 : Int) / (100 : Int)) = (6 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesN.lean",
+    "FamiliesS.lean"
+  ]
+}

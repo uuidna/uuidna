@@ -1,0 +1,12 @@
+{
+  "handle": "a35e8a94",
+  "address": "a35e8a94-dfbb-8078-9ecc-dfc2cee1aa8d",
+  "statement": "(((96 : Int) * (100 : Int)) / (100 : Int)) = (96 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_inflation_purchasingpower_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

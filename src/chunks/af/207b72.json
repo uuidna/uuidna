@@ -1,0 +1,12 @@
+{
+  "handle": "af207b72",
+  "address": "af207b72-91e3-8412-a45b-5d88ae4c3e74",
+  "statement": "(if (if (8 : Int) ≥ (6 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_psych_restoration_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

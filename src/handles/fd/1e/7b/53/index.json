@@ -1,0 +1,12 @@
+{
+  "handle": "fd1e7b53",
+  "address": "fd1e7b53-9fbd-848c-a953-532a552d75c4",
+  "kind": "chunk",
+  "keys": [
+    "fam_deontology_duties_1"
+  ],
+  "statement": "((7 : Int) + (3 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

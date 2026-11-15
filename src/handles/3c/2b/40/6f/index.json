@@ -1,0 +1,12 @@
+{
+  "handle": "3c2b406f",
+  "address": "3c2b406f-1ecc-89bc-9050-8b502cd8fd9d",
+  "kind": "chunk",
+  "keys": [
+    "fam_concrete_slump_1"
+  ],
+  "statement": "(fmax (0 : Int) ((100 : Int) - (25 : Int))) = (75 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

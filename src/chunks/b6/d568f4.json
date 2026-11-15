@@ -1,0 +1,14 @@
+{
+  "handle": "b6d568f4",
+  "address": "b6d568f4-c163-838a-997d-89d50b525a64",
+  "statement": "(((1000 : Int) * (100 : Int)) / (10 : Int)) = (10000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nanotechnology_aspectratio_1",
+    "fam_semiconductor_junction_1"
+  ],
+  "files": [
+    "FamiliesN.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "handle": "8e33d80b",
+  "address": "8e33d80b-a3c0-82bb-b767-15944c144cee",
+  "kind": "chunk",
+  "keys": [
+    "fam_court_liquidated_1",
+    "fam_enterprise_approval_1",
+    "fam_upload_within_1"
+  ],
+  "statement": "(if (if (500 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesU.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "90befefb",
+  "address": "90befefb-d98e-8dad-ad75-69176f794388",
+  "statement": "(((1000 : Int) * (100 : Int)) / (40 : Int)) = (2500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fishery_cpue_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

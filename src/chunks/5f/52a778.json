@@ -1,0 +1,12 @@
+{
+  "handle": "5f52a778",
+  "address": "5f52a778-1274-8f6d-b744-4a2d5d3b3243",
+  "statement": "((((2 : Int) * (45 : Int)) * (100 : Int)) / ((1 : Int) * ((1 : Int) - (1 : Int)))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_graphtheory_density_2"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

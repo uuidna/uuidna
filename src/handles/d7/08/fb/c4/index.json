@@ -1,0 +1,12 @@
+{
+  "handle": "d708fbc4",
+  "address": "d708fbc4-abc1-8bc0-a0ea-ac8d6a6a4505",
+  "kind": "chunk",
+  "keys": [
+    "fam_trigonometry_phase_1"
+  ],
+  "statement": "(((90 : Int) * (360 : Int)) / (360 : Int)) = (90 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

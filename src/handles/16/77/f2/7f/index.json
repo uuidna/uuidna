@@ -1,0 +1,12 @@
+{
+  "handle": "1677f27f",
+  "address": "1677f27f-bdf0-8b83-89c5-da5f0cf28b3c",
+  "kind": "chunk",
+  "keys": [
+    "fam_oceanography_thermocline_2"
+  ],
+  "statement": "(fmax (0 : Int) ((4 : Int) - (25 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

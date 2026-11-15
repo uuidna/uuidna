@@ -1,0 +1,12 @@
+{
+  "handle": "378b872a",
+  "address": "378b872a-6e82-8796-a12f-b74eda109323",
+  "kind": "chunk",
+  "keys": [
+    "fam_redistricting_competitiveness_1"
+  ],
+  "statement": "(fmax (0 : Int) ((100 : Int) - (((fmax (0 : Int) ((5500 : Int) - (4500 : Int))) * (100 : Int)) / ((5500 : Int) + (4500 : Int))))) = (90 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9bbf2cb6",
+  "address": "9bbf2cb6-a7d7-83f5-858d-2a7e54299e2c",
+  "kind": "chunk",
+  "keys": [
+    "fam_cytology_apoptosis_1"
+  ],
+  "statement": "(((15 : Int) * (100 : Int)) / (300 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

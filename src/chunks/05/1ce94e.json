@@ -1,0 +1,16 @@
+{
+  "handle": "051ce94e",
+  "address": "051ce94e-aca5-8ecd-ba5a-7a41eeecbe61",
+  "statement": "((10000 : Int) / (1000 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_oscillators_period_1",
+    "fam_redistricting_districts_1",
+    "fam_ssd_wearleveling_1"
+  ],
+  "files": [
+    "FamiliesO.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

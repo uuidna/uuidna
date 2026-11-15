@@ -1,0 +1,12 @@
+{
+  "handle": "e2f8e601",
+  "address": "e2f8e601-c9e4-85d1-80a8-bc229e43969c",
+  "statement": "((90 : Int) + (((90 : Int) * (60 : Int)) / (1000 : Int))) = (95 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_windchill_heatindex_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

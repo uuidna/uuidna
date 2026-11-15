@@ -1,0 +1,12 @@
+{
+  "handle": "3b6d7555",
+  "address": "3b6d7555-7762-8497-8bcf-39079a68391b",
+  "kind": "chunk",
+  "keys": [
+    "fam_aerospace_range_1"
+  ],
+  "statement": "((8000 : Int) / (20 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

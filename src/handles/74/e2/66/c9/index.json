@@ -1,0 +1,12 @@
+{
+  "handle": "74e266c9",
+  "address": "74e266c9-ac99-8c6d-9d4a-e15e473454ce",
+  "kind": "chunk",
+  "keys": [
+    "fam_composting_maturity_1"
+  ],
+  "statement": "(if (if (90 : Int) ≥ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

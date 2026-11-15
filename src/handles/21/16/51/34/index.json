@@ -1,0 +1,12 @@
+{
+  "handle": "21165134",
+  "address": "21165134-561d-8302-a814-6b87636ba9af",
+  "kind": "chunk",
+  "keys": [
+    "fam_supplychain_reorder_1"
+  ],
+  "statement": "((40 : Int) * (5 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

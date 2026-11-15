@@ -1,0 +1,12 @@
+{
+  "handle": "4f4987b7",
+  "address": "4f4987b7-6f50-83bc-9a09-8a81a5ab5e19",
+  "statement": "(fmax (0 : Int) ((25 : Int) - (40 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_criticalchain_safetyremoved_2"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

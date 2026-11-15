@@ -1,0 +1,15 @@
+{
+  "handle": "04f13a4c",
+  "address": "04f13a4c-8514-8f53-b5d2-6e539303fa45",
+  "statement": "(((9 : Int) * (100 : Int)) / (12 : Int)) = (75 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_anthropology_ritual_1",
+    "fam_feed_relevance_1",
+    "fam_field_required_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesF.lean"
+  ]
+}

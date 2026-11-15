@@ -1,0 +1,12 @@
+{
+  "handle": "1441d692",
+  "address": "1441d692-4c87-8e7f-b030-e538f13c85ef",
+  "kind": "chunk",
+  "keys": [
+    "fam_campaign_cpm_1"
+  ],
+  "statement": "(((5000 : Int) * (1000 : Int)) / (50000 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

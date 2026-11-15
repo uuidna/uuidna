@@ -1,0 +1,12 @@
+{
+  "handle": "0e65c077",
+  "address": "0e65c077-ad59-8db2-bf36-46432f4e3a1f",
+  "kind": "chunk",
+  "keys": [
+    "fam_pulmonology_diffusion_1"
+  ],
+  "statement": "((250 : Int) / (10 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

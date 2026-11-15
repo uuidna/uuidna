@@ -1,0 +1,17 @@
+{
+  "handle": "40b8ac58",
+  "address": "40b8ac58-56da-86da-aec7-3de2283cedfa",
+  "kind": "chunk",
+  "keys": [
+    "fam_liturgy_hourorderings_1",
+    "fam_monasticism_officeorderings_1",
+    "fam_mysticism_ascentorderings_1",
+    "fam_scrabble_wordpermutations_1"
+  ],
+  "statement": "(Int.ofNat (ffact (Int.toNat (7 : Int)))) = (5040 : Int)",
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a5a67996",
+  "address": "a5a67996-fdc5-8006-b2f1-62e26ed1f463",
+  "kind": "chunk",
+  "keys": [
+    "fam_metallurgy_modulus_1"
+  ],
+  "statement": "((400 : Int) / (2 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

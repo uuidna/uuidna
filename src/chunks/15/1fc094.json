@@ -1,0 +1,12 @@
+{
+  "handle": "151fc094",
+  "address": "151fc094-88c9-8a6d-a32b-c9d7822106a1",
+  "statement": "((2 : Int) * (2 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_antibody_chains_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

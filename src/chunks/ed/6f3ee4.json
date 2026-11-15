@@ -1,0 +1,13 @@
+{
+  "handle": "ed6f3ee4",
+  "address": "ed6f3ee4-e6ba-8cef-a980-862d641336e1",
+  "statement": "((343 : Int) / (7 : Int)) = (49 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_acoustics_frequency_1",
+    "fam_acoustics_wavelength_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "723bfbfd",
+  "address": "723bfbfd-6832-8635-93ed-2fde24005f9d",
+  "kind": "chunk",
+  "keys": [
+    "fam_noisepollution_daynight_1"
+  ],
+  "statement": "((((12 : Int) * (60 : Int)) + ((12 : Int) * ((50 : Int) + (10 : Int)))) / (24 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

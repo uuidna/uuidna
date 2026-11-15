@@ -1,0 +1,20 @@
+{
+  "handle": "dad28d90",
+  "address": "dad28d90-e5b5-81e7-9484-e520904a0ca6",
+  "statement": "((5 : Int) + (2 : Int)) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_arachnology_moltstages_1",
+    "fam_heraldry_tincturecount_1",
+    "fam_malacology_shellwhorls_1",
+    "fam_pathogen_incubation_1",
+    "fam_replenishment_leadtime_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

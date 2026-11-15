@@ -1,0 +1,12 @@
+{
+  "handle": "0217ed7b",
+  "address": "0217ed7b-38be-880c-b257-a23ea249149a",
+  "kind": "chunk",
+  "keys": [
+    "fam_modulation_efficiency_1"
+  ],
+  "statement": "(((9600 : Int) * (100 : Int)) / (2400 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

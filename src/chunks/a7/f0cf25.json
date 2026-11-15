@@ -1,0 +1,12 @@
+{
+  "handle": "a7f0cf25",
+  "address": "a7f0cf25-7b20-8b8a-be6e-de5b9b1f4d54",
+  "statement": "(((4000 : Int) * (20 : Int)) / (100 : Int)) = (800 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_insurance_copay_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

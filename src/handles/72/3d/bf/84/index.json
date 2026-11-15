@@ -1,0 +1,12 @@
+{
+  "handle": "723dbf84",
+  "address": "723dbf84-8e6a-83c4-8d18-e2ee1155f137",
+  "kind": "chunk",
+  "keys": [
+    "fam_demography_deathrate_1"
+  ],
+  "statement": "(((400 : Int) * (1000 : Int)) / (50000 : Int)) = (8 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

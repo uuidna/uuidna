@@ -1,0 +1,12 @@
+{
+  "handle": "e756a02c",
+  "address": "e756a02c-ba37-867c-9824-2aa70bd2d868",
+  "statement": "((32768 : Int) / (64 : Int)) = (512 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cache_lines_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

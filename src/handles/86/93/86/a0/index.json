@@ -1,0 +1,12 @@
+{
+  "handle": "869386a0",
+  "address": "869386a0-27b5-8ad3-9fb4-350108713a30",
+  "kind": "chunk",
+  "keys": [
+    "fam_thermochemistry_enthalpy_1"
+  ],
+  "statement": "((2 : Int) * (286 : Int)) = (572 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

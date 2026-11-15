@@ -1,0 +1,12 @@
+{
+  "handle": "fe58461f",
+  "address": "fe58461f-e9ab-8f26-80be-fc6947e4d592",
+  "statement": "((32 : Int) * (100 : Int)) = (3200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gpu_bandwidth_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

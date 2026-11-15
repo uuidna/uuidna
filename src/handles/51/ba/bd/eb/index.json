@@ -1,0 +1,14 @@
+{
+  "handle": "51babdeb",
+  "address": "51babdeb-51f7-8f47-a2d4-42c13c3fb4bc",
+  "kind": "chunk",
+  "keys": [
+    "fam_composites_rule_1",
+    "fam_noise_sumlevels_1"
+  ],
+  "statement": "((60 : Int) + (40 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesN.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2e565da1",
+  "address": "2e565da1-92cd-886a-8d4e-556fd0d49a13",
+  "kind": "chunk",
+  "keys": [
+    "fam_polygon_interioranglesum_1"
+  ],
+  "statement": "(((5 : Int) - (2 : Int)) * (180 : Int)) = (540 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

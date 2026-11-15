@@ -1,0 +1,12 @@
+{
+  "handle": "10df4f6b",
+  "address": "10df4f6b-6646-8444-b831-2085e1c467c3",
+  "kind": "chunk",
+  "keys": [
+    "fam_devtools_debt_1"
+  ],
+  "statement": "((40 : Int) * (2 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

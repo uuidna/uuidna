@@ -1,0 +1,14 @@
+{
+  "handle": "a2f88ed6",
+  "address": "a2f88ed6-4990-86e1-9e6c-e13917f41083",
+  "statement": "(((720 : Int) * (100 : Int)) / (1000 : Int)) = (72 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_milling_extraction_1",
+    "fam_petrology_silicacontent_1"
+  ],
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesP.lean"
+  ]
+}

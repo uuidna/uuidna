@@ -1,0 +1,12 @@
+{
+  "handle": "de254ea6",
+  "address": "de254ea6-4393-8143-a4ce-df57eb1f69ab",
+  "kind": "chunk",
+  "keys": [
+    "fam_radiology_contrast_1"
+  ],
+  "statement": "(((50 : Int) * (100 : Int)) / (5 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6b028b55",
+  "address": "6b028b55-5f9f-849a-b9b0-689a41d35ea9",
+  "statement": "(((1050 : Int) / (100 : Int)) * (100 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ingestion_checkpoint_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

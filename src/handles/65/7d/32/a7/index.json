@@ -1,0 +1,12 @@
+{
+  "handle": "657d32a7",
+  "address": "657d32a7-4d86-804b-8265-6ff61995e438",
+  "kind": "chunk",
+  "keys": [
+    "fam_fishery_sustainable_2"
+  ],
+  "statement": "(if (if (1200 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

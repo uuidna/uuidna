@@ -1,0 +1,12 @@
+{
+  "handle": "0f1eb519",
+  "address": "0f1eb519-33dc-85f9-94e2-ad864b019cc8",
+  "kind": "chunk",
+  "keys": [
+    "fam_promotion_bundle_1"
+  ],
+  "statement": "(fmax (0 : Int) ((1200 : Int) - (999 : Int))) = (201 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

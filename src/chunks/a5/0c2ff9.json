@@ -1,0 +1,12 @@
+{
+  "handle": "a50c2ff9",
+  "address": "a50c2ff9-10da-82a0-b9d1-c961240fad65",
+  "statement": "(fmax (0 : Int) ((7 : Int) - (6 : Int))) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hydroponics_ph_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

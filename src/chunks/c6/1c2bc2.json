@@ -1,0 +1,12 @@
+{
+  "handle": "c61c2bc2",
+  "address": "c61c2bc2-5c49-8d26-accb-b153df9bd27e",
+  "statement": "(((500000 : Int) * (50 : Int)) / (100 : Int)) = (250000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_family_division_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

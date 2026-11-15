@@ -1,0 +1,12 @@
+{
+  "handle": "d5ab35ba",
+  "address": "d5ab35ba-909f-8a42-89af-7d4757e98e3c",
+  "kind": "chunk",
+  "keys": [
+    "fam_dominoes_pips_1"
+  ],
+  "statement": "((28 : Int) * (6 : Int)) = (168 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

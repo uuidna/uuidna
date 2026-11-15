@@ -1,0 +1,18 @@
+{
+  "handle": "ee16d5f0",
+  "address": "ee16d5f0-0ae5-87eb-8719-a22d0630d434",
+  "statement": "((3 : Int) * (2 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_jumping_takeoffvelocity_1",
+    "fam_papyrology_scribalhands_1",
+    "fam_photometry_extinction_1",
+    "fam_rationalism_innateideas_1",
+    "fam_rhythm_polyrhythm_1"
+  ],
+  "files": [
+    "FamiliesJ.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

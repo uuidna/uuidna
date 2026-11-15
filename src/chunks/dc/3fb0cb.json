@@ -1,0 +1,12 @@
+{
+  "handle": "dc3fb0cb",
+  "address": "dc3fb0cb-efd5-8b54-ab27-224f241acda2",
+  "statement": "(((100 : Int) * (8 : Int)) / (4 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fluiddynamics_pressuredrop_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0afe68ae",
+  "address": "0afe68ae-ed5c-8662-b2c0-775e998a83d1",
+  "kind": "chunk",
+  "keys": [
+    "fam_colorgrading_whitebalance_1"
+  ],
+  "statement": "(((200 : Int) * (320 : Int)) / (256 : Int)) = (250 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

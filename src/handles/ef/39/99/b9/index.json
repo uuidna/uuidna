@@ -1,0 +1,12 @@
+{
+  "handle": "ef3999b9",
+  "address": "ef3999b9-16ea-8bae-87a7-823de06f9a7d",
+  "kind": "chunk",
+  "keys": [
+    "fam_planet_rings_1"
+  ],
+  "statement": "((0 : Int) + (1 : Int)) = (1 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

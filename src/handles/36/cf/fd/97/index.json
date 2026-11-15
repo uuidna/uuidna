@@ -1,0 +1,12 @@
+{
+  "handle": "36cffd97",
+  "address": "36cffd97-a38b-8807-8533-e09ab4f62c1e",
+  "kind": "chunk",
+  "keys": [
+    "fam_typography_measure_1"
+  ],
+  "statement": "(if (if (66 : Int) ≤ (66 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

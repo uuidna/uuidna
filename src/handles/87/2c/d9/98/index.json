@@ -1,0 +1,12 @@
+{
+  "handle": "872cd998",
+  "address": "872cd998-222d-8ec9-b52b-0ff9c009c7cc",
+  "kind": "chunk",
+  "keys": [
+    "fam_vitals_inp_1"
+  ],
+  "statement": "(if (if (150 : Int) ≤ (200 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

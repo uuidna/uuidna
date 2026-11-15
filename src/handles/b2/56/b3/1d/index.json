@@ -1,0 +1,12 @@
+{
+  "handle": "b256b31d",
+  "address": "b256b31d-3690-863e-9890-dc92cd88f62f",
+  "kind": "chunk",
+  "keys": [
+    "fam_weaving_cover_1"
+  ],
+  "statement": "(((28 : Int) * (100 : Int)) / (56 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c59a835c",
+  "address": "c59a835c-4c79-89f2-8bc2-c52d4d5ba555",
+  "kind": "chunk",
+  "keys": [
+    "fam_graphtheory_degree_1"
+  ],
+  "statement": "(((2 : Int) * (45 : Int)) / (10 : Int)) = (9 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

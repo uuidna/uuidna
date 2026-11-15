@@ -1,0 +1,12 @@
+{
+  "handle": "a88187aa",
+  "address": "a88187aa-c1fb-8d99-b20f-8e206a0ff7c3",
+  "kind": "chunk",
+  "keys": [
+    "fam_ophthalmology_refractiveerror_1"
+  ],
+  "statement": "((2 : Int) + ((4 : Int) / (2 : Int))) = (4 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

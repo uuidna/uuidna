@@ -1,0 +1,12 @@
+{
+  "handle": "cb389dea",
+  "address": "cb389dea-e633-89a2-85b0-ed698f0c731a",
+  "statement": "((((200 : Int) - (20 : Int)) * (100 : Int)) / (200 : Int)) = (90 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_wastewater_removal_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

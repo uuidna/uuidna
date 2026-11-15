@@ -1,0 +1,12 @@
+{
+  "handle": "6ed16908",
+  "address": "6ed16908-6442-86c3-8702-407554c0a3f4",
+  "statement": "(((40 : Int) * (100 : Int)) / (160 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dentistry_plaque_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

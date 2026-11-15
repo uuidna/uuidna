@@ -1,0 +1,12 @@
+{
+  "handle": "ab1e361a",
+  "address": "ab1e361a-eedf-869e-94a1-7d6cc14b64c9",
+  "statement": "(((5 : Int) - (1 : Int)) * (100 : Int)) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_raid_raid5capacity_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

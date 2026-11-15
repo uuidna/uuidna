@@ -1,0 +1,14 @@
+{
+  "handle": "51cfed65",
+  "address": "51cfed65-ecdf-882e-b4dc-d18d3b5031aa",
+  "statement": "(if (if (70 : Int) ≥ (80 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_curriculum_alignment_2",
+    "fam_onboarding_satisfaction_2"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesO.lean"
+  ]
+}

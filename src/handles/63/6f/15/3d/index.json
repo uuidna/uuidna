@@ -1,0 +1,12 @@
+{
+  "handle": "636f153d",
+  "address": "636f153d-55ca-8657-aa3a-827bb30115da",
+  "kind": "chunk",
+  "keys": [
+    "fam_railway_capacity_1"
+  ],
+  "statement": "((8 : Int) * (60 : Int)) = (480 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "handle": "1555e462",
+  "address": "1555e462-211d-84dc-9c0a-b4c914606231",
+  "statement": "((10 : Int) + (5 : Int)) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hail_layers_1",
+    "fam_pathplanning_heuristic_1",
+    "fam_proof_steps_1",
+    "fam_quantum_circuitdepth_1",
+    "fam_totemism_taboocount_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesP.lean",
+    "FamiliesQ.lean",
+    "FamiliesT.lean"
+  ]
+}

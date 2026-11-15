@@ -1,0 +1,12 @@
+{
+  "handle": "f8426eea",
+  "address": "f8426eea-0ae6-854c-ae0c-5c508627eaed",
+  "statement": "(((10 : Int) * (3 : Int)) + (5 : Int)) = (35 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_soccer_points_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

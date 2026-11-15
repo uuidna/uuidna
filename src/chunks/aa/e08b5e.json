@@ -1,0 +1,14 @@
+{
+  "handle": "aae08b5e",
+  "address": "aae08b5e-52d8-8003-bb9d-3d27ba76f0ed",
+  "statement": "((300 : Int) * (2 : Int)) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_adhesive_shear_1",
+    "fam_backhaul_savings_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fabfea4b",
+  "address": "fabfea4b-1c6b-8ac0-8ce6-dec771e02ad6",
+  "kind": "chunk",
+  "keys": [
+    "fam_syllabary_gridcells_1"
+  ],
+  "statement": "((14 : Int) * (5 : Int)) = (70 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

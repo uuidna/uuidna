@@ -1,0 +1,21 @@
+{
+  "handle": "92d88c71",
+  "address": "92d88c71-dcc4-8d44-b75a-2dde1a193750",
+  "kind": "chunk",
+  "keys": [
+    "fam_coffee_bloomwater_1",
+    "fam_hail_updraftspeed_1",
+    "fam_onboarding_rampup_1",
+    "fam_oncology_dose_1",
+    "fam_projectile_impact_1",
+    "fam_sailing_hullspeed_1"
+  ],
+  "statement": "((30 : Int) * (2 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesH.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

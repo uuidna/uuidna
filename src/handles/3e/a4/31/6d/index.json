@@ -1,0 +1,12 @@
+{
+  "handle": "3ea4316d",
+  "address": "3ea4316d-bb74-8dfa-8c03-0d77f18f991a",
+  "kind": "chunk",
+  "keys": [
+    "fam_bayesian_oddsratio_1"
+  ],
+  "statement": "(((250 : Int) * (1000 : Int)) / ((1000 : Int) - (250 : Int))) = (333 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

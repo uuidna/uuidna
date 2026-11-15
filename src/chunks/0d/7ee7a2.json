@@ -1,0 +1,16 @@
+{
+  "handle": "0d7ee7a2",
+  "address": "0d7ee7a2-8df4-8bbd-b466-5b9b2f4f82a5",
+  "statement": "(((1000 : Int) * (30 : Int)) / (100 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_casting_risering_1",
+    "fam_forestry_harvest_1",
+    "fam_reinsurance_cession_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesF.lean",
+    "FamiliesR.lean"
+  ]
+}

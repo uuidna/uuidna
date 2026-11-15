@@ -1,0 +1,12 @@
+{
+  "handle": "9c4195b6",
+  "address": "9c4195b6-0823-8c07-a6a2-c523d818f30d",
+  "statement": "(((5 : Int) + (10 : Int)) % (12 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_scales_modeshift_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

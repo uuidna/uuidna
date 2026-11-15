@@ -1,0 +1,12 @@
+{
+  "handle": "66565c41",
+  "address": "66565c41-28c8-819e-bf26-75884135d864",
+  "statement": "(((100 : Int) * (10 : Int)) + (10 : Int)) = (1010 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_neuralnet_parameters_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

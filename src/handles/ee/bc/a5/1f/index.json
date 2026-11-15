@@ -1,0 +1,12 @@
+{
+  "handle": "eebca51f",
+  "address": "eebca51f-5222-80a9-acff-3bbce6a572bc",
+  "kind": "chunk",
+  "keys": [
+    "fam_sourcing_savings_2"
+  ],
+  "statement": "(fmax (0 : Int) ((800 : Int) - (900 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

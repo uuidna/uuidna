@@ -1,0 +1,12 @@
+{
+  "handle": "6750a7b2",
+  "address": "6750a7b2-a538-895c-bd0d-b1f0eb64058a",
+  "statement": "((360 : Int) * (20 : Int)) = (7200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_frontend_build_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

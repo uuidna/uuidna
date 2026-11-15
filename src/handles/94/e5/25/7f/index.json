@@ -1,0 +1,17 @@
+{
+  "handle": "94e5257f",
+  "address": "94e5257f-fc71-8661-a6b3-4c0d671fbb36",
+  "kind": "chunk",
+  "keys": [
+    "fam_hovercraft_skirtarea_1",
+    "fam_pilgrimage_groupsize_1",
+    "fam_screenwriting_scenecount_1",
+    "fam_sounddesign_cuepoints_1"
+  ],
+  "statement": "((40 : Int) * (1 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

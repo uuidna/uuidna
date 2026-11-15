@@ -1,0 +1,12 @@
+{
+  "handle": "3a8a0ddc",
+  "address": "3a8a0ddc-7624-8c8f-bb0f-abdfe082fdef",
+  "statement": "((8000 : Int) - (12000 : Int)) = (-4000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_demographics_growth_2"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

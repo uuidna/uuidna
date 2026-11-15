@@ -1,0 +1,12 @@
+{
+  "handle": "0858fb93",
+  "address": "0858fb93-e000-85a2-a740-e6119aa6115b",
+  "kind": "chunk",
+  "keys": [
+    "fam_bioindicator_biotic_1"
+  ],
+  "statement": "((350 : Int) / (50 : Int)) = (7 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f65a8b06",
+  "address": "f65a8b06-2792-8661-b866-98df45e897ad",
+  "statement": "(((((350 : Int) + (20 : Int)) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_navigation_heading_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

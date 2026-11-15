@@ -1,0 +1,12 @@
+{
+  "handle": "67ab6ff5",
+  "address": "67ab6ff5-f962-820d-83ee-a903e23fe8d4",
+  "statement": "(((5000 : Int) * (100 : Int)) / (100000 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_firmware_flashcycles_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

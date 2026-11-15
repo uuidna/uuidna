@@ -1,0 +1,12 @@
+{
+  "handle": "925af3b8",
+  "address": "925af3b8-32e3-8ebb-b25a-4c80c7347c2a",
+  "kind": "chunk",
+  "keys": [
+    "fam_staffing_allocation_1"
+  ],
+  "statement": "((10 : Int) * (40 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

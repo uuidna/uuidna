@@ -1,0 +1,12 @@
+{
+  "handle": "960501bb",
+  "address": "960501bb-979d-8786-b137-b665634710d2",
+  "statement": "((60 : Int) / (4 : Int)) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_weather_precipitation_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

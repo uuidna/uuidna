@@ -1,0 +1,12 @@
+{
+  "handle": "13610aaa",
+  "address": "13610aaa-49f9-8241-8689-e621cca43729",
+  "statement": "(fmax (0 : Int) ((100 : Int) - (144 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_typology_geneticdistance_2"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

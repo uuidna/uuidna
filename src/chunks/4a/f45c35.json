@@ -1,0 +1,12 @@
+{
+  "handle": "4af45c35",
+  "address": "4af45c35-becd-8c8c-8f90-bf3eed17d1f9",
+  "statement": "(if (if ((1 : Int) + (1 : Int)) ≥ (4 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_psych_insanity_2"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b7192231",
+  "address": "b7192231-d01c-8ede-8c8c-77b1850f63c2",
+  "statement": "(fmax (0 : Int) ((1600 : Int) - (200 : Int))) = (1400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ceramic_sinter_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

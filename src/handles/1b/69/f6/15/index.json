@@ -1,0 +1,12 @@
+{
+  "handle": "1b69f615",
+  "address": "1b69f615-6446-852c-acdd-0eb0121ecec8",
+  "kind": "chunk",
+  "keys": [
+    "fam_enrollment_yield_1"
+  ],
+  "statement": "(((600 : Int) * (100 : Int)) / (1500 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

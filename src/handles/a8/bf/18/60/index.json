@@ -1,0 +1,22 @@
+{
+  "handle": "a8bf1860",
+  "address": "a8bf1860-c4ad-84cc-a8e4-636a06f88707",
+  "kind": "chunk",
+  "keys": [
+    "fam_construction_crew_1",
+    "fam_delivery_density_1",
+    "fam_literacy_readinglevel_1",
+    "fam_merchandising_facings_1",
+    "fam_pipeline_throughput_1",
+    "fam_rail_headway_1"
+  ],
+  "statement": "((120 : Int) / (8 : Int)) = (15 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

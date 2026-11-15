@@ -1,0 +1,12 @@
+{
+  "handle": "53853cee",
+  "address": "53853cee-1426-813b-bc91-42f37f92150f",
+  "kind": "chunk",
+  "keys": [
+    "fam_taoism_chaptercount_1"
+  ],
+  "statement": "((81 : Int) * (1 : Int)) = (81 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

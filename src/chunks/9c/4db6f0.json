@@ -1,0 +1,12 @@
+{
+  "handle": "9c4db6f0",
+  "address": "9c4db6f0-7c24-82f6-8f3b-91af309a6269",
+  "statement": "(((2 : Int) * ((6 : Int) + (1 : Int))) / (2 : Int)) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dice_expectedsum_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

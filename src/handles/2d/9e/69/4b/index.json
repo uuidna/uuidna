@@ -1,0 +1,12 @@
+{
+  "handle": "2d9e694b",
+  "address": "2d9e694b-8f89-8965-8385-51d0ca9f4745",
+  "kind": "chunk",
+  "keys": [
+    "fam_luminosity_stefanboltzmann_1"
+  ],
+  "statement": "((3 : Int) * ((2 : Int) ^ (4 : Nat))) = (48 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

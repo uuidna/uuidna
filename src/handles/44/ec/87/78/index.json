@@ -1,0 +1,12 @@
+{
+  "handle": "44ec8778",
+  "address": "44ec8778-d1d5-8737-a052-3978337674e1",
+  "kind": "chunk",
+  "keys": [
+    "fam_coagulation_inr_1"
+  ],
+  "statement": "(((18 : Int) * (100 : Int)) / (12 : Int)) = (150 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

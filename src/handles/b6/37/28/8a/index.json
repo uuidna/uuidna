@@ -1,0 +1,12 @@
+{
+  "handle": "b637288a",
+  "address": "b637288a-f3cc-85e4-baf4-e24aef1cd3be",
+  "kind": "chunk",
+  "keys": [
+    "fam_electrocardiography_correctedqt_1"
+  ],
+  "statement": "(((360 : Int) * (1000 : Int)) / (900 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "702cf26b",
+  "address": "702cf26b-d063-8249-8115-094c5d92a135",
+  "statement": "(fmax (0 : Int) ((2000 : Int) - (5000 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cinematography_depthoffield_2",
+    "fam_valuation_bookvalue_2"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesV.lean"
+  ]
+}

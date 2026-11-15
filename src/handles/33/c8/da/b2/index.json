@@ -1,0 +1,12 @@
+{
+  "handle": "33c8dab2",
+  "address": "33c8dab2-0319-8322-8ba3-4c9012ccc21a",
+  "kind": "chunk",
+  "keys": [
+    "fam_precipitation_accumulation_1"
+  ],
+  "statement": "((12 : Int) * (6 : Int)) = (72 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

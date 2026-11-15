@@ -1,0 +1,12 @@
+{
+  "handle": "5f1586db",
+  "address": "5f1586db-fc8e-865c-8105-47cb06a0469d",
+  "statement": "((31 : Int) + (32 : Int)) = (63 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ophthalmology_pupildistance_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

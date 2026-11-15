@@ -1,0 +1,12 @@
+{
+  "handle": "71d957bc",
+  "address": "71d957bc-95ae-879d-a020-63616c87b258",
+  "statement": "(((40 : Int) * (60 : Int)) / (60 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_numeracy_factfluency_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

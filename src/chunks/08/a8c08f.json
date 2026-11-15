@@ -1,0 +1,16 @@
+{
+  "handle": "08a8c08f",
+  "address": "08a8c08f-1d6f-8132-9ead-0e22be78f982",
+  "statement": "(45 : Int) = (45 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_firewall_latency_1",
+    "fam_gaming_latency_1",
+    "fam_railway_dwell_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesR.lean"
+  ]
+}

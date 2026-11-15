@@ -1,0 +1,12 @@
+{
+  "handle": "c5d2792e",
+  "address": "c5d2792e-81aa-8271-9891-b29aa5faac02",
+  "statement": "((((100 : Int) - (30 : Int)) * (100 : Int)) / (100 : Int)) = (70 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bioavailability_oralfactor_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

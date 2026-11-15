@@ -1,0 +1,18 @@
+{
+  "handle": "653ce543",
+  "address": "653ce543-8d68-8604-be3a-cf8d0819d7b9",
+  "kind": "chunk",
+  "keys": [
+    "fam_agriculture_fertilizer_1",
+    "fam_editing_timeline_1",
+    "fam_harvest_ratescollected_1",
+    "fam_software_debt_1"
+  ],
+  "statement": "((40 : Int) * (150 : Int)) = (6000 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesE.lean",
+    "FamiliesH.lean",
+    "FamiliesS.lean"
+  ]
+}

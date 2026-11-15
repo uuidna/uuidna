@@ -1,0 +1,41 @@
+{
+  "handle": "c85bff5d",
+  "address": "c85bff5d-2319-81b7-a52a-923b8fa763e5",
+  "kind": "chunk",
+  "keys": [
+    "fam_bacteriology_biofilm_1",
+    "fam_catalyst_cycles_1",
+    "fam_cloud_storage_1",
+    "fam_collision_momentum_1",
+    "fam_distribution_routes_1",
+    "fam_embroidery_stitchcount_1",
+    "fam_etl_transformcost_1",
+    "fam_fluid_litres_1",
+    "fam_hosting_traffic_1",
+    "fam_hydrology_volume_1",
+    "fam_ledger_credits_1",
+    "fam_ledger_debits_1",
+    "fam_logging_storagecost_1",
+    "fam_phycology_biomass_1",
+    "fam_piston_force_1",
+    "fam_sixsigma_opportunities_1",
+    "fam_spicetrade_volumetons_1",
+    "fam_storage_capacity_1",
+    "fam_stratigraphy_subsidence_1",
+    "fam_structural_moment_1",
+    "fam_telemetry_cardinality_1"
+  ],
+  "statement": "((1000 : Int) * (5 : Int)) = (5000 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

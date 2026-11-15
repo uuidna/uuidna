@@ -1,0 +1,12 @@
+{
+  "handle": "a922984e",
+  "address": "a922984e-353d-8c1a-a854-0ade2b709b5f",
+  "kind": "chunk",
+  "keys": [
+    "fam_oxygenation_oxygencontent_1"
+  ],
+  "statement": "((15 : Int) * (97 : Int)) = (1455 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

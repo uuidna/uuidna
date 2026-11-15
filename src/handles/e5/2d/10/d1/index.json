@@ -1,0 +1,14 @@
+{
+  "handle": "e52d10d1",
+  "address": "e52d10d1-e1ef-8f4e-979d-3b29e4683836",
+  "kind": "chunk",
+  "keys": [
+    "fam_buffer_size_1",
+    "fam_compress_dictionarysize_1"
+  ],
+  "statement": "((2 : Int) ^ (12 : Nat)) = (4096 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean"
+  ]
+}

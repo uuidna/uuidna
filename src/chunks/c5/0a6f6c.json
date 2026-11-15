@@ -1,0 +1,16 @@
+{
+  "handle": "c50a6f6c",
+  "address": "c50a6f6c-1cc6-8df3-b2be-84bca0977e6a",
+  "statement": "(fmax (0 : Int) ((17 : Int) - (10 : Int))) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_enterprise_leadtime_1",
+    "fam_logistics_leadtime_1",
+    "fam_supplychain_leadtime_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesL.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bd678a59",
+  "address": "bd678a59-6949-816c-b03c-ae153ca93cbe",
+  "statement": "(-((-(100000 : Int)) / (40 : Int))) = (2500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_financial_breakeven_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

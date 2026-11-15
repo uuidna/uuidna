@@ -1,0 +1,12 @@
+{
+  "handle": "bf609aa6",
+  "address": "bf609aa6-5017-861f-a3bd-a64d6f11b9f2",
+  "statement": "((160 : Int) * (25 : Int)) = (4000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_employment_gross_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

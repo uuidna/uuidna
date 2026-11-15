@@ -1,0 +1,12 @@
+{
+  "handle": "901fb877",
+  "address": "901fb877-4e43-8795-9398-942b11b319b2",
+  "kind": "chunk",
+  "keys": [
+    "fam_security_severity_1"
+  ],
+  "statement": "(((90 : Int) * (8 : Int)) / (10 : Int)) = (72 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4442c830",
+  "address": "4442c830-d7be-8cc0-9b0e-ead25bd22b7d",
+  "kind": "chunk",
+  "keys": [
+    "fam_materials_yield_1"
+  ],
+  "statement": "(if (if (50 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "handle": "82d919bf",
+  "address": "82d919bf-cf43-820d-8e18-1f1d010f2cc9",
+  "kind": "chunk",
+  "keys": [
+    "fam_hydrology_drought_1",
+    "fam_journalism_inverted_1",
+    "fam_orthography_diacritics_1",
+    "fam_slotting_goldenzone_1"
+  ],
+  "statement": "(((40 : Int) * (100 : Int)) / (200 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesJ.lean",
+    "FamiliesO.lean",
+    "FamiliesS.lean"
+  ]
+}

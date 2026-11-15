@@ -1,0 +1,12 @@
+{
+  "handle": "8877d53a",
+  "address": "8877d53a-586a-8fbe-871e-eeae0e575e6a",
+  "kind": "chunk",
+  "keys": [
+    "fam_taxation_bracket_2"
+  ],
+  "statement": "(fmax (0 : Int) ((40000 : Int) - (50000 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

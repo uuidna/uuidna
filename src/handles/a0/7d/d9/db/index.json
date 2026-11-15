@@ -1,0 +1,12 @@
+{
+  "handle": "a07dd9db",
+  "address": "a07dd9db-fef8-8f92-b20e-8b8a0647eafc",
+  "kind": "chunk",
+  "keys": [
+    "fam_mortgage_dti_1"
+  ],
+  "statement": "(((2000 : Int) * (100 : Int)) / (5000 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

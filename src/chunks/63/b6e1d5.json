@@ -1,0 +1,12 @@
+{
+  "handle": "63b6e1d5",
+  "address": "63b6e1d5-1592-84f0-a1b3-e5c5445512d0",
+  "statement": "((1000 : Int) + ((200 : Int) * (12 : Int))) = (3400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_savings_futurevalue_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

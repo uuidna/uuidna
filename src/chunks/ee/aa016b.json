@@ -1,0 +1,12 @@
+{
+  "handle": "eeaa016b",
+  "address": "eeaa016b-37e8-8bbe-87d3-fee3a8328f44",
+  "statement": "(fmax (0 : Int) ((24 : Int) - (18 : Int))) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mixing_headroom_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

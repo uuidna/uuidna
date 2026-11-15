@@ -1,0 +1,14 @@
+{
+  "handle": "a8257a5b",
+  "address": "a8257a5b-6f59-8942-b994-5e2f14a18431",
+  "kind": "chunk",
+  "keys": [
+    "fam_climatology_degreeday_1",
+    "fam_dewpoint_depression_1"
+  ],
+  "statement": "(fmax (0 : Int) ((25 : Int) - (18 : Int))) = (7 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c765ae49",
+  "address": "c765ae49-41d2-86b9-9d95-e767089b5254",
+  "kind": "chunk",
+  "keys": [
+    "fam_soilscience_cationexchange_1"
+  ],
+  "statement": "((15 : Int) * (2 : Int)) = (30 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

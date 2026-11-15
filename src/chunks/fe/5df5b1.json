@@ -1,0 +1,12 @@
+{
+  "handle": "fe5df5b1",
+  "address": "fe5df5b1-4533-855b-a805-455233792244",
+  "statement": "(fmax (0 : Int) ((440 : Int) - (435 : Int))) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_interference_beatfrequency_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

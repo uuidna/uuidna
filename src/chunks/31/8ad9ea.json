@@ -1,0 +1,12 @@
+{
+  "handle": "318ad9ea",
+  "address": "318ad9ea-864d-8397-9a78-dca1ccb1570a",
+  "statement": "((70 : Int) * ((5 : Int) + (10 : Int))) = (1050 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_biomechanics_groundreaction_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

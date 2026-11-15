@@ -1,0 +1,12 @@
+{
+  "handle": "878d9acf",
+  "address": "878d9acf-7bba-8769-92c8-89803243f7ce",
+  "statement": "(if (if (5000 : Int) ≥ (10000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_kyc_aml_2"
+  ],
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

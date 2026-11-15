@@ -1,0 +1,17 @@
+{
+  "handle": "4727c491",
+  "address": "4727c491-03af-8d17-aa28-7686ef8bcb77",
+  "statement": "(((500 : Int) * (100 : Int)) / (10000 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_flightdynamics_climbgradient_1",
+    "fam_social_engagement_1",
+    "fam_social_growth_1",
+    "fam_yield_current_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesS.lean",
+    "FamiliesY.lean"
+  ]
+}

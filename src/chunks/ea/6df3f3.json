@@ -1,0 +1,12 @@
+{
+  "handle": "ea6df3f3",
+  "address": "ea6df3f3-a44a-806f-a689-a47ae3cba773",
+  "statement": "((((2 : Int) * (80 : Int)) * (60 : Int)) / ((80 : Int) + (60 : Int))) = (68 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_learning_f1_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

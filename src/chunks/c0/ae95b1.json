@@ -1,0 +1,12 @@
+{
+  "handle": "c0ae95b1",
+  "address": "c0ae95b1-6551-8071-a447-6b59355e05ac",
+  "statement": "((16000 : Int) / (2 : Int)) = (8000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_alloys_density_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

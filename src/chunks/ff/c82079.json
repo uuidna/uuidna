@@ -1,0 +1,14 @@
+{
+  "handle": "ffc82079",
+  "address": "ffc82079-2834-8fa5-bea7-4d00468b5a98",
+  "statement": "((400 : Int) / (8 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_jitter_meandeviation_1",
+    "fam_thermochemistry_heatcapacity_1"
+  ],
+  "files": [
+    "FamiliesJ.lean",
+    "FamiliesT.lean"
+  ]
+}

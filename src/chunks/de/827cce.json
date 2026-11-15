@@ -1,0 +1,12 @@
+{
+  "handle": "de827cce",
+  "address": "de827cce-a3d7-81b4-86b3-0f52ebef14e3",
+  "statement": "((1000 : Int) % (64 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_checksum_blocksremainder_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

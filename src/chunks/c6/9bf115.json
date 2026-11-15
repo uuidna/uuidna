@@ -1,0 +1,18 @@
+{
+  "handle": "c69bf115",
+  "address": "c69bf115-1803-8b4d-b39e-19694579459c",
+  "statement": "((10000 : Int) / (4 : Int)) = (2500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_advertising_reach_1",
+    "fam_cropyield_perhectare_1",
+    "fam_forging_dieload_1",
+    "fam_galactic_starcount_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean"
+  ]
+}

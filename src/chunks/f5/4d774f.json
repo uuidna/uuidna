@@ -1,0 +1,14 @@
+{
+  "handle": "f54d774f",
+  "address": "f54d774f-501b-8ea1-b0b4-0f9546290ecd",
+  "statement": "(fmax (0 : Int) ((30 : Int) - (5 : Int))) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_climatology_seasonality_1",
+    "fam_titration_endpoint_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesT.lean"
+  ]
+}

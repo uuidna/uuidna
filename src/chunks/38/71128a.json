@@ -1,0 +1,14 @@
+{
+  "handle": "3871128a",
+  "address": "3871128a-92f0-8812-bf89-00d770cc9a51",
+  "statement": "(((600 : Int) * (100 : Int)) / (800 : Int)) = (75 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_stratigraphy_compaction_1",
+    "fam_trucking_utilization_1"
+  ],
+  "files": [
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6edf8dca",
+  "address": "6edf8dca-ce14-8dd7-9f15-930d9c26fc84",
+  "kind": "chunk",
+  "keys": [
+    "fam_stellar_masslunminosity_1"
+  ],
+  "statement": "((4 : Int) ^ (3 : Nat)) = (64 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

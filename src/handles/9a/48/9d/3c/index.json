@@ -1,0 +1,14 @@
+{
+  "handle": "9a489d3c",
+  "address": "9a489d3c-ac17-8b6b-9c4b-e2421035f479",
+  "kind": "chunk",
+  "keys": [
+    "fam_climatology_anomaly_2",
+    "fam_photometry_colorindex_2"
+  ],
+  "statement": "(fmax (0 : Int) ((12 : Int) - (15 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesP.lean"
+  ]
+}

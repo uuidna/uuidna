@@ -1,0 +1,12 @@
+{
+  "handle": "cd7a1dd2",
+  "address": "cd7a1dd2-76be-84ad-9521-c72ff898f449",
+  "statement": "(((12 : Int) + (18 : Int)) + (15 : Int)) = (45 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gps_ttff_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

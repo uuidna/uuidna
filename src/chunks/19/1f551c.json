@@ -1,0 +1,12 @@
+{
+  "handle": "191f551c",
+  "address": "191f551c-560a-85c1-af3c-17858d429e55",
+  "statement": "(fmax (0 : Int) ((32 : Int) - (1 : Int))) = (31 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tree_nodes_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

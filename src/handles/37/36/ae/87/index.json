@@ -1,0 +1,12 @@
+{
+  "handle": "3736ae87",
+  "address": "3736ae87-41aa-825e-90c6-b4661dcadb78",
+  "kind": "chunk",
+  "keys": [
+    "fam_tax_deductions_1"
+  ],
+  "statement": "((12000 : Int) + (0 : Int)) = (12000 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "5694d408",
+  "address": "5694d408-5aa2-864c-b507-d9bd3314b4ff",
+  "statement": "((5 : Int) * (1 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nebula_lightyears_1",
+    "fam_pendulum_bobmass_1"
+  ],
+  "files": [
+    "FamiliesN.lean",
+    "FamiliesP.lean"
+  ]
+}

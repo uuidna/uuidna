@@ -1,0 +1,12 @@
+{
+  "handle": "56a3b6fb",
+  "address": "56a3b6fb-b9e9-8536-be05-efd35ab6c711",
+  "statement": "(if (if (30 : Int) ≥ (40 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_antitrust_dominance_2"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

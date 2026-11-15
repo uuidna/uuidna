@@ -1,0 +1,12 @@
+{
+  "handle": "a154b1e6",
+  "address": "a154b1e6-0c24-8b9a-8bec-2ab4695d162c",
+  "statement": "((1469 < 1602) ∧ (1674 - 1469 = 205)) ∧ ((129 > 8 * 15) ∧ (3 > 2))",
+  "tactic": "decide",
+  "keys": [
+    "the_same_arithmetic_answers_more_than_one_domain"
+  ],
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

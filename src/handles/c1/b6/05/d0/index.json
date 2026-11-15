@@ -1,0 +1,12 @@
+{
+  "handle": "c1b605d0",
+  "address": "c1b605d0-04bb-8b8b-8991-fb2b0ac75b4f",
+  "kind": "chunk",
+  "keys": [
+    "fam_tooling_feed_1"
+  ],
+  "statement": "((2000 : Int) * (2 : Int)) = (4000 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

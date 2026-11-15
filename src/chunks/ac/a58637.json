@@ -1,0 +1,20 @@
+{
+  "handle": "aca58637",
+  "address": "aca58637-300f-8ea8-832c-a8b6e6c7f2d4",
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (400 : Int))) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_enzymology_substrate_1",
+    "fam_logging_compressionsavings_1",
+    "fam_photochemistry_bleaching_1",
+    "fam_signaling_desensitization_1",
+    "fam_underwriting_reserve_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesU.lean"
+  ]
+}

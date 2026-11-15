@@ -1,0 +1,12 @@
+{
+  "handle": "1458338e",
+  "address": "1458338e-0e87-86a6-9110-070e356b58a1",
+  "kind": "chunk",
+  "keys": [
+    "fam_thermochemistry_gibbs_2"
+  ],
+  "statement": "(fmax (0 : Int) ((500 : Int) - ((300 : Int) * (2 : Int)))) = (0 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

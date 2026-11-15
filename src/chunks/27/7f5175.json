@@ -1,0 +1,12 @@
+{
+  "handle": "277f5175",
+  "address": "277f5175-036b-8c94-bb52-aeeb1b1e2fd2",
+  "statement": "(((200 : Int) * (100 : Int)) / ((3 : Int) + (1 : Int))) = (5000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_feed_score_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

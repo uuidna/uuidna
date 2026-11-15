@@ -1,0 +1,12 @@
+{
+  "handle": "9fd4c60f",
+  "address": "9fd4c60f-5102-8a12-aa07-40a0a638d0e6",
+  "statement": "(fmax (0 : Int) ((9 : Int) - (4 : Int))) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_volatility_range2_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

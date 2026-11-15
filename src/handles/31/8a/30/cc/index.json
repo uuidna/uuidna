@@ -1,0 +1,12 @@
+{
+  "handle": "318a30cc",
+  "address": "318a30cc-2666-878d-92ec-5c2f30dd7c80",
+  "kind": "chunk",
+  "keys": [
+    "fam_safety_incidentrate_1"
+  ],
+  "statement": "(((3 : Int) * (200000 : Int)) / (200000 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

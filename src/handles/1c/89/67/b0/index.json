@@ -1,0 +1,12 @@
+{
+  "handle": "1c8967b0",
+  "address": "1c8967b0-0b7f-87c4-b847-fa402914a870",
+  "kind": "chunk",
+  "keys": [
+    "fam_braking_distance_1"
+  ],
+  "statement": "(((30 : Int) ^ (2 : Nat)) / ((2 : Int) * (9 : Int))) = (50 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

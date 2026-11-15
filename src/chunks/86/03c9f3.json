@@ -1,0 +1,12 @@
+{
+  "handle": "8603c9f3",
+  "address": "8603c9f3-08b0-8f95-8e4d-8a1280325f29",
+  "statement": "(((10 : Int) - (2 : Int)) / (2 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_trigonometry_amplitude_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

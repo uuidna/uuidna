@@ -1,0 +1,12 @@
+{
+  "handle": "816d8dcd",
+  "address": "816d8dcd-830c-8031-9432-97295ecc4552",
+  "statement": "((35 : Int) * (2 : Int)) = (70 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cinematography_focallength_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "981eb41e",
+  "address": "981eb41e-1592-832f-8d3e-49ee076619de",
+  "kind": "chunk",
+  "keys": [
+    "fam_evidence_hearsay_2"
+  ],
+  "statement": "(if (if (1 : Int) > (0 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

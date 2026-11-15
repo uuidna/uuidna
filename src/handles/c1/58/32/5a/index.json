@@ -1,0 +1,12 @@
+{
+  "handle": "c158325a",
+  "address": "c158325a-7611-830e-b86a-11bb69624321",
+  "kind": "chunk",
+  "keys": [
+    "fam_sourcing_award_2"
+  ],
+  "statement": "(if (if (1600 : Int) ≤ (1500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

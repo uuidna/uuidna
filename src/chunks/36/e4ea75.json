@@ -1,0 +1,13 @@
+{
+  "handle": "36e4ea75",
+  "address": "36e4ea75-5ace-8169-b9f4-b94cf287b527",
+  "statement": "((90 : Int) / (10 : Int)) = (9 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_biophysics_binding_1",
+    "fam_bond_duration_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

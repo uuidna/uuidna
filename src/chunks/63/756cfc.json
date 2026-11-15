@@ -1,0 +1,12 @@
+{
+  "handle": "63756cfc",
+  "address": "63756cfc-160d-8ef0-be9d-20e1ea5744b6",
+  "statement": "((30 : Int) * (50 : Int)) = (1500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sentence_fine_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

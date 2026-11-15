@@ -1,0 +1,12 @@
+{
+  "handle": "280f2c9c",
+  "address": "280f2c9c-0af8-8275-9eb5-d498fc9da591",
+  "kind": "chunk",
+  "keys": [
+    "fam_orbit_semimajoraxis_1"
+  ],
+  "statement": "(((500 : Int) + (300 : Int)) / (2 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

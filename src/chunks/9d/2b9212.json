@@ -1,0 +1,12 @@
+{
+  "handle": "9d2b9212",
+  "address": "9d2b9212-0ae7-8592-8c61-4d35acd49fea",
+  "statement": "((40 : Int) * (60 : Int)) = (2400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_rail_tonnage_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

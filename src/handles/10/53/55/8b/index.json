@@ -1,0 +1,14 @@
+{
+  "handle": "1053558b",
+  "address": "1053558b-b23b-8589-8328-94b31e850355",
+  "kind": "chunk",
+  "keys": [
+    "fam_futures_basis_1",
+    "fam_kalman_innovation_1"
+  ],
+  "statement": "(fmax (0 : Int) ((110 : Int) - (100 : Int))) = (10 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesK.lean"
+  ]
+}

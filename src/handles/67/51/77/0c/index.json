@@ -1,0 +1,12 @@
+{
+  "handle": "6751770c",
+  "address": "6751770c-79c3-8e5a-be9f-05bb4ea4cabd",
+  "kind": "chunk",
+  "keys": [
+    "fam_distillation_volatility_1"
+  ],
+  "statement": "(((240 : Int) * (100 : Int)) / (100 : Int)) = (240 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

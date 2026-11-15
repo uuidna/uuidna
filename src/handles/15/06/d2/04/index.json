@@ -1,0 +1,14 @@
+{
+  "handle": "1506d204",
+  "address": "1506d204-1da3-8b91-9ada-68f778badf39",
+  "kind": "chunk",
+  "keys": [
+    "fam_linearalgebra_span_1",
+    "fam_vector_span_1"
+  ],
+  "statement": "(fmin (3 : Int) (5 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesV.lean"
+  ]
+}

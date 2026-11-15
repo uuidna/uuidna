@@ -1,0 +1,12 @@
+{
+  "handle": "0de8eeca",
+  "address": "0de8eeca-3f08-8058-9fb8-195d847fbce4",
+  "statement": "(fmax (0 : Int) ((40 : Int) - (440 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_electrocardiography_qtinterval_2"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

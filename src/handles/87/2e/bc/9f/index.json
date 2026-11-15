@@ -1,0 +1,14 @@
+{
+  "handle": "872ebc9f",
+  "address": "872ebc9f-e925-8ab9-9dd1-a12156d368f9",
+  "kind": "chunk",
+  "keys": [
+    "fam_pentomino_boardarea_1",
+    "fam_solid_prismvolume_1"
+  ],
+  "statement": "((6 : Int) * (10 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

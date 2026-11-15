@@ -1,0 +1,12 @@
+{
+  "handle": "c3653d1e",
+  "address": "c3653d1e-06cf-8e0e-896b-55c49e183107",
+  "statement": "(((1000 : Int) * ((150 : Int) - (100 : Int))) / (100 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_datacenter_coolingload_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

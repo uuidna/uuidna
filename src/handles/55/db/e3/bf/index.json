@@ -1,0 +1,12 @@
+{
+  "handle": "55dbe3bf",
+  "address": "55dbe3bf-c288-882b-83e6-01a517b86123",
+  "kind": "chunk",
+  "keys": [
+    "fam_chord_extensiondegree_1"
+  ],
+  "statement": "(((3 : Int) * (2 : Int)) + (1 : Int)) = (7 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

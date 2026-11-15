@@ -1,0 +1,12 @@
+{
+  "handle": "a5d89760",
+  "address": "a5d89760-72b3-82a3-b32c-fceedfaa2d28",
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (3000 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_filtering_passband_2"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

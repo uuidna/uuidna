@@ -1,0 +1,12 @@
+{
+  "handle": "79555f35",
+  "address": "79555f35-c0a3-8684-8b76-5ce7799ff399",
+  "kind": "chunk",
+  "keys": [
+    "fam_nutrition_fat_1"
+  ],
+  "statement": "((20 : Int) * (9 : Int)) = (180 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

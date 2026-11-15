@@ -1,0 +1,36 @@
+{
+  "handle": "5e1d0501",
+  "address": "5e1d0501-bdb3-8259-96ea-b80bb37c0f46",
+  "statement": "((1000 : Int) * (2 : Int)) = (2000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_actuarial_reserve_1",
+    "fam_antibody_titer_1",
+    "fam_aquaculture_biomass_1",
+    "fam_bandwidth_duplex_1",
+    "fam_datacenter_waterusage_1",
+    "fam_ledger_entries_1",
+    "fam_linehaul_costpermile_1",
+    "fam_logistics_cost_1",
+    "fam_lottery_ticketcost_1",
+    "fam_oligopoly_collusiongain_1",
+    "fam_onomastics_namecount_1",
+    "fam_piston_cycles_1",
+    "fam_smartgrid_nodes_1",
+    "fam_subsidy_multipliereffect_1",
+    "fam_text_bytes_1",
+    "fam_tls_sessions_1",
+    "fam_vaccination_dosesneeded_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesL.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean",
+    "FamiliesV.lean"
+  ]
+}

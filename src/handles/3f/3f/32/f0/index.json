@@ -1,0 +1,12 @@
+{
+  "handle": "3f3f32f0",
+  "address": "3f3f32f0-39e6-8f14-854d-7d689a8128ab",
+  "kind": "chunk",
+  "keys": [
+    "fam_canning_yield_1"
+  ],
+  "statement": "(((1000 : Int) * ((100 : Int) - (15 : Int))) / (100 : Int)) = (850 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

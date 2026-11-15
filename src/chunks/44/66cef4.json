@@ -1,0 +1,12 @@
+{
+  "handle": "4466cef4",
+  "address": "4466cef4-755c-8455-a296-20a87ab2d97d",
+  "statement": "((100000 : Int) / (25000 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_elections_apportionment_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

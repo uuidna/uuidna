@@ -1,0 +1,12 @@
+{
+  "handle": "b314cd18",
+  "address": "b314cd18-7adf-870a-8555-dd6ca762f20d",
+  "kind": "chunk",
+  "keys": [
+    "fam_rehabilitation_progress_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((50 : Int) - (20 : Int))) * (100 : Int)) / ((100 : Int) - (20 : Int))) = (37 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

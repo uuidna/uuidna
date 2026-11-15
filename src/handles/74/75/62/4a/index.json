@@ -1,0 +1,12 @@
+{
+  "handle": "7475624a",
+  "address": "7475624a-1deb-8acf-84ce-95f9f0f7ec4a",
+  "kind": "chunk",
+  "keys": [
+    "fam_payables_accrual_1"
+  ],
+  "statement": "((50 : Int) * (30 : Int)) = (1500 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

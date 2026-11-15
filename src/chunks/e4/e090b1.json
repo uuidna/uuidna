@@ -1,0 +1,24 @@
+{
+  "handle": "e4e090b1",
+  "address": "e4e090b1-a51a-88d8-be8f-40802909c7ea",
+  "statement": "((1000 : Int) * (1 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_airship_lift_1",
+    "fam_bond_facevalue_1",
+    "fam_glyphs_count_1",
+    "fam_helicopter_powerkw_1",
+    "fam_radar_pulses_1",
+    "fam_solar_irradiance_1",
+    "fam_solarpower_irradiance_1",
+    "fam_synapse_receptors_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

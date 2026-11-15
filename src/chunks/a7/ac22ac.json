@@ -1,0 +1,19 @@
+{
+  "handle": "a7ac22ac",
+  "address": "a7ac22ac-2e9b-8821-92ca-4564f10a1ae8",
+  "statement": "((5000 : Int) / (25 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_costing_breakeven_1",
+    "fam_grazing_carryingcapacity_1",
+    "fam_metallurgy_tensile_1",
+    "fam_toxicology_bioaccumulation_1",
+    "fam_tribology_contact_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesM.lean",
+    "FamiliesT.lean"
+  ]
+}

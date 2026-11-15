@@ -1,0 +1,12 @@
+{
+  "handle": "f0642cde",
+  "address": "f0642cde-176a-8b23-b494-7019ef749445",
+  "kind": "chunk",
+  "keys": [
+    "fam_curvature_totalcurvature_1"
+  ],
+  "statement": "((2 : Int) * (50 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "handle": "594c0dcc",
+  "address": "594c0dcc-4fb3-8692-a91a-8dae9bb52476",
+  "statement": "((2 : Int) * (3 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_axiology_intrinsicextrinsic_1",
+    "fam_causal_confounded_1",
+    "fam_ceramics_glaze_1",
+    "fam_color_hexdigits_1",
+    "fam_linearalgebra_outerproduct_1",
+    "fam_phenomenology_noesisnoema_1",
+    "fam_titration_normality_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

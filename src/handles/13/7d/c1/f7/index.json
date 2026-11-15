@@ -1,0 +1,14 @@
+{
+  "handle": "137dc1f7",
+  "address": "137dc1f7-4f57-810b-856e-9f3d308a104b",
+  "kind": "chunk",
+  "keys": [
+    "fam_hail_damagescale_1",
+    "fam_tornado_efscale_1"
+  ],
+  "statement": "(fmax (3 : Int) (5 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesT.lean"
+  ]
+}

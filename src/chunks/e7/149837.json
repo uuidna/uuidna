@@ -1,0 +1,12 @@
+{
+  "handle": "e7149837",
+  "address": "e7149837-7c2a-8d5c-b2c0-a27d8077bea9",
+  "statement": "((300 : Int) / (1 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hovercraft_clearance_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

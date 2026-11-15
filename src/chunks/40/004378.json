@@ -1,0 +1,28 @@
+{
+  "handle": "40004378",
+  "address": "40004378-544a-88e8-a3b7-31008ec64637",
+  "statement": "(((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bioinformatics_identity_1",
+    "fam_biometrics_liveness_1",
+    "fam_checksum_detectionrate_1",
+    "fam_curing_microbialreduction_1",
+    "fam_download_checksum_1",
+    "fam_nephrology_reabsorption_1",
+    "fam_observability_percentile_1",
+    "fam_plasma_ionization_1",
+    "fam_preservation_microbialreduction_1",
+    "fam_qsec_collisionresistance_1",
+    "fam_quantum_fidelity_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesN.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesQ.lean"
+  ]
+}

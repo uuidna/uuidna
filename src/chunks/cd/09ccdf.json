@@ -1,0 +1,12 @@
+{
+  "handle": "cd09ccdf",
+  "address": "cd09ccdf-aa38-854f-9f21-d309afb7877d",
+  "statement": "(fmax (0 : Int) ((300 : Int) - (150 : Int))) = (150 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_epidemiology_doubling_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

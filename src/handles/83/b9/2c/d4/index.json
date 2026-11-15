@@ -1,0 +1,12 @@
+{
+  "handle": "83b92cd4",
+  "address": "83b92cd4-2502-8733-a12b-15438ecce5d4",
+  "kind": "chunk",
+  "keys": [
+    "fam_datacenter_availability_1"
+  ],
+  "statement": "(((525000 : Int) * (100 : Int)) / (525600 : Int)) = (99 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

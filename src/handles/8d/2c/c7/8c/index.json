@@ -1,0 +1,12 @@
+{
+  "handle": "8d2cc78c",
+  "address": "8d2cc78c-39ea-852e-a27b-1857ab8ed930",
+  "kind": "chunk",
+  "keys": [
+    "fam_css_type_1"
+  ],
+  "statement": "(((16 : Int) * ((5 : Int) ^ (0 : Nat))) / ((4 : Int) ^ (0 : Nat))) = (16 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

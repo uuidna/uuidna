@@ -1,0 +1,12 @@
+{
+  "handle": "8c8f62af",
+  "address": "8c8f62af-89f7-8686-8568-c7dfa85a984c",
+  "statement": "(2197 : Int) = (2197 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_speleology_depth_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "handle": "01d5fd48",
+  "address": "01d5fd48-c2be-85bb-a460-006d159a42f5",
+  "kind": "chunk",
+  "keys": [
+    "fam_dataquality_consistency_1",
+    "fam_delivery_firstattempt_1",
+    "fam_forms_response_1"
+  ],
+  "statement": "(((880 : Int) * (100 : Int)) / (1000 : Int)) = (88 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesF.lean"
+  ]
+}

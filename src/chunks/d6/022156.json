@@ -1,0 +1,12 @@
+{
+  "handle": "d6022156",
+  "address": "d6022156-d077-8171-8a56-b7cbc09acb2d",
+  "statement": "(2048 : Int) = (2048 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_biometrics_templatesize_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

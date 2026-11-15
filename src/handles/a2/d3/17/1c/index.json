@@ -1,0 +1,12 @@
+{
+  "handle": "a2d3171c",
+  "address": "a2d3171c-28aa-8a0b-b505-5896e44708a5",
+  "kind": "chunk",
+  "keys": [
+    "fam_bayesian_evidence_1"
+  ],
+  "statement": "((300 : Int) + (100 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

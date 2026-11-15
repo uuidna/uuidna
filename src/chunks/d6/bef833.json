@@ -1,0 +1,12 @@
+{
+  "handle": "d6bef833",
+  "address": "d6bef833-e720-86be-b74f-6af89d17f55c",
+  "statement": "(((2 : Int) * (1000 : Int)) / (4 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_chemistry_concentration_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

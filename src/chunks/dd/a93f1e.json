@@ -1,0 +1,12 @@
+{
+  "handle": "dda93f1e",
+  "address": "dda93f1e-d43e-8316-8c9f-71f3662594da",
+  "statement": "(((20 : Int) + (40 : Int)) / (2 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_windchill_gustadjust_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

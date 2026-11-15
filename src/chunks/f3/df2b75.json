@@ -1,0 +1,12 @@
+{
+  "handle": "f3df2b75",
+  "address": "f3df2b75-19fe-84c7-b270-d7c3ab2dd001",
+  "statement": "(((40 : Int) * (90 : Int)) / (100 : Int)) = (36 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mixology_strength_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

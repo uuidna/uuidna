@@ -1,0 +1,12 @@
+{
+  "handle": "5cba82b0",
+  "address": "5cba82b0-ba67-8b24-b6f9-cac47e5d5dbb",
+  "kind": "chunk",
+  "keys": [
+    "fam_matrix_symmetricentries_1"
+  ],
+  "statement": "(((4 : Int) * ((4 : Int) + (1 : Int))) / (2 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

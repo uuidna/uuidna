@@ -1,0 +1,18 @@
+{
+  "handle": "b6398ed2",
+  "address": "b6398ed2-edcd-8482-bd58-c3ba60df006e",
+  "kind": "chunk",
+  "keys": [
+    "fam_canning_headspace_1",
+    "fam_dataquality_freshness_1",
+    "fam_enrollment_capacity_1",
+    "fam_glaciology_retreat_1"
+  ],
+  "statement": "(fmax (0 : Int) ((500 : Int) - (450 : Int))) = (50 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean"
+  ]
+}

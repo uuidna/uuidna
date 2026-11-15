@@ -1,0 +1,12 @@
+{
+  "handle": "533fcec0",
+  "address": "533fcec0-2478-8c6d-acd8-6b4e4582b891",
+  "kind": "chunk",
+  "keys": [
+    "fam_prevalence_pointprevalence_1"
+  ],
+  "statement": "(((50 : Int) * (100000 : Int)) / (20000 : Int)) = (250 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

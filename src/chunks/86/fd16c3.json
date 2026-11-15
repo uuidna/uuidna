@@ -1,0 +1,14 @@
+{
+  "handle": "86fd16c3",
+  "address": "86fd16c3-99b0-8fa0-b9c5-abb1f31f137d",
+  "statement": "(fmax (4 : Int) (5 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cyclone_category_1",
+    "fam_vulcanology_vei_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesV.lean"
+  ]
+}

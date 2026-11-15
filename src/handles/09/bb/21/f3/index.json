@@ -1,0 +1,12 @@
+{
+  "handle": "09bb21f3",
+  "address": "09bb21f3-0b04-8eeb-a90a-dfb2338d795f",
+  "kind": "chunk",
+  "keys": [
+    "fam_amortization_totalcost_1"
+  ],
+  "statement": "((1000 : Int) * (360 : Int)) = (360000 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

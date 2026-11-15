@@ -1,0 +1,14 @@
+{
+  "handle": "15137baf",
+  "address": "15137baf-3f15-8403-a880-7b85dc47ed35",
+  "kind": "chunk",
+  "keys": [
+    "fam_automation_errorrate_1",
+    "fam_email_optout_1"
+  ],
+  "statement": "(((3 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesE.lean"
+  ]
+}

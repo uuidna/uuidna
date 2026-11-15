@@ -1,0 +1,14 @@
+{
+  "handle": "dd68e901",
+  "address": "dd68e901-e88e-8982-af6f-12f5a763fc82",
+  "kind": "chunk",
+  "keys": [
+    "fam_electrostatics_dipole_1",
+    "fam_sentiment_intensity_1"
+  ],
+  "statement": "((7 : Int) * (9 : Int)) = (63 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesS.lean"
+  ]
+}

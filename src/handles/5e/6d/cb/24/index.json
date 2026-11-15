@@ -1,0 +1,14 @@
+{
+  "handle": "5e6dcb24",
+  "address": "5e6dcb24-6198-8a8f-8ab6-ec82a8bc7597",
+  "kind": "chunk",
+  "keys": [
+    "fam_alloys_composition_1",
+    "fam_ml_f1score_1"
+  ],
+  "statement": "(((88 : Int) * (100 : Int)) / (100 : Int)) = (88 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesM.lean"
+  ]
+}

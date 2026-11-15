@@ -1,0 +1,12 @@
+{
+  "handle": "18f55470",
+  "address": "18f55470-836e-8f1b-972b-89325689dfb7",
+  "kind": "chunk",
+  "keys": [
+    "fam_transit_span_1"
+  ],
+  "statement": "(fmax (0 : Int) ((23 : Int) - (5 : Int))) = (18 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

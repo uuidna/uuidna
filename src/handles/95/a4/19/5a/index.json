@@ -1,0 +1,14 @@
+{
+  "handle": "95a4195a",
+  "address": "95a4195a-edc3-858d-99c6-4fc0db24f2a9",
+  "kind": "chunk",
+  "keys": [
+    "fam_amplifiers_cmrr_1",
+    "fam_ecology_trophic_1"
+  ],
+  "statement": "((10000 : Int) / (10 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesE.lean"
+  ]
+}

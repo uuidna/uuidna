@@ -1,0 +1,12 @@
+{
+  "handle": "35521395",
+  "address": "35521395-d7df-817c-8451-fc87bb3af53b",
+  "statement": "((((2 : Int) * (80 : Int)) * (80 : Int)) / ((80 : Int) + (80 : Int))) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_search_f1_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

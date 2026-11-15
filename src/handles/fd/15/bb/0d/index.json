@@ -1,0 +1,12 @@
+{
+  "handle": "fd15bb0d",
+  "address": "fd15bb0d-5e6b-8bd4-83ae-07fc0d6c5f21",
+  "kind": "chunk",
+  "keys": [
+    "fam_forensic_points_2"
+  ],
+  "statement": "(if (if (8 : Int) ≥ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

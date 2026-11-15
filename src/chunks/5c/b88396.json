@@ -1,0 +1,12 @@
+{
+  "handle": "5cb88396",
+  "address": "5cb88396-1545-8e4f-88a8-05239fa7f393",
+  "statement": "(((161 : Int) * (100 : Int)) / (100 : Int)) = (161 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_malacology_spiralratio_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

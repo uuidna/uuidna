@@ -1,0 +1,12 @@
+{
+  "handle": "27163a4d",
+  "address": "27163a4d-f52b-8a89-acf8-584cfcb8ee3d",
+  "statement": "(1000000 : Int) = (1000000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_db_experiments_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

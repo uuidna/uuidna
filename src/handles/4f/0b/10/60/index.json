@@ -1,0 +1,16 @@
+{
+  "handle": "4f0b1060",
+  "address": "4f0b1060-e8d0-8a08-a6b1-5acb7914604d",
+  "kind": "chunk",
+  "keys": [
+    "fam_cartography_scale_1",
+    "fam_polymers_crosslink_1",
+    "fam_urbanism_populationdensity_1"
+  ],
+  "statement": "((50000 : Int) / (25 : Int)) = (2000 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesP.lean",
+    "FamiliesU.lean"
+  ]
+}

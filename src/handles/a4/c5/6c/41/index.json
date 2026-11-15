@@ -1,0 +1,16 @@
+{
+  "handle": "a4c56c41",
+  "address": "a4c56c41-e6a4-850e-910d-2412bf61c1a8",
+  "kind": "chunk",
+  "keys": [
+    "fam_conditioning_recovery_1",
+    "fam_drayage_waittime_1",
+    "fam_recovery_heartratedrop_1"
+  ],
+  "statement": "(fmax (0 : Int) ((180 : Int) - (120 : Int))) = (60 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "133e5085",
+  "address": "133e5085-2231-887b-997d-640d7a106f55",
+  "kind": "chunk",
+  "keys": [
+    "fam_interaction_responsetime_1",
+    "fam_tennis_servespeed_1"
+  ],
+  "statement": "(200 : Int) = (200 : Int)",
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesT.lean"
+  ]
+}

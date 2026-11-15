@@ -1,0 +1,36 @@
+{
+  "handle": "e31af3c1",
+  "address": "e31af3c1-e010-8ca9-8796-7f2628c53eed",
+  "statement": "((100 : Int) * (3 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_adhesive_coverage_1",
+    "fam_combustion_emissions_1",
+    "fam_corrosion_pits_1",
+    "fam_gear_torque_1",
+    "fam_grammar_rules_1",
+    "fam_heatindex_coolingload_1",
+    "fam_inflation_cpi_1",
+    "fam_loyalty_points_1",
+    "fam_mixing_gain_1",
+    "fam_mutation_substitutions_1",
+    "fam_photosynthesis_carbonfixation_1",
+    "fam_plasma_frequency_1",
+    "fam_recruitment_funnel_1",
+    "fam_rotation_torque_1",
+    "fam_spicetrade_priceindex_1",
+    "fam_stainedglass_cameleadlength_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

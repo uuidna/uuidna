@@ -1,0 +1,12 @@
+{
+  "handle": "7fb173c8",
+  "address": "7fb173c8-6076-8bdd-8bcf-b111c2ca6ce6",
+  "kind": "chunk",
+  "keys": [
+    "fam_lift_aspectratio_1"
+  ],
+  "statement": "(((30 : Int) * (30 : Int)) / (90 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

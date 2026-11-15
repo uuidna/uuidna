@@ -1,0 +1,12 @@
+{
+  "handle": "b5c559ed",
+  "address": "b5c559ed-c427-8782-bd25-1408ddee8610",
+  "statement": "(((12 : Int) * (100 : Int)) / (6 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_piezoelectric_capacitance_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

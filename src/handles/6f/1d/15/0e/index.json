@@ -1,0 +1,14 @@
+{
+  "handle": "6f1d150e",
+  "address": "6f1d150e-d883-860f-bda0-758f02807084",
+  "kind": "chunk",
+  "keys": [
+    "fam_insurance_subrogation_1",
+    "fam_payment_authorization_1"
+  ],
+  "statement": "(fmin (8000 : Int) (10000 : Int)) = (8000 : Int)",
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesP.lean"
+  ]
+}

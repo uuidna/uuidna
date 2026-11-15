@@ -1,0 +1,12 @@
+{
+  "handle": "38cdaee6",
+  "address": "38cdaee6-0fa0-8eec-9416-ea121cd238e6",
+  "statement": "(fmax (0 : Int) ((24 : Int) - (9 : Int))) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gps_elevationmask_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

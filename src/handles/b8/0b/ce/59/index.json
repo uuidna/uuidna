@@ -1,0 +1,12 @@
+{
+  "handle": "b80bce59",
+  "address": "b80bce59-1325-8ac2-a05f-51080c425807",
+  "kind": "chunk",
+  "keys": [
+    "fam_spirometry_peakflow_1"
+  ],
+  "statement": "((6000 : Int) / (10 : Int)) = (600 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

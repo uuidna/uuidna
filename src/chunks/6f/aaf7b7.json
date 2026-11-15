@@ -1,0 +1,12 @@
+{
+  "handle": "6faaf7b7",
+  "address": "6faaf7b7-8ccf-8898-a274-87f4bc2221ba",
+  "statement": "(((28 : Int) * (100 : Int)) / (25 : Int)) = (112 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_basketball_truepct_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

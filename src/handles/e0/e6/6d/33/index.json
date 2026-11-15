@@ -1,0 +1,12 @@
+{
+  "handle": "e0e66d33",
+  "address": "e0e66d33-14da-89ac-919b-c20b04295a14",
+  "kind": "chunk",
+  "keys": [
+    "fam_firmware_bootblocks_1"
+  ],
+  "statement": "((8192 : Int) / (4096 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

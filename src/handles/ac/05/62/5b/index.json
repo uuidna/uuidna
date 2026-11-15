@@ -1,0 +1,12 @@
+{
+  "handle": "ac05625b",
+  "address": "ac05625b-5a3a-852b-b505-e841208700eb",
+  "kind": "chunk",
+  "keys": [
+    "fam_sports_average_1"
+  ],
+  "statement": "((2500 : Int) / (100 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

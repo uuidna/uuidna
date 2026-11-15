@@ -1,0 +1,12 @@
+{
+  "handle": "5b4739e3",
+  "address": "5b4739e3-9541-8694-a98c-16bd6f4d62c2",
+  "kind": "chunk",
+  "keys": [
+    "fam_fpga_fmax_1"
+  ],
+  "statement": "((1000000 : Int) / (2000 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "handle": "8f2f54b3",
+  "address": "8f2f54b3-b231-8187-be4c-56d57617f933",
+  "statement": "(1 : Int) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_law_reviewed_2",
+    "fam_linearalgebra_orthogonal_1",
+    "fam_raid_parityoverhead_1"
+  ],
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesR.lean"
+  ]
+}

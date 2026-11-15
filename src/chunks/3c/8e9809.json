@@ -1,0 +1,12 @@
+{
+  "handle": "3c8e9809",
+  "address": "3c8e9809-109e-8dd1-a077-d9457ada72be",
+  "statement": "((80 : Int) - (30 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_electrochemistry_cellpotential_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

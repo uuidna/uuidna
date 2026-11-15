@@ -1,0 +1,12 @@
+{
+  "handle": "dfad31cf",
+  "address": "dfad31cf-be74-8210-a27c-ed9b16faf947",
+  "kind": "chunk",
+  "keys": [
+    "fam_securities_spread_1"
+  ],
+  "statement": "(fmax (0 : Int) ((101 : Int) - (99 : Int))) = (2 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "handle": "ba0d2895",
+  "address": "ba0d2895-303c-82e1-ae97-6c7dad143c62",
+  "kind": "chunk",
+  "keys": [
+    "fam_aquifer_rechargerate_1",
+    "fam_biomass_output_1",
+    "fam_bundle_entry_1",
+    "fam_immunology_cellcount_1",
+    "fam_storage_iops_1",
+    "fam_vibration_naturalfrequency_1"
+  ],
+  "statement": "((5000 : Int) / (10 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesI.lean",
+    "FamiliesS.lean",
+    "FamiliesV.lean"
+  ]
+}

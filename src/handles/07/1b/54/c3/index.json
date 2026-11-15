@@ -1,0 +1,14 @@
+{
+  "handle": "071b54c3",
+  "address": "071b54c3-e726-85b9-a6be-76bbbcc85f3f",
+  "kind": "chunk",
+  "keys": [
+    "fam_incident_blastradius_1",
+    "fam_physiology_tidal_1"
+  ],
+  "statement": "((12 : Int) * (500 : Int)) = (6000 : Int)",
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesP.lean"
+  ]
+}

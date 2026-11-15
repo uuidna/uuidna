@@ -1,0 +1,41 @@
+{
+  "handle": "11c18ade",
+  "address": "11c18ade-1cc3-8cf0-ab56-cf7102a3f3b3",
+  "statement": "((50 : Int) * (4 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_authorization_rolecount_1",
+    "fam_clustering_within_1",
+    "fam_dynamics_impulse_1",
+    "fam_emulsification_viscosity_1",
+    "fam_fracture_toughness_1",
+    "fam_gripper_gripforce_1",
+    "fam_hydroponics_reservoir_1",
+    "fam_motivation_incentive_1",
+    "fam_mycology_mycelium_1",
+    "fam_nutrition_carbs_1",
+    "fam_nutrition_protein_1",
+    "fam_projectile_range_1",
+    "fam_rotation_inertia_1",
+    "fam_silage_capacity_1",
+    "fam_staffing_headcount_1",
+    "fam_statics_moment_1",
+    "fam_tides_harmonic_1",
+    "fam_transport_capacity_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

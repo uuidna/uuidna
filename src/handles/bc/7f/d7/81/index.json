@@ -1,0 +1,14 @@
+{
+  "handle": "bc7fd781",
+  "address": "bc7fd781-0e65-8dc9-bc4a-e83a761c2b57",
+  "kind": "chunk",
+  "keys": [
+    "fam_synthesis_length_1",
+    "fam_teratology_criticalwindows_1"
+  ],
+  "statement": "((3 : Int) + (5 : Int)) = (8 : Int)",
+  "files": [
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

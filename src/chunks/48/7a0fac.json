@@ -1,0 +1,27 @@
+{
+  "handle": "487a0fac",
+  "address": "487a0fac-ade4-8429-9a86-b684e010d69d",
+  "statement": "((5 : Int) * (20 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_api_offset_1",
+    "fam_archaeology_stratum_1",
+    "fam_chemistry_dilution_1",
+    "fam_diffusion_flux_1",
+    "fam_fluiddynamics_flowrate_1",
+    "fam_kinematics_displacement_1",
+    "fam_merchandising_planogram_1",
+    "fam_pagination_pagerange_1",
+    "fam_relativity_momentum_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesF.lean",
+    "FamiliesK.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

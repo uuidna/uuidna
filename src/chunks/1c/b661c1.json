@@ -1,0 +1,12 @@
+{
+  "handle": "1cb661c1",
+  "address": "1cb661c1-8a60-840d-95e7-2594dab40111",
+  "statement": "((110 : Int) - (100 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_basketball_plusminus_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

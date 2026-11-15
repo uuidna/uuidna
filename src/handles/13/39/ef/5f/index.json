@@ -1,0 +1,12 @@
+{
+  "handle": "1339ef5f",
+  "address": "1339ef5f-14d4-82ce-9f91-f0e4d31f4ec3",
+  "kind": "chunk",
+  "keys": [
+    "fam_mysticism_numberpaths_1"
+  ],
+  "statement": "((Int.ofNat (ffact (Int.toNat (10 : Int)))) / (Int.ofNat (ffact (Int.toNat ((10 : Int) - (3 : Int)))))) = (720 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

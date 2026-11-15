@@ -1,0 +1,12 @@
+{
+  "handle": "2084a974",
+  "address": "2084a974-54ea-8119-a534-29c29bc9dd27",
+  "statement": "(if (if (30 : Int) > (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_incident_slaimpact_2"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

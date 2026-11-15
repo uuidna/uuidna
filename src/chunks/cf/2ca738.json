@@ -1,0 +1,12 @@
+{
+  "handle": "cf2ca738",
+  "address": "cf2ca738-1e35-8aa1-ba03-f903b98526f0",
+  "statement": "(((1000000 : Int) * (15 : Int)) / (100 : Int)) = (150000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_maritime_salvage_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

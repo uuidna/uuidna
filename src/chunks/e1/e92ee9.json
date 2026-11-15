@@ -1,0 +1,12 @@
+{
+  "handle": "e1e92ee9",
+  "address": "e1e92ee9-3719-8f01-8f3c-69370ab78620",
+  "statement": "((1 : Int) * (55 : Int)) = (55 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_microscopy_numericalaperture_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "e2705250",
+  "address": "e2705250-b9c2-8ba2-b441-a038b9d6cc57",
+  "statement": "(((50 : Int) * (10000 : Int)) / (10000 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_advertising_ctr_1",
+    "fam_biometrics_frr_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean"
+  ]
+}

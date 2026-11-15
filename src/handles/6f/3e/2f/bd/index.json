@@ -1,0 +1,12 @@
+{
+  "handle": "6f3e2fbd",
+  "address": "6f3e2fbd-c62e-8cb7-87b4-da7da0b78c91",
+  "kind": "chunk",
+  "keys": [
+    "fam_demographics_birthrate_1"
+  ],
+  "statement": "(((12000 : Int) * (1000 : Int)) / (1000000 : Int)) = (12 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "19991962",
+  "address": "19991962-8a67-8897-b284-2e5e721fe043",
+  "kind": "chunk",
+  "keys": [
+    "fam_treasury_cashflow_2"
+  ],
+  "statement": "((60 : Int) - (100 : Int)) = (-40 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

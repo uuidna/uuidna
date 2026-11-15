@@ -1,0 +1,14 @@
+{
+  "handle": "76ebe903",
+  "address": "76ebe903-dbb2-827b-86d8-d34acaeaba48",
+  "statement": "((10000 : Int) / (0 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_diffraction_slitspacing_2",
+    "fam_machining_toollife_2"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesM.lean"
+  ]
+}

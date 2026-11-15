@@ -1,0 +1,17 @@
+{
+  "handle": "537e8712",
+  "address": "537e8712-5cd2-8c14-85e3-58da735dcfa6",
+  "kind": "chunk",
+  "keys": [
+    "fam_assembly_cycle_1",
+    "fam_audiology_reverberation_1",
+    "fam_cinema_shots_1",
+    "fam_welding_travelspeed_1"
+  ],
+  "statement": "((600 : Int) / (120 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesW.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "24bc3d12",
+  "address": "24bc3d12-d169-80d0-bb0c-4f6fb5f082d8",
+  "kind": "chunk",
+  "keys": [
+    "fam_aviation_duty_1"
+  ],
+  "statement": "(if (if (12 : Int) ≤ (13 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

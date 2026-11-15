@@ -1,0 +1,14 @@
+{
+  "handle": "0914af8c",
+  "address": "0914af8c-7828-8e84-a354-6e16b7a9067f",
+  "statement": "(((1000000 : Int) * (10 : Int)) / (100 : Int)) = (100000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_antitrust_fine_1",
+    "fam_banking_reserve_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean"
+  ]
+}

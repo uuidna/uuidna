@@ -1,0 +1,12 @@
+{
+  "handle": "c928db24",
+  "address": "c928db24-f138-82c9-9223-2f2a18275a12",
+  "statement": "(fmax (0 : Int) ((120000 : Int) - (110000 : Int))) = (10000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_budget_surplus_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

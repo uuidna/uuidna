@@ -1,0 +1,12 @@
+{
+  "handle": "5ebfcae6",
+  "address": "5ebfcae6-52cf-8985-aec6-03777836f642",
+  "statement": "(-((-(1200 : Int)) / (800 : Int))) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hvac_ducting_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

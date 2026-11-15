@@ -1,0 +1,31 @@
+{
+  "handle": "47b96381",
+  "address": "47b96381-4d58-80d1-98ff-896e55b24ec0",
+  "statement": "(fmax (0 : Int) ((100 : Int) - (20 : Int))) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_airship_buoyancymargin_1",
+    "fam_ballet_balancemargin_1",
+    "fam_comparison_spread_1",
+    "fam_fluid_head_1",
+    "fam_gripper_strokewidth_1",
+    "fam_opera_dynamicspan_1",
+    "fam_pump_head_1",
+    "fam_smartgrid_stabilitymargin_1",
+    "fam_synapse_plasticity_1",
+    "fam_vector_norm_1",
+    "fam_workspace_reachradius_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesV.lean",
+    "FamiliesW.lean"
+  ]
+}

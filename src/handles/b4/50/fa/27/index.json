@@ -1,0 +1,35 @@
+{
+  "handle": "b450fa27",
+  "address": "b450fa27-5245-8f5d-b3c2-e7e380ca4cce",
+  "kind": "chunk",
+  "keys": [
+    "fam_botany_leafarea_1",
+    "fam_chronology_synchronisms_1",
+    "fam_criticalchain_chainlength_1",
+    "fam_curriculum_workload_1",
+    "fam_drag_frontalarea_1",
+    "fam_folklore_performercount_1",
+    "fam_formant_resonancepeak_1",
+    "fam_hosting_dns_1",
+    "fam_marination_flavorload_1",
+    "fam_metabolomics_flux_1",
+    "fam_mythography_diffusionlinks_1",
+    "fam_onboarding_mentoring_1",
+    "fam_pentomino_cells_1",
+    "fam_robotics_cycle_1",
+    "fam_software_defects_1"
+  ],
+  "statement": "((12 : Int) * (5 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

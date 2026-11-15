@@ -1,0 +1,12 @@
+{
+  "handle": "a3ced934",
+  "address": "a3ced934-a482-861a-88d2-c0b9b4540a15",
+  "kind": "chunk",
+  "keys": [
+    "fam_athletics_vo2max_1"
+  ],
+  "statement": "(((12 : Int) * (1000 : Int)) / (30 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

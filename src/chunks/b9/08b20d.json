@@ -1,0 +1,14 @@
+{
+  "handle": "b908b20d",
+  "address": "b908b20d-0d27-8193-a4ed-69253bd733a4",
+  "statement": "((((-90 : Int) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (270 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cartography_bearing_2",
+    "fam_dance_rotation_2"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean"
+  ]
+}

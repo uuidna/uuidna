@@ -1,0 +1,12 @@
+{
+  "handle": "77130444",
+  "address": "77130444-d915-8116-95b4-a9001a1aae5b",
+  "kind": "chunk",
+  "keys": [
+    "fam_embedding_tablesize_1"
+  ],
+  "statement": "((1000 : Int) * (768 : Int)) = (768000 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

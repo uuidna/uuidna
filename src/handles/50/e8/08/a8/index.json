@@ -1,0 +1,12 @@
+{
+  "handle": "50e808a8",
+  "address": "50e808a8-4aca-824f-bfde-1242ccbeb226",
+  "kind": "chunk",
+  "keys": [
+    "fam_cardiology_output_1"
+  ],
+  "statement": "((70 : Int) * (72 : Int)) = (5040 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "handle": "9e72e809",
+  "address": "9e72e809-eb10-8869-bc8b-f36ad1db30a6",
+  "kind": "chunk",
+  "keys": [
+    "fam_inflation_basketitems_1",
+    "fam_piston_stroke_1",
+    "fam_torsion_modulus_1"
+  ],
+  "statement": "((80 : Int) * (1 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

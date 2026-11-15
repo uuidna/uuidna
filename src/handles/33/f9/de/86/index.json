@@ -1,0 +1,14 @@
+{
+  "handle": "33f9de86",
+  "address": "33f9de86-a2d1-8439-bb01-9d8dfe02aa09",
+  "kind": "chunk",
+  "keys": [
+    "fam_nursing_workload_1",
+    "fam_surgery_throughput_1"
+  ],
+  "statement": "((12 : Int) / (8 : Int)) = (1 : Int)",
+  "files": [
+    "FamiliesN.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "84a62175",
+  "address": "84a62175-5698-82f7-843b-33ce95651e38",
+  "statement": "((50 : Int) * (40 : Int)) = (2000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sedimentology_sedimentload_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

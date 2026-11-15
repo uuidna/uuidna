@@ -1,0 +1,12 @@
+{
+  "handle": "aef20b12",
+  "address": "aef20b12-b465-844f-826a-98e3e7cc9df1",
+  "kind": "chunk",
+  "keys": [
+    "fam_formant_f1f2ratio_1"
+  ],
+  "statement": "(((1500 : Int) * (100 : Int)) / (500 : Int)) = (300 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

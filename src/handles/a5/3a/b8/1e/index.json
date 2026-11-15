@@ -1,0 +1,12 @@
+{
+  "handle": "a53ab81e",
+  "address": "a53ab81e-df7c-895e-bdff-4e2237b8e11f",
+  "kind": "chunk",
+  "keys": [
+    "fam_eclipse_duration_1"
+  ],
+  "statement": "((450 : Int) / (60 : Int)) = (7 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

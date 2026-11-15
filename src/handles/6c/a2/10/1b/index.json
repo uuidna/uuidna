@@ -1,0 +1,19 @@
+{
+  "handle": "6ca2101b",
+  "address": "6ca2101b-e6cf-8a94-9fce-fe5c4ea67b92",
+  "kind": "chunk",
+  "keys": [
+    "fam_auction_premium_1",
+    "fam_dosage_maintenance_1",
+    "fam_premium_expense_1",
+    "fam_promotion_discount_1",
+    "fam_waypoint_fuelburn_1"
+  ],
+  "statement": "(((1000 : Int) * (25 : Int)) / (100 : Int)) = (250 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesD.lean",
+    "FamiliesP.lean",
+    "FamiliesW.lean"
+  ]
+}

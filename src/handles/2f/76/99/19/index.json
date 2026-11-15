@@ -1,0 +1,17 @@
+{
+  "handle": "2f769919",
+  "address": "2f769919-1b52-8dd1-9e7a-f333dfecd1f4",
+  "kind": "chunk",
+  "keys": [
+    "fam_cytogenetics_banding_1",
+    "fam_gematria_valuesum_1",
+    "fam_satellite_altitude_1",
+    "fam_spaceflight_apogee_1"
+  ],
+  "statement": "((400 : Int) * (1 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesS.lean"
+  ]
+}

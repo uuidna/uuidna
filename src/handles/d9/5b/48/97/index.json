@@ -1,0 +1,12 @@
+{
+  "handle": "d95b4897",
+  "address": "d95b4897-eedc-8484-8f9d-a442d2a9e3d0",
+  "kind": "chunk",
+  "keys": [
+    "fam_paleontology_age_1"
+  ],
+  "statement": "((2 : Int) * (5730 : Int)) = (11460 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

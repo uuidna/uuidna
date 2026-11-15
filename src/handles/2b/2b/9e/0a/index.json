@@ -1,0 +1,12 @@
+{
+  "handle": "2b2b9e0a",
+  "address": "2b2b9e0a-568a-8bff-b495-f891dd71a5d7",
+  "kind": "chunk",
+  "keys": [
+    "fam_media_caption_2"
+  ],
+  "statement": "(if (if (200 : Int) ≤ (120 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

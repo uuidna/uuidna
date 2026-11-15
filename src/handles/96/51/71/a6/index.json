@@ -1,0 +1,14 @@
+{
+  "handle": "965171a6",
+  "address": "965171a6-17bc-8335-8b05-2d2f83ae1f9b",
+  "kind": "chunk",
+  "keys": [
+    "fam_epidemiology_herd_1",
+    "fam_outbreak_herdimmunity_1"
+  ],
+  "statement": "((((4 : Int) - (1 : Int)) * (100 : Int)) / (4 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesO.lean"
+  ]
+}

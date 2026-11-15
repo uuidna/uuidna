@@ -1,0 +1,12 @@
+{
+  "handle": "c73d2197",
+  "address": "c73d2197-e07a-8daa-8227-c7729e5c755a",
+  "statement": "(((35 : Int) * (554 : Int)) / (1000 : Int)) = (19 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_salinity_chlorinity_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

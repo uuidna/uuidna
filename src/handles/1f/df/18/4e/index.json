@@ -1,0 +1,12 @@
+{
+  "handle": "1fdf184e",
+  "address": "1fdf184e-c882-8718-8688-d2a5e6900cec",
+  "kind": "chunk",
+  "keys": [
+    "fam_aviation_delay_1"
+  ],
+  "statement": "(fmax (0 : Int) ((780 : Int) - (600 : Int))) = (180 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

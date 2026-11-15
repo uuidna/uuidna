@@ -1,0 +1,12 @@
+{
+  "handle": "e187822f",
+  "address": "e187822f-1743-8cc2-81b3-60dd60c746ca",
+  "kind": "chunk",
+  "keys": [
+    "fam_payment_fx_1"
+  ],
+  "statement": "(((10000 : Int) * (10850 : Int)) / (10000 : Int)) = (10850 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

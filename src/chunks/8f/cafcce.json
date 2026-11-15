@@ -1,0 +1,12 @@
+{
+  "handle": "8fcafcce",
+  "address": "8fcafcce-a901-8faf-86f6-8f60af8e06e0",
+  "statement": "((7 : Int) * (13 : Int)) = (91 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_prime_product_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

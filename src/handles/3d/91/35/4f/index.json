@@ -1,0 +1,12 @@
+{
+  "handle": "3d91354f",
+  "address": "3d91354f-43be-8666-b1d0-5f787015e969",
+  "kind": "chunk",
+  "keys": [
+    "fam_livestock_stocking_1"
+  ],
+  "statement": "((100 : Int) / (40 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

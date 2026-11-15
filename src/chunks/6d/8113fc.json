@@ -1,0 +1,14 @@
+{
+  "handle": "6d8113fc",
+  "address": "6d8113fc-7e6d-8b92-8c7a-d99b161df9b6",
+  "statement": "(((120 : Int) * (100 : Int)) / (1000 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_customer_upsell_1",
+    "fam_forms_conversion_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesF.lean"
+  ]
+}

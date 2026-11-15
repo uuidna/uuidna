@@ -1,0 +1,12 @@
+{
+  "handle": "83f9b5eb",
+  "address": "83f9b5eb-f528-89df-b710-13e492810420",
+  "statement": "(((12 : Int) * (100 : Int)) / (300 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bilingualism_interferencerate_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

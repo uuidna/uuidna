@@ -1,0 +1,19 @@
+{
+  "handle": "ba0f16e4",
+  "address": "ba0f16e4-ee1c-85d3-8bdf-b5fc4635ef36",
+  "statement": "((700 : Int) * (1 : Int)) = (700 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cogeneration_heatoutput_1",
+    "fam_fuelcell_powerdensity_1",
+    "fam_hieroglyphs_signs_1",
+    "fam_hinduism_versesum_1",
+    "fam_submarine_crushdepth_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesS.lean"
+  ]
+}

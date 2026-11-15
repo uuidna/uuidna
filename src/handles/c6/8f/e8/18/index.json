@@ -1,0 +1,12 @@
+{
+  "handle": "c68fe818",
+  "address": "c68fe818-4e60-8679-a0d0-fe84832a9d20",
+  "kind": "chunk",
+  "keys": [
+    "fam_replication_lag_1"
+  ],
+  "statement": "(-((-(1000 : Int)) / (50 : Int))) = (20 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

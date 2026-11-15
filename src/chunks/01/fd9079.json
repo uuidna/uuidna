@@ -1,0 +1,12 @@
+{
+  "handle": "01fd9079",
+  "address": "01fd9079-e8bf-83b2-9def-bc5ee5f0142b",
+  "statement": "(114 : Int) = (114 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_canon_suras_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

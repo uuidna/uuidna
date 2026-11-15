@@ -1,0 +1,12 @@
+{
+  "handle": "6b4876ab",
+  "address": "6b4876ab-e75f-81ac-9ea7-2ed507096d37",
+  "statement": "((15 : Int) + (0 : Int)) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_backgammon_checkers_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a3ffa1b5",
+  "address": "a3ffa1b5-a8ee-80d3-a7c6-ddc1d98cea95",
+  "statement": "(205 : Int) = (205 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_roasting_charge_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

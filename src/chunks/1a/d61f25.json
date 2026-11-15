@@ -1,0 +1,13 @@
+{
+  "handle": "1ad61f25",
+  "address": "1ad61f25-f7b9-8c81-b542-b1f3a93dd821",
+  "statement": "((64 : Int) * (1024 : Int)) = (65536 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_socket_buffers_1",
+    "fam_stream_windows_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

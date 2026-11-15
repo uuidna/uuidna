@@ -1,0 +1,12 @@
+{
+  "handle": "c45d7ebf",
+  "address": "c45d7ebf-dc5e-838e-8450-a42e18e3760c",
+  "statement": "((12000 : Int) / (120 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pacing_speed_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

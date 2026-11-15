@@ -1,0 +1,14 @@
+{
+  "handle": "906fa5bc",
+  "address": "906fa5bc-b928-87b4-9cea-754b07193a1d",
+  "statement": "((480 : Int) / (4 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dance_tempo_1",
+    "fam_prosody_tempo_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesP.lean"
+  ]
+}

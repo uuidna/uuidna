@@ -1,0 +1,12 @@
+{
+  "handle": "b28ab96e",
+  "address": "b28ab96e-ca47-862c-9d34-ffe30ba3b30c",
+  "statement": "(if (if (10 : Int) ≥ (4 : Int) then (1 : Int) else 0) ≠ 0 then ((10 : Int) - (4 : Int)) else ((10 : Int) / (5 : Int))) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_activation_leakyrelu_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

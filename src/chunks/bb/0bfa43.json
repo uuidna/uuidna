@@ -1,0 +1,12 @@
+{
+  "handle": "bb0bfa43",
+  "address": "bb0bfa43-5c96-8cb4-9182-b49238dcee5e",
+  "statement": "(((30 : Int) * (10 : Int)) / (10 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_knitting_courses_1"
+  ],
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

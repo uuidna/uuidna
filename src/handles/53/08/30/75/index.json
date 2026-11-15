@@ -1,0 +1,12 @@
+{
+  "handle": "53083075",
+  "address": "53083075-a5f8-8e35-b02c-f6cc15897029",
+  "kind": "chunk",
+  "keys": [
+    "fam_straingauge_sensitivity_1"
+  ],
+  "statement": "(((10 : Int) * (1000 : Int)) / (5000 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

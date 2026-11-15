@@ -1,0 +1,12 @@
+{
+  "handle": "09cdd047",
+  "address": "09cdd047-1bc9-8a09-ba0c-316604957dfe",
+  "kind": "chunk",
+  "keys": [
+    "fam_firmware_sectors_1"
+  ],
+  "statement": "((1024 : Int) / (512 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

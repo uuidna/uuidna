@@ -1,0 +1,12 @@
+{
+  "handle": "ba15e732",
+  "address": "ba15e732-01b6-8758-84b0-9b9697869645",
+  "statement": "(((178 : Int) * (100 : Int)) / (100 : Int)) = (178 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_storyboarding_aspectratio_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

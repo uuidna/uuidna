@@ -1,0 +1,12 @@
+{
+  "handle": "a0f77d37",
+  "address": "a0f77d37-1664-89f7-8cba-bfc3392d1588",
+  "statement": "((45 : Int) * (1 : Int)) = (45 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nuclearpower_fuelburnup_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

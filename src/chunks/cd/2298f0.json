@@ -1,0 +1,12 @@
+{
+  "handle": "cd2298f0",
+  "address": "cd2298f0-6add-8c34-b205-dfe84852822f",
+  "statement": "(if (if (14 : Int) ≥ (13 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_collide_threshold_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

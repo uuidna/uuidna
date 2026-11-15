@@ -1,0 +1,12 @@
+{
+  "handle": "2ae44ec6",
+  "address": "2ae44ec6-58bb-824e-80ad-118c6a9c42d7",
+  "kind": "chunk",
+  "keys": [
+    "fam_aviation_separation_1"
+  ],
+  "statement": "(if (if (1000 : Int) ≥ (500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

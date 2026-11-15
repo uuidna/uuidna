@@ -1,0 +1,12 @@
+{
+  "handle": "737d6e66",
+  "address": "737d6e66-4459-8f44-8cfb-808bf472338f",
+  "kind": "chunk",
+  "keys": [
+    "fam_mortgage_interestportion_1"
+  ],
+  "statement": "(((50000 : Int) * (6 : Int)) / (1200 : Int)) = (250 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

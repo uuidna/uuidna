@@ -1,0 +1,34 @@
+{
+  "handle": "e81c733c",
+  "address": "e81c733c-ff4a-87f4-958c-4562ca8cc607",
+  "statement": "((1000 : Int) / (40 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_backlog_cycletime_1",
+    "fam_costing_unitcost_1",
+    "fam_emissions_intensity_1",
+    "fam_gis_resolution_1",
+    "fam_horticulture_spacing_1",
+    "fam_husbandry_spaceallowance_1",
+    "fam_lastmile_costperstop_1",
+    "fam_logistics_capacity_1",
+    "fam_performance_productivity_1",
+    "fam_pharmacology_clearance_1",
+    "fam_plasma_temperature_1",
+    "fam_sampling_cluster_1",
+    "fam_telecom_capacity_1",
+    "fam_zoology_fecundity_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean",
+    "FamiliesZ.lean"
+  ]
+}

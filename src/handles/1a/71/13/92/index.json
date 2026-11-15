@@ -1,0 +1,12 @@
+{
+  "handle": "1a711392",
+  "address": "1a711392-bbc6-8a84-933c-4b6fd082a490",
+  "kind": "chunk",
+  "keys": [
+    "fam_ngram_conditionalcount_1"
+  ],
+  "statement": "(fmax (0 : Int) ((100 : Int) - (1 : Int))) = (99 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

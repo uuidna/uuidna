@@ -1,0 +1,12 @@
+{
+  "handle": "f00a97e1",
+  "address": "f00a97e1-6796-8047-8f3b-0b5e3bb04f33",
+  "kind": "chunk",
+  "keys": [
+    "fam_salinity_conductivity_1"
+  ],
+  "statement": "((35 : Int) * (10 : Int)) = (350 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1f5ab46e",
+  "address": "1f5ab46e-98ab-82a8-a6f3-8ba94cbea1bf",
+  "statement": "((1800 : Int) / (20 : Int)) = (90 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_physiology_gfr_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "432afbdd",
+  "address": "432afbdd-dda0-81fd-9dd0-4779562dfe87",
+  "statement": "(((12 : Int) * (100 : Int)) / (30 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_diplomacy_alliance_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

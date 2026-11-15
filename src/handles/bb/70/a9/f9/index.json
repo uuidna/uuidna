@@ -1,0 +1,12 @@
+{
+  "handle": "bb70a9f9",
+  "address": "bb70a9f9-52de-878e-a3fd-e61be1fd3b15",
+  "kind": "chunk",
+  "keys": [
+    "fam_family_majority_2"
+  ],
+  "statement": "(if (if (150 : Int) ≥ (183 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

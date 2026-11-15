@@ -1,0 +1,12 @@
+{
+  "handle": "689fb1a0",
+  "address": "689fb1a0-f5b0-8a71-be15-71cafff7e061",
+  "kind": "chunk",
+  "keys": [
+    "fam_cpu_pipeline_1"
+  ],
+  "statement": "(((5 : Int) + (10 : Int)) - (1 : Int)) = (14 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

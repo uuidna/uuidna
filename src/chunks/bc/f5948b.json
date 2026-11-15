@@ -1,0 +1,12 @@
+{
+  "handle": "bcf5948b",
+  "address": "bcf5948b-928d-8eaf-87c4-ef131ca56c99",
+  "statement": "(((1 : Int) * (100 : Int)) / (2 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_epigenetics_imprinting_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d5622acd",
+  "address": "d5622acd-cc81-8709-9854-e8c020052005",
+  "statement": "(fmax (0 : Int) ((50 : Int) - (1 : Int))) = (49 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_editing_cuts_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

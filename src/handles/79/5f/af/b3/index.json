@@ -1,0 +1,12 @@
+{
+  "handle": "795fafb3",
+  "address": "795fafb3-d628-8726-a059-1f68afb8c0e3",
+  "kind": "chunk",
+  "keys": [
+    "fam_pomology_caliper_1"
+  ],
+  "statement": "((700 : Int) / (10 : Int)) = (70 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

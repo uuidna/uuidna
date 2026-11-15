@@ -1,0 +1,12 @@
+{
+  "handle": "f0c59131",
+  "address": "f0c59131-c3b1-8fb7-b8df-0d40debed77c",
+  "statement": "((2000 : Int) / (500 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_trucking_costpermile_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

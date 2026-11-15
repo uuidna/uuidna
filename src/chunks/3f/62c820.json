@@ -1,0 +1,12 @@
+{
+  "handle": "3f62c820",
+  "address": "3f62c820-7f9a-8e0c-857e-d62d7b3a5d5b",
+  "statement": "(((2000 : Int) * (100 : Int)) / (1000 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_solvency_leverage_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

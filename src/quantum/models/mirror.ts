@@ -521,7 +521,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
    "contextTokens": 1048576,
    "promptPrice": "0.000000036",
-   "completionPrice": "0.000000319"
+   "completionPrice": "0.000000321"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash:batch",
@@ -1353,7 +1353,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k2.7-code",
    "name": "MoonshotAI: Kimi K2.7 Code",
    "contextTokens": 262144,
-   "promptPrice": "0.0000006",
+   "promptPrice": "0.0000007125",
    "completionPrice": "0.0000035"
   },
   {
@@ -2494,8 +2494,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-9b",
    "name": "Qwen: Qwen3.5-9B",
    "contextTokens": 262144,
-   "promptPrice": "0.000000084",
-   "completionPrice": "0.000000123"
+   "promptPrice": "0.000000032",
+   "completionPrice": "0.000000047"
   },
   {
    "id": "qwen/qwen3.5-flash-02-23",

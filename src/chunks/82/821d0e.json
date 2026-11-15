@@ -1,0 +1,12 @@
+{
+  "handle": "82821d0e",
+  "address": "82821d0e-c375-8bde-8a71-8bc2add027b4",
+  "statement": "((50 : Int) + (0 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_scrabble_bingobonus_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "31f891aa",
+  "address": "31f891aa-2db2-81e2-a151-d23221b290e3",
+  "statement": "((72 : Int) + (3 : Int)) = (75 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pasteurization_temperature_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

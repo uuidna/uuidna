@@ -1,0 +1,18 @@
+{
+  "handle": "aec19c91",
+  "address": "aec19c91-e601-80f8-9718-35e4cd4c3f99",
+  "statement": "((500 : Int) / (25 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_linguistics_readability_1",
+    "fam_microeconomics_marginal_1",
+    "fam_transport_fuel_1",
+    "fam_urology_flowrate_1"
+  ],
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesT.lean",
+    "FamiliesU.lean"
+  ]
+}

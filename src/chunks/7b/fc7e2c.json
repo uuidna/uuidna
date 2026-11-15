@@ -1,0 +1,12 @@
+{
+  "handle": "7bfc7e2c",
+  "address": "7bfc7e2c-5c0d-8a75-9b17-7df287e38d2e",
+  "statement": "(fmax (0 : Int) ((140 : Int) - (40 : Int))) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_electrocardiography_qrsduration_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

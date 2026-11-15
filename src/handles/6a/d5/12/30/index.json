@@ -1,0 +1,12 @@
+{
+  "handle": "6ad51230",
+  "address": "6ad51230-35fe-8c0f-890a-b322736f162c",
+  "kind": "chunk",
+  "keys": [
+    "fam_harmony_interval_1"
+  ],
+  "statement": "(((((67 : Int) - (60 : Int)) % (12 : Int)) + (12 : Int)) % (12 : Int)) = (7 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

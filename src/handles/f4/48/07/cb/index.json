@@ -1,0 +1,14 @@
+{
+  "handle": "f44807cb",
+  "address": "f44807cb-5f6d-8db1-b9dd-eb5d47ad7a21",
+  "kind": "chunk",
+  "keys": [
+    "fam_aquafarming_feedrate_1",
+    "fam_property_stampduty_1"
+  ],
+  "statement": "(((50000 : Int) * (3 : Int)) / (100 : Int)) = (1500 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesP.lean"
+  ]
+}

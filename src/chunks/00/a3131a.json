@@ -1,0 +1,12 @@
+{
+  "handle": "00a3131a",
+  "address": "00a3131a-f8ca-8a16-a739-2cea873ef06e",
+  "statement": "(((10 : Int) * (100 : Int)) / (((90 : Int) + (10 : Int)) + (100 : Int))) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_poker_impliedodds_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

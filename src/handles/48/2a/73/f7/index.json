@@ -1,0 +1,34 @@
+{
+  "handle": "482a73f7",
+  "address": "482a73f7-ddb8-8289-b751-b799bd22488c",
+  "kind": "chunk",
+  "keys": [
+    "fam_bundle_dedupe_1",
+    "fam_climbing_grade_1",
+    "fam_crystallography_coordination_1",
+    "fam_cytology_diameter_1",
+    "fam_grouptheory_cyclicorder_1",
+    "fam_hematology_clotting_1",
+    "fam_layout_columns_1",
+    "fam_motion_easing_1",
+    "fam_partition_conjugatecells_1",
+    "fam_polyhedron_dihedralcount_1",
+    "fam_primatology_maturity_1",
+    "fam_remotesensing_bands_1",
+    "fam_weather_visibility_1",
+    "fam_zoology_lifespan_1"
+  ],
+  "statement": "(12 : Int) = (12 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesW.lean",
+    "FamiliesZ.lean"
+  ]
+}

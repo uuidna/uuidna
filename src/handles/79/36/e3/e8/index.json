@@ -1,0 +1,24 @@
+{
+  "handle": "7936e3e8",
+  "address": "7936e3e8-08b5-8a57-81bb-659f0dfbdb51",
+  "kind": "chunk",
+  "keys": [
+    "fam_attention_focus_1",
+    "fam_bioindicator_evenness_1",
+    "fam_ergonomics_reach_1",
+    "fam_gaming_winrate_1",
+    "fam_opendata_coverage_1",
+    "fam_pollination_fruitset_1",
+    "fam_transit_loadfactor_1"
+  ],
+  "statement": "(((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

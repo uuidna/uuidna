@@ -1,0 +1,12 @@
+{
+  "handle": "92457c51",
+  "address": "92457c51-a20d-8f45-8004-d6cb1e52a0d8",
+  "kind": "chunk",
+  "keys": [
+    "fam_exoplanets_transitdepth_2"
+  ],
+  "statement": "((((2 : Int) ^ (2 : Nat)) * (1000000 : Int)) / ((0 : Int) ^ (2 : Nat))) = (0 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

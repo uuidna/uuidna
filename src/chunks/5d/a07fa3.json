@@ -1,0 +1,12 @@
+{
+  "handle": "5da07fa3",
+  "address": "5da07fa3-56ef-868b-9ba0-819ca8bfc157",
+  "statement": "((50 : Int) - (32 : Int)) = (18 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sports_standings_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "cf775254",
+  "address": "cf775254-c92f-8b10-8e5a-a953c5994af0",
+  "statement": "(((fmax (0 : Int) ((100 : Int) - (100 : Int))) * (100 : Int)) / (100 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_conversion_uplift_2",
+    "fam_queueing_idleprobability_2"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesQ.lean"
+  ]
+}

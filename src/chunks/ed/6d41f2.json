@@ -1,0 +1,14 @@
+{
+  "handle": "ed6d41f2",
+  "address": "ed6d41f2-fe9c-880b-913e-e92156873758",
+  "statement": "(-((-(100 : Int)) / (4 : Int))) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_partitioning_coalesce_1",
+    "fam_scheduling_duration_1"
+  ],
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

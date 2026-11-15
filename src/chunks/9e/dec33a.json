@@ -1,0 +1,12 @@
+{
+  "handle": "9edec33a",
+  "address": "9edec33a-8a09-8d86-b43c-d7d4bbce6b55",
+  "statement": "(((400 : Int) * (100 : Int)) / (10000 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_retirement_withdrawalrate_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

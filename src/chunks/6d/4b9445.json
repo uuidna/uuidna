@@ -1,0 +1,12 @@
+{
+  "handle": "6d4b9445",
+  "address": "6d4b9445-a4dc-8ac2-a940-e489b4cf913f",
+  "statement": "(((49 : Int) * (100 : Int)) / (100 : Int)) = (49 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_piezoelectric_couplingfactor_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

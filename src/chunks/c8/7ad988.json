@@ -1,0 +1,12 @@
+{
+  "handle": "c87ad988",
+  "address": "c87ad988-c58d-82e7-a0b8-b5a93e3c81a3",
+  "statement": "((3 : Int) * (5000 : Int)) = (15000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_compliance_remediation_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

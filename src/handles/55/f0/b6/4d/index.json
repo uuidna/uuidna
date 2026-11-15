@@ -1,0 +1,12 @@
+{
+  "handle": "55f0b64d",
+  "address": "55f0b64d-1723-8c3d-998c-5f7acd4d10cd",
+  "kind": "chunk",
+  "keys": [
+    "fam_beam_deflection_1"
+  ],
+  "statement": "((1000 : Int) / (48 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

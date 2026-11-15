@@ -1,0 +1,12 @@
+{
+  "handle": "56afb4fd",
+  "address": "56afb4fd-1394-812b-904f-93e6a9dc2c71",
+  "statement": "((20000 : Int) / (440 : Int)) = (45 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_overtone_harmoniccount_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

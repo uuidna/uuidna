@@ -1,0 +1,12 @@
+{
+  "handle": "a38f1fd6",
+  "address": "a38f1fd6-75db-8508-8274-fa44c74ef49c",
+  "kind": "chunk",
+  "keys": [
+    "fam_lottery_houseedge_1"
+  ],
+  "statement": "((((1000 : Int) - (500 : Int)) * (100 : Int)) / (1000 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "handle": "caf42724",
+  "address": "caf42724-23f5-8443-9b73-148532f42f58",
+  "kind": "chunk",
+  "keys": [
+    "fam_codec_ratio_1",
+    "fam_crystal_defects_1",
+    "fam_elevator_speed_1",
+    "fam_genome_mutations_1",
+    "fam_loyalty_redemption_1",
+    "fam_magnetometry_susceptibility_1",
+    "fam_ml_learningrate_1",
+    "fam_poker_stackratio_1",
+    "fam_proofing_yeastdose_1",
+    "fam_queue_latency_1",
+    "fam_raster_compression_1",
+    "fam_router_latency_1",
+    "fam_simulation_timestep_1",
+    "fam_surveying_offset_1",
+    "fam_trajectory_traversaltime_1",
+    "fam_waterquality_coliform_1"
+  ],
+  "statement": "((1000 : Int) / (100 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesQ.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean",
+    "FamiliesW.lean"
+  ]
+}

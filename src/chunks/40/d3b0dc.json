@@ -1,0 +1,12 @@
+{
+  "handle": "40d3b0dc",
+  "address": "40d3b0dc-b07d-8965-b21c-a31c6542cbbc",
+  "statement": "((40000 : Int) / (1000 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_demography_medianage_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

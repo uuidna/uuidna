@@ -1,0 +1,14 @@
+{
+  "handle": "065086ae",
+  "address": "065086ae-8b18-87af-8862-1e7bd98a255f",
+  "statement": "((24 : Int) / (3 : Int)) = (8 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_chord_voicingwidth_1",
+    "fam_veterinary_medicationinterval_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesV.lean"
+  ]
+}

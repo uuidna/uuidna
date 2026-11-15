@@ -1,0 +1,12 @@
+{
+  "handle": "b641a8a8",
+  "address": "b641a8a8-452d-81c5-8b35-e0b8856fee2a",
+  "statement": "((29 : Int) % (8 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_moon_phase_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

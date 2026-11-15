@@ -1,0 +1,12 @@
+{
+  "handle": "78691d67",
+  "address": "78691d67-2b12-825c-949a-2bea78a3c2e0",
+  "kind": "chunk",
+  "keys": [
+    "fam_signaling_ec50_1"
+  ],
+  "statement": "(((80 : Int) + (20 : Int)) / (2 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

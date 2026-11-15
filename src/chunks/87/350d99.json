@@ -1,0 +1,20 @@
+{
+  "handle": "87350d99",
+  "address": "87350d99-776f-8c9b-bb66-24e088c484b8",
+  "statement": "((300 : Int) / (100 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_beam_safety_1",
+    "fam_hospitality_stay_1",
+    "fam_mineralogy_density_1",
+    "fam_mobility_triprate_1",
+    "fam_morphology_morphemes_1",
+    "fam_tribology_lubrication_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesT.lean"
+  ]
+}

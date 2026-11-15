@@ -1,0 +1,14 @@
+{
+  "handle": "8c9e7272",
+  "address": "8c9e7272-9c24-87e4-a94d-1367fd9c540b",
+  "statement": "((50 : Int) / (25 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cinematography_fstop_1",
+    "fam_lenses_fnumber_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesL.lean"
+  ]
+}

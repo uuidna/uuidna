@@ -1,0 +1,12 @@
+{
+  "handle": "a3d5a4b1",
+  "address": "a3d5a4b1-fb2d-8480-955c-98bee7f41b01",
+  "statement": "(fmax (60 : Int) (65 : Int)) = (65 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gelatinization_onsettemp_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "defe44b3",
+  "address": "defe44b3-06c4-80a9-bdfe-e265ada9759f",
+  "statement": "((12 : Int) * (64 : Int)) = (768 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_api_payload_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

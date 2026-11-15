@@ -1,0 +1,12 @@
+{
+  "handle": "af338343",
+  "address": "af338343-5dc1-806f-bee4-6e7747e5e737",
+  "statement": "(((300 : Int) * (100 : Int)) / (10000 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_banking_apr_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

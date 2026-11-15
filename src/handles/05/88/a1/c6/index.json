@@ -1,0 +1,12 @@
+{
+  "handle": "0588a1c6",
+  "address": "0588a1c6-a63f-8b6b-8dbf-d90f941fda85",
+  "kind": "chunk",
+  "keys": [
+    "fam_handle_space_1"
+  ],
+  "statement": "((2 : Int) ^ (32 : Nat)) = (4294967296 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

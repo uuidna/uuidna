@@ -1,0 +1,12 @@
+{
+  "handle": "d6d885c8",
+  "address": "d6d885c8-47e6-88dd-b084-c17f1b10836c",
+  "statement": "((4048 : Int) / (4 : Int)) = (1012 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_barometry_trend_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

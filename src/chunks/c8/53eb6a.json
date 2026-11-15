@@ -1,0 +1,25 @@
+{
+  "handle": "c853eb6a",
+  "address": "c853eb6a-f402-8dfa-aa94-88f95789c5ec",
+  "statement": "((100 : Int) * (4 : Int)) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_catalyst_sites_1",
+    "fam_cinematography_iso_1",
+    "fam_engine_power_1",
+    "fam_governance_term_1",
+    "fam_nutrition_energy_1",
+    "fam_quilting_seamlength_1",
+    "fam_route_bandwidthsum_1",
+    "fam_vulcanology_magmaviscosity_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesN.lean",
+    "FamiliesQ.lean",
+    "FamiliesR.lean",
+    "FamiliesV.lean"
+  ]
+}

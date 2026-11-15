@@ -1,0 +1,12 @@
+{
+  "handle": "22e700a0",
+  "address": "22e700a0-3e8b-852c-b9cd-b7bf66a1aae4",
+  "statement": "(fmin (1 : Int) (0 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_logic_conjunction_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

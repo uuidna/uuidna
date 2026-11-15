@@ -1,0 +1,12 @@
+{
+  "handle": "cc1a0a2b",
+  "address": "cc1a0a2b-97cb-8188-a667-86ee5193199a",
+  "statement": "((1200 : Int) / (24 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_anesthesiology_infusionrate_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

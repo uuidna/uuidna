@@ -1,0 +1,12 @@
+{
+  "handle": "1e6b829c",
+  "address": "1e6b829c-aac1-8791-8570-e92c236be19c",
+  "kind": "chunk",
+  "keys": [
+    "fam_geothermal_drilling_1"
+  ],
+  "statement": "((1200 : Int) / (30 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "35e21a79",
+  "address": "35e21a79-9ca7-8a17-97e8-e3177e0baa4b",
+  "kind": "chunk",
+  "keys": [
+    "fam_golf_score_1"
+  ],
+  "statement": "((68 : Int) - (72 : Int)) = (-4 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

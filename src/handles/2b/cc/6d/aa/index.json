@@ -1,0 +1,12 @@
+{
+  "handle": "2bcc6daa",
+  "address": "2bcc6daa-0638-8e0c-8da5-4081bb9f22ed",
+  "kind": "chunk",
+  "keys": [
+    "fam_family_maintenance_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((80000 : Int) - (30000 : Int))) * (30 : Int)) / (100 : Int)) = (15000 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

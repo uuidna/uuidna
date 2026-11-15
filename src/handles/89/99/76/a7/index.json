@@ -1,0 +1,12 @@
+{
+  "handle": "899976a7",
+  "address": "899976a7-ba3c-8e12-b40f-9bcedef08743",
+  "kind": "chunk",
+  "keys": [
+    "fam_astrophysics_chandrasekhar_1"
+  ],
+  "statement": "(((144 : Int) * (100 : Int)) / (144 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

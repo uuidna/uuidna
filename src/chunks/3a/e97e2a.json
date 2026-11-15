@@ -1,0 +1,12 @@
+{
+  "handle": "3ae97e2a",
+  "address": "3ae97e2a-e00d-88e2-92f5-a4b60c81ac83",
+  "statement": "(fmax (0 : Int) ((18 : Int) - (9 : Int))) = (9 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_entropy_conditionalentropy_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

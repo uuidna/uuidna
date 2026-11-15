@@ -1,0 +1,14 @@
+{
+  "handle": "d917cbcf",
+  "address": "d917cbcf-99dc-8429-9978-25815112bd8b",
+  "kind": "chunk",
+  "keys": [
+    "fam_antitrust_merger_1",
+    "fam_tectonics_convergence_1"
+  ],
+  "statement": "((40 : Int) + (30 : Int)) = (70 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1e9d0b5c",
+  "address": "1e9d0b5c-7411-896d-b920-a3782d466731",
+  "kind": "chunk",
+  "keys": [
+    "fam_contract_reliance_1"
+  ],
+  "statement": "(2500 : Int) = (2500 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

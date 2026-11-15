@@ -1,0 +1,12 @@
+{
+  "handle": "08d3a98c",
+  "address": "08d3a98c-2a31-82df-8fa2-946130ee3d4d",
+  "statement": "(((3 : Int) * (100 : Int)) / (50 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_auditing_errorrate_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

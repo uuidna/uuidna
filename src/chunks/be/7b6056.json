@@ -1,0 +1,12 @@
+{
+  "handle": "be7b6056",
+  "address": "be7b6056-230e-8978-a8c8-539d65782707",
+  "statement": "(fmax (0 : Int) ((1500 : Int) - ((6 : Int) * (10 : Int)))) = (1440 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_elo_decay_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

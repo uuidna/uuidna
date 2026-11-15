@@ -1,0 +1,16 @@
+{
+  "handle": "670a96d4",
+  "address": "670a96d4-7952-8439-9ed9-d0d8d2d517ed",
+  "kind": "chunk",
+  "keys": [
+    "fam_enrollment_waitlist_1",
+    "fam_glider_thermalgain_1",
+    "fam_nursing_fluid_1"
+  ],
+  "statement": "(fmax (0 : Int) ((2000 : Int) - (1500 : Int))) = (500 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesN.lean"
+  ]
+}

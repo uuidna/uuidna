@@ -1,0 +1,12 @@
+{
+  "handle": "92473c3d",
+  "address": "92473c3d-fc5c-83c7-9271-460c585fdda0",
+  "statement": "(fmax (0 : Int) ((50000 : Int) - (2000 : Int))) = (48000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_retirement_drawdown_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

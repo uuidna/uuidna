@@ -1,0 +1,29 @@
+{
+  "handle": "3e259492",
+  "address": "3e259492-15d2-87a1-bcc8-5e565f3e9cfc",
+  "kind": "chunk",
+  "keys": [
+    "fam_antenna_elements_1",
+    "fam_arachnology_legcount_1",
+    "fam_buddhism_pathfactors_1",
+    "fam_budget_categories_1",
+    "fam_butchery_primalcuts_1",
+    "fam_composite_plies_1",
+    "fam_embroidery_stitchtypes_1",
+    "fam_grammar_posclasses_1",
+    "fam_invoice_lineitems_1",
+    "fam_jainism_karmatypes_1",
+    "fam_sort_runs_1"
+  ],
+  "statement": "((8 : Int) + (0 : Int)) = (8 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesJ.lean",
+    "FamiliesS.lean"
+  ]
+}

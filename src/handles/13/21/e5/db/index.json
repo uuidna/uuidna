@@ -1,0 +1,12 @@
+{
+  "handle": "1321e5db",
+  "address": "1321e5db-c3e9-82b8-a729-068e42fd418e",
+  "kind": "chunk",
+  "keys": [
+    "fam_airquality_ozone_1"
+  ],
+  "statement": "(((80 : Int) * (8 : Int)) / (8 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "40fe8b08",
+  "address": "40fe8b08-2e64-8fd3-98c3-cbebeb8c74b9",
+  "kind": "chunk",
+  "keys": [
+    "fam_geophysics_heatflow_1",
+    "fam_tornado_vorticity_1"
+  ],
+  "statement": "((30 : Int) * (3 : Int)) = (90 : Int)",
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesT.lean"
+  ]
+}

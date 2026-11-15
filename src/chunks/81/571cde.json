@@ -1,0 +1,12 @@
+{
+  "handle": "81571cde",
+  "address": "81571cde-6833-8b78-8700-f72c50e6eecf",
+  "statement": "(fmax (0 : Int) ((150 : Int) - (90 : Int))) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_volatility_range_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

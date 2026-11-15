@@ -1,0 +1,12 @@
+{
+  "handle": "7d2f2909",
+  "address": "7d2f2909-c544-84e6-9224-03edfc291268",
+  "kind": "chunk",
+  "keys": [
+    "fam_demography_sexratio_1"
+  ],
+  "statement": "(((5100 : Int) * (100 : Int)) / (5000 : Int)) = (102 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

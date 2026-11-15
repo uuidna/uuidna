@@ -1,0 +1,12 @@
+{
+  "handle": "34a29440",
+  "address": "34a29440-25c8-8197-b6c9-e8b6b107c6b5",
+  "statement": "((30 : Int) + ((50 : Int) / (5 : Int))) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_humidity_comfortindex_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

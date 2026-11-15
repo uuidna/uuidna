@@ -1,0 +1,12 @@
+{
+  "handle": "5267c5c7",
+  "address": "5267c5c7-6530-8db7-8e1b-1e08937f34a4",
+  "statement": "((50000 : Int) / (100 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_claims_severity_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

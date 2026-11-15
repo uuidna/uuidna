@@ -1,0 +1,12 @@
+{
+  "handle": "053c242e",
+  "address": "053c242e-cdd2-8bb2-a167-d47aeeeec3ab",
+  "statement": "(((6000 : Int) * (50 : Int)) / (100 : Int)) = (3000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_retirement_matchvalue_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

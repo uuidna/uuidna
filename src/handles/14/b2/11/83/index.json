@@ -1,0 +1,12 @@
+{
+  "handle": "14b21183",
+  "address": "14b21183-e40c-825d-91c7-634adc8516d0",
+  "kind": "chunk",
+  "keys": [
+    "fam_court_barred_1"
+  ],
+  "statement": "(if (if (400 : Int) > (365 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

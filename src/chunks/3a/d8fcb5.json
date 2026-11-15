@@ -1,0 +1,12 @@
+{
+  "handle": "3ad8fcb5",
+  "address": "3ad8fcb5-3d58-8704-883c-ca5c6b9c35c6",
+  "statement": "(-((-((120 : Int) * (5 : Int))) / (20 : Int))) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_lean_kanban_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "8aa397cd",
+  "address": "8aa397cd-6e42-8ede-817b-1cfc084b466d",
+  "statement": "((22 : Int) + (0 : Int)) = (22 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gematria_alphabetsize_1",
+    "fam_psalmody_acrosticletters_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesP.lean"
+  ]
+}

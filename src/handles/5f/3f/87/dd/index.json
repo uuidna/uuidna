@@ -1,0 +1,12 @@
+{
+  "handle": "5f3f87dd",
+  "address": "5f3f87dd-b5de-8036-b287-0b7155da69f1",
+  "kind": "chunk",
+  "keys": [
+    "fam_colorgrading_gamut_2"
+  ],
+  "statement": "(fmax (150 : Int) (fmin (100 : Int) (200 : Int))) = (150 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

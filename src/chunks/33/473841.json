@@ -1,0 +1,12 @@
+{
+  "handle": "33473841",
+  "address": "33473841-fee9-8d67-98ca-adef831af949",
+  "statement": "((30 : Int) / (4 : Int)) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pipeline_queue_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8e5d03c0",
+  "address": "8e5d03c0-ab3c-82b3-b07f-1726a4c13d46",
+  "statement": "(((30 : Int) * (90 : Int)) / (60 : Int)) = (45 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_orbit_inclination_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

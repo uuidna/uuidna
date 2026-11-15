@@ -1,0 +1,14 @@
+{
+  "handle": "c468e5c1",
+  "address": "c468e5c1-7d6d-8e5d-be0a-d4f44d0306ef",
+  "statement": "(((500 : Int) * (100 : Int)) / (100 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_geochemistry_enrichment_1",
+    "fam_sintering_greendensity_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesS.lean"
+  ]
+}

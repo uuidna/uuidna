@@ -1,0 +1,12 @@
+{
+  "handle": "07e1b4aa",
+  "address": "07e1b4aa-9a1a-829e-8ae2-adc3de8b763f",
+  "kind": "chunk",
+  "keys": [
+    "fam_orbital_inclination_1"
+  ],
+  "statement": "(((50 : Int) * (90 : Int)) / (100 : Int)) = (45 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3ca45684",
+  "address": "3ca45684-e0f7-8db0-8be9-d5e84288d9ad",
+  "kind": "chunk",
+  "keys": [
+    "fam_graph_density_1"
+  ],
+  "statement": "(((18 : Int) * (100 : Int)) / (45 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

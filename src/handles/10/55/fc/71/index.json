@@ -1,0 +1,12 @@
+{
+  "handle": "1055fc71",
+  "address": "1055fc71-b5bd-8adc-a7c9-db68ce52ccbc",
+  "kind": "chunk",
+  "keys": [
+    "fam_tox_margin_1"
+  ],
+  "statement": "(((1000 : Int) * (100 : Int)) / (200 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

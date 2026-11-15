@@ -1,0 +1,14 @@
+{
+  "handle": "f51eac69",
+  "address": "f51eac69-25cb-8cd9-8612-e87d58acefde",
+  "kind": "chunk",
+  "keys": [
+    "fam_fluid_flow_1",
+    "fam_pump_flow_1"
+  ],
+  "statement": "((50 : Int) * (60 : Int)) = (3000 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesP.lean"
+  ]
+}

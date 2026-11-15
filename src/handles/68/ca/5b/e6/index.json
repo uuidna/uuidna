@@ -1,0 +1,14 @@
+{
+  "handle": "68ca5be6",
+  "address": "68ca5be6-61da-8c47-ba0d-588f8c3ceb69",
+  "kind": "chunk",
+  "keys": [
+    "fam_firmware_words_1",
+    "fam_music_bars_1"
+  ],
+  "statement": "((16 : Int) / (4 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesM.lean"
+  ]
+}

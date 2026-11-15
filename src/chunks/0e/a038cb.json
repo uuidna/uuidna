@@ -1,0 +1,12 @@
+{
+  "handle": "0ea038cb",
+  "address": "0ea038cb-bcd0-8907-9111-c7d087730576",
+  "statement": "((4 : Int) * (75 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_motion_delay_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

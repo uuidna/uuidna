@@ -1,0 +1,12 @@
+{
+  "handle": "83fd380e",
+  "address": "83fd380e-63d7-834d-8ae6-7887673a83b3",
+  "kind": "chunk",
+  "keys": [
+    "fam_corpus_sampledwords_1"
+  ],
+  "statement": "((500 : Int) * (2000 : Int)) = (1000000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

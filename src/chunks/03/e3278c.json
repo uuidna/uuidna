@@ -1,0 +1,12 @@
+{
+  "handle": "03e3278c",
+  "address": "03e3278c-382f-81e9-a96b-74425f9a6d72",
+  "statement": "(Int.ofNat (ffact (Int.toNat ((5 : Int) - (1 : Int))))) = (24 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_permutation_ncycles_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

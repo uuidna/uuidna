@@ -1,0 +1,12 @@
+{
+  "handle": "50a312fe",
+  "address": "50a312fe-9181-87d4-85cc-82d445ce78fb",
+  "kind": "chunk",
+  "keys": [
+    "fam_neuron_refractory_1"
+  ],
+  "statement": "(fmax (0 : Int) ((20 : Int) - (2 : Int))) = (18 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1e740559",
+  "address": "1e740559-47e3-84e1-802d-83de9457ecda",
+  "statement": "(fmax (0 : Int) ((310 : Int) - (300 : Int))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pacing_negativesplit_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0f6fe801",
+  "address": "0f6fe801-2eca-8b17-abbb-f89a6e95e0c7",
+  "statement": "((300 : Int) * (110 : Int)) = (33000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_protein_mass_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

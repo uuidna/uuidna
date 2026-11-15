@@ -1,0 +1,16 @@
+{
+  "handle": "b1f99292",
+  "address": "b1f99292-666b-8ecf-92fe-cd8dd103db7f",
+  "kind": "chunk",
+  "keys": [
+    "fam_diplomacy_summit_1",
+    "fam_grouptheory_cosets_1",
+    "fam_nursing_ratio_1"
+  ],
+  "statement": "((24 : Int) / (6 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesG.lean",
+    "FamiliesN.lean"
+  ]
+}

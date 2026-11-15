@@ -1,0 +1,12 @@
+{
+  "handle": "7173c174",
+  "address": "7173c174-0a05-8282-bf1f-e3fec0c381aa",
+  "kind": "chunk",
+  "keys": [
+    "fam_alloys_conductivity_1"
+  ],
+  "statement": "(((580 : Int) * (2 : Int)) / (4 : Int)) = (290 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

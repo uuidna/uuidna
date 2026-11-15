@@ -1,0 +1,12 @@
+{
+  "handle": "0fae1445",
+  "address": "0fae1445-a6dd-887a-9b32-67fd41b613ff",
+  "kind": "chunk",
+  "keys": [
+    "fam_quantization_resolution_1"
+  ],
+  "statement": "((2560 : Int) / ((2 : Int) ^ (8 : Nat))) = (10 : Int)",
+  "files": [
+    "FamiliesQ.lean"
+  ]
+}

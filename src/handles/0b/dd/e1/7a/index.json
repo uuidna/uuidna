@@ -1,0 +1,12 @@
+{
+  "handle": "0bdde17a",
+  "address": "0bdde17a-627f-8dbe-877c-2aec2072cca2",
+  "kind": "chunk",
+  "keys": [
+    "fam_clearance_total_1"
+  ],
+  "statement": "((20 : Int) + (600 : Int)) = (620 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

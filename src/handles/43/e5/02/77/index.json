@@ -1,0 +1,14 @@
+{
+  "handle": "43e50277",
+  "address": "43e50277-06d9-827b-b5e7-8c78d6dade6c",
+  "kind": "chunk",
+  "keys": [
+    "fam_aerospace_payload_1",
+    "fam_drilling_bitlife_1"
+  ],
+  "statement": "(fmax (0 : Int) ((5000 : Int) - (3200 : Int))) = (1800 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesD.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "94f204cb",
+  "address": "94f204cb-0f1e-8d7e-853a-5b96f7e8ee5d",
+  "statement": "((1440 : Int) / (8 : Int)) = (180 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_monasticism_dailycycle_1",
+    "fam_protozoology_generationtime_1"
+  ],
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8bc1263d",
+  "address": "8bc1263d-9013-837d-9d4e-3af9947e0050",
+  "kind": "chunk",
+  "keys": [
+    "fam_comet_aphelion_1"
+  ],
+  "statement": "((35 : Int) * (1 : Int)) = (35 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

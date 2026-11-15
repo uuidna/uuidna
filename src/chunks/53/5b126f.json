@@ -1,0 +1,12 @@
+{
+  "handle": "535b126f",
+  "address": "535b126f-0baf-8ed7-93dd-0597624bdcc0",
+  "statement": "((30 : Int) * (500 : Int)) = (15000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_availability_outagecost_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

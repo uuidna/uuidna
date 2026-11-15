@@ -1,0 +1,16 @@
+{
+  "handle": "33e28579",
+  "address": "33e28579-73a2-82c7-9c43-2a821a06a97c",
+  "kind": "chunk",
+  "keys": [
+    "fam_knot_stickcount_1",
+    "fam_physics_degreesoffreedom_1",
+    "fam_ramsey_threshold_1"
+  ],
+  "statement": "((3 : Int) + (3 : Int)) = (6 : Int)",
+  "files": [
+    "FamiliesK.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

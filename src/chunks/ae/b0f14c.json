@@ -1,0 +1,12 @@
+{
+  "handle": "aeb0f14c",
+  "address": "aeb0f14c-1bf0-81c7-b5e3-288770be14bc",
+  "statement": "((4000 : Int) / (80 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_catering_costperhead_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

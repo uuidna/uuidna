@@ -1,0 +1,12 @@
+{
+  "handle": "0e66247a",
+  "address": "0e66247a-799c-85cb-9c88-a6bbfb8b6124",
+  "kind": "chunk",
+  "keys": [
+    "fam_audio_streambytes_1"
+  ],
+  "statement": "(((44100 : Int) * (2 : Int)) * (2 : Int)) = (176400 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

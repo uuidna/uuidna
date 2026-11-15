@@ -1,0 +1,12 @@
+{
+  "handle": "1039bc69",
+  "address": "1039bc69-6f35-8bde-bd1a-f272458b6f9e",
+  "kind": "chunk",
+  "keys": [
+    "fam_ssd_throughput_1"
+  ],
+  "statement": "((320000 : Int) * (4 : Int)) = (1280000 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

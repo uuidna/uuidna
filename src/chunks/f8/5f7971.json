@@ -1,0 +1,14 @@
+{
+  "handle": "f85f7971",
+  "address": "f85f7971-2d1c-8164-87fc-3f58cb680b3d",
+  "statement": "((1000 : Int) / (500 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_athletics_stride_1",
+    "fam_ophthalmology_diopter_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesO.lean"
+  ]
+}

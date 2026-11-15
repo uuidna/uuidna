@@ -1,0 +1,14 @@
+{
+  "handle": "fd1f2d45",
+  "address": "fd1f2d45-ed4c-8157-a71b-c2c2411c6312",
+  "statement": "((240 : Int) / (24 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gastroenterology_transit_1",
+    "fam_transformer_ratio_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesT.lean"
+  ]
+}

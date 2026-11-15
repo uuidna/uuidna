@@ -1,0 +1,12 @@
+{
+  "handle": "ce2d0a74",
+  "address": "ce2d0a74-68cf-8329-895c-221a47cf6af8",
+  "statement": "(fmax (0 : Int) ((12 : Int) - ((1 : Int) * (5 : Int)))) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_braking_pad_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ebe1cf22",
+  "address": "ebe1cf22-534d-8f98-b35b-3de6b2dd84ca",
+  "statement": "(((230 : Int) * (60 : Int)) / (100 : Int)) = (138 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_composites_stiffness_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

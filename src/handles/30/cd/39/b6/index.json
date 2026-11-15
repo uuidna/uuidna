@@ -1,0 +1,12 @@
+{
+  "handle": "30cd39b6",
+  "address": "30cd39b6-09d9-878e-b91b-e8e196ce0d32",
+  "kind": "chunk",
+  "keys": [
+    "fam_carbon_equivalent_1"
+  ],
+  "statement": "((8 : Int) * (28 : Int)) = (224 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

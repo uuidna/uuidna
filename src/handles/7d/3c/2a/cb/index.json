@@ -1,0 +1,12 @@
+{
+  "handle": "7d3c2acb",
+  "address": "7d3c2acb-06f4-8ddd-90cf-ebc60c8fed92",
+  "kind": "chunk",
+  "keys": [
+    "fam_hardness_vickers_1"
+  ],
+  "statement": "(((1854 : Int) * (10 : Int)) / (100 : Int)) = (185 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

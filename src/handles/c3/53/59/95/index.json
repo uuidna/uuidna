@@ -1,0 +1,12 @@
+{
+  "handle": "c3535995",
+  "address": "c3535995-1af4-8f5d-a490-70828911f290",
+  "kind": "chunk",
+  "keys": [
+    "fam_semiconductors_bandgap_1"
+  ],
+  "statement": "(fmax (0 : Int) ((1120 : Int) - (50 : Int))) = (1070 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

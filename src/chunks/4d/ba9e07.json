@@ -1,0 +1,12 @@
+{
+  "handle": "4dba9e07",
+  "address": "4dba9e07-a23e-87a7-a3bf-844fb0779b5b",
+  "statement": "(if (if (80 : Int) ≤ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_seo_title_2"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

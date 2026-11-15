@@ -1,0 +1,12 @@
+{
+  "handle": "1abbd4eb",
+  "address": "1abbd4eb-f885-8290-ac6b-3e52c82281b0",
+  "statement": "((1 : Int) * (1000 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_asteroid_mass_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "handle": "eb51d2a0",
+  "address": "eb51d2a0-6948-8f3f-bb01-0447ae80a7f3",
+  "kind": "chunk",
+  "keys": [
+    "fam_dermatology_pigmentation_2",
+    "fam_estimation_bias_2",
+    "fam_personality_deviation_2"
+  ],
+  "statement": "(fmax (0 : Int) ((40 : Int) - (50 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesP.lean"
+  ]
+}

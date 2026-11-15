@@ -1,0 +1,12 @@
+{
+  "handle": "579ea508",
+  "address": "579ea508-63a0-8ff6-b362-ab724b3d2372",
+  "statement": "(fmax (0 : Int) ((80 : Int) - (72 : Int))) = (8 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pasteurization_zvalue_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

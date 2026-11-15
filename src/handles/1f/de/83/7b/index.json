@@ -1,0 +1,25 @@
+{
+  "handle": "1fde837b",
+  "address": "1fde837b-7b4a-8a5f-8b51-8e0a87c24b1a",
+  "kind": "chunk",
+  "keys": [
+    "fam_apoptosis_netgrowth_1",
+    "fam_corrosion_potential_1",
+    "fam_drought_rainfalldeficit_1",
+    "fam_excavation_fill_1",
+    "fam_hydro_reservoir_1",
+    "fam_statics_shear_1",
+    "fam_swaps_netpayment_1",
+    "fam_tracing_criticalpath_1"
+  ],
+  "statement": "(fmax (0 : Int) ((800 : Int) - (300 : Int))) = (500 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesH.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

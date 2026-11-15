@@ -1,0 +1,40 @@
+{
+  "handle": "af720acf",
+  "address": "af720acf-f0cf-81c6-8e2c-c748c97dd500",
+  "statement": "(-((-(100 : Int)) / (30 : Int))) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_astrometry_airmass_1",
+    "fam_autoscaling_desiredreplicas_1",
+    "fam_backlog_clearancetime_1",
+    "fam_bundle_chunks_1",
+    "fam_bundling_chunks_1",
+    "fam_chocolate_crystalseed_1",
+    "fam_cloud_scale_1",
+    "fam_composting_turnover_1",
+    "fam_consolidation_splitcount_1",
+    "fam_crossdock_doorsneeded_1",
+    "fam_distribution_hubs_1",
+    "fam_dosimetry_shielding_1",
+    "fam_manifold_chartcount_1",
+    "fam_motivation_goalgradient_1",
+    "fam_phycology_bloomdensity_1",
+    "fam_recruitment_sourcing_1",
+    "fam_rest_pagination_1",
+    "fam_sourcing_suppliers_1",
+    "fam_stratigraphy_sequence_1",
+    "fam_tillage_passes_1",
+    "fam_tracing_tracedepth_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

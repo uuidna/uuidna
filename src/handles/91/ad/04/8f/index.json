@@ -1,0 +1,17 @@
+{
+  "handle": "91ad048f",
+  "address": "91ad048f-e76d-870b-b9b7-c93b65609123",
+  "kind": "chunk",
+  "keys": [
+    "fam_earnedvalue_costvariance_1",
+    "fam_emissions_allowance_1",
+    "fam_ingestion_backpressure_1",
+    "fam_podcasting_growth_1"
+  ],
+  "statement": "(fmax (0 : Int) ((1200 : Int) - (1000 : Int))) = (200 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesI.lean",
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "14d3c80f",
+  "address": "14d3c80f-abd2-8a1b-a95f-90b26598f289",
+  "statement": "(((fmax (0 : Int) ((50 : Int) - (80 : Int))) * (100 : Int)) / (50 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_forging_reduction_2"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

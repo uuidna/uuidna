@@ -1,0 +1,12 @@
+{
+  "handle": "d5eda9b7",
+  "address": "d5eda9b7-5b59-8ec3-a361-610eb55d74ce",
+  "kind": "chunk",
+  "keys": [
+    "fam_diffusion_gradient_1"
+  ],
+  "statement": "((fmax (0 : Int) ((100 : Int) - (40 : Int))) / (3 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

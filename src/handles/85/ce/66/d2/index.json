@@ -1,0 +1,12 @@
+{
+  "handle": "85ce66d2",
+  "address": "85ce66d2-bf05-8584-97c3-9a2b396749ac",
+  "kind": "chunk",
+  "keys": [
+    "fam_version_scheduled_2"
+  ],
+  "statement": "(fmax (0 : Int) ((160 : Int) - (200 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

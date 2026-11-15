@@ -1,0 +1,12 @@
+{
+  "handle": "1fbf5da5",
+  "address": "1fbf5da5-09fc-8f28-94ff-7d7da2c54693",
+  "statement": "(fmax (0 : Int) (42 : Int)) = (42 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_neuralnet_relu_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

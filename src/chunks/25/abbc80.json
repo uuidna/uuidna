@@ -1,0 +1,12 @@
+{
+  "handle": "25abbc80",
+  "address": "25abbc80-7640-8d4a-b01f-5988943007fb",
+  "statement": "((41 : Int) * (100 : Int)) = (4100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_thermocouple_emf_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

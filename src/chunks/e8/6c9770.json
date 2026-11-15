@@ -1,0 +1,12 @@
+{
+  "handle": "e86c9770",
+  "address": "e86c9770-85e8-8132-a580-c52eb88a652a",
+  "statement": "((1000 : Int) + (500 : Int)) = (1500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_macroeconomics_gdp_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

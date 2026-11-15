@@ -1,0 +1,12 @@
+{
+  "handle": "3eb36451",
+  "address": "3eb36451-3082-82e3-89fa-10efed6c3141",
+  "kind": "chunk",
+  "keys": [
+    "fam_ultrasonics_dopplershift_1"
+  ],
+  "statement": "((((2 : Int) * (5000 : Int)) * (3 : Int)) / (1500 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

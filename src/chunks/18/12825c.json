@@ -1,0 +1,12 @@
+{
+  "handle": "1812825c",
+  "address": "1812825c-6a31-85e3-a110-442cc80730a4",
+  "statement": "(((2650 : Int) * (1000 : Int)) / (1000 : Int)) = (2650 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mineralogy_specific_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

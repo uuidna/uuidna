@@ -1,0 +1,12 @@
+{
+  "handle": "40e5a9bb",
+  "address": "40e5a9bb-1c3b-854d-a71c-30fbe585c066",
+  "statement": "(fmax (0 : Int) ((900 : Int) - (500 : Int))) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_volcanology_gas_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

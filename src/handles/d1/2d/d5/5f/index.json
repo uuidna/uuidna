@@ -1,0 +1,12 @@
+{
+  "handle": "d12dd55f",
+  "address": "d12dd55f-ec0c-8a23-84ab-f44ae206a10b",
+  "kind": "chunk",
+  "keys": [
+    "fam_passwords_minlengthscore_1"
+  ],
+  "statement": "(fmax (0 : Int) ((16 : Int) - (8 : Int))) = (8 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

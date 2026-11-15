@@ -1,0 +1,12 @@
+{
+  "handle": "5a6b0b98",
+  "address": "5a6b0b98-ed58-80da-8355-f5f9d1ffbfd3",
+  "kind": "chunk",
+  "keys": [
+    "fam_spirometry_fev1fvcratio_1"
+  ],
+  "statement": "(((4000 : Int) * (100 : Int)) / (5000 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

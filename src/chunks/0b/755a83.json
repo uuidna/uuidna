@@ -1,0 +1,12 @@
+{
+  "handle": "0b755a83",
+  "address": "0b755a83-8164-88fd-bf8d-7f49bd438a17",
+  "statement": "(((10 : Int) * ((3 : Int) ^ (2 : Nat))) / (2 : Int)) = (45 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_kinematics_freefall_1"
+  ],
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

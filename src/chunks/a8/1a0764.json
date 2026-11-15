@@ -1,0 +1,23 @@
+{
+  "handle": "a81a0764",
+  "address": "a81a0764-b772-8c9f-87d6-e0d34fc79f74",
+  "statement": "((1000000 : Int) / (1000 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_driver_pps_1",
+    "fam_mutation_rate_1",
+    "fam_packet_throughput_1",
+    "fam_pwm_frequency_1",
+    "fam_pwm_period_1",
+    "fam_stream_throughput_1",
+    "fam_waveform_frequencyfromperiod_1",
+    "fam_waveform_period_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesW.lean"
+  ]
+}

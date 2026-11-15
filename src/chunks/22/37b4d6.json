@@ -1,0 +1,12 @@
+{
+  "handle": "2237b4d6",
+  "address": "2237b4d6-467c-80a5-8759-f0f87e9cb3ea",
+  "statement": "((14 : Int) + (13 : Int)) = (27 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_collide_collide_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

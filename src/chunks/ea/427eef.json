@@ -1,0 +1,12 @@
+{
+  "handle": "ea427eef",
+  "address": "ea427eef-7b59-892e-b308-3289e75ae6b0",
+  "statement": "(fmax (0 : Int) (((50 : Int) * (12 : Int)) - (500 : Int))) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pricing_savings_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

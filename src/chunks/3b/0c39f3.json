@@ -1,0 +1,15 @@
+{
+  "handle": "3b0c39f3",
+  "address": "3b0c39f3-af74-8875-98d6-3ec3a9caceca",
+  "statement": "((40 : Int) * (3 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cinema_runtime_1",
+    "fam_curriculum_credithours_1",
+    "fam_excavation_cut_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean"
+  ]
+}

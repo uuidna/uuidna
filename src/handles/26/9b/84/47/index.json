@@ -1,0 +1,16 @@
+{
+  "handle": "269b8447",
+  "address": "269b8447-e9cb-8847-b967-75ac3bfda4de",
+  "kind": "chunk",
+  "keys": [
+    "fam_coagulation_prothrombintime_1",
+    "fam_lift_stallmargin_1",
+    "fam_photometry_colorindex_1"
+  ],
+  "statement": "(fmax (0 : Int) ((15 : Int) - (12 : Int))) = (3 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2ca41ee2",
+  "address": "2ca41ee2-3a21-88e7-95d5-283af0919a2a",
+  "statement": "((850 : Int) - (600 : Int)) = (250 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_psu_headroom_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

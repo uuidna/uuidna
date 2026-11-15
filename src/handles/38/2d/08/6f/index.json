@@ -1,0 +1,12 @@
+{
+  "handle": "382d086f",
+  "address": "382d086f-c38e-80fe-97d4-e7a744c74e9a",
+  "kind": "chunk",
+  "keys": [
+    "fam_paleography_letterforms_1"
+  ],
+  "statement": "((26 : Int) * (4 : Int)) = (104 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

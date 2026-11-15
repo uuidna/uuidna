@@ -1,0 +1,12 @@
+{
+  "handle": "613772b9",
+  "address": "613772b9-07b4-8c8c-bdfd-5713ff866986",
+  "statement": "(fmax (0 : Int) ((10000 : Int) - (9000 : Int))) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_depreciation_salvage_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

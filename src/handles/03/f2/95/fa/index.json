@@ -1,0 +1,12 @@
+{
+  "handle": "03f295fa",
+  "address": "03f295fa-e604-875c-9072-a0981bcbb090",
+  "kind": "chunk",
+  "keys": [
+    "fam_coffee_extraction_1"
+  ],
+  "statement": "(((6 : Int) * (100 : Int)) / (30 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "handle": "64b9c32a",
+  "address": "64b9c32a-b588-8883-ab81-5fb475136d8a",
+  "statement": "(((5 : Int) * (1000000 : Int)) / (1000000 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_environment_concentration_1",
+    "fam_genetics_mutation_1",
+    "fam_governance_representation_1",
+    "fam_hazard_dilution_1",
+    "fam_mtbf_failurerate_1",
+    "fam_semiconductor_doping_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesS.lean"
+  ]
+}

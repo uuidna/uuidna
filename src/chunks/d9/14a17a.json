@@ -1,0 +1,14 @@
+{
+  "handle": "d914a17a",
+  "address": "d914a17a-dbf8-898d-81ac-9578bf607830",
+  "statement": "(((33 : Int) * (100 : Int)) / (100 : Int)) = (33 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_geophysics_isostasy_1",
+    "fam_nuclearpower_efficiency_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesN.lean"
+  ]
+}

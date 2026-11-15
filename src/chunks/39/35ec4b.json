@@ -1,0 +1,14 @@
+{
+  "handle": "3935ec4b",
+  "address": "3935ec4b-3580-8973-81cf-27b0b45edeee",
+  "statement": "(fmax (0 : Int) ((100 : Int) - (90 : Int))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_caramelization_residualsugar_1",
+    "fam_oxygenation_alveolararterial_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesO.lean"
+  ]
+}

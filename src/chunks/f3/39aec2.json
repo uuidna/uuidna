@@ -1,0 +1,12 @@
+{
+  "handle": "f339aec2",
+  "address": "f339aec2-48e3-8b5f-8510-4ace985a1a14",
+  "statement": "(((2 : Int) ^ (22 : Nat)) - (1 : Int)) = (4194303 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cloudflare_usage_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

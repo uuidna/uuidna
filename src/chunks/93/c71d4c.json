@@ -1,0 +1,12 @@
+{
+  "handle": "93c71d4c",
+  "address": "93c71d4c-a186-8208-b138-d89adbae55dc",
+  "statement": "((70 : Int) + (15 : Int)) = (85 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_actionpotential_threshold_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

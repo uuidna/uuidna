@@ -1,0 +1,12 @@
+{
+  "handle": "f53d4d91",
+  "address": "f53d4d91-99b3-8e9e-9fb7-40453a1a7724",
+  "statement": "(((10000 : Int) * ((100 : Int) - (20 : Int))) / (100 : Int)) = (8000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cropyield_moisturecorrected_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

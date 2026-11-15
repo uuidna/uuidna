@@ -1,0 +1,12 @@
+{
+  "handle": "60f6c003",
+  "address": "60f6c003-6554-8690-9d8e-78597e20daa7",
+  "kind": "chunk",
+  "keys": [
+    "fam_cosmology_horizon_1"
+  ],
+  "statement": "((300 : Int) * (14 : Int)) = (4200 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

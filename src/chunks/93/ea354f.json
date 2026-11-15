@@ -1,0 +1,12 @@
+{
+  "handle": "93ea354f",
+  "address": "93ea354f-9036-8ca2-959d-28a05946764c",
+  "statement": "(((15 : Int) * (100 : Int)) / (10 : Int)) = (150 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tomography_pitch_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

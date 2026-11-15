@@ -1,0 +1,12 @@
+{
+  "handle": "7d501e4d",
+  "address": "7d501e4d-c948-8d16-86e6-02553cf4116c",
+  "kind": "chunk",
+  "keys": [
+    "fam_image_aspect_1"
+  ],
+  "statement": "((1920 : Int) / (1080 : Int)) = (1 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

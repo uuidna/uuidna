@@ -1,0 +1,12 @@
+{
+  "handle": "62467411",
+  "address": "62467411-9384-8493-9cd1-bd42189270a0",
+  "kind": "chunk",
+  "keys": [
+    "fam_elnino_ssttanomaly_1"
+  ],
+  "statement": "(fmax (0 : Int) ((30 : Int) - (25 : Int))) = (5 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

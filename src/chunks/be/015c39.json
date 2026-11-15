@@ -1,0 +1,12 @@
+{
+  "handle": "be015c39",
+  "address": "be015c39-5552-83dc-8714-5072f2c54abc",
+  "statement": "((64 : Int) + (0 : Int)) = (64 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_queue_depth_1"
+  ],
+  "files": [
+    "FamiliesQ.lean"
+  ]
+}

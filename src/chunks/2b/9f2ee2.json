@@ -1,0 +1,16 @@
+{
+  "handle": "2b9f2ee2",
+  "address": "2b9f2ee2-96fa-8201-b5f3-ff504b28d2bd",
+  "statement": "((30 : Int) + (0 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_invoice_duedays_1",
+    "fam_malacology_chambercount_1",
+    "fam_option_expiry_1"
+  ],
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesM.lean",
+    "FamiliesO.lean"
+  ]
+}

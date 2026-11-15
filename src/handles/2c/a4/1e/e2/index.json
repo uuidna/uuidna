@@ -1,0 +1,12 @@
+{
+  "handle": "2ca41ee2",
+  "address": "2ca41ee2-3a21-88e7-95d5-283af0919a2a",
+  "kind": "chunk",
+  "keys": [
+    "fam_psu_headroom_1"
+  ],
+  "statement": "((850 : Int) - (600 : Int)) = (250 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

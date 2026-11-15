@@ -1,0 +1,12 @@
+{
+  "handle": "e775c643",
+  "address": "e775c643-bf64-8cc8-83df-984d8ac2e8ad",
+  "kind": "chunk",
+  "keys": [
+    "fam_trucking_payload_1"
+  ],
+  "statement": "(((30000 : Int) * (100 : Int)) / (80000 : Int)) = (37 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

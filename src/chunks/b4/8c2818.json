@@ -1,0 +1,14 @@
+{
+  "handle": "b48c2818",
+  "address": "b48c2818-9476-86bb-aa86-f715fa364f36",
+  "statement": "((4 : Int) ^ (2 : Nat)) = (16 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_latinsquare_cells_1",
+    "fam_matrix_minors_1"
+  ],
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a9dafb84",
+  "address": "a9dafb84-d314-8d16-b41b-139312cee9e8",
+  "kind": "chunk",
+  "keys": [
+    "fam_dentistry_decay_1"
+  ],
+  "statement": "(((3 : Int) * (100 : Int)) / (32 : Int)) = (9 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

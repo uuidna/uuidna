@@ -1,0 +1,13 @@
+{
+  "handle": "c80130d0",
+  "address": "c80130d0-8640-8ab7-ad97-eb53ef96b600",
+  "statement": "((240 : Int) / (80 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_catering_beverage_1",
+    "fam_catering_portions_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "70d894d2",
+  "address": "70d894d2-4e08-8342-b2c8-1442567c99bb",
+  "kind": "chunk",
+  "keys": [
+    "fam_winemaking_abv_1"
+  ],
+  "statement": "((((24 : Int) - (6 : Int)) * (55 : Int)) / (100 : Int)) = (9 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "a606f4ba",
+  "address": "a606f4ba-3941-8f8b-8627-10f0afefa46f",
+  "statement": "((40 : Int) * (1000 : Int)) = (40000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cern_collisions_1",
+    "fam_glider_range_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesG.lean"
+  ]
+}

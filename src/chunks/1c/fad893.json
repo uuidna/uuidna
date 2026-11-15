@@ -1,0 +1,12 @@
+{
+  "handle": "1cfad893",
+  "address": "1cfad893-c237-86d9-8fcd-fa40f048bac8",
+  "statement": "(-((-(5000 : Int)) / (4096 : Int))) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_driver_dmapages_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

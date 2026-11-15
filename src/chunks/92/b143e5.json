@@ -1,0 +1,12 @@
+{
+  "handle": "92b143e5",
+  "address": "92b143e5-38fe-8483-bdc0-7b10a0aece01",
+  "statement": "((2500 : Int) * (4 : Int)) = (10000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cropyield_totalproduction_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

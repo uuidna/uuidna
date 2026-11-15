@@ -1,0 +1,12 @@
+{
+  "handle": "b62426aa",
+  "address": "b62426aa-6bd6-808a-8c0e-e1e1d4b5dce3",
+  "statement": "(((50 : Int) * (50 : Int)) * (1 : Int)) = (2500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_wind_power_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

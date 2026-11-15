@@ -1,0 +1,12 @@
+{
+  "handle": "c4a58ebb",
+  "address": "c4a58ebb-6723-8801-a564-1d6e096675f6",
+  "statement": "((2 : Int) * (10 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_graph_degree_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

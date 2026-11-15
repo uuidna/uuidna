@@ -1,0 +1,12 @@
+{
+  "handle": "f92c37f7",
+  "address": "f92c37f7-50aa-8281-bcb0-33a195fc9ae7",
+  "kind": "chunk",
+  "keys": [
+    "fam_aviation_noise_1"
+  ],
+  "statement": "(fmax (0 : Int) ((95 : Int) - (85 : Int))) = (10 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

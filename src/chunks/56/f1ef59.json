@@ -1,0 +1,12 @@
+{
+  "handle": "56f1ef59",
+  "address": "56f1ef59-f8c4-839c-88e2-0511abaeadda",
+  "statement": "((86 : Int) * (1 : Int)) = (86 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_piston_bore_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

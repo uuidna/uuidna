@@ -1,0 +1,12 @@
+{
+  "handle": "309ec287",
+  "address": "309ec287-5f10-8d52-a435-9b098f706392",
+  "statement": "((2500 : Int) / (1000 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_loyalty_tier_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

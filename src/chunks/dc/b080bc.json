@@ -1,0 +1,14 @@
+{
+  "handle": "dcb080bc",
+  "address": "dcb080bc-a617-88f2-927e-49fc1f5ebea9",
+  "statement": "((6000 : Int) / (120 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fleet_telematics_1",
+    "fam_reasoning_responselatency_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesR.lean"
+  ]
+}

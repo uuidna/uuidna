@@ -1,0 +1,12 @@
+{
+  "handle": "2c879739",
+  "address": "2c879739-3df2-8f4a-a994-b321efc1793d",
+  "statement": "(((30 : Int) * (100 : Int)) / (12 : Int)) = (250 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gaming_kd_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

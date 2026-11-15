@@ -1,0 +1,12 @@
+{
+  "handle": "cd2aa0b1",
+  "address": "cd2aa0b1-931b-8e5f-b10b-80153a9ba78b",
+  "kind": "chunk",
+  "keys": [
+    "fam_lodging_rating_1"
+  ],
+  "statement": "((480 : Int) / (100 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

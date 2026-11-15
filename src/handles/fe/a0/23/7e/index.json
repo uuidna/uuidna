@@ -1,0 +1,12 @@
+{
+  "handle": "fea0237e",
+  "address": "fea0237e-315f-8b45-8b2b-63e931233f06",
+  "kind": "chunk",
+  "keys": [
+    "fam_neuroscience_potential_1"
+  ],
+  "statement": "((50 : Int) - (70 : Int)) = (-20 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

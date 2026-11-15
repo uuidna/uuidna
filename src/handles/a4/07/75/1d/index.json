@@ -1,0 +1,12 @@
+{
+  "handle": "a407751d",
+  "address": "a407751d-2bdf-886d-8c91-500f3d728d70",
+  "kind": "chunk",
+  "keys": [
+    "fam_redshift_comovingdistance_1"
+  ],
+  "statement": "(((100 : Int) * (4000 : Int)) / (1000 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

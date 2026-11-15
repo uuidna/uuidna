@@ -1,0 +1,14 @@
+{
+  "handle": "a166af8c",
+  "address": "a166af8c-8868-8a08-90b0-9f7726fbc6c7",
+  "kind": "chunk",
+  "keys": [
+    "fam_aerospace_apogee_1",
+    "fam_galactic_rotationvelocity_1"
+  ],
+  "statement": "((60000 : Int) / (300 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesG.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "04b444c3",
+  "address": "04b444c3-cc05-8030-871a-38d6110fbc8f",
+  "statement": "(if (if (70 : Int) ≥ (75 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_etymology_reconstructionscore_2"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

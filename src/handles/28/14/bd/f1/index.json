@@ -1,0 +1,12 @@
+{
+  "handle": "2814bdf1",
+  "address": "2814bdf1-a31e-8c65-899e-1e62dc68d415",
+  "kind": "chunk",
+  "keys": [
+    "fam_marination_marinatetime_1"
+  ],
+  "statement": "((4 : Int) * (60 : Int)) = (240 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

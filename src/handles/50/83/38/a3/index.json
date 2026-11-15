@@ -1,0 +1,12 @@
+{
+  "handle": "508338a3",
+  "address": "508338a3-62ae-8254-b893-5e9096410926",
+  "kind": "chunk",
+  "keys": [
+    "fam_redundancy_parallelreliability_1"
+  ],
+  "statement": "((100 : Int) - (((100 : Int) - (90 : Int)) / (2 : Int))) = (95 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

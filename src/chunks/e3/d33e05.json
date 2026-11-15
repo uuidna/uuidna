@@ -1,0 +1,12 @@
+{
+  "handle": "e3d33e05",
+  "address": "e3d33e05-cb54-8875-a36d-cb398929e06f",
+  "statement": "((1600 : Int) / (400 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tiling_aspectfit_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7ea83de5",
+  "address": "7ea83de5-1d55-882f-8013-11dee73c9e91",
+  "statement": "((6371 : Int) * (1 : Int)) = (6371 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_planet_radius_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

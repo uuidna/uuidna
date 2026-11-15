@@ -1,0 +1,12 @@
+{
+  "handle": "944138a3",
+  "address": "944138a3-d194-8320-be10-6efd1167216f",
+  "statement": "((5000 : Int) / (1 : Int)) = (5000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_surveying_closure_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

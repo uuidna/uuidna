@@ -1,0 +1,12 @@
+{
+  "handle": "c6086a8b",
+  "address": "c6086a8b-21bb-8364-a062-459a63fb66d8",
+  "kind": "chunk",
+  "keys": [
+    "fam_fluiddynamics_bernoulli_1"
+  ],
+  "statement": "((100 : Int) + ((((2 : Int) * (10 : Int)) * (10 : Int)) / (2 : Int))) = (200 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

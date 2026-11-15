@@ -1,0 +1,12 @@
+{
+  "handle": "85e08cb4",
+  "address": "85e08cb4-f321-85ab-be02-8a41f8389c34",
+  "kind": "chunk",
+  "keys": [
+    "fam_oceanography_density_1"
+  ],
+  "statement": "((1025 : Int) / (1 : Int)) = (1025 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d0614daa",
+  "address": "d0614daa-1da5-8968-95b8-33811f979581",
+  "statement": "(if (if (500 : Int) ≥ (400 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_photodiode_saturation_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

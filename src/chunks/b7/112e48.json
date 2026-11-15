@@ -1,0 +1,12 @@
+{
+  "handle": "b7112e48",
+  "address": "b7112e48-9c37-8148-bdad-cc918dafccac",
+  "statement": "((40000 : Int) * (4 : Int)) = (160000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_property_afford_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

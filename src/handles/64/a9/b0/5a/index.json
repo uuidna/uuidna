@@ -1,0 +1,12 @@
+{
+  "handle": "64a9b05a",
+  "address": "64a9b05a-8b15-8427-a36e-046d509d3362",
+  "kind": "chunk",
+  "keys": [
+    "fam_forensic_likelihood_1"
+  ],
+  "statement": "(((1000 : Int) * (1000 : Int)) / (1 : Int)) = (1000000 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

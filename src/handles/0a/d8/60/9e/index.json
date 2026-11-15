@@ -1,0 +1,12 @@
+{
+  "handle": "0ad8609e",
+  "address": "0ad8609e-66c3-8dcf-ab03-a17d2b75f99e",
+  "kind": "chunk",
+  "keys": [
+    "fam_monasticism_silenceratio_1"
+  ],
+  "statement": "(((16 : Int) * (100 : Int)) / (24 : Int)) = (66 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

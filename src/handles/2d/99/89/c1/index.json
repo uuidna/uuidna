@@ -1,0 +1,12 @@
+{
+  "handle": "2d9989c1",
+  "address": "2d9989c1-251b-842f-a1f3-07997e41146e",
+  "kind": "chunk",
+  "keys": [
+    "fam_property_cap_1"
+  ],
+  "statement": "(((12000 : Int) * (100 : Int)) / (200000 : Int)) = (6 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

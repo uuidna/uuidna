@@ -1,0 +1,12 @@
+{
+  "handle": "1ad525cb",
+  "address": "1ad525cb-07c2-87d6-b758-10b5052ae716",
+  "statement": "(((100 : Int) * (100 : Int)) / (20 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sedimentology_settlingvelocity_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

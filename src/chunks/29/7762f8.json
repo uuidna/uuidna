@@ -1,0 +1,12 @@
+{
+  "handle": "297762f8",
+  "address": "297762f8-c2b3-8e80-b64a-1f4a8f6a9be3",
+  "statement": "(((2 : Int) + (3 : Int)) + (4 : Int)) = (9 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_interestrate_yieldcurve_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ba58ca7b",
+  "address": "ba58ca7b-05c2-86d6-be1d-d20cc0e0c7b5",
+  "statement": "(fmax (0 : Int) ((7 : Int) - (0 : Int))) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cadence_rootmotion_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

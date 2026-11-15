@@ -1,0 +1,13 @@
+{
+  "handle": "a6341cff",
+  "address": "a6341cff-a861-8907-8a6a-ac7ac6dbe365",
+  "statement": "(((81 : Int) * (100 : Int)) / (100 : Int)) = (81 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_rectifier_efficiency_1",
+    "fam_rectifiers_efficiency_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

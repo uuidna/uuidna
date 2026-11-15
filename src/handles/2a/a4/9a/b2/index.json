@@ -1,0 +1,12 @@
+{
+  "handle": "2aa49ab2",
+  "address": "2aa49ab2-1cd1-8d4b-8b37-46a8af27331b",
+  "kind": "chunk",
+  "keys": [
+    "fam_gpu_bound_1"
+  ],
+  "statement": "(if (if (4 : Int) ≥ (11 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

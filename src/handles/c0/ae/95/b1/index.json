@@ -1,0 +1,12 @@
+{
+  "handle": "c0ae95b1",
+  "address": "c0ae95b1-6551-8071-a447-6b59355e05ac",
+  "kind": "chunk",
+  "keys": [
+    "fam_alloys_density_1"
+  ],
+  "statement": "((16000 : Int) / (2 : Int)) = (8000 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

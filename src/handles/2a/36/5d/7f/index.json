@@ -1,0 +1,12 @@
+{
+  "handle": "2a365d7f",
+  "address": "2a365d7f-1e1d-8784-aa9f-0c9941a9911a",
+  "kind": "chunk",
+  "keys": [
+    "fam_formant_dispersion_1"
+  ],
+  "statement": "(((3500 : Int) - (500 : Int)) / ((4 : Int) - (1 : Int))) = (1000 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

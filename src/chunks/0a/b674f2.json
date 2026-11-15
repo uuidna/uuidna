@@ -1,0 +1,12 @@
+{
+  "handle": "0ab674f2",
+  "address": "0ab674f2-1735-8ca0-b17b-b802839d7035",
+  "statement": "(fmax (0 : Int) ((7 : Int) - (2 : Int))) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_interference_destructive_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

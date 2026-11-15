@@ -1,0 +1,12 @@
+{
+  "handle": "3496e7f5",
+  "address": "3496e7f5-b234-8478-8c38-606847a2075d",
+  "kind": "chunk",
+  "keys": [
+    "fam_stoichiometry_empirical_1"
+  ],
+  "statement": "((4 : Int) / (2 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

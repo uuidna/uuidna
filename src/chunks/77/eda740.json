@@ -1,0 +1,26 @@
+{
+  "handle": "77eda740",
+  "address": "77eda740-d052-8dc8-92dd-9cf271dcbf60",
+  "statement": "((500 : Int) * (2 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_adhesive_bondstrength_1",
+    "fam_collision_impulse_1",
+    "fam_composite_strength_1",
+    "fam_fpga_throughput_1",
+    "fam_freight_rate_1",
+    "fam_parallax_baseline_1",
+    "fam_polymer_monomers_1",
+    "fam_raster_scaling_1",
+    "fam_solvent_volume_1",
+    "fam_subsidy_amount_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesF.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

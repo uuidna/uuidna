@@ -1,0 +1,12 @@
+{
+  "handle": "a98fdb79",
+  "address": "a98fdb79-6d8b-8fec-ac52-8d41f41e18b9",
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (980 : Int))) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_submarine_buoyancy_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

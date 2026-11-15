@@ -1,0 +1,12 @@
+{
+  "handle": "6de25fc3",
+  "address": "6de25fc3-c1fa-8a8b-8e54-272dcd3f994a",
+  "statement": "(((400 : Int) * (100 : Int)) / (500 : Int)) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_soccer_passaccuracy_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "c7474986",
+  "address": "c7474986-9322-8b23-809f-bf6067f95424",
+  "statement": "(((14 : Int) * (100 : Int)) / (100 : Int)) = (14 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_harvest_moisturecontent_1",
+    "fam_milling_moisture_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesM.lean"
+  ]
+}

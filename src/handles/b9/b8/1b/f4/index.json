@@ -1,0 +1,14 @@
+{
+  "handle": "b9b81bf4",
+  "address": "b9b81bf4-617a-8b7d-a02a-a95645951ddd",
+  "kind": "chunk",
+  "keys": [
+    "fam_qsec_entropybits_1",
+    "fam_text_entropybits_1"
+  ],
+  "statement": "((16 : Int) * (8 : Int)) = (128 : Int)",
+  "files": [
+    "FamiliesQ.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "fe8e3fc1",
+  "address": "fe8e3fc1-1a9e-83d2-b584-27a0f95db1bb",
+  "statement": "((17 : Int) + (0 : Int)) = (17 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_glyphs_unicodeplanes_1",
+    "fam_sudoku_givens_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesS.lean"
+  ]
+}

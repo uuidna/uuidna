@@ -1,0 +1,12 @@
+{
+  "handle": "b024d710",
+  "address": "b024d710-297f-85e8-bdee-0edf0969e2df",
+  "statement": "((20 : Int) * (400 : Int)) = (8000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_energy_capacity_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

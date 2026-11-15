@@ -1,0 +1,16 @@
+{
+  "handle": "f8cc5a5a",
+  "address": "f8cc5a5a-7f29-886c-8a6b-5f4565546f77",
+  "kind": "chunk",
+  "keys": [
+    "fam_locale_complete_1",
+    "fam_morphology_inflection_1",
+    "fam_psychology_conformity_1"
+  ],
+  "statement": "(((6 : Int) * (100 : Int)) / (8 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean"
+  ]
+}

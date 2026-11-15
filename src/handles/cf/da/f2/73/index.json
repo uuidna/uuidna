@@ -1,0 +1,12 @@
+{
+  "handle": "cfdaf273",
+  "address": "cfdaf273-e5fb-80fb-b029-0486ce4d4212",
+  "kind": "chunk",
+  "keys": [
+    "fam_budget_allocated_1"
+  ],
+  "statement": "((10000 : Int) * (12 : Int)) = (120000 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

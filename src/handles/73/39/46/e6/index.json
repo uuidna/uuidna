@@ -1,0 +1,12 @@
+{
+  "handle": "733946e6",
+  "address": "733946e6-6a33-8e66-9829-42c0d1ceeef7",
+  "kind": "chunk",
+  "keys": [
+    "fam_civil_runoff_1"
+  ],
+  "statement": "((2 : Int) * (1500 : Int)) = (3000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

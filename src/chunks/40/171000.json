@@ -1,0 +1,12 @@
+{
+  "handle": "40171000",
+  "address": "40171000-7c12-8755-8c7f-39a30caea18e",
+  "statement": "(((16 : Int) * (100 : Int)) / (12 : Int)) = (133 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_website_plugins_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

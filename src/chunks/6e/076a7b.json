@@ -1,0 +1,21 @@
+{
+  "handle": "6e076a7b",
+  "address": "6e076a7b-3287-8ed7-bea0-6e6719462f19",
+  "statement": "(32 : Int) = (32 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gpu_warpsize_1",
+    "fam_handle_bits_1",
+    "fam_handle_nibbles_1",
+    "fam_machining_surfacefinish_1",
+    "fam_ray_nibbles_1",
+    "fam_ssd_queuedepth_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

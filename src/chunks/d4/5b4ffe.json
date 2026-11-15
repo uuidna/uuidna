@@ -1,0 +1,12 @@
+{
+  "handle": "d45b4ffe",
+  "address": "d45b4ffe-eef0-8469-aee9-fd563393d6d3",
+  "statement": "(((1000 : Int) * ((100 : Int) - (99 : Int))) / (100 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_availability_slabudget_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

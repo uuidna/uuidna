@@ -1,0 +1,12 @@
+{
+  "handle": "ad760633",
+  "address": "ad760633-4074-8ab9-bbce-61e828332abc",
+  "kind": "chunk",
+  "keys": [
+    "fam_chronology_yearspan_1"
+  ],
+  "statement": "(fmax (0 : Int) ((1500 : Int) - (500 : Int))) = (1000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

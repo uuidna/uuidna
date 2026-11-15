@@ -1,0 +1,12 @@
+{
+  "handle": "273243c6",
+  "address": "273243c6-6e35-8549-9ca0-99c10ab3fdeb",
+  "kind": "chunk",
+  "keys": [
+    "fam_grid_density_1"
+  ],
+  "statement": "(((4 : Int) * (100 : Int)) / (16 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

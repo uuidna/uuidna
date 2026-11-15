@@ -1,0 +1,12 @@
+{
+  "handle": "39da3fc7",
+  "address": "39da3fc7-5980-8df7-8a90-a9ede6617be7",
+  "kind": "chunk",
+  "keys": [
+    "fam_ngram_backoffweight_1"
+  ],
+  "statement": "(((400 : Int) * (1000 : Int)) / (1000 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

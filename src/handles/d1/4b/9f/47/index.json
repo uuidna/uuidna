@@ -1,0 +1,12 @@
+{
+  "handle": "d14b9f47",
+  "address": "d14b9f47-1470-859d-acb1-fd96c69346ae",
+  "kind": "chunk",
+  "keys": [
+    "fam_sentence_concurrent_1"
+  ],
+  "statement": "(fmax (60 : Int) (36 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "handle": "343530ce",
+  "address": "343530ce-7739-8bd5-b55c-a5b88bbb7758",
+  "statement": "(if (if (13 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_counterpoint_intervalconsonance_2",
+    "fam_layout_order_2",
+    "fam_patent_priority_2"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "319b9e9a",
+  "address": "319b9e9a-b55d-869d-99fb-678fdfb8fd4e",
+  "statement": "((750 : Int) / (50 : Int)) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mixology_servings_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

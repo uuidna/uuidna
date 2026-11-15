@@ -1,0 +1,14 @@
+{
+  "handle": "e7d4ab27",
+  "address": "e7d4ab27-cf8d-8f28-9ded-81557d9f4cdc",
+  "statement": "((300 : Int) + (150 : Int)) = (450 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_motion_total_1",
+    "fam_replication_failover_1"
+  ],
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "5f911ac2",
+  "address": "5f911ac2-7ed1-855e-9cde-e86e0870b66c",
+  "kind": "chunk",
+  "keys": [
+    "fam_optometry_accommodation_2"
+  ],
+  "statement": "(fmax (0 : Int) ((25 : Int) - (250 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

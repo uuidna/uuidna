@@ -1,0 +1,12 @@
+{
+  "handle": "f1cdfad5",
+  "address": "f1cdfad5-cc1e-807d-af24-fdd047f646cd",
+  "kind": "chunk",
+  "keys": [
+    "fam_spirometry_vitalcapacity_1"
+  ],
+  "statement": "(((3000 : Int) + (500 : Int)) + (1000 : Int)) = (4500 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

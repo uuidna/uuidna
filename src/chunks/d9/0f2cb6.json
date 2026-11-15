@@ -1,0 +1,20 @@
+{
+  "handle": "d90f2cb6",
+  "address": "d90f2cb6-9b03-8239-bd49-49c2f6dd68d6",
+  "statement": "((20 : Int) * (15 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hvac_ventilation_1",
+    "fam_inspection_rework_1",
+    "fam_numeracy_problemsolved_1",
+    "fam_pediatrics_dose_1",
+    "fam_throwing_range_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

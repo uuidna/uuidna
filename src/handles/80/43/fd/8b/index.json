@@ -1,0 +1,32 @@
+{
+  "handle": "8043fd8b",
+  "address": "8043fd8b-af01-8d2d-8b1c-2fc8f40b286a",
+  "kind": "chunk",
+  "keys": [
+    "fam_automotive_acceleration_2",
+    "fam_dynamics_power_2",
+    "fam_electrostatics_capacitance_2",
+    "fam_feedlot_dailygain_2",
+    "fam_fractal_scaleratio_2",
+    "fam_kinematics_velocity_2",
+    "fam_magnetism_dipole_2",
+    "fam_manipulator_payload_2",
+    "fam_parallax_errorbudget_2",
+    "fam_readability_wordspersentence_2",
+    "fam_relativity_curvature_2",
+    "fam_thermocouple_temperature_2",
+    "fam_trigonometry_period_2"
+  ],
+  "statement": "((100 : Int) / (0 : Int)) = (0 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesK.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesT.lean"
+  ]
+}

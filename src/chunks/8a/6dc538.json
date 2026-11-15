@@ -1,0 +1,12 @@
+{
+  "handle": "8a6dc538",
+  "address": "8a6dc538-c905-8259-b8dd-ab4a93f03125",
+  "statement": "(fmax (0 : Int) ((10000 : Int) - (6000 : Int))) = (4000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_banking_credit_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "e9fa0ad9",
+  "address": "e9fa0ad9-f630-8c6a-83de-83d8113abc11",
+  "kind": "chunk",
+  "keys": [
+    "fam_iot_duty_1",
+    "fam_socialnetwork_clustering_1"
+  ],
+  "statement": "(((15 : Int) * (100 : Int)) / (60 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesS.lean"
+  ]
+}

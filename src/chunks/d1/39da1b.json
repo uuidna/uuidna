@@ -1,0 +1,12 @@
+{
+  "handle": "d139da1b",
+  "address": "d139da1b-6a55-86bf-a100-06e6e71d363f",
+  "statement": "(((500 : Int) * (100 : Int)) / (2000 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_enrollment_rate_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "handle": "e3d15ea4",
+  "address": "e3d15ea4-2f0b-871f-a6df-0f59fa8319e8",
+  "statement": "(2 : Int) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_canon_testaments_1",
+    "fam_neurology_reflex_1",
+    "fam_neuroscience_refractory_1",
+    "fam_query_depth_1",
+    "fam_routing_catchall_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesN.lean",
+    "FamiliesQ.lean",
+    "FamiliesR.lean"
+  ]
+}

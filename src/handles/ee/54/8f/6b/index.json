@@ -1,0 +1,12 @@
+{
+  "handle": "ee548f6b",
+  "address": "ee548f6b-56d0-8d9c-9120-230ff154bc0d",
+  "kind": "chunk",
+  "keys": [
+    "fam_assessment_weightedmean_1"
+  ],
+  "statement": "((350 : Int) / (4 : Int)) = (87 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

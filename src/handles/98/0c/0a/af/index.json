@@ -1,0 +1,18 @@
+{
+  "handle": "980c0aaf",
+  "address": "980c0aaf-f42e-8d62-8be7-d417d9ac5def",
+  "kind": "chunk",
+  "keys": [
+    "fam_eschatology_scenariocombos_1",
+    "fam_hermeneutics_methodcombos_1",
+    "fam_parable_motifcombos_1",
+    "fam_ui_layoutcombos_1"
+  ],
+  "statement": "(Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (3 : Int)))) = (56 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesH.lean",
+    "FamiliesP.lean",
+    "FamiliesU.lean"
+  ]
+}

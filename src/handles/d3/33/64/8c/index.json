@@ -1,0 +1,12 @@
+{
+  "handle": "d333648c",
+  "address": "d333648c-58b3-8206-b2d2-84bdfecdcc9c",
+  "kind": "chunk",
+  "keys": [
+    "fam_pwm_resolution_1"
+  ],
+  "statement": "((256 : Int) * (1 : Int)) = (256 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

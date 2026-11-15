@@ -1,0 +1,12 @@
+{
+  "handle": "b7e41adc",
+  "address": "b7e41adc-1454-8d4e-a109-6322ade67a1f",
+  "statement": "(((1200 : Int) * (100 : Int)) / (800 : Int)) = (150 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_solvency_coverage_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

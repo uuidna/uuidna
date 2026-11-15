@@ -1,0 +1,18 @@
+{
+  "handle": "b7ab8b82",
+  "address": "b7ab8b82-63fe-8cea-85a2-33ba7e7e067c",
+  "statement": "((900 : Int) / (3 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_anthropology_lineage_1",
+    "fam_histology_infiltration_1",
+    "fam_magnetism_permeability_1",
+    "fam_spectroscopy_linewidth_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesS.lean"
+  ]
+}

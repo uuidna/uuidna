@@ -1,0 +1,14 @@
+{
+  "handle": "a7979506",
+  "address": "a7979506-f916-8358-8ec5-e5b742cb606b",
+  "statement": "((24 : Int) / (2 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_convolution_pooling_1",
+    "fam_tides_period_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "handle": "32f5031f",
+  "address": "32f5031f-66c1-8f40-9195-f98b8a46f793",
+  "statement": "(Int.ofNat (ffact (Int.toNat (6 : Int)))) = (720 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_apocrypha_readingorders_1",
+    "fam_backgammon_bearoffperms_1",
+    "fam_calendar_monthorderings_1",
+    "fam_chronology_eventorderings_1",
+    "fam_codicology_gatheringorderings_1",
+    "fam_cytogenetics_karyotypeorderings_1",
+    "fam_dominoes_chainorderings_1",
+    "fam_mythology_narrativeorderings_1",
+    "fam_origami_foldorderings_1",
+    "fam_papyrology_columnorderings_1",
+    "fam_patristics_worksorderings_1",
+    "fam_pilgrimage_routeorderings_1",
+    "fam_runes_orderingchoices_1",
+    "fam_sudoku_rowperms_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesM.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

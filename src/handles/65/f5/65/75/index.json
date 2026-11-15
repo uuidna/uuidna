@@ -1,0 +1,12 @@
+{
+  "handle": "65f56575",
+  "address": "65f56575-b25d-8ca3-b9f1-005ec27ad9ee",
+  "kind": "chunk",
+  "keys": [
+    "fam_dairy_lactation_1"
+  ],
+  "statement": "(305 : Int) = (305 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

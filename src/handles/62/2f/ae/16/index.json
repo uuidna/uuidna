@@ -1,0 +1,12 @@
+{
+  "handle": "622fae16",
+  "address": "622fae16-a3b2-8d6d-ad1a-7182f9d5213e",
+  "kind": "chunk",
+  "keys": [
+    "fam_redundancy_nplusone_1"
+  ],
+  "statement": "((8 : Int) + (1 : Int)) = (9 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

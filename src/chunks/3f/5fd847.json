@@ -1,0 +1,12 @@
+{
+  "handle": "3f5fd847",
+  "address": "3f5fd847-4e2e-8f7a-beb5-1b99fd72f0c5",
+  "statement": "(if (if (2000 : Int) ≤ (2500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_vitals_lcp_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

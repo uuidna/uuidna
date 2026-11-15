@@ -1,0 +1,17 @@
+{
+  "handle": "e6f06477",
+  "address": "e6f06477-4188-8231-a0b2-f42016588d10",
+  "statement": "((100 : Int) * (1000 : Int)) = (100000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_comet_tail_1",
+    "fam_galaxy_diameter_1",
+    "fam_galaxy_stars_1",
+    "fam_vaccine_batches_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesV.lean"
+  ]
+}

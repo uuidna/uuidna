@@ -1,0 +1,12 @@
+{
+  "handle": "730d6a7d",
+  "address": "730d6a7d-f7c1-873b-9054-6f5ed40e34c7",
+  "statement": "(fmax (0 : Int) ((48 : Int) - (8 : Int))) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_neuropsychology_executivefunction_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

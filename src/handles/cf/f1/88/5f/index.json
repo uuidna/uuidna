@@ -1,0 +1,12 @@
+{
+  "handle": "cff1885f",
+  "address": "cff1885f-f9b7-8ca8-9cd3-ce86805ac849",
+  "kind": "chunk",
+  "keys": [
+    "fam_software_teamsize_1"
+  ],
+  "statement": "(-((-(100 : Int)) / (40 : Int))) = (3 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6260a06a",
+  "address": "6260a06a-8bd1-8815-aad0-0085dd048a1f",
+  "statement": "(((2 : Int) ^ (2 : Nat)) * (5 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_astrophysics_luminosity_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

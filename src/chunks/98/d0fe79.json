@@ -1,0 +1,20 @@
+{
+  "handle": "98d0fe79",
+  "address": "98d0fe79-0054-8e9b-9ada-3891813ab162",
+  "statement": "((8 : Int) * (4 : Int)) = (32 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ballet_barreexercises_1",
+    "fam_driver_doorbell_1",
+    "fam_iot_payload_1",
+    "fam_nic_queues_1",
+    "fam_origami_panelcount_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesI.lean",
+    "FamiliesN.lean",
+    "FamiliesO.lean"
+  ]
+}

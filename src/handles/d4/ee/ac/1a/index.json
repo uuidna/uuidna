@@ -1,0 +1,12 @@
+{
+  "handle": "d4eeac1a",
+  "address": "d4eeac1a-1c2b-8dfa-a6a6-3fd4692e8455",
+  "kind": "chunk",
+  "keys": [
+    "fam_partitioning_skew_2"
+  ],
+  "statement": "(((fmax (0 : Int) ((80 : Int) - (100 : Int))) * (100 : Int)) / (100 : Int)) = (0 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

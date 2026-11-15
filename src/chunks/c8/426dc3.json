@@ -1,0 +1,40 @@
+{
+  "handle": "c8426dc3",
+  "address": "c8426dc3-d858-885b-8bd9-169404148e48",
+  "statement": "((3 : Int) * (4 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_actuarial_expectedclaims_1",
+    "fam_auditing_risk_1",
+    "fam_cadence_resolutionstrength_1",
+    "fam_calculus_derivative_1",
+    "fam_deadreckoning_setandrift_1",
+    "fam_grid_cells_1",
+    "fam_insurance_frequencyseverity_1",
+    "fam_kalman_processnoise_1",
+    "fam_linearalgebra_matrixelements_1",
+    "fam_nanotechnology_coating_1",
+    "fam_ontology_modalstates_1",
+    "fam_partition_ferrers_1",
+    "fam_replication_factor_1",
+    "fam_sailing_drift_1",
+    "fam_transcription_splicevariants_1",
+    "fam_vector_dot_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesK.lean",
+    "FamiliesL.lean",
+    "FamiliesN.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean",
+    "FamiliesV.lean"
+  ]
+}

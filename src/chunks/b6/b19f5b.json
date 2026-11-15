@@ -1,0 +1,12 @@
+{
+  "handle": "b6b19f5b",
+  "address": "b6b19f5b-86ad-881a-8d70-8804f767738c",
+  "statement": "(450 : Int) = (450 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_surgery_bloodloss_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

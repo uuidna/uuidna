@@ -1,0 +1,12 @@
+{
+  "handle": "63e66b98",
+  "address": "63e66b98-5bf2-8b90-b72c-efb3a990daaa",
+  "kind": "chunk",
+  "keys": [
+    "fam_branding_recall_1"
+  ],
+  "statement": "(((300 : Int) * (100 : Int)) / (500 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

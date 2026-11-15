@@ -1,0 +1,12 @@
+{
+  "handle": "21a3225c",
+  "address": "21a3225c-dc36-82e9-9122-ab6896af7282",
+  "statement": "((100 : Int) / (100 : Int)) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_glider_sinkrate_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

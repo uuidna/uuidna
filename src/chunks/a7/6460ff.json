@@ -1,0 +1,18 @@
+{
+  "handle": "a76460ff",
+  "address": "a76460ff-da2f-8ac5-b377-ac8608a30833",
+  "statement": "((1200 : Int) / (10 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_drilling_ropenetration_1",
+    "fam_histology_density_1",
+    "fam_neuroscience_conduction_1",
+    "fam_sintering_holdtime_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesH.lean",
+    "FamiliesN.lean",
+    "FamiliesS.lean"
+  ]
+}

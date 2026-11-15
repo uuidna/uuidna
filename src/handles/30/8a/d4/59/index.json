@@ -1,0 +1,15 @@
+{
+  "handle": "308ad459",
+  "address": "308ad459-41dc-8d5b-be85-68035e7e12d2",
+  "kind": "chunk",
+  "keys": [
+    "fam_dyeing_liquorratio_1",
+    "fam_macroeconomics_velocity_1",
+    "fam_magnetometry_gradient_1"
+  ],
+  "statement": "((2000 : Int) / (100 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesM.lean"
+  ]
+}

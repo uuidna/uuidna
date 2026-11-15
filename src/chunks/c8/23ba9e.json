@@ -1,0 +1,12 @@
+{
+  "handle": "c823ba9e",
+  "address": "c823ba9e-5b52-8062-b1d4-131ccdb90cff",
+  "statement": "((3 : Int) * (1200 : Int)) = (3600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tillage_drafforce_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

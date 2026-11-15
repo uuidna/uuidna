@@ -1,0 +1,12 @@
+{
+  "handle": "438a2d09",
+  "address": "438a2d09-0ce5-88d6-a16b-d381cefb7985",
+  "statement": "(if (if (900 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bundle_budget_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

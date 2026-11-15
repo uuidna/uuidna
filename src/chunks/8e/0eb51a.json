@@ -1,0 +1,12 @@
+{
+  "handle": "8e0eb51a",
+  "address": "8e0eb51a-dc8b-8988-940b-4ff32f32fbac",
+  "statement": "(if (if (11 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_patent_priority_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

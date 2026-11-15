@@ -1,0 +1,12 @@
+{
+  "handle": "501651c0",
+  "address": "501651c0-57bb-830b-b1e8-4bfedcaa15c6",
+  "statement": "((28 : Int) * (1 : Int)) = (28 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_concrete_strength_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

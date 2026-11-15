@@ -1,0 +1,12 @@
+{
+  "handle": "eb2eabe2",
+  "address": "eb2eabe2-b686-891b-b517-37f14abf01bd",
+  "kind": "chunk",
+  "keys": [
+    "fam_cargo_palletize_1"
+  ],
+  "statement": "(-((-(1000 : Int)) / (48 : Int))) = (21 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

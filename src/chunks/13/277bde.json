@@ -1,0 +1,12 @@
+{
+  "handle": "13277bde",
+  "address": "13277bde-f2eb-8f87-bf06-ddd832cb9146",
+  "statement": "(((3 : Int) * (100 : Int)) / (20 : Int)) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_project_risk_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

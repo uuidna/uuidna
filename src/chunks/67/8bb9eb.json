@@ -1,0 +1,12 @@
+{
+  "handle": "678bb9eb",
+  "address": "678bb9eb-335b-8a8b-a27e-194b2abb0c1e",
+  "statement": "(((94 : Int) * (10 : Int)) / (20 : Int)) = (47 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_partner_rating_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

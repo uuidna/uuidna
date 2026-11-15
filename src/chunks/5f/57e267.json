@@ -1,0 +1,12 @@
+{
+  "handle": "5f57e267",
+  "address": "5f57e267-479f-8907-be35-f34e9410c7d0",
+  "statement": "((167 : Int) * (1 : Int)) = (167 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_backgammon_pipcount_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

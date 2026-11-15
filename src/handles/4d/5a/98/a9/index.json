@@ -1,0 +1,12 @@
+{
+  "handle": "4d5a98a9",
+  "address": "4d5a98a9-64e2-894b-b91d-a15f59952377",
+  "kind": "chunk",
+  "keys": [
+    "fam_mortgage_principal_1"
+  ],
+  "statement": "(fmax (0 : Int) ((1200 : Int) - (500 : Int))) = (700 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

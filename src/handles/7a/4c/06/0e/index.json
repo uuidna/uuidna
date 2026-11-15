@@ -1,0 +1,12 @@
+{
+  "handle": "7a4c060e",
+  "address": "7a4c060e-1f96-8d7f-893b-58c9c2c329e7",
+  "kind": "chunk",
+  "keys": [
+    "fam_chess_perft_1"
+  ],
+  "statement": "((5 : Int) ^ (3 : Nat)) = (125 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

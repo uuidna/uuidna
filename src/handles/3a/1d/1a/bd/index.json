@@ -1,0 +1,12 @@
+{
+  "handle": "3a1d1abd",
+  "address": "3a1d1abd-0dba-84a7-a3c5-29ce76238333",
+  "kind": "chunk",
+  "keys": [
+    "fam_husbandry_weaningweight_1"
+  ],
+  "statement": "((40 : Int) + ((200 : Int) * (1 : Int))) = (240 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

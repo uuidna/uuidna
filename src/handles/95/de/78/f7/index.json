@@ -1,0 +1,12 @@
+{
+  "handle": "95de78f7",
+  "address": "95de78f7-d6e7-8c8b-a26f-19409008e36d",
+  "kind": "chunk",
+  "keys": [
+    "fam_maillard_aminosugarratio_1"
+  ],
+  "statement": "(((40 : Int) * (100 : Int)) / (60 : Int)) = (66 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

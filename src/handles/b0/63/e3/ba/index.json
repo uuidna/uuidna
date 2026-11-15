@@ -1,0 +1,14 @@
+{
+  "handle": "b063e3ba",
+  "address": "b063e3ba-5f2c-8de7-bf1c-3d2c3f98b09f",
+  "kind": "chunk",
+  "keys": [
+    "fam_metabolism_atp_1",
+    "fam_solvent_solubility_1"
+  ],
+  "statement": "((36 : Int) * (1 : Int)) = (36 : Int)",
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesS.lean"
+  ]
+}

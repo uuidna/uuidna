@@ -1,0 +1,40 @@
+{
+  "handle": "113445f6",
+  "address": "113445f6-a11d-80e6-89a6-822cf8d2f3fa",
+  "kind": "chunk",
+  "keys": [
+    "fam_botany_photosynthesis_1",
+    "fam_dns_zones_1",
+    "fam_dynamics_force_1",
+    "fam_dynamics_work_1",
+    "fam_federated_exchanges_1",
+    "fam_jewelry_metalgrams_1",
+    "fam_kinematics_momentum_1",
+    "fam_latency_queuing_1",
+    "fam_optics_magnify_1",
+    "fam_partitioning_fanout_1",
+    "fam_physics_force_1",
+    "fam_seismology_distance_1",
+    "fam_subsidence_cumulative_1",
+    "fam_subsidence_influencedepth_1",
+    "fam_sustainability_lifecycle_1",
+    "fam_topology_neighborhood_1",
+    "fam_veterinary_dose_1",
+    "fam_zeroshot_attributes_1"
+  ],
+  "statement": "((10 : Int) * (5 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesF.lean",
+    "FamiliesJ.lean",
+    "FamiliesK.lean",
+    "FamiliesL.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean",
+    "FamiliesV.lean",
+    "FamiliesZ.lean"
+  ]
+}

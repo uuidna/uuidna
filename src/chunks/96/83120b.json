@@ -1,0 +1,19 @@
+{
+  "handle": "9683120b",
+  "address": "9683120b-f72e-8a62-ab40-d30fb8177b08",
+  "statement": "((600 : Int) / (12 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dispatch_responsetime_1",
+    "fam_dosimetry_absorbeddose_1",
+    "fam_noise_floor_1",
+    "fam_psu_current_1",
+    "fam_rheology_relaxation_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

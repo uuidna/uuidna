@@ -1,0 +1,12 @@
+{
+  "handle": "27363a1e",
+  "address": "27363a1e-a786-8c7e-a107-f1885125c464",
+  "kind": "chunk",
+  "keys": [
+    "fam_remotesensing_swath_1"
+  ],
+  "statement": "((700 : Int) * (10 : Int)) = (7000 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

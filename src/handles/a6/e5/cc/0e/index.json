@@ -1,0 +1,12 @@
+{
+  "handle": "a6e5cc0e",
+  "address": "a6e5cc0e-246c-8c1b-8120-23e99c72f43b",
+  "kind": "chunk",
+  "keys": [
+    "fam_ophthalmology_accommodation_1"
+  ],
+  "statement": "(fmax (0 : Int) (((100 : Int) / (10 : Int)) - ((100 : Int) / (100 : Int)))) = (9 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

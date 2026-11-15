@@ -1,0 +1,12 @@
+{
+  "handle": "c679b19b",
+  "address": "c679b19b-1d27-800e-93b0-3fdd7858f211",
+  "kind": "chunk",
+  "keys": [
+    "fam_breeding_geneticgain_1"
+  ],
+  "statement": "(((40 : Int) * (20 : Int)) / (100 : Int)) = (8 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

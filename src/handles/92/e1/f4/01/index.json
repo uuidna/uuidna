@@ -1,0 +1,12 @@
+{
+  "handle": "92e1f401",
+  "address": "92e1f401-a529-83ca-be72-c33f2fc2092b",
+  "kind": "chunk",
+  "keys": [
+    "fam_thermochemistry_calorimetry_1"
+  ],
+  "statement": "(((100 : Int) * (4 : Int)) * (25 : Int)) = (10000 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

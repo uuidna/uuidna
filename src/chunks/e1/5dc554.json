@@ -1,0 +1,15 @@
+{
+  "handle": "e15dc554",
+  "address": "e15dc554-4ee5-8cf4-b401-c9ada19e9437",
+  "statement": "(fmax (0 : Int) ((30 : Int) - (100 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_etl_skew_2",
+    "fam_replenishment_stockout_2",
+    "fam_robotics_payload_2"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesR.lean"
+  ]
+}

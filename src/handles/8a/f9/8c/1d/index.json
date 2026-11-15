@@ -1,0 +1,12 @@
+{
+  "handle": "8af98c1d",
+  "address": "8af98c1d-63ea-8caa-9d89-7f2f18281069",
+  "kind": "chunk",
+  "keys": [
+    "fam_meteorology_lapse_1"
+  ],
+  "statement": "(fmax (0 : Int) ((25 : Int) - (6 : Int))) = (19 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

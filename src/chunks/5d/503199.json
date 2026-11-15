@@ -1,0 +1,12 @@
+{
+  "handle": "5d503199",
+  "address": "5d503199-ed81-85c2-8714-9afedcc7ce4c",
+  "statement": "(if (if (31 : Int) ≥ (29 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_chocolate_temper_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

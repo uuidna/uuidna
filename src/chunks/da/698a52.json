@@ -1,0 +1,12 @@
+{
+  "handle": "da698a52",
+  "address": "da698a52-9e1c-8803-9ffb-2482702baf51",
+  "statement": "(((5000 : Int) * (1000 : Int)) / (250 : Int)) = (20000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sampling_weight_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "710382d8",
+  "address": "710382d8-9d18-89fc-8037-e0c25dc34256",
+  "statement": "((150 : Int) * (12 : Int)) = (1800 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_upload_thumbnail_1"
+  ],
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

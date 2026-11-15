@@ -1,0 +1,12 @@
+{
+  "handle": "bae4750f",
+  "address": "bae4750f-bd88-8713-a73d-6b7ab647e514",
+  "statement": "(fmax (0 : Int) ((((15000 : Int) - (10000 : Int)) * (100 : Int)) / (10000 : Int))) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_collateral_overcollateralization_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c4fa87e3",
+  "address": "c4fa87e3-a6e1-8526-9932-4bac45330411",
+  "kind": "chunk",
+  "keys": [
+    "fam_alloys_tensile_1"
+  ],
+  "statement": "((40000 : Int) / (80 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

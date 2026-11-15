@@ -1,0 +1,12 @@
+{
+  "handle": "eadcb63f",
+  "address": "eadcb63f-1282-81f8-8caa-a6820895140e",
+  "statement": "((24 : Int) * (200 : Int)) = (4800 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_welding_heatinput_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

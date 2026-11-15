@@ -1,0 +1,13 @@
+{
+  "handle": "e780a500",
+  "address": "e780a500-8f71-8eb0-9d17-078d2a0d510e",
+  "statement": "((100 : Int) / ((5 : Int) ^ (2 : Nat))) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_electromagnetism_field_1",
+    "fam_electrostatics_field_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

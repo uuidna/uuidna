@@ -1,0 +1,12 @@
+{
+  "handle": "ff84b38e",
+  "address": "ff84b38e-a31f-85ed-a06e-34471c2adef8",
+  "statement": "(((1540 : Int) * (100 : Int)) / (2 : Int)) = (77000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sonography_depth_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

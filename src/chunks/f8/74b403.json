@@ -1,0 +1,12 @@
+{
+  "handle": "f874b403",
+  "address": "f874b403-4cc3-8a16-8f11-0d8e4989fdde",
+  "statement": "((2 : Int) * (100 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dosage_perbsa_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

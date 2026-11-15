@@ -1,0 +1,12 @@
+{
+  "handle": "9f1044b2",
+  "address": "9f1044b2-8d05-8a92-8b05-c2a2c2356a9d",
+  "statement": "(((4 : Int) * (6 : Int)) * (3 : Int)) = (72 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_filtering_attenuation_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

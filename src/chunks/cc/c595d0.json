@@ -1,0 +1,12 @@
+{
+  "handle": "ccc595d0",
+  "address": "ccc595d0-85db-8476-8699-8c2a5849420e",
+  "statement": "(((1 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_email_reputation_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

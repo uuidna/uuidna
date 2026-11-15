@@ -1,0 +1,14 @@
+{
+  "handle": "fa7b1d7d",
+  "address": "fa7b1d7d-7ac4-820c-ab38-be1e9e6421d5",
+  "statement": "(((2 : Int) * (100 : Int)) / (8 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_highlights_reveal_1",
+    "fam_locale_rtl_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesL.lean"
+  ]
+}

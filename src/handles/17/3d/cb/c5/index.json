@@ -1,0 +1,12 @@
+{
+  "handle": "173dcbc5",
+  "address": "173dcbc5-006c-8717-8ccc-0fb0c3b9eab8",
+  "kind": "chunk",
+  "keys": [
+    "fam_telecom_erlang_1"
+  ],
+  "statement": "(((3600 : Int) * (180 : Int)) / (3600 : Int)) = (180 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

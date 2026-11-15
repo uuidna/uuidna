@@ -1,0 +1,14 @@
+{
+  "handle": "97fff403",
+  "address": "97fff403-d845-82f8-9959-7ebbbfc6910d",
+  "kind": "chunk",
+  "keys": [
+    "fam_anatomy_girth_1",
+    "fam_hook_fired_1"
+  ],
+  "statement": "((10 : Int) * (6 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesH.lean"
+  ]
+}

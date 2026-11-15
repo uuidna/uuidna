@@ -1,0 +1,12 @@
+{
+  "handle": "1a7a4aa9",
+  "address": "1a7a4aa9-f826-818f-bd76-60c38b656bb6",
+  "statement": "((7000 : Int) / (10 : Int)) = (700 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_silage_density_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

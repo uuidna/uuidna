@@ -1,0 +1,12 @@
+{
+  "handle": "c5080cba",
+  "address": "c5080cba-e764-8f4b-b90e-a2ea7fc17594",
+  "kind": "chunk",
+  "keys": [
+    "fam_toxicology_clearance_1"
+  ],
+  "statement": "((600 : Int) / (15 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

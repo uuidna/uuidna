@@ -1,0 +1,16 @@
+{
+  "handle": "1b93e98e",
+  "address": "1b93e98e-d377-84b8-a67b-19a43a851cc3",
+  "statement": "(Int.ofNat (ffact (Int.toNat (8 : Int)))) = (40320 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_buddhism_pathorderings_1",
+    "fam_psalmody_toneorderings_1",
+    "fam_rubik_cornerperms_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

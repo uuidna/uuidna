@@ -1,0 +1,12 @@
+{
+  "handle": "057e2980",
+  "address": "057e2980-33c6-8917-9c69-5e629664a730",
+  "kind": "chunk",
+  "keys": [
+    "fam_qsec_strengthmargin_1"
+  ],
+  "statement": "(fmax (0 : Int) ((256 : Int) - (128 : Int))) = (128 : Int)",
+  "files": [
+    "FamiliesQ.lean"
+  ]
+}

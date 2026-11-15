@@ -1,0 +1,12 @@
+{
+  "handle": "2c6f38d8",
+  "address": "2c6f38d8-b18d-8919-8a32-6e943952b07c",
+  "kind": "chunk",
+  "keys": [
+    "fam_materials_thermal_1"
+  ],
+  "statement": "((10 : Int) * (12 : Int)) = (120 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

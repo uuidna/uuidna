@@ -1,0 +1,12 @@
+{
+  "handle": "c488efbe",
+  "address": "c488efbe-6dbd-83c2-b70a-5e594a2be8a2",
+  "kind": "chunk",
+  "keys": [
+    "fam_glomerular_filtrationfraction_1"
+  ],
+  "statement": "(((125 : Int) * (100 : Int)) / (625 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

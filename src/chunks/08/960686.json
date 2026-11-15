@@ -1,0 +1,12 @@
+{
+  "handle": "08960686",
+  "address": "08960686-04c0-8200-a050-f903265bd17b",
+  "statement": "(fmax (0 : Int) ((90 : Int) - (25 : Int))) = (65 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_diffusion_concentrationdrop_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

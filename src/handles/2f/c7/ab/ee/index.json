@@ -1,0 +1,12 @@
+{
+  "handle": "2fc7abee",
+  "address": "2fc7abee-845a-8b6f-a80c-1afa6431cd5c",
+  "kind": "chunk",
+  "keys": [
+    "fam_quantization_bits_1"
+  ],
+  "statement": "(Int.ofNat (flog 2 64 (Int.toNat (1024 : Int)))) = (10 : Int)",
+  "files": [
+    "FamiliesQ.lean"
+  ]
+}

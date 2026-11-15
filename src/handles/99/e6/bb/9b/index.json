@@ -1,0 +1,12 @@
+{
+  "handle": "99e6bb9b",
+  "address": "99e6bb9b-6135-820a-a75a-be2d3d73e9c1",
+  "kind": "chunk",
+  "keys": [
+    "fam_endocrinology_homa_1"
+  ],
+  "statement": "(((90 : Int) * (10 : Int)) / (405 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "29582044",
+  "address": "29582044-dc69-8a3b-b417-a0be8887a7e2",
+  "statement": "((12 : Int) * (9 : Int)) = (108 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_electromagnetism_poynting_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

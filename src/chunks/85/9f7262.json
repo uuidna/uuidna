@@ -1,0 +1,14 @@
+{
+  "handle": "859f7262",
+  "address": "859f7262-c177-89e6-8261-0a258b5e6af6",
+  "statement": "(fmax (0 : Int) ((0 : Int) - (1 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_causal_chains_2",
+    "fam_dedup_decref_2"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean"
+  ]
+}

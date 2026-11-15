@@ -1,0 +1,12 @@
+{
+  "handle": "cf377a72",
+  "address": "cf377a72-c0b5-8605-bc91-be168b99c6fe",
+  "kind": "chunk",
+  "keys": [
+    "fam_numerology_repetitions_1"
+  ],
+  "statement": "((100 : Int) / (7 : Int)) = (14 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

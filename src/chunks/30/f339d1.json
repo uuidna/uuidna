@@ -1,0 +1,12 @@
+{
+  "handle": "30f339d1",
+  "address": "30f339d1-f0fc-81ed-87d6-d914e8a89852",
+  "statement": "(((fmax (0 : Int) ((1000 : Int) - (100 : Int))) * (100 : Int)) / (1000 : Int)) = (90 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_absorption_transmissionloss_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

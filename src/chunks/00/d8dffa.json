@@ -1,0 +1,12 @@
+{
+  "handle": "00d8dffa",
+  "address": "00d8dffa-4e23-80c3-8b7b-b87e890783b1",
+  "statement": "((6000 : Int) / (8 : Int)) = (750 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_harvest_throughput_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

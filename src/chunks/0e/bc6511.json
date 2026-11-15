@@ -1,0 +1,12 @@
+{
+  "handle": "0ebc6511",
+  "address": "0ebc6511-8051-89b1-9b83-dc57a4b8294c",
+  "statement": "((14 : Int) + (0 : Int)) = (14 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_syllabary_consonants_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

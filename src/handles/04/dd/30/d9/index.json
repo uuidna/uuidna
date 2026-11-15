@@ -1,0 +1,12 @@
+{
+  "handle": "04dd30d9",
+  "address": "04dd30d9-f5d6-84e7-b0dc-43d9bdf19b80",
+  "kind": "chunk",
+  "keys": [
+    "fam_hashing_probe_1"
+  ],
+  "statement": "(((998 : Int) + (5 : Int)) % (1000 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

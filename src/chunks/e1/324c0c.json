@@ -1,0 +1,12 @@
+{
+  "handle": "e1324c0c",
+  "address": "e1324c0c-a612-85ae-97bc-5c3fc945c1c9",
+  "statement": "(((500 : Int) * (100 : Int)) / (5000 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gastroenterology_bleeding_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c87e83dd",
+  "address": "c87e83dd-f7da-87ca-be59-01fdf740bd4f",
+  "kind": "chunk",
+  "keys": [
+    "fam_serialization_framing_1"
+  ],
+  "statement": "((3800 : Int) + ((4 : Int) * (50 : Int))) = (4000 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

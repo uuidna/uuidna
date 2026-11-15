@@ -1,0 +1,12 @@
+{
+  "handle": "67e0086a",
+  "address": "67e0086a-3776-8a53-87fa-c766179946b4",
+  "statement": "((500 : Int) * (200 : Int)) = (100000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_aquafarming_biomass_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

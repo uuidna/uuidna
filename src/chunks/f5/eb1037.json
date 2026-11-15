@@ -1,0 +1,14 @@
+{
+  "handle": "f5eb1037",
+  "address": "f5eb1037-4da2-801b-bbbe-86e6d05a137f",
+  "statement": "((1200 : Int) / (40 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ornithology_wingload_1",
+    "fam_wastewater_clarifier_1"
+  ],
+  "files": [
+    "FamiliesO.lean",
+    "FamiliesW.lean"
+  ]
+}

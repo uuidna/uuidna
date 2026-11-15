@@ -1,0 +1,12 @@
+{
+  "handle": "ae1c6012",
+  "address": "ae1c6012-9c8a-860c-a41e-6833dbc6ce3c",
+  "kind": "chunk",
+  "keys": [
+    "fam_sports_possession_1"
+  ],
+  "statement": "(((55 : Int) * (100 : Int)) / (90 : Int)) = (61 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

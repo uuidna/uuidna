@@ -1,0 +1,12 @@
+{
+  "handle": "655e56e2",
+  "address": "655e56e2-e2b9-8b15-b8bf-6c0efcc6f0cd",
+  "statement": "((4 : Int) * (2 : Int)) = (8 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_aquaponics_plantgrowbeds_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

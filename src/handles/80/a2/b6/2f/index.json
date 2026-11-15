@@ -1,0 +1,12 @@
+{
+  "handle": "80a2b62f",
+  "address": "80a2b62f-bc22-8d42-8bab-eef76d2214f5",
+  "kind": "chunk",
+  "keys": [
+    "fam_gravimetry_anomaly_1"
+  ],
+  "statement": "(fmax (0 : Int) ((9810 : Int) - (9805 : Int))) = (5 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

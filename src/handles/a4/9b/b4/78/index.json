@@ -1,0 +1,12 @@
+{
+  "handle": "a49bb478",
+  "address": "a49bb478-8532-8713-a227-de82bfcdd9f0",
+  "kind": "chunk",
+  "keys": [
+    "fam_compression_bitrate_1"
+  ],
+  "statement": "((64000 : Int) / (8 : Int)) = (8000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

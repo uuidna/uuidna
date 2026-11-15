@@ -1,0 +1,12 @@
+{
+  "handle": "375121b3",
+  "address": "375121b3-6169-8b4a-abd0-9abdaa871c47",
+  "statement": "(((200 : Int) * (100 : Int)) / (5 : Int)) = (4000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_churn_lifetime_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

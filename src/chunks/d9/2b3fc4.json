@@ -1,0 +1,22 @@
+{
+  "handle": "d92b3fc4",
+  "address": "d92b3fc4-00e9-8458-857e-89cc5b306d85",
+  "statement": "((200 : Int) / (10 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_equity_pe_1",
+    "fam_germination_rate_1",
+    "fam_pendulum_period_1",
+    "fam_roasting_rampspeed_1",
+    "fam_synapse_cleft_1",
+    "fam_urbanism_intersectiondensity_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesU.lean"
+  ]
+}

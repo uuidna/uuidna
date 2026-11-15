@@ -1,0 +1,17 @@
+{
+  "handle": "a334418a",
+  "address": "a334418a-ea57-85ac-b5ca-8f8564b0e3b9",
+  "kind": "chunk",
+  "keys": [
+    "fam_forging_force_1",
+    "fam_precipitation_catchmentyield_1",
+    "fam_propulsion_power_1",
+    "fam_sourcing_spend_1"
+  ],
+  "statement": "((500 : Int) * (20 : Int)) = (10000 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

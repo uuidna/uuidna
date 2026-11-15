@@ -1,0 +1,14 @@
+{
+  "handle": "33755547",
+  "address": "33755547-8c2d-88fc-80d0-55fe3e862457",
+  "statement": "((300 : Int) * (4 : Int)) = (1200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_diffraction_pathdifference_1",
+    "fam_suspension_damping_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesS.lean"
+  ]
+}

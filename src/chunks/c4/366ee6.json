@@ -1,0 +1,12 @@
+{
+  "handle": "c4366ee6",
+  "address": "c4366ee6-94c8-8ef6-b9e7-5d4204b427ae",
+  "statement": "(((42 : Int) * (100 : Int)) / (60 : Int)) = (70 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_collaboration_tasks_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

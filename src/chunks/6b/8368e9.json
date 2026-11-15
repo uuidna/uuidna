@@ -1,0 +1,12 @@
+{
+  "handle": "6b8368e9",
+  "address": "6b8368e9-4f73-8d72-9a54-9b13e39180b8",
+  "statement": "((20 : Int) + (0 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_rubik_godsnumber_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

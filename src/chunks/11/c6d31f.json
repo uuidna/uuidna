@@ -1,0 +1,12 @@
+{
+  "handle": "11c6d31f",
+  "address": "11c6d31f-629b-8985-954e-0bc7bc3112c4",
+  "statement": "((1500 : Int) + (0 : Int)) = (1500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_packet_mtu_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

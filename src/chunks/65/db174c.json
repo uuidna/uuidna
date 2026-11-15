@@ -1,0 +1,14 @@
+{
+  "handle": "65db174c",
+  "address": "65db174c-c470-859e-a9b3-8a83f1f2d683",
+  "statement": "(fmax (0 : Int) ((6 : Int) - (7 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hydroponics_ph_2",
+    "fam_waterquality_phindex_2"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesW.lean"
+  ]
+}

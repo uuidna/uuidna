@@ -1,0 +1,12 @@
+{
+  "handle": "3e6968f3",
+  "address": "3e6968f3-3af8-8ca8-be97-eb720ffa56e8",
+  "statement": "((30000 : Int) / (10000 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_publishing_readership_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

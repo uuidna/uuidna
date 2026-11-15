@@ -1,0 +1,12 @@
+{
+  "handle": "bb7d0a2c",
+  "address": "bb7d0a2c-0a88-82a5-8de7-4b5355636485",
+  "kind": "chunk",
+  "keys": [
+    "fam_casting_shrinkage_1"
+  ],
+  "statement": "(fmax (0 : Int) ((1010 : Int) - (1000 : Int))) = (10 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

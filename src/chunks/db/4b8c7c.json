@@ -1,0 +1,12 @@
+{
+  "handle": "db4b8c7c",
+  "address": "db4b8c7c-1b65-8b50-ba7c-8929b257025f",
+  "statement": "(if (if (7 : Int) > (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_evidence_weight_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

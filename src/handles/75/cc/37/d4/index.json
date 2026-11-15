@@ -1,0 +1,12 @@
+{
+  "handle": "75cc37d4",
+  "address": "75cc37d4-f627-89bd-a729-5b6e4773964a",
+  "kind": "chunk",
+  "keys": [
+    "fam_coding_parityanbits_1"
+  ],
+  "statement": "((3 : Int) % (2 : Int)) = (1 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

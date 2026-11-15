@@ -1,0 +1,12 @@
+{
+  "handle": "fd7402d6",
+  "address": "fd7402d6-f5c6-8f5a-bab6-9957c9b6ac2f",
+  "kind": "chunk",
+  "keys": [
+    "fam_actionpotential_refractoryperiod_1"
+  ],
+  "statement": "((1 : Int) + (3 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

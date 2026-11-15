@@ -1,0 +1,12 @@
+{
+  "handle": "f97adb58",
+  "address": "f97adb58-b5f5-8222-b99b-b97dbce8c74c",
+  "statement": "(((365 : Int) * (100 : Int)) / (50 : Int)) = (730 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_exoplanets_transitduration_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "8f487e3b",
+  "address": "8f487e3b-00d3-8b03-a3cf-26f30536f82c",
+  "statement": "((50 : Int) * (50 : Int)) = (2500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mosaic_gridcells_1",
+    "fam_windpower_sweptarea_1"
+  ],
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesW.lean"
+  ]
+}

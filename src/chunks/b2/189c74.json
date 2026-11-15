@@ -1,0 +1,12 @@
+{
+  "handle": "b2189c74",
+  "address": "b2189c74-879a-8e04-8834-29ec931f4a1d",
+  "statement": "(if (if (28 : Int) ≥ (30 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_website_parity_2"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

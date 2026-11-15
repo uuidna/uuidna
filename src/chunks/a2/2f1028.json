@@ -1,0 +1,12 @@
+{
+  "handle": "a22f1028",
+  "address": "a22f1028-90e4-84d3-bdc2-54ec67ea2bde",
+  "statement": "((((32 : Int) - (32 : Int)) * (5 : Int)) / (9 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cuisine_temperature_2"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

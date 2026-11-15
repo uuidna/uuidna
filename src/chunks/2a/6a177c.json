@@ -1,0 +1,12 @@
+{
+  "handle": "2a6a177c",
+  "address": "2a6a177c-d167-828c-b880-734d20185b79",
+  "statement": "((2 : Int) * ((5 : Int) ^ (2 : Nat))) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_algebra_quadratic_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

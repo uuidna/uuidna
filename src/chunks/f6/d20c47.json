@@ -1,0 +1,14 @@
+{
+  "handle": "f6d20c47",
+  "address": "f6d20c47-1c09-8b54-aba2-85cb4f743319",
+  "statement": "(48 : Int) = (48 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_crystallography_symmetry_1",
+    "fam_virality_halflife_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesV.lean"
+  ]
+}

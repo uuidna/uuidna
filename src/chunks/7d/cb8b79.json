@@ -1,0 +1,12 @@
+{
+  "handle": "7dcb8b79",
+  "address": "7dcb8b79-45bf-8e5f-bdc8-aee3adf099a8",
+  "statement": "((70 : Int) * (35 : Int)) = (2450 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hydration_dailyneed_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

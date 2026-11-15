@@ -1,0 +1,12 @@
+{
+  "handle": "cbf3cb11",
+  "address": "cbf3cb11-ed53-8f19-8287-ce45b2eacbb7",
+  "kind": "chunk",
+  "keys": [
+    "fam_geopolitics_influencescore_1"
+  ],
+  "statement": "((15 : Int) * (4 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

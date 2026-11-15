@@ -1,0 +1,15 @@
+{
+  "handle": "fa91c318",
+  "address": "fa91c318-920d-801d-93d9-b364cc4a5d08",
+  "kind": "chunk",
+  "keys": [
+    "fam_amortization_intangible_1",
+    "fam_recruitment_costperhire_1",
+    "fam_redistricting_quota_1"
+  ],
+  "statement": "((50000 : Int) / (10 : Int)) = (5000 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesR.lean"
+  ]
+}

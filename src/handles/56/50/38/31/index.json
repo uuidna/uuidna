@@ -1,0 +1,14 @@
+{
+  "handle": "56503831",
+  "address": "56503831-59a8-8878-8a29-60898659c74b",
+  "kind": "chunk",
+  "keys": [
+    "fam_authentication_falseaccept_1",
+    "fam_capacitor_leakage_1"
+  ],
+  "statement": "(((1 : Int) * (100 : Int)) / (100 : Int)) = (1 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean"
+  ]
+}

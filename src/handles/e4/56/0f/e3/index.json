@@ -1,0 +1,12 @@
+{
+  "handle": "e4560fe3",
+  "address": "e4560fe3-59fe-8bbc-82ec-eac923e655f5",
+  "kind": "chunk",
+  "keys": [
+    "fam_distillation_azeotrope_1"
+  ],
+  "statement": "(((96 : Int) * (100 : Int)) / ((96 : Int) + (4 : Int))) = (96 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

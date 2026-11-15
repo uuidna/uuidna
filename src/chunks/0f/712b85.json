@@ -1,0 +1,12 @@
+{
+  "handle": "0f712b85",
+  "address": "0f712b85-fa1f-8f0b-91e3-3199a4df38a5",
+  "statement": "((2 : Int) * (300 : Int)) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_relativity_energy_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

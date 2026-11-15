@@ -1,0 +1,12 @@
+{
+  "handle": "734b25d1",
+  "address": "734b25d1-fc2d-8b71-845f-bb598e746428",
+  "statement": "(850 : Int) = (850 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_propulsion_exhaust_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

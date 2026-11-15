@@ -1,0 +1,12 @@
+{
+  "handle": "4b551652",
+  "address": "4b551652-e76d-8c52-84f7-c9b0e46f3e08",
+  "kind": "chunk",
+  "keys": [
+    "fam_underwriting_loading_1"
+  ],
+  "statement": "(((120 : Int) * (25 : Int)) / (100 : Int)) = (30 : Int)",
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

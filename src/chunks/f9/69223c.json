@@ -1,0 +1,16 @@
+{
+  "handle": "f969223c",
+  "address": "f969223c-b876-8d1e-b02a-a5c7bfca1f3f",
+  "statement": "(fmax (0 : Int) ((300 : Int) - (100 : Int))) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fatigue_stressrange_1",
+    "fam_interaction_feedback_1",
+    "fam_papyrology_datingrange_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesI.lean",
+    "FamiliesP.lean"
+  ]
+}

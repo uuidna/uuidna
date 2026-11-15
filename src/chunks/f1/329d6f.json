@@ -1,0 +1,12 @@
+{
+  "handle": "f1329d6f",
+  "address": "f1329d6f-8bc5-8000-9096-b5d8a61c71d4",
+  "statement": "(if (if (2000 : Int) ≥ (1825 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_immigration_residence_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

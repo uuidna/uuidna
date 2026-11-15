@@ -1,0 +1,16 @@
+{
+  "handle": "42a9c31d",
+  "address": "42a9c31d-ff88-8dc9-92b9-0a684d5d6293",
+  "statement": "(((5 : Int) * (1000000 : Int)) / (1000 : Int)) = (5000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_geodesy_baseline_1",
+    "fam_mining_grade_1",
+    "fam_sixsigma_dpmo_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesM.lean",
+    "FamiliesS.lean"
+  ]
+}

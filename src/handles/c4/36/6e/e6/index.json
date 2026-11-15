@@ -1,0 +1,12 @@
+{
+  "handle": "c4366ee6",
+  "address": "c4366ee6-94c8-8ef6-b9e7-5d4204b427ae",
+  "kind": "chunk",
+  "keys": [
+    "fam_collaboration_tasks_1"
+  ],
+  "statement": "(((42 : Int) * (100 : Int)) / (60 : Int)) = (70 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

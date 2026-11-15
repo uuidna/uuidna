@@ -1,0 +1,12 @@
+{
+  "handle": "eac8406b",
+  "address": "eac8406b-2a70-8463-bf52-07b62f3c9024",
+  "kind": "chunk",
+  "keys": [
+    "fam_demographics_median_1"
+  ],
+  "statement": "((3900 : Int) / (100 : Int)) = (39 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

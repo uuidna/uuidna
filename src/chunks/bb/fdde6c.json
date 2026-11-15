@@ -1,0 +1,25 @@
+{
+  "handle": "bbfdde6c",
+  "address": "bbfdde6c-c022-8d4c-bcd9-86b082d1243a",
+  "statement": "(Int.ofNat (fchoose (Int.toNat (7 : Int)) (Int.toNat (2 : Int)))) = (21 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_calendar_weekcombos_1",
+    "fam_crystal_combos_1",
+    "fam_dominoes_distinctpairs_1",
+    "fam_parable_symbolpairs_1",
+    "fam_protocol_combos_1",
+    "fam_scrabble_rackcombos_1",
+    "fam_shogi_dropcombos_1",
+    "fam_star_combos_1",
+    "fam_tax_combos_1",
+    "fam_teleology_goalpairs_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

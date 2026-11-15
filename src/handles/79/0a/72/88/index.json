@@ -1,0 +1,12 @@
+{
+  "handle": "790a7288",
+  "address": "790a7288-2e99-8c48-9809-7af271baa32c",
+  "kind": "chunk",
+  "keys": [
+    "fam_spinning_evenness_2"
+  ],
+  "statement": "(fmax (0 : Int) ((100 : Int) - (((200 : Int) * (100 : Int)) / (100 : Int)))) = (0 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

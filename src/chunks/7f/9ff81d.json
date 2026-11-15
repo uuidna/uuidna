@@ -1,0 +1,14 @@
+{
+  "handle": "7f9ff81d",
+  "address": "7f9ff81d-b545-82f7-8781-00b094a10b2c",
+  "statement": "((10 : Int) * (7 : Int)) = (70 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pathplanning_pathcost_1",
+    "fam_synthesis_tokens_1"
+  ],
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

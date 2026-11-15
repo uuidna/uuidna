@@ -1,0 +1,12 @@
+{
+  "handle": "e7b7296c",
+  "address": "e7b7296c-44e9-8311-a1d1-d18000e560a3",
+  "kind": "chunk",
+  "keys": [
+    "fam_glaciology_melt_1"
+  ],
+  "statement": "((10000 : Int) / (334 : Int)) = (29 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

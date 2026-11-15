@@ -1,0 +1,12 @@
+{
+  "handle": "b8d0e6bf",
+  "address": "b8d0e6bf-a10e-8ddd-b6ef-6a3ff0259fd2",
+  "statement": "((3600 : Int) / ((0 : Int) * (0 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nanomaterials_confinement_2"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

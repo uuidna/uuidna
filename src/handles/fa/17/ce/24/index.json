@@ -1,0 +1,12 @@
+{
+  "handle": "fa17ce24",
+  "address": "fa17ce24-669c-8d89-b545-2e22cad36603",
+  "kind": "chunk",
+  "keys": [
+    "fam_savings_emergencyfund_1"
+  ],
+  "statement": "((2000 : Int) * (6 : Int)) = (12000 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

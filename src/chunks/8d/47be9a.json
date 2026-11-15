@@ -1,0 +1,12 @@
+{
+  "handle": "8d47be9a",
+  "address": "8d47be9a-3e3a-8124-9852-ad06db975ba2",
+  "statement": "((((10 : Int) ^ (2 : Nat)) * (1000000 : Int)) / ((100 : Int) ^ (2 : Nat))) = (10000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_exoplanet_transitdepth_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

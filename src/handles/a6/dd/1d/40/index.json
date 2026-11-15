@@ -1,0 +1,12 @@
+{
+  "handle": "a6dd1d40",
+  "address": "a6dd1d40-062e-8618-9ea9-e32fa94911c5",
+  "kind": "chunk",
+  "keys": [
+    "fam_fleet_maintenance_1"
+  ],
+  "statement": "((12000 : Int) / (40 : Int)) = (300 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

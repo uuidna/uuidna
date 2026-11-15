@@ -1,0 +1,12 @@
+{
+  "handle": "5c2ceacc",
+  "address": "5c2ceacc-ba07-8e95-9025-644de5ec6ff2",
+  "statement": "((24 : Int) / (4 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_polyphony_textureindex_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d1c06815",
+  "address": "d1c06815-3b2d-8fd8-be7a-ad093ba280b6",
+  "kind": "chunk",
+  "keys": [
+    "fam_entropy_informationgain_1"
+  ],
+  "statement": "(fmax (0 : Int) ((16 : Int) - (10 : Int))) = (6 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

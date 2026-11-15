@@ -1,0 +1,12 @@
+{
+  "handle": "c9714e99",
+  "address": "c9714e99-f6c9-8f91-a6c6-6597101ccd7a",
+  "statement": "(fmax (0 : Int) ((180 : Int) - (60 : Int))) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_surgery_duration_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

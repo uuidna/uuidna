@@ -1,0 +1,12 @@
+{
+  "handle": "4d771770",
+  "address": "4d771770-400c-8433-bc3d-5038307809d1",
+  "statement": "(if (if (7 : Int) ≤ (14 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_contract_cure_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

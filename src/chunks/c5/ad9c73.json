@@ -1,0 +1,12 @@
+{
+  "handle": "c5ad9c73",
+  "address": "c5ad9c73-b620-8720-a08a-06c5889ee76a",
+  "statement": "(((2000 : Int) * (100 : Int)) / (100 : Int)) = (2000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ecommerce_refund_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

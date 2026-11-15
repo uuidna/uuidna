@@ -1,0 +1,12 @@
+{
+  "handle": "8fd17c43",
+  "address": "8fd17c43-b3af-8a03-9951-ea76bb8d504d",
+  "kind": "chunk",
+  "keys": [
+    "fam_incidence_persontime_1"
+  ],
+  "statement": "(((30 : Int) * (10000 : Int)) / (10000 : Int)) = (30 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

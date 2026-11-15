@@ -1,0 +1,14 @@
+{
+  "handle": "6ac3ff98",
+  "address": "6ac3ff98-a6db-85d9-95af-15cfb48992c4",
+  "statement": "(Int.ofNat (fchoose (Int.toNat (4 : Int)) (Int.toNat (2 : Int)))) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_matrix_combos_1",
+    "fam_oligopoly_reactionpairs_1"
+  ],
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesO.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4cfaaa92",
+  "address": "4cfaaa92-74b7-86ff-a234-2fd754d81fd7",
+  "kind": "chunk",
+  "keys": [
+    "fam_kalman_measurementresidual_1"
+  ],
+  "statement": "(fmax (0 : Int) ((110 : Int) - (106 : Int))) = (4 : Int)",
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

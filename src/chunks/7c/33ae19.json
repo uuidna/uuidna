@@ -1,0 +1,16 @@
+{
+  "handle": "7c33ae19",
+  "address": "7c33ae19-b8db-8c13-9e4c-bd8d08551c30",
+  "statement": "((500 : Int) * (60 : Int)) = (30000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_backend_requests_1",
+    "fam_ergometry_workdone_1",
+    "fam_lidar_swath_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesE.lean",
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "932776ea",
+  "address": "932776ea-44b9-894d-b861-7ea714133bc1",
+  "statement": "((((80 : Int) - (50 : Int)) * (100 : Int)) / (50 : Int)) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_retail_markup_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

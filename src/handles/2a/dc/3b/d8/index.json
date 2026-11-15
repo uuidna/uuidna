@@ -1,0 +1,12 @@
+{
+  "handle": "2adc3bd8",
+  "address": "2adc3bd8-e621-82a7-9934-11adbc7b5ee6",
+  "kind": "chunk",
+  "keys": [
+    "fam_regression_intercept_1"
+  ],
+  "statement": "(fmax (0 : Int) ((50 : Int) - ((2 : Int) * (10 : Int)))) = (30 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

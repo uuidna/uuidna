@@ -1,0 +1,12 @@
+{
+  "handle": "ebcc6336",
+  "address": "ebcc6336-28fe-8af6-944f-6566b162380a",
+  "statement": "((120 : Int) * (10 : Int)) = (1200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_electrical_power_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

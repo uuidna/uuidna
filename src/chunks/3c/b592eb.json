@@ -1,0 +1,14 @@
+{
+  "handle": "3cb592eb",
+  "address": "3cb592eb-d22b-8d2b-898c-a5706315b4dc",
+  "statement": "((200 : Int) + (100 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_folklore_taletypes_1",
+    "fam_mythography_mythcount_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesM.lean"
+  ]
+}

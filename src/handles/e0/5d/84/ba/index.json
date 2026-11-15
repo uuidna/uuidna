@@ -1,0 +1,16 @@
+{
+  "handle": "e05d84ba",
+  "address": "e05d84ba-3cd8-8b28-adda-57fb40be26c8",
+  "kind": "chunk",
+  "keys": [
+    "fam_cardiology_map_1",
+    "fam_hemodynamics_meanarterialpressure_1",
+    "fam_med_map_1"
+  ],
+  "statement": "(((120 : Int) + ((2 : Int) * (80 : Int))) / (3 : Int)) = (93 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean"
+  ]
+}

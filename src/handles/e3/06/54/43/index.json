@@ -1,0 +1,18 @@
+{
+  "handle": "e3065443",
+  "address": "e3065443-8369-8c7e-8ed6-debf6755d18c",
+  "kind": "chunk",
+  "keys": [
+    "fam_epidemiology_prevalence_1",
+    "fam_hydro_penstock_1",
+    "fam_indexing_bloat_1",
+    "fam_retail_footfall_1"
+  ],
+  "statement": "(((200 : Int) * (100 : Int)) / (1000 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesR.lean"
+  ]
+}

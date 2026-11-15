@@ -1,0 +1,12 @@
+{
+  "handle": "c8fb143b",
+  "address": "c8fb143b-f80d-8218-aa1c-28a15b285e45",
+  "statement": "(((32 : Int) * (100 : Int)) / (1000 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_checksum_overhead_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

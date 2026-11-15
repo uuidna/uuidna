@@ -1,0 +1,12 @@
+{
+  "handle": "900f5f5a",
+  "address": "900f5f5a-322f-81fd-ba3d-2484ae37549f",
+  "kind": "chunk",
+  "keys": [
+    "fam_convolution_receptivefield_1"
+  ],
+  "statement": "((1 : Int) + ((5 : Int) * ((3 : Int) - (1 : Int)))) = (11 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6515a332",
+  "address": "6515a332-9fd6-86f4-b701-727d5c9d2ae7",
+  "kind": "chunk",
+  "keys": [
+    "fam_refraction_prismdeviation_1"
+  ],
+  "statement": "(fmax (0 : Int) (((40 : Int) + (35 : Int)) - (60 : Int))) = (15 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

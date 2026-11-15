@@ -1,0 +1,12 @@
+{
+  "handle": "92e67124",
+  "address": "92e67124-7e9c-80ee-af60-a061edd19207",
+  "statement": "(fmax (0 : Int) ((1012 : Int) - (1015 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_barometry_tendency_2"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

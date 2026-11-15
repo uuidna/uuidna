@@ -1,0 +1,12 @@
+{
+  "handle": "c66fe694",
+  "address": "c66fe694-6b6b-85b1-a25c-9bcf5a60edc3",
+  "kind": "chunk",
+  "keys": [
+    "fam_refraction_opticaldensity_1"
+  ],
+  "statement": "(((1333 : Int) * (100 : Int)) / (1000 : Int)) = (133 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

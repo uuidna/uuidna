@@ -1,0 +1,34 @@
+{
+  "handle": "72cffdba",
+  "address": "72cffdba-63f0-8f33-8bae-8157df68728b",
+  "statement": "((2 : Int) ^ (8 : Nat)) = (256 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_checkers_positionsubsets_1",
+    "fam_color_levels_1",
+    "fam_color_palette_1",
+    "fam_cytogenetics_genesubsets_1",
+    "fam_epistemology_beliefstates_1",
+    "fam_geo_zoomcells_1",
+    "fam_hanoi_statesubsets_1",
+    "fam_image_palettebits_1",
+    "fam_modular_power_1",
+    "fam_protozoology_divisionrate_1",
+    "fam_qsec_keybits_1",
+    "fam_quantization_levels_1",
+    "fam_serology_titer_1",
+    "fam_tls_keybits_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesQ.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

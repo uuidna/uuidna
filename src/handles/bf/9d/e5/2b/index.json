@@ -1,0 +1,17 @@
+{
+  "handle": "bf9de52b",
+  "address": "bf9de52b-49f8-8ae7-9204-abe491692123",
+  "kind": "chunk",
+  "keys": [
+    "fam_bioavailability_aucratio_1",
+    "fam_events_engagement_1",
+    "fam_fatigue_safetyfactor_1",
+    "fam_formant_qfactor_1"
+  ],
+  "statement": "((600 : Int) / (200 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean"
+  ]
+}

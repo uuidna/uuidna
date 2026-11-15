@@ -1,0 +1,12 @@
+{
+  "handle": "7c83a3b6",
+  "address": "7c83a3b6-1687-8f49-83c9-6e46f13ad428",
+  "kind": "chunk",
+  "keys": [
+    "fam_tracing_tailsampling_2"
+  ],
+  "statement": "(if (if (100 : Int) ≥ (300 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

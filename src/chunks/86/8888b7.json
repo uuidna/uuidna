@@ -1,0 +1,12 @@
+{
+  "handle": "868888b7",
+  "address": "868888b7-7c13-8d24-be7e-8b14afe99259",
+  "statement": "(((10000 : Int) - (1000 : Int)) / (5 : Int)) = (1800 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_depreciation_straightline_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

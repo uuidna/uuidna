@@ -1,0 +1,12 @@
+{
+  "handle": "7b4c0391",
+  "address": "7b4c0391-09b1-8e59-90e5-9a2d86d100ce",
+  "kind": "chunk",
+  "keys": [
+    "fam_antenna_beamwidth_1"
+  ],
+  "statement": "(fmax (0 : Int) ((360 : Int) - (330 : Int))) = (30 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

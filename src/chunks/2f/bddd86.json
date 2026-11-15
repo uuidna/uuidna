@@ -1,0 +1,12 @@
+{
+  "handle": "2fbddd86",
+  "address": "2fbddd86-8b1e-8256-b7d9-63abd895ff73",
+  "statement": "((116 : Int) / (1 : Int)) = (116 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_telescope_resolution_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

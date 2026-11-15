@@ -1,0 +1,12 @@
+{
+  "handle": "bd56d905",
+  "address": "bd56d905-5ea1-8de0-a6ff-5ad5b13e1ed4",
+  "kind": "chunk",
+  "keys": [
+    "fam_optometry_diopter_1"
+  ],
+  "statement": "((1000000 : Int) / (50 : Int)) = (20000 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

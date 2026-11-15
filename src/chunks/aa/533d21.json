@@ -1,0 +1,12 @@
+{
+  "handle": "aa533d21",
+  "address": "aa533d21-d360-8aff-a8b9-526370b298e0",
+  "statement": "((432 : Int) * ((2 : Int) ^ (1 : Nat))) = (864 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tune_octave_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

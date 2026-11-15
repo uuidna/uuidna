@@ -1,0 +1,12 @@
+{
+  "handle": "e7844953",
+  "address": "e7844953-bd01-8220-bed1-80191b091691",
+  "kind": "chunk",
+  "keys": [
+    "fam_exchangerate_crossrate_1"
+  ],
+  "statement": "((15000 : Int) / (120 : Int)) = (125 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

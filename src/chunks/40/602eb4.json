@@ -1,0 +1,12 @@
+{
+  "handle": "40602eb4",
+  "address": "40602eb4-9ecf-8815-bcaa-325235e4adad",
+  "statement": "(((200 : Int) * (100 : Int)) / (10000 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_social_virality_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

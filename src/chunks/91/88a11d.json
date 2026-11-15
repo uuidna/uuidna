@@ -1,0 +1,12 @@
+{
+  "handle": "9188a11d",
+  "address": "9188a11d-2816-82a4-a278-359d3dd71202",
+  "statement": "(fmax (0 : Int) ((1200 : Int) - (100 : Int))) = (1100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_receipts_subtotal_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

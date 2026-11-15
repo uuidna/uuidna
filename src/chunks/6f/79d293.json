@@ -1,0 +1,12 @@
+{
+  "handle": "6f79d293",
+  "address": "6f79d293-1a04-8fe1-a5b4-b02c5199152a",
+  "statement": "((8000000000 : Int) / (1000000 : Int)) = (8000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_forensic_rarity_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

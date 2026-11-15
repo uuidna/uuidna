@@ -1,0 +1,12 @@
+{
+  "handle": "64f1e5d6",
+  "address": "64f1e5d6-fdd8-853a-9534-d8d6debc0c88",
+  "kind": "chunk",
+  "keys": [
+    "fam_accelerometer_tilt_1"
+  ],
+  "statement": "(((500 : Int) * (90 : Int)) / (1000 : Int)) = (45 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

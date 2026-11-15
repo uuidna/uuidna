@@ -1,0 +1,12 @@
+{
+  "handle": "7e328d94",
+  "address": "7e328d94-8309-82ec-8d7c-de9db36d4ed2",
+  "kind": "chunk",
+  "keys": [
+    "fam_orthopedics_cobbangle_1"
+  ],
+  "statement": "((22 : Int) + (18 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

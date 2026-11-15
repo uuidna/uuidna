@@ -1,0 +1,16 @@
+{
+  "handle": "08402d18",
+  "address": "08402d18-ad64-8b06-998e-8d793f07eeb8",
+  "kind": "chunk",
+  "keys": [
+    "fam_masonry_bricks_1",
+    "fam_queue_arrivals_1",
+    "fam_vet_fluids_1"
+  ],
+  "statement": "((10 : Int) * (60 : Int)) = (600 : Int)",
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesQ.lean",
+    "FamiliesV.lean"
+  ]
+}

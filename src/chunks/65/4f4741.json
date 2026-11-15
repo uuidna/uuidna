@@ -1,0 +1,12 @@
+{
+  "handle": "654f4741",
+  "address": "654f4741-b52e-833c-a265-3a7eca0524f4",
+  "statement": "((1000 : Int) * (28 : Int)) = (28000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_polymers_molecularweight_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

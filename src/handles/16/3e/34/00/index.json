@@ -1,0 +1,12 @@
+{
+  "handle": "163e3400",
+  "address": "163e3400-efe1-852e-bd77-39c1aaf6fd04",
+  "kind": "chunk",
+  "keys": [
+    "fam_assembly_takt_2"
+  ],
+  "statement": "((480 : Int) / (0 : Int)) = (0 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

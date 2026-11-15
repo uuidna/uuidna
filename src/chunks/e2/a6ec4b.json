@@ -1,0 +1,12 @@
+{
+  "handle": "e2a6ec4b",
+  "address": "e2a6ec4b-e340-8eb8-89e3-d5b0b67964c7",
+  "statement": "((360 : Int) / (6 : Int)) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mosaic_tessellationangle_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

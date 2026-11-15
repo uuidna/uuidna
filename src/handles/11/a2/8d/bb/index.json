@@ -1,0 +1,12 @@
+{
+  "handle": "11a28dbb",
+  "address": "11a28dbb-ac5c-8b75-b4d0-8cf3854854af",
+  "kind": "chunk",
+  "keys": [
+    "fam_activation_leakyrelu_2"
+  ],
+  "statement": "(if (if (20 : Int) ≥ (100 : Int) then (1 : Int) else 0) ≠ 0 then ((20 : Int) - (100 : Int)) else ((20 : Int) / (4 : Int))) = (5 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

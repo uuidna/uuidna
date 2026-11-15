@@ -1,0 +1,16 @@
+{
+  "handle": "429c7218",
+  "address": "429c7218-6ea4-809b-b39d-f20518633eb8",
+  "kind": "chunk",
+  "keys": [
+    "fam_emotion_arousal_2",
+    "fam_humidity_deficit_2",
+    "fam_sentence_credit_2"
+  ],
+  "statement": "(fmax (0 : Int) ((10 : Int) - (20 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesH.lean",
+    "FamiliesS.lean"
+  ]
+}

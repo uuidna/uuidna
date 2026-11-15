@@ -1,0 +1,12 @@
+{
+  "handle": "2c88b361",
+  "address": "2c88b361-1310-8b23-9d47-d80de481c64f",
+  "kind": "chunk",
+  "keys": [
+    "fam_creditscore_band_1"
+  ],
+  "statement": "((720 : Int) / (100 : Int)) = (7 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

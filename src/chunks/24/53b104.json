@@ -1,0 +1,12 @@
+{
+  "handle": "2453b104",
+  "address": "2453b104-cff0-82d0-987d-f651349878fc",
+  "statement": "((365 : Int) * (1 : Int)) = (365 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_planet_orbit_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

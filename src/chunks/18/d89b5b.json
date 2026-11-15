@@ -1,0 +1,12 @@
+{
+  "handle": "18d89b5b",
+  "address": "18d89b5b-de84-8a94-940a-4994dc23a15c",
+  "statement": "((400 : Int) / (50 : Int)) = (8 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ceramics_thermalshock_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

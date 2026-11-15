@@ -1,0 +1,12 @@
+{
+  "handle": "d1755dac",
+  "address": "d1755dac-3c54-8923-ae04-91d093d1b177",
+  "statement": "((((80 : Int) - (20 : Int)) * (100 : Int)) / ((80 : Int) + (20 : Int))) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_interference_visibility_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

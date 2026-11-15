@@ -1,0 +1,12 @@
+{
+  "handle": "ece84606",
+  "address": "ece84606-3217-8f58-a6a0-29bc86b32597",
+  "kind": "chunk",
+  "keys": [
+    "fam_gpu_speedup_1"
+  ],
+  "statement": "((1024 : Int) / (32 : Int)) = (32 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

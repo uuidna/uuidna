@@ -1,0 +1,12 @@
+{
+  "handle": "a39426a4",
+  "address": "a39426a4-cb27-8bbc-8253-368c88a2f196",
+  "statement": "(((70 : Int) * (100 : Int)) / (10 : Int)) = (700 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pedology_texture_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

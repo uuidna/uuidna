@@ -1,0 +1,12 @@
+{
+  "handle": "bd4728db",
+  "address": "bd4728db-e0c8-81bd-a679-3e2e238fb378",
+  "kind": "chunk",
+  "keys": [
+    "fam_court_fee_1"
+  ],
+  "statement": "(((100000 : Int) * (33 : Int)) / (100 : Int)) = (33000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

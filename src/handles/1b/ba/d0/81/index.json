@@ -1,0 +1,14 @@
+{
+  "handle": "1bbad081",
+  "address": "1bbad081-953f-8173-ac49-9b95f7173277",
+  "kind": "chunk",
+  "keys": [
+    "fam_activation_step_1",
+    "fam_compliance_retention_1"
+  ],
+  "statement": "(if (if (7 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean"
+  ]
+}

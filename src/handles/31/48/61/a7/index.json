@@ -1,0 +1,12 @@
+{
+  "handle": "314861a7",
+  "address": "314861a7-8065-809d-95ee-2e62527b915b",
+  "kind": "chunk",
+  "keys": [
+    "fam_sounddesign_frequencybands_1"
+  ],
+  "statement": "((20000 : Int) / (1000 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

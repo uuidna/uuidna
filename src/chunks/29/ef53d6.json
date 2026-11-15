@@ -1,0 +1,12 @@
+{
+  "handle": "29ef53d6",
+  "address": "29ef53d6-5ccd-8d0e-b3a4-8d84374179a9",
+  "statement": "(((20 : Int) * (10 : Int)) / (2 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_triangulation_areacoords_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

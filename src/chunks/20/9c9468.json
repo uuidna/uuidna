@@ -1,0 +1,12 @@
+{
+  "handle": "209c9468",
+  "address": "209c9468-bd7f-83c3-bc9b-c334f602959c",
+  "statement": "(((3 : Int) + (7 : Int)) * (5 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dynamics_collision_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

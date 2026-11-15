@@ -1,0 +1,22 @@
+{
+  "handle": "1a8a1133",
+  "address": "1a8a1133-759b-81b7-b0c4-e7fe92ef2d13",
+  "kind": "chunk",
+  "keys": [
+    "fam_automation_throughput_1",
+    "fam_graphql_fragmentreuse_1",
+    "fam_incident_mttr_1",
+    "fam_mixing_loudness_1",
+    "fam_software_mttr_1",
+    "fam_warehousing_pickrate_1"
+  ],
+  "statement": "((600 : Int) / (8 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesM.lean",
+    "FamiliesS.lean",
+    "FamiliesW.lean"
+  ]
+}

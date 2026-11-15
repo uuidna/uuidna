@@ -1,0 +1,12 @@
+{
+  "handle": "101ce335",
+  "address": "101ce335-796c-87ab-897d-3ef433ce139e",
+  "statement": "(fmin (50 : Int) (100 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_activation_saturate_2"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

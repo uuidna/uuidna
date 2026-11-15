@@ -1,0 +1,18 @@
+{
+  "handle": "c65be15c",
+  "address": "c65be15c-6d7a-81dc-961b-202fbf608720",
+  "kind": "chunk",
+  "keys": [
+    "fam_cartography_bearing_1",
+    "fam_dance_rotation_1",
+    "fam_navigation_bearing_1",
+    "fam_sailing_bearing_1"
+  ],
+  "statement": "((((450 : Int) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (90 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesN.lean",
+    "FamiliesS.lean"
+  ]
+}

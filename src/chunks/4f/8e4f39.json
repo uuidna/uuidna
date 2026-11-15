@@ -1,0 +1,12 @@
+{
+  "handle": "4f8e4f39",
+  "address": "4f8e4f39-f78c-8808-b29b-df4c7323af37",
+  "statement": "((44100 : Int) * (16 : Int)) = (705600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_audio_bitrate_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

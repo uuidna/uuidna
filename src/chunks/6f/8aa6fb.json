@@ -1,0 +1,12 @@
+{
+  "handle": "6f8aa6fb",
+  "address": "6f8aa6fb-9f3c-8d28-8b38-5d3549e4d5c6",
+  "statement": "(((693 : Int) * (10000 : Int)) / ((1000 : Int) * (14 : Int))) = (495 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_toxicology_halflife_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

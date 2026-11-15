@@ -1,0 +1,12 @@
+{
+  "handle": "19f0b73a",
+  "address": "19f0b73a-8d47-8fe9-a9c6-7f96938e516c",
+  "kind": "chunk",
+  "keys": [
+    "fam_sentence_mandatory_2"
+  ],
+  "statement": "(fmax (24 : Int) (36 : Int)) = (36 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

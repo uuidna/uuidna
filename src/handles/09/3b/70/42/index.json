@@ -1,0 +1,12 @@
+{
+  "handle": "093b7042",
+  "address": "093b7042-ea3a-8ef5-a61b-666e39fe1fdc",
+  "kind": "chunk",
+  "keys": [
+    "fam_blackhole_photonsphere_1"
+  ],
+  "statement": "(((9 : Int) * (10 : Int)) / (2 : Int)) = (45 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

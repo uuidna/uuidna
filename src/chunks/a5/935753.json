@@ -1,0 +1,12 @@
+{
+  "handle": "a5935753",
+  "address": "a5935753-961b-8336-83f3-dbd047704f34",
+  "statement": "(((40000 : Int) * (100 : Int)) / (45000 : Int)) = (88 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_trucking_loadfactor_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cc378cd3",
+  "address": "cc378cd3-b704-8ce8-89af-1af52087b9be",
+  "kind": "chunk",
+  "keys": [
+    "fam_partition_rank_1"
+  ],
+  "statement": "((9 : Int) - (4 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

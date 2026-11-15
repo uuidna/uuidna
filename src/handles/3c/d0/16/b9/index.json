@@ -1,0 +1,12 @@
+{
+  "handle": "3cd016b9",
+  "address": "3cd016b9-7d56-8d91-be18-105a1dc30f37",
+  "kind": "chunk",
+  "keys": [
+    "fam_telescope_magnification_1"
+  ],
+  "statement": "((2000 : Int) / (25 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

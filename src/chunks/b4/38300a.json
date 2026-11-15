@@ -1,0 +1,12 @@
+{
+  "handle": "b438300a",
+  "address": "b438300a-a6b0-860c-a8d0-d707d88a822f",
+  "statement": "(((512 : Int) * (100 : Int)) / (1024 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_coding_codingefficiency_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

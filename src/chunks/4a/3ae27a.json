@@ -1,0 +1,12 @@
+{
+  "handle": "4a3ae27a",
+  "address": "4a3ae27a-0384-89ca-a744-c87cb46955b8",
+  "statement": "((6 : Int) + (8 : Int)) = (14 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_crystal_faces_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

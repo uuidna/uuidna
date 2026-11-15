@@ -1,0 +1,12 @@
+{
+  "handle": "2edf22ff",
+  "address": "2edf22ff-5be1-8fe3-b313-bfb930811078",
+  "statement": "((70 : Int) + (50 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_anesthesiology_mac_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "09ca1d77",
+  "address": "09ca1d77-35d9-89a7-be5b-3c887f1607b3",
+  "statement": "((360 : Int) * (2 : Int)) = (720 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_odometry_distance_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

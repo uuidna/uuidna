@@ -1,0 +1,12 @@
+{
+  "handle": "ecd4acaa",
+  "address": "ecd4acaa-97ad-88f0-8a69-4972617cad44",
+  "kind": "chunk",
+  "keys": [
+    "fam_demography_doublingtime_1"
+  ],
+  "statement": "((70 : Int) / (2 : Int)) = (35 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

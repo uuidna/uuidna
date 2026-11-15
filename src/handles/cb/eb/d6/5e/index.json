@@ -1,0 +1,12 @@
+{
+  "handle": "cbebd65e",
+  "address": "cbebd65e-9d89-8fd2-a212-bcf18f961b0b",
+  "kind": "chunk",
+  "keys": [
+    "fam_feedback_closedloopgain_1"
+  ],
+  "statement": "((1000 : Int) / ((1 : Int) + (9 : Int))) = (100 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

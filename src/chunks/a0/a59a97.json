@@ -1,0 +1,16 @@
+{
+  "handle": "a0a59a97",
+  "address": "a0a59a97-1f66-87c6-a046-477f313e532e",
+  "statement": "((5 : Int) * (40 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_combustion_heatrelease_1",
+    "fam_leavening_co2volume_1",
+    "fam_pharma_loading_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean"
+  ]
+}

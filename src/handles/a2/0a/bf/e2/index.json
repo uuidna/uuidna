@@ -1,0 +1,12 @@
+{
+  "handle": "a20abfe2",
+  "address": "a20abfe2-591c-85e6-a680-df9b8551f31a",
+  "kind": "chunk",
+  "keys": [
+    "fam_satellite_constellation_1"
+  ],
+  "statement": "((24 : Int) * (3 : Int)) = (72 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

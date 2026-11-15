@@ -1,0 +1,12 @@
+{
+  "handle": "a2e9d410",
+  "address": "a2e9d410-ea4d-895f-8b0b-5436be2fc192",
+  "kind": "chunk",
+  "keys": [
+    "fam_refrigeration_load_1"
+  ],
+  "statement": "(((10 : Int) * (4 : Int)) * (20 : Int)) = (800 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

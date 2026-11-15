@@ -1,0 +1,14 @@
+{
+  "handle": "0ae42da0",
+  "address": "0ae42da0-ca02-8c85-8d7b-882a971bd695",
+  "kind": "chunk",
+  "keys": [
+    "fam_filtering_rolloff_1",
+    "fam_software_throughput_1"
+  ],
+  "statement": "((4 : Int) * (6 : Int)) = (24 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesS.lean"
+  ]
+}

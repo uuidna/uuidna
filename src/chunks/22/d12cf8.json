@@ -1,0 +1,12 @@
+{
+  "handle": "22d12cf8",
+  "address": "22d12cf8-8c95-80f3-9c3f-8f26f958214d",
+  "statement": "(((200 : Int) * (90 : Int)) / (100 : Int)) = (180 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_colorgrading_gamma_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

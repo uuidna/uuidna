@@ -1,0 +1,12 @@
+{
+  "handle": "0c61fd57",
+  "address": "0c61fd57-61d3-8f32-8e49-8b28e27d2e39",
+  "statement": "((66 : Int) * (45 : Int)) = (2970 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pagination_charsperpage_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

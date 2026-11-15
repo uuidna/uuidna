@@ -1,0 +1,14 @@
+{
+  "handle": "e596755b",
+  "address": "e596755b-f69f-8929-be9a-0594caf33cb5",
+  "statement": "(fmax (0 : Int) ((50 : Int) - (100 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_annuity_principalportion_2",
+    "fam_precipitation_infiltration_2"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesP.lean"
+  ]
+}

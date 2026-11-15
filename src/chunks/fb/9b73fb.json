@@ -1,0 +1,14 @@
+{
+  "handle": "fb9b73fb",
+  "address": "fb9b73fb-8c91-8f91-b6c7-a899f63cf45d",
+  "statement": "((10 : Int) * (4 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_grazing_rotationcycle_1",
+    "fam_meiosis_gametes_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "57f1821c",
+  "address": "57f1821c-c814-8dec-ba38-543388db3766",
+  "kind": "chunk",
+  "keys": [
+    "fam_contract_cure_2"
+  ],
+  "statement": "(if (if (21 : Int) ≤ (14 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

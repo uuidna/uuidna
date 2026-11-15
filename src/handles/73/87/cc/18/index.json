@@ -1,0 +1,12 @@
+{
+  "handle": "7387cc18",
+  "address": "7387cc18-fddd-83e9-a32d-e1d994b53168",
+  "kind": "chunk",
+  "keys": [
+    "fam_yield_taxequivalent_1"
+  ],
+  "statement": "(((4 : Int) * (100 : Int)) / ((100 : Int) - (20 : Int))) = (5 : Int)",
+  "files": [
+    "FamiliesY.lean"
+  ]
+}

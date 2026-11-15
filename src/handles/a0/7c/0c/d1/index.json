@@ -1,0 +1,12 @@
+{
+  "handle": "a07c0cd1",
+  "address": "a07c0cd1-42e9-8aa6-95fe-2fcd5ebc38f5",
+  "kind": "chunk",
+  "keys": [
+    "fam_bathymetry_soundingtime_1"
+  ],
+  "statement": "(((2 : Int) * (3000 : Int)) / (1500 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

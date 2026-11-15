@@ -1,0 +1,12 @@
+{
+  "handle": "94199149",
+  "address": "94199149-4cc0-879b-baa2-fda97628e45c",
+  "statement": "((230 : Int) * (10 : Int)) = (2300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_inverter_power_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

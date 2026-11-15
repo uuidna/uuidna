@@ -1,0 +1,14 @@
+{
+  "handle": "f51eac69",
+  "address": "f51eac69-25cb-8cd9-8612-e87d58acefde",
+  "statement": "((50 : Int) * (60 : Int)) = (3000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fluid_flow_1",
+    "fam_pump_flow_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesP.lean"
+  ]
+}

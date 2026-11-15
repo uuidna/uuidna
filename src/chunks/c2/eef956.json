@@ -1,0 +1,13 @@
+{
+  "handle": "c2eef956",
+  "address": "c2eef956-3fbb-886b-950f-d8be0c4ab3be",
+  "statement": "((500 : Int) / (20 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pest_economicthreshold_1",
+    "fam_primatology_grooming_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "handle": "579c0e9e",
+  "address": "579c0e9e-bea3-813c-b4bf-178586177774",
+  "statement": "(((35 : Int) * (100 : Int)) / (100 : Int)) = (35 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_creditscore_paymenthistory_1",
+    "fam_wind_capacity_1",
+    "fam_windpower_capacityfactor_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesW.lean"
+  ]
+}

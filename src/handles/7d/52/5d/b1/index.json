@@ -1,0 +1,12 @@
+{
+  "handle": "7d525db1",
+  "address": "7d525db1-1e5f-84b8-b6f1-71d0566ba3e2",
+  "kind": "chunk",
+  "keys": [
+    "fam_coaching_acwr_1"
+  ],
+  "statement": "(((300 : Int) * (100 : Int)) / (250 : Int)) = (120 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

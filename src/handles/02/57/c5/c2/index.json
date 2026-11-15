@@ -1,0 +1,12 @@
+{
+  "handle": "0257c5c2",
+  "address": "0257c5c2-1485-817b-9219-4fab7250d831",
+  "kind": "chunk",
+  "keys": [
+    "fam_location_box_1"
+  ],
+  "statement": "((30 : Int) * (40 : Int)) = (1200 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

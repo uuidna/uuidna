@@ -1,0 +1,12 @@
+{
+  "handle": "b71eca10",
+  "address": "b71eca10-c963-88c5-9ecb-811f33bc6255",
+  "kind": "chunk",
+  "keys": [
+    "fam_location_zoom_1"
+  ],
+  "statement": "((2560 : Int) / (256 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

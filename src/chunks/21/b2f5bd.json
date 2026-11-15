@@ -1,0 +1,14 @@
+{
+  "handle": "21b2f5bd",
+  "address": "21b2f5bd-3b26-8555-9191-d39eaac535c2",
+  "statement": "((30 : Int) * (100 : Int)) = (3000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pulsar_dispersionmeasure_1",
+    "fam_tsunami_inundationdistance_1"
+  ],
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "5dd3f285",
+  "address": "5dd3f285-931b-860f-b961-c9a1b1e3b753",
+  "statement": "(((10 : Int) ^ (2 : Nat)) * (100 : Int)) = (10000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gaming_xp_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

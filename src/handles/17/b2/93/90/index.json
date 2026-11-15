@@ -1,0 +1,12 @@
+{
+  "handle": "17b29390",
+  "address": "17b29390-ea63-8327-86a3-36b693e8dd95",
+  "kind": "chunk",
+  "keys": [
+    "fam_luminosity_luminosityclass_1"
+  ],
+  "statement": "(if (if (5000 : Int) ≥ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

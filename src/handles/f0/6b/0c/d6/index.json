@@ -1,0 +1,12 @@
+{
+  "handle": "f06b0cd6",
+  "address": "f06b0cd6-41bd-8fbe-b3ed-e08094d1a1e3",
+  "kind": "chunk",
+  "keys": [
+    "fam_nursing_workload_2"
+  ],
+  "statement": "((12 : Int) / (0 : Int)) = (0 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e73b6128",
+  "address": "e73b6128-f7b1-8cfc-9547-4917064fd72c",
+  "kind": "chunk",
+  "keys": [
+    "fam_neuropsychology_processingspeed_1"
+  ],
+  "statement": "(((120 : Int) * (60 : Int)) / (60 : Int)) = (120 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

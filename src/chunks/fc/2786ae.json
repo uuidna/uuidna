@@ -1,0 +1,12 @@
+{
+  "handle": "fc2786ae",
+  "address": "fc2786ae-e9a1-8504-a443-70fd82cea242",
+  "statement": "((8 : Int) * (1024 : Int)) = (8192 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tpu_dataflow_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

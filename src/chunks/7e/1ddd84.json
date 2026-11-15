@@ -1,0 +1,40 @@
+{
+  "handle": "7e1ddd84",
+  "address": "7e1ddd84-3df2-8449-a4e3-0f059b4d6c89",
+  "statement": "(4 : Int) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_canon_gospels_1",
+    "fam_chord_inversioncount_1",
+    "fam_dentistry_pocket_1",
+    "fam_endpoint_methods_1",
+    "fam_entomology_metamorphosis_1",
+    "fam_handle_compression_1",
+    "fam_handle_count_1",
+    "fam_ichthyology_trophic_1",
+    "fam_latinsquare_cols_1",
+    "fam_latinsquare_order_1",
+    "fam_latinsquare_rows_1",
+    "fam_latinsquare_symbols_1",
+    "fam_latinsquare_transversal_1",
+    "fam_limnology_clarity_1",
+    "fam_notice_stack_1",
+    "fam_orthography_syllables_1",
+    "fam_query_where_1",
+    "fam_state_stores_1",
+    "fam_wireframe_hierarchy_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesN.lean",
+    "FamiliesO.lean",
+    "FamiliesQ.lean",
+    "FamiliesS.lean",
+    "FamiliesW.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1f33547e",
+  "address": "1f33547e-55e6-8769-bfc8-c4e79c6d40b8",
+  "statement": "((6 : Int) * (9 : Int)) = (54 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_rubik_stickers_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

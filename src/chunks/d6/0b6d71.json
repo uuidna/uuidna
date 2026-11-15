@@ -1,0 +1,12 @@
+{
+  "handle": "d60b6d71",
+  "address": "d60b6d71-84cf-8937-8e84-8cce21ee25c7",
+  "statement": "((25 : Int) / (10 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pathogen_r0_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

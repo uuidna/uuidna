@@ -1,0 +1,12 @@
+{
+  "handle": "59a6079c",
+  "address": "59a6079c-e327-8e00-93a4-e42401955e92",
+  "kind": "chunk",
+  "keys": [
+    "fam_avionics_navtolerance_1"
+  ],
+  "statement": "(if (if (2 : Int) ≤ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "handle": "35b640d8",
+  "address": "35b640d8-2335-8802-8322-156aa2d1c81f",
+  "kind": "chunk",
+  "keys": [
+    "fam_amortization_principalportion_2",
+    "fam_chemical_pressuredrop_2",
+    "fam_epidemiology_doubling_2",
+    "fam_ichthyology_growth_2",
+    "fam_livestock_weightgain_2",
+    "fam_logistics_inventory_2",
+    "fam_prosody_pitchrange_2",
+    "fam_respiration_gasexchange_2"
+  ],
+  "statement": "(fmax (0 : Int) ((100 : Int) - (150 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

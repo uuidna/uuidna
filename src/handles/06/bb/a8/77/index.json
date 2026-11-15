@@ -1,0 +1,18 @@
+{
+  "handle": "06bba877",
+  "address": "06bba877-5deb-83ad-8db2-6c6a6276dcac",
+  "kind": "chunk",
+  "keys": [
+    "fam_annuity_payment_1",
+    "fam_cohort_maturation_1",
+    "fam_crossdock_flowrate_1",
+    "fam_layout_track_1",
+    "fam_liquidity_burnrate_1"
+  ],
+  "statement": "((1200 : Int) / (12 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7537e61a",
+  "address": "7537e61a-3623-8f00-93cf-7f95b027c0d3",
+  "statement": "(((120 : Int) * (50 : Int)) / (100 : Int)) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_psychophysics_stevenspower_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

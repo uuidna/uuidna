@@ -1,0 +1,12 @@
+{
+  "handle": "f794463d",
+  "address": "f794463d-c55e-83af-a102-7451f49c161c",
+  "kind": "chunk",
+  "keys": [
+    "fam_latency_oneway_1"
+  ],
+  "statement": "(((15 : Int) + (8 : Int)) + (2 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

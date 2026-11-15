@@ -1,0 +1,12 @@
+{
+  "handle": "1054a843",
+  "address": "1054a843-794d-88a3-b4f2-c5e23105a5b9",
+  "kind": "chunk",
+  "keys": [
+    "fam_elo_update_1"
+  ],
+  "statement": "(((32 : Int) * (fmax (0 : Int) ((100 : Int) - (60 : Int)))) / (100 : Int)) = (12 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

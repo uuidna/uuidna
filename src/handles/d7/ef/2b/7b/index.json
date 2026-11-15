@@ -1,0 +1,12 @@
+{
+  "handle": "d7ef2b7b",
+  "address": "d7ef2b7b-ba21-8692-8a19-1c96b1f98044",
+  "kind": "chunk",
+  "keys": [
+    "fam_nuclearphysics_massdefect_1"
+  ],
+  "statement": "(fmax (0 : Int) ((940 : Int) - (931 : Int))) = (9 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

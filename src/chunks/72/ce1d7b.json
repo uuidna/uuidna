@@ -1,0 +1,13 @@
+{
+  "handle": "72ce1d7b",
+  "address": "72ce1d7b-663b-8f50-a6b1-ee86b6e768ba",
+  "statement": "(fmax (0 : Int) ((5000 : Int) - (1500 : Int))) = (3500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_payables_outstanding_1",
+    "fam_payroll_net_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

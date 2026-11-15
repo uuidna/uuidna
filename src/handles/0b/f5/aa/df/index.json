@@ -1,0 +1,12 @@
+{
+  "handle": "0bf5aadf",
+  "address": "0bf5aadf-e76f-82c9-95fa-0686ca41ec58",
+  "kind": "chunk",
+  "keys": [
+    "fam_dividend_total_1"
+  ],
+  "statement": "((2 : Int) * (20000 : Int)) = (40000 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

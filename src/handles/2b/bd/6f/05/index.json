@@ -1,0 +1,12 @@
+{
+  "handle": "2bbd6f05",
+  "address": "2bbd6f05-7480-8fda-9d96-48887a4ef44f",
+  "kind": "chunk",
+  "keys": [
+    "fam_ferry_dailycrossings_1"
+  ],
+  "statement": "((1440 : Int) / (90 : Int)) = (16 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

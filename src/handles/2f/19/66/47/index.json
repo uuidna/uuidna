@@ -1,0 +1,26 @@
+{
+  "handle": "2f196647",
+  "address": "2f196647-70a9-8988-94fd-fe48d3a2a7d6",
+  "kind": "chunk",
+  "keys": [
+    "fam_clustering_centroiddist_1",
+    "fam_collide_invariant_1",
+    "fam_embedding_l2sq_1",
+    "fam_geometry_diagonal_1",
+    "fam_geometry_pythagorean_1",
+    "fam_gradient_norm_1",
+    "fam_pathplanning_euclidsq_1",
+    "fam_triangulation_baseline_1",
+    "fam_trigonometry_hypotenuse_1",
+    "fam_volatility_sumsquares_1"
+  ],
+  "statement": "(((3 : Int) ^ (2 : Nat)) + ((4 : Int) ^ (2 : Nat))) = (25 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean",
+    "FamiliesV.lean"
+  ]
+}

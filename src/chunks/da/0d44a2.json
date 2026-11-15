@@ -1,0 +1,12 @@
+{
+  "handle": "da0d44a2",
+  "address": "da0d44a2-f10f-8840-b811-a6b9cf6058a2",
+  "statement": "(((500 : Int) + (100 : Int)) / (2 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sedimentology_grainsize_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

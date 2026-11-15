@@ -1,0 +1,14 @@
+{
+  "handle": "ad327af9",
+  "address": "ad327af9-6673-8843-92b6-33ca9cf27ef8",
+  "kind": "chunk",
+  "keys": [
+    "fam_hedging_basis_1",
+    "fam_strength_progression_1"
+  ],
+  "statement": "(fmax (0 : Int) ((105 : Int) - (100 : Int))) = (5 : Int)",
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesS.lean"
+  ]
+}

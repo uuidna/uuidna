@@ -1,0 +1,12 @@
+{
+  "handle": "bd70a39c",
+  "address": "bd70a39c-f52c-888d-b171-dd175e71fcd9",
+  "statement": "(512 : Int) = (512 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_firewall_rules_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "51dbbbc9",
+  "address": "51dbbbc9-b72e-81f3-9190-b0e042bff038",
+  "statement": "(if (if (20 : Int) ≥ (11 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gpu_bound_2"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9a300f92",
+  "address": "9a300f92-8fcf-896d-805d-b7f1fa36e8cc",
+  "statement": "(((45000 : Int) * (9000 : Int)) / (90000 : Int)) = (4500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_depreciation_unitsofproduction_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

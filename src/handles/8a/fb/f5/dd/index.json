@@ -1,0 +1,12 @@
+{
+  "handle": "8afbf5dd",
+  "address": "8afbf5dd-c8f5-8ba9-9275-5f9551a22c64",
+  "kind": "chunk",
+  "keys": [
+    "fam_linguistics_frequency_1"
+  ],
+  "statement": "(((50 : Int) * (1000000 : Int)) / (1000000 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

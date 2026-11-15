@@ -1,0 +1,14 @@
+{
+  "handle": "5f1c9b52",
+  "address": "5f1c9b52-0239-8555-8b29-41558e178a42",
+  "kind": "chunk",
+  "keys": [
+    "fam_dermatology_uv_1",
+    "fam_fitness_calories_1"
+  ],
+  "statement": "((8 : Int) * (30 : Int)) = (240 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesF.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4cbe79a8",
+  "address": "4cbe79a8-c6a0-8cc7-9a2b-1794af624f30",
+  "statement": "((3600 : Int) / (4 : Int)) = (900 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sessionmgmt_renewalwindow_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

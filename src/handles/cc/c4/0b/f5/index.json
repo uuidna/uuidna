@@ -1,0 +1,12 @@
+{
+  "handle": "ccc40bf5",
+  "address": "ccc40bf5-69c9-83a4-8ecc-4f6f0882d9df",
+  "kind": "chunk",
+  "keys": [
+    "fam_reliability_failurerate_1"
+  ],
+  "statement": "(((3 : Int) * (1000000 : Int)) / (1000000 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "66393d53",
+  "address": "66393d53-86af-8cf0-b278-a77e17112a40",
+  "statement": "((20 : Int) * (2 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_shogi_pieces_1",
+    "fam_solar_array_1",
+    "fam_solarpower_arraysize_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

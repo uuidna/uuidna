@@ -1,0 +1,12 @@
+{
+  "handle": "67d53d1c",
+  "address": "67d53d1c-5db3-811d-aa55-c0c86784cfd9",
+  "statement": "(-((-(300 : Int)) / (60 : Int))) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_transport_eta_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a8434955",
+  "address": "a8434955-c3a9-8772-8059-59bf22c147e8",
+  "kind": "chunk",
+  "keys": [
+    "fam_financial_leverage_1"
+  ],
+  "statement": "((300000 : Int) / (100000 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

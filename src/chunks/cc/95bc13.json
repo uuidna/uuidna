@@ -1,0 +1,12 @@
+{
+  "handle": "cc95bc13",
+  "address": "cc95bc13-2393-8657-8e1f-a013100d47f5",
+  "statement": "((((90 : Int) + (120 : Int)) + (150 : Int)) / (3 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_colortheory_grayscale_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

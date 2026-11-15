@@ -1,0 +1,12 @@
+{
+  "handle": "6a4077c0",
+  "address": "6a4077c0-d32b-8f17-8b5b-7eec7d32e81d",
+  "kind": "chunk",
+  "keys": [
+    "fam_lift_liftdragratio_1"
+  ],
+  "statement": "((1800 : Int) / (100 : Int)) = (18 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

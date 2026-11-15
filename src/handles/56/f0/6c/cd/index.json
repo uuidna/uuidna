@@ -1,0 +1,12 @@
+{
+  "handle": "56f06ccd",
+  "address": "56f06ccd-ba3b-8f11-a405-466c308e67f8",
+  "kind": "chunk",
+  "keys": [
+    "fam_absorption_panelresonance_1"
+  ],
+  "statement": "((6000 : Int) / (40 : Int)) = (150 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

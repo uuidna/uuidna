@@ -1,0 +1,12 @@
+{
+  "handle": "40d3b0dc",
+  "address": "40d3b0dc-b07d-8965-b21c-a31c6542cbbc",
+  "kind": "chunk",
+  "keys": [
+    "fam_demography_medianage_1"
+  ],
+  "statement": "((40000 : Int) / (1000 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

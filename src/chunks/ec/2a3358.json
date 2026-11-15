@@ -1,0 +1,12 @@
+{
+  "handle": "ec2a3358",
+  "address": "ec2a3358-88e8-8f80-b181-ac78c49ee0a8",
+  "statement": "(-((-(fmax (0 : Int) ((1200 : Int) - (600 : Int)))) / (3 : Int))) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_feedlot_daysonfeed_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

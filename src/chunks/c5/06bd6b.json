@@ -1,0 +1,12 @@
+{
+  "handle": "c506bd6b",
+  "address": "c506bd6b-f85a-8939-8b12-08f33f778e75",
+  "statement": "(fmax (0 : Int) ((125 : Int) - (100 : Int))) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tariff_protectioneffect_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

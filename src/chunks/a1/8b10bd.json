@@ -1,0 +1,12 @@
+{
+  "handle": "a18b10bd",
+  "address": "a18b10bd-1f32-8d2a-aa80-f76d4e551aee",
+  "statement": "(fmax (0 : Int) ((600 : Int) - (200 : Int))) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_banking_spread_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

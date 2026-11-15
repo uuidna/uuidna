@@ -1,0 +1,16 @@
+{
+  "handle": "857452d1",
+  "address": "857452d1-d381-84d9-9320-14afed953259",
+  "statement": "(((30 : Int) * (100 : Int)) / (20 : Int)) = (150 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_basketball_efficiency_1",
+    "fam_cytology_ratio_1",
+    "fam_morphology_affixation_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "2866129a",
+  "address": "2866129a-9f87-8297-95ce-c61f970113eb",
+  "kind": "chunk",
+  "keys": [
+    "fam_crystal_atoms_1",
+    "fam_liturgy_chantmodes_1"
+  ],
+  "statement": "((8 : Int) * (1 : Int)) = (8 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesL.lean"
+  ]
+}

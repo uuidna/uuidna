@@ -1,0 +1,14 @@
+{
+  "handle": "a2305a58",
+  "address": "a2305a58-46f0-8456-a6b9-e95b2e459fa5",
+  "kind": "chunk",
+  "keys": [
+    "fam_dosimetry_effectivedose_1",
+    "fam_underwriting_premium_1"
+  ],
+  "statement": "(((1000 : Int) * (12 : Int)) / (100 : Int)) = (120 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesU.lean"
+  ]
+}

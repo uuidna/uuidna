@@ -1,0 +1,14 @@
+{
+  "handle": "4808fa7c",
+  "address": "4808fa7c-bfcb-8c38-9352-c7f599d6fccf",
+  "kind": "chunk",
+  "keys": [
+    "fam_fitness_pace_1",
+    "fam_ultrasonics_wavelength_1"
+  ],
+  "statement": "((1500 : Int) / (5 : Int)) = (300 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesU.lean"
+  ]
+}

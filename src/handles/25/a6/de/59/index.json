@@ -1,0 +1,12 @@
+{
+  "handle": "25a6de59",
+  "address": "25a6de59-95a0-87e4-a9a8-cbcce388e33d",
+  "kind": "chunk",
+  "keys": [
+    "fam_inequality_palmaratio_1"
+  ],
+  "statement": "((200 : Int) / (100 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

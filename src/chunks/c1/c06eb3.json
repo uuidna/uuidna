@@ -1,0 +1,12 @@
+{
+  "handle": "c1c06eb3",
+  "address": "c1c06eb3-1d46-8213-83c0-d553b2c85395",
+  "statement": "((500 : Int) * (300 : Int)) = (150000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_watershed_catchmentarea_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

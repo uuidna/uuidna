@@ -1,0 +1,12 @@
+{
+  "handle": "bee4e881",
+  "address": "bee4e881-e283-86ce-9a63-9fbb2de624fe",
+  "kind": "chunk",
+  "keys": [
+    "fam_geodesy_flattening_1"
+  ],
+  "statement": "((((298 : Int) - (297 : Int)) * (10000 : Int)) / (298 : Int)) = (33 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

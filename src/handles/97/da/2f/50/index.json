@@ -1,0 +1,12 @@
+{
+  "handle": "97da2f50",
+  "address": "97da2f50-aa48-8c62-8644-4c0ec72dac03",
+  "kind": "chunk",
+  "keys": [
+    "fam_heattransfer_biot_1"
+  ],
+  "statement": "(((20 : Int) * (3 : Int)) / (4 : Int)) = (15 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

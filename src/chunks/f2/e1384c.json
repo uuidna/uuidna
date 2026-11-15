@@ -1,0 +1,12 @@
+{
+  "handle": "f2e1384c",
+  "address": "f2e1384c-02a0-8a61-a458-ea9f83962732",
+  "statement": "((5000 : Int) + ((120 : Int) * (fmax (0 : Int) ((25 : Int) - (15 : Int))))) = (6200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_altimetry_densityaltitude_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

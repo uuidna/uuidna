@@ -1,0 +1,13 @@
+{
+  "handle": "2366bc5e",
+  "address": "2366bc5e-3ba1-8311-b624-5d36c14570f8",
+  "kind": "chunk",
+  "keys": [
+    "fam_auth_expiry_1",
+    "fam_auth_token_1"
+  ],
+  "statement": "(fmax (0 : Int) ((4600 : Int) - (1000 : Int))) = (3600 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

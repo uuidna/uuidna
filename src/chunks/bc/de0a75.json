@@ -1,0 +1,12 @@
+{
+  "handle": "bcde0a75",
+  "address": "bcde0a75-5350-8058-af0b-134ba2783c02",
+  "statement": "(((1000 : Int) * (30 : Int)) / (1333 : Int)) = (22 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_refraction_snell_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

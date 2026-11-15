@@ -1,0 +1,12 @@
+{
+  "handle": "6a9f37a5",
+  "address": "6a9f37a5-27a7-888d-8942-5fc37b5ca3f5",
+  "statement": "(fmax (0 : Int) ((10000 : Int) - (3600 : Int))) = (6400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_depreciation_bookvalue_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

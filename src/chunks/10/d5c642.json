@@ -1,0 +1,12 @@
+{
+  "handle": "10d5c642",
+  "address": "10d5c642-c383-8cbe-93be-08c54523b7a5",
+  "statement": "(((2 : Int) * ((3 : Int) ^ (2 : Nat))) / (5 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_conic_latusrectum_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

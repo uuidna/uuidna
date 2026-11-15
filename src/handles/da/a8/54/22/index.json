@@ -1,0 +1,12 @@
+{
+  "handle": "daa85422",
+  "address": "daa85422-90d6-87b9-bb1b-91a287a9a9b8",
+  "kind": "chunk",
+  "keys": [
+    "fam_devtools_churn_1"
+  ],
+  "statement": "((300 : Int) + (120 : Int)) = (420 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

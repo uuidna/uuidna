@@ -1,0 +1,19 @@
+{
+  "handle": "5d1c8bca",
+  "address": "5d1c8bca-6eb6-87c9-bbef-420455be099e",
+  "kind": "chunk",
+  "keys": [
+    "fam_acquisition_payback_1",
+    "fam_fracture_criticalcrack_1",
+    "fam_lastmile_deliverydensity_1",
+    "fam_lever_ratio_1",
+    "fam_optics_fnumber_1"
+  ],
+  "statement": "((200 : Int) / (50 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesF.lean",
+    "FamiliesL.lean",
+    "FamiliesO.lean"
+  ]
+}

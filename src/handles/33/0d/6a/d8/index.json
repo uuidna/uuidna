@@ -1,0 +1,12 @@
+{
+  "handle": "330d6ad8",
+  "address": "330d6ad8-2bd0-88f7-9369-c333eef66d9d",
+  "kind": "chunk",
+  "keys": [
+    "fam_microscopy_resolution_2"
+  ],
+  "statement": "((500 : Int) / ((2 : Int) * (0 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

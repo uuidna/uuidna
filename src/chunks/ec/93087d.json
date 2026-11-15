@@ -1,0 +1,12 @@
+{
+  "handle": "ec93087d",
+  "address": "ec93087d-b0b6-8a84-9b35-45a534c3b602",
+  "statement": "(((5 : Int) * (100000 : Int)) / (1000 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_screening_prevalenceadjusted_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "64f1429e",
+  "address": "64f1429e-3e9c-8549-8f15-1401167edef7",
+  "statement": "(((130 : Int) - (100 : Int)) * (10 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_trading_pnl_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

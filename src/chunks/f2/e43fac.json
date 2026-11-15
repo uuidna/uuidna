@@ -1,0 +1,12 @@
+{
+  "handle": "f2e43fac",
+  "address": "f2e43fac-2b92-81af-82f0-8fe6859c46c0",
+  "statement": "((24 : Int) * (10 : Int)) = (240 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_datacenter_power_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

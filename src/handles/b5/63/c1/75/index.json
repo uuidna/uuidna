@@ -1,0 +1,14 @@
+{
+  "handle": "b563c175",
+  "address": "b563c175-4036-85e6-8746-732e9332d160",
+  "kind": "chunk",
+  "keys": [
+    "fam_origami_crimpangle_1",
+    "fam_torsion_angle_1"
+  ],
+  "statement": "((180 : Int) / (4 : Int)) = (45 : Int)",
+  "files": [
+    "FamiliesO.lean",
+    "FamiliesT.lean"
+  ]
+}

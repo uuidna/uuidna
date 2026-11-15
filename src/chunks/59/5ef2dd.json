@@ -1,0 +1,12 @@
+{
+  "handle": "595ef2dd",
+  "address": "595ef2dd-56f9-8b23-825b-3902de88abc8",
+  "statement": "(if (if (60 : Int) ≤ (90 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bankruptcy_preference_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

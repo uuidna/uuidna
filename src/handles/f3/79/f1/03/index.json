@@ -1,0 +1,12 @@
+{
+  "handle": "f379f103",
+  "address": "f379f103-bad9-86c1-bca6-85a2cfa258ae",
+  "kind": "chunk",
+  "keys": [
+    "fam_upload_filesize_1"
+  ],
+  "statement": "(((2073600 : Int) * (24 : Int)) / (8 : Int)) = (6220800 : Int)",
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

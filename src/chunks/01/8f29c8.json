@@ -1,0 +1,12 @@
+{
+  "handle": "018f29c8",
+  "address": "018f29c8-01cc-8f0a-a72b-6c1c4169673a",
+  "statement": "(fmax (0 : Int) ((3600 : Int) - (1200 : Int))) = (2400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sessionmgmt_expirymargin_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

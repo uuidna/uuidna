@@ -1,0 +1,14 @@
+{
+  "handle": "c8814e46",
+  "address": "c8814e46-e58c-8814-8f2f-ec063052d8e4",
+  "statement": "((10000 : Int) * (3 : Int)) = (30000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_patent_damages_1",
+    "fam_typology_morphemecomplexity_1"
+  ],
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

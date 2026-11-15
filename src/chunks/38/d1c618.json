@@ -1,0 +1,12 @@
+{
+  "handle": "38d1c618",
+  "address": "38d1c618-4587-89ea-9947-c9f0fbe36beb",
+  "statement": "(-((-((9 : Int) * (50 : Int))) / (100 : Int))) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_law_quorum_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

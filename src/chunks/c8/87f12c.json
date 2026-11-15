@@ -1,0 +1,12 @@
+{
+  "handle": "c887f12c",
+  "address": "c887f12c-c6ab-8611-9154-ee5fdcf2f255",
+  "statement": "((1600 : Int) / (1000 : Int)) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_composites_density_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

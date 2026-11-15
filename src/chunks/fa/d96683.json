@@ -1,0 +1,16 @@
+{
+  "handle": "fad96683",
+  "address": "fad96683-065d-81fc-b30c-e29353622daf",
+  "statement": "(((0 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_identity_assurance_2",
+    "fam_lexicography_coverage_2",
+    "fam_machining_passrate_2"
+  ],
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c3677c3d",
+  "address": "c3677c3d-c03f-8207-ace2-b31178ad11c0",
+  "kind": "chunk",
+  "keys": [
+    "fam_arbitrage_triangularrate_1"
+  ],
+  "statement": "(((120 : Int) * (110 : Int)) / (100 : Int)) = (132 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

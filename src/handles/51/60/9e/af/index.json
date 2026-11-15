@@ -1,0 +1,12 @@
+{
+  "handle": "51609eaf",
+  "address": "51609eaf-bd51-8e03-8087-ca8452a750be",
+  "kind": "chunk",
+  "keys": [
+    "fam_reverberation_clarity_1"
+  ],
+  "statement": "(((10 : Int) * (80 : Int)) / (20 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

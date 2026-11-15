@@ -1,0 +1,12 @@
+{
+  "handle": "c680a763",
+  "address": "c680a763-0936-876c-b7d7-7cbabd5820af",
+  "statement": "((1000000 : Int) / ((100 : Int) * (10 : Int))) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_oscillators_resonance_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

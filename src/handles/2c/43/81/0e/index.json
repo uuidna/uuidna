@@ -1,0 +1,12 @@
+{
+  "handle": "2c43810e",
+  "address": "2c43810e-0596-8f52-83ff-c8195ac25559",
+  "kind": "chunk",
+  "keys": [
+    "fam_swaps_fixedleg_1"
+  ],
+  "statement": "(((10000 : Int) * (500 : Int)) / (10000 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

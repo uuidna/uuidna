@@ -1,0 +1,12 @@
+{
+  "handle": "0fcaeb15",
+  "address": "0fcaeb15-5f9d-81bc-8f1e-da6323bff14f",
+  "kind": "chunk",
+  "keys": [
+    "fam_elections_threshold_1"
+  ],
+  "statement": "(((300 : Int) * (100 : Int)) / (6000 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

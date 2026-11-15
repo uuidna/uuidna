@@ -1,0 +1,12 @@
+{
+  "handle": "c14bdf36",
+  "address": "c14bdf36-55ce-8ee7-965b-591e832a3b19",
+  "statement": "((((80 : Int) - (60 : Int)) * (100 : Int)) / (80 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_promotion_markdown_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c823f7a7",
+  "address": "c823f7a7-b675-8df2-a737-1fbccd053a92",
+  "kind": "chunk",
+  "keys": [
+    "fam_usability_sus_1"
+  ],
+  "statement": "(((32 : Int) * (25 : Int)) / (10 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

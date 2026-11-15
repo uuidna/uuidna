@@ -1,0 +1,12 @@
+{
+  "handle": "7d322eea",
+  "address": "7d322eea-f7ad-8218-bb78-1fa6d28c78c5",
+  "kind": "chunk",
+  "keys": [
+    "fam_soilscience_texture_2"
+  ],
+  "statement": "(fmax (0 : Int) (((100 : Int) - (60 : Int)) - (60 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

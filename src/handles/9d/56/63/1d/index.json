@@ -1,0 +1,12 @@
+{
+  "handle": "9d56631d",
+  "address": "9d56631d-6ab9-8a84-8de1-b7bb03319bdc",
+  "kind": "chunk",
+  "keys": [
+    "fam_nuclear_binding_1"
+  ],
+  "statement": "((1600 : Int) / (200 : Int)) = (8 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

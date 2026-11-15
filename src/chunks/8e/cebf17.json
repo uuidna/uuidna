@@ -1,0 +1,12 @@
+{
+  "handle": "8ecebf17",
+  "address": "8ecebf17-a530-857b-97ae-f60cdab3754d",
+  "statement": "((600 : Int) + (400 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_semiconductor_carrier_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

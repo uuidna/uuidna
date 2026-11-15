@@ -1,0 +1,12 @@
+{
+  "handle": "322b6752",
+  "address": "322b6752-b55c-8373-8fd3-a365a89b4ff9",
+  "statement": "((2 : Int) * (40 : Int)) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pid_integral_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "404b385c",
+  "address": "404b385c-512a-894d-970f-ef9f225b0892",
+  "kind": "chunk",
+  "keys": [
+    "fam_comparison_winner_1"
+  ],
+  "statement": "(if (if (95 : Int) ≥ (95 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

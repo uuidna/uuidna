@@ -1,0 +1,12 @@
+{
+  "handle": "03ce7804",
+  "address": "03ce7804-bc19-8dd9-8d72-19cdb72acebc",
+  "kind": "chunk",
+  "keys": [
+    "fam_dentistry_fluoride_1"
+  ],
+  "statement": "(if (if (700 : Int) ≤ (1500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

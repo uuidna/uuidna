@@ -1,0 +1,12 @@
+{
+  "handle": "bfa156de",
+  "address": "bfa156de-681d-888c-ab7c-16d0015441e2",
+  "statement": "(((3 : Int) * (100 : Int)) / (30 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_neurology_seizure_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

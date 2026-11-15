@@ -1,0 +1,24 @@
+{
+  "handle": "6fec1f5b",
+  "address": "6fec1f5b-b86e-802f-bc50-1342c66d9e4d",
+  "statement": "(((10000 : Int) * (90 : Int)) / (1000 : Int)) = (900 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cloud_egress_1",
+    "fam_distribution_echelon_1",
+    "fam_hosting_bandwidth_1",
+    "fam_onboarding_enablement_1",
+    "fam_phycology_turbidity_1",
+    "fam_signaling_dissociation_1",
+    "fam_tracing_overhead_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesH.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

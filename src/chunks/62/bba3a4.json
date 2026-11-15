@@ -1,0 +1,12 @@
+{
+  "handle": "62bba3a4",
+  "address": "62bba3a4-f1c9-8687-8301-da61e518a3ca",
+  "statement": "((40000 : Int) / (20 : Int)) = (2000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tsunami_wavespeed_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "180ea440",
+  "address": "180ea440-6985-81f9-a9a5-5795fa8b10ab",
+  "statement": "(fmax (0 : Int) ((5000 : Int) - (5200 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_drilling_kick_2"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

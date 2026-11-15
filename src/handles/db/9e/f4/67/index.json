@@ -1,0 +1,12 @@
+{
+  "handle": "db9ef467",
+  "address": "db9ef467-1580-880e-9572-879e9c78c7a8",
+  "kind": "chunk",
+  "keys": [
+    "fam_formant_centerfrequency_1"
+  ],
+  "statement": "(((500 : Int) + (700 : Int)) / (2 : Int)) = (600 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

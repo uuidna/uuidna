@@ -1,0 +1,21 @@
+{
+  "handle": "453ce129",
+  "address": "453ce129-9cef-8adb-85e4-aaec41d8ef20",
+  "statement": "(Int.ofNat (fchoose (Int.toNat (16 : Int)) (Int.toNat (2 : Int)))) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_compress_blockcombos_1",
+    "fam_merkle_siblingpairs_1",
+    "fam_quilting_patchpairs_1",
+    "fam_runes_inscriptionpairs_1",
+    "fam_sounddesign_mixpairs_1",
+    "fam_syllogism_premisepairs_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesM.lean",
+    "FamiliesQ.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "78fabb4f",
+  "address": "78fabb4f-a5ee-8eb2-b045-8d93cfe1e9d0",
+  "statement": "((500 : Int) * (30 : Int)) = (15000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_logging_retention_1",
+    "fam_marketing_budget_1"
+  ],
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesM.lean"
+  ]
+}

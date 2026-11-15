@@ -1,0 +1,12 @@
+{
+  "handle": "8cff636e",
+  "address": "8cff636e-b92d-82c3-a1fd-8f82fda955ce",
+  "statement": "((10 : Int) + (10 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_stoicism_preferredindifferents_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

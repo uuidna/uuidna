@@ -1,0 +1,12 @@
+{
+  "handle": "df777364",
+  "address": "df777364-16ef-8b03-bd53-e98f2882fb4f",
+  "statement": "(((12 : Int) - (10 : Int)) + (2 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_devtools_complexity_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

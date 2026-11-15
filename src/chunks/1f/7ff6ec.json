@@ -1,0 +1,12 @@
+{
+  "handle": "1f7ff6ec",
+  "address": "1f7ff6ec-dbaa-8863-ba50-0dab618e119e",
+  "statement": "((52 : Int) / (2 : Int)) = (26 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_loadplanning_palletspertruck_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "handle": "32842eba",
+  "address": "32842eba-544b-8314-a1e4-b1e4ba0c9ffb",
+  "statement": "((2 : Int) ^ (10 : Nat)) = (1024 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bio_doubling_1",
+    "fam_codec_blocksize_1",
+    "fam_genealogy_descendants_1",
+    "fam_geo_tiles_1",
+    "fam_hanoi_movesupperbound_1",
+    "fam_hash_buckets_1",
+    "fam_qsec_attackcost_1",
+    "fam_ramsey_diagonalbound_1",
+    "fam_software_flags_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesQ.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

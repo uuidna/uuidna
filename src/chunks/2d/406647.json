@@ -1,0 +1,22 @@
+{
+  "handle": "2d406647",
+  "address": "2d406647-0912-8308-a947-a8a8c0ec52c8",
+  "statement": "(fmax (0 : Int) ((90 : Int) - (30 : Int))) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_exegesis_semanticrange_1",
+    "fam_kinesiology_extension_1",
+    "fam_linkage_transmissionangle_1",
+    "fam_noise_snr_1",
+    "fam_odometry_headingchange_1",
+    "fam_torsion_twist_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesK.lean",
+    "FamiliesL.lean",
+    "FamiliesN.lean",
+    "FamiliesO.lean",
+    "FamiliesT.lean"
+  ]
+}

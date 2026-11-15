@@ -1,0 +1,14 @@
+{
+  "handle": "2a87a4e4",
+  "address": "2a87a4e4-3b1d-8dc4-a310-e30f10508176",
+  "statement": "(fmax (0 : Int) ((20 : Int) - (15 : Int))) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_humidity_deficit_1",
+    "fam_photometry_absolutemagnitude_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesP.lean"
+  ]
+}

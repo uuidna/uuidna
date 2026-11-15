@@ -1,0 +1,12 @@
+{
+  "handle": "d9078e4b",
+  "address": "d9078e4b-b533-8b7a-bf61-ca8538c6412d",
+  "statement": "((14 : Int) + (21 : Int)) = (35 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sourcing_leadtime_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

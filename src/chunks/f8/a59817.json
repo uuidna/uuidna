@@ -1,0 +1,12 @@
+{
+  "handle": "f8a59817",
+  "address": "f8a59817-0026-8d31-877b-ff7226675aaf",
+  "statement": "(if (if (90 : Int) ≤ (180 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_immigration_continuous_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "15510e26",
+  "address": "15510e26-b016-8ba9-b632-98ba96b3dbbc",
+  "statement": "(((600 : Int) * (1000 : Int)) / (50000 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_demography_birthrate_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

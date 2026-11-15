@@ -1,0 +1,12 @@
+{
+  "handle": "d45cccf1",
+  "address": "d45cccf1-691f-820a-a473-f19d9f9d5cf3",
+  "kind": "chunk",
+  "keys": [
+    "fam_environment_remediation_1"
+  ],
+  "statement": "((300 : Int) * (50 : Int)) = (15000 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

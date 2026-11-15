@@ -1,0 +1,12 @@
+{
+  "handle": "456e3347",
+  "address": "456e3347-77c4-8bbe-b73d-187b23614db6",
+  "statement": "(-((-(100 : Int)) / (5 : Int))) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_licensing_seats_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

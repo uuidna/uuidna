@@ -1,0 +1,12 @@
+{
+  "handle": "6bcafe33",
+  "address": "6bcafe33-4a27-801f-8918-87a83d3bf97e",
+  "kind": "chunk",
+  "keys": [
+    "fam_polyhedron_vertices_1"
+  ],
+  "statement": "(fmax (0 : Int) (((12 : Int) - (6 : Int)) + (2 : Int))) = (8 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

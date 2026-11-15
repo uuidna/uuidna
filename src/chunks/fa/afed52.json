@@ -1,0 +1,12 @@
+{
+  "handle": "faafed52",
+  "address": "faafed52-eeca-8420-92c7-64761759f60e",
+  "statement": "(Int.ofNat (fchoose (Int.toNat (((3 : Int) + (3 : Int)) - (2 : Int))) (Int.toNat ((3 : Int) - (1 : Int))))) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ramsey_eszbound_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

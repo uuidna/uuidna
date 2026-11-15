@@ -1,0 +1,12 @@
+{
+  "handle": "9a9ba9f3",
+  "address": "9a9ba9f3-90f8-8b45-b82d-8379ed206d3c",
+  "statement": "(((20000 : Int) * (100 : Int)) / (500000 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_maritime_generalaverage_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

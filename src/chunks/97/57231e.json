@@ -1,0 +1,14 @@
+{
+  "handle": "9757231e",
+  "address": "9757231e-8bc8-8c3b-8092-d264fe9ce8e9",
+  "statement": "((9000 : Int) / (30 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_geography_watershed_1",
+    "fam_rocketry_isp_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesR.lean"
+  ]
+}

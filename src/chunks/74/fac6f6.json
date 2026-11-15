@@ -1,0 +1,12 @@
+{
+  "handle": "74fac6f6",
+  "address": "74fac6f6-a694-8f53-9971-559acb6a1838",
+  "statement": "(((60 : Int) + (7 : Int)) % (12 : Int)) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_melody_transposition_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

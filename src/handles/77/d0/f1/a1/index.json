@@ -1,0 +1,12 @@
+{
+  "handle": "77d0f1a1",
+  "address": "77d0f1a1-c59f-8cbc-805a-c51474a319ca",
+  "kind": "chunk",
+  "keys": [
+    "fam_nim_grundyvalue_1"
+  ],
+  "statement": "((15 : Int) % (4 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

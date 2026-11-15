@@ -1,0 +1,12 @@
+{
+  "handle": "374299ac",
+  "address": "374299ac-b652-804d-b240-2cdb6430e2a7",
+  "kind": "chunk",
+  "keys": [
+    "fam_migration_integrationindex_1"
+  ],
+  "statement": "((((60 : Int) + (90 : Int)) + (3 : Int)) / (3 : Int)) = (51 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

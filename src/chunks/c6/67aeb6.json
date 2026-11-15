@@ -1,0 +1,12 @@
+{
+  "handle": "c667aeb6",
+  "address": "c667aeb6-8f54-8115-b391-ec5aeff6ebff",
+  "statement": "((100 : Int) / ((5 : Int) * (2 : Int))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_conduction_resistance_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

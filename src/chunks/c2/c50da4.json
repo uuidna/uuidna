@@ -1,0 +1,12 @@
+{
+  "handle": "c2c50da4",
+  "address": "c2c50da4-5f9b-8413-926d-81c5da6a2cf7",
+  "statement": "(((45 : Int) * (100 : Int)) / (150 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pathology_positivity_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

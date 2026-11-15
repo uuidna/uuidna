@@ -1,0 +1,12 @@
+{
+  "handle": "f275701e",
+  "address": "f275701e-2dfa-8edf-a5a0-e6f128cfa771",
+  "kind": "chunk",
+  "keys": [
+    "fam_analytics_cac_1"
+  ],
+  "statement": "((30000 : Int) / (1000 : Int)) = (30 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

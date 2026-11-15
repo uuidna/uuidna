@@ -1,0 +1,16 @@
+{
+  "handle": "b4a66025",
+  "address": "b4a66025-ce58-843f-9c99-25fd5b696d51",
+  "statement": "((8 : Int) * (6 : Int)) = (48 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_broadcasting_bandwidth_1",
+    "fam_dispatch_jobspershift_1",
+    "fam_synthesis_effort_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesS.lean"
+  ]
+}

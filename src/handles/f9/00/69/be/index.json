@@ -1,0 +1,22 @@
+{
+  "handle": "f90069be",
+  "address": "f90069be-e80f-819c-bc74-9cc60029778c",
+  "kind": "chunk",
+  "keys": [
+    "fam_biochemistry_ph_1",
+    "fam_electrolyte_ph_1",
+    "fam_enzyme_ph_1",
+    "fam_maillard_phfactor_1",
+    "fam_solvent_ph_1",
+    "fam_wind_tipratio_1",
+    "fam_windpower_tipspeedratio_1"
+  ],
+  "statement": "((70 : Int) / (10 : Int)) = (7 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesE.lean",
+    "FamiliesM.lean",
+    "FamiliesS.lean",
+    "FamiliesW.lean"
+  ]
+}

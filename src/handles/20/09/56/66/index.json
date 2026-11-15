@@ -1,0 +1,12 @@
+{
+  "handle": "20095666",
+  "address": "20095666-552e-8f0f-88d1-b7008f8dc426",
+  "kind": "chunk",
+  "keys": [
+    "fam_linkage_grashofcondition_1"
+  ],
+  "statement": "(if (if (10 : Int) ≥ (8 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

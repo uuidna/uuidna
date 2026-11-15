@@ -1,0 +1,12 @@
+{
+  "handle": "266f5cf4",
+  "address": "266f5cf4-f1e4-8e66-85c8-b7b5f6f6c26d",
+  "kind": "chunk",
+  "keys": [
+    "fam_outbreak_generationinterval_1"
+  ],
+  "statement": "((140 : Int) / (20 : Int)) = (7 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

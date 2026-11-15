@@ -1,0 +1,12 @@
+{
+  "handle": "b9e76378",
+  "address": "b9e76378-bbf6-8263-92c8-3cc840ec644c",
+  "kind": "chunk",
+  "keys": [
+    "fam_dataquality_accuracy_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((1000 : Int) - (20 : Int))) * (100 : Int)) / (1000 : Int)) = (98 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

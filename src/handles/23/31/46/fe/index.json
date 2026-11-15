@@ -1,0 +1,12 @@
+{
+  "handle": "233146fe",
+  "address": "233146fe-7916-869f-9c41-a479ba03dbb9",
+  "kind": "chunk",
+  "keys": [
+    "fam_nutrition_hydration_1"
+  ],
+  "statement": "((2100 : Int) / (70 : Int)) = (30 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

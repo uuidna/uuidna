@@ -1,0 +1,12 @@
+{
+  "handle": "6071fea2",
+  "address": "6071fea2-0f89-8bbc-95e7-4e53ad75c251",
+  "kind": "chunk",
+  "keys": [
+    "fam_med_bmi_1"
+  ],
+  "statement": "(((80 : Int) * (10000 : Int)) / ((180 : Int) ^ (2 : Nat))) = (24 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "38469aae",
+  "address": "38469aae-fe08-8e6e-8350-9b075adb5183",
+  "kind": "chunk",
+  "keys": [
+    "fam_geo_arcseconds_1",
+    "fam_survey_arcseconds_1"
+  ],
+  "statement": "((60 : Int) * (60 : Int)) = (3600 : Int)",
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesS.lean"
+  ]
+}

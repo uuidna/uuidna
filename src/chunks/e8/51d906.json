@@ -1,0 +1,29 @@
+{
+  "handle": "e851d906",
+  "address": "e851d906-c069-84ee-b037-85c9e427a2fd",
+  "statement": "((10000 : Int) / (500 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_automation_payback_1",
+    "fam_derivatives_leverage_1",
+    "fam_diffraction_aperture_1",
+    "fam_diffraction_slitspacing_1",
+    "fam_hydro_storage_1",
+    "fam_informatics_index_1",
+    "fam_irrigation_application_1",
+    "fam_landuse_parcelcount_1",
+    "fam_lexicography_definitionlength_1",
+    "fam_media_load_1",
+    "fam_precipitation_raindepth_1",
+    "fam_profiling_allocation_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesD.lean",
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean"
+  ]
+}

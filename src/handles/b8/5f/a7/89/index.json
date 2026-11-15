@@ -1,0 +1,12 @@
+{
+  "handle": "b85fa789",
+  "address": "b85fa789-74d6-8104-a15a-a18eb61a2cd7",
+  "kind": "chunk",
+  "keys": [
+    "fam_insurance_coinsurance_1"
+  ],
+  "statement": "(((10000 : Int) * (60 : Int)) / (100 : Int)) = (6000 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

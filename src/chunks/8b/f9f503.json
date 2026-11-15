@@ -1,0 +1,14 @@
+{
+  "handle": "8bf9f503",
+  "address": "8bf9f503-53a6-8cad-b33f-9b154fb35490",
+  "statement": "((5730 : Int) * (3 : Int)) = (17190 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_archaeology_carbon_1",
+    "fam_geology_age_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesG.lean"
+  ]
+}

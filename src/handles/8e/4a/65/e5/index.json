@@ -1,0 +1,12 @@
+{
+  "handle": "8e4a65e5",
+  "address": "8e4a65e5-c037-8e22-ae9f-a731876c8c96",
+  "kind": "chunk",
+  "keys": [
+    "fam_syllogism_validforms_1"
+  ],
+  "statement": "(fmax (0 : Int) ((256 : Int) - (232 : Int))) = (24 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

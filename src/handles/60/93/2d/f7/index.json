@@ -1,0 +1,14 @@
+{
+  "handle": "60932df7",
+  "address": "60932df7-65d3-8272-bb98-7abc76d1ee84",
+  "kind": "chunk",
+  "keys": [
+    "fam_buffer_pages_1",
+    "fam_dedup_chunk_1"
+  ],
+  "statement": "(-((-(10000 : Int)) / (4096 : Int))) = (3 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesD.lean"
+  ]
+}

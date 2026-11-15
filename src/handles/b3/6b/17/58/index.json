@@ -1,0 +1,12 @@
+{
+  "handle": "b36b1758",
+  "address": "b36b1758-0430-875c-bc13-c6c9e6d6118e",
+  "kind": "chunk",
+  "keys": [
+    "fam_civil_bearing_1"
+  ],
+  "statement": "((6000 : Int) / (3 : Int)) = (2000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

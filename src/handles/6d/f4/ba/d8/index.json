@@ -1,0 +1,12 @@
+{
+  "handle": "6df4bad8",
+  "address": "6df4bad8-b913-894e-9806-725341774eac",
+  "kind": "chunk",
+  "keys": [
+    "fam_desalination_rejection_1"
+  ],
+  "statement": "((((35000 : Int) - (350 : Int)) * (100 : Int)) / (35000 : Int)) = (99 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

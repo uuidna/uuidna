@@ -1,0 +1,12 @@
+{
+  "handle": "95c32409",
+  "address": "95c32409-39ad-84c8-b04c-5f30d34995ec",
+  "statement": "(0 : Int) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_law_reviewed_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

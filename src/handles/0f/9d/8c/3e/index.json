@@ -1,0 +1,12 @@
+{
+  "handle": "0f9d8c3e",
+  "address": "0f9d8c3e-0088-8f5e-8e04-5bb4c8eb146e",
+  "kind": "chunk",
+  "keys": [
+    "fam_diffusion_meansquare_1"
+  ],
+  "statement": "(((2 : Int) * (5 : Int)) * (10 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

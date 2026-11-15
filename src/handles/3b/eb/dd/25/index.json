@@ -1,0 +1,12 @@
+{
+  "handle": "3bebdd25",
+  "address": "3bebdd25-712a-8a29-82ac-85a361afedde",
+  "kind": "chunk",
+  "keys": [
+    "fam_jitter_playoutdelay_1"
+  ],
+  "statement": "((50 : Int) + ((10 : Int) * (4 : Int))) = (90 : Int)",
+  "files": [
+    "FamiliesJ.lean"
+  ]
+}

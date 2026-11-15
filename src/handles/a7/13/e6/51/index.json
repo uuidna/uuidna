@@ -1,0 +1,12 @@
+{
+  "handle": "a713e651",
+  "address": "a713e651-36ed-879e-ae45-347f62a9751e",
+  "kind": "chunk",
+  "keys": [
+    "fam_mortgage_pmi_1"
+  ],
+  "statement": "(if (if (85 : Int) > (80 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "c1e8e428",
+  "address": "c1e8e428-4ad0-8339-8001-aaebee16f4a8",
+  "kind": "chunk",
+  "keys": [
+    "fam_absorption_reductionindex_1",
+    "fam_gelatinization_setbacktemp_1"
+  ],
+  "statement": "(fmax (0 : Int) ((95 : Int) - (50 : Int))) = (45 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesG.lean"
+  ]
+}

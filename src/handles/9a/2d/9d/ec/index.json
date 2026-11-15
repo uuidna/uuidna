@@ -1,0 +1,12 @@
+{
+  "handle": "9a2d9dec",
+  "address": "9a2d9dec-858c-8b73-90af-728db3909988",
+  "kind": "chunk",
+  "keys": [
+    "fam_convolution_featuremap_1"
+  ],
+  "statement": "(((24 : Int) * (24 : Int)) * (16 : Int)) = (9216 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

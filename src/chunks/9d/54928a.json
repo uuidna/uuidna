@@ -1,0 +1,14 @@
+{
+  "handle": "9d54928a",
+  "address": "9d54928a-f16b-8187-b329-aba5a8e27cb0",
+  "statement": "(((5 : Int) * (100 : Int)) / (10 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_embryology_blastocyst_1",
+    "fam_usability_efficiency_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesU.lean"
+  ]
+}

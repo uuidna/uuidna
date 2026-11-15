@@ -1,0 +1,12 @@
+{
+  "handle": "ff0ab090",
+  "address": "ff0ab090-3d1b-8feb-963f-c21d023e4f99",
+  "kind": "chunk",
+  "keys": [
+    "fam_noisepollution_annoyanceindex_1"
+  ],
+  "statement": "(((70 : Int) * (1000 : Int)) / (100 : Int)) = (700 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

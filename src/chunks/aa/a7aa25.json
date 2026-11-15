@@ -1,0 +1,12 @@
+{
+  "handle": "aaa7aa25",
+  "address": "aaa7aa25-68c3-897a-a885-b0923c02a3d5",
+  "statement": "(fmax (0 : Int) ((30 : Int) - (30 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_website_gap_2"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

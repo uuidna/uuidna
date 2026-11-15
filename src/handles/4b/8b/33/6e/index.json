@@ -1,0 +1,12 @@
+{
+  "handle": "4b8b336e",
+  "address": "4b8b336e-4697-8c3b-a831-e3f657a01be0",
+  "kind": "chunk",
+  "keys": [
+    "fam_literacy_wordsperminute_1"
+  ],
+  "statement": "(((300 : Int) * (60 : Int)) / (60 : Int)) = (300 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

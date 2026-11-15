@@ -1,0 +1,12 @@
+{
+  "handle": "72b434b2",
+  "address": "72b434b2-4416-8d0a-b849-151f823f1ac9",
+  "kind": "chunk",
+  "keys": [
+    "fam_emissions_equivalent_1"
+  ],
+  "statement": "((50 : Int) * (25 : Int)) = (1250 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

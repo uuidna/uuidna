@@ -1,0 +1,12 @@
+{
+  "handle": "a62c2fb3",
+  "address": "a62c2fb3-f902-86fc-8d52-4fe23cd03508",
+  "statement": "(-((-(1000 : Int)) / (300 : Int))) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_logging_rotationcount_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

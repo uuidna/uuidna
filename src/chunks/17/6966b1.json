@@ -1,0 +1,12 @@
+{
+  "handle": "176966b1",
+  "address": "176966b1-3343-8d03-8e84-aa1eabd622bc",
+  "statement": "((Int.ofNat (ffact (Int.toNat (5 : Int)))) / ((Int.ofNat (ffact (Int.toNat (2 : Int)))) * (Int.ofNat (ffact (Int.toNat ((5 : Int) - (2 : Int))))))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_permutation_choose_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

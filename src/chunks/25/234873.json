@@ -1,0 +1,12 @@
+{
+  "handle": "25234873",
+  "address": "25234873-40c7-83b7-937b-2fd9fbaff835",
+  "statement": "(((50 : Int) * (10 : Int)) / (25 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_photography_fstop_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

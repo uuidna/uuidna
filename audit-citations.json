@@ -1,17 +1,17 @@
 {
-  "key": "8cdf4d2d-5d60-87e4-ac9a-30e87ec369e7",
-  "publications": 266,
-  "sealedTheorems": 71254,
+  "key": "60c2fa18-9794-8a55-b911-9e2fda717c1d",
+  "publications": 293,
+  "sealedTheorems": 80808,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2810,
-    "theorems": 71254,
+    "claims": 3162,
+    "theorems": 80808,
     "bijection": false,
     "digitalRoots": {
-      "claims": 2,
-      "theorems": 1,
+      "claims": 3,
+      "theorems": 6,
       "publications": 5
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -2074,6 +2074,14 @@
       "fabricated": []
     },
     {
+      "slug": "asked",
+      "claims": 30,
+      "cited": 30,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
       "slug": "coins-balance",
       "claims": 1,
       "cited": 1,
@@ -2109,6 +2117,214 @@
       "slug": "door-surface",
       "claims": 3,
       "cited": 3,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-a",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-b",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-c",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-d",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-e",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-f",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-g",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-h",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-i",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-j",
+      "claims": 53,
+      "cited": 53,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-k",
+      "claims": 78,
+      "cited": 78,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-l",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-m",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-n",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-o",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-p",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-q",
+      "claims": 66,
+      "cited": 66,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-r",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-s",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-t",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-u",
+      "claims": 66,
+      "cited": 66,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-v",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-w",
+      "claims": 0,
+      "cited": 0,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-x",
+      "claims": 8,
+      "cited": 8,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-y",
+      "claims": 9,
+      "cited": 9,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "families-z",
+      "claims": 42,
+      "cited": 42,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

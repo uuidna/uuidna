@@ -1,0 +1,14 @@
+{
+  "handle": "3c990c16",
+  "address": "3c990c16-9cfc-8198-a63a-d69d0fad57fe",
+  "kind": "chunk",
+  "keys": [
+    "fam_bundling_minifyratio_1",
+    "fam_composting_decomposition_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((1000 : Int) - (400 : Int))) * (100 : Int)) / (1000 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean"
+  ]
+}

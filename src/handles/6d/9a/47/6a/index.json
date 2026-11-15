@@ -1,0 +1,12 @@
+{
+  "handle": "6d9a476a",
+  "address": "6d9a476a-4c19-8adb-a89c-00bbf0d71778",
+  "kind": "chunk",
+  "keys": [
+    "fam_hemodynamics_vascularresistance_1"
+  ],
+  "statement": "(((93 : Int) * (80 : Int)) / (5 : Int)) = (1488 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4a58e5dc",
+  "address": "4a58e5dc-9db0-8e01-82d1-42c31ec14947",
+  "kind": "chunk",
+  "keys": [
+    "fam_electrochemistry_nernst_1"
+  ],
+  "statement": "((100 : Int) - (20 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

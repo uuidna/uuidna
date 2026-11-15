@@ -1,0 +1,14 @@
+{
+  "handle": "5b1ee35c",
+  "address": "5b1ee35c-75df-84b4-a2f5-2b442906872d",
+  "kind": "chunk",
+  "keys": [
+    "fam_conservation_restoration_1",
+    "fam_email_clickrate_1"
+  ],
+  "statement": "(((150 : Int) * (100 : Int)) / (600 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean"
+  ]
+}

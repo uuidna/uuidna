@@ -1,0 +1,16 @@
+{
+  "handle": "01292fab",
+  "address": "01292fab-f929-86b2-875f-5f847a2215a7",
+  "statement": "(fmax (0 : Int) ((400 : Int) - (1000 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_desalination_brine_2",
+    "fam_logging_compressionsavings_2",
+    "fam_photochemistry_bleaching_2"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean"
+  ]
+}

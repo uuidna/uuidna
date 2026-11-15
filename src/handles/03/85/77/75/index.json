@@ -1,0 +1,12 @@
+{
+  "handle": "03857775",
+  "address": "03857775-fa53-8159-931a-a679160a98c9",
+  "kind": "chunk",
+  "keys": [
+    "the_generated_closure_partitions_into_three_kinds"
+  ],
+  "statement": "(2710419 + 498 + 756890 = 3467807) ∧ ((2710419 > 3 * 756890) ∧ (2710419 < 4 * 756890))",
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

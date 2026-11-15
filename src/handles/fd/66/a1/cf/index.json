@@ -1,0 +1,30 @@
+{
+  "handle": "fd66a1cf",
+  "address": "fd66a1cf-0bf4-81cb-8efb-7d5f0d70f778",
+  "kind": "chunk",
+  "keys": [
+    "fam_botany_transpiration_1",
+    "fam_gear_mesh_1",
+    "fam_gearing_toothcount_1",
+    "fam_greenspace_coolingeffect_1",
+    "fam_hydraulics_flow_1",
+    "fam_jitter_bufferdepth_1",
+    "fam_latency_total_1",
+    "fam_onomastics_variantspellings_1",
+    "fam_projectile_velocity_1",
+    "fam_quantum_gatecount_1",
+    "fam_serialization_schema_1"
+  ],
+  "statement": "((20 : Int) * (3 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesJ.lean",
+    "FamiliesL.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesQ.lean",
+    "FamiliesS.lean"
+  ]
+}

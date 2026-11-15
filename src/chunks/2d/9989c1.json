@@ -1,0 +1,12 @@
+{
+  "handle": "2d9989c1",
+  "address": "2d9989c1-251b-842f-a1f3-07997e41146e",
+  "statement": "(((12000 : Int) * (100 : Int)) / (200000 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_property_cap_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8f36d065",
+  "address": "8f36d065-65ec-85b4-a135-c40c5c8e8d89",
+  "kind": "chunk",
+  "keys": [
+    "fam_altimetry_contourinterval_1"
+  ],
+  "statement": "((fmax (0 : Int) ((1000 : Int) - (400 : Int))) / (6 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

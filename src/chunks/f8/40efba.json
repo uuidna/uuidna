@@ -1,0 +1,12 @@
+{
+  "handle": "f840efba",
+  "address": "f840efba-ec5e-85ca-ae4d-34e6fbc55340",
+  "statement": "((12 : Int) * (20 : Int)) = (240 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_software_effort_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

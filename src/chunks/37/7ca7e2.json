@@ -1,0 +1,12 @@
+{
+  "handle": "377ca7e2",
+  "address": "377ca7e2-9dbd-8b19-ae0a-869fc05f5fd6",
+  "statement": "((80 : Int) * (15 : Int)) = (1200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_walkability_walkshed_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

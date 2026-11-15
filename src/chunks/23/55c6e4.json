@@ -1,0 +1,14 @@
+{
+  "handle": "2355c6e4",
+  "address": "2355c6e4-d389-8f20-95ee-d327d81830d0",
+  "statement": "((8 : Int) + (2 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bundling_splitpoints_1",
+    "fam_checkers_branchingfactor_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean"
+  ]
+}

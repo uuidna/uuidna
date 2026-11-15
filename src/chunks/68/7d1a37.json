@@ -1,0 +1,12 @@
+{
+  "handle": "687d1a37",
+  "address": "687d1a37-4a8f-8bdd-acbe-1afb229432a5",
+  "statement": "((100 : Int) * (60 : Int)) = (6000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_iot_sampling_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

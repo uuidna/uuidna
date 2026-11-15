@@ -1,0 +1,12 @@
+{
+  "handle": "84cd7671",
+  "address": "84cd7671-7d91-8931-860a-b8c3bfc0e666",
+  "kind": "chunk",
+  "keys": [
+    "fam_aquafarming_growthrate_1"
+  ],
+  "statement": "(((500 : Int) - (50 : Int)) / (90 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

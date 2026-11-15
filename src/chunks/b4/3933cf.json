@@ -1,0 +1,12 @@
+{
+  "handle": "b43933cf",
+  "address": "b43933cf-2ab5-8e68-8dd4-0c724e2fbd15",
+  "statement": "(if (if (900 : Int) ≥ (1600 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_media_ratio_2"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

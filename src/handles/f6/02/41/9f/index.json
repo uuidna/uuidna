@@ -1,0 +1,12 @@
+{
+  "handle": "f602419f",
+  "address": "f602419f-2335-81ff-912a-09f37e40ead9",
+  "kind": "chunk",
+  "keys": [
+    "fam_financial_compound_1"
+  ],
+  "statement": "(((1000 : Int) * (((100 : Int) + (10 : Int)) ^ (3 : Nat))) / ((100 : Int) ^ (3 : Nat))) = (1331 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

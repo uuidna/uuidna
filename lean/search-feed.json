@@ -80,24 +80,12 @@
   "meaning": null,
   "results": [
     {
-      "query": "fifa world cup",
-      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
-      "key": "arity_admits_exactly_one_dependent_trinity",
-      "principle": "The conveyor's first wave",
-      "skill": "wave",
-      "resonance": 142473,
-      "concepts": [
-        "cup",
-        "world"
-      ]
-    },
-    {
       "query": "quantum advantage",
       "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941; bound n_qubit_dimension",
       "key": "captain_coins_respected_at_scale",
       "principle": "The two coins & the 64",
       "skill": "coins",
-      "resonance": 142358,
+      "resonance": 161361,
       "concepts": [
         "advantage",
         "quantum"
@@ -109,7 +97,7 @@
       "key": "clifford_group_order_24",
       "principle": "The quantum computer",
       "skill": "quantum",
-      "resonance": 142358,
+      "resonance": 161361,
       "concepts": [
         "advantage",
         "quantum"
@@ -121,7 +109,7 @@
       "key": "cross_cipher_wave_difference_524288",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 142358,
+      "resonance": 161361,
       "concepts": [
         "advantage",
         "quantum"
@@ -133,7 +121,7 @@
       "key": "cross_cipher_wave_sum_1048576",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 142358,
+      "resonance": 161361,
       "concepts": [
         "advantage",
         "quantum"
@@ -145,87 +133,187 @@
       "key": "dj_balanced_cancels",
       "principle": "The quantum computer",
       "skill": "quantum",
-      "resonance": 142358,
+      "resonance": 161361,
       "concepts": [
         "advantage",
         "quantum"
       ]
     },
     {
+      "query": "fifa world cup",
+      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
+      "key": "arity_admits_exactly_one_dependent_trinity",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 161330,
+      "concepts": [
+        "world",
+        "cup"
+      ]
+    },
+    {
+      "query": "cricket",
+      "source": "Similarweb ind vs eng / Year in Search 2025 cricket spike",
+      "key": "fam_cricket_battingaverage_1",
+      "principle": "THE FAMILIES, C",
+      "skill": "families",
+      "resonance": 80799,
+      "concepts": [
+        "cricket"
+      ]
+    },
+    {
+      "query": "cricket",
+      "source": "Similarweb ind vs eng / Year in Search 2025 cricket spike",
+      "key": "fam_cricket_battingaverage_2",
+      "principle": "THE FAMILIES, C",
+      "skill": "families",
+      "resonance": 80799,
+      "concepts": [
+        "cricket"
+      ]
+    },
+    {
+      "query": "cricket",
+      "source": "Similarweb ind vs eng / Year in Search 2025 cricket spike",
+      "key": "fam_cricket_boundary_1",
+      "principle": "THE FAMILIES, C",
+      "skill": "families",
+      "resonance": 80799,
+      "concepts": [
+        "cricket"
+      ]
+    },
+    {
+      "query": "cricket",
+      "source": "Similarweb ind vs eng / Year in Search 2025 cricket spike",
+      "key": "fam_cricket_bowlingaverage_1",
+      "principle": "THE FAMILIES, C",
+      "skill": "families",
+      "resonance": 80799,
+      "concepts": [
+        "cricket"
+      ]
+    },
+    {
+      "query": "cricket",
+      "source": "Similarweb ind vs eng / Year in Search 2025 cricket spike",
+      "key": "fam_cricket_economy_1",
+      "principle": "THE FAMILIES, C",
+      "skill": "families",
+      "resonance": 80799,
+      "concepts": [
+        "cricket"
+      ]
+    },
+    {
+      "query": "education",
+      "source": "data-europa — data.europa.eu — the EU open data catalogue",
+      "key": "fam_education_attendance_1",
+      "principle": "THE FAMILIES, E",
+      "skill": "families",
+      "resonance": 80791,
+      "concepts": [
+        "education"
+      ]
+    },
+    {
+      "query": "education",
+      "source": "data-europa — data.europa.eu — the EU open data catalogue",
+      "key": "fam_education_completion_1",
+      "principle": "THE FAMILIES, E",
+      "skill": "families",
+      "resonance": 80791,
+      "concepts": [
+        "education"
+      ]
+    },
+    {
+      "query": "education",
+      "source": "data-europa — data.europa.eu — the EU open data catalogue",
+      "key": "fam_education_cost_1",
+      "principle": "THE FAMILIES, E",
+      "skill": "families",
+      "resonance": 80791,
+      "concepts": [
+        "education"
+      ]
+    },
+    {
+      "query": "education",
+      "source": "data-europa — data.europa.eu — the EU open data catalogue",
+      "key": "fam_education_credits_1",
+      "principle": "THE FAMILIES, E",
+      "skill": "families",
+      "resonance": 80791,
+      "concepts": [
+        "education"
+      ]
+    },
+    {
+      "query": "education",
+      "source": "data-europa — data.europa.eu — the EU open data catalogue",
+      "key": "fam_education_gpa_1",
+      "principle": "THE FAMILIES, E",
+      "skill": "families",
+      "resonance": 80791,
+      "concepts": [
+        "education"
+      ]
+    },
+    {
       "query": "weather",
       "source": "Similarweb global volume, Aug 2026",
-      "key": "naismith_rule_estimate",
-      "principle": "The lay of the land",
-      "skill": "topography",
-      "resonance": 71253,
+      "key": "fam_barometry_altitudepressure_1",
+      "principle": "THE FAMILIES, B",
+      "skill": "families",
+      "resonance": 80745,
       "concepts": [
         "weather"
       ]
     },
     {
-      "query": "CMS Higgs",
-      "source": "cern-opendata — CERN Open Data — LHC experiment catalogue",
-      "key": "cms_events_close_over_their_files",
-      "principle": "The CERN open-data records",
-      "skill": "cern-open-data",
-      "resonance": 71252,
+      "query": "weather",
+      "source": "Similarweb global volume, Aug 2026",
+      "key": "fam_barometry_inchesmercury_1",
+      "principle": "THE FAMILIES, B",
+      "skill": "families",
+      "resonance": 80745,
       "concepts": [
-        "cms"
+        "weather"
       ]
     },
     {
-      "query": "CMS Higgs",
-      "source": "cern-opendata — CERN Open Data — LHC experiment catalogue",
-      "key": "the_cern_division_survives_casting_out_nines",
-      "principle": "The CERN crossings",
-      "skill": "links",
-      "resonance": 71252,
+      "query": "weather",
+      "source": "Similarweb global volume, Aug 2026",
+      "key": "fam_barometry_millibars_1",
+      "principle": "THE FAMILIES, B",
+      "skill": "families",
+      "resonance": 80745,
       "concepts": [
-        "cms"
+        "weather"
       ]
     },
     {
-      "query": "fifa world cup",
-      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
-      "key": "code_holds_sixteen_words",
-      "principle": "The hamming",
-      "skill": "hamming",
-      "resonance": 71240,
+      "query": "weather",
+      "source": "Similarweb global volume, Aug 2026",
+      "key": "fam_barometry_pressuregradient_1",
+      "principle": "THE FAMILIES, B",
+      "skill": "families",
+      "resonance": 80745,
       "concepts": [
-        "cup"
+        "weather"
       ]
     },
     {
-      "query": "fifa world cup",
-      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
-      "key": "combinatorial_book_exceeds_handles",
-      "principle": "The conveyor's first wave",
-      "skill": "wave",
-      "resonance": 71240,
+      "query": "weather",
+      "source": "Similarweb global volume, Aug 2026",
+      "key": "fam_barometry_sealevel_1",
+      "principle": "THE FAMILIES, B",
+      "skill": "families",
+      "resonance": 80745,
       "concepts": [
-        "cup"
-      ]
-    },
-    {
-      "query": "fifa world cup",
-      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
-      "key": "cuts_break_successors",
-      "principle": "The detectors, proven",
-      "skill": "audit",
-      "resonance": 71240,
-      "concepts": [
-        "cup"
-      ]
-    },
-    {
-      "query": "fifa world cup",
-      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
-      "key": "depolarisation_blocks_firing",
-      "principle": "The algebra of the neuron",
-      "skill": "neuro",
-      "resonance": 71240,
-      "concepts": [
-        "cup"
+        "weather"
       ]
     },
     {
@@ -234,7 +322,7 @@
       "key": "agl9_exponent_is_eighteen_with_no_element_of_that_order",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 71219,
+      "resonance": 80731,
       "concepts": [
         "maps"
       ]
@@ -245,7 +333,7 @@
       "key": "agl9_fixed_point_census_gives_a_single_orbit",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 71219,
+      "resonance": 80731,
       "concepts": [
         "maps"
       ]
@@ -256,7 +344,7 @@
       "key": "agl9_pair_action_is_sharp_on_unit_differences",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 71219,
+      "resonance": 80731,
       "concepts": [
         "maps"
       ]
@@ -267,7 +355,7 @@
       "key": "censuses_differ",
       "principle": "The reversal",
       "skill": "reversal",
-      "resonance": 71219,
+      "resonance": 80731,
       "concepts": [
         "maps"
       ]
@@ -278,64 +366,53 @@
       "key": "codons_four_cubed",
       "principle": "The cipher & the strand",
       "skill": "cipher",
-      "resonance": 71219,
+      "resonance": 80731,
       "concepts": [
         "maps"
       ]
     },
     {
-      "query": "chemistry",
-      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
-      "key": "alpine_chemistry_tiers_partition_54",
+      "query": "fifa world cup",
+      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
+      "key": "a440_not_on_the_vortex",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 71207,
+      "resonance": 80701,
       "concepts": [
-        "chemistry"
+        "world"
       ]
     },
     {
-      "query": "chemistry",
-      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
-      "key": "alpine_dom_ar_ch_ie_56",
-      "principle": "The conveyor's first wave",
-      "skill": "wave",
-      "resonance": 71207,
+      "query": "fifa world cup",
+      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
+      "key": "alternation_needs_a_second_phase",
+      "principle": "The register's alternation law",
+      "skill": "tesla",
+      "resonance": 80701,
       "concepts": [
-        "chemistry"
+        "world"
       ]
     },
     {
-      "query": "chemistry",
-      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
-      "key": "alpine_dom_bi_ch_ie_5",
-      "principle": "The conveyor's first wave",
-      "skill": "wave",
-      "resonance": 71207,
+      "query": "fifa world cup",
+      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
+      "key": "amplitude_inside_int16",
+      "principle": "The seven readings",
+      "skill": "readings",
+      "resonance": 80701,
       "concepts": [
-        "chemistry"
+        "world"
       ]
     },
     {
-      "query": "chemistry",
-      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
-      "key": "alpine_dom_bl_ch_ie_32",
-      "principle": "The conveyor's first wave",
+      "query": "fifa world cup",
+      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
+      "key": "anomaly_cancels_at_twenty_six",
+      "principle": "The handle store, and why its smallest leaf is complete",
       "skill": "wave",
-      "resonance": 71207,
+      "resonance": 80701,
       "concepts": [
-        "chemistry"
-      ]
-    },
-    {
-      "query": "chemistry",
-      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
-      "key": "alpine_dom_ch_as_ie_20",
-      "principle": "The conveyor's first wave",
-      "skill": "wave",
-      "resonance": 71207,
-      "concepts": [
-        "chemistry"
+        "world"
       ]
     },
     {
@@ -344,7 +421,7 @@
       "key": "a_claim_is_verified_or_unverified",
       "principle": "The report",
       "skill": "reporting",
-      "resonance": 71136,
+      "resonance": 80665,
       "concepts": [
         "uuid"
       ]
@@ -355,7 +432,7 @@
       "key": "a_sha256_digest_is_two_uuids_and_four_boards_at_once",
       "principle": "The cryptographic primitives",
       "skill": "crypto",
-      "resonance": 71136,
+      "resonance": 80665,
       "concepts": [
         "uuid"
       ]
@@ -366,7 +443,7 @@
       "key": "address_and_payload_exchange_at_one_twenty_eight",
       "principle": "The hexbit",
       "skill": "hexbit",
-      "resonance": 71136,
+      "resonance": 80665,
       "concepts": [
         "uuid"
       ]
@@ -377,7 +454,7 @@
       "key": "address_never_determines_payload",
       "principle": "The uuid laws",
       "skill": "identifiers",
-      "resonance": 71136,
+      "resonance": 80665,
       "concepts": [
         "uuid"
       ]
@@ -388,7 +465,7 @@
       "key": "all_signaling_duality",
       "principle": "The quantum computer",
       "skill": "quantum",
-      "resonance": 71136,
+      "resonance": 80665,
       "concepts": [
         "uuid"
       ]
@@ -399,7 +476,7 @@
       "key": "a_defence_already_standing_precedes_any_pending_attack",
       "principle": "What the refusal was refusing to fuse",
       "skill": "wave",
-      "resonance": 71120,
+      "resonance": 80612,
       "concepts": [
         "quantum"
       ]
@@ -410,7 +487,7 @@
       "key": "a_gapless_index_admits_nothing_between",
       "principle": "The calendar",
       "skill": "calendar",
-      "resonance": 71120,
+      "resonance": 80612,
       "concepts": [
         "quantum"
       ]
@@ -421,7 +498,7 @@
       "key": "a_handle_is_eight_pairs_paid_it_is_sixteen",
       "principle": "The models",
       "skill": "models",
-      "resonance": 71120,
+      "resonance": 80612,
       "concepts": [
         "quantum"
       ]
@@ -432,7 +509,7 @@
       "key": "address_and_payload_exchange_at_one_twenty_eight",
       "principle": "The hexbit",
       "skill": "hexbit",
-      "resonance": 71120,
+      "resonance": 80612,
       "concepts": [
         "quantum"
       ]
@@ -443,9 +520,119 @@
       "key": "all_signaling_duality",
       "principle": "The quantum computer",
       "skill": "quantum",
-      "resonance": 71120,
+      "resonance": 80612,
       "concepts": [
         "quantum"
+      ]
+    },
+    {
+      "query": "CMS Higgs",
+      "source": "cern-opendata — CERN Open Data — LHC experiment catalogue",
+      "key": "cms_events_close_over_their_files",
+      "principle": "The CERN open-data records",
+      "skill": "cern-open-data",
+      "resonance": 80600,
+      "concepts": [
+        "cms"
+      ]
+    },
+    {
+      "query": "CMS Higgs",
+      "source": "cern-opendata — CERN Open Data — LHC experiment catalogue",
+      "key": "fam_admin_columns_1",
+      "principle": "THE FAMILIES, A",
+      "skill": "families",
+      "resonance": 80600,
+      "concepts": [
+        "cms"
+      ]
+    },
+    {
+      "query": "CMS Higgs",
+      "source": "cern-opendata — CERN Open Data — LHC experiment catalogue",
+      "key": "fam_admin_components_1",
+      "principle": "THE FAMILIES, A",
+      "skill": "families",
+      "resonance": 80600,
+      "concepts": [
+        "cms"
+      ]
+    },
+    {
+      "query": "CMS Higgs",
+      "source": "cern-opendata — CERN Open Data — LHC experiment catalogue",
+      "key": "fam_admin_density_1",
+      "principle": "THE FAMILIES, A",
+      "skill": "families",
+      "resonance": 80600,
+      "concepts": [
+        "cms"
+      ]
+    },
+    {
+      "query": "CMS Higgs",
+      "source": "cern-opendata — CERN Open Data — LHC experiment catalogue",
+      "key": "fam_admin_groups_1",
+      "principle": "THE FAMILIES, A",
+      "skill": "families",
+      "resonance": 80600,
+      "concepts": [
+        "cms"
+      ]
+    },
+    {
+      "query": "chemistry",
+      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
+      "key": "alpine_chemistry_tiers_partition_54",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 80478,
+      "concepts": [
+        "chemistry"
+      ]
+    },
+    {
+      "query": "chemistry",
+      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
+      "key": "alpine_dom_ar_ch_ie_56",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 80478,
+      "concepts": [
+        "chemistry"
+      ]
+    },
+    {
+      "query": "chemistry",
+      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
+      "key": "alpine_dom_bi_ch_ie_5",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 80478,
+      "concepts": [
+        "chemistry"
+      ]
+    },
+    {
+      "query": "chemistry",
+      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
+      "key": "alpine_dom_bl_ch_ie_32",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 80478,
+      "concepts": [
+        "chemistry"
+      ]
+    },
+    {
+      "query": "chemistry",
+      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
+      "key": "alpine_dom_ch_as_ie_20",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 80478,
+      "concepts": [
+        "chemistry"
       ]
     }
   ],
@@ -481,22 +668,10 @@
       "owes": "a `by decide` wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject"
     },
     {
-      "query": "cricket",
-      "source": "Similarweb ind vs eng / Year in Search 2025 cricket spike",
-      "what": "most-searched query \"cricket\" rings no sealed theorem",
-      "owes": "a `by decide` wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject"
-    },
-    {
       "query": "quantum advantage",
       "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941; bound n_qubit_dimension",
       "what": "harvest 128 - 70 = 58 from \"quantum advantage\" — refused at the wave conveyor",
       "owes": "a `by decide` wing whose algebra carries the quantity, or a named boundary in lean/leads.json refused[] — bare literal mints do not seal"
-    },
-    {
-      "query": "education",
-      "source": "data-europa — data.europa.eu — the EU open data catalogue",
-      "what": "most-searched query \"education\" rings no sealed theorem",
-      "owes": "a `by decide` wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject"
     }
   ],
   "silent": [
@@ -504,12 +679,10 @@
     "deepseek",
     "iphone",
     "ufc",
-    "f1",
-    "cricket",
-    "api-data-europa"
+    "f1"
   ],
-  "receipt": "d6e3f297-f990-8198-8e02-343f07e8a01b",
-  "handle": "d6e3f297",
-  "door": "https://uuidna.com/d6e3f297",
+  "receipt": "b58dc323-ea6c-8ee6-9220-37bacf5181af",
+  "handle": "b58dc323",
+  "door": "https://uuidna.com/b58dc323",
   "honest": "Most-searched queries and the wired public APIs (research streams, EU education portals, unanswered math) ring the sealed ledger by resonance. Loud theorems are the ONLINE RESULTS — /theorem/<key> doors. Silent queries and decided-unsealed harvest are LEADS the desk proposes; only the kernel seals, only the captain holds or refuses. Meaning is null. This does not scrape Google. Recomputable. Integrity."
 }

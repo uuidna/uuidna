@@ -1,0 +1,19 @@
+{
+  "handle": "214e84db",
+  "address": "214e84db-9958-8bec-9b12-716547a0f446",
+  "kind": "chunk",
+  "keys": [
+    "fam_counterpoint_motioncontrary_1",
+    "fam_electrocardiography_axisdeviation_1",
+    "fam_frontogenesis_liftingindex_1",
+    "fam_manifold_bettinumber_1",
+    "fam_meteorology_windchill_1"
+  ],
+  "statement": "(fmax (0 : Int) ((10 : Int) - (4 : Int))) = (6 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesM.lean"
+  ]
+}

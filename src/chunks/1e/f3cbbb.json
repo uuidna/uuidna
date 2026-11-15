@@ -1,0 +1,12 @@
+{
+  "handle": "1ef3cbbb",
+  "address": "1ef3cbbb-5269-83f9-90c6-ea274335db6a",
+  "statement": "(fmax (0 : Int) ((500 : Int) - (40 : Int))) = (460 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_floriculture_gradeout_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

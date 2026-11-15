@@ -1,0 +1,12 @@
+{
+  "handle": "71df6585",
+  "address": "71df6585-bbc4-815d-b118-5649e1bc4de4",
+  "statement": "((6 : Int) * (12 : Int)) = (72 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_maillard_browningindex_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

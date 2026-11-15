@@ -1,0 +1,12 @@
+{
+  "handle": "3ea7be31",
+  "address": "3ea7be31-73f0-868a-b99e-0c55596840f4",
+  "kind": "chunk",
+  "keys": [
+    "fam_bayesian_marginal_1"
+  ],
+  "statement": "(((300 : Int) + (100 : Int)) + (100 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

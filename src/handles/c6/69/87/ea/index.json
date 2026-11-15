@@ -1,0 +1,12 @@
+{
+  "handle": "c66987ea",
+  "address": "c66987ea-b647-8be8-87bb-def4ba435abc",
+  "kind": "chunk",
+  "keys": [
+    "fam_text_chunks_1"
+  ],
+  "statement": "(-((-(10000 : Int)) / (512 : Int))) = (20 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

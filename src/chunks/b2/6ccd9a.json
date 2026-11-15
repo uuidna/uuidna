@@ -1,0 +1,12 @@
+{
+  "handle": "b26ccd9a",
+  "address": "b26ccd9a-ae8f-8bda-8cd7-41b614104a56",
+  "statement": "((96 : Int) / (1 : Int)) = (96 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sounddesign_dynamicrangedb_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

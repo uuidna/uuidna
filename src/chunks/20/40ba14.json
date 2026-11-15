@@ -1,0 +1,12 @@
+{
+  "handle": "2040ba14",
+  "address": "2040ba14-b664-8d45-afc9-de38dff96d46",
+  "statement": "(((100 : Int) * (3 : Int)) / (10 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_statics_reaction_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

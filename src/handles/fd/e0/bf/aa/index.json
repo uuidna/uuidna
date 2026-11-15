@@ -1,0 +1,12 @@
+{
+  "handle": "fde0bfaa",
+  "address": "fde0bfaa-3875-8f6a-9843-42b1b8222613",
+  "kind": "chunk",
+  "keys": [
+    "fam_exoplanet_semiamplitude_1"
+  ],
+  "statement": "(((5 : Int) * (1000 : Int)) / ((2 : Int) * (2 : Int))) = (1250 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

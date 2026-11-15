@@ -1,0 +1,14 @@
+{
+  "handle": "9829e6a0",
+  "address": "9829e6a0-ca82-817c-8a69-469f8bdc08a2",
+  "kind": "chunk",
+  "keys": [
+    "fam_calculus_tangent_1",
+    "fam_synthesis_rewrites_1"
+  ],
+  "statement": "((5 : Int) * (6 : Int)) = (30 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesS.lean"
+  ]
+}

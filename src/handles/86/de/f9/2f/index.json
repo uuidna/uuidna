@@ -1,0 +1,12 @@
+{
+  "handle": "86def92f",
+  "address": "86def92f-9efe-8316-84dd-e6a89c2e3293",
+  "kind": "chunk",
+  "keys": [
+    "fam_publishing_pages_1"
+  ],
+  "statement": "((90000 : Int) / (300 : Int)) = (300 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

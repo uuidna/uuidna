@@ -1,0 +1,12 @@
+{
+  "handle": "733eeecb",
+  "address": "733eeecb-3523-84d5-b927-6a4ae08add61",
+  "statement": "(if (if (100 : Int) ≥ (500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_compliance_reportable_2"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

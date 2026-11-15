@@ -1,0 +1,12 @@
+{
+  "handle": "606ca3d1",
+  "address": "606ca3d1-dcde-84bd-a13a-2f3886fb6624",
+  "statement": "(if (if (800 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fishery_sustainable_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "888f3e25",
+  "address": "888f3e25-4696-8c7f-a221-f6b935d6747a",
+  "statement": "(if (if (40000 : Int) ≥ (29000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_immigration_sponsorship_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

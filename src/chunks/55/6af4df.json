@@ -1,0 +1,28 @@
+{
+  "handle": "556af4df",
+  "address": "556af4df-df12-8ef9-b22e-b74da466143e",
+  "statement": "((5 : Int) * (4 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_assessment_rubricscore_1",
+    "fam_dance_steps_1",
+    "fam_feedback_settlingtime_1",
+    "fam_gelatinization_granuleexpansion_1",
+    "fam_incident_severity_1",
+    "fam_psych_dangerousness_1",
+    "fam_software_hours_1",
+    "fam_teratology_riskindex_1",
+    "fam_waterquality_turbidity_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesD.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean",
+    "FamiliesW.lean"
+  ]
+}

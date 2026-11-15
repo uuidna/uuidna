@@ -1,0 +1,12 @@
+{
+  "handle": "ef335e37",
+  "address": "ef335e37-88e2-88b3-b1b1-b34d7bb7f601",
+  "kind": "chunk",
+  "keys": [
+    "fam_ballistics_recoil_1"
+  ],
+  "statement": "(((10 : Int) * (400 : Int)) / (4000 : Int)) = (1 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

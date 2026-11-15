@@ -1,0 +1,12 @@
+{
+  "handle": "5a3a0447",
+  "address": "5a3a0447-a519-8114-807b-420d8490a5db",
+  "statement": "(((7 : Int) * (3 : Int)) / (7 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_designtheory_replications_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

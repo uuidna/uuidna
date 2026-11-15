@@ -1,0 +1,14 @@
+{
+  "handle": "a87f0ac0",
+  "address": "a87f0ac0-8715-891c-9767-13c163e310cd",
+  "statement": "((120 : Int) / (12 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_diplomacy_tension_1",
+    "fam_subsidence_rate_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesS.lean"
+  ]
+}

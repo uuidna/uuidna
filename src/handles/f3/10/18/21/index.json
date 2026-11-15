@@ -1,0 +1,19 @@
+{
+  "handle": "f3101821",
+  "address": "f3101821-603f-8d01-80c1-026d3b1c9e79",
+  "kind": "chunk",
+  "keys": [
+    "fam_clustering_density_1",
+    "fam_geophysics_gravity_1",
+    "fam_luminosity_apparentbrightness_1",
+    "fam_luminosity_radiusfromtemp_1",
+    "fam_planetology_gravity_1"
+  ],
+  "statement": "((1000 : Int) / ((10 : Int) ^ (2 : Nat))) = (10 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean"
+  ]
+}

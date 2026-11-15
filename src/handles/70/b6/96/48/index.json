@@ -1,0 +1,12 @@
+{
+  "handle": "70b69648",
+  "address": "70b69648-c801-84d9-979c-4fe08239f6a8",
+  "kind": "chunk",
+  "keys": [
+    "fam_solvency_margin_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((1500 : Int) - (1000 : Int))) * (100 : Int)) / (1500 : Int)) = (33 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

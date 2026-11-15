@@ -1,0 +1,14 @@
+{
+  "handle": "be27fd8d",
+  "address": "be27fd8d-35a7-8aad-9aa3-bd049f48acb7",
+  "kind": "chunk",
+  "keys": [
+    "fam_filters_stopband_1",
+    "fam_psu_rails_1"
+  ],
+  "statement": "((4 : Int) * (20 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesP.lean"
+  ]
+}

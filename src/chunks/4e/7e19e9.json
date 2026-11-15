@@ -1,0 +1,12 @@
+{
+  "handle": "4e7e19e9",
+  "address": "4e7e19e9-d53b-8f5a-9abb-bef53efae628",
+  "statement": "((12000 : Int) - (8000 : Int)) = (4000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_demographics_growth_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

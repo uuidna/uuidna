@@ -1,0 +1,12 @@
+{
+  "handle": "4c4aee27",
+  "address": "4c4aee27-f86d-8486-9971-470a4b6c33c4",
+  "kind": "chunk",
+  "keys": [
+    "fam_anatomy_surface_1"
+  ],
+  "statement": "((170 : Int) * (70 : Int)) = (11900 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

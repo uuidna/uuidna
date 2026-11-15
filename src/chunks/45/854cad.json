@@ -1,0 +1,13 @@
+{
+  "handle": "45854cad",
+  "address": "45854cad-0d8a-8567-8e9c-453b46dd753b",
+  "statement": "(9 : Int) = (9 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ramsey_r34_1",
+    "fam_ramsey_vdw23_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

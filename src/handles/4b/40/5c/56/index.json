@@ -1,0 +1,12 @@
+{
+  "handle": "4b405c56",
+  "address": "4b405c56-6454-8f40-b310-19ffaed95ced",
+  "kind": "chunk",
+  "keys": [
+    "fam_photosynthesis_netproduction_1"
+  ],
+  "statement": "(fmax (0 : Int) ((600 : Int) - (100 : Int))) = (500 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

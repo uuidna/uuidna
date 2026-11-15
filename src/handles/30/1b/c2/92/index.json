@@ -1,0 +1,12 @@
+{
+  "handle": "301bc292",
+  "address": "301bc292-b472-8069-8896-537f305431d0",
+  "kind": "chunk",
+  "keys": [
+    "fam_activation_clamp_1"
+  ],
+  "statement": "(fmin (fmax (150 : Int) (10 : Int)) (100 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

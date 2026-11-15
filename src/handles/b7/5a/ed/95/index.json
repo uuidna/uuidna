@@ -1,0 +1,12 @@
+{
+  "handle": "b75aed95",
+  "address": "b75aed95-75c8-8791-8ea3-521af9874236",
+  "kind": "chunk",
+  "keys": [
+    "fam_geothermal_efficiency_1"
+  ],
+  "statement": "(((12 : Int) * (100 : Int)) / (100 : Int)) = (12 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

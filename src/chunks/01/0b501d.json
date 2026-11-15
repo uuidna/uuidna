@@ -1,0 +1,13 @@
+{
+  "handle": "010b501d",
+  "address": "010b501d-9da6-8fdd-a114-e35bb1ce501e",
+  "statement": "(((10000 : Int) * (2 : Int)) / (100 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_payables_discount_1",
+    "fam_payment_interchange_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

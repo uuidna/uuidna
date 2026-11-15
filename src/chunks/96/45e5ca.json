@@ -1,0 +1,14 @@
+{
+  "handle": "9645e5ca",
+  "address": "9645e5ca-f188-8e81-81dd-6e4068ad06da",
+  "statement": "((9000 : Int) / (60 : Int)) = (150 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_lodging_nightlyrate_1",
+    "fam_replication_throughput_1"
+  ],
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cc6c2cc4",
+  "address": "cc6c2cc4-c25f-8f0b-87de-16c85034e18c",
+  "kind": "chunk",
+  "keys": [
+    "fam_cricket_economy_1"
+  ],
+  "statement": "((300 : Int) / (50 : Int)) = (6 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

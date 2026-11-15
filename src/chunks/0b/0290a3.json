@@ -1,0 +1,23 @@
+{
+  "handle": "0b0290a3",
+  "address": "0b0290a3-f458-8ac0-9ea7-d3e6f4800f85",
+  "statement": "((200 : Int) / (4 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_actionpotential_frequency_1",
+    "fam_enzymology_specificity_1",
+    "fam_fracture_failurestress_1",
+    "fam_gravimetry_terraincorrection_1",
+    "fam_gripper_contactpressure_1",
+    "fam_hydrography_isobathinterval_1",
+    "fam_trajectory_jerklimit_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "86f09978",
+  "address": "86f09978-1eb7-894a-bbec-d86d2b50cda5",
+  "kind": "chunk",
+  "keys": [
+    "fam_maritime_limitation_1"
+  ],
+  "statement": "((5000 : Int) * (60 : Int)) = (300000 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

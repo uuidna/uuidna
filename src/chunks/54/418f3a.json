@@ -1,0 +1,12 @@
+{
+  "handle": "54418f3a",
+  "address": "54418f3a-2e89-8138-bb7f-8a20625f80d3",
+  "statement": "(fmax (0 : Int) ((4 : Int) - (2 : Int))) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_chess_kingsafety_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

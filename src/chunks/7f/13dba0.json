@@ -1,0 +1,26 @@
+{
+  "handle": "7f13dba0",
+  "address": "7f13dba0-1676-8663-a667-d251461d50ac",
+  "statement": "((7 : Int) + (0 : Int)) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dominoes_doubles_1",
+    "fam_foodsafety_haccppoints_1",
+    "fam_hinduism_chakras_1",
+    "fam_modular_ring_1",
+    "fam_protocol_layers_1",
+    "fam_star_classes_1",
+    "fam_tax_brackets_1",
+    "fam_zoroastrianism_amesha_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean",
+    "FamiliesZ.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "d0db25f1",
+  "address": "d0db25f1-1679-8078-867e-d8117c5c3d48",
+  "kind": "chunk",
+  "keys": [
+    "fam_optometry_accommodation_1",
+    "fam_thermocouple_coldjunction_1"
+  ],
+  "statement": "(fmax (0 : Int) ((250 : Int) - (25 : Int))) = (225 : Int)",
+  "files": [
+    "FamiliesO.lean",
+    "FamiliesT.lean"
+  ]
+}

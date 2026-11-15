@@ -1,0 +1,12 @@
+{
+  "handle": "3ff5c4fe",
+  "address": "3ff5c4fe-faea-88bd-8c01-8e48313425e2",
+  "kind": "chunk",
+  "keys": [
+    "fam_responsive_gutter_1"
+  ],
+  "statement": "((96 : Int) / (12 : Int)) = (8 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

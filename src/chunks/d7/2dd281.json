@@ -1,0 +1,12 @@
+{
+  "handle": "d72dd281",
+  "address": "d72dd281-f4ef-816d-84c3-fb5d5027ca06",
+  "statement": "(37 : Int) = (37 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fermentation_temperature_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

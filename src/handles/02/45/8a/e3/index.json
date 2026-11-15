@@ -1,0 +1,12 @@
+{
+  "handle": "02458ae3",
+  "address": "02458ae3-76bc-8822-a87d-0150f3433338",
+  "kind": "chunk",
+  "keys": [
+    "fam_sessionmgmt_idletimeout_1"
+  ],
+  "statement": "(((15 : Int) * (60 : Int)) + (30 : Int)) = (930 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "db4606f2",
+  "address": "db4606f2-d113-896b-8963-0753e67ecfb6",
+  "kind": "chunk",
+  "keys": [
+    "fam_winemaking_blend_1"
+  ],
+  "statement": "(((60 : Int) + (30 : Int)) + (10 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

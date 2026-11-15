@@ -1,0 +1,12 @@
+{
+  "handle": "499a89b1",
+  "address": "499a89b1-cf18-8185-8ff6-39281919a8f7",
+  "kind": "chunk",
+  "keys": [
+    "fam_bioinformatics_evalue_1"
+  ],
+  "statement": "(((1 : Int) * (1000000 : Int)) / (1000000 : Int)) = (1 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "handle": "8de083be",
+  "address": "8de083be-0fad-8d67-af45-c311b36ad996",
+  "kind": "chunk",
+  "keys": [
+    "fam_fpga_luts_1",
+    "fam_hydraulics_lift_1",
+    "fam_lattice_unitcells_1",
+    "fam_powerfactor_realpower_1",
+    "fam_transport_emissions_1"
+  ],
+  "statement": "((100 : Int) * (8 : Int)) = (800 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e01be2ec",
+  "address": "e01be2ec-1d34-84c3-bd37-b6426d680037",
+  "kind": "chunk",
+  "keys": [
+    "fam_burndown_completionforecast_1"
+  ],
+  "statement": "(-((-(60 : Int)) / (8 : Int))) = (8 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

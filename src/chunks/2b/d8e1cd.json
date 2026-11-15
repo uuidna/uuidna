@@ -1,0 +1,14 @@
+{
+  "handle": "2bd8e1cd",
+  "address": "2bd8e1cd-2e89-8e51-a321-638ade63baff",
+  "statement": "(((20 : Int) * (1000 : Int)) / (1000 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_humidity_specific_1",
+    "fam_sixsigma_dpu_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesS.lean"
+  ]
+}

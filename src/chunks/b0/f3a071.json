@@ -1,0 +1,12 @@
+{
+  "handle": "b0f3a071",
+  "address": "b0f3a071-0649-8d05-8ce8-b3cf6a0a198e",
+  "statement": "((400 : Int) * (36 : Int)) = (14400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fpga_bram_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

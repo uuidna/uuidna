@@ -1,0 +1,12 @@
+{
+  "handle": "422aef67",
+  "address": "422aef67-3094-8b10-a971-9e199000c163",
+  "statement": "((256 : Int) * (1024 : Int)) = (262144 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gpu_grid_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

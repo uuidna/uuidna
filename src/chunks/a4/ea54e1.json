@@ -1,0 +1,12 @@
+{
+  "handle": "a4ea54e1",
+  "address": "a4ea54e1-f0de-8f83-847c-cedae2200947",
+  "statement": "(((100 : Int) * (80 : Int)) / (100 : Int)) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_insurance_coinsurance2_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

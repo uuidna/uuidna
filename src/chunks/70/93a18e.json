@@ -1,0 +1,13 @@
+{
+  "handle": "7093a18e",
+  "address": "7093a18e-11da-8734-9b18-661936d492d2",
+  "statement": "((((1100 : Int) - (1000 : Int)) * (1000 : Int)) / (1000 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_astronomy_redshift_1",
+    "fam_astrophysics_redshift_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

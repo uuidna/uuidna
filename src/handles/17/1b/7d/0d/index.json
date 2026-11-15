@@ -1,0 +1,18 @@
+{
+  "handle": "171b7d0d",
+  "address": "171b7d0d-baa5-8c7f-9586-1eb646096c77",
+  "kind": "chunk",
+  "keys": [
+    "fam_geo_gridcells_1",
+    "fam_handle_pair_1",
+    "fam_interleaving_matrixcells_1",
+    "fam_survey_gridcells_1"
+  ],
+  "statement": "((16 : Int) * (16 : Int)) = (256 : Int)",
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesS.lean"
+  ]
+}

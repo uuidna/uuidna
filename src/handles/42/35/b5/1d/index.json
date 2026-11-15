@@ -1,0 +1,12 @@
+{
+  "handle": "4235b51d",
+  "address": "4235b51d-74d6-8410-b55d-bd773d9dc82f",
+  "kind": "chunk",
+  "keys": [
+    "fam_noisepollution_limitmargin_1"
+  ],
+  "statement": "(fmax (0 : Int) ((65 : Int) - (50 : Int))) = (15 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

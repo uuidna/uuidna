@@ -1,0 +1,12 @@
+{
+  "handle": "14471262",
+  "address": "14471262-a4f2-8137-981b-ae2c5bd04749",
+  "kind": "chunk",
+  "keys": [
+    "fam_leverage_degreeofleverage_1"
+  ],
+  "statement": "(((300 : Int) * (100 : Int)) / (120 : Int)) = (250 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

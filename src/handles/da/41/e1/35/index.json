@@ -1,0 +1,12 @@
+{
+  "handle": "da41e135",
+  "address": "da41e135-1339-8165-b1a8-b21b20778fa6",
+  "kind": "chunk",
+  "keys": [
+    "fam_hardness_knoop_1"
+  ],
+  "statement": "(((14229 : Int) * (10 : Int)) / (1000 : Int)) = (142 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

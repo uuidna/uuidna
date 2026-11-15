@@ -1,0 +1,12 @@
+{
+  "handle": "e28addfc",
+  "address": "e28addfc-8e34-8ae2-a0f1-cc41e2c39bc8",
+  "kind": "chunk",
+  "keys": [
+    "fam_synthesis_vocabulary_1"
+  ],
+  "statement": "((2 : Int) + (4 : Int)) = (6 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

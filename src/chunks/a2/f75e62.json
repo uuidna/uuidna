@@ -1,0 +1,12 @@
+{
+  "handle": "a2f75e62",
+  "address": "a2f75e62-44b3-86cf-b6bf-2c54b15cdd5b",
+  "statement": "(if (if (1 : Int) > (1 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_typography_widows_2"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ccff32d9",
+  "address": "ccff32d9-a395-8173-a159-41dbc55bfce8",
+  "statement": "(((49 : Int) * (100 : Int)) / (50 : Int)) = (98 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_identity_liveness_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

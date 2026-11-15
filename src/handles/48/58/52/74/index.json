@@ -1,0 +1,19 @@
+{
+  "handle": "48585274",
+  "address": "48585274-7bf6-8734-b674-c7bdc8ffaa0d",
+  "kind": "chunk",
+  "keys": [
+    "fam_glomerular_clearance_1",
+    "fam_gripper_payloadlimit_1",
+    "fam_materials_modulus_1",
+    "fam_replenishment_cycle_1",
+    "fam_workspace_envelopeheight_1"
+  ],
+  "statement": "((200 : Int) / (2 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesM.lean",
+    "FamiliesR.lean",
+    "FamiliesW.lean"
+  ]
+}

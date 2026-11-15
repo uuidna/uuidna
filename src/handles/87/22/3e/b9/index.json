@@ -1,0 +1,12 @@
+{
+  "handle": "87223eb9",
+  "address": "87223eb9-06be-8999-8e47-94d31f243a39",
+  "kind": "chunk",
+  "keys": [
+    "fam_raster_bitdepth_1"
+  ],
+  "statement": "((3 : Int) * (8 : Int)) = (24 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

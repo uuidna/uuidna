@@ -1,0 +1,12 @@
+{
+  "handle": "f0a238ce",
+  "address": "f0a238ce-9156-8425-8614-3f8b9cc80dfc",
+  "statement": "((20 : Int) * (12 : Int)) = (240 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_evapotranspiration_potential_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "64ecc115",
+  "address": "64ecc115-56e7-81fd-845d-0ec0d82d1e98",
+  "kind": "chunk",
+  "keys": [
+    "fam_climbing_rope_1"
+  ],
+  "statement": "((60 : Int) / (3 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

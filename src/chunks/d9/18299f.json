@@ -1,0 +1,12 @@
+{
+  "handle": "d918299f",
+  "address": "d918299f-605e-8083-b040-2ab19958e0f9",
+  "statement": "(700 : Int) = (700 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_semiconductor_threshold_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

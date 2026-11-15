@@ -1,0 +1,12 @@
+{
+  "handle": "9e43cf85",
+  "address": "9e43cf85-b7a6-8138-bdd4-77da9a5f9bec",
+  "kind": "chunk",
+  "keys": [
+    "fam_typography_words_1"
+  ],
+  "statement": "((660 : Int) / (6 : Int)) = (110 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ebc347d2",
+  "address": "ebc347d2-b9ef-8c9c-9143-947c03b42b7c",
+  "statement": "((48 : Int) * (2 : Int)) = (96 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_recovery_resttime_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

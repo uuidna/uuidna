@@ -1,0 +1,12 @@
+{
+  "handle": "073be317",
+  "address": "073be317-5918-87d7-b5fc-14421514a07a",
+  "kind": "chunk",
+  "keys": [
+    "fam_forestry_volume_1"
+  ],
+  "statement": "((((30 : Int) ^ (2 : Nat)) * (20 : Int)) / (1000 : Int)) = (18 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

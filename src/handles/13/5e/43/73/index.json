@@ -1,0 +1,12 @@
+{
+  "handle": "135e4373",
+  "address": "135e4373-d752-8daa-bf28-46a532049279",
+  "kind": "chunk",
+  "keys": [
+    "fam_pulsar_spindownluminosity_1"
+  ],
+  "statement": "(((2 : Int) * (30 : Int)) * (3 : Int)) = (180 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0de26647",
+  "address": "0de26647-d1e9-8c82-a02b-0a6483d9e436",
+  "kind": "chunk",
+  "keys": [
+    "fam_orbit_meananomaly_1"
+  ],
+  "statement": "(((10 : Int) * (45 : Int)) % (360 : Int)) = (90 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

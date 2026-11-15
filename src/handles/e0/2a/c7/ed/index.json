@@ -1,0 +1,12 @@
+{
+  "handle": "e02ac7ed",
+  "address": "e02ac7ed-09e9-8def-a6d4-bbde45b6940a",
+  "kind": "chunk",
+  "keys": [
+    "fam_avionics_glidepath_1"
+  ],
+  "statement": "((15000 : Int) / (1000 : Int)) = (15 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

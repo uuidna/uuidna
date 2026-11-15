@@ -1,0 +1,12 @@
+{
+  "handle": "01d868bf",
+  "address": "01d868bf-68e3-8bcf-98cc-57331036b3ce",
+  "statement": "(((15 : Int) * (100 : Int)) / ((15 : Int) + (85 : Int))) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_screening_falsepositiverate_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

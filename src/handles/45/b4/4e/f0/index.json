@@ -1,0 +1,16 @@
+{
+  "handle": "45b44ef0",
+  "address": "45b44ef0-46b4-8e84-ade0-03d978a607e0",
+  "kind": "chunk",
+  "keys": [
+    "fam_collateral_callthreshold_1",
+    "fam_inverter_rating_1",
+    "fam_learning_split_1"
+  ],
+  "statement": "(((1000 : Int) * (80 : Int)) / (100 : Int)) = (800 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesI.lean",
+    "FamiliesL.lean"
+  ]
+}

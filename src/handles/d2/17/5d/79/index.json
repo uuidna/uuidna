@@ -1,0 +1,12 @@
+{
+  "handle": "d2175d79",
+  "address": "d2175d79-2db7-815b-a65c-e2040ab3cd89",
+  "kind": "chunk",
+  "keys": [
+    "fam_court_standard_2"
+  ],
+  "statement": "(if (if (85 : Int) ≥ (90 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

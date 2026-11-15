@@ -1,0 +1,12 @@
+{
+  "handle": "801fccc7",
+  "address": "801fccc7-2ed1-8408-b32d-b18f2f50aa41",
+  "kind": "chunk",
+  "keys": [
+    "fam_interference_phasedifference_1"
+  ],
+  "statement": "(((250 : Int) * (360 : Int)) / (500 : Int)) = (180 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

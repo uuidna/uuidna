@@ -1,0 +1,12 @@
+{
+  "handle": "eca4f345",
+  "address": "eca4f345-502a-8e41-9e3e-8a555a170edd",
+  "kind": "chunk",
+  "keys": [
+    "fam_cartography_zoom_1"
+  ],
+  "statement": "((1 : Int) * ((4 : Int) ^ (2 : Nat))) = (16 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

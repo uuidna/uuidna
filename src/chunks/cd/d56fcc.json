@@ -1,0 +1,14 @@
+{
+  "handle": "cdd56fcc",
+  "address": "cdd56fcc-dfaa-8060-a373-a2c57cbe06b1",
+  "statement": "(fmax (0 : Int) ((45 : Int) - (40 : Int))) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_employment_overtimehours_1",
+    "fam_scheduling_lateness_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesS.lean"
+  ]
+}

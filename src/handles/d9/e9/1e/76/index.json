@@ -1,0 +1,14 @@
+{
+  "handle": "d9e91e76",
+  "address": "d9e91e76-282e-8a5e-8d9e-4f7434f29298",
+  "kind": "chunk",
+  "keys": [
+    "fam_airquality_ventilation_1",
+    "fam_orthopedics_gait_1"
+  ],
+  "statement": "(((100 : Int) * (60 : Int)) / (60 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesO.lean"
+  ]
+}

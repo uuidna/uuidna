@@ -1,0 +1,12 @@
+{
+  "handle": "60b868d2",
+  "address": "60b868d2-5677-8eba-89c0-e0cd83db4030",
+  "kind": "chunk",
+  "keys": [
+    "fam_ray_address_1"
+  ],
+  "statement": "(((10 : Int) * (16 : Int)) + (5 : Int)) = (165 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

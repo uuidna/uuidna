@@ -1,0 +1,12 @@
+{
+  "handle": "968f4c7e",
+  "address": "968f4c7e-75ad-897e-9fa7-ccfab2b52029",
+  "kind": "chunk",
+  "keys": [
+    "fam_codicology_collationpairs_1"
+  ],
+  "statement": "(Int.ofNat (fchoose (Int.toNat (24 : Int)) (Int.toNat (2 : Int)))) = (276 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

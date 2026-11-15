@@ -1,0 +1,12 @@
+{
+  "handle": "de0d4ae7",
+  "address": "de0d4ae7-c7db-8624-be70-617d65405cf8",
+  "kind": "chunk",
+  "keys": [
+    "fam_law_supermajority_3"
+  ],
+  "statement": "(if (if ((100 : Int) * (6 : Int)) ≥ ((9 : Int) * (67 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

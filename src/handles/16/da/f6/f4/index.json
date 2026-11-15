@@ -1,0 +1,17 @@
+{
+  "handle": "16daf6f4",
+  "address": "16daf6f4-fe5d-8785-9665-2e281f8272b0",
+  "kind": "chunk",
+  "keys": [
+    "fam_embedding_cosine_2",
+    "fam_nursing_handwash_2",
+    "fam_nursing_medication_2",
+    "fam_physiology_saturation_2"
+  ],
+  "statement": "(((5 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean"
+  ]
+}

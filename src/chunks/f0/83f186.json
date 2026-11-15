@@ -1,0 +1,12 @@
+{
+  "handle": "f083f186",
+  "address": "f083f186-ca39-88c5-bfcf-164431fac4ea",
+  "statement": "((5 : Int) * (150 : Int)) = (750 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_shipping_demurrage_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

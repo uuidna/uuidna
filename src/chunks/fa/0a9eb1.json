@@ -1,0 +1,12 @@
+{
+  "handle": "fa0a9eb1",
+  "address": "fa0a9eb1-1cf3-8238-80fd-415ad80a4f0a",
+  "statement": "((180 : Int) / (1 : Int)) = (180 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_rectifier_conductionangle_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

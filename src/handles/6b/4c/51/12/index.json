@@ -1,0 +1,12 @@
+{
+  "handle": "6b4c5112",
+  "address": "6b4c5112-a835-8c27-b1b9-c95e4d5c2da7",
+  "kind": "chunk",
+  "keys": [
+    "fam_earnedvalue_tcpi_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((2000 : Int) - (800 : Int))) * (100 : Int)) / (fmax (0 : Int) ((2000 : Int) - (1000 : Int)))) = (120 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "56e6621c",
+  "address": "56e6621c-1714-8cff-907d-229bb19a5d0e",
+  "kind": "chunk",
+  "keys": [
+    "fam_pedagogy_ratio_1",
+    "fam_rheumatology_esr_1"
+  ],
+  "statement": "((300 : Int) / (12 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

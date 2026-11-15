@@ -1,0 +1,14 @@
+{
+  "handle": "c799dd0f",
+  "address": "c799dd0f-d837-8e03-ba1a-78c2f6a3fe8f",
+  "kind": "chunk",
+  "keys": [
+    "fam_receivables_outstanding_2",
+    "fam_solvency_buffer_2"
+  ],
+  "statement": "(fmax (0 : Int) ((500 : Int) - (800 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

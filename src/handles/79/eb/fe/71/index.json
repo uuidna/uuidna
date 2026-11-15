@@ -1,0 +1,12 @@
+{
+  "handle": "79ebfe71",
+  "address": "79ebfe71-d032-8988-8351-1d2f459a6217",
+  "kind": "chunk",
+  "keys": [
+    "fam_covenant_blessingcurses_1"
+  ],
+  "statement": "((12 : Int) + (12 : Int)) = (24 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

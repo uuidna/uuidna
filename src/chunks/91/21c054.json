@@ -1,0 +1,12 @@
+{
+  "handle": "9121c054",
+  "address": "9121c054-35da-8a60-a7b3-b708df1f5288",
+  "statement": "((440 : Int) * ((2 : Int) ^ (1 : Nat))) = (880 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tuning_referencepitch_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "30161249",
+  "address": "30161249-0f91-828b-9d4f-f7ebccfa7de8",
+  "statement": "((4 : Int) * (640 : Int)) = (2560 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_soilscience_salinity_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

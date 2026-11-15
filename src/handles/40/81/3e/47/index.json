@@ -1,0 +1,12 @@
+{
+  "handle": "40813e47",
+  "address": "40813e47-e5d1-87f4-b550-501a4446b0f1",
+  "kind": "chunk",
+  "keys": [
+    "fam_scale_pclr_2"
+  ],
+  "statement": "(if (if (29 : Int) ≥ (30 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

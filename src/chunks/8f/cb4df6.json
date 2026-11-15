@@ -1,0 +1,12 @@
+{
+  "handle": "8fcb4df6",
+  "address": "8fcb4df6-d239-8a90-ac5f-c5a0b31e954f",
+  "statement": "(((9 : Int) * (100 : Int)) / (15 : Int)) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_comparison_coverage_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

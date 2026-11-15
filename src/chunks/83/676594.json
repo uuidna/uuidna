@@ -1,0 +1,12 @@
+{
+  "handle": "83676594",
+  "address": "83676594-be94-84d7-b132-d9df5367c53a",
+  "statement": "(((5 : Int) * (20 : Int)) + (3 : Int)) = (103 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_assay_standardcurve_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

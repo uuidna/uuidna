@@ -1,0 +1,12 @@
+{
+  "handle": "c2f9e661",
+  "address": "c2f9e661-e4a8-8903-a0bf-5fad330f879c",
+  "statement": "((72 : Int) / (8 : Int)) = (9 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_interestrate_doublingyears_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

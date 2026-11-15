@@ -1,0 +1,19 @@
+{
+  "handle": "beaa907f",
+  "address": "beaa907f-b789-8089-8749-e7602cfb98a0",
+  "statement": "(((20 : Int) * (100 : Int)) / (1000 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_elections_spoilage_1",
+    "fam_email_hardbounce_1",
+    "fam_lidar_noise_1",
+    "fam_outbreak_casefatality_1",
+    "fam_quality_scrap_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesL.lean",
+    "FamiliesO.lean",
+    "FamiliesQ.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "04864b51",
+  "address": "04864b51-8729-81c9-9480-48eed4c4724f",
+  "kind": "chunk",
+  "keys": [
+    "fam_pagination_pageoffset_1"
+  ],
+  "statement": "((fmax (0 : Int) ((5 : Int) - (1 : Int))) * (20 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "314861a7",
+  "address": "314861a7-8065-809d-95ee-2e62527b915b",
+  "statement": "((20000 : Int) / (1000 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sounddesign_frequencybands_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

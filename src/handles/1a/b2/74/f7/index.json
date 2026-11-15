@@ -1,0 +1,13 @@
+{
+  "handle": "1ab274f7",
+  "address": "1ab274f7-a182-861f-9d06-22d3bb5e2a67",
+  "kind": "chunk",
+  "keys": [
+    "fam_melody_motifrepeat_1",
+    "fam_mitosis_doublingtime_1"
+  ],
+  "statement": "((48 : Int) / (4 : Int)) = (12 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

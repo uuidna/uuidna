@@ -1,0 +1,12 @@
+{
+  "handle": "8b9929b6",
+  "address": "8b9929b6-cc16-831b-95c1-1c206695ac60",
+  "statement": "(if (if ((16 : Int) * (4 : Int)) ≥ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gpu_hide_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

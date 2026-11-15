@@ -1,0 +1,12 @@
+{
+  "handle": "e0c0ffa8",
+  "address": "e0c0ffa8-ec12-8f75-ab33-0547dd380bdd",
+  "statement": "(((3 : Int) * (100 : Int)) / (2 : Int)) = (150 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_reliability_redundancy_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

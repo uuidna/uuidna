@@ -1,0 +1,12 @@
+{
+  "handle": "f027140e",
+  "address": "f027140e-0453-8d25-8a4b-06826be138cf",
+  "kind": "chunk",
+  "keys": [
+    "fam_canning_sterilize_2"
+  ],
+  "statement": "(if (if (100 : Int) ≥ (116 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

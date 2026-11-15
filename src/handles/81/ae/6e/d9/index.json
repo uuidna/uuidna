@@ -1,0 +1,12 @@
+{
+  "handle": "81ae6ed9",
+  "address": "81ae6ed9-04b8-8cd1-b5c7-6802a2d8665a",
+  "kind": "chunk",
+  "keys": [
+    "fam_meiosis_chromatids_1"
+  ],
+  "statement": "((46 : Int) * (2 : Int)) = (92 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

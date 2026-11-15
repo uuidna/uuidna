@@ -1,0 +1,12 @@
+{
+  "handle": "01010fc8",
+  "address": "01010fc8-47af-8533-aaf1-d06e52216b18",
+  "statement": "(((3 : Int) + (5 : Int)) + (7 : Int)) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nim_totalstones_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

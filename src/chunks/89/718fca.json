@@ -1,0 +1,12 @@
+{
+  "handle": "89718fca",
+  "address": "89718fca-10ee-8c1f-8dcb-04599213ecaa",
+  "statement": "(((3 : Int) * (1000 : Int)) / (0 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ngram_probability_2"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

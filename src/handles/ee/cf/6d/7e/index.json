@@ -1,0 +1,12 @@
+{
+  "handle": "eecf6d7e",
+  "address": "eecf6d7e-e155-86f5-8132-0932dab24164",
+  "kind": "chunk",
+  "keys": [
+    "fam_pasteurization_lethality_1"
+  ],
+  "statement": "((12 : Int) * (15 : Int)) = (180 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

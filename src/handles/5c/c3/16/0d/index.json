@@ -1,0 +1,12 @@
+{
+  "handle": "5cc3160d",
+  "address": "5cc3160d-9be1-8657-9928-9858f72b3573",
+  "kind": "chunk",
+  "keys": [
+    "fam_hydraulics_power_1"
+  ],
+  "statement": "((60 : Int) * (100 : Int)) = (6000 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

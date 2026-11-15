@@ -1,0 +1,14 @@
+{
+  "handle": "adfd6041",
+  "address": "adfd6041-b9d0-8580-bf06-6dbfd330c181",
+  "kind": "chunk",
+  "keys": [
+    "fam_coagulation_plateletcount_1",
+    "fam_scrabble_boardcells_1"
+  ],
+  "statement": "((15 : Int) * (15 : Int)) = (225 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesS.lean"
+  ]
+}

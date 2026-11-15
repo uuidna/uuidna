@@ -1,0 +1,12 @@
+{
+  "handle": "c161f301",
+  "address": "c161f301-9770-834a-b33a-2ba47712887a",
+  "kind": "chunk",
+  "keys": [
+    "fam_entomology_pollination_1"
+  ],
+  "statement": "(((90 : Int) * (100 : Int)) / (200 : Int)) = (45 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

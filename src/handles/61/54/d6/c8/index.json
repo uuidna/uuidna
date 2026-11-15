@@ -1,0 +1,12 @@
+{
+  "handle": "6154d6c8",
+  "address": "6154d6c8-cf5b-8e0d-88bf-3a7c79904454",
+  "kind": "chunk",
+  "keys": [
+    "fam_hardware_dies_2"
+  ],
+  "statement": "((70000 : Int) / (0 : Int)) = (0 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

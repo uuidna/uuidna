@@ -1,0 +1,12 @@
+{
+  "handle": "db685a13",
+  "address": "db685a13-4bbf-8107-b3f9-2c5dbfab5e45",
+  "kind": "chunk",
+  "keys": [
+    "fam_elnino_durationmonths_1"
+  ],
+  "statement": "((9 : Int) + (3 : Int)) = (12 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

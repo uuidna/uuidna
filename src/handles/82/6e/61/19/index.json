@@ -1,0 +1,12 @@
+{
+  "handle": "826e6119",
+  "address": "826e6119-7ddd-8c1e-864d-67ed4153f5d2",
+  "kind": "chunk",
+  "keys": [
+    "fam_payables_dpo_1"
+  ],
+  "statement": "(((1000 : Int) * (365 : Int)) / (2000 : Int)) = (182 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

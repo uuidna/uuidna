@@ -1,0 +1,15 @@
+{
+  "handle": "12218f66",
+  "address": "12218f66-7e7c-8e5a-a9a0-cb0d37ba8f23",
+  "statement": "((10000 : Int) * (5 : Int)) = (50000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_forging_energy_1",
+    "fam_fuzzing_iterations_1",
+    "fam_myrmecology_colonysize_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesM.lean"
+  ]
+}

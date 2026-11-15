@@ -1,0 +1,14 @@
+{
+  "handle": "6258b9a9",
+  "address": "6258b9a9-775d-87eb-bedf-7c3b2f19885f",
+  "statement": "(fmax (0 : Int) ((100 : Int) - ((3 : Int) * (10 : Int)))) = (70 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gradient_update_1",
+    "fam_psychophysics_adaptation_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesP.lean"
+  ]
+}

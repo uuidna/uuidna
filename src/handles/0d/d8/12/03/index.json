@@ -1,0 +1,12 @@
+{
+  "handle": "0dd81203",
+  "address": "0dd81203-59fb-8c68-9d29-61c62ed4ef22",
+  "kind": "chunk",
+  "keys": [
+    "fam_responsive_viewportunits_1"
+  ],
+  "statement": "(((50 : Int) * (1440 : Int)) / (100 : Int)) = (720 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

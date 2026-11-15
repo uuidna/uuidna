@@ -1,0 +1,12 @@
+{
+  "handle": "d1965752",
+  "address": "d1965752-c962-820e-8276-579b3ab752be",
+  "kind": "chunk",
+  "keys": [
+    "fam_colorgrading_temperature_1"
+  ],
+  "statement": "(fmax (0 : Int) ((200 : Int) - (30 : Int))) = (170 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

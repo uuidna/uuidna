@@ -1,0 +1,22 @@
+{
+  "handle": "b7b7c92c",
+  "address": "b7b7c92c-2654-850b-a8e2-fffbd1ec0b42",
+  "statement": "((4 : Int) + (3 : Int)) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cern_detectorlayers_1",
+    "fam_chord_triadquality_1",
+    "fam_codicology_bindingstages_1",
+    "fam_coding_blocklength_1",
+    "fam_compress_huffmandepth_1",
+    "fam_creed_councilcount_1",
+    "fam_cuneiform_wedgesper_1",
+    "fam_parity_coveragebits_1",
+    "fam_scholasticism_disputationstages_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

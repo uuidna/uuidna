@@ -1,0 +1,18 @@
+{
+  "handle": "770304a5",
+  "address": "770304a5-44f1-8b41-895f-2c067a30df21",
+  "statement": "((400 : Int) / (4 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_athletics_split_1",
+    "fam_drayage_milesperload_1",
+    "fam_localization_positionvariance_1",
+    "fam_sprint_splittime_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesD.lean",
+    "FamiliesL.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "63fe82f1",
+  "address": "63fe82f1-3842-8121-b3ca-df37662d54a2",
+  "kind": "chunk",
+  "keys": [
+    "fam_ceramics_firing_1"
+  ],
+  "statement": "(1280 : Int) = (1280 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

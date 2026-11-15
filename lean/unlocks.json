@@ -1,13 +1,17 @@
 {
  "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).",
- "keys": 71254,
- "distinct": 71168,
- "skills": 131,
- "files": 266,
+ "keys": 80808,
+ "distinct": 75450,
+ "skills": 133,
+ "files": 293,
  "bySkill": [
   {
    "name": "wave",
    "n": 67208
+  },
+  {
+   "name": "families",
+   "n": 9524
   },
   {
    "name": "fermat",
@@ -52,6 +56,10 @@
   {
    "name": "neuro",
    "n": 32
+  },
+  {
+   "name": "asked",
+   "n": 30
   },
   {
    "name": "reasoning",
@@ -600,96 +608,96 @@
    "n": 1088
   },
   {
+   "name": "FamiliesC.lean",
+   "n": 1086
+  },
+  {
+   "name": "FamiliesP.lean",
+   "n": 997
+  },
+  {
+   "name": "FamiliesS.lean",
+   "n": 962
+  },
+  {
+   "name": "FamiliesA.lean",
+   "n": 654
+  },
+  {
+   "name": "FamiliesM.lean",
+   "n": 572
+  },
+  {
    "name": "FixedPower.lean",
    "n": 567
+  },
+  {
+   "name": "FamiliesT.lean",
+   "n": 531
+  },
+  {
+   "name": "FamiliesE.lean",
+   "n": 516
+  },
+  {
+   "name": "FamiliesR.lean",
+   "n": 499
+  },
+  {
+   "name": "FamiliesB.lean",
+   "n": 428
+  },
+  {
+   "name": "FamiliesG.lean",
+   "n": 409
+  },
+  {
+   "name": "FamiliesD.lean",
+   "n": 396
+  },
+  {
+   "name": "FamiliesL.lean",
+   "n": 390
+  },
+  {
+   "name": "FamiliesF.lean",
+   "n": 371
+  },
+  {
+   "name": "FamiliesH.lean",
+   "n": 368
   },
   {
    "name": "Laws.lean",
    "n": 353
   },
   {
+   "name": "FamiliesI.lean",
+   "n": 235
+  },
+  {
    "name": "Ring.lean",
    "n": 234
   },
   {
+   "name": "FamiliesN.lean",
+   "n": 223
+  },
+  {
+   "name": "FamiliesO.lean",
+   "n": 222
+  },
+  {
+   "name": "FamiliesW.lean",
+   "n": 175
+  },
+  {
+   "name": "FamiliesV.lean",
+   "n": 168
+  },
+  {
    "name": "Rosette.lean",
    "n": 148
-  },
-  {
-   "name": "FermatRing12.lean",
-   "n": 96
-  },
-  {
-   "name": "Nim.lean",
-   "n": 93
-  },
-  {
-   "name": "FermatRing9.lean",
-   "n": 83
-  },
-  {
-   "name": "FermatRing15.lean",
-   "n": 82
-  },
-  {
-   "name": "FermatRing16.lean",
-   "n": 82
-  },
-  {
-   "name": "FermatRing6.lean",
-   "n": 82
-  },
-  {
-   "name": "FermatRing17.lean",
-   "n": 79
-  },
-  {
-   "name": "FermatRing18.lean",
-   "n": 78
-  },
-  {
-   "name": "FermatRing14.lean",
-   "n": 76
-  },
-  {
-   "name": "FermatRing8.lean",
-   "n": 75
-  },
-  {
-   "name": "FermatRing5.lean",
-   "n": 73
-  },
-  {
-   "name": "FermatRing4.lean",
-   "n": 72
-  },
-  {
-   "name": "FermatRing11.lean",
-   "n": 71
-  },
-  {
-   "name": "FermatRing10.lean",
-   "n": 69
-  },
-  {
-   "name": "FermatRing13.lean",
-   "n": 66
-  },
-  {
-   "name": "Equilibrium.lean",
-   "n": 65
-  },
-  {
-   "name": "Quantum.lean",
-   "n": 65
-  },
-  {
-   "name": "Core.lean",
-   "n": 64
-  },
-  {
-   "name": "FermatRing3.lean",
-   "n": 63
   }
  ],
  "illustrations": [
@@ -904,6 +912,6 @@
    "name": "THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live state-vector computation, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize."
   }
  ],
- "receipt": "30023f4c-0fd1-8736-98ed-67550cc6e31c",
+ "receipt": "e9e311c3-924e-8f44-97fb-fee6088b85d2",
  "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
 }

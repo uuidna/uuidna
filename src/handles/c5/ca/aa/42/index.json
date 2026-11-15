@@ -1,0 +1,21 @@
+{
+  "handle": "c5caaa42",
+  "address": "c5caaa42-d82b-83e0-8fe6-59b9a11fd08d",
+  "kind": "chunk",
+  "keys": [
+    "fam_bilingualism_proficiencygap_2",
+    "fam_bioavailability_retained_2",
+    "fam_feedback_errorsignal_2",
+    "fam_meteoritics_survival_2",
+    "fam_neuropsychology_deficit_2",
+    "fam_silviculture_growth_2"
+  ],
+  "statement": "(fmax (0 : Int) ((50 : Int) - (80 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesF.lean",
+    "FamiliesM.lean",
+    "FamiliesN.lean",
+    "FamiliesS.lean"
+  ]
+}

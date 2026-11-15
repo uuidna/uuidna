@@ -1,0 +1,12 @@
+{
+  "handle": "8e24f3bb",
+  "address": "8e24f3bb-9629-877c-bc56-eb94ee363ab5",
+  "kind": "chunk",
+  "keys": [
+    "fam_orbital_eccentricity_1"
+  ],
+  "statement": "(((100 : Int) * (1000 : Int)) / (500 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

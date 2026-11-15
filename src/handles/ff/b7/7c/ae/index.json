@@ -1,0 +1,18 @@
+{
+  "handle": "ffb77cae",
+  "address": "ffb77cae-52ac-895b-a59c-e17fe41f645a",
+  "kind": "chunk",
+  "keys": [
+    "fam_accelerometer_gforce_1",
+    "fam_hydro_head_1",
+    "fam_poultry_feedconversion_1",
+    "fam_straingauge_gaugefactor_1"
+  ],
+  "statement": "((2000 : Int) / (1000 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesH.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

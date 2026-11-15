@@ -1,0 +1,16 @@
+{
+  "handle": "d654c9d3",
+  "address": "d654c9d3-571a-8844-b33f-c6edf3898c2b",
+  "kind": "chunk",
+  "keys": [
+    "fam_insurance_premium2_1",
+    "fam_psychophysics_weberfraction_1",
+    "fam_woodworking_expansion_1"
+  ],
+  "statement": "(((5 : Int) * (1000 : Int)) / (100 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesP.lean",
+    "FamiliesW.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a30fda1f",
+  "address": "a30fda1f-05b4-8743-a9bc-82617da12bf2",
+  "statement": "((108 : Int) / (20 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_golf_handicap_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

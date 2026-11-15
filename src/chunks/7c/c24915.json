@@ -1,0 +1,21 @@
+{
+  "handle": "7cc24915",
+  "address": "7cc24915-c657-8587-9267-3f5ffeb4884f",
+  "statement": "(((1 : Int) * (100 : Int)) / (4 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_aesthetics_proportion_1",
+    "fam_chemistry_ratio_1",
+    "fam_layout_grow_1",
+    "fam_logic_entropy_1",
+    "fam_probability_odds_1",
+    "fam_slider_index_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

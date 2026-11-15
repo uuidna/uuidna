@@ -1,0 +1,12 @@
+{
+  "handle": "1ae48ad9",
+  "address": "1ae48ad9-b5eb-8773-8314-8d6a53b46ffb",
+  "statement": "(((10 : Int) / (2 : Int)) + (1 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_partition_atmosttwo_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

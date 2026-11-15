@@ -1,0 +1,12 @@
+{
+  "handle": "af2b4c20",
+  "address": "af2b4c20-798d-81e7-8446-e15a24898d36",
+  "statement": "(fmin (5000 : Int) (3000 : Int)) = (3000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_immigration_quota_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

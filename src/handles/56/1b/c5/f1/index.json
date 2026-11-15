@@ -1,0 +1,12 @@
+{
+  "handle": "561bc5f1",
+  "address": "561bc5f1-813b-8b3f-9ac5-b1d7f7525d0d",
+  "kind": "chunk",
+  "keys": [
+    "fam_exoplanet_radiusratio_1"
+  ],
+  "statement": "(((10 : Int) * (1000 : Int)) / (100 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

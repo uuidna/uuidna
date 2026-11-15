@@ -1,0 +1,16 @@
+{
+  "handle": "dc7b1505",
+  "address": "dc7b1505-0dac-8eff-8df3-1deab12530cc",
+  "statement": "(16 : Int) = (16 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cybernetics_entropy_1",
+    "fam_equine_height_1",
+    "fam_remotesensing_revisit_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesR.lean"
+  ]
+}

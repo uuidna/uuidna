@@ -1,0 +1,17 @@
+{
+  "handle": "02b3f5ad",
+  "address": "02b3f5ad-843f-86c6-8053-b760c945191e",
+  "kind": "chunk",
+  "keys": [
+    "fam_cheese_fatindrymatter_1",
+    "fam_chromatography_rf_1",
+    "fam_probability_conditional_1",
+    "fam_probability_independence_1",
+    "fam_prosody_rhythmindex_1"
+  ],
+  "statement": "(((30 : Int) * (100 : Int)) / (60 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "5d1a1acd",
+  "address": "5d1a1acd-6ed7-8b83-91af-adb08e667a50",
+  "kind": "chunk",
+  "keys": [
+    "fam_catering_scaling_1"
+  ],
+  "statement": "((3 : Int) * (80 : Int)) = (240 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

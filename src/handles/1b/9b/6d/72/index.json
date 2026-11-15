@@ -1,0 +1,12 @@
+{
+  "handle": "1b9b6d72",
+  "address": "1b9b6d72-145c-8465-ace2-80f8291c962f",
+  "kind": "chunk",
+  "keys": [
+    "fam_fourier_harmonics_1"
+  ],
+  "statement": "((440 : Int) * (5 : Int)) = (2200 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

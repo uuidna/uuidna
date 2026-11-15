@@ -1,0 +1,16 @@
+{
+  "handle": "8db703d1",
+  "address": "8db703d1-a12a-82c4-83d2-bff641c81d1b",
+  "kind": "chunk",
+  "keys": [
+    "fam_asteroid_diameter_1",
+    "fam_battery_cyclelife_1",
+    "fam_cogeneration_electricaloutput_1"
+  ],
+  "statement": "((500 : Int) * (1 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean"
+  ]
+}

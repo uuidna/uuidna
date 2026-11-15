@@ -1,0 +1,12 @@
+{
+  "handle": "3e9e76fe",
+  "address": "3e9e76fe-46a7-87c5-8365-3709c2b88290",
+  "kind": "chunk",
+  "keys": [
+    "fam_hashing_birthday_1"
+  ],
+  "statement": "(((30 : Int) * ((30 : Int) - (1 : Int))) / (2 : Int)) = (435 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

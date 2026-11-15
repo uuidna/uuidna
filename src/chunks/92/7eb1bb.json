@@ -1,0 +1,12 @@
+{
+  "handle": "927eb1bb",
+  "address": "927eb1bb-3b50-8cdc-8669-089fc294398a",
+  "statement": "((6000 : Int) / (1000 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_knitting_looplength_1"
+  ],
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

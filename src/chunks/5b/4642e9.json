@@ -1,0 +1,12 @@
+{
+  "handle": "5b4642e9",
+  "address": "5b4642e9-f175-8ffb-8a06-64314eba6369",
+  "statement": "((5 : Int) * (33000 : Int)) = (165000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_astrophysics_eddington_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

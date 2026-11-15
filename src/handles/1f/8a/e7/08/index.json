@@ -1,0 +1,12 @@
+{
+  "handle": "1f8ae708",
+  "address": "1f8ae708-d6e9-8409-8186-a365ac15c27a",
+  "kind": "chunk",
+  "keys": [
+    "fam_securities_gain_1"
+  ],
+  "statement": "(((55 : Int) - (40 : Int)) * (100 : Int)) = (1500 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

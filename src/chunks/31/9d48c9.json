@@ -1,0 +1,14 @@
+{
+  "handle": "319d48c9",
+  "address": "319d48c9-5910-804b-b394-77951f0cdb8b",
+  "statement": "((1000 : Int) + ((((1000 : Int) * (5 : Int)) * (3 : Int)) / (100 : Int))) = (1150 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_court_damages_1",
+    "fam_savings_simplegrowth_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesS.lean"
+  ]
+}

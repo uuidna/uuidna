@@ -1,0 +1,12 @@
+{
+  "handle": "0decbc1c",
+  "address": "0decbc1c-2e5c-886a-ba80-6c96d33fbcb6",
+  "statement": "((1200 : Int) * (10 : Int)) = (12000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_monorail_throughput_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

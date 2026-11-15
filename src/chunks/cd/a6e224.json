@@ -1,0 +1,12 @@
+{
+  "handle": "cda6e224",
+  "address": "cda6e224-79ba-8547-9939-752b88c7caf0",
+  "statement": "(fmax (0 : Int) ((60000 : Int) - (45000 : Int))) = (15000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_retirement_shortfall_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

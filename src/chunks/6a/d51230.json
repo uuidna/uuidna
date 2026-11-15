@@ -1,0 +1,12 @@
+{
+  "handle": "6ad51230",
+  "address": "6ad51230-35fe-8c0f-890a-b322736f162c",
+  "statement": "(((((67 : Int) - (60 : Int)) % (12 : Int)) + (12 : Int)) % (12 : Int)) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_harmony_interval_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

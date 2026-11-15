@@ -1,0 +1,12 @@
+{
+  "handle": "a5c23beb",
+  "address": "a5c23beb-9a49-8ea2-ad00-0462cadce569",
+  "statement": "(fmax (160 : Int) (170 : Int)) = (170 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_caramelization_temperaturethreshold_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

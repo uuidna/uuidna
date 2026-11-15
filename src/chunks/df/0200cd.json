@@ -1,0 +1,12 @@
+{
+  "handle": "df0200cd",
+  "address": "df0200cd-6f95-8b0f-bb0d-674ab0d052b0",
+  "statement": "((200 : Int) * (200 : Int)) = (40000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_telescope_lightgrasp_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

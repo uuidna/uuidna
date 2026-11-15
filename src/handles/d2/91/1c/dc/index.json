@@ -1,0 +1,12 @@
+{
+  "handle": "d2911cdc",
+  "address": "d2911cdc-ce79-8e41-bd64-81f01504b2ad",
+  "kind": "chunk",
+  "keys": [
+    "fam_mixing_headroom_2"
+  ],
+  "statement": "(fmax (0 : Int) ((18 : Int) - (24 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

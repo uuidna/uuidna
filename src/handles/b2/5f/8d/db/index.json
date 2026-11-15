@@ -1,0 +1,12 @@
+{
+  "handle": "b25f8ddb",
+  "address": "b25f8ddb-02d1-8952-ad13-c8f3c4bf881e",
+  "kind": "chunk",
+  "keys": [
+    "fam_cargo_teu_1"
+  ],
+  "statement": "((300 : Int) + ((150 : Int) * (2 : Int))) = (600 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

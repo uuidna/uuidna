@@ -1,0 +1,14 @@
+{
+  "handle": "9926c736",
+  "address": "9926c736-5b63-8e39-9eb5-c90143a3bbd5",
+  "statement": "(-((-(1000 : Int)) / (40 : Int))) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_inspection_sampling_1",
+    "fam_pest_trapcount_1"
+  ],
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesP.lean"
+  ]
+}

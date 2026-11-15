@@ -1,0 +1,12 @@
+{
+  "handle": "5542d78e",
+  "address": "5542d78e-1890-8e35-b738-18dae3722eb0",
+  "statement": "((60000 : Int) / (3 : Int)) = (20000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cropyield_plantdensity_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

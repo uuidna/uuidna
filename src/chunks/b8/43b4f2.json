@@ -1,0 +1,12 @@
+{
+  "handle": "b843b4f2",
+  "address": "b843b4f2-c633-8f61-a9c5-922f065a8e7c",
+  "statement": "(if (if (60 : Int) ≥ (51 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_court_standard_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

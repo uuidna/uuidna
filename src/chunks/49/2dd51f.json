@@ -1,0 +1,12 @@
+{
+  "handle": "492dd51f",
+  "address": "492dd51f-b38e-8036-9efc-c312015f76d0",
+  "statement": "((100 : Int) * (46 : Int)) = (4600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mitosis_chromosomes_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

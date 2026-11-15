@@ -1,0 +1,12 @@
+{
+  "handle": "de5c0325",
+  "address": "de5c0325-3809-85fc-912c-56b67e8cf711",
+  "statement": "((((10 : Int) * (fmax (0 : Int) ((100 : Int) - (20 : Int)))) * (100 : Int)) / ((fmax (1 : Int) ((10 : Int) - (1 : Int))) * (100 : Int))) = (88 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_psychometrics_cronbach_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

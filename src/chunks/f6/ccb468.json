@@ -1,0 +1,12 @@
+{
+  "handle": "f6ccb468",
+  "address": "f6ccb468-a848-8acb-8116-1266463c73cb",
+  "statement": "((70 : Int) * (4 : Int)) = (280 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mammalogy_homerange_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

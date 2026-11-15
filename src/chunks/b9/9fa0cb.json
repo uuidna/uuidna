@@ -1,0 +1,12 @@
+{
+  "handle": "b99fa0cb",
+  "address": "b99fa0cb-340f-84bb-9c3b-c31712d36049",
+  "statement": "(((4200 : Int) * (10 : Int)) / (500 : Int)) = (84 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_entertainment_rating_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

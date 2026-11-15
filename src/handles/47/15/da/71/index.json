@@ -1,0 +1,22 @@
+{
+  "handle": "4715da71",
+  "address": "4715da71-7aee-8c5a-a592-0e9300b9689d",
+  "kind": "chunk",
+  "keys": [
+    "fam_historiography_sourcecount_1",
+    "fam_myrmecology_nestchambers_1",
+    "fam_mythography_versioncount_1",
+    "fam_mythology_variantcount_1",
+    "fam_paleoclimate_proxyrecords_1",
+    "fam_papyrology_fragments_1",
+    "fam_spicetrade_spicecount_1",
+    "fam_stainedglass_leadlines_1"
+  ],
+  "statement": "((40 : Int) + (20 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

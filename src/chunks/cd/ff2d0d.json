@@ -1,0 +1,12 @@
+{
+  "handle": "cdff2d0d",
+  "address": "cdff2d0d-d9be-8162-b01f-e67e1904a065",
+  "statement": "((450 : Int) / (90 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_incident_mtta_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "handle": "0c448e63",
+  "address": "0c448e63-f915-8b6b-902f-ad24aed9f221",
+  "statement": "((1000 : Int) * (12 : Int)) = (12000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cinema_boxoffice_1",
+    "fam_ml_parameters_1",
+    "fam_pricing_arr_1",
+    "fam_scripture_wordtotal_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

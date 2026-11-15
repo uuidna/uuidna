@@ -1,0 +1,12 @@
+{
+  "handle": "a16e4a58",
+  "address": "a16e4a58-3103-8398-a1e3-04e392683079",
+  "statement": "((((50000 : Int) * (500 : Int)) * (365 : Int)) / (3650000 : Int)) = (2500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_swaps_accruedinterest_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

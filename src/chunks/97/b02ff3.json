@@ -1,0 +1,25 @@
+{
+  "handle": "97b02ff3",
+  "address": "97b02ff3-6386-818e-9794-e48372eaa72d",
+  "statement": "((60 : Int) / (12 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_calculus_rate_1",
+    "fam_curvature_sectional_1",
+    "fam_grouptheory_subgroupindex_1",
+    "fam_kinematics_acceleration_1",
+    "fam_music_octave_1",
+    "fam_rhetoric_logos_1",
+    "fam_software_density_1",
+    "fam_zoning_height_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesK.lean",
+    "FamiliesM.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesZ.lean"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "handle": "99921a01",
+  "address": "99921a01-c5c7-8d2b-b9ff-aeb14f493960",
+  "statement": "(if (if (99 : Int) ≥ (95 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cloud_sla_1",
+    "fam_distribution_reach_1",
+    "fam_phycology_nutrientuptake_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesP.lean"
+  ]
+}

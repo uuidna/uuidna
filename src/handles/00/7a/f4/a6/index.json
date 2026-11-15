@@ -1,0 +1,12 @@
+{
+  "handle": "007af4a6",
+  "address": "007af4a6-b8af-89a2-9891-970bc230f85f",
+  "kind": "chunk",
+  "keys": [
+    "fam_cosmogony_cyclelength_1"
+  ],
+  "statement": "((4 : Int) * (1000 : Int)) = (4000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

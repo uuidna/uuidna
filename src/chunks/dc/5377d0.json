@@ -1,0 +1,12 @@
+{
+  "handle": "dc5377d0",
+  "address": "dc5377d0-a87b-8359-92dc-c32adcd04f83",
+  "statement": "(((fmax (0 : Int) ((240 : Int) - (240 : Int))) * (100 : Int)) / (240 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_transformer_regulation_2"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

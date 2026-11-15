@@ -1,0 +1,12 @@
+{
+  "handle": "f7a27a66",
+  "address": "f7a27a66-3cee-8636-8d4c-f5ba723d07d5",
+  "statement": "((3000 : Int) * (5 : Int)) = (15000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_slider_autoplay_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

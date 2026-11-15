@@ -1,0 +1,12 @@
+{
+  "handle": "cb4b2c8f",
+  "address": "cb4b2c8f-e0d5-8835-a5a6-156667775e8c",
+  "kind": "chunk",
+  "keys": [
+    "fam_sonography_attenuation_1"
+  ],
+  "statement": "(((1 : Int) * (5 : Int)) * (10 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2e8bf581",
+  "address": "2e8bf581-384f-85ed-878c-c9b9eeefead5",
+  "statement": "(fmax (0 : Int) ((2000 : Int) - (500 : Int))) = (1500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_filters_bandwidth_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

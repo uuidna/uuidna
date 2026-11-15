@@ -1,0 +1,16 @@
+{
+  "handle": "286c0dda",
+  "address": "286c0dda-98ba-8c34-b832-f983c14f7463",
+  "kind": "chunk",
+  "keys": [
+    "fam_authentication_strength_1",
+    "fam_controllability_gramiantrace_1",
+    "fam_iot_latency_1"
+  ],
+  "statement": "((4 : Int) * (12 : Int)) = (48 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesI.lean"
+  ]
+}

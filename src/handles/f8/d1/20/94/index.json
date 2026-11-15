@@ -1,0 +1,12 @@
+{
+  "handle": "f8d12094",
+  "address": "f8d12094-8f26-8fde-bea3-782c1f01e7d0",
+  "kind": "chunk",
+  "keys": [
+    "fam_breeding_progenycount_1"
+  ],
+  "statement": "((((50 : Int) * (8 : Int)) * (90 : Int)) / (100 : Int)) = (360 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

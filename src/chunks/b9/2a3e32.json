@@ -1,0 +1,12 @@
+{
+  "handle": "b92a3e32",
+  "address": "b92a3e32-14fd-8278-b4a5-87b2f09188e5",
+  "statement": "(((6 : Int) * ((6 : Int) - (3 : Int))) / (2 : Int)) = (9 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_polygon_diagonals_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

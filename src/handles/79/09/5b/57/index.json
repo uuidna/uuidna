@@ -1,0 +1,12 @@
+{
+  "handle": "79095b57",
+  "address": "79095b57-f740-89f1-95d2-291c53e82752",
+  "kind": "chunk",
+  "keys": [
+    "fam_hemodynamics_strokevolume_1"
+  ],
+  "statement": "(fmax (0 : Int) ((120 : Int) - (50 : Int))) = (70 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

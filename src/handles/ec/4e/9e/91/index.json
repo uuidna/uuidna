@@ -1,0 +1,12 @@
+{
+  "handle": "ec4e9e91",
+  "address": "ec4e9e91-5de2-8e57-b0f1-7c8d18c0ec2b",
+  "kind": "chunk",
+  "keys": [
+    "fam_refrigeration_cooling_1"
+  ],
+  "statement": "((10 : Int) * (fmax (0 : Int) ((400 : Int) - (150 : Int)))) = (2500 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "47aab91c",
+  "address": "47aab91c-8400-802a-bc57-94634d5df372",
+  "kind": "chunk",
+  "keys": [
+    "fam_kalman_steadygain_1"
+  ],
+  "statement": "(((2 : Int) * (100 : Int)) / ((2 : Int) + (6 : Int))) = (25 : Int)",
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

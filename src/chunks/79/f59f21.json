@@ -1,0 +1,12 @@
+{
+  "handle": "79f59f21",
+  "address": "79f59f21-f648-86aa-b531-ece7f2492c89",
+  "statement": "(if (1 : Int) ≠ 0 ∧ (1 : Int) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_logicgates_and_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

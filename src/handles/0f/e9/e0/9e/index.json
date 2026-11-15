@@ -1,0 +1,12 @@
+{
+  "handle": "0fe9e09e",
+  "address": "0fe9e09e-cfbf-8412-b3dd-cb002ac21c7a",
+  "kind": "chunk",
+  "keys": [
+    "fam_toxicology_exposure_1"
+  ],
+  "statement": "((25 : Int) * (8 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

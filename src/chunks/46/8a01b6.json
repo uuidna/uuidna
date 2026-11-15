@@ -1,0 +1,12 @@
+{
+  "handle": "468a01b6",
+  "address": "468a01b6-66f8-8843-8317-479458663bc2",
+  "statement": "((((1000 : Int) - (750 : Int)) * (100 : Int)) / (1000 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_emissions_reduction_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

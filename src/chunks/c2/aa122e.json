@@ -1,0 +1,12 @@
+{
+  "handle": "c2aa122e",
+  "address": "c2aa122e-6ab9-8f91-9b03-c4903c257f96",
+  "statement": "((40 : Int) * (120 : Int)) = (4800 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_agriculture_seed_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

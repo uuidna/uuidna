@@ -1,0 +1,12 @@
+{
+  "handle": "2e49d6e9",
+  "address": "2e49d6e9-4fd9-83ba-aa0a-b0c656f7ab07",
+  "kind": "chunk",
+  "keys": [
+    "fam_pacing_targettime_1"
+  ],
+  "statement": "((300 : Int) * (8 : Int)) = (2400 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b19338ec",
+  "address": "b19338ec-c61a-857f-8e8d-7731cf098c10",
+  "statement": "(((1538 : Int) + (1085 : Int)) / (2 : Int)) = (1311 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_alloys_meltingpoint_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

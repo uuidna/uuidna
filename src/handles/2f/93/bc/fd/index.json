@@ -1,0 +1,12 @@
+{
+  "handle": "2f93bcfd",
+  "address": "2f93bcfd-1feb-8d73-96b8-75bf0f6e025f",
+  "kind": "chunk",
+  "keys": [
+    "fam_warehousing_throughput_1"
+  ],
+  "statement": "((7000 : Int) / (7 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

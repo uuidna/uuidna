@@ -1,0 +1,12 @@
+{
+  "handle": "19a6d79c",
+  "address": "19a6d79c-0444-8685-ae5b-6de4a890d53f",
+  "kind": "chunk",
+  "keys": [
+    "fam_rail_dwell_1"
+  ],
+  "statement": "(-((-(300 : Int)) / (4 : Int))) = (75 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

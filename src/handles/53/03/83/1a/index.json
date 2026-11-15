@@ -1,0 +1,12 @@
+{
+  "handle": "5303831a",
+  "address": "5303831a-3a31-8373-8cc6-85895f7a6457",
+  "kind": "chunk",
+  "keys": [
+    "fam_geomorphology_relief_2"
+  ],
+  "statement": "(fmax (0 : Int) ((400 : Int) - (2400 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

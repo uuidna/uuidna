@@ -1,0 +1,12 @@
+{
+  "handle": "16e30e60",
+  "address": "16e30e60-8fc2-8886-9bd5-d54b68465699",
+  "statement": "(fmax (0 : Int) (((100 : Int) - (20 : Int)) - (15 : Int))) = (65 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_zoning_setback_1"
+  ],
+  "files": [
+    "FamiliesZ.lean"
+  ]
+}

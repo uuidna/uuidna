@@ -1,0 +1,21 @@
+{
+  "handle": "c9dd5fc5",
+  "address": "c9dd5fc5-a5c4-828c-8a42-27cd2976aff2",
+  "statement": "(((40 : Int) * (100 : Int)) / (50 : Int)) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_alerting_noiseratio_1",
+    "fam_petrology_crystallization_1",
+    "fam_psychometrics_normalization_1",
+    "fam_search_precision_1",
+    "fam_usability_satisfaction_1",
+    "fam_weather_humidity_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesU.lean",
+    "FamiliesW.lean"
+  ]
+}

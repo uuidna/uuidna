@@ -1,0 +1,12 @@
+{
+  "handle": "01085c5a",
+  "address": "01085c5a-f54a-8b74-9391-dcc484b59215",
+  "statement": "((512 : Int) - (480 : Int)) = (32 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ssd_overprovision_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

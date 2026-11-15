@@ -1,0 +1,12 @@
+{
+  "handle": "3a85b3e0",
+  "address": "3a85b3e0-42bd-8240-a941-c45f9e5c0aa2",
+  "kind": "chunk",
+  "keys": [
+    "fam_pipeline_duration_2"
+  ],
+  "statement": "(fmax (0 : Int) ((100 : Int) - (340 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7eab0a39",
+  "address": "7eab0a39-0df7-8942-a71b-601749d8c419",
+  "statement": "(((2 : Int) * (300 : Int)) / (100 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ballistics_spread_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

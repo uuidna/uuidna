@@ -1,0 +1,12 @@
+{
+  "handle": "df4966a8",
+  "address": "df4966a8-8f35-8ae4-8488-d9bb2e6fc5ca",
+  "statement": "((12 : Int) * (40 : Int)) = (480 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_corpus_concordancehits_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

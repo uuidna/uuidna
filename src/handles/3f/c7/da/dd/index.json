@@ -1,0 +1,12 @@
+{
+  "handle": "3fc7dadd",
+  "address": "3fc7dadd-6d61-8fe9-9906-698444492ca8",
+  "kind": "chunk",
+  "keys": [
+    "fam_patent_royalty_1"
+  ],
+  "statement": "(((500000 : Int) * (4 : Int)) / (100 : Int)) = (20000 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "05b3f33c",
+  "address": "05b3f33c-9b2d-8a4c-bc8c-0d71e0cb3fe1",
+  "kind": "chunk",
+  "keys": [
+    "fam_mealplanning_prepminutes_1"
+  ],
+  "statement": "((30 : Int) * (7 : Int)) = (210 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b1ee8681",
+  "address": "b1ee8681-ff09-8df2-820b-267ca3c1646c",
+  "statement": "(fmax (0 : Int) ((14 : Int) - (5 : Int))) = (9 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_floriculture_vaselife_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

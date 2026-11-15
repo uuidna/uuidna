@@ -1,0 +1,12 @@
+{
+  "handle": "fd6a2dad",
+  "address": "fd6a2dad-4a41-8c13-8ec3-62984181065b",
+  "kind": "chunk",
+  "keys": [
+    "fam_port_pad_1"
+  ],
+  "statement": "(((-((-(1 : Int)) / (8 : Int))) * (8 : Int)) - (1 : Int)) = (7 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

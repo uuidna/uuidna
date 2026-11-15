@@ -1,0 +1,12 @@
+{
+  "handle": "3108f606",
+  "address": "3108f606-a3c9-8d47-a88c-296a7ec1590f",
+  "statement": "((((60 : Int) - (100 : Int)) * (100 : Int)) / (60 : Int)) = (-67 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_antitrust_margin_2"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

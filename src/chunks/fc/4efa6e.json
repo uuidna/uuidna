@@ -1,0 +1,12 @@
+{
+  "handle": "fc4efa6e",
+  "address": "fc4efa6e-1b72-8711-af02-4e786f67cf27",
+  "statement": "((28000 : Int) / (28 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_polymers_degreeofpolymerization_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

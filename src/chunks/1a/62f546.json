@@ -1,0 +1,12 @@
+{
+  "handle": "1a62f546",
+  "address": "1a62f546-615a-8fe5-84d6-c38651185ef4",
+  "statement": "((((80 : Int) - (50 : Int)) * (100 : Int)) / (80 : Int)) = (37 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_retail_margin_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

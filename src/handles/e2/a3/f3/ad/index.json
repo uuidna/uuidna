@@ -1,0 +1,14 @@
+{
+  "handle": "e2a3f3ad",
+  "address": "e2a3f3ad-9134-89c8-862e-75713b921254",
+  "kind": "chunk",
+  "keys": [
+    "fam_catering_consumption_1",
+    "fam_viticulture_fermentation_1"
+  ],
+  "statement": "(((180 : Int) * (100 : Int)) / (240 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesV.lean"
+  ]
+}

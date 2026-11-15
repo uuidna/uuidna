@@ -1,0 +1,12 @@
+{
+  "handle": "c34f6cd4",
+  "address": "c34f6cd4-7edb-87f1-919d-d338e1c3f2c4",
+  "statement": "((300 : Int) / (4 : Int)) = (75 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_location_speed_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

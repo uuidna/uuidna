@@ -1,0 +1,12 @@
+{
+  "handle": "3b79b83c",
+  "address": "3b79b83c-93ec-8bc3-9d0f-be958b13904e",
+  "statement": "(((1000 : Int) * ((100 : Int) + (20 : Int))) / (100 : Int)) = (1200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_actuarial_premium_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3f1766b4",
+  "address": "3f1766b4-eddc-880b-b964-8926dde4b15a",
+  "statement": "(((2000 : Int) * (1000 : Int)) / (10000 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_advertising_cpm_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

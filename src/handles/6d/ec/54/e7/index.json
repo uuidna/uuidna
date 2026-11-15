@@ -1,0 +1,12 @@
+{
+  "handle": "6dec54e7",
+  "address": "6dec54e7-47ca-8e18-930b-78825dcc01d3",
+  "kind": "chunk",
+  "keys": [
+    "fam_cryptanalysis_keyspace_1"
+  ],
+  "statement": "((26 : Int) * (8 : Int)) = (208 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

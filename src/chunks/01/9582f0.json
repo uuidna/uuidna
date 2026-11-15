@@ -1,0 +1,12 @@
+{
+  "handle": "019582f0",
+  "address": "019582f0-787d-83a7-8bd0-3b2e3884dde6",
+  "statement": "((1320 : Int) / (3 : Int)) = (440 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_overtone_fundamentalfrom_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

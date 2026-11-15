@@ -1,0 +1,12 @@
+{
+  "handle": "528f2e0f",
+  "address": "528f2e0f-0c92-87d6-9adf-b3a38ed56693",
+  "statement": "((1000 : Int) * (6 : Int)) = (6000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nanomaterials_surfacearea_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

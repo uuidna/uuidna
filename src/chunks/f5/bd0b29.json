@@ -1,0 +1,12 @@
+{
+  "handle": "f5bd0b29",
+  "address": "f5bd0b29-5fb0-8e3d-9753-ff03d7b6453a",
+  "statement": "(((((10 : Int) - (350 : Int)) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_waypoint_bearingdelta_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

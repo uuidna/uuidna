@@ -1,0 +1,12 @@
+{
+  "handle": "e8ad3592",
+  "address": "e8ad3592-fda4-8331-b3ab-54571cdb8674",
+  "statement": "((1050 : Int) / (100 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cartography_contour_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

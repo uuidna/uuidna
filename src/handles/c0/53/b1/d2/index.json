@@ -1,0 +1,12 @@
+{
+  "handle": "c053b1d2",
+  "address": "c053b1d2-20d9-8b6e-88d9-6149c52d1d6e",
+  "kind": "chunk",
+  "keys": [
+    "fam_stellar_massloss_2"
+  ],
+  "statement": "(fmax (0 : Int) ((100 : Int) - ((2 : Int) * (100 : Int)))) = (0 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

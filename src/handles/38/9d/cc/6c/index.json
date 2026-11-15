@@ -1,0 +1,12 @@
+{
+  "handle": "389dcc6c",
+  "address": "389dcc6c-df5a-8577-9f83-5710f76d1f1b",
+  "kind": "chunk",
+  "keys": [
+    "fam_project_milestone_1"
+  ],
+  "statement": "(((5 : Int) * (100 : Int)) / (8 : Int)) = (62 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

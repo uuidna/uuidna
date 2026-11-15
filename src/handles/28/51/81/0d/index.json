@@ -1,0 +1,12 @@
+{
+  "handle": "2851810d",
+  "address": "2851810d-f1e4-8701-9500-2038ae0ac829",
+  "kind": "chunk",
+  "keys": [
+    "fam_canon_psalms_1"
+  ],
+  "statement": "(150 : Int) = (150 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

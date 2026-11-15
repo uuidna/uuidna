@@ -1,0 +1,12 @@
+{
+  "handle": "afe4bede",
+  "address": "afe4bede-a7e5-881b-876a-34ffbad4ae16",
+  "statement": "((80 : Int) * (5 : Int)) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_biomechanics_impulse_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

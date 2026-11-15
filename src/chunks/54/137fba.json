@@ -1,0 +1,12 @@
+{
+  "handle": "54137fba",
+  "address": "54137fba-f0ce-887a-9a29-6ad22237f05d",
+  "statement": "((5000 : Int) + (3000 : Int)) = (8000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_migration_grossflow_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

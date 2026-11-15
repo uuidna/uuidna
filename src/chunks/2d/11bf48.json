@@ -1,0 +1,15 @@
+{
+  "handle": "2d11bf48",
+  "address": "2d11bf48-8151-8b56-9763-f33957aa2dec",
+  "statement": "(fmax (0 : Int) ((80 : Int) - (30 : Int))) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_coaching_peaking_1",
+    "fam_comparison_diff_1",
+    "fam_psychology_arousal_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesP.lean"
+  ]
+}

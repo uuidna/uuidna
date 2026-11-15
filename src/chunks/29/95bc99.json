@@ -1,0 +1,12 @@
+{
+  "handle": "2995bc99",
+  "address": "2995bc99-32b9-8604-ab71-8eded49e970a",
+  "statement": "(-((-(1000 : Int)) / (42 : Int))) = (24 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_datacenter_racks_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

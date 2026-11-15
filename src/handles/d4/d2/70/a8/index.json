@@ -1,0 +1,12 @@
+{
+  "handle": "d4d270a8",
+  "address": "d4d270a8-d9b8-8e6e-98b8-e76fd804c39b",
+  "kind": "chunk",
+  "keys": [
+    "fam_linehaul_avgspeed_1"
+  ],
+  "statement": "((1200 : Int) / (20 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

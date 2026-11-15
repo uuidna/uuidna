@@ -1,0 +1,12 @@
+{
+  "handle": "78e24356",
+  "address": "78e24356-f5df-8b61-be0c-d4e18647fd98",
+  "statement": "((6000 : Int) / (1 : Int)) = (6000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_engine_rpm_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

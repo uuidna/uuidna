@@ -1,0 +1,12 @@
+{
+  "handle": "fec0deac",
+  "address": "fec0deac-7f06-87f4-97e1-0062b182b462",
+  "kind": "chunk",
+  "keys": [
+    "fam_nutrition_deficit_2"
+  ],
+  "statement": "(fmax (0 : Int) ((2200 : Int) - (2500 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

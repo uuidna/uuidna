@@ -1,0 +1,12 @@
+{
+  "handle": "7f275297",
+  "address": "7f275297-f2bb-85c5-8cf8-68c2d424b935",
+  "statement": "(((2 : Int) ^ (8 : Nat)) - (1 : Int)) = (255 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_quantization_dynamicrange_1"
+  ],
+  "files": [
+    "FamiliesQ.lean"
+  ]
+}

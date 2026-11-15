@@ -1,0 +1,12 @@
+{
+  "handle": "7e680903",
+  "address": "7e680903-a370-8947-97bd-405bd3e606b9",
+  "statement": "((3600 : Int) / (1800 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_astrometry_pixelscale_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

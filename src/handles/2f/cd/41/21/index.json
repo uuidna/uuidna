@@ -1,0 +1,12 @@
+{
+  "handle": "2fcd4121",
+  "address": "2fcd4121-ba7f-856e-93d0-cc6349654da7",
+  "kind": "chunk",
+  "keys": [
+    "fam_budgeting_runway_1"
+  ],
+  "statement": "((24000 : Int) / (2000 : Int)) = (12 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

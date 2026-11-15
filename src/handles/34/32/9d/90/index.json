@@ -1,0 +1,12 @@
+{
+  "handle": "34329d90",
+  "address": "34329d90-a416-84c9-9088-b27fbf0e8411",
+  "kind": "chunk",
+  "keys": [
+    "fam_wavelet_coefficients_1"
+  ],
+  "statement": "((1024 : Int) / (4 : Int)) = (256 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

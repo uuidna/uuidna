@@ -1,0 +1,12 @@
+{
+  "handle": "69f432c2",
+  "address": "69f432c2-d5f5-8176-bc42-fccc16feb9f8",
+  "statement": "(600 : Int) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pulmonology_peakflow_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

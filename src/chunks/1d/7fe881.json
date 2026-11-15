@@ -1,0 +1,18 @@
+{
+  "handle": "1d7fe881",
+  "address": "1d7fe881-8b69-831e-abf6-e38cc6c38f76",
+  "statement": "(fmax (0 : Int) ((90 : Int) - (100 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_airquality_exceedance_2",
+    "fam_baking_ovenspring_2",
+    "fam_derivative_intrinsic_2",
+    "fam_vitals_regression_2"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesV.lean"
+  ]
+}

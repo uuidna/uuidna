@@ -1,0 +1,12 @@
+{
+  "handle": "5342f926",
+  "address": "5342f926-738b-80da-87a4-1a388c379719",
+  "kind": "chunk",
+  "keys": [
+    "fam_mining_cutoff_2"
+  ],
+  "statement": "(if (if (2000 : Int) ≥ (3000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

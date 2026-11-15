@@ -1,0 +1,14 @@
+{
+  "handle": "2fe86bc2",
+  "address": "2fe86bc2-b135-82b4-be4a-224cd6e7629c",
+  "kind": "chunk",
+  "keys": [
+    "fam_blog_slug_1",
+    "fam_lift_angleofattack_1"
+  ],
+  "statement": "(fmax (0 : Int) ((12 : Int) - (4 : Int))) = (8 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesL.lean"
+  ]
+}

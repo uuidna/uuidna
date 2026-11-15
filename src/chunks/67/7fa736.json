@@ -1,0 +1,14 @@
+{
+  "handle": "677fa736",
+  "address": "677fa736-0cab-8f06-82e3-e5584a01fe69",
+  "statement": "((80 : Int) + (60 : Int)) = (140 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_textiles_threadcount_1",
+    "fam_weaving_threadcount_1"
+  ],
+  "files": [
+    "FamiliesT.lean",
+    "FamiliesW.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "006b7bdc",
+  "address": "006b7bdc-9843-8d3a-b869-997e260c820c",
+  "kind": "chunk",
+  "keys": [
+    "fam_capacitor_energy_1"
+  ],
+  "statement": "((1200 : Int) / (2 : Int)) = (600 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

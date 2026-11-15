@@ -1,0 +1,16 @@
+{
+  "handle": "90df4b89",
+  "address": "90df4b89-6e1d-867a-84dc-c7b621c5e837",
+  "kind": "chunk",
+  "keys": [
+    "fam_etl_batchwindow_1",
+    "fam_refrigeration_pulldown_1",
+    "fam_veterinary_fluidtherapy_1"
+  ],
+  "statement": "(-((-(1000 : Int)) / (250 : Int))) = (4 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesR.lean",
+    "FamiliesV.lean"
+  ]
+}

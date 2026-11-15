@@ -1,0 +1,12 @@
+{
+  "handle": "851857fa",
+  "address": "851857fa-6721-8bbd-89f0-d603497b5993",
+  "kind": "chunk",
+  "keys": [
+    "fam_ecology_population_2"
+  ],
+  "statement": "((50 : Int) - (90 : Int)) = (-40 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

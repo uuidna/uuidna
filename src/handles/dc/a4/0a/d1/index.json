@@ -1,0 +1,14 @@
+{
+  "handle": "dca40ad1",
+  "address": "dca40ad1-7ef4-88da-b8a9-23bd9bd3a296",
+  "kind": "chunk",
+  "keys": [
+    "fam_neuroscience_threshold_1",
+    "fam_roasting_agtron_1"
+  ],
+  "statement": "(55 : Int) = (55 : Int)",
+  "files": [
+    "FamiliesN.lean",
+    "FamiliesR.lean"
+  ]
+}

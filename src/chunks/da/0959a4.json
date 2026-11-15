@@ -1,0 +1,12 @@
+{
+  "handle": "da0959a4",
+  "address": "da0959a4-eb30-8713-b88b-f47a3c855a09",
+  "statement": "((750 : Int) / (3 : Int)) = (250 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dosage_divided_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

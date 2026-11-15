@@ -1,0 +1,12 @@
+{
+  "handle": "360aa0be",
+  "address": "360aa0be-44ff-8e44-9f3b-b0b3d2207d99",
+  "kind": "chunk",
+  "keys": [
+    "fam_silviculture_basalarea_1"
+  ],
+  "statement": "((((10 : Int) ^ (2 : Nat)) * (4 : Int)) / (4 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

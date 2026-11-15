@@ -1,0 +1,12 @@
+{
+  "handle": "eede4edc",
+  "address": "eede4edc-f851-8b8c-8e50-80dd51ccf367",
+  "statement": "(((30 : Int) * (45 : Int)) / (90 : Int)) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_geodesy_convergence_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

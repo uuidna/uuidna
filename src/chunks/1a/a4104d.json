@@ -1,0 +1,14 @@
+{
+  "handle": "1aa4104d",
+  "address": "1aa4104d-c472-85df-99e3-12a60a62de3d",
+  "statement": "((2 : Int) * (6 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_electrolyte_ions_1",
+    "fam_tiling_symmetryorder_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesT.lean"
+  ]
+}

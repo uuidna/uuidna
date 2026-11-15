@@ -1,0 +1,14 @@
+{
+  "handle": "738ee1f7",
+  "address": "738ee1f7-99b4-8355-998b-fc206f2ea0f2",
+  "statement": "((12 : Int) * (1 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_interestrate_compoundperiods_1",
+    "fam_monsoon_cyclelength_1"
+  ],
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesM.lean"
+  ]
+}

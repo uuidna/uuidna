@@ -1,0 +1,14 @@
+{
+  "handle": "4b13ef9d",
+  "address": "4b13ef9d-a07d-869e-ac80-868d4d25c2d6",
+  "kind": "chunk",
+  "keys": [
+    "fam_bandwidth_channels_1",
+    "fam_hydroponics_dwc_1"
+  ],
+  "statement": "((8 : Int) * (20 : Int)) = (160 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesH.lean"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "handle": "4440a36b",
+  "address": "4440a36b-d50f-8f17-9950-8306dad7a9ae",
+  "statement": "(fmax (0 : Int) ((5 : Int) - (1 : Int))) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_causal_chains_1",
+    "fam_chemistry_bonds_1",
+    "fam_linkage_jointcount_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c7abb38f",
+  "address": "c7abb38f-7799-8e82-af93-2f42e37dee7f",
+  "statement": "(((300 : Int) * (100 : Int)) / (1200 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_broadcasting_share_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

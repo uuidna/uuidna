@@ -1,0 +1,16 @@
+{
+  "handle": "5e78f6cc",
+  "address": "5e78f6cc-d6b5-80a8-ac63-fe40dfdee723",
+  "statement": "((1000000 : Int) / (500 : Int)) = (2000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_demographics_density_1",
+    "fam_metallurgy_fatigue_1",
+    "fam_tribology_fatigue_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesM.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "handle": "300bd23b",
+  "address": "300bd23b-46c1-874e-bf55-b9226f0e31c3",
+  "statement": "(((50 : Int) * (100 : Int)) / (10 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_astrometry_resolution_1",
+    "fam_germination_speedindex_1",
+    "fam_underwriting_risk_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesG.lean",
+    "FamiliesU.lean"
+  ]
+}

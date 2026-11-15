@@ -1,0 +1,12 @@
+{
+  "handle": "0443825f",
+  "address": "0443825f-59c2-8a3b-9d2c-55be7f357156",
+  "kind": "chunk",
+  "keys": [
+    "fam_conditioning_onerepmax_1"
+  ],
+  "statement": "((100 : Int) + (((100 : Int) * (5 : Int)) / (30 : Int))) = (116 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

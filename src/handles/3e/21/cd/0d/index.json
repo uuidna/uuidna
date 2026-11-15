@@ -1,0 +1,16 @@
+{
+  "handle": "3e21cd0d",
+  "address": "3e21cd0d-596a-88d5-8e9a-f464441454f7",
+  "kind": "chunk",
+  "keys": [
+    "fam_portfolio_rebalance_1",
+    "fam_rheumatology_crp_1",
+    "fam_star_magnitude_1"
+  ],
+  "statement": "(fmax (0 : Int) ((15 : Int) - (5 : Int))) = (10 : Int)",
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

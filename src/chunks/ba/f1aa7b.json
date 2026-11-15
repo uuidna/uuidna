@@ -1,0 +1,12 @@
+{
+  "handle": "baf1aa7b",
+  "address": "baf1aa7b-2cbe-8477-8ac2-f86cf7ae0550",
+  "statement": "(((104000 : Int) * (15 : Int)) / (100 : Int)) = (15600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_compensation_bonus_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

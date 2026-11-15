@@ -1,0 +1,15 @@
+{
+  "handle": "1b136fa0",
+  "address": "1b136fa0-e214-81a0-a807-d921c384623b",
+  "statement": "((3000 : Int) / (60 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_electrical_frequency_1",
+    "fam_ergometry_energyrate_1",
+    "fam_hydrography_currentspeed_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesH.lean"
+  ]
+}

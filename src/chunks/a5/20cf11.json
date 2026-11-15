@@ -1,0 +1,12 @@
+{
+  "handle": "a520cf11",
+  "address": "a520cf11-f6cd-8358-a109-20d9433b8915",
+  "statement": "(fmin (5000 : Int) (500 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_claims_deductible_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

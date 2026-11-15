@@ -1,0 +1,12 @@
+{
+  "handle": "874c687b",
+  "address": "874c687b-0478-85c6-821e-e29210c2f259",
+  "kind": "chunk",
+  "keys": [
+    "fam_access_read_3"
+  ],
+  "statement": "(if (if (if (1 : Int) ≥ (2 : Int) then (1 : Int) else 0) ≠ 0 ∨ (if (1 : Int) ≥ (1 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

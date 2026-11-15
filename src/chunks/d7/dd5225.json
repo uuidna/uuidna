@@ -1,0 +1,12 @@
+{
+  "handle": "d7dd5225",
+  "address": "d7dd5225-b733-82a2-87f1-62d92404a983",
+  "statement": "((365 : Int) % (7 : Int)) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_calendar_dayofweek_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

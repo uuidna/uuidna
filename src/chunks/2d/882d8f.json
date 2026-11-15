@@ -1,0 +1,12 @@
+{
+  "handle": "2d882d8f",
+  "address": "2d882d8f-a704-85a0-9bce-dd13dcc1fb64",
+  "statement": "((((2 : Int) * (45 : Int)) * (100 : Int)) / ((10 : Int) * ((10 : Int) - (1 : Int)))) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_graphtheory_density_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

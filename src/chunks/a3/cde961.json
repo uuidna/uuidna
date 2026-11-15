@@ -1,0 +1,12 @@
+{
+  "handle": "a3cde961",
+  "address": "a3cde961-89ec-88cb-8767-533c74e6174a",
+  "statement": "(fmax (0 : Int) ((60000 : Int) - (18000 : Int))) = (42000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_amortization_remainingbalance_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

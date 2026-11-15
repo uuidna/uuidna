@@ -1,0 +1,12 @@
+{
+  "handle": "72c5cecc",
+  "address": "72c5cecc-86ea-8c60-a5d3-27937997c732",
+  "statement": "((fmax (0 : Int) ((4 : Int) - (1 : Int))) * (16 : Int)) = (48 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_grid_gap_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

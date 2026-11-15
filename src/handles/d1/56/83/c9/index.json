@@ -1,0 +1,12 @@
+{
+  "handle": "d15683c9",
+  "address": "d15683c9-3025-8ad7-9b22-29011a8cc2c5",
+  "kind": "chunk",
+  "keys": [
+    "fam_filtering_order_1"
+  ],
+  "statement": "(-((-(96 : Int)) / (24 : Int))) = (4 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

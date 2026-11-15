@@ -1,0 +1,12 @@
+{
+  "handle": "df336ab4",
+  "address": "df336ab4-10d8-8a01-857a-10d00e08327d",
+  "kind": "chunk",
+  "keys": [
+    "fam_coffee_strength_2"
+  ],
+  "statement": "(if (if (10 : Int) ≥ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

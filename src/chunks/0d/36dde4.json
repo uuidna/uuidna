@@ -1,0 +1,12 @@
+{
+  "handle": "0d36dde4",
+  "address": "0d36dde4-8445-84c3-9f6f-62defc0ce967",
+  "statement": "(fmin (100 : Int) (30 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_gradient_clip_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

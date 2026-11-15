@@ -1,0 +1,12 @@
+{
+  "handle": "b73e4f9a",
+  "address": "b73e4f9a-7f81-826a-ac67-9b494ee796b5",
+  "statement": "((40 : Int) + (0 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_elevator_floors_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

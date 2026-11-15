@@ -1,0 +1,12 @@
+{
+  "handle": "4634a749",
+  "address": "4634a749-8bb5-8981-92d0-897d6012991f",
+  "statement": "(((45 : Int) * (10 : Int)) / (100 : Int)) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hematocrit_bloodviscosity_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

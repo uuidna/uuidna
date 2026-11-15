@@ -1,0 +1,12 @@
+{
+  "handle": "9734005a",
+  "address": "9734005a-798d-8f33-8f19-98b02cc8be28",
+  "statement": "((15360 : Int) / (512 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sonography_resolution_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

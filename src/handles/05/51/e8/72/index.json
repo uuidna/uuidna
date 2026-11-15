@@ -1,0 +1,12 @@
+{
+  "handle": "0551e872",
+  "address": "0551e872-7e8a-83f9-b70c-08aa01f9dec2",
+  "kind": "chunk",
+  "keys": [
+    "fam_biomechanics_moment_1"
+  ],
+  "statement": "((10 : Int) * ((4 : Int) ^ (2 : Nat))) = (160 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

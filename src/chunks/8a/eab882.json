@@ -1,0 +1,12 @@
+{
+  "handle": "8aeab882",
+  "address": "8aeab882-8ff1-8767-aaa6-9f6462280caf",
+  "statement": "(((1000000 : Int) * (4 : Int)) / (100 : Int)) = (40000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_compliance_penalty_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "14b42d60",
+  "address": "14b42d60-e425-8475-a4f1-cb3d8b0bcd79",
+  "statement": "((49 : Int) / (7 : Int)) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_neuropsychology_span_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

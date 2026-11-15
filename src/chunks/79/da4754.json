@@ -1,0 +1,12 @@
+{
+  "handle": "79da4754",
+  "address": "79da4754-60c2-8842-8726-3e386050088b",
+  "statement": "((65535 : Int) % (256 : Int)) = (255 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_packet_checksum_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

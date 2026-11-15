@@ -1,0 +1,12 @@
+{
+  "handle": "7d3c2cff",
+  "address": "7d3c2cff-ccc0-883b-bf37-526a0bcd4c39",
+  "kind": "chunk",
+  "keys": [
+    "fam_codec_bitrate_1"
+  ],
+  "statement": "((128 : Int) * (1000 : Int)) = (128000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

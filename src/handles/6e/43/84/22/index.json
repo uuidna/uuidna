@@ -1,0 +1,22 @@
+{
+  "handle": "6e438422",
+  "address": "6e438422-864c-8ad4-abeb-aef118247ecb",
+  "kind": "chunk",
+  "keys": [
+    "fam_calligraphy_strokecount_1",
+    "fam_patristics_fathercount_1",
+    "fam_protein_helices_1",
+    "fam_receipts_itemcount_1",
+    "fam_screenwriting_charactercount_1",
+    "fam_totemism_clans_1",
+    "fam_transliteration_diacriticcount_1"
+  ],
+  "statement": "((8 : Int) + (4 : Int)) = (12 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

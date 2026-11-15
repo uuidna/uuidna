@@ -1,0 +1,12 @@
+{
+  "handle": "c4759873",
+  "address": "c4759873-90fe-883b-a620-1767b16d2127",
+  "statement": "(((5000 : Int) * (650 : Int)) / (1000 : Int)) = (3250 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_winemaking_yield_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

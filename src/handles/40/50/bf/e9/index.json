@@ -1,0 +1,14 @@
+{
+  "handle": "4050bfe9",
+  "address": "4050bfe9-2246-8485-abb6-f8326ba8a442",
+  "kind": "chunk",
+  "keys": [
+    "fam_backhaul_cycledistance_1",
+    "fam_storage_tier_1"
+  ],
+  "statement": "((700 : Int) + (300 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesS.lean"
+  ]
+}

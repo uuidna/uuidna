@@ -1,0 +1,16 @@
+{
+  "handle": "f328d905",
+  "address": "f328d905-3419-861c-bc79-f84f2c23c68f",
+  "kind": "chunk",
+  "keys": [
+    "fam_ferry_capacity_1",
+    "fam_hovercraft_fanpower_1",
+    "fam_wastewater_cod_1"
+  ],
+  "statement": "((200 : Int) * (2 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesW.lean"
+  ]
+}

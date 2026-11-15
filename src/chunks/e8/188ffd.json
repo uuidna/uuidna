@@ -1,0 +1,14 @@
+{
+  "handle": "e8188ffd",
+  "address": "e8188ffd-4a68-834b-bd1f-22fc56c6adfd",
+  "statement": "((360 : Int) / (4 : Int)) = (90 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_astrometry_propermotion_1",
+    "fam_kinesiology_jointangle_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesK.lean"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "handle": "ec31da78",
+  "address": "ec31da78-2edb-87ec-ba67-fbb7c9dc21a6",
+  "kind": "chunk",
+  "keys": [
+    "fam_chord_stackedthirds_1",
+    "fam_kinship_cousindegree_1",
+    "fam_linearalgebra_nullity_1"
+  ],
+  "statement": "(fmax (0 : Int) ((4 : Int) - (1 : Int))) = (3 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesK.lean",
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "11cfcde8",
+  "address": "11cfcde8-d022-8371-b746-c8b214c7adda",
+  "statement": "(fmax (0 : Int) ((90 : Int) - (15 : Int))) = (75 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_workspace_singularitymargin_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

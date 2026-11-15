@@ -1,0 +1,12 @@
+{
+  "handle": "abec31c8",
+  "address": "abec31c8-763b-84e2-9802-7976597b669e",
+  "statement": "(((1000 : Int) * (fmax (0 : Int) ((100 : Int) - (20 : Int)))) / (100 : Int)) = (800 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_photovoltaic_derate_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

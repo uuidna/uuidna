@@ -1,0 +1,12 @@
+{
+  "handle": "09b80311",
+  "address": "09b80311-ab77-8e58-8eef-b041fa2f6015",
+  "kind": "chunk",
+  "keys": [
+    "fam_crystallography_unitcell_1"
+  ],
+  "statement": "((5 : Int) * (5 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

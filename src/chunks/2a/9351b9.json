@@ -1,0 +1,12 @@
+{
+  "handle": "2a9351b9",
+  "address": "2a9351b9-f98b-82b0-9043-4fa2c7716949",
+  "statement": "(fmax (0 : Int) ((40 : Int) - (90 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tides_neaptide_2"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

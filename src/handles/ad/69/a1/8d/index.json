@@ -1,0 +1,12 @@
+{
+  "handle": "ad69a18d",
+  "address": "ad69a18d-2cb8-8dbb-b343-a624ae7541f1",
+  "kind": "chunk",
+  "keys": [
+    "fam_colorgrading_luminance_1"
+  ],
+  "statement": "(((((100 : Int) * (54 : Int)) + ((200 : Int) * (183 : Int))) + ((50 : Int) * (19 : Int))) / (256 : Int)) = (167 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

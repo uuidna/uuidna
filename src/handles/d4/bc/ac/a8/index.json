@@ -1,0 +1,14 @@
+{
+  "handle": "d4bcaca8",
+  "address": "d4bcaca8-afeb-887e-9eb9-319d1270208d",
+  "kind": "chunk",
+  "keys": [
+    "fam_neuropsychology_iq_1",
+    "fam_psychology_iq_1"
+  ],
+  "statement": "(((12 : Int) * (100 : Int)) / (10 : Int)) = (120 : Int)",
+  "files": [
+    "FamiliesN.lean",
+    "FamiliesP.lean"
+  ]
+}

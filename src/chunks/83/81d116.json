@@ -1,0 +1,12 @@
+{
+  "handle": "8381d116",
+  "address": "8381d116-cd4b-815f-8122-b51e21b89b35",
+  "statement": "(((300 : Int) * (1000 : Int)) / (225 : Int)) = (1333 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_refraction_index_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

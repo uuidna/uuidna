@@ -1,0 +1,12 @@
+{
+  "handle": "5758dc6c",
+  "address": "5758dc6c-7b6b-8a26-b102-bef5e189499d",
+  "kind": "chunk",
+  "keys": [
+    "fam_gradient_epoch_1"
+  ],
+  "statement": "(-((-(1000 : Int)) / (32 : Int))) = (32 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bc0090bd",
+  "address": "bc0090bd-cc48-80ce-aa61-fd6d5bc87be7",
+  "statement": "(((2400 : Int) * (5 : Int)) / (1000 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_exoplanet_transitduration_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

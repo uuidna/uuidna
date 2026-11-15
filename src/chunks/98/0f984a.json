@@ -1,0 +1,16 @@
+{
+  "handle": "980f984a",
+  "address": "980f984a-4c51-8dff-9ff0-42af7b92e69f",
+  "statement": "((3 : Int) * (1 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_distilling_distillationruns_1",
+    "fam_phenomenology_reductions_1",
+    "fam_vector_components_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesP.lean",
+    "FamiliesV.lean"
+  ]
+}

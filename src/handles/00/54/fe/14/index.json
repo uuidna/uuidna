@@ -1,0 +1,12 @@
+{
+  "handle": "0054fe14",
+  "address": "0054fe14-34b4-84f0-ab57-c4be1460c77a",
+  "kind": "chunk",
+  "keys": [
+    "fam_cryptanalysis_coincidence_1"
+  ],
+  "statement": "(((5 : Int) * (10000 : Int)) / (100 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

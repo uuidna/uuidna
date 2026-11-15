@@ -1,0 +1,19 @@
+{
+  "handle": "6272f8b3",
+  "address": "6272f8b3-7f37-8f56-9f1f-34f9e5b7fddb",
+  "statement": "(-((-(100 : Int)) / (12 : Int))) = (9 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_accessibility_focusorder_1",
+    "fam_animation_keyframes_1",
+    "fam_canning_batch_1",
+    "fam_excavation_haul_1",
+    "fam_fulfillment_pack_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean"
+  ]
+}

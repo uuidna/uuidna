@@ -1,0 +1,12 @@
+{
+  "handle": "79916935",
+  "address": "79916935-ffa6-80d4-8240-be99c41c68e4",
+  "kind": "chunk",
+  "keys": [
+    "fam_phycology_growthrate_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((1999 : Int) - (1000 : Int))) * (100 : Int)) / (1000 : Int)) = (99 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "498468d8",
+  "address": "498468d8-f75e-8370-9f58-761fd47b9633",
+  "kind": "chunk",
+  "keys": [
+    "fam_grazing_restperiod_1"
+  ],
+  "statement": "(fmax (0 : Int) ((40 : Int) - (5 : Int))) = (35 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

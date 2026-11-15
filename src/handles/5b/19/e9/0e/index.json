@@ -1,0 +1,12 @@
+{
+  "handle": "5b19e90e",
+  "address": "5b19e90e-ef46-80de-9c6f-fd3c9c8ca6fa",
+  "kind": "chunk",
+  "keys": [
+    "fam_med_gcs_2"
+  ],
+  "statement": "(((1 : Int) + (1 : Int)) + (1 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

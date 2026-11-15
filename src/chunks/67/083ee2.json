@@ -1,0 +1,14 @@
+{
+  "handle": "67083ee2",
+  "address": "67083ee2-a941-853c-b8ba-af76f29c06eb",
+  "statement": "(((35 : Int) * (1000 : Int)) / (1000 : Int)) = (35 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_geochemistry_salinity_1",
+    "fam_oceanography_salinity_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesO.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "c82c545b",
+  "address": "c82c545b-3b69-8673-8a04-bd429d99e35e",
+  "statement": "(((10 : Int) * (10000 : Int)) / (1000 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_astrophysics_timescale_1",
+    "fam_stellar_mainsequencelifetime_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesS.lean"
+  ]
+}

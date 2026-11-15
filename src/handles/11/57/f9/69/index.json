@@ -1,0 +1,12 @@
+{
+  "handle": "1157f969",
+  "address": "1157f969-6cb8-8616-935e-5a8f8a1e16a9",
+  "kind": "chunk",
+  "keys": [
+    "fam_eclipse_frequency_1"
+  ],
+  "statement": "((18 : Int) / (1 : Int)) = (18 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

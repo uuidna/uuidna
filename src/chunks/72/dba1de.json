@@ -1,0 +1,12 @@
+{
+  "handle": "72dba1de",
+  "address": "72dba1de-2085-89a9-aa5d-e8b6856c9dd4",
+  "statement": "(fmax (0 : Int) ((200 : Int) - (80 : Int))) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_catalyst_activation_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

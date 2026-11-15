@@ -1,0 +1,14 @@
+{
+  "handle": "e44872e9",
+  "address": "e44872e9-90f8-892d-93a5-4efd09f18f00",
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (2000 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_api_remaining_2",
+    "fam_serialization_payload_2"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesS.lean"
+  ]
+}

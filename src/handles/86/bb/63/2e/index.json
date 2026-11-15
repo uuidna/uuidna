@@ -1,0 +1,12 @@
+{
+  "handle": "86bb632e",
+  "address": "86bb632e-0448-866f-94d5-244fca86e823",
+  "kind": "chunk",
+  "keys": [
+    "fam_bioenergetics_redoxpotential_1"
+  ],
+  "statement": "(fmax (0 : Int) ((820 : Int) - (320 : Int))) = (500 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

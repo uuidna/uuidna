@@ -1,0 +1,12 @@
+{
+  "handle": "bb7189c0",
+  "address": "bb7189c0-ead6-82c8-a93e-1fd497602be7",
+  "statement": "((1361 : Int) / (1 : Int)) = (1361 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_heliophysics_irradiance_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

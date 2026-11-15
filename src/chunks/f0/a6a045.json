@@ -1,0 +1,12 @@
+{
+  "handle": "f0a6a045",
+  "address": "f0a6a045-29b4-84c6-ac1b-ece1f84f1249",
+  "statement": "((1200 : Int) / (48 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fermentation_rate_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "673f86cb",
+  "address": "673f86cb-3ea3-8f90-a32c-e143950e00c9",
+  "kind": "chunk",
+  "keys": [
+    "fam_sentence_mandatory_1"
+  ],
+  "statement": "(fmax (24 : Int) (18 : Int)) = (24 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

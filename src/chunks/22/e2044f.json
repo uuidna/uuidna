@@ -1,0 +1,12 @@
+{
+  "handle": "22e2044f",
+  "address": "22e2044f-710f-81cb-85c1-ec2e73ef73af",
+  "statement": "(((150 : Int) * (100 : Int)) / (120 : Int)) = (125 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_prevalence_adjustedrate_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

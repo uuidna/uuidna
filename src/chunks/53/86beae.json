@@ -1,0 +1,13 @@
+{
+  "handle": "5386beae",
+  "address": "5386beae-ca8a-8428-92e8-fbc7788416aa",
+  "statement": "(((100000 : Int) * (30 : Int)) / (100 : Int)) = (30000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_compensation_benefit_1",
+    "fam_court_settlement_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

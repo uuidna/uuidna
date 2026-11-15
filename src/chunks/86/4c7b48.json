@@ -1,0 +1,12 @@
+{
+  "handle": "864c7b48",
+  "address": "864c7b48-15d1-8a21-9a74-51726b500d01",
+  "statement": "(fmax (0 : Int) ((2 : Int) - (0 : Int))) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_topology_genus_2"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

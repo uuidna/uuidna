@@ -1,0 +1,14 @@
+{
+  "handle": "49790b2c",
+  "address": "49790b2c-44ec-8b5c-b3c2-765860e1e0c9",
+  "kind": "chunk",
+  "keys": [
+    "fam_clearance_extractionratio_1",
+    "fam_queueing_idleprobability_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((100 : Int) - (25 : Int))) * (100 : Int)) / (100 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesQ.lean"
+  ]
+}

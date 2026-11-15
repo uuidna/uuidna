@@ -1,0 +1,12 @@
+{
+  "handle": "e142a46c",
+  "address": "e142a46c-133f-84be-ad41-dbec75595a3c",
+  "statement": "((1 : Int) + ((100 : Int) * (1 : Int))) = (101 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_graphql_nplusone_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

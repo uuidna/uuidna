@@ -1,0 +1,12 @@
+{
+  "handle": "6df6a25e",
+  "address": "6df6a25e-c942-8440-91af-bfe20cbef30a",
+  "kind": "chunk",
+  "keys": [
+    "fam_smoking_temperaturezone_1"
+  ],
+  "statement": "(fmax (107 : Int) (110 : Int)) = (110 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

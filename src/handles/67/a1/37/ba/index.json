@@ -1,0 +1,12 @@
+{
+  "handle": "67a137ba",
+  "address": "67a137ba-319d-88ca-a443-768709ccb185",
+  "kind": "chunk",
+  "keys": [
+    "fam_shogi_branchingfactor_1"
+  ],
+  "statement": "((80 : Int) + (0 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

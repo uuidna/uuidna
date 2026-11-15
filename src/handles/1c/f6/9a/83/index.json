@@ -1,0 +1,12 @@
+{
+  "handle": "1cf69a83",
+  "address": "1cf69a83-be1f-822a-b792-18fa1432c67f",
+  "kind": "chunk",
+  "keys": [
+    "fam_code_wrap_2"
+  ],
+  "statement": "(if (if (160 : Int) ≤ (120 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

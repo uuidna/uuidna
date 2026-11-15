@@ -1,0 +1,12 @@
+{
+  "handle": "9359fefa",
+  "address": "9359fefa-8e42-8e1f-9cdb-0b38fdcc751a",
+  "kind": "chunk",
+  "keys": [
+    "fam_transformer_regulation_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((250 : Int) - (240 : Int))) * (100 : Int)) / (240 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

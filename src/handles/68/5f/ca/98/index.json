@@ -1,0 +1,12 @@
+{
+  "handle": "685fca98",
+  "address": "685fca98-9fda-8410-a6d0-fe88dc94867a",
+  "kind": "chunk",
+  "keys": [
+    "fam_tomography_coverage_1"
+  ],
+  "statement": "((64 : Int) * (1 : Int)) = (64 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

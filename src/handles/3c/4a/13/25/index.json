@@ -1,0 +1,12 @@
+{
+  "handle": "3c4a1325",
+  "address": "3c4a1325-bb4d-8be2-8428-a2cdee6688ed",
+  "kind": "chunk",
+  "keys": [
+    "fam_pathology_cellularity_1"
+  ],
+  "statement": "((2000 : Int) / (4 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

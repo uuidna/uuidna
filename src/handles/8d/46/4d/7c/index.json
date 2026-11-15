@@ -1,0 +1,14 @@
+{
+  "handle": "8d464d7c",
+  "address": "8d464d7c-d4f7-8493-8ad6-c0262ce882c0",
+  "kind": "chunk",
+  "keys": [
+    "fam_sampling_finitecorrection_1",
+    "fam_wavelet_compression_1"
+  ],
+  "statement": "((((1000 : Int) - (100 : Int)) * (100 : Int)) / (1000 : Int)) = (90 : Int)",
+  "files": [
+    "FamiliesS.lean",
+    "FamiliesW.lean"
+  ]
+}

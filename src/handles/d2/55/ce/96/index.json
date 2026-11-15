@@ -1,0 +1,12 @@
+{
+  "handle": "d255ce96",
+  "address": "d255ce96-b002-88d3-9cb2-202552d79d81",
+  "kind": "chunk",
+  "keys": [
+    "fam_gematria_lettervalue_1"
+  ],
+  "statement": "((22 : Int) * (1 : Int)) = (22 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

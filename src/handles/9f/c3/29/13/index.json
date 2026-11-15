@@ -1,0 +1,12 @@
+{
+  "handle": "9fc32913",
+  "address": "9fc32913-f3d9-8e06-9530-768c912af64e",
+  "kind": "chunk",
+  "keys": [
+    "fam_ecommerce_aov_1"
+  ],
+  "statement": "((50000 : Int) / (250 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

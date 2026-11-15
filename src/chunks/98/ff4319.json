@@ -1,0 +1,12 @@
+{
+  "handle": "98ff4319",
+  "address": "98ff4319-01c8-8829-ad57-a9224755125d",
+  "statement": "(((1000 : Int) * (90 : Int)) / (1333 : Int)) = (67 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_refraction_criticalangle_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

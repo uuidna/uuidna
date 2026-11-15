@@ -1,0 +1,12 @@
+{
+  "handle": "d10e96f1",
+  "address": "d10e96f1-a97d-8901-81be-07d8a1c4f95e",
+  "statement": "(((50 : Int) * (200 : Int)) / (100 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_highlights_parallax_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

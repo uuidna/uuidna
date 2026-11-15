@@ -1,0 +1,12 @@
+{
+  "handle": "4d1d5c6a",
+  "address": "4d1d5c6a-7202-8196-b84f-21b9300122a2",
+  "statement": "((240000 : Int) / (80000 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_social_frequency_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

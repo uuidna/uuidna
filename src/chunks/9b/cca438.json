@@ -1,0 +1,20 @@
+{
+  "handle": "9bcca438",
+  "address": "9bcca438-803d-844c-9337-f822dd2d9f28",
+  "statement": "((64 : Int) / (8 : Int)) = (8 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_choreography_phrasecount_1",
+    "fam_dance_phrase_1",
+    "fam_hardware_busbytes_1",
+    "fam_melody_phraselength_1",
+    "fam_plasma_bytes_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cbe411a4",
+  "address": "cbe411a4-19ef-831c-aada-b69ad41a580d",
+  "statement": "(-((-(2000 : Int)) / (500 : Int))) = (4 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_photovoltaic_payback_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

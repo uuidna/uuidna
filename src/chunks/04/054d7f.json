@@ -1,0 +1,12 @@
+{
+  "handle": "04054d7f",
+  "address": "04054d7f-a9cb-8d0a-9fdb-bcdd00ed6153",
+  "statement": "((((1000 : Int) - (800 : Int)) * (100 : Int)) / (1000 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_portfolio_drawdown_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

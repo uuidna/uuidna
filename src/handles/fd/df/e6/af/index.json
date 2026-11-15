@@ -1,0 +1,12 @@
+{
+  "handle": "fddfe6af",
+  "address": "fddfe6af-53ee-8413-be6f-7328b7fb366e",
+  "kind": "chunk",
+  "keys": [
+    "fam_aesthetics_contrast_1"
+  ],
+  "statement": "((21 : Int) / (3 : Int)) = (7 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

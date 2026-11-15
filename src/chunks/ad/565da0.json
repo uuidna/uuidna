@@ -1,0 +1,12 @@
+{
+  "handle": "ad565da0",
+  "address": "ad565da0-46c4-8925-b8a6-c7808e6bfce0",
+  "statement": "(fmax (0 : Int) ((200 : Int) - (500 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_thermodynamics_internal_2"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

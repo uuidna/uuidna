@@ -1,0 +1,12 @@
+{
+  "handle": "c60eb421",
+  "address": "c60eb421-617e-8f7c-97b4-0c45b923bcbb",
+  "kind": "chunk",
+  "keys": [
+    "fam_weather_windchill_2"
+  ],
+  "statement": "(fmax (0 : Int) ((3 : Int) - ((90 : Int) / (10 : Int)))) = (0 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

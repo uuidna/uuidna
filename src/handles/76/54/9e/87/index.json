@@ -1,0 +1,12 @@
+{
+  "handle": "76549e87",
+  "address": "76549e87-0bb0-804f-8892-3195a02854ab",
+  "kind": "chunk",
+  "keys": [
+    "fam_tides_range_1"
+  ],
+  "statement": "(fmax (0 : Int) ((312 : Int) - (48 : Int))) = (264 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

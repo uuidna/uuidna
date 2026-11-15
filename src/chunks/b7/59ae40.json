@@ -1,0 +1,12 @@
+{
+  "handle": "b759ae40",
+  "address": "b759ae40-0ec4-807a-ae9c-6a16e0159abb",
+  "statement": "((15 : Int) + (7 : Int)) = (22 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_apocrypha_bookcount_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

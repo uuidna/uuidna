@@ -1,0 +1,12 @@
+{
+  "handle": "cd9e65b1",
+  "address": "cd9e65b1-498e-8345-930a-6a9e605d8f97",
+  "statement": "((1024 : Int) * (10 : Int)) = (10240 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fourier_fftoperations_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

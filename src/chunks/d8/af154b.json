@@ -1,0 +1,33 @@
+{
+  "handle": "d8af154b",
+  "address": "d8af154b-a56b-8396-95fd-d1663ea50201",
+  "statement": "((10000 : Int) / (50 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_acquisition_cac_1",
+    "fam_apoptosis_turnover_1",
+    "fam_braking_pressure_1",
+    "fam_corrosion_lifetime_1",
+    "fam_ecology_carrying_1",
+    "fam_fatigue_cyclestofailure_1",
+    "fam_funnel_value_1",
+    "fam_geography_density_1",
+    "fam_greenspace_recreationcapacity_1",
+    "fam_lidar_pointdensity_1",
+    "fam_photogrammetry_reconstruction_1",
+    "fam_shipping_freightrate_1",
+    "fam_telecom_coverage_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

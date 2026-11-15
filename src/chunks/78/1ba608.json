@@ -1,0 +1,12 @@
+{
+  "handle": "781ba608",
+  "address": "781ba608-5daf-89d6-8cac-99d0582dc40b",
+  "statement": "(((50 : Int) * (20 : Int)) * (20 : Int)) = (20000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_airship_volume_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8f9a778d",
+  "address": "8f9a778d-8e5c-8ef9-9d29-83633911de3a",
+  "statement": "(((255 : Int) * (100 : Int)) / (365 : Int)) = (69 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_family_overnights_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

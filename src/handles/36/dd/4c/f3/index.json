@@ -1,0 +1,12 @@
+{
+  "handle": "36dd4cf3",
+  "address": "36dd4cf3-44a9-8406-a944-491480e1a7b8",
+  "kind": "chunk",
+  "keys": [
+    "fam_merkle_proofsize_1"
+  ],
+  "statement": "((4 : Int) * (32 : Int)) = (128 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

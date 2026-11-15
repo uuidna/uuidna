@@ -1,0 +1,12 @@
+{
+  "handle": "e7fc207d",
+  "address": "e7fc207d-45a5-8a57-9fa6-c5b6ae7d0751",
+  "statement": "(-((-(5000 : Int)) / (300 : Int))) = (17 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cargo_containers_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

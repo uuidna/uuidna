@@ -1,0 +1,12 @@
+{
+  "handle": "0395021b",
+  "address": "0395021b-b6df-8e06-a530-7ab4153773cd",
+  "kind": "chunk",
+  "keys": [
+    "fam_collaboration_throughput_1"
+  ],
+  "statement": "((140 : Int) / (7 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

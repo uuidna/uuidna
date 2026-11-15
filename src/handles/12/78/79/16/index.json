@@ -1,0 +1,12 @@
+{
+  "handle": "12787916",
+  "address": "12787916-12ff-888d-b439-e460896e63d5",
+  "kind": "chunk",
+  "keys": [
+    "fam_learning_overfit_2"
+  ],
+  "statement": "(fmax (0 : Int) ((90 : Int) - (98 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

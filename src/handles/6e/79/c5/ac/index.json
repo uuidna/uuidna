@@ -1,0 +1,12 @@
+{
+  "handle": "6e79c5ac",
+  "address": "6e79c5ac-4b12-864a-ba33-180bc5f1fa04",
+  "kind": "chunk",
+  "keys": [
+    "fam_cheese_rennet_1"
+  ],
+  "statement": "(-((-(1000 : Int)) / (150 : Int))) = (7 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

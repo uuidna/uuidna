@@ -1,0 +1,12 @@
+{
+  "handle": "25e5c529",
+  "address": "25e5c529-85cc-8ecc-9a94-36131702025d",
+  "statement": "(((1 : Int) + (2 : Int)) + (3 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_numerology_harmonicsum_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

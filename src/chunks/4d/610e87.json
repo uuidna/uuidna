@@ -1,0 +1,12 @@
+{
+  "handle": "4d610e87",
+  "address": "4d610e87-ba8a-82d1-b1e9-873e2369e14b",
+  "statement": "((10 : Int) * (250 : Int)) = (2500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_court_costs_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

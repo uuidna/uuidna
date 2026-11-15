@@ -1,0 +1,36 @@
+{
+  "handle": "11c4b482",
+  "address": "11c4b482-2510-8498-96c2-d33174239514",
+  "statement": "(((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_agronomy_nitrogen_1",
+    "fam_biomass_carbonneutral_1",
+    "fam_cartography_distortion_1",
+    "fam_cohort_comparison_1",
+    "fam_consolidation_densitygain_1",
+    "fam_geochemistry_saturation_1",
+    "fam_incidence_standardized_1",
+    "fam_landslide_factorofsafety_1",
+    "fam_lastmile_detourfactor_1",
+    "fam_perception_illusion_1",
+    "fam_portfolio_beta_1",
+    "fam_recovery_overtrainingindex_1",
+    "fam_sustainability_footprint_1",
+    "fam_timeseries_seasonalindex_1",
+    "fam_translation_expansion_1",
+    "fam_treasury_reserve_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

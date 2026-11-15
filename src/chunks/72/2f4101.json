@@ -1,0 +1,16 @@
+{
+  "handle": "722f4101",
+  "address": "722f4101-75b6-80ae-818e-5005120730b6",
+  "statement": "((600 : Int) / (4 : Int)) = (150 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_equine_stride_1",
+    "fam_reliability_mttr_1",
+    "fam_semiconductors_junction_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

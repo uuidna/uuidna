@@ -1,0 +1,12 @@
+{
+  "handle": "7d2896a7",
+  "address": "7d2896a7-df82-8161-aa47-9e8b172f4da4",
+  "kind": "chunk",
+  "keys": [
+    "fam_family_imputed_1"
+  ],
+  "statement": "(fmax (50000 : Int) (20000 : Int)) = (50000 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

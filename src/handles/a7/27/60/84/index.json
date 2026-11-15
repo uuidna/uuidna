@@ -1,0 +1,12 @@
+{
+  "handle": "a7276084",
+  "address": "a7276084-63d5-8a08-b3cd-1771dcc11bf0",
+  "kind": "chunk",
+  "keys": [
+    "fam_cern_bunchspacing_1"
+  ],
+  "statement": "((25 : Int) / (1 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

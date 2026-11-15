@@ -1,0 +1,12 @@
+{
+  "handle": "2b1a20b1",
+  "address": "2b1a20b1-9351-8b6b-9927-96ba9669cb30",
+  "kind": "chunk",
+  "keys": [
+    "fam_remediation_threshold_2"
+  ],
+  "statement": "(if (if (60 : Int) ≤ (50 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

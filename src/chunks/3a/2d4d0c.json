@@ -1,0 +1,14 @@
+{
+  "handle": "3a2d4d0c",
+  "address": "3a2d4d0c-4c07-8703-b15a-dc977381ea57",
+  "statement": "(((1 : Int) * (100 : Int)) / (8 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_photosynthesis_quantumyield_1",
+    "fam_state_diff_1"
+  ],
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

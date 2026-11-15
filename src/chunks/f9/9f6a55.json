@@ -1,0 +1,12 @@
+{
+  "handle": "f99f6a55",
+  "address": "f99f6a55-0da9-8faa-8f5f-cbfa939d3e19",
+  "statement": "((80 : Int) - (50 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_glaciology_massbalance_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

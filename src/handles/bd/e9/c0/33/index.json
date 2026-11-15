@@ -1,0 +1,12 @@
+{
+  "handle": "bde9c033",
+  "address": "bde9c033-85a0-8d3e-ba17-22837dec789a",
+  "kind": "chunk",
+  "keys": [
+    "fam_weaving_density_1"
+  ],
+  "statement": "((80 : Int) * (60 : Int)) = (4800 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "5cc6632a",
+  "address": "5cc6632a-3b72-86ff-8013-e18c9666bc17",
+  "kind": "chunk",
+  "keys": [
+    "fam_climbing_effort_1"
+  ],
+  "statement": "((70 : Int) * (100 : Int)) = (7000 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

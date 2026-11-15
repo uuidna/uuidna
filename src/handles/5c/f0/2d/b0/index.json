@@ -1,0 +1,12 @@
+{
+  "handle": "5cf02db0",
+  "address": "5cf02db0-c2ea-89e6-8b05-4e4b75e31482",
+  "kind": "chunk",
+  "keys": [
+    "fam_hook_order_2"
+  ],
+  "statement": "(if (if (7 : Int) ≤ (6 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

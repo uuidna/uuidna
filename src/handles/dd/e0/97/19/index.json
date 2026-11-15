@@ -1,0 +1,12 @@
+{
+  "handle": "dde09719",
+  "address": "dde09719-dd00-8ea5-a6ba-524d9fc2895a",
+  "kind": "chunk",
+  "keys": [
+    "fam_chess_tempo_1"
+  ],
+  "statement": "((15 : Int) / (2 : Int)) = (7 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

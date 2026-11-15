@@ -1,0 +1,12 @@
+{
+  "handle": "8a3789ea",
+  "address": "8a3789ea-fbce-8723-8558-23889cac023c",
+  "kind": "chunk",
+  "keys": [
+    "fam_rocketry_impulse_1"
+  ],
+  "statement": "((900 : Int) * (120 : Int)) = (108000 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

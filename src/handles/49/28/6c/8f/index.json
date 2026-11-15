@@ -1,0 +1,12 @@
+{
+  "handle": "49286c8f",
+  "address": "49286c8f-1b0d-8b30-97b2-8bf0bbe79f83",
+  "kind": "chunk",
+  "keys": [
+    "fam_electrocardiography_qtinterval_1"
+  ],
+  "statement": "(fmax (0 : Int) ((440 : Int) - (40 : Int))) = (400 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

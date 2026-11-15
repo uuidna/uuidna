@@ -1,0 +1,16 @@
+{
+  "handle": "0aa11a88",
+  "address": "0aa11a88-2d96-85df-8578-6232bb5c76cd",
+  "kind": "chunk",
+  "keys": [
+    "fam_comparison_highlight_1",
+    "fam_photography_composition_1",
+    "fam_replication_consistency_1"
+  ],
+  "statement": "(((2 : Int) * (100 : Int)) / (3 : Int)) = (66 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

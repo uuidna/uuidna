@@ -1,0 +1,12 @@
+{
+  "handle": "bba5be5c",
+  "address": "bba5be5c-5608-8fc3-a2b9-f3d868cc93bd",
+  "kind": "chunk",
+  "keys": [
+    "fam_assay_dilution_1"
+  ],
+  "statement": "(((100 : Int) * (10 : Int)) / (50 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

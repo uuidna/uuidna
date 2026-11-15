@@ -1,0 +1,12 @@
+{
+  "handle": "10952d51",
+  "address": "10952d51-2257-8996-b2ad-ff0a16d9e390",
+  "statement": "(((12 : Int) * (100 : Int)) / (18 : Int)) = (66 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_golf_greens_1"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

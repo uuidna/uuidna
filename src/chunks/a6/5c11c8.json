@@ -1,0 +1,14 @@
+{
+  "handle": "a65c11c8",
+  "address": "a65c11c8-1f2d-84cd-93ff-ad0637f3d954",
+  "statement": "((4 : Int) * (500 : Int)) = (2000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_drone_thrust_1",
+    "fam_rhythm_measurelength_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesR.lean"
+  ]
+}

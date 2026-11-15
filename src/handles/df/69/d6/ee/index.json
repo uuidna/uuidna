@@ -1,0 +1,12 @@
+{
+  "handle": "df69d6ee",
+  "address": "df69d6ee-1e17-8c96-a64e-85a193606fac",
+  "kind": "chunk",
+  "keys": [
+    "fam_ingestion_lag_1"
+  ],
+  "statement": "(fmax (0 : Int) ((10000 : Int) - (9500 : Int))) = (500 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "handle": "fbcb4284",
+  "address": "fbcb4284-6f75-87e3-9c6a-dd252ceecdaf",
+  "kind": "chunk",
+  "keys": [
+    "fam_biogeography_islandpairs_1",
+    "fam_exegesis_lexemecombos_1",
+    "fam_nim_movecombos_1",
+    "fam_paleography_ligaturepairs_1",
+    "fam_syllabary_cvcombos_1"
+  ],
+  "statement": "(Int.ofNat (fchoose (Int.toNat (15 : Int)) (Int.toNat (2 : Int)))) = (105 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesE.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

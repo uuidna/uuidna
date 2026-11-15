@@ -1,0 +1,12 @@
+{
+  "handle": "924ff860",
+  "address": "924ff860-9a04-862f-9aed-d314ec842f8b",
+  "kind": "chunk",
+  "keys": [
+    "fam_dedup_hit_1"
+  ],
+  "statement": "((9 : Int) - (1 : Int)) = (8 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

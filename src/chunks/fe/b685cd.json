@@ -1,0 +1,12 @@
+{
+  "handle": "feb685cd",
+  "address": "feb685cd-5e79-8c51-8ed4-172d20757854",
+  "statement": "(((10 : Int) * (35 : Int)) / (100 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_soccer_xg_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

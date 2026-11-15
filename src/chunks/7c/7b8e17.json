@@ -1,0 +1,12 @@
+{
+  "handle": "7c7b8e17",
+  "address": "7c7b8e17-ae92-81e5-8618-687bbbca2c7f",
+  "statement": "(fmax (0 : Int) ((2048 : Int) - (2050 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_accelerometer_offset_2"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

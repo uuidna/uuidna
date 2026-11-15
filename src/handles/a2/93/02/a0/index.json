@@ -1,0 +1,12 @@
+{
+  "handle": "a29302a0",
+  "address": "a29302a0-2996-8d90-b720-4f288e254b42",
+  "kind": "chunk",
+  "keys": [
+    "fam_campaign_roi_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((15000 : Int) - (5000 : Int))) * (100 : Int)) / (5000 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

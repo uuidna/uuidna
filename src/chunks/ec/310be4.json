@@ -1,0 +1,12 @@
+{
+  "handle": "ec310be4",
+  "address": "ec310be4-682a-8a2c-9291-237631eaaa3f",
+  "statement": "((44100 : Int) / (2 : Int)) = (22050 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fourier_nyquist_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

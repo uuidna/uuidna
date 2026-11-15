@@ -1,0 +1,12 @@
+{
+  "handle": "0486543f",
+  "address": "0486543f-9e40-87ed-bba6-ca23e354d1da",
+  "kind": "chunk",
+  "keys": [
+    "fam_stratigraphy_age_1"
+  ],
+  "statement": "((1500 : Int) / (3 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

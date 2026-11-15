@@ -1,0 +1,12 @@
+{
+  "handle": "9db35e84",
+  "address": "9db35e84-d212-8e68-b22a-0633d5f712ec",
+  "statement": "(((1200 : Int) * (6 : Int)) / (12 : Int)) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_premium_earned_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

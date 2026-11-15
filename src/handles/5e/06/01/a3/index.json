@@ -1,0 +1,19 @@
+{
+  "handle": "5e0601a3",
+  "address": "5e0601a3-db9d-805a-a83b-94d4c74e052f",
+  "kind": "chunk",
+  "keys": [
+    "fam_feedlot_rationcost_1",
+    "fam_greenspace_stormwater_1",
+    "fam_pasteurization_throughput_1",
+    "fam_phycology_chlorophyll_1",
+    "fam_semiconductors_doping_1"
+  ],
+  "statement": "((500 : Int) * (8 : Int)) = (4000 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "d5f2df8e",
+  "address": "d5f2df8e-65cf-82d6-8a45-d60875a390b2",
+  "kind": "chunk",
+  "keys": [
+    "fam_automation_oee_1",
+    "fam_manufacturing_oee_1"
+  ],
+  "statement": "(((90 : Int) * (80 : Int)) / (100 : Int)) = (72 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesM.lean"
+  ]
+}

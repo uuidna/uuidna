@@ -1,0 +1,17 @@
+{
+  "handle": "7348e729",
+  "address": "7348e729-cc77-80c7-b70d-e49424089c7b",
+  "kind": "chunk",
+  "keys": [
+    "fam_gear_ratio_1",
+    "fam_gearing_ratio_1",
+    "fam_hydraulics_velocity_1",
+    "fam_mixology_ratio_1"
+  ],
+  "statement": "((60 : Int) / (20 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean"
+  ]
+}

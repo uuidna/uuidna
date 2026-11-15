@@ -1,0 +1,12 @@
+{
+  "handle": "e6ed2ab4",
+  "address": "e6ed2ab4-0755-866d-8211-48c7477a5c2e",
+  "kind": "chunk",
+  "keys": [
+    "fam_tuning_frequencyratio_1"
+  ],
+  "statement": "(((880 : Int) * (1000 : Int)) / (440 : Int)) = (2000 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

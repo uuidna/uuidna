@@ -1,0 +1,15 @@
+{
+  "handle": "998073d6",
+  "address": "998073d6-a5bb-8ad3-9d49-75c9a58c3003",
+  "statement": "(((680 : Int) * (100 : Int)) / (340 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_aerodynamics_mach_1",
+    "fam_aerospace_mach_1",
+    "fam_fluiddynamics_machnumber_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesF.lean"
+  ]
+}

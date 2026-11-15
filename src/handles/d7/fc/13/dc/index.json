@@ -1,0 +1,19 @@
+{
+  "handle": "d7fc13dc",
+  "address": "d7fc13dc-7947-83b9-b880-dc3c4a2ed75d",
+  "kind": "chunk",
+  "keys": [
+    "fam_accessibility_readinglevel_1",
+    "fam_annuity_periods_1",
+    "fam_poultry_density_1",
+    "fam_publishing_impact_1",
+    "fam_pwm_averagevoltage_1",
+    "fam_tuning_semitoneratio_1"
+  ],
+  "statement": "((1200 : Int) / (100 : Int)) = (12 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

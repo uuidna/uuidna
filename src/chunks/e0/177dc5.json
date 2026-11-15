@@ -1,0 +1,12 @@
+{
+  "handle": "e0177dc5",
+  "address": "e0177dc5-324c-8885-bda2-21befd09dfc3",
+  "statement": "((9400 : Int) * (1 : Int)) = (9400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_spaceflight_deltav_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "946ce0d5",
+  "address": "946ce0d5-9e51-8129-80b4-1895da1c8a90",
+  "kind": "chunk",
+  "keys": [
+    "fam_bathymetry_depth_1",
+    "fam_ultrasonics_depth_1"
+  ],
+  "statement": "(((1500 : Int) * (4 : Int)) / (2 : Int)) = (3000 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesU.lean"
+  ]
+}

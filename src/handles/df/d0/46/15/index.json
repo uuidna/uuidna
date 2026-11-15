@@ -1,0 +1,12 @@
+{
+  "handle": "dfd04615",
+  "address": "dfd04615-b19f-8599-a7ec-bb5e17c038df",
+  "kind": "chunk",
+  "keys": [
+    "fam_urbanism_blocksize_1"
+  ],
+  "statement": "((100 : Int) * (80 : Int)) = (8000 : Int)",
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

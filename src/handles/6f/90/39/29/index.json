@@ -1,0 +1,12 @@
+{
+  "handle": "6f903929",
+  "address": "6f903929-d2a8-8dee-92ce-734514a0c41c",
+  "kind": "chunk",
+  "keys": [
+    "fam_hash_digestbits_1"
+  ],
+  "statement": "((32 : Int) * (8 : Int)) = (256 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

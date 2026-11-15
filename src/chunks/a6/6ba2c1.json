@@ -1,0 +1,14 @@
+{
+  "handle": "a66ba2c1",
+  "address": "a66ba2c1-09d4-8a81-bdc1-26bf613dc5a1",
+  "statement": "(((40 : Int) * (100 : Int)) / (80 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_burndown_sprintprogress_1",
+    "fam_remotesensing_reflectance_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesR.lean"
+  ]
+}

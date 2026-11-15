@@ -1,0 +1,12 @@
+{
+  "handle": "7e406846",
+  "address": "7e406846-9480-8f3e-adb4-ca15775793d3",
+  "kind": "chunk",
+  "keys": [
+    "fam_unemployment_durationweeks_1"
+  ],
+  "statement": "((20 : Int) + (6 : Int)) = (26 : Int)",
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

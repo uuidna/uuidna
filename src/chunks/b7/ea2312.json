@@ -1,0 +1,12 @@
+{
+  "handle": "b7ea2312",
+  "address": "b7ea2312-303c-8c7a-aa78-3db52227c01e",
+  "statement": "(((27 : Int) * (1000 : Int)) / (30 : Int)) = (900 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cosmology_curvature_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

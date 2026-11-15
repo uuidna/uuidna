@@ -1,0 +1,16 @@
+{
+  "handle": "60a8d5ae",
+  "address": "60a8d5ae-9d21-8834-aee0-0b89dc2d0491",
+  "statement": "((800 : Int) / (4 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ballistics_penetration_1",
+    "fam_civil_deflection_1",
+    "fam_statistics_variance_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesS.lean"
+  ]
+}

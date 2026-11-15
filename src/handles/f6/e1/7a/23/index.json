@@ -1,0 +1,13 @@
+{
+  "handle": "f6e17a23",
+  "address": "f6e17a23-06ff-889c-bbcf-579b3a28521c",
+  "kind": "chunk",
+  "keys": [
+    "fam_proofing_prooftime_1",
+    "fam_puppetry_motionrange_1"
+  ],
+  "statement": "((180 : Int) / (2 : Int)) = (90 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

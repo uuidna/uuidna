@@ -1,0 +1,12 @@
+{
+  "handle": "be87692e",
+  "address": "be87692e-0b50-8311-b396-185e0ab34d80",
+  "kind": "chunk",
+  "keys": [
+    "fam_embedding_lookup_1"
+  ],
+  "statement": "((10 : Int) * (768 : Int)) = (7680 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

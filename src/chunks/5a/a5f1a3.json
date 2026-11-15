@@ -1,0 +1,14 @@
+{
+  "handle": "5aa5f1a3",
+  "address": "5aa5f1a3-3558-88ee-8854-e175efe7727d",
+  "statement": "((250 : Int) * (4 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_lever_load_1",
+    "fam_pulley_load_1"
+  ],
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesP.lean"
+  ]
+}

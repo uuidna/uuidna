@@ -1,0 +1,12 @@
+{
+  "handle": "1f41926b",
+  "address": "1f41926b-9270-8da6-be7a-88bf40b76620",
+  "kind": "chunk",
+  "keys": [
+    "fam_sentiment_mixedratio_1"
+  ],
+  "statement": "(((fmin (30 : Int) (90 : Int)) * (100 : Int)) / (fmax (30 : Int) (90 : Int))) = (33 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

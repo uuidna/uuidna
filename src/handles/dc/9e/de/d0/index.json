@@ -1,0 +1,12 @@
+{
+  "handle": "dc9eded0",
+  "address": "dc9eded0-88b5-82de-aa0b-047470de83d1",
+  "kind": "chunk",
+  "keys": [
+    "fam_straingauge_strain_1"
+  ],
+  "statement": "(((2 : Int) * (1000000 : Int)) / (2000 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

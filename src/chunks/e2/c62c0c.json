@@ -1,0 +1,12 @@
+{
+  "handle": "e2c62c0c",
+  "address": "e2c62c0c-7b5a-8e86-a763-312ac24cb9f5",
+  "statement": "(((24 : Int) * (100 : Int)) / (25 : Int)) = (96 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_canning_seal_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

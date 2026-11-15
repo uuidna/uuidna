@@ -1,0 +1,12 @@
+{
+  "handle": "db410aa2",
+  "address": "db410aa2-3f83-8f3a-96c9-f99a2ea37481",
+  "kind": "chunk",
+  "keys": [
+    "fam_thermodynamics_carnot_1"
+  ],
+  "statement": "((((400 : Int) - (300 : Int)) * (100 : Int)) / (400 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

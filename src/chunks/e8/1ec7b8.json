@@ -1,0 +1,12 @@
+{
+  "handle": "e81ec7b8",
+  "address": "e81ec7b8-d23e-8404-8495-9b7e348275f8",
+  "statement": "(((141500 : Int) / (1000 : Int)) - (131 : Int)) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_petroleum_api_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

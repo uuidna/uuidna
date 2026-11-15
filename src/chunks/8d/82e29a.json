@@ -1,0 +1,12 @@
+{
+  "handle": "8d82e29a",
+  "address": "8d82e29a-a187-8897-ab93-670cfa0ee5f1",
+  "statement": "(((50 : Int) * (100 : Int)) / (40 : Int)) = (125 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_climatology_carbon_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "handle": "c86584b7",
+  "address": "c86584b7-2e15-8203-9445-be29e2515dc6",
+  "statement": "((600 : Int) / (50 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_blockchain_blocktime_1",
+    "fam_collaboration_response_1",
+    "fam_customer_response_1",
+    "fam_delivery_eta_1",
+    "fam_pilgrimage_restpoints_1",
+    "fam_tox_onset_1",
+    "fam_virality_amplification_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean",
+    "FamiliesV.lean"
+  ]
+}

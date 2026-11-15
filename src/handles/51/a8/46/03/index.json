@@ -1,0 +1,12 @@
+{
+  "handle": "51a84603",
+  "address": "51a84603-3863-8262-984a-343cf1d3c174",
+  "kind": "chunk",
+  "keys": [
+    "fam_origami_creasecount_1"
+  ],
+  "statement": "((20 : Int) + (12 : Int)) = (32 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

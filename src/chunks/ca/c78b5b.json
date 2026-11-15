@@ -1,0 +1,14 @@
+{
+  "handle": "cac78b5b",
+  "address": "cac78b5b-4af8-8b1c-940c-607040bc9fac",
+  "statement": "((26 : Int) + (0 : Int)) = (26 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_payroll_periods_1",
+    "fam_rubik_cubies_1"
+  ],
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "3c262bbb",
+  "address": "3c262bbb-ed13-8276-99d2-ce6aeeb1b630",
+  "statement": "(((0 : Int) * (100 : Int)) / (100 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_husbandry_mortality_2",
+    "fam_piezoelectric_couplingfactor_2"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesP.lean"
+  ]
+}

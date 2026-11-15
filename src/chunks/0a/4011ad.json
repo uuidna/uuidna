@@ -1,0 +1,12 @@
+{
+  "handle": "0a4011ad",
+  "address": "0a4011ad-2f33-8711-b33f-9a1f586e13c2",
+  "statement": "((6 : Int) * (100 : Int)) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hook_chain_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

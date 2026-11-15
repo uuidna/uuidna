@@ -1,0 +1,12 @@
+{
+  "handle": "1192e3e3",
+  "address": "1192e3e3-0816-832b-a83a-ba7ae7be55e1",
+  "statement": "((100 : Int) * (100 : Int)) = (10000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_blackhole_entropy_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3b18e743",
+  "address": "3b18e743-1701-83e9-bcd0-0fb791402c0b",
+  "kind": "chunk",
+  "keys": [
+    "fam_loan_amortization_1"
+  ],
+  "statement": "((20000 : Int) / (360 : Int)) = (55 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

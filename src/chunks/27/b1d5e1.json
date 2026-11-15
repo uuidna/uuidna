@@ -1,0 +1,40 @@
+{
+  "handle": "27b1d5e1",
+  "address": "27b1d5e1-6c26-8504-ab9e-056a9be4bebf",
+  "statement": "(((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cogeneration_primaryenergysaving_1",
+    "fam_curing_brinestrength_1",
+    "fam_forging_strain_1",
+    "fam_gerontology_functionaldecline_1",
+    "fam_inequality_topshare_1",
+    "fam_insurance_claimratio_1",
+    "fam_invoice_tax_1",
+    "fam_memory_interference_1",
+    "fam_monsoon_deficitpct_1",
+    "fam_nephrology_filtration_1",
+    "fam_pest_survivingfraction_1",
+    "fam_petroleum_porosity_1",
+    "fam_psychiatry_relapse_1",
+    "fam_rocketry_payload_1",
+    "fam_serology_crossreactivity_1",
+    "fam_sociology_gini_1",
+    "fam_solarpower_capacityfactor_1",
+    "fam_translation_edit_1",
+    "fam_woodworking_waste_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesM.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean",
+    "FamiliesW.lean"
+  ]
+}

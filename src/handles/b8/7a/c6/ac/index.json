@@ -1,0 +1,12 @@
+{
+  "handle": "b87ac6ac",
+  "address": "b87ac6ac-fb55-8b70-baf1-12a08060f062",
+  "kind": "chunk",
+  "keys": [
+    "fam_payroll_overtime_1"
+  ],
+  "statement": "((10 : Int) * (45 : Int)) = (450 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

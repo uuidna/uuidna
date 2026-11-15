@@ -1,0 +1,16 @@
+{
+  "handle": "34b2a1b4",
+  "address": "34b2a1b4-81f3-8d57-b51f-f83babb08a50",
+  "statement": "((6 : Int) * (5 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cooling_fanpower_1",
+    "fam_geometry_perimeter_1",
+    "fam_husbandry_pasturerotation_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean"
+  ]
+}

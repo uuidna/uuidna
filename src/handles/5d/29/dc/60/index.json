@@ -1,0 +1,14 @@
+{
+  "handle": "5d29dc60",
+  "address": "5d29dc60-da98-80dd-8b8d-53e1d852cc9d",
+  "kind": "chunk",
+  "keys": [
+    "fam_irrigation_schedule_2",
+    "fam_psychology_arousal_2"
+  ],
+  "statement": "(fmax (0 : Int) ((20 : Int) - (30 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesP.lean"
+  ]
+}

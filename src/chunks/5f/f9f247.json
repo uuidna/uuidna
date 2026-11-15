@@ -1,0 +1,12 @@
+{
+  "handle": "5ff9f247",
+  "address": "5ff9f247-9747-89ee-b907-fd93c458c302",
+  "statement": "((4000 : Int) * (20 : Int)) = (80000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_braking_torque_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

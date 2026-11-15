@@ -1,0 +1,19 @@
+{
+  "handle": "25508c5d",
+  "address": "25508c5d-a802-873f-a79f-bf2f6b1b31ee",
+  "kind": "chunk",
+  "keys": [
+    "fam_agronomy_density_1",
+    "fam_athletics_pace_1",
+    "fam_autoscaling_cooldown_1",
+    "fam_maillard_timetocolor_1",
+    "fam_tomography_slices_1",
+    "fam_transport_speed_1"
+  ],
+  "statement": "((300 : Int) / (5 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesM.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "handle": "c90e9bc4",
+  "address": "c90e9bc4-2f0a-8ae2-8c05-27878bebabd0",
+  "kind": "chunk",
+  "keys": [
+    "fam_noise_exposuredose_1",
+    "fam_noisepollution_exposuredose_1"
+  ],
+  "statement": "((85 : Int) * (8 : Int)) = (680 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

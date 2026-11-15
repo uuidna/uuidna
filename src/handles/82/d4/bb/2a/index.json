@@ -1,0 +1,12 @@
+{
+  "handle": "82d4bb2a",
+  "address": "82d4bb2a-9c6e-8e41-bb09-a661f45851d1",
+  "kind": "chunk",
+  "keys": [
+    "fam_forestry_rotation_2"
+  ],
+  "statement": "(if (if (40 : Int) ≥ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

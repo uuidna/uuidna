@@ -1,0 +1,18 @@
+{
+  "handle": "f7670eed",
+  "address": "f7670eed-282d-8c58-898d-216fb52a7e2e",
+  "statement": "((120 : Int) / (60 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_biomechanics_gait_1",
+    "fam_ergonomics_repetition_1",
+    "fam_gastroenterology_motility_1",
+    "fam_pedology_infiltration_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesP.lean"
+  ]
+}

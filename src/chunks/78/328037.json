@@ -1,0 +1,12 @@
+{
+  "handle": "78328037",
+  "address": "78328037-49e6-88c5-a003-6188959bd970",
+  "statement": "(fmax (0 : Int) ((10050 : Int) - (10000 : Int))) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_arbitrage_spread_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

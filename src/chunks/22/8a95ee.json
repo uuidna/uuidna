@@ -1,0 +1,12 @@
+{
+  "handle": "228a95ee",
+  "address": "228a95ee-b3cd-8877-bbbd-5c5adbddcf1d",
+  "statement": "(((3000 : Int) * (100 : Int)) / (5000 : Int)) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_transit_farebox_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

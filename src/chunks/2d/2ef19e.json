@@ -1,0 +1,12 @@
+{
+  "handle": "2d2ef19e",
+  "address": "2d2ef19e-fc5c-8ef6-a640-709f4e1832eb",
+  "statement": "(((30 : Int) * (20 : Int)) / ((30 : Int) - (20 : Int))) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_lenses_imagedistance_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "44b87eba",
+  "address": "44b87eba-3c59-8a65-929e-3ad2e06370be",
+  "kind": "chunk",
+  "keys": [
+    "fam_dominoes_layoutpaths_1"
+  ],
+  "statement": "((Int.ofNat (ffact (Int.toNat (7 : Int)))) / (Int.ofNat (ffact (Int.toNat ((7 : Int) - (2 : Int)))))) = (42 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

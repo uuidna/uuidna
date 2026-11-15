@@ -1,0 +1,38 @@
+{
+  "handle": "7f4b3621",
+  "address": "7f4b3621-82a0-824c-9dd5-04aa32107501",
+  "kind": "chunk",
+  "keys": [
+    "fam_alloy_phases_1",
+    "fam_aquaponics_bacteriastrains_1",
+    "fam_axiology_valuetypes_1",
+    "fam_beam_supports_1",
+    "fam_ceramic_phases_1",
+    "fam_chem_isotopes_1",
+    "fam_collision_bodies_1",
+    "fam_dns_nameservers_1",
+    "fam_elnino_phasecount_1",
+    "fam_existentialism_authenticitymodes_1",
+    "fam_ferry_vehicledecks_1",
+    "fam_gripper_fingercount_1",
+    "fam_nim_winningmoves_1",
+    "fam_pump_impellers_1",
+    "fam_puppetry_controlbars_1",
+    "fam_semiotics_denotationlevels_1",
+    "fam_vaccine_doses_1"
+  ],
+  "statement": "((2 : Int) + (1 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesV.lean"
+  ]
+}

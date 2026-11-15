@@ -1,0 +1,14 @@
+{
+  "handle": "4945e8d1",
+  "address": "4945e8d1-e2ce-8b36-9317-bf6433398f4b",
+  "statement": "((30 : Int) * (12 : Int)) = (360 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_loan_term_1",
+    "fam_preservation_shelflifedays_1"
+  ],
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesP.lean"
+  ]
+}

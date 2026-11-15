@@ -1,0 +1,16 @@
+{
+  "handle": "10113a14",
+  "address": "10113a14-22f0-813e-aa39-3c7ad5b66c3e",
+  "kind": "chunk",
+  "keys": [
+    "fam_atmospheric_humidity_1",
+    "fam_equine_feedratio_1",
+    "fam_humidity_relative_1"
+  ],
+  "statement": "(((15 : Int) * (100 : Int)) / (20 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesE.lean",
+    "FamiliesH.lean"
+  ]
+}

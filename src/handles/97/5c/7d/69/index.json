@@ -1,0 +1,12 @@
+{
+  "handle": "975c7d69",
+  "address": "975c7d69-d029-873d-9276-fa5f366312b6",
+  "kind": "chunk",
+  "keys": [
+    "fam_exoplanets_semimajor_1"
+  ],
+  "statement": "(((150 : Int) + (50 : Int)) / (2 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

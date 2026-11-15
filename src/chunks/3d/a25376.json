@@ -1,0 +1,14 @@
+{
+  "handle": "3da25376",
+  "address": "3da25376-baa2-8f2f-b243-88b6ea260176",
+  "statement": "(fmax (0 : Int) ((40 : Int) - (33 : Int))) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_chess_mobility_1",
+    "fam_refrigeration_subcool_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesR.lean"
+  ]
+}

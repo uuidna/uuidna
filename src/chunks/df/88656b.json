@@ -1,0 +1,12 @@
+{
+  "handle": "df88656b",
+  "address": "df88656b-0cc7-8d7f-90b0-b66629ab86c2",
+  "statement": "(fmin (100000 : Int) (250000 : Int)) = (100000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_court_cap_2"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

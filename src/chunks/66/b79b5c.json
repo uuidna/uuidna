@@ -1,0 +1,12 @@
+{
+  "handle": "66b79b5c",
+  "address": "66b79b5c-0721-8f1b-bebd-0476cdf542a0",
+  "statement": "((400 : Int) + (100 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_numismatics_hoardsize_1"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

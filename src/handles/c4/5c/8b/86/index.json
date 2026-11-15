@@ -1,0 +1,12 @@
+{
+  "handle": "c45c8b86",
+  "address": "c45c8b86-fadf-8c95-ad31-58cdaef99974",
+  "kind": "chunk",
+  "keys": [
+    "fam_mealplanning_budgetpermeal_1"
+  ],
+  "statement": "((100 : Int) / (21 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

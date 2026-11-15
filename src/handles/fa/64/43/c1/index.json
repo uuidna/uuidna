@@ -1,0 +1,42 @@
+{
+  "handle": "fa6443c1",
+  "address": "fa6443c1-9d81-8c4e-affd-7bb296c33d14",
+  "kind": "chunk",
+  "keys": [
+    "fam_actionpotential_amplitude_1",
+    "fam_actuarial_reserve2_1",
+    "fam_control_error_1",
+    "fam_cosmogony_orderfromchaos_1",
+    "fam_cybernetics_setpoint_1",
+    "fam_etl_skew_1",
+    "fam_gis_proximity_1",
+    "fam_gradient_decay_1",
+    "fam_hardness_rockwell_1",
+    "fam_insurance_retained_1",
+    "fam_irrigation_schedule_1",
+    "fam_meteoritics_ablation_1",
+    "fam_perception_adaptation_1",
+    "fam_radiology_attenuation_1",
+    "fam_ratelimiting_throttlemargin_1",
+    "fam_replenishment_stockout_1",
+    "fam_robotics_payload_1",
+    "fam_sculpture_balancemargin_1",
+    "fam_waveform_peaktopeak_1",
+    "fam_zoology_population_1"
+  ],
+  "statement": "(fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesW.lean",
+    "FamiliesZ.lean"
+  ]
+}

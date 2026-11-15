@@ -1,0 +1,12 @@
+{
+  "handle": "ceff5e92",
+  "address": "ceff5e92-0282-8b27-809b-180ca5b12c5b",
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (1200 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fishery_quota_2"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

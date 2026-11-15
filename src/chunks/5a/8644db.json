@@ -1,0 +1,12 @@
+{
+  "handle": "5a8644db",
+  "address": "5a8644db-06c6-8252-ba01-eb05117c0b2b",
+  "statement": "(((500 : Int) * (100 : Int)) / (10 : Int)) = (5000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_interaction_fitts_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

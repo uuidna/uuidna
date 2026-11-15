@@ -1,0 +1,14 @@
+{
+  "handle": "4e89f7f2",
+  "address": "4e89f7f2-4e1e-80b3-b4dd-064456183a92",
+  "kind": "chunk",
+  "keys": [
+    "fam_emissions_allowance_2",
+    "fam_ingestion_backpressure_2"
+  ],
+  "statement": "(fmax (0 : Int) ((800 : Int) - (1000 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesI.lean"
+  ]
+}

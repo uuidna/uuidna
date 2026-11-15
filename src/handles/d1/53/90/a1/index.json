@@ -1,0 +1,12 @@
+{
+  "handle": "d15390a1",
+  "address": "d15390a1-bff5-867a-adc6-736a389d6e11",
+  "kind": "chunk",
+  "keys": [
+    "fam_hospitality_adr_1"
+  ],
+  "statement": "((12000 : Int) / (80 : Int)) = (150 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

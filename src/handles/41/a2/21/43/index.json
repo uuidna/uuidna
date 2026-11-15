@@ -1,0 +1,12 @@
+{
+  "handle": "41a22143",
+  "address": "41a22143-6798-8e8d-884a-cc519887b040",
+  "kind": "chunk",
+  "keys": [
+    "fam_throwing_distancegain_1"
+  ],
+  "statement": "(fmax (0 : Int) ((300 : Int) - (250 : Int))) = (50 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

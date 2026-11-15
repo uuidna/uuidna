@@ -1,0 +1,19 @@
+{
+  "handle": "8513c9ee",
+  "address": "8513c9ee-cabf-8030-b39e-b6f6f0fdc51b",
+  "statement": "((2000 : Int) * (1 : Int)) = (2000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dietetics_caloriesneeded_1",
+    "fam_hovercraft_payload_1",
+    "fam_logogram_symbols_1",
+    "fam_mealplanning_caloriesperday_1",
+    "fam_metabolism_calories_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean"
+  ]
+}

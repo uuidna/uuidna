@@ -1,0 +1,12 @@
+{
+  "handle": "4680afa6",
+  "address": "4680afa6-d086-8855-8b7a-7b899cb0f86a",
+  "statement": "(((400 : Int) * ((1000 : Int) + (250 : Int))) / (1000 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_orbit_apoapsis_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

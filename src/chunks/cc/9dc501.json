@@ -1,0 +1,12 @@
+{
+  "handle": "cc9dc501",
+  "address": "cc9dc501-cad6-8a63-9f65-7391db332a05",
+  "statement": "(((200 : Int) * (80 : Int)) / (100 : Int)) = (160 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bioavailability_absorbed_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

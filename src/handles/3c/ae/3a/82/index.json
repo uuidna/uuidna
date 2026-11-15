@@ -1,0 +1,12 @@
+{
+  "handle": "3cae3a82",
+  "address": "3cae3a82-57b1-8139-ba3c-34b9ce764580",
+  "kind": "chunk",
+  "keys": [
+    "fam_responsive_breakpoint_1"
+  ],
+  "statement": "((1280 : Int) / (320 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

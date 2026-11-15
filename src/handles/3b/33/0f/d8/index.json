@@ -1,0 +1,17 @@
+{
+  "handle": "3b330fd8",
+  "address": "3b330fd8-b037-8307-a549-2697e5ae546a",
+  "kind": "chunk",
+  "keys": [
+    "fam_calculus_area_1",
+    "fam_electromagnetism_coulomb_1",
+    "fam_magnetism_torque_1",
+    "fam_motivation_drive_1"
+  ],
+  "statement": "((6 : Int) * (7 : Int)) = (42 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesM.lean"
+  ]
+}

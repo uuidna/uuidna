@@ -1,0 +1,12 @@
+{
+  "handle": "65c02e7a",
+  "address": "65c02e7a-34c7-86ba-93ea-de16de0c7396",
+  "kind": "chunk",
+  "keys": [
+    "fam_pagination_signatures_1"
+  ],
+  "statement": "(-((-(100 : Int)) / (16 : Int))) = (7 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

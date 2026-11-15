@@ -1,0 +1,12 @@
+{
+  "handle": "c2d6d511",
+  "address": "c2d6d511-8e17-811b-8718-196d90fb4977",
+  "kind": "chunk",
+  "keys": [
+    "fam_kyc_screening_1"
+  ],
+  "statement": "(((3 : Int) * (10000 : Int)) / (10000 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

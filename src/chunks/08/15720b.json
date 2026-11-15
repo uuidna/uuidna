@@ -1,0 +1,14 @@
+{
+  "handle": "0815720b",
+  "address": "0815720b-2344-8aed-8365-d3e779cb769f",
+  "statement": "(((60 : Int) + (60 : Int)) + (60 : Int)) = (180 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_curvature_anglesum_1",
+    "fam_survey_angles_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesS.lean"
+  ]
+}

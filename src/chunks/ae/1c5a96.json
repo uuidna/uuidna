@@ -1,0 +1,16 @@
+{
+  "handle": "ae1c5a96",
+  "address": "ae1c5a96-b425-8528-ba3d-dda339ca2870",
+  "statement": "(((800 : Int) * (100 : Int)) / (100 : Int)) = (800 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_concurrency_scalability_1",
+    "fam_perception_contrast_1",
+    "fam_simulation_speedup_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "handle": "bd3496c7",
+  "address": "bd3496c7-866b-84a3-872b-2faa1d8711f1",
+  "kind": "chunk",
+  "keys": [
+    "fam_emotion_contagion_1",
+    "fam_field_indexed_1",
+    "fam_forms_fields_1",
+    "fam_grid_fill_1",
+    "fam_hook_mutations_1",
+    "fam_monitoring_incidents_1",
+    "fam_pathplanning_smoothness_1",
+    "fam_psychiatry_risk_1",
+    "fam_routing_params_1",
+    "fam_slider_visible_1",
+    "fam_soccer_conversion_1",
+    "fam_vet_herd_1"
+  ],
+  "statement": "(((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesV.lean"
+  ]
+}

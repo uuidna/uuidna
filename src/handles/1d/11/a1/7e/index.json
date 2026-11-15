@@ -1,0 +1,12 @@
+{
+  "handle": "1d11a17e",
+  "address": "1d11a17e-c8d6-866b-a338-20e16929e10d",
+  "kind": "chunk",
+  "keys": [
+    "fam_warehouse_partitionprune_1"
+  ],
+  "statement": "(fmax (0 : Int) ((64 : Int) - (50 : Int))) = (14 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

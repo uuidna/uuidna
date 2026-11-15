@@ -1,0 +1,12 @@
+{
+  "handle": "3956ace9",
+  "address": "3956ace9-9882-8221-a590-6dbc09bdc01f",
+  "kind": "chunk",
+  "keys": [
+    "fam_optometry_astigmatism_1"
+  ],
+  "statement": "(((90 : Int) * (100 : Int)) / (45 : Int)) = (200 : Int)",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

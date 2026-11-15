@@ -1,0 +1,12 @@
+{
+  "handle": "86275223",
+  "address": "86275223-4524-888b-bb04-9237b4a208ac",
+  "kind": "chunk",
+  "keys": [
+    "fam_bioenergetics_phosphateratio_1"
+  ],
+  "statement": "(((25 : Int) * (10 : Int)) / (10 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

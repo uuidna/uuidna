@@ -1,0 +1,17 @@
+{
+  "handle": "3483987f",
+  "address": "3483987f-6c19-8505-bcdf-6b4c5098f6ea",
+  "statement": "((16 : Int) * (2 : Int)) = (32 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_composites_layup_1",
+    "fam_origami_mountainvalley_1",
+    "fam_responsive_scalefactor_1",
+    "fam_runes_stavecount_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesO.lean",
+    "FamiliesR.lean"
+  ]
+}

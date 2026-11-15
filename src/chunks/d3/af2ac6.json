@@ -1,0 +1,13 @@
+{
+  "handle": "d3af2ac6",
+  "address": "d3af2ac6-29d0-8025-9fa1-0361dbffc89b",
+  "statement": "((440 : Int) * (3 : Int)) = (1320 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_oscillators_harmonics_1",
+    "fam_overtone_harmonicfreq_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

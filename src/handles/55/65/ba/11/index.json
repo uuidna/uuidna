@@ -1,0 +1,24 @@
+{
+  "handle": "5565ba11",
+  "address": "5565ba11-bedf-86a8-b5ea-6bdeeb9fd738",
+  "kind": "chunk",
+  "keys": [
+    "fam_compress_savedbits_1",
+    "fam_gastronomy_yield_1",
+    "fam_incident_errorbudget_1",
+    "fam_licensing_entitlement_1",
+    "fam_milling_flour_1",
+    "fam_observability_errorbudget_1",
+    "fam_ratelimiting_quotaremaining_1"
+  ],
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (250 : Int))) = (750 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesO.lean",
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fa32091c",
+  "address": "fa32091c-2167-887c-8f79-af8752220b49",
+  "statement": "(((5 : Int) ^ (2 : Nat)) / (4 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_conic_directrix_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

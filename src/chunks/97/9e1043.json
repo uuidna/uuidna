@@ -1,0 +1,16 @@
+{
+  "handle": "979e1043",
+  "address": "979e1043-94b6-8cbe-9bc0-38ad348bbfdc",
+  "statement": "((200 : Int) * (300 : Int)) = (60000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_biogeography_rangesize_1",
+    "fam_formant_vowelspace_1",
+    "fam_galactic_masswithinradius_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesF.lean",
+    "FamiliesG.lean"
+  ]
+}

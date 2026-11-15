@@ -1,0 +1,12 @@
+{
+  "handle": "b666136b",
+  "address": "b666136b-5283-8282-8e70-a93ca7d035d6",
+  "statement": "((3 : Int) * (432 : Int)) = (1296 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tune_harmonic_2"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

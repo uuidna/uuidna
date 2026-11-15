@@ -1,0 +1,16 @@
+{
+  "handle": "19c9719b",
+  "address": "19c9719b-1136-812b-9f2c-3fefed8f9ae6",
+  "statement": "(fmax (0 : Int) ((7 : Int) - (4 : Int))) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_coding_redundancy_1",
+    "fam_harmony_chordquality_1",
+    "fam_topology_homology_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesH.lean",
+    "FamiliesT.lean"
+  ]
+}

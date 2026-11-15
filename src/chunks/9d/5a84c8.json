@@ -1,0 +1,12 @@
+{
+  "handle": "9d5a84c8",
+  "address": "9d5a84c8-d12f-8c88-98b3-0323384e25c2",
+  "statement": "(if (if (170 : Int) ≥ (150 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_underwriting_decline_1"
+  ],
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "5de3e680",
+  "address": "5de3e680-5993-8f0d-b46d-c9a704f46076",
+  "kind": "chunk",
+  "keys": [
+    "fam_determinism_branchingfactor_1",
+    "fam_genealogy_branchingfactor_1"
+  ],
+  "statement": "((1024 : Int) / (10 : Int)) = (102 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesG.lean"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "handle": "e1e29f89",
+  "address": "e1e29f89-15f6-8e65-84db-1f1b96c412a1",
+  "statement": "(((65 : Int) * (100 : Int)) / (100 : Int)) = (65 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_horticulture_ph_1",
+    "fam_pedology_ph_1",
+    "fam_polymers_crystallinity_1",
+    "fam_solvent_polarity_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a4a007c7",
+  "address": "a4a007c7-33c1-85f1-8382-b49b9189b8eb",
+  "kind": "chunk",
+  "keys": [
+    "fam_linearalgebra_trace2_1"
+  ],
+  "statement": "((7 : Int) + (9 : Int)) = (16 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

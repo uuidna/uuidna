@@ -1,0 +1,12 @@
+{
+  "handle": "0d7f650a",
+  "address": "0d7f650a-41a3-8aa9-80df-a2018bd52172",
+  "kind": "chunk",
+  "keys": [
+    "fam_chromatography_efficiency_1"
+  ],
+  "statement": "((51200 : Int) / (25600 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

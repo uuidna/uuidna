@@ -1,0 +1,12 @@
+{
+  "handle": "0a519156",
+  "address": "0a519156-e5c4-8e3a-a4f1-617e6829a08c",
+  "kind": "chunk",
+  "keys": [
+    "fam_social_impressions_1"
+  ],
+  "statement": "((30 : Int) * (8000 : Int)) = (240000 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

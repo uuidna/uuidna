@@ -1,0 +1,14 @@
+{
+  "handle": "f46ad5dd",
+  "address": "f46ad5dd-fc43-8eda-b8c7-a003e64b400b",
+  "kind": "chunk",
+  "keys": [
+    "fam_bacteriology_mic_1",
+    "fam_cache_sets_1"
+  ],
+  "statement": "((512 : Int) / (8 : Int)) = (64 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean"
+  ]
+}

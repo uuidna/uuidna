@@ -1,0 +1,12 @@
+{
+  "handle": "e65e10bb",
+  "address": "e65e10bb-d023-8b9d-94bb-2dbb6bbac2ed",
+  "statement": "((7000 : Int) / (70 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_redshift_hubbledistance_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "4e3ba3ee",
+  "address": "4e3ba3ee-f400-8e6d-9bf7-c96b89f1b8a2",
+  "kind": "chunk",
+  "keys": [
+    "fam_fuzzing_seedcount_1",
+    "fam_spring_parallelsum_1"
+  ],
+  "statement": "((50 : Int) + (50 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3d9351d6",
+  "address": "3d9351d6-998a-85ea-a4a2-0fb53689652b",
+  "statement": "((4 : Int) * (4096 : Int)) = (16384 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_driver_mmio_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

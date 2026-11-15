@@ -1,0 +1,14 @@
+{
+  "handle": "4d8d42bf",
+  "address": "4d8d42bf-85df-8ece-84b5-424377f60bc6",
+  "statement": "((900 : Int) / (15 : Int)) = (60 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ichthyology_gillrate_1",
+    "fam_waypoint_groundspeed_1"
+  ],
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesW.lean"
+  ]
+}

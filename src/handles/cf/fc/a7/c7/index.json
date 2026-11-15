@@ -1,0 +1,14 @@
+{
+  "handle": "cffca7c7",
+  "address": "cffca7c7-d10c-805f-9207-199cf2741c9e",
+  "kind": "chunk",
+  "keys": [
+    "fam_hedging_offset_1",
+    "fam_lexicon_hapaxlegomena_1"
+  ],
+  "statement": "(fmax (0 : Int) ((400 : Int) - (150 : Int))) = (250 : Int)",
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "052ebf17",
+  "address": "052ebf17-2a64-854f-8502-f133fcb25612",
+  "kind": "chunk",
+  "keys": [
+    "fam_pomology_yield_1",
+    "fam_tanning_area_1"
+  ],
+  "statement": "((200 : Int) * (150 : Int)) = (30000 : Int)",
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f5089e4e",
+  "address": "f5089e4e-9025-8276-a2f3-4bc20d554619",
+  "statement": "(((7200 : Int) + (5000 : Int)) + (1500 : Int)) = (13700 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_estimating_bid_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

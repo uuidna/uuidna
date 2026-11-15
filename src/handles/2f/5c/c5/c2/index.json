@@ -1,0 +1,12 @@
+{
+  "handle": "2f5cc5c2",
+  "address": "2f5cc5c2-2930-8dd8-863b-c95007782184",
+  "kind": "chunk",
+  "keys": [
+    "fam_algebra_slope_1"
+  ],
+  "statement": "(((10 : Int) * (100 : Int)) / (4 : Int)) = (250 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

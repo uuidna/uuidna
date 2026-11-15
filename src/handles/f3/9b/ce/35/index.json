@@ -1,0 +1,12 @@
+{
+  "handle": "f39bce35",
+  "address": "f39bce35-943f-830d-ab31-0720ffef0641",
+  "kind": "chunk",
+  "keys": [
+    "fam_employment_redundancy_1"
+  ],
+  "statement": "((fmin (15 : Int) (12 : Int)) * (500 : Int)) = (6000 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

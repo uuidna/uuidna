@@ -1,0 +1,15 @@
+{
+  "handle": "62b30f98",
+  "address": "62b30f98-b201-8f80-8592-ae0db0598f86",
+  "kind": "chunk",
+  "keys": [
+    "fam_rheology_yielding_2",
+    "fam_scheduling_lateness_2",
+    "fam_staffing_overtime_2"
+  ],
+  "statement": "(fmax (0 : Int) ((30 : Int) - (40 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

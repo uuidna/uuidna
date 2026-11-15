@@ -1,0 +1,16 @@
+{
+  "handle": "cd6c8e1e",
+  "address": "cd6c8e1e-533e-855a-8ecc-9bf3b81a38ce",
+  "kind": "chunk",
+  "keys": [
+    "fam_botany_cropyield_1",
+    "fam_cognition_reaction_1",
+    "fam_psychology_reaction_1"
+  ],
+  "statement": "((5000 : Int) / (20 : Int)) = (250 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesP.lean"
+  ]
+}

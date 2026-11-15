@@ -1,0 +1,12 @@
+{
+  "handle": "c83adaad",
+  "address": "c83adaad-8cd2-8909-a3ee-71a8d195b477",
+  "statement": "((365 : Int) * (4 : Int)) = (1460 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bilingualism_exposurehours_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

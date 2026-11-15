@@ -1,0 +1,33 @@
+{
+  "handle": "f706717d",
+  "address": "f706717d-3809-8d3e-a4b6-8eee9be0e5bd",
+  "statement": "(fmax (0 : Int) ((120 : Int) - (100 : Int))) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_airquality_exceedance_1",
+    "fam_baking_ovenspring_1",
+    "fam_breeding_selectiondifferential_1",
+    "fam_derivatives_intrinsic_1",
+    "fam_environment_exceedance_1",
+    "fam_estimation_innovation_1",
+    "fam_fitness_progress_1",
+    "fam_forestry_growth_1",
+    "fam_hosting_overage_1",
+    "fam_leavening_ovenspring_1",
+    "fam_licensing_overage_1",
+    "fam_localization_innovation_1",
+    "fam_option_intrinsic_1",
+    "fam_vitals_regression_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesO.lean",
+    "FamiliesV.lean"
+  ]
+}

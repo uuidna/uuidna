@@ -1,0 +1,12 @@
+{
+  "handle": "832d1cb0",
+  "address": "832d1cb0-5cc2-83c0-bbb5-c765cc1f773f",
+  "kind": "chunk",
+  "keys": [
+    "fam_earnedvalue_vac_1"
+  ],
+  "statement": "(fmax (0 : Int) ((2000 : Int) - (1800 : Int))) = (200 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

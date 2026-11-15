@@ -1,0 +1,12 @@
+{
+  "handle": "69f8abdd",
+  "address": "69f8abdd-7640-808e-8152-5ba269fb1633",
+  "kind": "chunk",
+  "keys": [
+    "fam_antenna_frequency_1"
+  ],
+  "statement": "((2400 : Int) * (1 : Int)) = (2400 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

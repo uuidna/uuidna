@@ -1,0 +1,12 @@
+{
+  "handle": "9e36d253",
+  "address": "9e36d253-f6f8-8b31-b530-b2ca23f85760",
+  "kind": "chunk",
+  "keys": [
+    "fam_pulsar_braking_1"
+  ],
+  "statement": "(((100 : Int) * (3 : Int)) / ((10 : Int) ^ (2 : Nat))) = (3 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

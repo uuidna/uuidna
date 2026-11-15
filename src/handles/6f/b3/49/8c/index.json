@@ -1,0 +1,14 @@
+{
+  "handle": "6fb3498c",
+  "address": "6fb3498c-95ac-8a4f-ba7e-01737a833e6a",
+  "kind": "chunk",
+  "keys": [
+    "fam_astronomy_magnitude_2",
+    "fam_dentistry_recall_2"
+  ],
+  "statement": "(fmax (0 : Int) ((2 : Int) - (6 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesD.lean"
+  ]
+}

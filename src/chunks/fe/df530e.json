@@ -1,0 +1,12 @@
+{
+  "handle": "fedf530e",
+  "address": "fedf530e-44f0-8d10-8db0-e3179c33a69a",
+  "statement": "(((10000 : Int) * (90 : Int)) / (100 : Int)) = (9000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_photochemistry_actinometry_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

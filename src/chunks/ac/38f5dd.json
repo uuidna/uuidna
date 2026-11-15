@@ -1,0 +1,12 @@
+{
+  "handle": "ac38f5dd",
+  "address": "ac38f5dd-7f62-8c32-a7ca-c55762c9bb83",
+  "statement": "(((500 : Int) * (100 : Int)) / (250 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_merchandising_gmroi_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

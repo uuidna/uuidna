@@ -1,0 +1,12 @@
+{
+  "handle": "ac5ef3c1",
+  "address": "ac5ef3c1-1bbb-8830-9e59-ebd0b809480f",
+  "statement": "(((100 : Int) * (30000 : Int)) / (1000 : Int)) = (3000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_redshift_recessionvelocity_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

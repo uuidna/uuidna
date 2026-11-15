@@ -1,0 +1,14 @@
+{
+  "handle": "331aff65",
+  "address": "331aff65-1ae0-8c63-ac3d-b9fc1b86c644",
+  "statement": "((200 : Int) * (30 : Int)) = (6000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dosimetry_cumulative_1",
+    "fam_signaling_secondmessenger_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesS.lean"
+  ]
+}

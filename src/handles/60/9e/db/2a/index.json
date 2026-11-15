@@ -1,0 +1,12 @@
+{
+  "handle": "609edb2a",
+  "address": "609edb2a-b065-88ce-81dc-bc57927adaef",
+  "kind": "chunk",
+  "keys": [
+    "prose_audit_total"
+  ],
+  "statement": "(0 < 288) ∧ (0 < 4) ∧ (80736 = 80736 + 0)",
+  "files": [
+    "Audit.lean"
+  ]
+}

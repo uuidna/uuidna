@@ -1,0 +1,14 @@
+{
+  "handle": "2d855479",
+  "address": "2d855479-6139-8947-8353-4b37ae534605",
+  "kind": "chunk",
+  "keys": [
+    "fam_mythology_archetypecount_1",
+    "fam_scales_degrees_1"
+  ],
+  "statement": "((7 : Int) * (2 : Int)) = (14 : Int)",
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "handle": "d72a7027",
+  "address": "d72a7027-0e04-8341-b4da-d8c918496bc2",
+  "kind": "chunk",
+  "keys": [
+    "fam_magnetometry_declination_1",
+    "fam_steering_slipangle_1",
+    "fam_tanning_uptake_1"
+  ],
+  "statement": "(fmax (0 : Int) ((15 : Int) - (3 : Int))) = (12 : Int)",
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

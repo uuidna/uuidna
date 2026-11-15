@@ -1,0 +1,12 @@
+{
+  "handle": "0c62f8c3",
+  "address": "0c62f8c3-4690-8c86-8c14-1fd9d7464509",
+  "kind": "chunk",
+  "keys": [
+    "fam_collide_threshold_2"
+  ],
+  "statement": "(if (if (12 : Int) ≥ (13 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

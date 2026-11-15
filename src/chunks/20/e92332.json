@@ -1,0 +1,12 @@
+{
+  "handle": "20e92332",
+  "address": "20e92332-d120-8655-9055-1188efa585dd",
+  "statement": "(fmax (0 : Int) ((400 : Int) - (600 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_demography_naturalincrease_2"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

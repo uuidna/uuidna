@@ -1,0 +1,12 @@
+{
+  "handle": "66f4ed8c",
+  "address": "66f4ed8c-7690-8390-9e07-bba35dceaceb",
+  "kind": "chunk",
+  "keys": [
+    "fam_relativity_redshift_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((1000 : Int) - (900 : Int))) * (1000 : Int)) / (1000 : Int)) = (100 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

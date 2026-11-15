@@ -1,0 +1,12 @@
+{
+  "handle": "f66052d7",
+  "address": "f66052d7-c9ad-8194-8524-6d43b6e90105",
+  "statement": "(((2 : Int) ^ (2 : Nat)) - ((4 : Int) * (1 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_algebra_discriminant_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

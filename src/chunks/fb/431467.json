@@ -1,0 +1,12 @@
+{
+  "handle": "fb431467",
+  "address": "fb431467-5854-8925-8fba-7c68a184eb16",
+  "statement": "(fmax (0 : Int) ((5200 : Int) - (4800 : Int))) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_elections_margin_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

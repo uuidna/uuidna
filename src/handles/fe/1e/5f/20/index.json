@@ -1,0 +1,12 @@
+{
+  "handle": "fe1e5f20",
+  "address": "fe1e5f20-72da-8b77-b2f2-0e020a643656",
+  "kind": "chunk",
+  "keys": [
+    "fam_taxation_bracket_1"
+  ],
+  "statement": "(fmax (0 : Int) ((60000 : Int) - (50000 : Int))) = (10000 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b8f21a8d",
+  "address": "b8f21a8d-a2da-8db6-8372-74cc6a9f6d27",
+  "statement": "((8 : Int) - (1 : Int)) = (7 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_interconnect_hops_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

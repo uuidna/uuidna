@@ -1,0 +1,12 @@
+{
+  "handle": "4b3d480b",
+  "address": "4b3d480b-fb17-877d-9c59-01a03816115a",
+  "kind": "chunk",
+  "keys": [
+    "fam_emulsification_phaseratio_1"
+  ],
+  "statement": "(((70 : Int) * (100 : Int)) / (30 : Int)) = (233 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6123c44b",
+  "address": "6123c44b-0f5f-860b-9c89-c691230970aa",
+  "kind": "chunk",
+  "keys": [
+    "fam_malacology_speciescount_1"
+  ],
+  "statement": "((800 : Int) * (10 : Int)) = (8000 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

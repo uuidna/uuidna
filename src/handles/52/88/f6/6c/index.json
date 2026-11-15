@@ -1,0 +1,12 @@
+{
+  "handle": "5288f66c",
+  "address": "5288f66c-ac43-875b-a674-c78276c03a4b",
+  "kind": "chunk",
+  "keys": [
+    "fam_electronics_parallel_1"
+  ],
+  "statement": "(((6 : Int) * (3 : Int)) / ((6 : Int) + (3 : Int))) = (2 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

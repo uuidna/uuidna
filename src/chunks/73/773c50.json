@@ -1,0 +1,12 @@
+{
+  "handle": "73773c50",
+  "address": "73773c50-8eb6-86f1-bb3c-51c984c97480",
+  "statement": "((30000 : Int) / (100 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dairy_output_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

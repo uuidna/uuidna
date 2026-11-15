@@ -1,0 +1,12 @@
+{
+  "handle": "4d9fe287",
+  "address": "4d9fe287-978b-89ec-9458-b9f3e31f18d2",
+  "kind": "chunk",
+  "keys": [
+    "fam_concrete_volume_1"
+  ],
+  "statement": "(((10 : Int) * (4 : Int)) * (2 : Int)) = (80 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

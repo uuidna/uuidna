@@ -1,0 +1,12 @@
+{
+  "handle": "bff8f3e4",
+  "address": "bff8f3e4-036e-81c3-aff8-5d4cdc00a38d",
+  "kind": "chunk",
+  "keys": [
+    "fam_timeseries_smoothing_1"
+  ],
+  "statement": "((((50 : Int) * (200 : Int)) + (((100 : Int) - (50 : Int)) * (100 : Int))) / (100 : Int)) = (150 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

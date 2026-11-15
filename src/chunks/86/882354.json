@@ -1,0 +1,12 @@
+{
+  "handle": "86882354",
+  "address": "86882354-c41e-8408-af55-7bd4daa6865e",
+  "statement": "(fmax (0 : Int) (((1000 : Int) - (600 : Int)) - (250 : Int))) = (150 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_premium_profit_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

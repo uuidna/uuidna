@@ -1,0 +1,12 @@
+{
+  "handle": "554c0a07",
+  "address": "554c0a07-e9e1-881f-84e7-36f307936a73",
+  "statement": "((1280 : Int) / (0 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_responsive_breakpoint_2"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

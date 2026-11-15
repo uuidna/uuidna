@@ -1,0 +1,12 @@
+{
+  "handle": "51bf1afa",
+  "address": "51bf1afa-bcc1-8b22-9acf-c7588d82f9e5",
+  "kind": "chunk",
+  "keys": [
+    "fam_genetics_coverage_1"
+  ],
+  "statement": "((3000000000 : Int) / (100000000 : Int)) = (30 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

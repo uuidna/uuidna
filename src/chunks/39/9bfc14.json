@@ -1,0 +1,34 @@
+{
+  "handle": "399bfc14",
+  "address": "399bfc14-172d-8bad-b5a6-98a67098c38d",
+  "statement": "((120 : Int) / (4 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_anthropology_kinship_1",
+    "fam_arpeggio_sweeprate_1",
+    "fam_availability_mttr_1",
+    "fam_consolidation_ordersperload_1",
+    "fam_dance_elevation_1",
+    "fam_dispatch_assignmentrate_1",
+    "fam_editing_pacing_1",
+    "fam_elevator_waittime_1",
+    "fam_numeracy_operationspeed_1",
+    "fam_pollination_hivedensity_1",
+    "fam_project_velocity_1",
+    "fam_queue_waittime_1",
+    "fam_sedimentology_bedform_1",
+    "fam_soilscience_infiltration_1",
+    "fam_zoning_density_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesQ.lean",
+    "FamiliesS.lean",
+    "FamiliesZ.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1f4c7f71",
+  "address": "1f4c7f71-2951-8883-8a6e-c223a7f8fb17",
+  "kind": "chunk",
+  "keys": [
+    "fam_transformer_primary_1"
+  ],
+  "statement": "(((24 : Int) * (10 : Int)) / (1 : Int)) = (240 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

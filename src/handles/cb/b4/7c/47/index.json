@@ -1,0 +1,12 @@
+{
+  "handle": "cbb47c47",
+  "address": "cbb47c47-dd99-8239-9707-f2a8f3b7668b",
+  "kind": "chunk",
+  "keys": [
+    "fam_firmware_image_1"
+  ],
+  "statement": "((32 : Int) * (4096 : Int)) = (131072 : Int)",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

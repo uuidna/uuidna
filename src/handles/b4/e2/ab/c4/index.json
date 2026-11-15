@@ -1,0 +1,12 @@
+{
+  "handle": "b4e2abc4",
+  "address": "b4e2abc4-b527-81b1-aa91-b11177cdeeb8",
+  "kind": "chunk",
+  "keys": [
+    "fam_reasoning_deductionvalidity_2"
+  ],
+  "statement": "(if (if (3 : Int) ≤ (2 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

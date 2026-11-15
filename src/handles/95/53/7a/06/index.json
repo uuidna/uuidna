@@ -1,0 +1,14 @@
+{
+  "handle": "95537a06",
+  "address": "95537a06-68f8-87ee-90a8-5cf7525071fe",
+  "kind": "chunk",
+  "keys": [
+    "fam_fpga_io_1",
+    "fam_throwing_spin_1"
+  ],
+  "statement": "((8 : Int) * (50 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesT.lean"
+  ]
+}

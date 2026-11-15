@@ -1,0 +1,12 @@
+{
+  "handle": "2482022f",
+  "address": "2482022f-409e-8371-8db7-21c5af11c77f",
+  "statement": "((70 : Int) * (3 : Int)) = (210 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mammalogy_metabolism_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

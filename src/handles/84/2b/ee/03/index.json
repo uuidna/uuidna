@@ -1,0 +1,12 @@
+{
+  "handle": "842bee03",
+  "address": "842bee03-e4b1-8702-a205-c4f89af3c5ed",
+  "kind": "chunk",
+  "keys": [
+    "fam_malware_signatures_1"
+  ],
+  "statement": "(50000 : Int) = (50000 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

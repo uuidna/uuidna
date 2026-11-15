@@ -1,0 +1,12 @@
+{
+  "handle": "119e2c85",
+  "address": "119e2c85-38df-8bec-845a-1037aa234ca5",
+  "statement": "(((100 : Int) * ((100 : Int) + (25 : Int))) / (100 : Int)) = (125 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_excavation_swell_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

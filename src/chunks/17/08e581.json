@@ -1,0 +1,12 @@
+{
+  "handle": "1708e581",
+  "address": "1708e581-4837-83fe-822e-6d7b2de5f8ce",
+  "statement": "((((60 : Int) + (30 : Int)) * (100 : Int)) / (100 : Int)) = (90 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_actuarial_combinedratio_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

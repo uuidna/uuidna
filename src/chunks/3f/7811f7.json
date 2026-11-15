@@ -1,0 +1,12 @@
+{
+  "handle": "3f7811f7",
+  "address": "3f7811f7-6529-861f-a202-18d84658df0b",
+  "statement": "(fmax (0 : Int) (((2 : Int) * (7 : Int)) - (3 : Int))) = (11 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_statics_truss_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

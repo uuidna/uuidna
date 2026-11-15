@@ -1,0 +1,14 @@
+{
+  "handle": "858616a9",
+  "address": "858616a9-a87d-8e9f-947f-5cf1a9ae47b4",
+  "kind": "chunk",
+  "keys": [
+    "fam_coagulation_clotretraction_1",
+    "fam_rectifier_ripplefactor_1"
+  ],
+  "statement": "(((48 : Int) * (100 : Int)) / (100 : Int)) = (48 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesR.lean"
+  ]
+}

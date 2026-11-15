@@ -1,0 +1,12 @@
+{
+  "handle": "2d3e98a6",
+  "address": "2d3e98a6-eb62-804c-bd26-6b6ae88bf8e8",
+  "statement": "(if (if (48 : Int) ≥ (44 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_accessibility_taptarget_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

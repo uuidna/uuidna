@@ -1,0 +1,12 @@
+{
+  "handle": "441beec2",
+  "address": "441beec2-6fbe-8bca-afbe-926a259c9639",
+  "statement": "(if (1 : Int) ≠ 0 then (1 : Int) else (0 : Int)) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_logicgates_mux_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

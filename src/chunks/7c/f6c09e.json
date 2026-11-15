@@ -1,0 +1,12 @@
+{
+  "handle": "7cf6c09e",
+  "address": "7cf6c09e-4586-8537-a8ab-457ac2c78035",
+  "statement": "(((65536 : Int) * (700 : Int)) * (2 : Int)) = (91750400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tpu_tops_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

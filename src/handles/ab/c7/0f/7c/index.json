@@ -1,0 +1,12 @@
+{
+  "handle": "abc70f7c",
+  "address": "abc70f7c-8485-84e3-9196-2acd027b410c",
+  "kind": "chunk",
+  "keys": [
+    "fam_psalmody_versesum_1"
+  ],
+  "statement": "((150 : Int) * (16 : Int)) = (2400 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

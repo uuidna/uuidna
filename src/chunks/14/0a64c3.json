@@ -1,0 +1,12 @@
+{
+  "handle": "140a64c3",
+  "address": "140a64c3-0962-856e-9bda-83a59f595ffa",
+  "statement": "(((24 : Int) * (100 : Int)) / (30 : Int)) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_website_coverage_2"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

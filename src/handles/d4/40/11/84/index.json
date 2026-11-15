@@ -1,0 +1,16 @@
+{
+  "handle": "d4401184",
+  "address": "d4401184-6dd5-8fa8-be1e-462f547bdcc0",
+  "kind": "chunk",
+  "keys": [
+    "fam_drone_payload_1",
+    "fam_straingauge_resistancechange_1",
+    "fam_windpower_turbineoutput_1"
+  ],
+  "statement": "((2 : Int) * (1000 : Int)) = (2000 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesS.lean",
+    "FamiliesW.lean"
+  ]
+}

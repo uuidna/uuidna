@@ -1,0 +1,14 @@
+{
+  "handle": "7674e254",
+  "address": "7674e254-b2c7-8375-8297-c116164535c3",
+  "statement": "((10 : Int) * (80 : Int)) = (800 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_elevator_capacity_1",
+    "fam_rail_capacity_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesR.lean"
+  ]
+}

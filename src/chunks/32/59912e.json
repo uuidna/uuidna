@@ -1,0 +1,12 @@
+{
+  "handle": "3259912e",
+  "address": "3259912e-1278-8b55-b51b-532baf82811d",
+  "statement": "((1000 : Int) / (((1 : Int) + ((0 : Int) / (10000 : Int))) ^ (5 : Nat))) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_econ_present_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

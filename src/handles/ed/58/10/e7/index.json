@@ -1,0 +1,12 @@
+{
+  "handle": "ed5810e7",
+  "address": "ed5810e7-b4d3-8c48-8eba-3270b32f3ca2",
+  "kind": "chunk",
+  "keys": [
+    "fam_suspension_frequency_1"
+  ],
+  "statement": "((64000 : Int) / (400 : Int)) = (160 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

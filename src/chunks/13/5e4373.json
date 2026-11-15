@@ -1,0 +1,12 @@
+{
+  "handle": "135e4373",
+  "address": "135e4373-d752-8daa-bf28-46a532049279",
+  "statement": "(((2 : Int) * (30 : Int)) * (3 : Int)) = (180 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pulsar_spindownluminosity_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

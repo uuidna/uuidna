@@ -1,0 +1,12 @@
+{
+  "handle": "7eaeddcd",
+  "address": "7eaeddcd-ce5b-89ae-a747-b68adfc8b6af",
+  "kind": "chunk",
+  "keys": [
+    "fam_demographics_dependency_1"
+  ],
+  "statement": "(((45 : Int) * (100 : Int)) / (55 : Int)) = (81 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

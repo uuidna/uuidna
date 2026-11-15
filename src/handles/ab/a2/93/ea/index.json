@@ -1,0 +1,12 @@
+{
+  "handle": "aba293ea",
+  "address": "aba293ea-4e67-8eb7-84da-d87440c83fad",
+  "kind": "chunk",
+  "keys": [
+    "fam_amplifiers_bandwidth_1"
+  ],
+  "statement": "(fmax (0 : Int) ((20000 : Int) - (20 : Int))) = (19980 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

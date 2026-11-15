@@ -1,0 +1,16 @@
+{
+  "handle": "9ca2e0f6",
+  "address": "9ca2e0f6-057e-81cc-9e5f-1ee212ca8d59",
+  "statement": "(((1000 : Int) * (10 : Int)) / (100 : Int)) = (100 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_auction_increment_1",
+    "fam_cheese_yield_1",
+    "fam_procurement_discount_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesP.lean"
+  ]
+}

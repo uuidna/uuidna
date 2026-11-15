@@ -1,0 +1,16 @@
+{
+  "handle": "edf18d29",
+  "address": "edf18d29-dc63-863b-864c-5643c5d39e52",
+  "kind": "chunk",
+  "keys": [
+    "fam_cinema_occupancy_1",
+    "fam_security_coverage_1",
+    "fam_zerotrust_policycoverage_1"
+  ],
+  "statement": "(((180 : Int) * (100 : Int)) / (200 : Int)) = (90 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesS.lean",
+    "FamiliesZ.lean"
+  ]
+}

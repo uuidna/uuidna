@@ -1,0 +1,12 @@
+{
+  "handle": "3e432e68",
+  "address": "3e432e68-022f-8284-9a37-a12fe8ee3189",
+  "kind": "chunk",
+  "keys": [
+    "fam_personality_neuroticism_1"
+  ],
+  "statement": "(fmax (0 : Int) ((60 : Int) - (25 : Int))) = (35 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

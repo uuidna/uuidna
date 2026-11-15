@@ -1,0 +1,14 @@
+{
+  "handle": "bf157de2",
+  "address": "bf157de2-b71b-8270-aff5-891f18cbf7c6",
+  "statement": "((340 : Int) * (10 : Int)) = (3400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_patristics_citationtotal_1",
+    "fam_scripture_crossreferences_1"
+  ],
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

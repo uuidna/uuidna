@@ -1,0 +1,20 @@
+{
+  "handle": "b8a453be",
+  "address": "b8a453be-dbf7-87ff-b883-27282a1fecb9",
+  "statement": "((1000 : Int) * (60 : Int)) = (60000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_catalyst_turnover_1",
+    "fam_dns_queries_1",
+    "fam_enzyme_turnover_1",
+    "fam_poultry_eggmass_1",
+    "fam_rendering_fillrate_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

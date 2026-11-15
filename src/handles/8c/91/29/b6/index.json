@@ -1,0 +1,16 @@
+{
+  "handle": "8c9129b6",
+  "address": "8c9129b6-1b27-8ed8-b0b6-2105dc91d162",
+  "kind": "chunk",
+  "keys": [
+    "fam_cinematography_depthoffield_1",
+    "fam_tax_credits_1",
+    "fam_valuation_bookvalue_1"
+  ],
+  "statement": "(fmax (0 : Int) ((5000 : Int) - (2000 : Int))) = (3000 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesT.lean",
+    "FamiliesV.lean"
+  ]
+}

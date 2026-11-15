@@ -1,0 +1,12 @@
+{
+  "handle": "ebc16a3b",
+  "address": "ebc16a3b-a047-8824-9d0f-2fcc5de457d7",
+  "statement": "(((4 : Int) * (2 : Int)) * (50 : Int)) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fracture_stressintensity_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

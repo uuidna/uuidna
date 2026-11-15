@@ -1,0 +1,12 @@
+{
+  "handle": "2a518db1",
+  "address": "2a518db1-8a72-8bb0-8ca9-ec235316a897",
+  "statement": "(fmin (50 : Int) (20 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_version_keep_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9698682c",
+  "address": "9698682c-cd5e-89a5-84f9-ed5d0e046c75",
+  "kind": "chunk",
+  "keys": [
+    "fam_noise_attenuation_1"
+  ],
+  "statement": "(fmax (0 : Int) ((80 : Int) - (25 : Int))) = (55 : Int)",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

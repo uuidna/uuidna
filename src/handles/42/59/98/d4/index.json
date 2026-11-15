@@ -1,0 +1,17 @@
+{
+  "handle": "425998d4",
+  "address": "425998d4-4f7a-8eb2-bb75-8d1ff42a9ed5",
+  "kind": "chunk",
+  "keys": [
+    "fam_ceramics_density_1",
+    "fam_testing_assertions_1",
+    "fam_thermochemistry_entropy_1",
+    "fam_viticulture_tannin_1"
+  ],
+  "statement": "((900 : Int) / (300 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesT.lean",
+    "FamiliesV.lean"
+  ]
+}

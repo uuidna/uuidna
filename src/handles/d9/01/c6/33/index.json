@@ -1,0 +1,12 @@
+{
+  "handle": "d901c633",
+  "address": "d901c633-f0b3-8e56-9c74-d2464d425719",
+  "kind": "chunk",
+  "keys": [
+    "fam_steering_steeringratio_1"
+  ],
+  "statement": "((360 : Int) / (24 : Int)) = (15 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

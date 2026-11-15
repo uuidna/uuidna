@@ -1,0 +1,12 @@
+{
+  "handle": "d0c2b67b",
+  "address": "d0c2b67b-1574-8c5a-8484-6024f4174356",
+  "statement": "(((87 : Int) * (100 : Int)) / (100 : Int)) = (87 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_software_coverage_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9ecef7f8",
+  "address": "9ecef7f8-d0de-8d68-b046-40c3017433df",
+  "statement": "(fmax (0 : Int) ((100 : Int) - (97 : Int))) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_backlash_deadband_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

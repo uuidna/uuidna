@@ -1,0 +1,12 @@
+{
+  "handle": "27f76551",
+  "address": "27f76551-1242-85c6-8039-9ffedd1cfe15",
+  "statement": "(((12 : Int) * (1000 : Int)) / (2000 : Int)) = (6 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_walkability_crossingdensity_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

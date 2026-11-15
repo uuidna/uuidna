@@ -1,0 +1,12 @@
+{
+  "handle": "4a7a5cde",
+  "address": "4a7a5cde-06c5-8e41-b72a-076ce6e10987",
+  "statement": "((300 : Int) / (0 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_flightdynamics_turnrate_2"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

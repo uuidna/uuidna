@@ -1,0 +1,12 @@
+{
+  "handle": "1e740559",
+  "address": "1e740559-47e3-84e1-802d-83de9457ecda",
+  "kind": "chunk",
+  "keys": [
+    "fam_pacing_negativesplit_1"
+  ],
+  "statement": "(fmax (0 : Int) ((310 : Int) - (300 : Int))) = (10 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

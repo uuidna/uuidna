@@ -1,0 +1,14 @@
+{
+  "handle": "f88d9ec6",
+  "address": "f88d9ec6-bdcd-8b61-925b-c95ddcead494",
+  "kind": "chunk",
+  "keys": [
+    "fam_covenant_renewalcycle_1",
+    "fam_seismology_energy_1"
+  ],
+  "statement": "((7 : Int) * (7 : Int)) = (49 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesS.lean"
+  ]
+}

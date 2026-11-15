@@ -1,0 +1,40 @@
+{
+  "handle": "d072bbbd",
+  "address": "d072bbbd-7574-80b3-ba06-073b9215ad0b",
+  "statement": "(5 : Int) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_code_languages_1",
+    "fam_comparison_rows_1",
+    "fam_content_blocks_1",
+    "fam_embryology_morphology_1",
+    "fam_endpoint_depth_1",
+    "fam_equine_bodycondition_1",
+    "fam_field_options_1",
+    "fam_highlights_items_1",
+    "fam_histology_thickness_1",
+    "fam_matrix_identitytrace_1",
+    "fam_media_sizes_1",
+    "fam_optometry_pupil_1",
+    "fam_permutation_cycles_1",
+    "fam_philosophy_premises_1",
+    "fam_pipeline_stages_1",
+    "fam_ramsey_r22_1",
+    "fam_routing_depth_1",
+    "fam_semantics_distance_1",
+    "fam_slider_slides_1",
+    "fam_vet_bodyscore_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesV.lean"
+  ]
+}

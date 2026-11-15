@@ -1,0 +1,12 @@
+{
+  "handle": "143272dc",
+  "address": "143272dc-a556-8b03-aa0a-1346cd9a96bc",
+  "statement": "(fmax (0 : Int) ((90 : Int) - (60 : Int))) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_turnaround_delayminutes_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

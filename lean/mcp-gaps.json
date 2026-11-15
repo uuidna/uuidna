@@ -1,7 +1,7 @@
 {
   "kind": "mcp-gap-census",
-  "records": 2237,
-  "distinct": 1779,
+  "records": 2280,
+  "distinct": 1822,
   "loadBearing": 181,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
@@ -1629,6 +1629,20 @@
       ]
     },
     {
+      "gap": "adds the Int division test and reruns the lean pipeline",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "adds the Int division test, rebuilds and reruns the lean pipeline",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "adds the ISO simulator and hardware verdict to qc",
       "hits": 1,
       "forms": [
@@ -2252,6 +2266,13 @@
       ]
     },
     {
+      "gap": "checks whether families derive from Lean and their test cost",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "checks whether two changed sources were written by the Lean pipeline",
       "hits": 1,
       "forms": [
@@ -2350,6 +2371,13 @@
       ]
     },
     {
+      "gap": "commits the ask door, asked wing and evaluator fix",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "commits the audit session's verified fixes by its pathspec list",
       "hits": 1,
       "forms": [
@@ -2400,6 +2428,20 @@
     },
     {
       "gap": "commits the existence-check fix and the contract fix by pathspec",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "commits the extended families wing",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "commits the families wing by pathspec",
       "hits": 1,
       "forms": [
         "export"
@@ -2536,6 +2578,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "compares declared and parsed theorem counts in the new wings",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
       ]
     },
     {
@@ -3344,6 +3393,13 @@
       ]
     },
     {
+      "gap": "finds duplicate theorem keys across wings",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "finds every use of the contract identity",
       "hits": 1,
       "forms": [
@@ -3362,6 +3418,13 @@
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "finds the duplicate family keys",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
       ]
     },
     {
@@ -3418,6 +3481,13 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "folds two test-graph misreadings",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -3799,6 +3869,13 @@
       ]
     },
     {
+      "gap": "lists the modules the test graph treats as reading the whole tree",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "live grid census door",
       "hits": 1,
       "forms": [
@@ -4016,6 +4093,13 @@
       ]
     },
     {
+      "gap": "measures each whole-tree reader's test fan-out",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "measures folded and runs the qpu machine next waves",
       "hits": 1,
       "forms": [
@@ -4027,6 +4111,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "measures the graph fan-out after the fold",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -4398,6 +4489,13 @@
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "no door commits in the separate qpu checkout",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -6096,6 +6194,13 @@
     },
     {
       "gap": "no door reads the qpu theorem index",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the refuted leads' settlements in lean/leads.json",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -8342,6 +8447,13 @@
       ]
     },
     {
+      "gap": "no door summarises dist/evidence/legal-audit.jsonl by cause",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door tallies a witness wave journal into faces and dissent",
       "hits": 1,
       "forms": [
@@ -8822,6 +8934,20 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "prototypes family witness extraction and Nat translation",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "prototypes the extended family reader and translator",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -9588,6 +9714,13 @@
       ]
     },
     {
+      "gap": "reads a family test and existing cross-formula wings",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads a past wave receipt and finds its workflow script",
       "hits": 1,
       "forms": [
@@ -9630,6 +9763,13 @@
       ]
     },
     {
+      "gap": "reads emit's per-fact checks",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads generated doc conventions",
       "hits": 1,
       "forms": [
@@ -9637,7 +9777,49 @@
       ]
     },
     {
+      "gap": "reads holds' signature",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads how lean-cube computes the ledger partition",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads how lean-ledger assigns principles",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads lean-all's wing selection",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads lean-cube per-wing census",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads lean-ledger's wing-to-principle mapping",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads leanDecls pattern and the citing doc lines",
       "hits": 1,
       "forms": [
         "export"
@@ -9652,6 +9834,20 @@
     },
     {
       "gap": "reads live mentions of dead paths",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads one family, its test, and existing cross-formula wings",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads principleOf fallback",
       "hits": 1,
       "forms": [
         "export"
@@ -9686,6 +9882,13 @@
       ]
     },
     {
+      "gap": "reads the cubes_partition_ledger fact",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads the edge package surface",
       "hits": 1,
       "forms": [
@@ -9700,6 +9903,13 @@
       ]
     },
     {
+      "gap": "reads the existing cross-formulas wing generator",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads the existing wave runner and a past receipt",
       "hits": 1,
       "forms": [
@@ -9708,6 +9918,27 @@
     },
     {
       "gap": "reads the fabricated citation and the port-update output",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the Fact and EmitArgs shapes and a small emitting wing",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the failing Lean line",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the falsifier findings",
       "hits": 1,
       "forms": [
         "export"
@@ -9742,6 +9973,13 @@
       ]
     },
     {
+      "gap": "reads the involution evaluator's division",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads the land cure and the lean and axioms scripts",
       "hits": 1,
       "forms": [
@@ -9756,7 +9994,42 @@
       ]
     },
     {
+      "gap": "reads the land proof chain and timings",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads the landing log's remaining failure",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the lean pipeline result",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the lean pipeline scripts",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the lean result and records the court orders",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the lean result, asks decide, reruns the court",
       "hits": 1,
       "forms": [
         "export"
@@ -9833,6 +10106,13 @@
       ]
     },
     {
+      "gap": "reads the shared wing emitter and a small wing",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads the sources a product description derives from",
       "hits": 1,
       "forms": [
@@ -9869,6 +10149,20 @@
     },
     {
       "gap": "reads the wing generator shape",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads what a new wing must register",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads where a new wing must be registered",
       "hits": 1,
       "forms": [
         "export"
@@ -10117,6 +10411,13 @@
       "hits": 1,
       "forms": [
         "S"
+      ]
+    },
+    {
+      "gap": "rewrites the families translator to exact integer semantics",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {

@@ -1,0 +1,12 @@
+{
+  "handle": "9312f0cc",
+  "address": "9312f0cc-f73c-8685-8e9b-479493f139c6",
+  "statement": "((20000 : Int) * (1200 : Int)) = (24000000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_linehaul_payloadmiles_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

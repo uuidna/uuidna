@@ -1,0 +1,16 @@
+{
+  "handle": "b451d22c",
+  "address": "b451d22c-c6f5-823c-a8aa-e44c3b91196b",
+  "kind": "chunk",
+  "keys": [
+    "fam_bathymetry_profilearea_1",
+    "fam_lexicography_headwords_1",
+    "fam_transit_ridership_1"
+  ],
+  "statement": "((500 : Int) * (40 : Int)) = (20000 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesL.lean",
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8967e905",
+  "address": "8967e905-00d8-86fb-acb7-2958fb8715aa",
+  "kind": "chunk",
+  "keys": [
+    "fam_hemodynamics_ejectionfraction_1"
+  ],
+  "statement": "(((70 : Int) * (100 : Int)) / (120 : Int)) = (58 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

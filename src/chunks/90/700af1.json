@@ -1,0 +1,12 @@
+{
+  "handle": "90700af1",
+  "address": "90700af1-c6fe-8fef-a38a-7dc4ed0b4245",
+  "statement": "(((50 : Int) * (100 : Int)) / (400 : Int)) = (12 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_urology_residual_1"
+  ],
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b2de4405",
+  "address": "b2de4405-eb3e-80d6-97ca-0b0d5a7e41b0",
+  "statement": "((24 : Int) * (30 : Int)) = (720 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_animation_frames_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

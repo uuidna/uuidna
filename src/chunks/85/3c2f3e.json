@@ -1,0 +1,12 @@
+{
+  "handle": "853c2f3e",
+  "address": "853c2f3e-9885-8c15-bac4-b4f953fa4ca9",
+  "statement": "((360 : Int) / (180 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_feedlot_dailygain_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

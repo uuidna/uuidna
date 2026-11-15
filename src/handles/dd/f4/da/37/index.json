@@ -1,0 +1,12 @@
+{
+  "handle": "ddf4da37",
+  "address": "ddf4da37-3e71-8b72-a43d-b41a890ea984",
+  "kind": "chunk",
+  "keys": [
+    "fam_pharma_steadystate_1"
+  ],
+  "statement": "((500 : Int) / (8 : Int)) = (62 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "handle": "6170220f",
+  "address": "6170220f-333c-84e5-b32e-ec9f8c952af2",
+  "kind": "chunk",
+  "keys": [
+    "fam_causal_mediation_1",
+    "fam_color_channels_1",
+    "fam_dedup_incref_1",
+    "fam_determinism_necessitylevel_1",
+    "fam_distilling_cuts_1",
+    "fam_dns_labels_1",
+    "fam_gps_trilateration_1",
+    "fam_image_channels_1",
+    "fam_invariant_strengthlevels_1",
+    "fam_lever_arm_1",
+    "fam_myrmecology_castecount_1",
+    "fam_onomastics_patronymiclayers_1",
+    "fam_opera_acts_1",
+    "fam_protozoology_motilitytypes_1",
+    "fam_pump_stages_1",
+    "fam_rationalism_necessitylevels_1",
+    "fam_sculpture_supportpoints_1"
+  ],
+  "statement": "((3 : Int) + (1 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean"
+  ]
+}

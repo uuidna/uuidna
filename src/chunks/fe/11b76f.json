@@ -1,0 +1,14 @@
+{
+  "handle": "fe11b76f",
+  "address": "fe11b76f-20b5-8fe4-b21d-23820b5faf32",
+  "statement": "((50 : Int) * (7 : Int)) = (350 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_civil_concrete_1",
+    "fam_replenishment_reorder_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesR.lean"
+  ]
+}

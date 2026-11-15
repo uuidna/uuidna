@@ -1,0 +1,12 @@
+{
+  "handle": "ea77f17b",
+  "address": "ea77f17b-d9b2-8784-b091-5731cd34ec27",
+  "kind": "chunk",
+  "keys": [
+    "fam_kerning_wordspacing_1"
+  ],
+  "statement": "((fmax (0 : Int) ((5 : Int) - (1 : Int))) * (250 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

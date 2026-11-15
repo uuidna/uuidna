@@ -1,0 +1,12 @@
+{
+  "handle": "ab89ee6c",
+  "address": "ab89ee6c-aa67-80dc-9b8f-3f170f0e5a81",
+  "statement": "((2000 : Int) / (80 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_restaurant_averagecheck_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

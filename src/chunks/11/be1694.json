@@ -1,0 +1,12 @@
+{
+  "handle": "11be1694",
+  "address": "11be1694-5891-856c-b0d4-780e78b3be09",
+  "statement": "((500 : Int) + (0 : Int)) = (500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ledger_accounts_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

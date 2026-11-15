@@ -1,0 +1,14 @@
+{
+  "handle": "903ec3ff",
+  "address": "903ec3ff-8329-8724-9cb9-dc4875e1c479",
+  "statement": "((150 : Int) * (4 : Int)) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cuisine_scaling_1",
+    "fam_drayage_costpermove_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean"
+  ]
+}

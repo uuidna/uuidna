@@ -1,0 +1,12 @@
+{
+  "handle": "2e3b89b9",
+  "address": "2e3b89b9-4cd7-8f06-b5cf-3019a6ec7306",
+  "statement": "(((16 : Int) * (1000 : Int)) / (1000 : Int)) = (16 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_humidity_mixingratio_1"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

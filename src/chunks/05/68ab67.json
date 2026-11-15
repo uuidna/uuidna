@@ -1,0 +1,14 @@
+{
+  "handle": "0568ab67",
+  "address": "0568ab67-e5e4-8ba3-93f9-bfb7b5080b61",
+  "statement": "((240 : Int) / (6 : Int)) = (40 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_partner_regions_1",
+    "fam_transformer_impedance_1"
+  ],
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

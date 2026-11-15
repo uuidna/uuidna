@@ -1,0 +1,12 @@
+{
+  "handle": "e989c9b8",
+  "address": "e989c9b8-7a45-8020-9a08-12a2a9da6505",
+  "statement": "(((50000 : Int) * (10 : Int)) / (100 : Int)) = (5000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_property_appreciation_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

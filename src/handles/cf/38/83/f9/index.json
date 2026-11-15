@@ -1,0 +1,12 @@
+{
+  "handle": "cf3883f9",
+  "address": "cf3883f9-34fb-88f5-b4b4-e0ecae8d9760",
+  "kind": "chunk",
+  "keys": [
+    "fam_virtualization_density_1"
+  ],
+  "statement": "((65536 : Int) / (2048 : Int)) = (32 : Int)",
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

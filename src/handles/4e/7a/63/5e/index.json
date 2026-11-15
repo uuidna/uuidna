@@ -1,0 +1,16 @@
+{
+  "handle": "4e7a635e",
+  "address": "4e7a635e-2292-8dfa-b5f5-a939d7c84406",
+  "kind": "chunk",
+  "keys": [
+    "fam_railway_throughput_1",
+    "fam_transit_coverage_1",
+    "fam_wireframe_gutter_1"
+  ],
+  "statement": "((240 : Int) / (12 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesR.lean",
+    "FamiliesT.lean",
+    "FamiliesW.lean"
+  ]
+}

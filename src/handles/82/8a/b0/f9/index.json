@@ -1,0 +1,14 @@
+{
+  "handle": "828ab0f9",
+  "address": "828ab0f9-d2e9-8082-8d63-ae446c5d4d95",
+  "kind": "chunk",
+  "keys": [
+    "fam_geothermal_cop_1",
+    "fam_immunology_boost_1"
+  ],
+  "statement": "(((400 : Int) * (100 : Int)) / (100 : Int)) = (400 : Int)",
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesI.lean"
+  ]
+}

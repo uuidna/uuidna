@@ -1,0 +1,15 @@
+{
+  "handle": "a5640075",
+  "address": "a5640075-f496-88c8-8e88-94d94fad93e8",
+  "kind": "chunk",
+  "keys": [
+    "fam_propulsion_thrust_1",
+    "fam_solar_output_1",
+    "fam_solarpower_paneloutput_1"
+  ],
+  "statement": "((300 : Int) * (20 : Int)) = (6000 : Int)",
+  "files": [
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

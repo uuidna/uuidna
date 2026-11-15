@@ -1,0 +1,12 @@
+{
+  "handle": "b2237b5b",
+  "address": "b2237b5b-007a-84c2-bb90-9666b96091d0",
+  "statement": "(((4 : Int) * (1000 : Int)) / (500 : Int)) = (8 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_inspection_aql_1"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

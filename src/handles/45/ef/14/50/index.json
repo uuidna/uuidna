@@ -1,0 +1,12 @@
+{
+  "handle": "45ef1450",
+  "address": "45ef1450-b5d9-878e-b32d-e1da86a2d17d",
+  "kind": "chunk",
+  "keys": [
+    "fam_animation_duration_1"
+  ],
+  "statement": "(((48 : Int) * (1000 : Int)) / (24 : Int)) = (2000 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

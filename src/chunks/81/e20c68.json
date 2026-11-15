@@ -1,0 +1,12 @@
+{
+  "handle": "81e20c68",
+  "address": "81e20c68-d473-84c6-8f16-cd3562e69271",
+  "statement": "(((250 : Int) * (100 : Int)) / (500 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_conservation_viability_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

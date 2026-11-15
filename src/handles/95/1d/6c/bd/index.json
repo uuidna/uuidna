@@ -1,0 +1,13 @@
+{
+  "handle": "951d6cbd",
+  "address": "951d6cbd-8cc1-8141-9326-a5dba53f8aa0",
+  "kind": "chunk",
+  "keys": [
+    "fam_semantics_entailment_1",
+    "fam_steps_current_1"
+  ],
+  "statement": "(((2 : Int) * (100 : Int)) / (5 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f3afe653",
+  "address": "f3afe653-b651-85fa-a2ff-cc9cde723ed3",
+  "statement": "((65536 : Int) / (16 : Int)) = (4096 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_sharding_keyrange_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

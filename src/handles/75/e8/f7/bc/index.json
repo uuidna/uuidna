@@ -1,0 +1,12 @@
+{
+  "handle": "75e8f7bc",
+  "address": "75e8f7bc-a57a-882d-b860-f5e546097e99",
+  "kind": "chunk",
+  "keys": [
+    "fam_receivables_terms_1"
+  ],
+  "statement": "(((2000 : Int) * (2 : Int)) / (100 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ae08d14b",
+  "address": "ae08d14b-b6f9-8e76-9e35-2a9bf22b291d",
+  "kind": "chunk",
+  "keys": [
+    "fam_desalination_osmotic_1"
+  ],
+  "statement": "((35 : Int) * (300 : Int)) = (10500 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a7530aa0",
+  "address": "a7530aa0-810a-812c-8251-7871dbfe261d",
+  "kind": "chunk",
+  "keys": [
+    "fam_cadence_chordspan_1"
+  ],
+  "statement": "(fmax (0 : Int) ((16 : Int) - (0 : Int))) = (16 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

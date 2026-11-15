@@ -1,0 +1,12 @@
+{
+  "handle": "e2a8d2fc",
+  "address": "e2a8d2fc-21b0-8690-b2e0-700110b6280a",
+  "kind": "chunk",
+  "keys": [
+    "fam_hermeneutics_lensselections_1"
+  ],
+  "statement": "(Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (4 : Int)))) = (210 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

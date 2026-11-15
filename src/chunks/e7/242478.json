@@ -1,0 +1,12 @@
+{
+  "handle": "e7242478",
+  "address": "e7242478-1653-8983-803e-8782d0eaaf56",
+  "statement": "((Int.ofNat (fsqrt (Int.toNat (((30 : Int) * (30 : Int)) / (30 : Int))))) + (3 : Int)) = (8 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_readability_smogscaled_1"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

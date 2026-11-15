@@ -1,0 +1,12 @@
+{
+  "handle": "d58d923c",
+  "address": "d58d923c-9957-82ee-a174-6c49900d0e1e",
+  "statement": "(fmax (0 : Int) ((2024 : Int) - (1200 : Int))) = (824 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_archaeology_age_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

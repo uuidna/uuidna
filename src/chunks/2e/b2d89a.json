@@ -1,0 +1,18 @@
+{
+  "handle": "2eb2d89a",
+  "address": "2eb2d89a-7e2d-8c0a-9914-75508b4c3cca",
+  "statement": "((2 : Int) + (3 : Int)) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_etymology_derivationchain_1",
+    "fam_immigration_dependents_1",
+    "fam_linearalgebra_ranknullity_1",
+    "fam_matrix_ranknullity_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesI.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean"
+  ]
+}

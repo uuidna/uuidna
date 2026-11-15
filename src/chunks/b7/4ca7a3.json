@@ -1,0 +1,12 @@
+{
+  "handle": "b74ca7a3",
+  "address": "b74ca7a3-fc4b-8025-a581-f8daf84526cf",
+  "statement": "(((30 : Int) * (30 : Int)) / (6 : Int)) = (150 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_drag_induced_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "28159cd1",
+  "address": "28159cd1-2b27-8db6-961f-7d9a9f112569",
+  "kind": "chunk",
+  "keys": [
+    "fam_cinema_aspect_1"
+  ],
+  "statement": "(((239 : Int) * (100 : Int)) / (100 : Int)) = (239 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

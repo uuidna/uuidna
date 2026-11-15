@@ -1,0 +1,12 @@
+{
+  "handle": "95bf6384",
+  "address": "95bf6384-deba-8182-81b7-05419cc053a8",
+  "kind": "chunk",
+  "keys": [
+    "fam_image_stride_1"
+  ],
+  "statement": "((1920 : Int) * (3 : Int)) = (5760 : Int)",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

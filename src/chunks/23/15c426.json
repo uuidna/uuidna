@@ -1,0 +1,12 @@
+{
+  "handle": "2315c426",
+  "address": "2315c426-198e-8443-8530-389aab6bd360",
+  "statement": "(((100 : Int) * (1000 : Int)) / (50 : Int)) = (2000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_astronomy_parallax_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

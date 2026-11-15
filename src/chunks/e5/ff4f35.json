@@ -1,0 +1,19 @@
+{
+  "handle": "e5ff4f35",
+  "address": "e5ff4f35-0950-865d-af85-dc66ae82f8ce",
+  "statement": "((1000 : Int) * (10 : Int)) = (10000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_benchmark_throughput_1",
+    "fam_ml_gradientsteps_1",
+    "fam_protozoology_cellcount_1",
+    "fam_sort_comparisons_1",
+    "fam_subsidy_beneficiaries_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

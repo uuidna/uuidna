@@ -1,0 +1,12 @@
+{
+  "handle": "7add8679",
+  "address": "7add8679-4ca8-8bea-885f-716b3437be3d",
+  "statement": "((50 : Int) * (120 : Int)) = (6000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_fertilization_applicationrate_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

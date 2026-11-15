@@ -1,0 +1,12 @@
+{
+  "handle": "fc9f367f",
+  "address": "fc9f367f-f9ba-8825-941a-3a92eaf3324c",
+  "statement": "(if (if (200 : Int) ≤ (160 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_blog_excerpt_2"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "handle": "27c9ec1b",
+  "address": "27c9ec1b-b4f2-8694-a08d-8b286368db36",
+  "kind": "chunk",
+  "keys": [
+    "fam_authentication_sessions_1",
+    "fam_biomechanics_leverage_1",
+    "fam_control_gainmargin_1",
+    "fam_cpu_ipc_1",
+    "fam_grouptheory_cosetcount_1",
+    "fam_halflife_elapsedlives_1",
+    "fam_herpetology_metabolism_1",
+    "fam_huffman_averagelength_1",
+    "fam_lenses_magnification_1",
+    "fam_linkage_mechanicaladvantage_1",
+    "fam_mammalogy_territory_1",
+    "fam_mixing_ratio_1",
+    "fam_oceanography_current_1",
+    "fam_topology_connectivity_1"
+  ],
+  "statement": "((100 : Int) / (25 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesL.lean",
+    "FamiliesM.lean",
+    "FamiliesO.lean",
+    "FamiliesT.lean"
+  ]
+}

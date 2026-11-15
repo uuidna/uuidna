@@ -1,0 +1,12 @@
+{
+  "handle": "2d56d04d",
+  "address": "2d56d04d-0771-87d4-8bab-2ac587743815",
+  "statement": "((500 : Int) / (30 : Int)) = (16 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_coffee_brewratio_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

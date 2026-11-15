@@ -1,0 +1,12 @@
+{
+  "handle": "bbd0e33c",
+  "address": "bbd0e33c-df21-850a-aea0-e1c791b81a26",
+  "statement": "(((150 : Int) * (100 : Int)) / (500 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pulmonology_deadspace_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

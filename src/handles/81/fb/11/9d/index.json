@@ -1,0 +1,12 @@
+{
+  "handle": "81fb119d",
+  "address": "81fb119d-dc8d-8a77-9c68-8696e6808cee",
+  "kind": "chunk",
+  "keys": [
+    "fam_bioinformatics_kmer_1"
+  ],
+  "statement": "(fmax (0 : Int) (((100 : Int) - (5 : Int)) + (1 : Int))) = (96 : Int)",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

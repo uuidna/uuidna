@@ -1,0 +1,12 @@
+{
+  "handle": "76e77df1",
+  "address": "76e77df1-408a-822c-abe2-2b901bc81143",
+  "kind": "chunk",
+  "keys": [
+    "fam_prosody_speechrate_1"
+  ],
+  "statement": "((900 : Int) / (6 : Int)) = (150 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

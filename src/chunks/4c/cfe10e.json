@@ -1,0 +1,12 @@
+{
+  "handle": "4ccfe10e",
+  "address": "4ccfe10e-da42-8ec5-b7a6-cd9744c7618c",
+  "statement": "(fmax (0 : Int) ((40000 : Int) - (25000 : Int))) = (15000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_property_equity_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

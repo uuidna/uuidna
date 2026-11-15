@@ -1,0 +1,12 @@
+{
+  "handle": "17bf20ae",
+  "address": "17bf20ae-459e-8076-8f00-de94e433ff59",
+  "statement": "(1200 : Int) = (1200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_streaming_startup_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

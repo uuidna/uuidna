@@ -1,0 +1,14 @@
+{
+  "handle": "b2b15823",
+  "address": "b2b15823-cb16-8235-b4d6-fd922cb9b58b",
+  "statement": "((50 : Int) * (80 : Int)) = (4000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_geothermal_power_1",
+    "fam_orthopedics_fractureload_1"
+  ],
+  "files": [
+    "FamiliesG.lean",
+    "FamiliesO.lean"
+  ]
+}

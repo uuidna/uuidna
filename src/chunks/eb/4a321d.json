@@ -1,0 +1,25 @@
+{
+  "handle": "eb4a321d",
+  "address": "eb4a321d-6be7-8225-96fd-66cf7ce9b96f",
+  "statement": "(fmax (0 : Int) ((1000 : Int) - (600 : Int))) = (400 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bundling_treeshake_1",
+    "fam_carbon_budget_1",
+    "fam_drought_waterdeficit_1",
+    "fam_hedging_residual_1",
+    "fam_microeconomics_profit_1",
+    "fam_monopoly_outputreduction_1",
+    "fam_payables_aging_1",
+    "fam_receivables_aging_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

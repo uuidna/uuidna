@@ -1,0 +1,12 @@
+{
+  "handle": "8f8bdc17",
+  "address": "8f8bdc17-58f8-851b-aad7-4cb52cac743d",
+  "statement": "(((2 : Int) * (100 : Int)) / ((20 : Int) + (20 : Int))) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_chromatography_resolution_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

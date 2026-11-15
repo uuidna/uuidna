@@ -1,0 +1,12 @@
+{
+  "handle": "91512c99",
+  "address": "91512c99-6fd3-869e-86c2-10a632282229",
+  "kind": "chunk",
+  "keys": [
+    "fam_mtbf_hazardrate_1"
+  ],
+  "statement": "(((2 : Int) * (1000000 : Int)) / ((100 : Int) * (10000 : Int))) = (2 : Int)",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

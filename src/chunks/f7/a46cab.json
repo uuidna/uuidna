@@ -1,0 +1,12 @@
+{
+  "handle": "f7a46cab",
+  "address": "f7a46cab-501d-8416-818d-0a987b507da1",
+  "statement": "((500 : Int) * (9 : Int)) = (4500 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_buoyancy_weight_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "53abc019",
+  "address": "53abc019-f4da-8665-b2f1-ddbe1849210b",
+  "statement": "(fmax (0 : Int) ((((90 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_performance_improvement_2"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

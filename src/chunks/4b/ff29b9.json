@@ -1,0 +1,12 @@
+{
+  "handle": "4bff29b9",
+  "address": "4bff29b9-945e-8680-a320-098ca3951fe3",
+  "statement": "(fmax (0 : Int) ((920 : Int) - (905 : Int))) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_orthopedics_legdiscrepancy_1"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

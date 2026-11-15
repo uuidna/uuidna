@@ -1,0 +1,12 @@
+{
+  "handle": "2b720c77",
+  "address": "2b720c77-c95e-88e2-a463-b9c5d7259300",
+  "kind": "chunk",
+  "keys": [
+    "fam_geopolitics_stabilityindex_1"
+  ],
+  "statement": "(if (if (85 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

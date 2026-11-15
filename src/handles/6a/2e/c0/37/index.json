@@ -1,0 +1,12 @@
+{
+  "handle": "6a2ec037",
+  "address": "6a2ec037-9e3f-882a-aab3-4ec4eaf09f9e",
+  "kind": "chunk",
+  "keys": [
+    "fam_comet_period_1"
+  ],
+  "statement": "((76 : Int) * (1 : Int)) = (76 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

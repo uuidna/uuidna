@@ -1,0 +1,12 @@
+{
+  "handle": "60ad0da8",
+  "address": "60ad0da8-ad52-8b61-b423-5c50f62b8f70",
+  "kind": "chunk",
+  "keys": [
+    "fam_chromatography_retention_1"
+  ],
+  "statement": "(fmax (0 : Int) ((300 : Int) - (60 : Int))) = (240 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

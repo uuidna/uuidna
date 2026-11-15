@@ -1,0 +1,12 @@
+{
+  "handle": "89c55bba",
+  "address": "89c55bba-1c1f-850d-9fd0-3e3fced5f197",
+  "statement": "((2400 : Int) / (80 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_timbre_formant_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

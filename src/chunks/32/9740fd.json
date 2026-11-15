@@ -1,0 +1,12 @@
+{
+  "handle": "329740fd",
+  "address": "329740fd-4939-867c-a8a2-54ba2d55f072",
+  "statement": "((24 : Int) / (0 : Int)) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_nursing_ratio_2"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

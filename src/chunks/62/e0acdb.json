@@ -1,0 +1,14 @@
+{
+  "handle": "62e0acdb",
+  "address": "62e0acdb-8803-87b8-9bd6-98ab719398d4",
+  "statement": "(-((-(95 : Int)) / (10 : Int))) = (10 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_blog_pagination_1",
+    "fam_pagination_pages_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "handle": "a8136ef9",
+  "address": "a8136ef9-5f03-85b5-8a7c-10ffbca7b165",
+  "kind": "chunk",
+  "keys": [
+    "fam_curvature_geodesicdeviation_1",
+    "fam_freight_volume_1",
+    "fam_handle_trinity_1",
+    "fam_polyhedron_volume_1",
+    "fam_solid_cuboidvolume_1"
+  ],
+  "statement": "(((2 : Int) * (3 : Int)) * (4 : Int)) = (24 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesF.lean",
+    "FamiliesH.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

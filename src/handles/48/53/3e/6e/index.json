@@ -1,0 +1,12 @@
+{
+  "handle": "48533e6e",
+  "address": "48533e6e-6c34-8049-abf7-bdbd64c671f7",
+  "kind": "chunk",
+  "keys": [
+    "fam_heattransfer_radiation_1"
+  ],
+  "statement": "(fmax (0 : Int) (((3 : Int) ^ (4 : Nat)) - ((2 : Int) ^ (4 : Nat)))) = (65 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

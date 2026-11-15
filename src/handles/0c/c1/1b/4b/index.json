@@ -1,0 +1,21 @@
+{
+  "handle": "0cc11b4b",
+  "address": "0cc11b4b-86a8-8205-8fcf-f99ae8f16e2b",
+  "kind": "chunk",
+  "keys": [
+    "fam_designtheory_blocksizes_1",
+    "fam_designtheory_incidences_1",
+    "fam_eschatology_symbolcount_1",
+    "fam_failure_severity_1",
+    "fam_prophecy_symbolcount_1",
+    "fam_relativity_horizon_1"
+  ],
+  "statement": "((7 : Int) * (3 : Int)) = (21 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean"
+  ]
+}

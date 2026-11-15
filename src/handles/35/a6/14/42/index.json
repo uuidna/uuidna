@@ -1,0 +1,12 @@
+{
+  "handle": "35a61442",
+  "address": "35a61442-26e9-823e-aa5b-bdfb5a7f7b17",
+  "kind": "chunk",
+  "keys": [
+    "fam_volatility_beta2_1"
+  ],
+  "statement": "((10 : Int) / (4 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9c44ca01",
+  "address": "9c44ca01-578a-8cd5-8fff-b03e73c8e51c",
+  "kind": "chunk",
+  "keys": [
+    "fam_coffee_grindsetting_1"
+  ],
+  "statement": "((800 : Int) / (50 : Int)) = (16 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

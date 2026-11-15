@@ -1,0 +1,12 @@
+{
+  "handle": "b6b8b629",
+  "address": "b6b8b629-cc9f-82ed-8ec2-41fbc901e772",
+  "kind": "chunk",
+  "keys": [
+    "fam_tides_meanlevel_1"
+  ],
+  "statement": "(((312 : Int) + (48 : Int)) / (2 : Int)) = (180 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

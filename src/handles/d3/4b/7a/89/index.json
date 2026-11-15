@@ -1,0 +1,12 @@
+{
+  "handle": "d34b7a89",
+  "address": "d34b7a89-ab11-8a01-9b29-6d0b4b647792",
+  "kind": "chunk",
+  "keys": [
+    "fam_seismology_aftershocks_2"
+  ],
+  "statement": "(((100 : Int) * (10 : Int)) / (0 : Int)) = (0 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

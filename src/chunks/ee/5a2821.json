@@ -1,0 +1,37 @@
+{
+  "handle": "ee5a2821",
+  "address": "ee5a2821-95a3-83d9-a747-5d693f9e59ce",
+  "statement": "(((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cropyield_harvestindex_1",
+    "fam_dairy_conception_1",
+    "fam_desalination_recovery_1",
+    "fam_discourse_cohesion_1",
+    "fam_epidemiology_attack_1",
+    "fam_geography_urbanization_1",
+    "fam_hematocrit_packedcellvolume_1",
+    "fam_hematology_hematocrit_1",
+    "fam_hydro_capacity_1",
+    "fam_mobility_modeshare_1",
+    "fam_ornithology_survival_1",
+    "fam_partner_filter_1",
+    "fam_perception_threshold_1",
+    "fam_petroleum_refined_1",
+    "fam_psychiatry_severity_1",
+    "fam_query_hit_1",
+    "fam_sustainability_renewable_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesM.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesQ.lean",
+    "FamiliesS.lean"
+  ]
+}

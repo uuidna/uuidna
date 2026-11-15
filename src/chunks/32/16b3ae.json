@@ -1,0 +1,17 @@
+{
+  "handle": "3216b3ae",
+  "address": "3216b3ae-ca6f-8c43-8ba8-6f00c0db46da",
+  "statement": "((1000 : Int) * (50 : Int)) = (50000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_enterprise_po_1",
+    "fam_equity_marketcap_1",
+    "fam_logging_indexsize_1",
+    "fam_swaps_notionalvalue_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesL.lean",
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b04f2bfa",
+  "address": "b04f2bfa-0dc5-8002-9106-0632058db559",
+  "statement": "(((100 : Int) - (25 : Int)) - (40 : Int)) = (35 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cooling_margin_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

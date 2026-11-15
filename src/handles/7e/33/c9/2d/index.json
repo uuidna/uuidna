@@ -1,0 +1,12 @@
+{
+  "handle": "7e33c92d",
+  "address": "7e33c92d-ccf6-885c-9611-38dad0f5fe4b",
+  "kind": "chunk",
+  "keys": [
+    "fam_realestate_rentyield_1"
+  ],
+  "statement": "(((1000 : Int) * (1200 : Int)) / (120000 : Int)) = (10 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

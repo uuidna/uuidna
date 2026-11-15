@@ -1,0 +1,25 @@
+{
+  "handle": "5e218671",
+  "address": "5e218671-5e50-82af-b857-4f64ea827461",
+  "kind": "chunk",
+  "keys": [
+    "fam_animism_spiritcount_1",
+    "fam_buoyancy_displaced_1",
+    "fam_capacitor_timeconstant_1",
+    "fam_cern_tracksperevent_1",
+    "fam_neuron_spikes_1",
+    "fam_powerfactor_apparentpower_1",
+    "fam_synapse_vesicles_1",
+    "fam_zeroshot_comparisons_1"
+  ],
+  "statement": "((100 : Int) * (10 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesZ.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "33cabdc7",
+  "address": "33cabdc7-3a23-8daf-a1b3-d160b78e0cb1",
+  "kind": "chunk",
+  "keys": [
+    "fam_aquaponics_fishdensity_1"
+  ],
+  "statement": "((50 : Int) / (1 : Int)) = (50 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3d01e9f0",
+  "address": "3d01e9f0-3aaf-8936-b64e-660ba63083e4",
+  "kind": "chunk",
+  "keys": [
+    "fam_parasitology_infectivity_1"
+  ],
+  "statement": "(if (if (100 : Int) ≥ (50 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

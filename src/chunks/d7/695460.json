@@ -1,0 +1,12 @@
+{
+  "handle": "d7695460",
+  "address": "d7695460-9534-8143-88e8-e40bf309fd67",
+  "statement": "((480 : Int) - (500 : Int)) = (-20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_spectroscopy_shift_2"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

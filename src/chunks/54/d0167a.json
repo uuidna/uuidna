@@ -1,0 +1,14 @@
+{
+  "handle": "54d0167a",
+  "address": "54d0167a-3d11-851a-8b84-2b6d65ab2593",
+  "statement": "(((240 : Int) * (100 : Int)) / (120 : Int)) = (200 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_clearance_ratio_1",
+    "fam_electrical_transformer_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean"
+  ]
+}

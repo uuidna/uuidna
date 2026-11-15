@@ -1,0 +1,25 @@
+{
+  "handle": "5b9af89a",
+  "address": "5b9af89a-8cc1-8ca3-91cd-b3be63e3cc76",
+  "statement": "((12 : Int) + (8 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_epigraphy_lacunae_1",
+    "fam_glyphs_strokesperglyph_1",
+    "fam_hydrography_shoalcount_1",
+    "fam_iconography_symbolcount_1",
+    "fam_mime_gestures_1",
+    "fam_monorail_stations_1",
+    "fam_sounddesign_layers_1",
+    "fam_stagecraft_flats_1",
+    "fam_survey_stations_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesM.lean",
+    "FamiliesS.lean"
+  ]
+}

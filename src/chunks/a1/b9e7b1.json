@@ -1,0 +1,12 @@
+{
+  "handle": "a1b9e7b1",
+  "address": "a1b9e7b1-3cdd-8149-b9d3-73407ae1b9a5",
+  "statement": "((100 : Int) / ((1 : Int) + (3 : Int))) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_feedback_sensitivity_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

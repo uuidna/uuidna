@@ -1,0 +1,14 @@
+{
+  "handle": "6c480898",
+  "address": "6c480898-2e86-8dbc-b547-d114505704e6",
+  "statement": "((500 : Int) + (100 : Int)) = (600 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_invoice_total_1",
+    "fam_orbital_apoapsis_1"
+  ],
+  "files": [
+    "FamiliesI.lean",
+    "FamiliesO.lean"
+  ]
+}

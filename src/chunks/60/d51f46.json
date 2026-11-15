@@ -1,0 +1,14 @@
+{
+  "handle": "60d51f46",
+  "address": "60d51f46-a5ac-83d2-bbc5-cac4bd649255",
+  "statement": "((((5 : Int) - (1 : Int)) * (100 : Int)) / (5 : Int)) = (80 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_raid_usablepercent_1",
+    "fam_vaccination_herdthreshold_1"
+  ],
+  "files": [
+    "FamiliesR.lean",
+    "FamiliesV.lean"
+  ]
+}

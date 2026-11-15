@@ -1,0 +1,12 @@
+{
+  "handle": "df756b70",
+  "address": "df756b70-1ddc-8215-837b-0da6a7385d37",
+  "kind": "chunk",
+  "keys": [
+    "fam_earnedvalue_eac_1"
+  ],
+  "statement": "(((2000 : Int) * (1000 : Int)) / (800 : Int)) = (2500 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

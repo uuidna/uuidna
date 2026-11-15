@@ -1,0 +1,12 @@
+{
+  "handle": "f7d8a78c",
+  "address": "f7d8a78c-fd88-8d2f-8e54-10b86a3c02f0",
+  "kind": "chunk",
+  "keys": [
+    "fam_regression_sse_1"
+  ],
+  "statement": "((4 : Int) * ((5 : Int) ^ (2 : Nat))) = (100 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

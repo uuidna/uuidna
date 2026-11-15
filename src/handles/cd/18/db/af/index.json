@@ -1,0 +1,36 @@
+{
+  "handle": "cd18dbaf",
+  "address": "cd18dbaf-8946-8b6b-9877-41c7d3bd9ff1",
+  "kind": "chunk",
+  "keys": [
+    "fam_apocrypha_manuscriptcombos_1",
+    "fam_arachnology_venomtoxins_1",
+    "fam_confectionery_recipecombos_1",
+    "fam_covenant_clausecombos_1",
+    "fam_coverage_combinatorialt_1",
+    "fam_empiricism_evidencecombos_1",
+    "fam_historiography_periodizations_1",
+    "fam_iconography_motifcombos_1",
+    "fam_mythology_questcombos_1",
+    "fam_numerology_numbercombos_1",
+    "fam_prophecy_interpretationcombos_1",
+    "fam_puppetry_gesturecombos_1",
+    "fam_scholasticism_objectioncombos_1",
+    "fam_stainedglass_colorcombos_1",
+    "fam_toponymy_suffixcombos_1",
+    "fam_totemism_emblemcombos_1"
+  ],
+  "statement": "(Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesM.lean",
+    "FamiliesN.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

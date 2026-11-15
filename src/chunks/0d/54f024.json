@@ -1,0 +1,12 @@
+{
+  "handle": "0d54f024",
+  "address": "0d54f024-ceda-8537-89a9-d7ba950e57f1",
+  "statement": "(((12 : Int) * (100 : Int)) / (38 : Int)) = (31 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_soccer_cleansheets_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7148dac0",
+  "address": "7148dac0-8599-8e04-952b-7853b90bfbd4",
+  "statement": "((40 : Int) / (20 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_coaching_workratio_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

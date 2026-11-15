@@ -1,0 +1,12 @@
+{
+  "handle": "58f55d16",
+  "address": "58f55d16-9434-8ea8-a9ee-b61d261c5663",
+  "kind": "chunk",
+  "keys": [
+    "fam_heatindex_feelsdelta_1"
+  ],
+  "statement": "(fmax (0 : Int) ((45 : Int) - (35 : Int))) = (10 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

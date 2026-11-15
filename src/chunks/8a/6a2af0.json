@@ -1,0 +1,18 @@
+{
+  "handle": "8a6a2af0",
+  "address": "8a6a2af0-13db-8f1e-a84a-c7ca288b2f25",
+  "statement": "((3000 : Int) / (10 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_coagulation_fibrinogen_1",
+    "fam_hardness_brinell_1",
+    "fam_optics_dpi_1",
+    "fam_raster_dpi_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesH.lean",
+    "FamiliesO.lean",
+    "FamiliesR.lean"
+  ]
+}

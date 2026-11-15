@@ -1,0 +1,12 @@
+{
+  "handle": "5518e149",
+  "address": "5518e149-1a79-863c-bd94-304dfaf79066",
+  "kind": "chunk",
+  "keys": [
+    "fam_stratigraphy_depositionrate_1"
+  ],
+  "statement": "((600 : Int) / (300 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

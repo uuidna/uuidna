@@ -1,0 +1,14 @@
+{
+  "handle": "69299c6f",
+  "address": "69299c6f-a495-89a1-99d2-5ee028655401",
+  "kind": "chunk",
+  "keys": [
+    "fam_feedlot_breakeven_1",
+    "fam_roasting_batchsize_1"
+  ],
+  "statement": "(((900 : Int) * (100 : Int)) / (1200 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesR.lean"
+  ]
+}

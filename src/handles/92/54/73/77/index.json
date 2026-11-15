@@ -1,0 +1,14 @@
+{
+  "handle": "92547377",
+  "address": "92547377-c565-8c60-8d1c-3a74b58a7816",
+  "kind": "chunk",
+  "keys": [
+    "fam_halflife_generations_1",
+    "fam_vaccination_titer_1"
+  ],
+  "statement": "((10 : Int) * ((2 : Int) ^ (3 : Nat))) = (80 : Int)",
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesV.lean"
+  ]
+}

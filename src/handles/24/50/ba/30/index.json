@@ -1,0 +1,17 @@
+{
+  "handle": "2450ba30",
+  "address": "2450ba30-6d1c-8cb0-b41c-29c35ebff3c1",
+  "kind": "chunk",
+  "keys": [
+    "fam_cadence_harmonicrhythm_1",
+    "fam_code_indent_1",
+    "fam_counterpoint_speciesratio_1",
+    "fam_crystallography_density_1",
+    "fam_embryology_cleavage_1"
+  ],
+  "statement": "((8 : Int) / (4 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean"
+  ]
+}

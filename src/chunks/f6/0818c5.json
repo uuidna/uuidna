@@ -1,0 +1,12 @@
+{
+  "handle": "f60818c5",
+  "address": "f60818c5-8b26-8618-b3b7-7f26fe9688ea",
+  "statement": "(fmax (0 : Int) ((100 : Int) - (130 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_backlog_agedays_2"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

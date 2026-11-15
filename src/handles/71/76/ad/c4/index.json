@@ -1,0 +1,16 @@
+{
+  "handle": "7176adc4",
+  "address": "7176adc4-68b8-8d11-964b-81060093c631",
+  "kind": "chunk",
+  "keys": [
+    "fam_download_chunks_1",
+    "fam_sharding_shards_1",
+    "fam_tpu_tiles_1"
+  ],
+  "statement": "(-((-(1000 : Int)) / (256 : Int))) = (4 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

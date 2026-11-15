@@ -1,0 +1,21 @@
+{
+  "handle": "c5472a99",
+  "address": "c5472a99-bd88-8b80-b784-7e880dc633a0",
+  "kind": "chunk",
+  "keys": [
+    "fam_electronics_ohm_1",
+    "fam_mammalogy_litter_1",
+    "fam_memory_spacing_1",
+    "fam_pricing_tier_1",
+    "fam_syntax_depth_1",
+    "fam_urology_psa_1"
+  ],
+  "statement": "((12 : Int) / (3 : Int)) = (4 : Int)",
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesU.lean"
+  ]
+}

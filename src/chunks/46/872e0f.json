@@ -1,0 +1,12 @@
+{
+  "handle": "46872e0f",
+  "address": "46872e0f-9283-85d2-8fb7-937cf519eb82",
+  "statement": "((50000 : Int) * (37 : Int)) = (1850000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_econ_lost_1"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

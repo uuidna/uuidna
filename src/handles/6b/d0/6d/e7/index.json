@@ -1,0 +1,12 @@
+{
+  "handle": "6bd06de7",
+  "address": "6bd06de7-af82-82f3-81b3-b00c7767975d",
+  "kind": "chunk",
+  "keys": [
+    "fam_photometry_flux_1"
+  ],
+  "statement": "((10000 : Int) / ((5 : Int) * (100 : Int))) = (20 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

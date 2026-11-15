@@ -1,0 +1,14 @@
+{
+  "handle": "7e7435f3",
+  "address": "7e7435f3-7156-8b23-8ab6-bbd4825918da",
+  "statement": "((250 : Int) * (1 : Int)) = (250 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_helicopter_maxspeed_1",
+    "fam_metabolism_oxygen_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesM.lean"
+  ]
+}

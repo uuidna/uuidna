@@ -1,0 +1,14 @@
+{
+  "handle": "d12e86b8",
+  "address": "d12e86b8-e7e3-8b3c-9a8b-e0f5cf16a1f6",
+  "kind": "chunk",
+  "keys": [
+    "fam_drilling_wob_1",
+    "fam_environment_penalty_1"
+  ],
+  "statement": "((20 : Int) * (500 : Int)) = (10000 : Int)",
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesE.lean"
+  ]
+}

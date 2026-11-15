@@ -1,0 +1,19 @@
+{
+  "handle": "32d5fd0a",
+  "address": "32d5fd0a-81ba-8a5b-98a1-c2840e403f88",
+  "statement": "(((90 : Int) * (100 : Int)) / ((90 : Int) + (10 : Int))) = (90 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_assembly_efficiency_1",
+    "fam_interaction_flow_1",
+    "fam_screening_sensitivity_1",
+    "fam_sedimentology_maturity_1",
+    "fam_textiles_coverage_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesI.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

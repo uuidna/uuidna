@@ -1,0 +1,14 @@
+{
+  "handle": "da873b51",
+  "address": "da873b51-1c40-85b9-912b-caf17d9789ee",
+  "kind": "chunk",
+  "keys": [
+    "fam_absorption_sabins_1",
+    "fam_permitting_fee_1"
+  ],
+  "statement": "((200 : Int) * (75 : Int)) = (15000 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "handle": "e11e9853",
+  "address": "e11e9853-acd2-8e9e-b56e-2b576d7e31f3",
+  "statement": "(((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_dance_synchrony_1",
+    "fam_deployment_canary_1",
+    "fam_epigenetics_acetylation_1",
+    "fam_governance_transparency_1",
+    "fam_identity_documentvalidity_1",
+    "fam_incident_postmortemscore_1",
+    "fam_journalism_factcheck_1",
+    "fam_motivation_instrumentality_1",
+    "fam_philosophy_consistency_1",
+    "fam_physiotherapy_balance_1",
+    "fam_pragmatics_relevance_1",
+    "fam_semantics_coherence_1",
+    "fam_state_hydration_1",
+    "fam_syntax_agreement_1",
+    "fam_wireframe_alignment_1"
+  ],
+  "files": [
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesI.lean",
+    "FamiliesJ.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean",
+    "FamiliesW.lean"
+  ]
+}

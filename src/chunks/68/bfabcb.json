@@ -1,0 +1,12 @@
+{
+  "handle": "68bfabcb",
+  "address": "68bfabcb-2bfe-83fc-804d-e61f2a577818",
+  "statement": "(-((-(100 : Int)) / (20 : Int))) = (5 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_concrete_rebar_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

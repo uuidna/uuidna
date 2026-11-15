@@ -1,0 +1,12 @@
+{
+  "handle": "16a1e94e",
+  "address": "16a1e94e-20d7-858f-b1aa-f2d594223220",
+  "kind": "chunk",
+  "keys": [
+    "fam_sentence_credit_1"
+  ],
+  "statement": "(fmax (0 : Int) ((60 : Int) - (14 : Int))) = (46 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "38a1e6da",
+  "address": "38a1e6da-3ba4-8d0c-949e-0034dddf55f1",
+  "kind": "chunk",
+  "keys": [
+    "fam_etymology_loanratio_1"
+  ],
+  "statement": "(((5000 : Int) * (90 : Int)) / (1000 : Int)) = (450 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

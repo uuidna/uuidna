@@ -1,0 +1,12 @@
+{
+  "handle": "120e05e3",
+  "address": "120e05e3-77da-8298-ad4d-b70687ba456e",
+  "statement": "((10 : Int) * (18 : Int)) = (180 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_chemistry_mass_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "08bdc31a",
+  "address": "08bdc31a-93e6-898e-b47e-14465396f0d3",
+  "kind": "chunk",
+  "keys": [
+    "fam_loadplanning_axleload_1"
+  ],
+  "statement": "((36000 : Int) / (3 : Int)) = (12000 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

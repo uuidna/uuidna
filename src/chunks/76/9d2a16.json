@@ -1,0 +1,12 @@
+{
+  "handle": "769d2a16",
+  "address": "769d2a16-e393-82a4-a418-4ea1141fdc00",
+  "statement": "((200 : Int) * (15 : Int)) = (3000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_pollination_seedset_1"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

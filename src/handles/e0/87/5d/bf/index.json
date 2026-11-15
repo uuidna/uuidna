@@ -1,0 +1,12 @@
+{
+  "handle": "e0875dbf",
+  "address": "e0875dbf-5c98-81a5-bc82-f095c5cc8c08",
+  "kind": "chunk",
+  "keys": [
+    "fam_heliophysics_sunspot_1"
+  ],
+  "statement": "(((10 : Int) * (5 : Int)) + (32 : Int)) = (82 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

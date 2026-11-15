@@ -1,0 +1,12 @@
+{
+  "handle": "02ff4975",
+  "address": "02ff4975-043f-8666-8db7-e9a69d197605",
+  "statement": "((800 : Int) + (200 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_valuation_ebitda_1"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

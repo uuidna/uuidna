@@ -1,0 +1,17 @@
+{
+  "handle": "8d994c2a",
+  "address": "8d994c2a-d996-8e02-8a47-1ecb2677e672",
+  "statement": "(fmax (0 : Int) ((500 : Int) - (320 : Int))) = (180 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_ecommerce_inventory_1",
+    "fam_fulfillment_backorder_1",
+    "fam_permitting_backlog_1",
+    "fam_promotion_incremental_1"
+  ],
+  "files": [
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesP.lean"
+  ]
+}

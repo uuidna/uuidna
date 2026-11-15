@@ -1,0 +1,12 @@
+{
+  "handle": "2aace5aa",
+  "address": "2aace5aa-6445-842a-aa48-a7889ffb10d6",
+  "statement": "((60 : Int) * (24 : Int)) = (1440 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_cinema_frames_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "handle": "a7ef8492",
+  "address": "a7ef8492-40cc-8094-a1d8-43d4bd2a4648",
+  "kind": "chunk",
+  "keys": [
+    "fam_audio_bitdepth_1",
+    "fam_helicopter_rotordiameter_1",
+    "fam_interconnect_width_1",
+    "fam_protocol_messages_1",
+    "fam_tree_paths_1"
+  ],
+  "statement": "((16 : Int) * (1 : Int)) = (16 : Int)",
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesH.lean",
+    "FamiliesI.lean",
+    "FamiliesP.lean",
+    "FamiliesT.lean"
+  ]
+}

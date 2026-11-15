@@ -1,0 +1,12 @@
+{
+  "handle": "cc043f5f",
+  "address": "cc043f5f-dc63-8042-8295-835e607f0e05",
+  "statement": "((2 : Int) * (154 : Int)) = (308 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_crystallography_bragg_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

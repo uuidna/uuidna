@@ -1,0 +1,22 @@
+{
+  "handle": "9d1e85ae",
+  "address": "9d1e85ae-ff22-8d77-8b51-bba6e4acdedf",
+  "statement": "((600 : Int) / (5 : Int)) = (120 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_chocolate_viscosity_1",
+    "fam_deployment_mttr_1",
+    "fam_epigraphy_wordcount_1",
+    "fam_fulfillment_pick_1",
+    "fam_monitoring_mttr_1",
+    "fam_pollination_visitationrate_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesD.lean",
+    "FamiliesE.lean",
+    "FamiliesF.lean",
+    "FamiliesM.lean",
+    "FamiliesP.lean"
+  ]
+}

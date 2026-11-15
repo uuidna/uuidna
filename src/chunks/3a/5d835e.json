@@ -1,0 +1,17 @@
+{
+  "handle": "3a5d835e",
+  "address": "3a5d835e-e8f1-8266-99b7-1fb7d3eaaab2",
+  "statement": "(fmax (0 : Int) ((3000 : Int) - (5000 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_budgeting_surplus_2",
+    "fam_collateral_shortfall_2",
+    "fam_cropyield_yieldgap_2",
+    "fam_migration_netmigration_2"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesM.lean"
+  ]
+}

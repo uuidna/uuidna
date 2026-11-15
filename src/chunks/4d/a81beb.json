@@ -1,0 +1,12 @@
+{
+  "handle": "4da81beb",
+  "address": "4da81beb-d9a9-8132-9bb1-19e2c695345a",
+  "statement": "((15 : Int) - (14 : Int)) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_climate_anomaly_1"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

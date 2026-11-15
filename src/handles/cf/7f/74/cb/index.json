@@ -1,0 +1,12 @@
+{
+  "handle": "cf7f74cb",
+  "address": "cf7f74cb-56b4-8e35-9e75-87b5c396eaf0",
+  "kind": "chunk",
+  "keys": [
+    "fam_psychophysics_reactiontime_1"
+  ],
+  "statement": "((200 : Int) + ((600 : Int) / (30 : Int))) = (220 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

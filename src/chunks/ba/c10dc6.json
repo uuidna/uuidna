@@ -1,0 +1,18 @@
+{
+  "handle": "bac10dc6",
+  "address": "bac10dc6-5d05-8863-b2b3-c7007061086d",
+  "statement": "((20 : Int) * (50 : Int)) = (1000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_freight_weight_1",
+    "fam_licensing_truecost_1",
+    "fam_piezoelectric_charge_1",
+    "fam_strength_workcapacity_1"
+  ],
+  "files": [
+    "FamiliesF.lean",
+    "FamiliesL.lean",
+    "FamiliesP.lean",
+    "FamiliesS.lean"
+  ]
+}

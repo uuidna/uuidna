@@ -1,0 +1,12 @@
+{
+  "handle": "66494efd",
+  "address": "66494efd-8fd5-8e99-92b6-b575dabf56b6",
+  "kind": "chunk",
+  "keys": [
+    "fam_suspension_travel_1"
+  ],
+  "statement": "((100 : Int) + (80 : Int)) = (180 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

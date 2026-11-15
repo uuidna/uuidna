@@ -1,0 +1,12 @@
+{
+  "handle": "ba5ca3de",
+  "address": "ba5ca3de-0090-898e-8f5f-af1d5605451e",
+  "statement": "((100 : Int) + (25 : Int)) = (125 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tariff_importprice_1"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "04926005",
+  "address": "04926005-48a6-85c8-babc-98264709f0c7",
+  "kind": "chunk",
+  "keys": [
+    "fam_location_grid_1"
+  ],
+  "statement": "((275 : Int) / (100 : Int)) = (2 : Int)",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

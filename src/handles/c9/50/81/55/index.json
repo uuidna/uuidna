@@ -1,0 +1,14 @@
+{
+  "handle": "c9508155",
+  "address": "c9508155-850f-8726-a0fa-713dcbad4d6c",
+  "kind": "chunk",
+  "keys": [
+    "fam_braking_fade_1",
+    "fam_kinesiology_muscleactivation_1"
+  ],
+  "statement": "(((300 : Int) * (100 : Int)) / (400 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesK.lean"
+  ]
+}

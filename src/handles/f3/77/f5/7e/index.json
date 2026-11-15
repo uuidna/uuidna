@@ -1,0 +1,12 @@
+{
+  "handle": "f377f57e",
+  "address": "f377f57e-6adc-8d17-b378-c6a34d6e29ad",
+  "kind": "chunk",
+  "keys": [
+    "fam_catalysis_activation_1"
+  ],
+  "statement": "(fmax (0 : Int) ((75 : Int) - (30 : Int))) = (45 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

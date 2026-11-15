@@ -1,0 +1,12 @@
+{
+  "handle": "97657760",
+  "address": "97657760-c88d-8a25-92fc-fba798f69ce6",
+  "kind": "chunk",
+  "keys": [
+    "fam_construction_volume_1"
+  ],
+  "statement": "((80 : Int) * (3 : Int)) = (240 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

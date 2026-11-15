@@ -1,0 +1,12 @@
+{
+  "handle": "a6dff128",
+  "address": "a6dff128-8ac4-8093-962e-308a86baabc3",
+  "kind": "chunk",
+  "keys": [
+    "fam_heliophysics_cycle_1"
+  ],
+  "statement": "((fmax (0 : Int) ((2025 : Int) - (2008 : Int))) % (11 : Int)) = (6 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

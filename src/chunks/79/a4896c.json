@@ -1,0 +1,12 @@
+{
+  "handle": "79a4896c",
+  "address": "79a4896c-956c-8dc4-947b-b49d3274bf65",
+  "statement": "((3600 : Int) / (133 : Int)) = (27 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_monorail_traveltime_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

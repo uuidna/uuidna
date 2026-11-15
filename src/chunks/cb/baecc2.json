@@ -1,0 +1,12 @@
+{
+  "handle": "cbbaecc2",
+  "address": "cbbaecc2-7b30-88f0-8d01-62226492dbaa",
+  "statement": "(fmax (0 : Int) ((3 : Int) - (15 : Int))) = (0 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_tanning_uptake_2"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

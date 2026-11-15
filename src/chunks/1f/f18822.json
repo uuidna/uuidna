@@ -1,0 +1,12 @@
+{
+  "handle": "1ff18822",
+  "address": "1ff18822-2125-87d8-ad37-70b1416bdcff",
+  "statement": "(fmax (0 : Int) ((90121 : Int) - (400 : Int))) = (89721 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_law_fast_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

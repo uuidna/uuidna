@@ -1,0 +1,14 @@
+{
+  "handle": "48bd7f58",
+  "address": "48bd7f58-b5f2-8b5d-8eff-33faa9a8f101",
+  "kind": "chunk",
+  "keys": [
+    "fam_convection_heatflux_1",
+    "fam_heattransfer_convection_1"
+  ],
+  "statement": "(((10 : Int) * (5 : Int)) * (20 : Int)) = (1000 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesH.lean"
+  ]
+}

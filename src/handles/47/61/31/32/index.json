@@ -1,0 +1,12 @@
+{
+  "handle": "47613132",
+  "address": "47613132-834e-8205-85cc-cc1f89a74a92",
+  "kind": "chunk",
+  "keys": [
+    "fam_pricing_savings_2"
+  ],
+  "statement": "(fmax (0 : Int) (((40 : Int) * (12 : Int)) - (600 : Int))) = (0 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

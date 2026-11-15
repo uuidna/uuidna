@@ -1,0 +1,12 @@
+{
+  "handle": "5b797b58",
+  "address": "5b797b58-4164-8dbd-b2a9-42bba77d0042",
+  "statement": "((1500 : Int) / (500 : Int)) = (3 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_desalination_energy_1"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "157fc4a5",
+  "address": "157fc4a5-96be-84bd-8c33-e5809fee9fc4",
+  "kind": "chunk",
+  "keys": [
+    "fam_ramsey_binom_2"
+  ],
+  "statement": "(Int.ofNat (fchoose (Int.toNat (30 : Int)) (Int.toNat (15 : Int)))) = (155117520 : Int)",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

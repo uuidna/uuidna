@@ -1,0 +1,12 @@
+{
+  "handle": "22520305",
+  "address": "22520305-7588-8f85-8a40-692d65db5ef7",
+  "statement": "(fmax (0 : Int) ((50000 : Int) - (15000 : Int))) = (35000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bankruptcy_discharge_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

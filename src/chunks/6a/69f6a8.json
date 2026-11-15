@@ -1,0 +1,12 @@
+{
+  "handle": "6a69f6a8",
+  "address": "6a69f6a8-d555-8d5d-a997-18fea879977a",
+  "statement": "(fmax (0 : Int) ((120 : Int) - (30 : Int))) = (90 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_lean_waste_1"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e047a548",
+  "address": "e047a548-1c6f-86f3-94db-5c50926322c2",
+  "statement": "((800 : Int) / (40 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_slotting_picksperslot_1"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

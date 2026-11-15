@@ -1,0 +1,12 @@
+{
+  "handle": "2c2d6c98",
+  "address": "2c2d6c98-cb13-81c6-8ab0-ab9be8337f00",
+  "statement": "(((8 : Int) * (5 : Int)) * (4 : Int)) = (160 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_failure_rpn_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

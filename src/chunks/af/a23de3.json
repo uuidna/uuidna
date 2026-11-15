@@ -1,0 +1,12 @@
+{
+  "handle": "afa23de3",
+  "address": "afa23de3-e0ce-816f-9b7d-d1e1f29891fe",
+  "statement": "(((4 : Int) * (100 : Int)) / (8 : Int)) = (50 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_blockchain_finality_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

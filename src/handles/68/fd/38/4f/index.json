@@ -1,0 +1,14 @@
+{
+  "handle": "68fd384f",
+  "address": "68fd384f-6dd8-8815-aa94-8fe89a558d09",
+  "kind": "chunk",
+  "keys": [
+    "fam_linehaul_teamutilization_1",
+    "fam_turnaround_berthutilization_1"
+  ],
+  "statement": "(((20 : Int) * (100 : Int)) / (24 : Int)) = (83 : Int)",
+  "files": [
+    "FamiliesL.lean",
+    "FamiliesT.lean"
+  ]
+}

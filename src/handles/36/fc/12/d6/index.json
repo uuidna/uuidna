@@ -1,0 +1,12 @@
+{
+  "handle": "36fc12d6",
+  "address": "36fc12d6-e488-8f1e-9e38-b74ad05fe01c",
+  "kind": "chunk",
+  "keys": [
+    "fam_halflife_fraction_1"
+  ],
+  "statement": "((100 : Int) / ((2 : Int) ^ (2 : Nat))) = (25 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

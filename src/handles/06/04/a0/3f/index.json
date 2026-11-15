@@ -1,0 +1,12 @@
+{
+  "handle": "0604a03f",
+  "address": "0604a03f-98bb-80c9-92b4-e4ea04c94e65",
+  "kind": "chunk",
+  "keys": [
+    "fam_propulsion_massflow_1"
+  ],
+  "statement": "((12 : Int) * (300 : Int)) = (3600 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

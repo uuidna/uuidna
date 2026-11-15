@@ -1,0 +1,12 @@
+{
+  "handle": "91074579",
+  "address": "91074579-2d12-8cd8-993e-20c228f7bd92",
+  "kind": "chunk",
+  "keys": [
+    "fam_curriculum_coursecount_1"
+  ],
+  "statement": "((120 : Int) / (3 : Int)) = (40 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

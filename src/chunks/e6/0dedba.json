@@ -1,0 +1,12 @@
+{
+  "handle": "e60dedba",
+  "address": "e60dedba-31d1-8501-86f9-f910d7d15034",
+  "statement": "((((100 : Int) - (80 : Int)) * (100 : Int)) / (80 : Int)) = (25 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_merchandising_markup_1"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

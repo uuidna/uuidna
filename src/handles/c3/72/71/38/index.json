@@ -1,0 +1,12 @@
+{
+  "handle": "c3727138",
+  "address": "c3727138-c608-8044-a265-f8d5175ada34",
+  "kind": "chunk",
+  "keys": [
+    "fam_activation_hardsigmoid_1"
+  ],
+  "statement": "(if (if (25 : Int) ≥ (100 : Int) then (1 : Int) else 0) ≠ 0 then (100 : Int) else (((25 : Int) * (100 : Int)) / (100 : Int))) = (25 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

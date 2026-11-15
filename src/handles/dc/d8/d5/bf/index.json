@@ -1,0 +1,12 @@
+{
+  "handle": "dcd8d5bf",
+  "address": "dcd8d5bf-3dd0-88d5-ae96-9433cc68926e",
+  "kind": "chunk",
+  "keys": [
+    "fam_hardware_addressable_1"
+  ],
+  "statement": "((2 : Int) ^ (20 : Nat)) = (1048576 : Int)",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

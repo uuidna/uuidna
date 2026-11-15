@@ -1,0 +1,16 @@
+{
+  "handle": "efe3af52",
+  "address": "efe3af52-f2ea-841a-8929-d3809ed4ec01",
+  "statement": "(((8 : Int) * (100 : Int)) / (40 : Int)) = (20 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_bilingualism_transferrate_1",
+    "fam_neurology_stroke_1",
+    "fam_routing_lazy_1"
+  ],
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesN.lean",
+    "FamiliesR.lean"
+  ]
+}

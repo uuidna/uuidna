@@ -1,0 +1,12 @@
+{
+  "handle": "b7e469a2",
+  "address": "b7e469a2-cf07-8a02-a3c1-b97a3d0011a2",
+  "kind": "chunk",
+  "keys": [
+    "fam_windchill_frostbitetime_1"
+  ],
+  "statement": "(((10 : Int) * (30 : Int)) / (15 : Int)) = (20 : Int)",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

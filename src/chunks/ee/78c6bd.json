@@ -1,0 +1,22 @@
+{
+  "handle": "ee78c6bd",
+  "address": "ee78c6bd-b130-8c38-a42b-4f46993f7362",
+  "statement": "((900 : Int) / (30 : Int)) = (30 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_civil_settlement_1",
+    "fam_ecology_predation_1",
+    "fam_pedology_fertility_1",
+    "fam_rheology_modulus_1",
+    "fam_sustainability_intensity_1",
+    "fam_tribology_viscosity_1"
+  ],
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesP.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesT.lean"
+  ]
+}

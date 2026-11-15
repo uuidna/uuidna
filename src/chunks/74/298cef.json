@@ -1,0 +1,12 @@
+{
+  "handle": "74298cef",
+  "address": "74298cef-b8d7-823c-908d-b17a0f3be1d2",
+  "statement": "((1000 : Int) * (22 : Int)) = (22000 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_aviation_liability_1"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

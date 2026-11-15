@@ -1,0 +1,12 @@
+{
+  "handle": "ffbb04eb",
+  "address": "ffbb04eb-5903-83c2-82f9-ccd73dea23e3",
+  "kind": "chunk",
+  "keys": [
+    "fam_steps_order_2"
+  ],
+  "statement": "(if (if (6 : Int) ≤ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

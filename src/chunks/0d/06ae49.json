@@ -1,0 +1,12 @@
+{
+  "handle": "0d06ae49",
+  "address": "0d06ae49-a737-8c1b-b5dd-5e33bac8cb5b",
+  "statement": "(((30 : Int) * (100 : Int)) / (10 : Int)) = (300 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_warehousing_dock_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

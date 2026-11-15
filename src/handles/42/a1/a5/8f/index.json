@@ -1,0 +1,12 @@
+{
+  "handle": "42a1a58f",
+  "address": "42a1a58f-483d-8cf0-9b11-b6d56ba38128",
+  "kind": "chunk",
+  "keys": [
+    "fam_ssd_pagesize_1"
+  ],
+  "statement": "((8 : Int) * (512 : Int)) = (4096 : Int)",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

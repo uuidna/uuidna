@@ -1,0 +1,12 @@
+{
+  "handle": "3b0f11dd",
+  "address": "3b0f11dd-2498-8a7d-9ca4-f64e11b9ffb8",
+  "kind": "chunk",
+  "keys": [
+    "fam_dance_stamina_1"
+  ],
+  "statement": "(((300 : Int) * (100 : Int)) / (60 : Int)) = (500 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

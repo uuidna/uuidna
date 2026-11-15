@@ -1,0 +1,12 @@
+{
+  "handle": "083d8ad4",
+  "address": "083d8ad4-bfa9-807b-a947-724b70d92562",
+  "kind": "chunk",
+  "keys": [
+    "fam_curing_nitritelevel_1"
+  ],
+  "statement": "((150 : Int) / (1 : Int)) = (150 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

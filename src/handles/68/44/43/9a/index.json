@@ -1,0 +1,31 @@
+{
+  "handle": "6844439a",
+  "address": "6844439a-bfed-8a0c-9256-9a53756fbb03",
+  "kind": "chunk",
+  "keys": [
+    "fam_backlash_reversaldelay_1",
+    "fam_diplomacy_leverage_1",
+    "fam_grazing_stockingrate_1",
+    "fam_kinematics_velocity_1",
+    "fam_ontology_hierarchydepth_1",
+    "fam_performance_throughput_1",
+    "fam_queueing_waitingtime_1",
+    "fam_regression_slope_1",
+    "fam_spring_deflection_1",
+    "fam_supplychain_cycle_1",
+    "fam_version_churn_1"
+  ],
+  "statement": "((100 : Int) / (20 : Int)) = (5 : Int)",
+  "files": [
+    "FamiliesB.lean",
+    "FamiliesD.lean",
+    "FamiliesG.lean",
+    "FamiliesK.lean",
+    "FamiliesO.lean",
+    "FamiliesP.lean",
+    "FamiliesQ.lean",
+    "FamiliesR.lean",
+    "FamiliesS.lean",
+    "FamiliesV.lean"
+  ]
+}

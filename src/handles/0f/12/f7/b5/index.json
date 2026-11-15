@@ -1,0 +1,12 @@
+{
+  "handle": "0f12f7b5",
+  "address": "0f12f7b5-1759-88ab-9bf5-bef78201a79a",
+  "kind": "chunk",
+  "keys": [
+    "fam_apocrypha_versetotal_1"
+  ],
+  "statement": "((183 : Int) * (10 : Int)) = (1830 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "340b5932",
+  "address": "340b5932-5d33-870b-8b1a-bb9d5da46b91",
+  "kind": "chunk",
+  "keys": [
+    "fam_gpu_util_1"
+  ],
+  "statement": "(((6144 : Int) * (100 : Int)) / (8192 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

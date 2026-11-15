@@ -1,0 +1,12 @@
+{
+  "handle": "f2f72f86",
+  "address": "f2f72f86-12eb-88c7-865f-95bef78e1106",
+  "statement": "(if (if (1000 : Int) ≥ (800 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_buoyancy_floats_1"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

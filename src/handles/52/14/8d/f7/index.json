@@ -1,0 +1,12 @@
+{
+  "handle": "52148df7",
+  "address": "52148df7-69ff-8fe0-85dd-468e4382cf3b",
+  "kind": "chunk",
+  "keys": [
+    "fam_archaeology_seriation_1"
+  ],
+  "statement": "(fmax (0 : Int) ((450 : Int) - (100 : Int))) = (350 : Int)",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

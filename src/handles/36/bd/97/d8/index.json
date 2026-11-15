@@ -1,0 +1,12 @@
+{
+  "handle": "36bd97d8",
+  "address": "36bd97d8-9ed6-8667-8d5e-5c75846f5049",
+  "kind": "chunk",
+  "keys": [
+    "fam_poker_fold_1"
+  ],
+  "statement": "(((fmax (0 : Int) ((4 : Int) - (1 : Int))) * (100 : Int)) / (4 : Int)) = (75 : Int)",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

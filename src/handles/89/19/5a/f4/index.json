@@ -1,0 +1,12 @@
+{
+  "handle": "89195af4",
+  "address": "89195af4-02fd-893d-9117-eab52e50b4d5",
+  "kind": "chunk",
+  "keys": [
+    "fam_cadence_approachinterval_1"
+  ],
+  "statement": "(fmax (0 : Int) ((12 : Int) - (11 : Int))) = (1 : Int)",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f2ddc13c",
+  "address": "f2ddc13c-37d5-84c0-a359-1198dfff6735",
+  "statement": "((25 : Int) - (((100 : Int) - (50 : Int)) / (5 : Int))) = (15 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_weather_dewpoint_1"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

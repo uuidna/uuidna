@@ -1,0 +1,14 @@
+{
+  "handle": "1f42e6ee",
+  "address": "1f42e6ee-bfa9-8e4d-9ad0-ccd91f0e55d8",
+  "statement": "(fmax (0 : Int) ((20 : Int) - (12 : Int))) = (8 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_mixology_balance_1",
+    "fam_version_restore_1"
+  ],
+  "files": [
+    "FamiliesM.lean",
+    "FamiliesV.lean"
+  ]
+}

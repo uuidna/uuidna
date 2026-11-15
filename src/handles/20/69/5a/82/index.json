@@ -1,0 +1,12 @@
+{
+  "handle": "20695a82",
+  "address": "20695a82-b68e-815f-aae8-b0a528f80253",
+  "kind": "chunk",
+  "keys": [
+    "fam_entomology_colony_1"
+  ],
+  "statement": "((50000 : Int) + (1 : Int)) = (50001 : Int)",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

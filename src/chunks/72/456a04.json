@@ -1,0 +1,12 @@
+{
+  "handle": "72456a04",
+  "address": "72456a04-f2df-874d-a516-7968dded0812",
+  "statement": "(if (if (80 : Int) ≥ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_forestry_rotation_1"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

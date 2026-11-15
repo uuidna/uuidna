@@ -1,0 +1,14 @@
+{
+  "handle": "71af2f2e",
+  "address": "71af2f2e-21d3-8484-b471-717f430eda2c",
+  "kind": "chunk",
+  "keys": [
+    "fam_catering_waste_1",
+    "fam_pipeline_bottleneck_1"
+  ],
+  "statement": "(((60 : Int) * (100 : Int)) / (240 : Int)) = (25 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesP.lean"
+  ]
+}

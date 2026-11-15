@@ -1,0 +1,12 @@
+{
+  "handle": "5da40a43",
+  "address": "5da40a43-6fba-821c-a931-089ede439176",
+  "kind": "chunk",
+  "keys": [
+    "fam_testing_defects_1"
+  ],
+  "statement": "(((12 : Int) * (1000 : Int)) / (8000 : Int)) = (1 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

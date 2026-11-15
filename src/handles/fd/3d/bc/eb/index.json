@@ -1,0 +1,12 @@
+{
+  "handle": "fd3dbceb",
+  "address": "fd3dbceb-97cf-8eaa-933e-b238e840fde4",
+  "kind": "chunk",
+  "keys": [
+    "fam_throughput_windowsize_1"
+  ],
+  "statement": "(-((-(5000 : Int)) / (1000 : Int))) = (5 : Int)",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

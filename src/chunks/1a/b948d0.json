@@ -1,0 +1,14 @@
+{
+  "handle": "1ab948d0",
+  "address": "1ab948d0-8528-8d79-8433-b7915f39967f",
+  "statement": "((100 : Int) % (7 : Int)) = (2 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_hashing_modulo_1",
+    "fam_modular_residue_1"
+  ],
+  "files": [
+    "FamiliesH.lean",
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6e68bb59",
+  "address": "6e68bb59-88f6-811d-8528-f43dfac62e8c",
+  "kind": "chunk",
+  "keys": [
+    "fam_dentistry_extraction_1"
+  ],
+  "statement": "(((1 : Int) * (100 : Int)) / (32 : Int)) = (3 : Int)",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

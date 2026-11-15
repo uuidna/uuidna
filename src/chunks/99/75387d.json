@@ -1,0 +1,12 @@
+{
+  "handle": "9975387d",
+  "address": "9975387d-d36a-8b59-8640-f1e8da56b7a1",
+  "statement": "((13 : Int) - (14 : Int)) = (-1 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_climate_anomaly_2"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

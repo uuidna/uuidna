@@ -1,0 +1,33 @@
+{
+  "handle": "9e92580c",
+  "address": "9e92580c-9223-87a0-b914-00cd29645ce9",
+  "statement": "(((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)",
+  "tactic": "decide",
+  "keys": [
+    "fam_assay_purity_1",
+    "fam_automation_uptime_1",
+    "fam_biometrics_accuracy_1",
+    "fam_crossdock_sortaccuracy_1",
+    "fam_endpoint_status_1",
+    "fam_global_locales_1",
+    "fam_parity_detectrate_1",
+    "fam_procurement_quality_1",
+    "fam_quality_conformance_1",
+    "fam_simulation_accuracy_1",
+    "fam_steganography_extraction_1",
+    "fam_vaccination_seroconversion_1",
+    "fam_warehousing_accuracy_1"
+  ],
+  "files": [
+    "FamiliesA.lean",
+    "FamiliesB.lean",
+    "FamiliesC.lean",
+    "FamiliesE.lean",
+    "FamiliesG.lean",
+    "FamiliesP.lean",
+    "FamiliesQ.lean",
+    "FamiliesS.lean",
+    "FamiliesV.lean",
+    "FamiliesW.lean"
+  ]
+}

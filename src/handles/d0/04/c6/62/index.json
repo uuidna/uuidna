@@ -1,0 +1,14 @@
+{
+  "handle": "d004c662",
+  "address": "d004c662-be58-8e01-bbcf-02c7f8095f1f",
+  "kind": "chunk",
+  "keys": [
+    "fam_canning_fvalue_1",
+    "fam_passwords_mfabonus_1"
+  ],
+  "statement": "((3 : Int) * (20 : Int)) = (60 : Int)",
+  "files": [
+    "FamiliesC.lean",
+    "FamiliesP.lean"
+  ]
+}
