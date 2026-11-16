@@ -83,14 +83,17 @@ test('external-fact — each arm fires on a crafted claim in its own shape', () 
 //
 // The literal below is a tripwire, not a fact about the world: it moved from 4 to 6 when the Planck relations
 // were sealed and brought two more papers with them, and from 6 to 11 when the affect trinity (Russell 1980 and 2003,
-// Lazarus 1991) and the self-model wing (Lawvere 1969, cited by two theorems) were sealed. Re-read the census (`attributions()` filtered by
+// Lazarus 1991) and the self-model wing (Lawvere 1969, cited by two theorems) were sealed, and from 11 to 27 when
+// lean-gen's `source` field put registry-resolved DOIs into first wings' prose (Einstein 1905 ×5, Balzano 1980 ×2,
+// Stoner 1924 ×2, CODATA 2022 ×2, Williams 2007, Schwenk 1991, Perelman 2002, Hasse 1936, Odlyzko–te Riele 1985;
+// each resolved by gen-references, the eleven before unchanged). Re-read the census (`attributions()` filtered by
 // `gradeOf(...) === 'identifier'`) before changing it again — the number is only worth having if raising it
 // costs somebody a look at what was actually added.
 test('external-fact — the evidence behind a credit is graded, and the grades do not collapse', () => {
   const sources = attributions().map((a) => a.source)
   const c = gradeCensus(sources)
   assert.equal(c.identifier + c.standard + c.named, sources.length, 'a source fell outside every grade')
-  assert.equal(c.identifier, 11, 'the DOI count moved — re-read the census before changing this number, it is the checkable subset')
+  assert.equal(c.identifier, 27, 'the DOI count moved — re-read the census before changing this number, it is the checkable subset')
   assert.ok(c.identifier < sources.length, 'if every credit had an identifier the grades would be pointless; check the census is real')
   assert.equal(gradeOf('10.1038/171737a0'), 'identifier')
   assert.equal(gradeOf('CODATA'), 'standard')
