@@ -16,9 +16,12 @@
 //
 // this is ORCHESTRATION and a RECEIPT over the run. Verification of what a generator emitted belongs
 // to its own authority — guard, provenance and audit-lean-form are the judges. Integrity.
-import { spawnSync } from 'node:child_process'
-import { existsSync } from 'node:fs'
-import { join } from 'node:path'
+import { spawn } from 'node:child_process'
+import { existsSync, mkdirSync, rmSync, openSync, closeSync } from 'node:fs'
+import { join, dirname } from 'node:path'
+import { pathToFileURL } from 'node:url'
+import { stepVerdict, saveStepReceipt, savedTrace, stepDependencies } from './step-receipt.js'
+import { capacity } from '../os/host/index.js'
 import { toUuid, merkleGravity } from '../index.js'
 import { coins } from '../index.js'
 import { ROOT, GENERATOR_HEAP } from './api.js'
@@ -147,46 +150,143 @@ const GENERATORS: Gen[] = [
 
 const results: Array<{ file: string; ok: boolean; leaf: string }> = []
 const metrics: Array<{ file: string; ms: number; decade: number }> = []
+const FORCE = process.env.UUIDNA_GENERATE_ALL === '1'
+const TRACE = pathToFileURL(join(ROOT, 'dist', 'scripts', 'step-trace.js')).href
+const verified = new Set<string>()
+const ran = new Set<string>()
 console.log('  THE ONE GENERATOR — every emitter, one manifest, one fused receipt.')
-// ONE PROCESS, not one per generator. Each emitter was a spawned node — sixteen interpreter boots at ~130ms apiece,
-// so the boots cost an order of magnitude more than the work (5.3s of which 0.2s was generating). Dynamic import runs
-// every one inside this process and preserves the manifest order exactly, which is what determinism needs.
-for (const g of GENERATORS) {
+// ── EVERY GENERATOR RUNS IN ITS OWN PROCESS, and the reason is the worst kind of green ───────────────────────────
+//
+// These were `await import`ed into THIS process. Three of them (gen-unlocks, gen-os, gen-falsifiers) end with a
+// module-scope `process.exit(...)`, and a generator that exits does not return to its caller — it ends the
+// RUNNER. On 2026-09-02 that truncated a full run at 6 of 29 generators and exited 0: gen-readme, gen-llm,
+// gen-unlocks and twenty more never ran, reconcile reported the derived layer re-derived, and the staleness
+// surfaced ten minutes later as failing prose tests, which then made land's taught cure fail on every round.
+//
+// It is this tree's recurring defect in its purest form — not a check that failed, but an ACTION THAT WAS
+// ABSENT reporting success. Nothing errored. The exit code was 0. The only witness was a figure in a README.
+//
+// A child's exit ends only itself — that is the operating system's process model, by construction, not a
+// convention of this tree. Whatever a generator does to its own exit code is therefore a RESULT the runner
+// reads, which is what this loop always claimed to be doing.
+// 8 GiB: gen-quantum-advantage mapped the ledger and OOM'd the default ~4 GiB heap
+// (Ineffective mark-compacts / SIGABRT), which aborted reconcile after the wave had already sealed.
+// Same ceiling docs:build already takes for VitePress. Inherited NODE_OPTIONS still win if a caller sets them.
+//
+// ── AND THE PROCESSES RUN AT ONCE, AS WIDE AS THE HOST MEASURES (the captain, 2026-09-07: "leave all uncapped and qpu
+// will balance all"). The manifest is a total order; the steps' own traces say which of its edges are real
+// (stepDependencies), so a step starts the moment every step it reads from has finished. Every logical core is a
+// lane, and the one bound is the MEASURED one capacity() already keeps: a step is admitted while the peak memory
+// its last run measured, added to what is running, fits the host's memory. A step never measured counts at the
+// heap ceiling it is given. Nothing else holds work back.
+//
+// A TRACE IS LAST RUN'S, SO THE RUN CHECKS ITSELF. A step that newly reads what an earlier step writes could have
+// started before that step finished. After every pass, each step that ran is held against its FRESH trace: if a step
+// it now depends on was not finished when it started, another pass runs — and the receipts make that pass pay only
+// for what moved. Passes repeat until no step started early, which ends because each pass leaves every step it ran
+// with a receipt over the inputs it actually saw.
+const HEAP_BYTES = Number(GENERATOR_HEAP.split('=')[1]) * 1024 * 1024
+const host = capacity()
+const memoryBytes = host.memoryGiB * 1024 * 1024 * 1024
+const outcome = new Map<string, { ok: boolean; ms: number; leaf: string }>()
+const header = (g: Gen, s: string): string => `    ${s} ${g.file.padEnd(24)}`
+// A STEP IS ITS PLACE IN THE MANIFEST, NOT ITS FILE: gen-seo-freeze runs twice, and two runs keyed by one name would
+// share a receipt and fold to one result, which the count proof below refuses. The nth run of a file is file#n.
+const IDS = GENERATORS.map((g, i) => { const k = GENERATORS.slice(0, i + 1).filter((x) => x.file === g.file).length; return k === 1 ? g.file : `${g.file}#${k}` })
+
+/** run one step: verified by receipt when its roots recompute, else spawned under the trace and its receipt saved */
+const runStep = (g: Gen, id: string): Promise<boolean> => new Promise((done) => {
   const path = join(ROOT, 'dist', 'scripts', g.file)
-  if (!existsSync(path)) { console.log(`    ✗ ${g.file} — build first (npm run build)`); process.exit(1) }
+  if (!existsSync(path)) { console.log(`    ✗ ${g.file} — build first (npm run build)`); return done(false) }
   const t0 = process.hrtime.bigint()
-  let ok = true
-  // ── EVERY GENERATOR RUNS IN ITS OWN PROCESS, and the reason is the worst kind of green ───────────────────────
-  //
-  // These were `await import`ed into THIS process. Three of them (gen-unlocks, gen-os, gen-falsifiers) end with a
-  // module-scope `process.exit(...)`, and a generator that exits does not return to its caller — it ends the
-  // RUNNER. On 2026-09-02 that truncated a full run at 6 of 29 generators and exited 0: gen-readme, gen-llm,
-  // gen-unlocks and twenty more never ran, reconcile reported the derived layer re-derived, and the staleness
-  // surfaced ten minutes later as failing prose tests, which then made land's taught cure fail on every round.
-  //
-  // It is this tree's recurring defect in its purest form — not a check that failed, but an ACTION THAT WAS
-  // ABSENT reporting success. Nothing errored. The exit code was 0. The only witness was a figure in a README.
-  //
-  // A child's exit ends only itself — that is the operating system's process model, by construction, not a
-  // convention of this tree. Whatever a generator does to its own exit code is therefore a RESULT the runner
-  // reads, which is what this loop always claimed to be doing.
-  // 8 GiB: gen-quantum-advantage mapped the ledger and OOM'd the default ~4 GiB heap
-  // (Ineffective mark-compacts / SIGABRT), which aborted reconcile after the wave had already sealed.
-  // Same ceiling docs:build already takes for VitePress. Inherited NODE_OPTIONS still win if a caller sets them.
-  const r = spawnSync(process.execPath, [GENERATOR_HEAP, path, ...g.args], { stdio: 'inherit', cwd: ROOT })
-  if (r.status !== 0) { ok = false; console.log(`    ✗ ${g.file} — exit ${r.status ?? 'signal ' + String(r.signal)}`) }
-  // THE ONE-SECOND LAW NEEDS A METER, so the meter ships: any generator over 250ms names itself and its cost.
-  // AND THE METER IS NOW A METRIC (2026-08-24). Printing it named the slow generator and then lost it with the
-  // scrollback, so nothing could say whether a generator got slower — the one question a meter exists to answer.
-  // Every generator is RECORDED, not just the ones over the line, and the record is reported below.
-  // EXACT INTEGER MILLISECONDS, by BigInt division of the nanosecond counter — no float, no Math.*, which the
-  // determinism hard-reject forbids here as everywhere (a meter that had to round could not live in this tree).
-  const msInt = Number((process.hrtime.bigint() - t0) / 1_000_000n)
-  metrics.push({ file: g.file, ms: msInt, decade: levelOf(msInt) })
-  if (msInt > 250) console.log(`    · ${g.file} took ${msInt} ms`)
-  results.push({ file: g.file, ok, leaf: toUuid(`generator|${g.file}|${g.args.join(' ')}|${ok ? 'ok' : 'fail'}`) })
-  console.log(`    ${ok ? '✓' : '✗'} ${g.file.padEnd(24)} ${g.note}`)
-  if (!ok) process.exit(1)
+  // EXACT INTEGER MILLISECONDS, by BigInt division of the nanosecond counter — no float, no Math.*
+  const msNow = (): number => Number((process.hrtime.bigint() - t0) / 1_000_000n)
+  // A STEP WHOSE INPUTS DID NOT MOVE IS VERIFIED BY ITS RECEIPT, NOT RE-RUN (step-receipt.ts)
+  const verdict = FORCE ? { skip: false, why: 'UUIDNA_GENERATE_ALL=1' } : stepVerdict(ROOT, id, g.args)
+  if (verdict.skip) {
+    outcome.set(id, { ok: true, ms: msNow(), leaf: toUuid(`generator|${g.file}|${g.args.join(' ')}|ok`) })
+    verified.add(id)
+    console.log(`${header(g, '✓')} verified by receipt ${verdict.cross?.slice(0, 8)} (${msNow()} ms)`)
+    return done(true)
+  }
+  verified.delete(id)
+  const tracePath = join(ROOT, 'dist', 'step-receipts', `${id}.trace.json`)
+  mkdirSync(dirname(tracePath), { recursive: true })
+  rmSync(tracePath, { force: true })
+  // A STEP WRITES ITS OUTPUT TO ITS OWN FILE, NEVER TO A PIPE THIS PROCESS MUST DRAIN. With pipes, every receipt this
+  // runner fingerprinted (29 s for gen-handle-store's inputs) was 29 s no child could write past 64 KB of output, and
+  // the run measured 3,003 s of wall against 1,189 s of step time. A file has no reader to wait for; it is printed
+  // whole when the step ends, so steps running at once do not interleave line by line either.
+  const logPath = join(ROOT, 'dist', 'step-receipts', `${id}.log`)
+  const fd = openSync(logPath, 'w')
+  const child = spawn(process.execPath, [GENERATOR_HEAP, '--import', TRACE, path, ...g.args],
+    { cwd: ROOT, env: { ...process.env, UUIDNA_STEP_TRACE: tracePath }, stdio: ['ignore', fd, fd] })
+  closeSync(fd)
+  child.on('close', (code, signal) => {
+    const ok = code === 0
+    const ms = msNow()
+    const text = readFileSync(logPath, 'utf8').trimEnd()
+    if (text) console.log(text)
+    if (ok) { saveStepReceipt(ROOT, id, g.args, tracePath); ran.add(`${id} (${verdict.why})`) }
+    else console.log(`    ✗ ${g.file} — exit ${code ?? 'signal ' + String(signal)}`)
+    // THE ONE-SECOND LAW NEEDS A METER: any generator over 250ms names itself and its cost, and every one is recorded
+    if (ms > 250) console.log(`    · ${g.file} took ${ms} ms`)
+    outcome.set(id, { ok, ms, leaf: toUuid(`generator|${g.file}|${g.args.join(' ')}|${ok ? 'ok' : 'fail'}`) })
+    console.log(`${header(g, ok ? '✓' : '✗')} ${g.note}`)
+    done(ok)
+  })
+})
+
+/** one pass over the manifest, scheduled by the traces; returns the steps that started before a step they read from */
+const pass = async (): Promise<string[]> => {
+  // each receipt is read once per pass: some are megabytes, and the pump below asks for a footprint on every turn
+  const traces = IDS.map((id) => savedTrace(ROOT, id))
+  const deps = stepDependencies(traces)
+  const n = GENERATORS.length
+  const state: ('wait' | 'run' | 'done')[] = new Array(n).fill('wait')
+  const finishedAtStart: Set<number>[] = new Array(n)
+  const finished = new Set<number>()
+  const footprint = (i: number): number => traces[i]?.footprintBytes ?? HEAP_BYTES
+  let running = 0
+  let runningBytes = 0
+  let failed = false
+  await new Promise<void>((settle) => {
+    const pump = (): void => {
+      if (finished.size === n || (failed && running === 0)) return settle()
+      if (failed) return
+      for (let i = 0; i < n; i++) {
+        if (state[i] !== 'wait' || !deps[i]!.every((d) => state[d] === 'done')) continue
+        const bytes = footprint(i)
+        if (running > 0 && (running >= host.logical || runningBytes + bytes > memoryBytes)) continue
+        state[i] = 'run'; running++; runningBytes += bytes
+        finishedAtStart[i] = new Set(finished)
+        void runStep(GENERATORS[i]!, IDS[i]!).then((ok) => {
+          state[i] = 'done'; running--; runningBytes -= bytes; finished.add(i)
+          if (!ok) failed = true
+          pump()
+        })
+      }
+    }
+    pump()
+  })
+  if (failed) process.exit(1)
+  // the run checks itself against the traces it just wrote
+  const fresh = stepDependencies(IDS.map((id) => savedTrace(ROOT, id)))
+  return IDS.flatMap((id, i) => verified.has(id) ? [] :
+    fresh[i]!.filter((d) => !finishedAtStart[i]!.has(d) && !verified.has(IDS[d]!)).map((d) => `${id} read ${IDS[d]!}`))
+}
+
+console.log(`  ${host.logical} lanes, ${host.memoryGiB} GiB measured — admitted by each step's measured peak memory`)
+for (let round = 1; ; round++) {
+  const early = await pass()
+  if (early.length === 0) break
+  console.log(`  pass ${round}: ${early.length} step(s) started before a step they read from (${early.slice(0, 4).join('; ')}) — another pass, receipts settle the rest`)
+}
+for (const [i, g] of GENERATORS.entries()) {
+  const o = outcome.get(IDS[i]!)
+  if (!o) continue
+  metrics.push({ file: g.file, ms: o.ms, decade: levelOf(o.ms) })
+  results.push({ file: g.file, ok: o.ok, leaf: o.leaf })
 }
 
 // ── THE RUN PROVES ITSELF (the captain, 2026-09-02: "involuted the theorems prove themselves") ────────────────
@@ -201,7 +301,8 @@ if (results.length !== GENERATORS.length) {
   console.log('      reports success is how the derived layer goes stale under a green gate; the count is the proof.')
   process.exit(1)
 }
-console.log(`    ✓ generate — ${results.length} + 0 = ${GENERATORS.length}: every generator ran, and the count says so`)
+console.log(`    ✓ generate — ${results.length} + 0 = ${GENERATORS.length}: every generator accounted for, and the count says so — ${ran.size} ran, ${verified.size} verified by receipt`)
+for (const r of ran) console.log(`      ran ${r}`)
 
 // ── THE DIMENSIONAL FUSION ────────────────────────────────────────────────────────────────────────────────────────
 // the ten RFC 9562 uuid types — the schemas. Locale is one axis of values, counted once (see the header).
