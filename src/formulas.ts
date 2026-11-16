@@ -496,6 +496,7 @@ export function quantumCombinatorics(): CombinatorialCensus {
   const ceiling = BigInt(alg.ceiling)
   const present = new Map(alg.integers.map((i) => [i.value, i.wings]))
   const vals = alg.integers.map((i) => BigInt(i.value))
+  const landsOn = new Set(vals)
   let landing = 0
   let forcedCount = 0
   let statedCount = 0
@@ -504,7 +505,7 @@ export function quantumCombinatorics(): CombinatorialCensus {
   for (const a of vals) for (const b of vals) for (const op of alg.arithmetic) {
     if (forced.commutative.has(op) && a > b) continue   // the mirror is the same cross, counted once
     const v = applyOp(op, a, b, ceiling)
-    if (v === null) continue
+    if (v === null || !landsOn.has(v)) continue   // a BigInt set compares by value: most candidates miss, and never pay for a string
     const c = String(v)
     const wc = present.get(c)
     if (!wc) continue
@@ -549,18 +550,40 @@ function spanOf(present: Map<string, string[]>, a: string, b: string, c: string)
  *  Ties fall to the larger magnitude, so `1 + 2 = 3` sorts behind everything that says more. NOTHING IS
  *  THRESHOLDED: a threshold would be exactly the hand number the laws forbid, so the whole remainder stays
  *  reachable and only its ORDER is computed. */
-export function novelties(limit = 64): Novelty[] {
+function rankNovelties(): Novelty[] {
   const alg = corpusAlgebra()
   const forced = forcedArithmetic(alg)
   const ceiling = BigInt(alg.ceiling)
   const present = new Map(alg.integers.map((i) => [i.value, i.wings]))
   const vals = alg.integers.map((i) => BigInt(i.value))
+  const landsOn = new Set(vals)
+  // THE MISSES ARE FILTERED IN EXACT DOUBLES. Some eighteen million candidates are tried and nearly all land on no
+  // integer the corpus carries; with both operands within 2^26 every sum, difference, product, exact quotient and
+  // remainder is an integer a double holds exactly, so the miss is decided without BigInt. Every hit, every larger
+  // operand and every power still goes through applyOp, so what is ranked is computed exactly as before.
+  const SMALL = 67108864n
+  const small = vals.map((v) => v >= -SMALL && v <= SMALL)
+  const nums = vals.map((v) => Number(v))
+  const landsOnN = new Set(vals.filter((v) => v >= -9007199254740991n && v <= 9007199254740991n).map((v) => Number(v)))
+  const ceilN = ceiling > 9007199254740991n ? Infinity : Number(ceiling)
+  const missesQuick = (op: BinOp, x: number, y: number): boolean => {
+    let w: number | null
+    if (op === '+') w = x + y > ceilN ? null : x + y
+    else if (op === '-') w = x >= y ? x - y : null
+    else if (op === '*') w = x * y > ceilN ? null : x * y
+    else if (op === '/') w = y === 0 || x % y !== 0 ? null : x / y
+    else if (op === '%') w = y === 0 ? null : x % y
+    else return false
+    return w === null || !landsOnN.has(w)
+  }
   const seen = new Set<string>()
   const out: Novelty[] = []
-  for (const a of vals) for (const b of vals) for (const op of alg.arithmetic) {
+  for (let i = 0; i < vals.length; i++) for (let j = 0; j < vals.length; j++) for (const op of alg.arithmetic) {
+    const a = vals[i]!, b = vals[j]!
     if (forced.commutative.has(op) && a > b) continue   // the mirror is the same cross, ranked once
+    if (small[i] && small[j] && missesQuick(op, nums[i]!, nums[j]!)) continue
     const v = applyOp(op, a, b, ceiling)
-    if (v === null) continue
+    if (v === null || !landsOn.has(v)) continue   // a BigInt set compares by value: most candidates miss, and never pay for a string
     const c = String(v)
     if (!present.has(c)) continue
     if (isLawInstance(forced, op, String(a), String(b))) continue
@@ -585,13 +608,27 @@ export function novelties(limit = 64): Novelty[] {
   // a big number built out of common ones? Magnitude stays as the fourth term, where a tiebreak belongs.
   const commonness = (n: Novelty): number => n.wings.length + (present.get(n.a)?.length ?? 0)
     + (present.get(n.b)?.length ?? 0) + (present.get(n.c)?.length ?? 0)
-  out.sort((x, y) =>
-    y.span - x.span
-    || x.rarest.wings.length - y.rarest.wings.length
-    || commonness(x) - commonness(y)
-    || (BigInt(y.c) < BigInt(x.c) ? -1 : BigInt(y.c) > BigInt(x.c) ? 1 : 0)
-    || (x.text < y.text ? -1 : 1))
-  return out.slice(0, limit)
+  // each row's keys are computed once, not once per comparison: the sort makes some fifteen million comparisons over
+  // three quarters of a million rows, and the same order falls out of the same keys
+  const keyed = out.map((n) => ({ n, common: commonness(n), c: BigInt(n.c) }))
+  keyed.sort((x, y) =>
+    y.n.span - x.n.span
+    || x.n.rarest.wings.length - y.n.rarest.wings.length
+    || x.common - y.common
+    || (y.c < x.c ? -1 : y.c > x.c ? 1 : 0)
+    || (x.n.text < y.n.text ? -1 : 1))
+  return keyed.map((k) => k.n)
+}
+
+// THE RANKING IS COMPUTED ONCE PER PROCESS AND PASSED ON (the captain, 2026-09-14: "things need to be remembered at each
+// step instead of saved and passed to the next"). It is a function of the sealed ledger alone, which a process cannot
+// change, and it costs some twenty seconds: the uuidna_quantum_advantage and uuidna_fill_gaps doors each recomputed it on
+// every call, which put the no-arg dispatch probe at 78 s against its 60 s allowance. Every limit reads the same ranking.
+let ranked: Novelty[] | undefined
+/** novelties(limit) → the head of the ranking, `limit` long */
+export function novelties(limit = 64): Novelty[] {
+  ranked ??= rankNovelties()
+  return ranked.slice(0, limit)
 }
 
 /** THE OPERATION WORDS, so a derived key reads as what it is and needs no glossary beside it. */
