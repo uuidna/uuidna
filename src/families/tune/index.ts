@@ -1,6 +1,7 @@
 import { mintOf, hexRegisterOf, latticeNamesOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { ilog2, roundOf, roundQuot } from '../../exact.js'
+import { roundScaledLog } from '../../exact-real.js'
 
 /** A432 AS THE STARTER OF THE CHAIN, DIFFERENT WAVELENGTHS CROSSING THE FRACTAL AT ONCE. The fundamental is not chosen,
  *  it is derived: the lattice already proves 432 = 2^hexbit · (plane − seed) = 16 · 27 (theorem presentation_stylesheet_hz,
@@ -36,7 +37,7 @@ export class TuneFormulas {
     return f('tune-fifth', 'fifth(k) = 432 · (3/2)^k folded into [432, 864) Hz', roundOf(hz), nat(k) && k < 24, 'fifth', [k], { chain: 'circle of fifths' })
   }
   /** An interval num/den in cents: round(1200 · log₂(num/den)) — the measure the harmonic lattice is read in. */
-  static cents(num: number, den: number): CrossFormula { return f('tune-cents', 'cents(num, den) = 1200 · log₂(num / den)', num > 0 && den > 0 ? roundOf(1200 * Math.log2(num / den)) : 0, nat(num, den) && num > 0 && den > 0, 'cents', [num, den]) }
+  static cents(num: number, den: number): CrossFormula { return f('tune-cents', 'cents(num, den) = 1200 · log₂(num / den)', num > 0 && den > 0 ? roundScaledLog(2, num, den, 1200) : 0, nat(num, den) && num > 0 && den > 0, 'cents', [num, den]) }
   /** The fractal depth up to the n-th harmonic: how many self-similar octave bands it spans, ⌊log₂ n⌋ + 1 — the whole
    *  fractal counted at once from the one starter. */
   static fractal(n: number): CrossFormula { return f('tune-fractal', 'fractal(n) = ⌊log₂ n⌋ + 1 (octave bands up to the n-th harmonic)', n > 0 ? ilog2(n) + 1 : 0, nat(n) && n > 0, 'fractal', [n]) }

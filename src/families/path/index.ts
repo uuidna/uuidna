@@ -1,5 +1,6 @@
 import { contentUuidOf, uuidReceiptOf, hexRegisterOf, qpuHexUuidOf } from '../../quantum/processing/unit/index.js'
 import { chooseOf, mintOf, latticeNamesOf, tenOf } from '../../quantum/processing/unit/index.js'
+import { log2Real } from '../../exact-real.js'
 // the lattice names and the three formulas every number here is written in
 const L = { ...latticeNamesOf(), mintOf, chooseOf, tenOf }
 
@@ -80,7 +81,7 @@ export class CrossDomainPaths {
     return domainPathOf({
       hops: ['deployment', 'qsec', 'med'],
       formula: 'hipaa_compliant = deployment_health * key_entropy * patient_count',
-      transform: (d: any) => (d.health || 0.9) * Math.log2(d.keyLen || L.mintOf(L.rays)) * (d.patients || L.tenOf(L.coins)),
+      transform: (d: any) => (d.health || 0.9) * log2Real(d.keyLen || L.mintOf(L.rays)) * (d.patients || L.tenOf(L.coins)),
       // the value is the transform at its defaults: formulated, not written
       get value() { return this.transform({}) },
     })
@@ -100,7 +101,7 @@ export class CrossDomainPaths {
     return domainPathOf({
       hops: ['quantum', 'qsec', 'enterprise', 'med'],
       formula: 'total_security = proof_count * key_strength * compliance * patient_coverage',
-      transform: (q: any) => (q.proofs || 1) * Math.log2(q.keyLen || L.mintOf(L.rays)) * (q.comp || 0.9) * (q.coverage || 0.8),
+      transform: (q: any) => (q.proofs || 1) * log2Real(q.keyLen || L.mintOf(L.rays)) * (q.comp || 0.9) * (q.coverage || 0.8),
       // the value is the transform at its defaults: formulated, not written
       get value() { return this.transform({}) },
     })

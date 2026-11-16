@@ -1,6 +1,7 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { quot, roundOf } from '../../exact.js'
+import { log2Real, roundScaledLog } from '../../exact-real.js'
 
 /** THE COUNTS PEOPLE ASK ABOUT, AS COMBINATORICS: the Tzolkin and the Dreamspell (a kin of 13 tones × 20 seals, its
  *  correlation a parameter), the Day Out of Time as a coin, the sexagenary pillars, the biorhythm phases, the periods
@@ -68,7 +69,7 @@ export class KinFormulas {
   /** The pure combinations of a chart of n bodies: 64ⁿ gate placements (exact while it fits a number, n ≤ 8). */
   static combinations(bodies: number): CrossFormula { return f('cal-combinations', 'C(n) = 64ⁿ', bodies <= 8 ? 64 ** bodies : 0, nat(bodies) && bodies <= 8, 'combinations', [bodies]) }
   /** The information of a chart of n bodies, in bits: 6 per gate, plus log₂ 6 per line. */
-  static bits(bodies: number): CrossFormula { return f('cal-bits', 'bits(n) = n · (6 + log₂ 6), rounded', roundOf(bodies * (6 + Math.log2(6))), nat(bodies), 'bits', [bodies]) }
+  static bits(bodies: number): CrossFormula { return f('cal-bits', 'bits(n) = n · (6 + log₂ 6), rounded', (Number.isSafeInteger(bodies) && bodies >= 0 ? 6 * bodies + roundScaledLog(2, 6, 1, bodies) : roundOf(bodies * (6 + log2Real(6)))), nat(bodies), 'bits', [bodies]) }
 }
 
 for (const name of ['biorhythm', 'bits', 'combinations', 'crossed', 'cycle', 'digitalRoot', 'dootKin', 'dreamspellDrift', 'enneagram', 'kin', 'period', 'pillar', 'seal', 'tone', 'vortex'] as const)

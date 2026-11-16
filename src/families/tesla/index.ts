@@ -1,6 +1,7 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { isqrt, quot, roundOf, roundQuot } from '../../exact.js'
+import { roundOverTwoPiSqrt } from '../../exact-real.js'
 
 /** THE PHYSICS TESLA'S PATENTS STATE, AS FORMULAS. The patents are the record (US 381,968 polyphase induction motor,
  *  1888; 593,138 the coil, 1897; 645,576 and 649,621 wireless transmission, 1900; 787,412 the art of transmitting
@@ -24,7 +25,7 @@ export class TeslaFormulas {
   /** The slip of an induction rotor turning at r rpm in a field of n rpm, in thousandths. */
   static slip(fieldRpm: number, rotorRpm: number): CrossFormula { return f('tesla-slip', 's = (n − r) / n', fieldRpm > 0 ? roundOf(((fieldRpm - rotorRpm) / fieldRpm) * 1000) : 0, nat(fieldRpm, rotorRpm) && fieldRpm > 0 && rotorRpm <= fieldRpm, 'slip', [fieldRpm, rotorRpm]) }
   /** A tuned circuit's resonance from L in microhenry and C in picofarad, in kilohertz (593,138: primary and secondary tuned alike). */
-  static resonance(uH: number, pF: number): CrossFormula { return f('tesla-resonance', 'f = 1 / (2π √(L C))', uH > 0 && pF > 0 ? roundQuot(1 / (2 * Math.PI * Math.sqrt(uH * 1e-6 * pF * 1e-12)), 1000) : 0, nat(uH, pF) && uH > 0 && pF > 0, 'resonance', [uH, pF]) }
+  static resonance(uH: number, pF: number): CrossFormula { return f('tesla-resonance', 'f = 1 / (2π √(L C))', uH > 0 && pF > 0 ? roundOverTwoPiSqrt(1000000, uH * pF) : 0, nat(uH, pF) && uH > 0 && pF > 0, 'resonance', [uH, pF]) }
   /** The windings' ratio of a coupled coil, secondary over primary, in thousandths: the voltage it steps up by (593,138). */
   static turns(primary: number, secondary: number): CrossFormula { return f('tesla-turns', 'V₂ / V₁ = N₂ / N₁', primary > 0 ? roundOf((secondary / primary) * 1000) : 0, nat(primary, secondary) && primary > 0, 'turns', [primary, secondary]) }
   /** The quarter wave of a frequency in kilohertz, in metres: the length a resonant secondary wants (645,576). */

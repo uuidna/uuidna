@@ -1,6 +1,7 @@
 import { hexRegisterOf, latticeNamesOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
-import { quot, roundOf } from '../../exact.js'
+import { quot } from '../../exact.js'
+import { roundTrigDegrees } from '../../exact-real.js'
 
 // degrees of a half and a full turn, taken from the Lean theorems (Qpu.Pi.pi_half_turn = 180, pi_turn_degrees = 360)
 // via the lattice, never hardcoded.
@@ -18,9 +19,9 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class TrigonometryFormulas {
   /** SINE scaled by a thousand. value ⌊sin(deg)·1000⌉; for degrees 0..90 result is 0..1000. */
-  static sine(degrees: number): CrossFormula { return c('trigonometry-sine', 'sine(degrees) = round(sin(degrees·π/180)·1000)', roundOf(Math.sin((degrees * Math.PI) / halfTurn) * 1000), nat(degrees), 'sine', [degrees]) }
+  static sine(degrees: number): CrossFormula { return c('trigonometry-sine', 'sine(degrees) = round(sin(degrees·π/180)·1000)', roundTrigDegrees('sin', degrees, 1000), nat(degrees), 'sine', [degrees]) }
   /** COSINE scaled by a thousand. value ⌊cos(deg)·1000⌉. */
-  static cosine(degrees: number): CrossFormula { return c('trigonometry-cosine', 'cosine(degrees) = round(cos(degrees·π/180)·1000)', roundOf(Math.cos((degrees * Math.PI) / halfTurn) * 1000), nat(degrees), 'cosine', [degrees]) }
+  static cosine(degrees: number): CrossFormula { return c('trigonometry-cosine', 'cosine(degrees) = round(cos(degrees·π/180)·1000)', roundTrigDegrees('cos', degrees, 1000), nat(degrees), 'cosine', [degrees]) }
   /** TANGENT as the opposite over the adjacent, scaled by a thousand. value ⌊opposite·1000 / adjacent⌋. */
   static tangent(opposite: number, adjacent: number): CrossFormula { return c('trigonometry-tangent', 'tangent(opposite, adjacent) = ⌊opposite·1000 / adjacent⌋', adjacent > 0 ? quot((opposite * 1000), adjacent) : 0, nat(opposite, adjacent) && adjacent > 0, 'tangent', [opposite, adjacent]) }
   /** HYPOTENUSE squared, a proxy that stays integer. value a² + b². */

@@ -1,6 +1,7 @@
 import { hexRegisterOf, latticeNamesOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { floorOf, minOf, quot, roundOf } from '../../exact.js'
+import { piFixed, sinCosFixed, toNumber, toRational } from '../../exact-real.js'
 
 const { fullTurn, halfTurn } = latticeNamesOf()
 
@@ -50,18 +51,37 @@ const PROOF = 'ceccec.github.io src/quantum/spirit (wheel W3, lattice W5) and sr
 
 const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
 const norm = (deg: number) => ((deg % fullTurn) + fullTurn) % fullTurn
-const rad = (deg: number) => (deg * Math.PI) / halfTurn
 // the shortest signed turn from a to b, in (−180, 180]
 const signed = (from: number, to: number) => { let d = norm(to) - norm(from); if (d > halfTurn) d -= fullTurn; if (d <= -halfTurn) d += fullTurn; return d }
 
+// ── THE SUN, IN EXACT FIXED POINT. Meeus's coefficients are decimals, and a decimal is an exact rational: each is read
+// from its own digits, the Julian day enters as the exact rational its double is, and the sines come from exact-real's
+// series rather than the host's, so the longitude is the model's value to the last bit on every engine.
+const SUN = 96n
+const Q = (dec: string): bigint => {
+  const neg = dec.startsWith('-'), [i, f = ''] = (neg ? dec.slice(1) : dec).split('.')
+  const v = (BigInt(i! + f) << SUN) / 10n ** BigInt(f.length)
+  return neg ? -v : v
+}
+const mul = (a: bigint, b: bigint): bigint => (a * b) >> SUN
+const TURN = BigInt(fullTurn) << SUN
+const normQ = (x: bigint): bigint => ((x % TURN) + TURN) % TURN
+const PI_Q = piFixed(SUN)
+const sinDegQ = (deg: bigint): bigint => sinCosFixed((deg * PI_Q) / (BigInt(halfTurn) << SUN), SUN)[0]
+const [L0_0, L0_1, L0_2, M_0, M_1, M_2, C1_0, C1_1, C1_2, C2_0, C2_1, C3, OM_0, OM_1, ABERR, NUT] =
+  ['280.46646', '36000.76983', '0.0003032', '357.52911', '35999.05029', '-0.0001537', '1.914602', '-0.004817', '-0.000014',
+    '0.019993', '-0.000101', '0.000289', '125.04', '-1934.136', '-0.00569', '-0.00478'].map(Q) as [bigint, ...bigint[]]
+
 /** Sun's apparent geocentric ecliptic longitude at a Julian day (Meeus ch. 25, reduced). */
 export const sunLongitudeOf = (jd: number): number => {
-  const T = (jd - 2451545) / 36525
-  const L0 = norm(280.46646 + 36000.76983 * T + 0.0003032 * T * T)
-  const M = norm(357.52911 + 35999.05029 * T - 0.0001537 * T * T)
-  const C = (1.914602 - 0.004817 * T - 0.000014 * T * T) * Math.sin(rad(M)) + (0.019993 - 0.000101 * T) * Math.sin(2 * rad(M)) + 0.000289 * Math.sin(3 * rad(M))
-  const omega = norm(125.04 - 1934.136 * T)
-  return norm(L0 + C - 0.00569 - 0.00478 * Math.sin(rad(omega)))
+  const [jn, jdd] = toRational(jd)
+  const T = ((jn - 2451545n * jdd) << SUN) / (36525n * jdd)
+  const T2 = mul(T, T)
+  const L0 = normQ(L0_0 + mul(L0_1!, T) + mul(L0_2!, T2))
+  const M = normQ(M_0! + mul(M_1!, T) + mul(M_2!, T2))
+  const C = mul(C1_0! + mul(C1_1!, T) + mul(C1_2!, T2), sinDegQ(M)) + mul(C2_0! + mul(C2_1!, T), sinDegQ(2n * M)) + mul(C3!, sinDegQ(3n * M))
+  const omega = normQ(OM_0! + mul(OM_1!, T))
+  return toNumber(normQ(L0 + C + ABERR! + mul(NUT!, sinDegQ(omega))), SUN)
 }
 
 /** The gate and line at a longitude: the wheel is read from gate 41 at 302°. */

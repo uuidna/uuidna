@@ -11,6 +11,7 @@
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { hexRegisterOf, recognizeHolds } from '../../quantum/processing/unit/index.js'
 import { absOf, maxOf, minOf, truncOf } from '../../exact.js'
+import { sqrtReal } from '../../exact-real.js'
 
 // the law of this family: a compliance fusion holds only over lawful inputs — finite, non-negative scores
 const nat = (...xs: number[]): boolean => xs.every((x) => Number.isFinite(x) && x >= 0)
@@ -165,8 +166,8 @@ export class VectorEquilibriumAudit {
   } {
     const scores = Object.values(octants)
     const mean = scores.reduce((a, b) => a + b, 0) / scores.length
-    const variance = scores.reduce((a, s) => a + Math.pow(s - mean, 2), 0) / scores.length
-    const stdDev = Math.sqrt(variance)
+    const variance = scores.reduce((a, s) => a + (s - mean) * (s - mean), 0) / scores.length
+    const stdDev = sqrtReal(variance)
 
     // Harmony = how centered around mean (lower stdDev = better)
     const harmony = maxOf(0, 1 - stdDev)

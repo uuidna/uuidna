@@ -2,6 +2,7 @@ import { contentUuidOf, uuidReceiptOf, hexRegisterOf, qpuHexUuidOf } from '../..
 import { chooseOf, mintOf, hexParamMaxOf, latticeNamesOf, tenOf } from '../../quantum/processing/unit/index.js'
 import { contextOf, hexDecodeOf, hexFamiliesOf, hexDiscoverOf } from '../../quantum/processing/unit/index.js'
 import { ipow, maxOf } from '../../exact.js'
+import { log2Real } from '../../exact-real.js'
 // the lattice names and the three formulas every number here is written in
 const L = { ...latticeNamesOf(), mintOf, chooseOf, tenOf }
 
@@ -93,7 +94,7 @@ export class CrossDomainFormulas {
       src: 'qsec',
       dst: 'compress',
       formula: 'compression_ratio = 1 / (1 + log2(keyLen))',
-      value: 1 / (1 + Math.log2(keyLen)),
+      value: 1 / (1 + log2Real(keyLen)),
       proof: 'Quantum key entropy bounds data compression potential'}, nat(keyLen) && keyLen >= 1, { name: 'cross.bb84ToCompress', params: [keyLen] })
   }
 
@@ -189,7 +190,7 @@ export class CrossDomainFormulas {
 
   static allBridges(): DomainBridge[] {
     return [
-      { from: 'qsec', to: 'compress', formula: 'entropy→ratio', transform: (k: any) => 1 / (1 + Math.log2(k.keyLen || L.mintOf(L.rays))) },
+      { from: 'qsec', to: 'compress', formula: 'entropy→ratio', transform: (k: any) => 1 / (1 + log2Real(k.keyLen || L.mintOf(L.rays))) },
       { from: 'obs', to: 'ml', formula: 'signals→accuracy', transform: (s: any) => 1 - (1 / (1 + (s.count || 0) / L.tenOf(L.coins))) },
       { from: 'deployment', to: 'obs', formula: 'timing→health', transform: (t: any) => maxOf(0, 1 - (t.build ?? 0) / (L.n * L.tenOf(L.coins))) * maxOf(0, 1 - (t.test ?? 0) / 180) },
       { from: 'quantum', to: 'enterprise', formula: 'proofs→risk', transform: (p: any) => 1 / (1 + (p.count || 0)) },

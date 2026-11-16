@@ -5,6 +5,7 @@ import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { flowFamiliesOf } from '../merkaba/index.js'
 import { chooseOf, mintOf, latticeNamesOf, tenOf } from '../../quantum/processing/unit/index.js'
 import { ceilQuot, floorOf, maxOf, productExceedsPow2, quot } from '../../exact.js'
+import { floorMulLn2, ln2Real, log2Real } from '../../exact-real.js'
 const L = { ...latticeNamesOf(), mintOf, chooseOf, tenOf }
 
 /** Code quality by temperature and time, as Qpu.Physics measures a qubit. A file is hot when it keeps changing: its
@@ -90,14 +91,14 @@ export class HeatFormulas {
         runs++
       } catch { /* an input the formula does not take */ }
     }
-    const bits = [...counts.values()].reduce((s, c) => s + c * Math.log2(c), 0)
+    const bits = [...counts.values()].reduce((s, c) => s + c * log2Real(c), 0)
     return heatCross('heat-erasure', 'physics', `erasure(${family}.${formula?.name}, n) = Σ c·log₂ c over its outputs on the first n inputs`, bits, nat(f, j, n) && runs === n, 'erasure', [f, j, n], { proof: 'Landauer: a map that merges c inputs into one output erases log₂ c bits each' })
   }
 
   /** Landauer: erasing `bits` at a core temperature T costs at least bits · k_B · T · ln 2 — in 10⁻³² J at T in mK, with
    *  the Lean source's boltzmann (k_B in 10⁻²⁹ J/K). The unit reads no sensor: T is the device reading the caller saved. */
   static landauer(bits: number, millikelvin: number): CrossFormula {
-    return heatCross('heat-landauer', 'physics', 'E ≥ bits · k_B · T · ln 2 (10⁻³² J, T in mK)', floorOf(bits * BOLTZMANN * millikelvin * Math.LN2), nat(bits, millikelvin), 'landauer', [bits, millikelvin], { proof: 'Landauer 1961; k_B from index.lean def boltzmann' })
+    return heatCross('heat-landauer', 'physics', 'E ≥ bits · k_B · T · ln 2 (10⁻³² J, T in mK)', (Number.isSafeInteger(bits * BOLTZMANN * millikelvin) && bits * BOLTZMANN * millikelvin >= 0 ? floorMulLn2(bits * BOLTZMANN * millikelvin) : floorOf(bits * BOLTZMANN * millikelvin * ln2Real)), nat(bits, millikelvin), 'landauer', [bits, millikelvin], { proof: 'Landauer 1961; k_B from index.lean def boltzmann' })
   }
 
   /** SLOW IS A WRAP: an address that answers slowly wraps a computation instead of reaching a value. A speed claim is not a

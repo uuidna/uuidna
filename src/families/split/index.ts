@@ -1,7 +1,7 @@
 import { bigPowModOf, hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { leanSource } from '../../quantum/processing/unit/lean.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
-import { floorOf, maxOf, productExceedsPow2, quot, roundOf, roundQuot } from '../../exact.js'
+import { floorOf, ipow, maxOf, productExceedsPow2, quot, roundOf, roundQuot } from '../../exact.js'
 
 /** SPLIT, DO NOT WRAP — astronomical values as primes, π and the crypto tools. A large number is not stored whole: it
  *  is its prime factorisation (the crypto split, what Shor finds), its Euler totient, its count of primes below it;
@@ -62,7 +62,7 @@ export class SplitFormulas {
       let s = 0
       for (let i = 0; i <= k; i++) { const d = 8 * i + j; s += powMod(16, k - i, d) / d; s -= floorOf(s) }
       let t = 0
-      for (let i = k + 1; i <= k + 20; i++) t += Math.pow(16, k - i) / (8 * i + j)
+      for (let i = k + 1; i <= k + 20; i++) t += 1 / ipow(16, i - k) / (8 * i + j)
       return s + t
     }
     const x = 4 * term(1) - 2 * term(4) - term(5) - term(6)

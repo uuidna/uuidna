@@ -1,6 +1,7 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
-import { floorOf, maxOf, quot } from '../../exact.js'
+import { maxOf, quot } from '../../exact.js'
+import { floorScaledLog } from '../../exact-real.js'
 
 /** ACOUSTICS — SOUND AS ARITHMETIC (chosen by the public-API registry, not by hand). A travelling wave is numbers:
  *  wavelength from speed and frequency, frequency from speed and wavelength, loudness in decibels, the Doppler shift,
@@ -18,7 +19,7 @@ export class AcousticsFormulas {
   /** FREQUENCY: the speed of sound over its wavelength. value ⌊speed / wavelength⌋. */
   static frequency(speed: number, wavelength: number): CrossFormula { return c('acoustics-frequency', 'frequency(speed, wavelength) = ⌊speed / wavelength⌋', wavelength > 0 ? quot(speed, wavelength) : 0, nat(speed, wavelength) && wavelength > 0, 'frequency', [speed, wavelength]) }
   /** DECIBEL: loudness as a power ratio. value ⌊10 · log₁₀(power / reference)⌋. */
-  static decibel(power: number, reference: number): CrossFormula { return c('acoustics-decibel', 'decibel(power, reference) = ⌊10 · log₁₀(power / reference)⌋', reference > 0 && power > 0 ? floorOf(10 * Math.log10(power / reference)) : 0, nat(power, reference) && reference > 0 && power > 0, 'decibel', [power, reference]) }
+  static decibel(power: number, reference: number): CrossFormula { return c('acoustics-decibel', 'decibel(power, reference) = ⌊10 · log₁₀(power / reference)⌋', reference > 0 && power > 0 ? floorScaledLog(10, power, reference, 10) : 0, nat(power, reference) && reference > 0 && power > 0, 'decibel', [power, reference]) }
   /** DOPPLER: the shifted signal, emitted plus the velocity proxy. value emitted + velocity. */
   static doppler(emitted: number, velocity: number): CrossFormula { return c('acoustics-doppler', 'doppler(emitted, velocity) = emitted + velocity', emitted + velocity, nat(emitted, velocity), 'doppler', [emitted, velocity]) }
   /** REVERB: Sabine reverberation proxy, the room volume over its absorption. value ⌊volume · 161 / (absorption · 1000)⌋. */

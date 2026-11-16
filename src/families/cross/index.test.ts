@@ -18,7 +18,7 @@ test('cross: the cross-domain bridges compute the exact value each states', asyn
   assert.equal(C.quantumToEnterprise(99).value, 0.01, '99 proofs, 1/100 risk')
   assert.ok(C.quantumToEnterprise(10).value < C.quantumToEnterprise(1).value, 'more proofs, less risk')
   // BB84 compression ratio = 1/(1 + log2 keyLen)
-  assert.equal(C.bb84ToCompress(256).value, 1 / (1 + Math.log2(256)), '1/(1 + 8) = 1/9')
+  assert.equal(C.bb84ToCompress(256).value, 1 / 9, '1/(1 + 8) = 1/9')
   // alert urgency = anomalies / (signals + 1)
   assert.equal(C.observabilityToUI(10, 100).value, 10 / 101)
   assert.equal(C.observabilityToUI(0, 100).value, 0, 'no anomalies, no urgency')
