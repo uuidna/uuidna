@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** HOOK — THE PAYLOAD CMS LIFECYCLE HOOKS API, AS ARITHMETIC. The hooks a document walks on its way through the CMS are
  *  numbers: how many fire across a save, their average latency, whether a hook sits in order, the fields a beforeChange
@@ -18,17 +19,17 @@ export class HookFormulas {
   /** CHAIN: hooks fired per document across a save. value hooks · perDoc. */
   static chain(hooks: number, perDoc: number): CrossFormula { return c('hook-chain', 'chain(hooks, perDoc) = hooks · perDoc', hooks * perDoc, nat(hooks, perDoc), 'chain', [hooks, perDoc]) }
   /** AVERAGE LATENCY: total milliseconds over the hooks fired. value ⌊total / hooks⌋. */
-  static latency(total: number, hooks: number): CrossFormula { return c('hook-latency', 'latency(total, hooks) = ⌊total / hooks⌋', hooks > 0 ? Math.floor(total / hooks) : 0, nat(total, hooks) && hooks > 0, 'latency', [total, hooks]) }
+  static latency(total: number, hooks: number): CrossFormula { return c('hook-latency', 'latency(total, hooks) = ⌊total / hooks⌋', hooks > 0 ? quot(total, hooks) : 0, nat(total, hooks) && hooks > 0, 'latency', [total, hooks]) }
   /** ORDER: 1 when a hook's position sits within the chain. value [position ≤ total]. */
   static order(position: number, total: number): CrossFormula { return c('hook-order', 'order(position, total) = [position ≤ total]', position <= total ? 1 : 0, nat(position, total), 'order', [position, total]) }
   /** MUTATIONS: fields a beforeChange touched, as a percentage. value ⌊changed · 100 / fields⌋. */
-  static mutations(changed: number, fields: number): CrossFormula { return c('hook-mutations', 'mutations(changed, fields) = ⌊changed · 100 / fields⌋', fields > 0 ? Math.floor((changed * 100) / fields) : 0, nat(changed, fields) && fields > 0 && changed <= fields, 'mutations', [changed, fields]) }
+  static mutations(changed: number, fields: number): CrossFormula { return c('hook-mutations', 'mutations(changed, fields) = ⌊changed · 100 / fields⌋', fields > 0 ? quot((changed * 100), fields) : 0, nat(changed, fields) && fields > 0 && changed <= fields, 'mutations', [changed, fields]) }
   /** FAILURES: hooks that threw, as a percentage of those fired. value ⌊failed · 100 / fired⌋. */
-  static failures(failed: number, fired: number): CrossFormula { return c('hook-failures', 'failures(failed, fired) = ⌊failed · 100 / fired⌋', fired > 0 ? Math.floor((failed * 100) / fired) : 0, nat(failed, fired) && fired > 0 && failed <= fired, 'failures', [failed, fired]) }
+  static failures(failed: number, fired: number): CrossFormula { return c('hook-failures', 'failures(failed, fired) = ⌊failed · 100 / fired⌋', fired > 0 ? quot((failed * 100), fired) : 0, nat(failed, fired) && fired > 0 && failed <= fired, 'failures', [failed, fired]) }
   /** DEPTH: nested hook invocations (a hook that triggers another). value nested, holds ≤ 5. */
   static depth(nested: number): CrossFormula { return c('hook-depth', 'depth(nested) = nested', nested, nat(nested) && nested <= 5, 'depth', [nested]) }
   /** COVERAGE: collections with a hook, as a percentage. value ⌊hooked · 100 / collections⌋. */
-  static coverage(hooked: number, collections: number): CrossFormula { return c('hook-coverage', 'coverage(hooked, collections) = ⌊hooked · 100 / collections⌋', collections > 0 ? Math.floor((hooked * 100) / collections) : 0, nat(hooked, collections) && collections > 0 && hooked <= collections, 'coverage', [hooked, collections]) }
+  static coverage(hooked: number, collections: number): CrossFormula { return c('hook-coverage', 'coverage(hooked, collections) = ⌊hooked · 100 / collections⌋', collections > 0 ? quot((hooked * 100), collections) : 0, nat(hooked, collections) && collections > 0 && hooked <= collections, 'coverage', [hooked, collections]) }
   /** FIRED: hooks fired across every collection. value collections · each. */
   static fired(collections: number, each: number): CrossFormula { return c('hook-fired', 'fired(collections, each) = collections · each', collections * each, nat(collections, each), 'fired', [collections, each]) }
 }

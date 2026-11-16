@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** HELICOPTER — scaffolded integer measures crossed to aerospace. Every output an exact finite nonnegative integer. */
 
@@ -15,7 +16,7 @@ export class HelicopterFormulas {
   static bladecount(x: number, y: number): CrossFormula { return c('helicopter-bladecount', 'bladecount(x, y) = x + y', x + y, nat(x, y), 'bladecount', [x, y]) }
   static bladeorderings(x: number): CrossFormula { return c('helicopter-bladeorderings', 'bladeorderings(x) = x!', x <= 12 ? ((n: number) => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r })(x) : 0, nat(x) && x <= 12, 'bladeorderings', [x]) }
   static ceiling(x: number, y: number): CrossFormula { return c('helicopter-ceiling', 'ceiling(x, y) = x · y', x * y, nat(x, y), 'ceiling', [x, y]) }
-  static autorotationrate(x: number, y: number): CrossFormula { return c('helicopter-autorotationrate', 'autorotationrate(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'autorotationrate', [x, y]) }
+  static autorotationrate(x: number, y: number): CrossFormula { return c('helicopter-autorotationrate', 'autorotationrate(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'autorotationrate', [x, y]) }
   static powerkw(x: number, y: number): CrossFormula { return c('helicopter-powerkw', 'powerkw(x, y) = x · y', x * y, nat(x, y), 'powerkw', [x, y]) }
 }
 

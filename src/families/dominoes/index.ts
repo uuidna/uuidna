@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, roundOf } from '../../exact.js'
 
 /** DOMINOES — scaffolded integer measures crossed to combinatorics. Every output an exact finite nonnegative integer. */
 
@@ -9,7 +10,7 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
   crossFormulaOf({ id, src: 'dominoes', dst: 'combinatorics', formula, value, proof: PROOF, ...extra }, holds, { name: `dominoes.${name}`, params })
 
 export class DominoesFormulas {
-  static distinctpairs(x: number, y: number): CrossFormula { return c('dominoes-distinctpairs', 'distinctpairs(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'distinctpairs', [x, y]) }
+  static distinctpairs(x: number, y: number): CrossFormula { return c('dominoes-distinctpairs', 'distinctpairs(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'distinctpairs', [x, y]) }
   static doubles(x: number, y: number): CrossFormula { return c('dominoes-doubles', 'doubles(x, y) = x + y', x + y, nat(x, y), 'doubles', [x, y]) }
   static totaltiles(x: number, y: number): CrossFormula { return c('dominoes-totaltiles', 'totaltiles(x, y) = x + y', x + y, nat(x, y), 'totaltiles', [x, y]) }
   static pips(x: number, y: number): CrossFormula { return c('dominoes-pips', 'pips(x, y) = x · y', x * y, nat(x, y), 'pips', [x, y]) }

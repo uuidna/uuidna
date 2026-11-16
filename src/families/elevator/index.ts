@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, quot, roundOf } from '../../exact.js'
 
 /** ELEVATOR — scaffolded integer measures crossed to kinematics. Every output an exact finite nonnegative integer. */
 
@@ -10,13 +11,13 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class ElevatorFormulas {
   static capacity(x: number, y: number): CrossFormula { return c('elevator-capacity', 'capacity(x, y) = x · y', x * y, nat(x, y), 'capacity', [x, y]) }
-  static speed(x: number, y: number): CrossFormula { return c('elevator-speed', 'speed(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'speed', [x, y]) }
+  static speed(x: number, y: number): CrossFormula { return c('elevator-speed', 'speed(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'speed', [x, y]) }
   static floors(x: number, y: number): CrossFormula { return c('elevator-floors', 'floors(x, y) = x + y', x + y, nat(x, y), 'floors', [x, y]) }
-  static traveltime(x: number, y: number): CrossFormula { return c('elevator-traveltime', 'traveltime(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'traveltime', [x, y]) }
-  static waittime(x: number, y: number): CrossFormula { return c('elevator-waittime', 'waittime(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'waittime', [x, y]) }
-  static dispatchcombos(x: number, y: number): CrossFormula { return c('elevator-dispatchcombos', 'dispatchcombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'dispatchcombos', [x, y]) }
-  static accelrate(x: number, y: number): CrossFormula { return c('elevator-accelrate', 'accelrate(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'accelrate', [x, y]) }
-  static dutyload(x: number, y: number): CrossFormula { return c('elevator-dutyload', 'dutyload(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'dutyload', [x, y]) }
+  static traveltime(x: number, y: number): CrossFormula { return c('elevator-traveltime', 'traveltime(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'traveltime', [x, y]) }
+  static waittime(x: number, y: number): CrossFormula { return c('elevator-waittime', 'waittime(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'waittime', [x, y]) }
+  static dispatchcombos(x: number, y: number): CrossFormula { return c('elevator-dispatchcombos', 'dispatchcombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'dispatchcombos', [x, y]) }
+  static accelrate(x: number, y: number): CrossFormula { return c('elevator-accelrate', 'accelrate(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'accelrate', [x, y]) }
+  static dutyload(x: number, y: number): CrossFormula { return c('elevator-dutyload', 'dutyload(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'dutyload', [x, y]) }
 }
 
 for (const name of ['accelrate', 'capacity', 'dispatchcombos', 'dutyload', 'floors', 'speed', 'traveltime', 'waittime'] as const)

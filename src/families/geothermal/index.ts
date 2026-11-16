@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** GEOTHERMAL — THE HEAT UNDER THE GROUND, AS ARITHMETIC. A well is numbers: the gradient with depth, the power a flow
  *  carries, conversion efficiency, the heat-pump COP, how much of the rated plant runs, metres drilled a day, the share
@@ -12,19 +13,19 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class GeothermalFormulas {
   /** GRADIENT: temperature rise per kilometre of depth. value ⌊temperature · 1000 / depth⌋. */
-  static gradient(temperature: number, depth: number): CrossFormula { return c('geothermal-gradient', 'gradient(temperature, depth) = ⌊temperature · 1000 / depth⌋', depth > 0 ? Math.floor((temperature * 1000) / depth) : 0, nat(temperature, depth) && depth > 0, 'gradient', [temperature, depth]) }
+  static gradient(temperature: number, depth: number): CrossFormula { return c('geothermal-gradient', 'gradient(temperature, depth) = ⌊temperature · 1000 / depth⌋', depth > 0 ? quot((temperature * 1000), depth) : 0, nat(temperature, depth) && depth > 0, 'gradient', [temperature, depth]) }
   /** POWER: heat a flow carries at a temperature difference. value flow · deltat. */
   static power(flow: number, deltat: number): CrossFormula { return c('geothermal-power', 'power(flow, deltat) = flow · deltat', flow * deltat, nat(flow, deltat), 'power', [flow, deltat]) }
   /** EFFICIENCY: useful output over heat in, as a percentage. value ⌊output · 100 / heat⌋. */
-  static efficiency(output: number, heat: number): CrossFormula { return c('geothermal-efficiency', 'efficiency(output, heat) = ⌊output · 100 / heat⌋', heat > 0 ? Math.floor((output * 100) / heat) : 0, nat(output, heat) && heat > 0 && output <= heat, 'efficiency', [output, heat]) }
+  static efficiency(output: number, heat: number): CrossFormula { return c('geothermal-efficiency', 'efficiency(output, heat) = ⌊output · 100 / heat⌋', heat > 0 ? quot((output * 100), heat) : 0, nat(output, heat) && heat > 0 && output <= heat, 'efficiency', [output, heat]) }
   /** COP: heat-pump coefficient of performance, heat over work, x100. value ⌊heat · 100 / work⌋. */
-  static cop(heat: number, work_: number): CrossFormula { return c('geothermal-cop', 'cop(heat, work_) = ⌊heat · 100 / work_⌋', work_ > 0 ? Math.floor((heat * 100) / work_) : 0, nat(heat, work_) && work_ > 0, 'cop', [heat, work_]) }
+  static cop(heat: number, work_: number): CrossFormula { return c('geothermal-cop', 'cop(heat, work_) = ⌊heat · 100 / work_⌋', work_ > 0 ? quot((heat * 100), work_) : 0, nat(heat, work_) && work_ > 0, 'cop', [heat, work_]) }
   /** CAPACITY FACTOR: generated over rated, as a percentage. value ⌊generated · 100 / rated⌋. */
-  static capacity(generated: number, rated: number): CrossFormula { return c('geothermal-capacity', 'capacity(generated, rated) = ⌊generated · 100 / rated⌋', rated > 0 ? Math.floor((generated * 100) / rated) : 0, nat(generated, rated) && rated > 0, 'capacity', [generated, rated]) }
+  static capacity(generated: number, rated: number): CrossFormula { return c('geothermal-capacity', 'capacity(generated, rated) = ⌊generated · 100 / rated⌋', rated > 0 ? quot((generated * 100), rated) : 0, nat(generated, rated) && rated > 0, 'capacity', [generated, rated]) }
   /** DRILLING: metres drilled per day. value ⌊depth / days⌋. */
-  static drilling(depth: number, days: number): CrossFormula { return c('geothermal-drilling', 'drilling(depth, days) = ⌊depth / days⌋', days > 0 ? Math.floor(depth / days) : 0, nat(depth, days) && days > 0, 'drilling', [depth, days]) }
+  static drilling(depth: number, days: number): CrossFormula { return c('geothermal-drilling', 'drilling(depth, days) = ⌊depth / days⌋', days > 0 ? quot(depth, days) : 0, nat(depth, days) && days > 0, 'drilling', [depth, days]) }
   /** REINJECTION: share of extracted fluid put back, as a percentage. value ⌊injected · 100 / extracted⌋. */
-  static reinjection(injected: number, extracted: number): CrossFormula { return c('geothermal-reinjection', 'reinjection(injected, extracted) = ⌊injected · 100 / extracted⌋', extracted > 0 ? Math.floor((injected * 100) / extracted) : 0, nat(injected, extracted) && extracted > 0 && injected <= extracted, 'reinjection', [injected, extracted]) }
+  static reinjection(injected: number, extracted: number): CrossFormula { return c('geothermal-reinjection', 'reinjection(injected, extracted) = ⌊injected · 100 / extracted⌋', extracted > 0 ? quot((injected * 100), extracted) : 0, nat(injected, extracted) && extracted > 0 && injected <= extracted, 'reinjection', [injected, extracted]) }
   /** ENTHALPY: the heat a temperature holds. value temperature. */
   static enthalpy(temperature: number): CrossFormula { return c('geothermal-enthalpy', 'enthalpy(temperature) = temperature', temperature, nat(temperature), 'enthalpy', [temperature]) }
 }

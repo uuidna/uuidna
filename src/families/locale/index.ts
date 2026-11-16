@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** LOCALE — THE PAYLOAD CMS LOCALIZATION API, AS ARITHMETIC (locales, fallback, translated content). Localizing content is
  *  numbers: translation coverage, fallback reliance, the locales configured, which fields carry translations, words still to
@@ -13,19 +14,19 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class LocaleFormulas {
   /** COVERAGE: translated documents as a percentage of the total. value ⌊translated · 100 / total⌋. */
-  static coverage(translated: number, total: number): CrossFormula { return c('locale-coverage', 'coverage(translated, total) = ⌊translated · 100 / total⌋', total > 0 ? Math.floor((translated * 100) / total) : 0, nat(translated, total) && total > 0 && translated <= total, 'coverage', [translated, total]) }
+  static coverage(translated: number, total: number): CrossFormula { return c('locale-coverage', 'coverage(translated, total) = ⌊translated · 100 / total⌋', total > 0 ? quot((translated * 100), total) : 0, nat(translated, total) && total > 0 && translated <= total, 'coverage', [translated, total]) }
   /** FALLBACK: documents served from the fallback locale as a percentage. value ⌊missing · 100 / total⌋. */
-  static fallback(missing: number, total: number): CrossFormula { return c('locale-fallback', 'fallback(missing, total) = ⌊missing · 100 / total⌋', total > 0 ? Math.floor((missing * 100) / total) : 0, nat(missing, total) && total > 0 && missing <= total, 'fallback', [missing, total]) }
+  static fallback(missing: number, total: number): CrossFormula { return c('locale-fallback', 'fallback(missing, total) = ⌊missing · 100 / total⌋', total > 0 ? quot((missing * 100), total) : 0, nat(missing, total) && total > 0 && missing <= total, 'fallback', [missing, total]) }
   /** LOCALES: the locales configured. value count. */
   static locales(count: number): CrossFormula { return c('locale-locales', 'locales(count) = count', count, nat(count), 'locales', [count]) }
   /** FIELDS: localized fields as a percentage of all fields. value ⌊localized · 100 / total⌋. */
-  static fields(localized: number, total: number): CrossFormula { return c('locale-fields', 'fields(localized, total) = ⌊localized · 100 / total⌋', total > 0 ? Math.floor((localized * 100) / total) : 0, nat(localized, total) && total > 0 && localized <= total, 'fields', [localized, total]) }
+  static fields(localized: number, total: number): CrossFormula { return c('locale-fields', 'fields(localized, total) = ⌊localized · 100 / total⌋', total > 0 ? quot((localized * 100), total) : 0, nat(localized, total) && total > 0 && localized <= total, 'fields', [localized, total]) }
   /** WORDS: words still to translate, source over what the target already holds. value max(0, source − target). */
-  static words(source: number, target: number): CrossFormula { return c('locale-words', 'words(source, target) = max(0, source − target)', Math.max(0, source - target), nat(source, target), 'words', [source, target]) }
+  static words(source: number, target: number): CrossFormula { return c('locale-words', 'words(source, target) = max(0, source − target)', maxOf(0, source - target), nat(source, target), 'words', [source, target]) }
   /** RTL: right-to-left locales as a percentage of all locales. value ⌊rtl · 100 / total⌋. */
-  static rtl(rtl: number, total: number): CrossFormula { return c('locale-rtl', 'rtl(rtl, total) = ⌊rtl · 100 / total⌋', total > 0 ? Math.floor((rtl * 100) / total) : 0, nat(rtl, total) && total > 0 && rtl <= total, 'rtl', [rtl, total]) }
+  static rtl(rtl: number, total: number): CrossFormula { return c('locale-rtl', 'rtl(rtl, total) = ⌊rtl · 100 / total⌋', total > 0 ? quot((rtl * 100), total) : 0, nat(rtl, total) && total > 0 && rtl <= total, 'rtl', [rtl, total]) }
   /** COMPLETE: documents fully translated across every locale, as a percentage. value ⌊done · 100 / locales⌋. */
-  static complete(done: number, locales: number): CrossFormula { return c('locale-complete', 'complete(done, locales) = ⌊done · 100 / locales⌋', locales > 0 ? Math.floor((done * 100) / locales) : 0, nat(done, locales) && locales > 0 && done <= locales, 'complete', [done, locales]) }
+  static complete(done: number, locales: number): CrossFormula { return c('locale-complete', 'complete(done, locales) = ⌊done · 100 / locales⌋', locales > 0 ? quot((done * 100), locales) : 0, nat(done, locales) && locales > 0 && done <= locales, 'complete', [done, locales]) }
   /** STORAGE: localized field values are a field per locale. value fields · locales. */
   static storage(fields: number, locales: number): CrossFormula { return c('locale-storage', 'storage(fields, locales) = fields · locales', fields * locales, nat(fields, locales), 'storage', [fields, locales]) }
 }

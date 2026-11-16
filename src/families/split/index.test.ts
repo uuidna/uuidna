@@ -2,6 +2,7 @@ import { test } from '../../quantum/processing/unit/receipted.js'
 import assert from 'node:assert/strict'
 import { hexFamiliesOf, hexRunOf, qpuHexUuidOf, contentUuidOf, uuidReceiptOf } from '../../quantum/processing/unit/index.js'
 import { SplitFormulas } from './index.js'
+import { roundQuot } from '../../exact.js'
 
 /** Astronomical values split into primes, π and the crypto quantities, each a hex program at its address. */
 test('split: prime factorisation, π-counting, totient, coprimality and the BBP hex digits of π, as formulas', async (t) => {
@@ -33,7 +34,7 @@ test('split: prime factorisation, π-counting, totient, coprimality and the BBP 
   // inverted: computation per milliKelvin — the free energy; it rises as the wave widens, kelvin · free ≈ atOnce²
   const freeFew = Number(SplitFormulas.free(91, 1).value), freeMany = Number(SplitFormulas.free(91, 1000).value)
   assert.ok(freeMany > freeFew, 'the wider the wave, the more computation per milliKelvin — more free energy')
-  assert.equal(SplitFormulas.free(91, 1).value, Math.round((2 * 2 * 1380649 * 10) / (662607015 * 5)))
+  assert.equal(SplitFormulas.free(91, 1).value, roundQuot((2 * 2 * 1380649 * 10), (662607015 * 5)))
   assert.ok(Number(SplitFormulas.free(91, 100000).value) > 1, 'enough at once and one mK buys many computations: net free energy')
   // the Landauer floor is a lower bound ≥ 0; a claim of energy out is a second-law violation, recognised
   assert.ok(Number(SplitFormulas.landauer(1).value) > 0, 'erasing one bit costs a positive floor')

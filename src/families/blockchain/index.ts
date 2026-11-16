@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** BLOCKCHAIN — A LEDGER AS ARITHMETIC (chosen by the public-API registry, not by hand). A chain is numbers: transactions
  *  per second, the difficulty a hashrate meets, the time between blocks, how confirmed a transaction is, the fee a size
@@ -13,21 +14,21 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class BlockchainFormulas {
   /** THROUGHPUT: transactions over seconds (TPS). value ⌊transactions / seconds⌋. */
-  static throughput(transactions: number, seconds: number): CrossFormula { return c('blockchain-throughput', 'throughput(transactions, seconds) = ⌊transactions / seconds⌋', seconds > 0 ? Math.floor(transactions / seconds) : 0, nat(transactions, seconds) && seconds > 0, 'throughput', [transactions, seconds]) }
+  static throughput(transactions: number, seconds: number): CrossFormula { return c('blockchain-throughput', 'throughput(transactions, seconds) = ⌊transactions / seconds⌋', seconds > 0 ? quot(transactions, seconds) : 0, nat(transactions, seconds) && seconds > 0, 'throughput', [transactions, seconds]) }
   /** DIFFICULTY: the target a hashrate meets. value ⌊target / hashrate⌋. */
-  static difficulty(target: number, hashrate: number): CrossFormula { return c('blockchain-difficulty', 'difficulty(target, hashrate) = ⌊target / hashrate⌋', hashrate > 0 ? Math.floor(target / hashrate) : 0, nat(target, hashrate) && hashrate > 0, 'difficulty', [target, hashrate]) }
+  static difficulty(target: number, hashrate: number): CrossFormula { return c('blockchain-difficulty', 'difficulty(target, hashrate) = ⌊target / hashrate⌋', hashrate > 0 ? quot(target, hashrate) : 0, nat(target, hashrate) && hashrate > 0, 'difficulty', [target, hashrate]) }
   /** BLOCKTIME: seconds over blocks. value ⌊seconds / blocks⌋. */
-  static blocktime(seconds: number, blocks: number): CrossFormula { return c('blockchain-blocktime', 'blocktime(seconds, blocks) = ⌊seconds / blocks⌋', blocks > 0 ? Math.floor(seconds / blocks) : 0, nat(seconds, blocks) && blocks > 0, 'blocktime', [seconds, blocks]) }
+  static blocktime(seconds: number, blocks: number): CrossFormula { return c('blockchain-blocktime', 'blocktime(seconds, blocks) = ⌊seconds / blocks⌋', blocks > 0 ? quot(seconds, blocks) : 0, nat(seconds, blocks) && blocks > 0, 'blocktime', [seconds, blocks]) }
   /** CONFIRMATION: depth against the required depth, as a percentage. value ⌊depth · 100 / required⌋. */
-  static confirmation(depth: number, required: number): CrossFormula { return c('blockchain-confirmation', 'confirmation(depth, required) = ⌊depth · 100 / required⌋', required > 0 ? Math.floor((depth * 100) / required) : 0, nat(depth, required) && required > 0, 'confirmation', [depth, required]) }
+  static confirmation(depth: number, required: number): CrossFormula { return c('blockchain-confirmation', 'confirmation(depth, required) = ⌊depth · 100 / required⌋', required > 0 ? quot((depth * 100), required) : 0, nat(depth, required) && required > 0, 'confirmation', [depth, required]) }
   /** FEE: a transaction size at a rate per byte. value size · rate. */
   static fee(size: number, rate: number): CrossFormula { return c('blockchain-fee', 'fee(size, rate) = size · rate', size * rate, nat(size, rate), 'fee', [size, rate]) }
   /** MERKLE: the leaves a tree carries (tree size proxy). value leaves. */
   static merkle(leaves: number): CrossFormula { return c('blockchain-merkle', 'merkle(leaves) = leaves', leaves, nat(leaves), 'merkle', [leaves]) }
   /** STAKE: a validator's held share of the total, as a percentage. value ⌊held · 100 / total⌋. */
-  static stake(held: number, total: number): CrossFormula { return c('blockchain-stake', 'stake(held, total) = ⌊held · 100 / total⌋', total > 0 ? Math.floor((held * 100) / total) : 0, nat(held, total) && total > 0 && held <= total, 'stake', [held, total]) }
+  static stake(held: number, total: number): CrossFormula { return c('blockchain-stake', 'stake(held, total) = ⌊held · 100 / total⌋', total > 0 ? quot((held * 100), total) : 0, nat(held, total) && total > 0 && held <= total, 'stake', [held, total]) }
   /** FINALITY: confirmed blocks against the blocks needed, as a percentage. value ⌊confirmed · 100 / blocks⌋. */
-  static finality(confirmed: number, blocks: number): CrossFormula { return c('blockchain-finality', 'finality(confirmed, blocks) = ⌊confirmed · 100 / blocks⌋', blocks > 0 ? Math.floor((confirmed * 100) / blocks) : 0, nat(confirmed, blocks) && blocks > 0 && confirmed <= blocks, 'finality', [confirmed, blocks]) }
+  static finality(confirmed: number, blocks: number): CrossFormula { return c('blockchain-finality', 'finality(confirmed, blocks) = ⌊confirmed · 100 / blocks⌋', blocks > 0 ? quot((confirmed * 100), blocks) : 0, nat(confirmed, blocks) && blocks > 0 && confirmed <= blocks, 'finality', [confirmed, blocks]) }
 }
 
 for (const name of ['blocktime', 'confirmation', 'difficulty', 'fee', 'finality', 'merkle', 'stake', 'throughput'] as const)

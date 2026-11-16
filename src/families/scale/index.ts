@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { roundOf } from '../../exact.js'
 
 /** THE SCORED INSTRUMENTS AND MEASUREMENT REGRESSIONS court experts compute. Even the disciplines that look like pure
  *  opinion run on arithmetic: a psychologist totals a PCL-R or a Static-99R and reads a band; an anthropologist puts a
@@ -23,9 +24,9 @@ export class ScaleFormulas {
   static static99(score: number): CrossFormula { const band = score <= 0 ? 1 : score <= 2 ? 2 : score <= 4 ? 3 : score === 5 ? 4 : 5; return f('scale-static99', 'static99(score) → risk band 1..5', band, nat(score) && score <= 12, 'static99', [score], { band: ['', 'low', 'below average', 'average', 'above average', 'well above average'][band] }) }
   /** Stature in cm from a femur length (mm), Trotter-Gleser for males: 2.38·(femur/10) + 61 cm. The jurisdiction's own
    *  population table refines it; this is the classic regression. */
-  static stature(femurMm: number): CrossFormula { return f('scale-stature', 'stature(femurMm) = 2.38 · femur_cm + 61 (Trotter-Gleser, male)', Math.round(2.38 * (femurMm / 10) + 61), nat(femurMm) && femurMm > 0, 'stature', [femurMm], { cm: true }) }
+  static stature(femurMm: number): CrossFormula { return f('scale-stature', 'stature(femurMm) = 2.38 · femur_cm + 61 (Trotter-Gleser, male)', roundOf(2.38 * (femurMm / 10) + 61), nat(femurMm) && femurMm > 0, 'stature', [femurMm], { cm: true }) }
   /** Flesch reading ease (authorship / document readability): 206.835 − 1.015·(words/sentences) − 84.6·(syllables/words). */
-  static flesch(sentences: number, words: number, syllables: number): CrossFormula { return f('scale-flesch', 'flesch = 206.835 − 1.015·(words/sentences) − 84.6·(syllables/words)', sentences > 0 && words > 0 ? Math.round(206.835 - 1.015 * (words / sentences) - 84.6 * (syllables / words)) : 0, nat(sentences, words, syllables) && sentences > 0 && words > 0, 'flesch', [sentences, words, syllables]) }
+  static flesch(sentences: number, words: number, syllables: number): CrossFormula { return f('scale-flesch', 'flesch = 206.835 − 1.015·(words/sentences) − 84.6·(syllables/words)', sentences > 0 && words > 0 ? roundOf(206.835 - 1.015 * (words / sentences) - 84.6 * (syllables / words)) : 0, nat(sentences, words, syllables) && sentences > 0 && words > 0, 'flesch', [sentences, words, syllables]) }
   /** Hounsfield-unit tissue class a radiologist reads: 1 air (≤ −900), 2 fat (−100..−50), 3 water/fluid (−10..+15), 4 soft tissue (+20..+80), 5 bone (≥ +300). value the class, 0 between bands. */
   static hounsfield(huPlus1000: number): CrossFormula { const hu = huPlus1000 - 1000; const c = hu <= -900 ? 1 : hu >= -100 && hu <= -50 ? 2 : hu >= -10 && hu <= 15 ? 3 : hu >= 20 && hu <= 80 ? 4 : hu >= 300 ? 5 : 0; return f('scale-hounsfield', 'hounsfield(HU+1000) → tissue class 1 air .. 5 bone', c, nat(huPlus1000), 'hounsfield', [huPlus1000], { hu, tissue: ['between bands', 'air', 'fat', 'fluid', 'soft tissue', 'bone'][c] }) }
   /** ESS polygraph total score → call: 2 no-deception-indicated (≥ +2), 1 deception-indicated (≤ −4), 0 inconclusive.

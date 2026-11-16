@@ -1,6 +1,7 @@
 import { hexFamiliesOf, hexRegisterOf, hexRunOf, qpuHexUuidOf, latticeNamesOf } from '../../quantum/processing/unit/index.js'
 import { DOORS } from '../../mcp/discovery.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf } from '../../exact.js'
 
 /** TRINITY FLOWS AND MERKABA FORMATIONS, AS CROSS FORMULAS. A trinity flow passes one value through three families:
  *  the first formula of family a takes the seed, its value is what family b's first formula takes, and its value what
@@ -90,7 +91,7 @@ export class MerkabaFormulas {
    *  each family with its two neighbours is a trinity (i − 1, i, i + 1), and the n trinities around the ring are the
    *  coil. Value how many of the n trinities flow; holds when all do. */
   static coil(n: number): CrossFormula {
-    const m = Math.min(n, flowFamiliesOf().length)
+    const m = minOf(n, flowFamiliesOf().length)
     const turns = m >= 3 ? Array.from({ length: m }, (_, i) => flowOf((i + m - 1) % m, i, (i + 1) % m)) : []
     return f('merkaba-coil', 'coil(n) = |{i < n : trinity(i − 1, i, i + 1) holds}| on the ring', turns.filter((t) => t.holds).length, nat(n) && m >= 3 && turns.every((t) => t.holds), 'coil', [n], { families: m, trinities: turns.map((t) => `${t.path.join('→')} = ${t.value}`).slice(0, 14) })
   }
@@ -99,7 +100,7 @@ export class MerkabaFormulas {
    *  with the next, one turn back with the one before: every adjacent cross formula at once, 2n edges, instead of the
    *  n(n − 1)(n − 2) ordered triples. Value the forward value when both turns hold; holds then. */
   static rosetta(n: number): CrossFormula {
-    const names = flowFamiliesOf().slice(0, Math.min(n, flowFamiliesOf().length))
+    const names = flowFamiliesOf().slice(0, minOf(n, flowFamiliesOf().length))
     const turn = (order: string[]) => {
       const edges: string[] = []
       let value = SEED, holds = order.length >= 3
@@ -131,7 +132,7 @@ export class MerkabaFormulas {
     // not all n families — a lead composes with its neighbours locally, so its slice is a window and the cost stays cool
     // (O(window), never O(families)). The 2n addresses are unchanged; only the walk inside each one is sliced.
     const L = latticeNamesOf()
-    const window = Math.min(n, L.hexbit ** L.n)
+    const window = minOf(n, L.hexbit ** L.n)
     const order = Array.from({ length: window }, (_, k) => names[(start + dir * k + n * n) % n]!)
     const familyAt = order.indexOf(family) // precomputed once, not an O(n) scan per step
     let value = SEED, before: { holds: boolean } | undefined, given: number | undefined, composed = false
@@ -150,14 +151,14 @@ export class MerkabaFormulas {
   }
   /** Among the first n flow families, how many ordered triples of distinct families flow to the end. */
   static flows(n: number): CrossFormula {
-    const m = Math.min(n, flowFamiliesOf().length)
+    const m = minOf(n, flowFamiliesOf().length)
     let count = 0
     for (let a = 0; a < m; a++) for (let b = 0; b < m; b++) for (let c = 0; c < m; c++) if (a !== b && b !== c && a !== c && flowOf(a, b, c).holds) count++
     return f('merkaba-flows', '|{(a, b, c) distinct < n : trinity holds}|', count, nat(n) && m >= 3, 'flows', [n], { families: m })
   }
   /** The star: among the first n flow families, how many unordered triples form a merkaba. */
   static star(n: number): CrossFormula {
-    const m = Math.min(n, flowFamiliesOf().length)
+    const m = minOf(n, flowFamiliesOf().length)
     const formed: string[] = []
     for (let a = 0; a < m; a++) for (let b = a + 1; b < m; b++) for (let c = b + 1; c < m; c++) { const up = flowOf(a, b, c), down = flowOf(c, b, a); if (up.holds && down.holds && up.value === down.value && up.value > 0) formed.push(`${up.path.join('→')} = ${up.value}`) }
     return f('merkaba-star', '|{{a, b, c} < n : merkaba forms}|', formed.length, nat(n) && m >= 3, 'star', [n], { families: m, formed: formed.slice(0, 14) })

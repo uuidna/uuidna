@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** ZEROSHOT — zero-shot learning as exact combinatorics, not a fabricated coverage number. The embedding matrix cells,
  *  the attribute matrix, the seen×unseen transfer pairs, the similarity comparisons, the seen classes left after the
@@ -8,7 +9,7 @@ import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 
 const PROOF = 'zeroshot counts: embeddings = classes·dims; attributes = classes·attrs; transferPairs = seen·unseen; comparisons = queries·classes; seenClasses = max(0, classes − unseen); prompts = templates·classes; signatures = 2^attrs (A000079); partitions = classes/folds'
 const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
-const div = (a: number, b: number) => (b > 0 ? Math.floor(a / b) : 0)
+const div = (a: number, b: number) => (b > 0 ? quot(a, b) : 0)
 const f = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
   crossFormulaOf({ id, src: 'zeroshot', dst: 'cross', formula, value, proof: PROOF, ...extra }, holds, { name: `zeroshot.${name}`, params })
 
@@ -22,7 +23,7 @@ export class ZeroshotFormulas {
   /** The similarity comparisons for `queries` queries against `classes`: queries · classes. */
   static comparisons(queries: number, classes: number): CrossFormula { return f('zeroshot-comparisons', 'comparisons(queries, classes) = queries · classes', queries * classes, nat(queries, classes), 'comparisons', [queries, classes]) }
   /** The seen classes left after `unseen` of `classes` are held out: max(0, classes − unseen). */
-  static seenClasses(classes: number, unseen: number): CrossFormula { return f('zeroshot-seenClasses', 'seenClasses(classes, unseen) = max(0, classes − unseen)', Math.max(0, classes - unseen), nat(classes, unseen), 'seenClasses', [classes, unseen]) }
+  static seenClasses(classes: number, unseen: number): CrossFormula { return f('zeroshot-seenClasses', 'seenClasses(classes, unseen) = max(0, classes − unseen)', maxOf(0, classes - unseen), nat(classes, unseen), 'seenClasses', [classes, unseen]) }
   /** The prompt×class grid over `templates` templates and `classes`: templates · classes. */
   static prompts(templates: number, classes: number): CrossFormula { return f('zeroshot-prompts', 'prompts(templates, classes) = templates · classes', templates * classes, nat(templates, classes), 'prompts', [templates, classes]) }
   /** The binary attribute signatures over `attrs` attributes: 2^attrs (attrs ≤ 30). */

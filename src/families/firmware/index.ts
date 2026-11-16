@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** FIRMWARE — the image's own arithmetic. Flash sectors and pages off an image, 32-bit words and 16-bit checksum words
  *  off its bytes, A/B update slots off a partition, a packed semver off its three parts, and the delta an update carries.
@@ -7,7 +8,7 @@ import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 
 const PROOF = 'firmware counts: sectors = bytes / sector; words = bytes / 4; pages = bytes / page; checksumWords = bytes / 2; bootBlocks = size / block; slots = capacity / image; version = major·1e6 + minor·1e3 + patch; otaDelta = max(0, newSize − oldSize); image = blocks · blockBytes; freespace = total − used; crc = words · perWord; stack = frames · bytes; isr = vectors · bytesEach; watchdog = timeoutMs / tickMs; flashcycles = writes · 100 / endurance; firmware crossed to hardware'
 const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
-const div = (a: number, b: number) => (b > 0 ? Math.floor(a / b) : 0)
+const div = (a: number, b: number) => (b > 0 ? quot(a, b) : 0)
 const f = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
   crossFormulaOf({ id, src: 'firmware', dst: 'hardware', formula, value, proof: PROOF, ...extra }, holds, { name: `firmware.${name}`, params })
 
@@ -27,7 +28,7 @@ export class FirmwareFormulas {
   /** A packed semantic version from its three parts: major·1e6 + minor·1e3 + patch (minor, patch ≤ 999). */
   static version(major: number, minor: number, patch: number): CrossFormula { return f('firmware-version', 'version(major, minor, patch) = major·1e6 + minor·1e3 + patch', major * 1000000 + minor * 1000 + patch, nat(major, minor, patch) && minor < 1000 && patch < 1000, 'version', [major, minor, patch]) }
   /** The delta an update of `newSize` carries over an image of `oldSize`: max(0, newSize − oldSize). */
-  static otaDelta(newSize: number, oldSize: number): CrossFormula { return f('firmware-otaDelta', 'otaDelta(newSize, oldSize) = max(0, newSize − oldSize)', Math.max(0, newSize - oldSize), nat(newSize, oldSize), 'otaDelta', [newSize, oldSize]) }
+  static otaDelta(newSize: number, oldSize: number): CrossFormula { return f('firmware-otaDelta', 'otaDelta(newSize, oldSize) = max(0, newSize − oldSize)', maxOf(0, newSize - oldSize), nat(newSize, oldSize), 'otaDelta', [newSize, oldSize]) }
   /** The bytes an image of `blocks` blocks of `blockBytes` each holds: blocks · blockBytes. */
   static image(blocks: number, blockBytes: number): CrossFormula { return f('firmware-image', 'image(blocks, blockBytes) = blocks · blockBytes', blocks * blockBytes, nat(blocks, blockBytes), 'image', [blocks, blockBytes]) }
   /** The free bytes left on a `total`-byte flash after `used`: total − used (used ≤ total). */

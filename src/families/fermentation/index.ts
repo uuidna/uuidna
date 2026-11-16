@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** FERMENTATION — THE BIOCHEMISTRY OF CULTURE, AS ARITHMETIC (a living domain chosen for the registry, not by hand).
  *  Fermentation is numbers: substrate converted, production rate, pH, biomass density, yield, ethanol against theory,
@@ -12,19 +13,19 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class FermentationFormulas {
   /** BIOMASS density: cells over the culture volume. value ⌊cells / volume⌋. */
-  static biomass(cells: number, volume: number): CrossFormula { return c('fermentation-biomass', 'biomass(cells, volume) = ⌊cells / volume⌋', volume > 0 ? Math.floor(cells / volume) : 0, nat(cells, volume) && volume > 0, 'biomass', [cells, volume]) }
+  static biomass(cells: number, volume: number): CrossFormula { return c('fermentation-biomass', 'biomass(cells, volume) = ⌊cells / volume⌋', volume > 0 ? quot(cells, volume) : 0, nat(cells, volume) && volume > 0, 'biomass', [cells, volume]) }
   /** CONVERSION: substrate consumed as a percentage. value ⌊converted · 100 / substrate⌋. */
-  static conversion(converted: number, substrate: number): CrossFormula { return c('fermentation-conversion', 'conversion(converted, substrate) = ⌊converted · 100 / substrate⌋', substrate > 0 ? Math.floor((converted * 100) / substrate) : 0, nat(converted, substrate) && substrate > 0 && converted <= substrate, 'conversion', [converted, substrate]) }
+  static conversion(converted: number, substrate: number): CrossFormula { return c('fermentation-conversion', 'conversion(converted, substrate) = ⌊converted · 100 / substrate⌋', substrate > 0 ? quot((converted * 100), substrate) : 0, nat(converted, substrate) && substrate > 0 && converted <= substrate, 'conversion', [converted, substrate]) }
   /** ETHANOL against theoretical maximum, as a percentage. value ⌊produced · 100 / theoretical⌋. */
-  static ethanol(produced: number, theoretical: number): CrossFormula { return c('fermentation-ethanol', 'ethanol(produced, theoretical) = ⌊produced · 100 / theoretical⌋', theoretical > 0 ? Math.floor((produced * 100) / theoretical) : 0, nat(produced, theoretical) && theoretical > 0 && produced <= theoretical, 'ethanol', [produced, theoretical]) }
+  static ethanol(produced: number, theoretical: number): CrossFormula { return c('fermentation-ethanol', 'ethanol(produced, theoretical) = ⌊produced · 100 / theoretical⌋', theoretical > 0 ? quot((produced * 100), theoretical) : 0, nat(produced, theoretical) && theoretical > 0 && produced <= theoretical, 'ethanol', [produced, theoretical]) }
   /** INOCULATION ratio: starter against the batch, as a percentage. value ⌊starter · 100 / batch⌋. */
-  static inoculation(starter: number, batch: number): CrossFormula { return c('fermentation-inoculation', 'inoculation(starter, batch) = ⌊starter · 100 / batch⌋', batch > 0 ? Math.floor((starter * 100) / batch) : 0, nat(starter, batch) && batch > 0 && starter <= batch, 'inoculation', [starter, batch]) }
+  static inoculation(starter: number, batch: number): CrossFormula { return c('fermentation-inoculation', 'inoculation(starter, batch) = ⌊starter · 100 / batch⌋', batch > 0 ? quot((starter * 100), batch) : 0, nat(starter, batch) && batch > 0 && starter <= batch, 'inoculation', [starter, batch]) }
   /** YIELD: product from sugar, as a percentage. value ⌊product · 100 / sugar⌋. */
-  static output(product: number, sugar: number): CrossFormula { return c('fermentation-output', 'output(product, sugar) = ⌊product · 100 / sugar⌋', sugar > 0 ? Math.floor((product * 100) / sugar) : 0, nat(product, sugar) && sugar > 0 && product <= sugar, 'output', [product, sugar]) }
+  static output(product: number, sugar: number): CrossFormula { return c('fermentation-output', 'output(product, sugar) = ⌊product · 100 / sugar⌋', sugar > 0 ? quot((product * 100), sugar) : 0, nat(product, sugar) && sugar > 0 && product <= sugar, 'output', [product, sugar]) }
   /** pH as the acid/base ratio, as a percentage. value ⌊acid · 100 / base⌋. */
-  static ph(acid: number, base: number): CrossFormula { return c('fermentation-ph', 'ph(acid, base) = ⌊acid · 100 / base⌋', base > 0 ? Math.floor((acid * 100) / base) : 0, nat(acid, base) && base > 0, 'ph', [acid, base]) }
+  static ph(acid: number, base: number): CrossFormula { return c('fermentation-ph', 'ph(acid, base) = ⌊acid · 100 / base⌋', base > 0 ? quot((acid * 100), base) : 0, nat(acid, base) && base > 0, 'ph', [acid, base]) }
   /** RATE of production: amount over the hours elapsed. value ⌊produced / hours⌋. */
-  static rate(produced: number, hours: number): CrossFormula { return c('fermentation-rate', 'rate(produced, hours) = ⌊produced / hours⌋', hours > 0 ? Math.floor(produced / hours) : 0, nat(produced, hours) && hours > 0, 'rate', [produced, hours]) }
+  static rate(produced: number, hours: number): CrossFormula { return c('fermentation-rate', 'rate(produced, hours) = ⌊produced / hours⌋', hours > 0 ? quot(produced, hours) : 0, nat(produced, hours) && hours > 0, 'rate', [produced, hours]) }
   /** TEMPERATURE: the culture reading, held as a natural. value celsius. */
   static temperature(celsius: number): CrossFormula { return c('fermentation-temperature', 'temperature(celsius) = celsius', celsius, nat(celsius), 'temperature', [celsius]) }
 }

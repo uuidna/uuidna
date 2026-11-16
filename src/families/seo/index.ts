@@ -1,5 +1,6 @@
 import { hexRegisterOf, qpuCiteOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot, roundOf } from '../../exact.js'
 
 /** SEO — CLEAN URLS, PROVEN AT GOOGLE. The best URL has NO useless prefix: content lives at its slug, not under a dead
  *  /pages/ or /docs/ segment. These formulas score that — the useless-prefix count (0 is best), the depth, the meaningful
@@ -13,11 +14,11 @@ const s = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class SeoFormulas {
   /** THE USELESS-PREFIX COUNT: path segments beyond the meaningful ones. Holds at 0 — a clean URL has no dead prefix. */
-  static prefix(segments: number, meaningful: number): CrossFormula { return s('seo-prefix', 'prefix(segments, meaningful) = max(0, segments − meaningful)', Math.max(0, segments - meaningful), nat(segments, meaningful) && segments - meaningful === 0, 'prefix', [segments, meaningful]) }
+  static prefix(segments: number, meaningful: number): CrossFormula { return s('seo-prefix', 'prefix(segments, meaningful) = max(0, segments − meaningful)', maxOf(0, segments - meaningful), nat(segments, meaningful) && segments - meaningful === 0, 'prefix', [segments, meaningful]) }
   /** URL DEPTH: the number of path segments. Holds when shallow (≤ 3). */
   static depth(segments: number): CrossFormula { return s('seo-depth', 'depth(segments) = segments; shallow when ≤ 3', segments, nat(segments) && segments <= 3, 'depth', [segments]) }
   /** THE MEANINGFUL SLUG WORDS: words left after the stop-words are dropped. */
-  static slug(words: number, stop: number): CrossFormula { return s('seo-slug', 'slug(words, stop) = max(0, words − stop)', Math.max(0, words - stop), nat(words, stop) && stop <= words, 'slug', [words, stop]) }
+  static slug(words: number, stop: number): CrossFormula { return s('seo-slug', 'slug(words, stop) = max(0, words − stop)', maxOf(0, words - stop), nat(words, stop) && stop <= words, 'slug', [words, stop]) }
   /** ONE CANONICAL: holds when there is a single canonical URL (no duplicate variants). value [variants ≤ 1]. */
   static canonical(variants: number): CrossFormula { return s('seo-canonical', 'canonical(variants) = [variants ≤ 1]', variants <= 1 ? 1 : 0, nat(variants), 'canonical', [variants]) }
   /** NO REDIRECT CHAIN: holds when at most one hop. value [hops ≤ 1]. */
@@ -27,7 +28,7 @@ export class SeoFormulas {
   /** THE META DESCRIPTION within its limit: holds when ≤ 160 characters. value [chars ≤ 160]. */
   static meta(chars: number): CrossFormula { return s('seo-meta', 'meta(chars) = [chars ≤ 160]', chars <= 160 ? 1 : 0, nat(chars) && chars > 0, 'meta', [chars]) }
   /** CRAWLABILITY as a percentage: the pages a crawler may reach over the total. value ⌊allowed · 100 / total⌋. */
-  static crawl(allowed: number, total: number): CrossFormula { return s('seo-crawl', 'crawl(allowed, total) = ⌊allowed · 100 / total⌋', total > 0 ? Math.floor((allowed * 100) / total) : 0, nat(allowed, total) && total > 0 && allowed <= total, 'crawl', [allowed, total]) }
+  static crawl(allowed: number, total: number): CrossFormula { return s('seo-crawl', 'crawl(allowed, total) = ⌊allowed · 100 / total⌋', total > 0 ? quot((allowed * 100), total) : 0, nat(allowed, total) && total > 0 && allowed <= total, 'crawl', [allowed, total]) }
   /** TESTED AT GOOGLE: the live SEO score (0–100) the Google PageSpeed Insights API gives the site's own URL. Holds when
    *  the score is a good one (≥ 90). A live reading — never a stored row. */
   static async google(): Promise<CrossFormula> {
@@ -38,7 +39,7 @@ export class SeoFormulas {
     try {
       const b = (await fetch(url, { signal: AbortSignal.timeout(60000) }).then((r) => (r.ok ? r.json() : null))) as { lighthouseResult?: { categories?: { seo?: { score?: number } } } } | null
       const raw = b?.lighthouseResult?.categories?.seo?.score
-      score = typeof raw === 'number' ? Math.round(raw * 100) : 0
+      score = typeof raw === 'number' ? roundOf(raw * 100) : 0
       reading = { ...reading, score, answered: b !== null }
     } catch {
       reading = { ...reading, score: 0, answered: false, note: 'PageSpeed Insights unreachable' }

@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** DERMATOLOGY — THE SKIN, AS ARITHMETIC. Reading the skin is numbers: burned surface, a melanoma score, a UV dose, how a
  *  wound heals, lesions over an area, pigmentation over a baseline, severity over the whole, and hydration of tissue.
@@ -18,15 +19,15 @@ export class DermatologyFormulas {
   /** UV EXPOSURE DOSE: index over minutes. value index · minutes. */
   static uv(index: number, minutes: number): CrossFormula { return c('dermatology-uv', 'uv(index, minutes) = index · minutes', index * minutes, nat(index, minutes), 'uv', [index, minutes]) }
   /** HEALING as a percentage of the wound. value ⌊healed · 100 / wound⌋. */
-  static healing(healed: number, wound: number): CrossFormula { return c('dermatology-healing', 'healing(healed, wound) = ⌊healed · 100 / wound⌋', wound > 0 ? Math.floor((healed * 100) / wound) : 0, nat(healed, wound) && wound > 0 && healed <= wound, 'healing', [healed, wound]) }
+  static healing(healed: number, wound: number): CrossFormula { return c('dermatology-healing', 'healing(healed, wound) = ⌊healed · 100 / wound⌋', wound > 0 ? quot((healed * 100), wound) : 0, nat(healed, wound) && wound > 0 && healed <= wound, 'healing', [healed, wound]) }
   /** LESIONS per unit area. value ⌊count / area⌋. */
-  static lesions(count: number, area: number): CrossFormula { return c('dermatology-lesions', 'lesions(count, area) = ⌊count / area⌋', area > 0 ? Math.floor(count / area) : 0, nat(count, area) && area > 0, 'lesions', [count, area]) }
+  static lesions(count: number, area: number): CrossFormula { return c('dermatology-lesions', 'lesions(count, area) = ⌊count / area⌋', area > 0 ? quot(count, area) : 0, nat(count, area) && area > 0, 'lesions', [count, area]) }
   /** PIGMENTATION above a baseline. value max(0, melanin − baseline). */
-  static pigmentation(melanin: number, baseline: number): CrossFormula { return c('dermatology-pigmentation', 'pigmentation(melanin, baseline) = max(0, melanin − baseline)', Math.max(0, melanin - baseline), nat(melanin, baseline), 'pigmentation', [melanin, baseline]) }
+  static pigmentation(melanin: number, baseline: number): CrossFormula { return c('dermatology-pigmentation', 'pigmentation(melanin, baseline) = max(0, melanin − baseline)', maxOf(0, melanin - baseline), nat(melanin, baseline), 'pigmentation', [melanin, baseline]) }
   /** SEVERITY: affected area as a percentage of the total. value ⌊affected · 100 / total⌋. */
-  static severity(affected: number, total: number): CrossFormula { return c('dermatology-severity', 'severity(affected, total) = ⌊affected · 100 / total⌋', total > 0 ? Math.floor((affected * 100) / total) : 0, nat(affected, total) && total > 0 && affected <= total, 'severity', [affected, total]) }
+  static severity(affected: number, total: number): CrossFormula { return c('dermatology-severity', 'severity(affected, total) = ⌊affected · 100 / total⌋', total > 0 ? quot((affected * 100), total) : 0, nat(affected, total) && total > 0 && affected <= total, 'severity', [affected, total]) }
   /** HYDRATION: water as a percentage of the tissue. value ⌊water · 100 / tissue⌋. */
-  static hydration(water: number, tissue: number): CrossFormula { return c('dermatology-hydration', 'hydration(water, tissue) = ⌊water · 100 / tissue⌋', tissue > 0 ? Math.floor((water * 100) / tissue) : 0, nat(water, tissue) && tissue > 0 && water <= tissue, 'hydration', [water, tissue]) }
+  static hydration(water: number, tissue: number): CrossFormula { return c('dermatology-hydration', 'hydration(water, tissue) = ⌊water · 100 / tissue⌋', tissue > 0 ? quot((water * 100), tissue) : 0, nat(water, tissue) && tissue > 0 && water <= tissue, 'hydration', [water, tissue]) }
 }
 
 for (const name of ['healing', 'hydration', 'lesions', 'melanoma', 'pigmentation', 'severity', 'tbsa', 'uv'] as const)

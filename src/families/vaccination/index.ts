@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ipow, maxOf, quot } from '../../exact.js'
 
 /** VACCINATION — A PUBLIC-HEALTH DOMAIN, AS ARITHMETIC (chosen by the registry, not by hand). Immunising a population is
  *  numbers: coverage reached, the herd-immunity threshold a disease demands, vaccine efficacy, the doses a rollout needs,
@@ -13,19 +14,19 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class VaccinationFormulas {
   /** COVERAGE as a percentage of the population vaccinated. value ⌊vaccinated · 100 / population⌋. */
-  static coverage(vaccinated: number, population: number): CrossFormula { return c('vaccination-coverage', 'coverage(vaccinated, population) = ⌊vaccinated · 100 / population⌋', population > 0 ? Math.floor((vaccinated * 100) / population) : 0, nat(vaccinated, population) && population > 0 && vaccinated <= population, 'coverage', [vaccinated, population]) }
+  static coverage(vaccinated: number, population: number): CrossFormula { return c('vaccination-coverage', 'coverage(vaccinated, population) = ⌊vaccinated · 100 / population⌋', population > 0 ? quot((vaccinated * 100), population) : 0, nat(vaccinated, population) && population > 0 && vaccinated <= population, 'coverage', [vaccinated, population]) }
   /** HERD-IMMUNITY THRESHOLD as a percentage, from the basic reproduction number. value ⌊(r0 − 1) · 100 / r0⌋. */
-  static herdthreshold(r0: number): CrossFormula { return c('vaccination-herdthreshold', 'herdthreshold(r0) = ⌊(r0 − 1) · 100 / r0⌋', r0 > 0 ? Math.floor((Math.max(0, r0 - 1) * 100) / r0) : 0, nat(r0) && r0 > 0, 'herdthreshold', [r0]) }
+  static herdthreshold(r0: number): CrossFormula { return c('vaccination-herdthreshold', 'herdthreshold(r0) = ⌊(r0 − 1) · 100 / r0⌋', r0 > 0 ? quot((maxOf(0, r0 - 1) * 100), r0) : 0, nat(r0) && r0 > 0, 'herdthreshold', [r0]) }
   /** VACCINE EFFICACY as a percentage, from attack rates. value ⌊(control − vaccinated) · 100 / control⌋. */
-  static efficacy(control: number, vaccinated: number): CrossFormula { return c('vaccination-efficacy', 'efficacy(control, vaccinated) = ⌊max(0, control − vaccinated) · 100 / control⌋', control > 0 ? Math.floor((Math.max(0, control - vaccinated) * 100) / control) : 0, nat(control, vaccinated) && control > 0, 'efficacy', [control, vaccinated]) }
+  static efficacy(control: number, vaccinated: number): CrossFormula { return c('vaccination-efficacy', 'efficacy(control, vaccinated) = ⌊max(0, control − vaccinated) · 100 / control⌋', control > 0 ? quot((maxOf(0, control - vaccinated) * 100), control) : 0, nat(control, vaccinated) && control > 0, 'efficacy', [control, vaccinated]) }
   /** DOSES NEEDED: people at a number of doses each. value people · dosesper. */
   static dosesneeded(people: number, dosesper: number): CrossFormula { return c('vaccination-dosesneeded', 'dosesneeded(people, dosesper) = people · dosesper', people * dosesper, nat(people, dosesper), 'dosesneeded', [people, dosesper]) }
   /** ANTIBODY TITRE after a number of doublings from an initial level. value initial · 2^doublings. */
-  static titer(initial: number, doublings: number): CrossFormula { return c('vaccination-titer', 'titer(initial, doublings) = initial · 2^doublings', initial * Math.pow(2, doublings), nat(initial, doublings), 'titer', [initial, doublings]) }
+  static titer(initial: number, doublings: number): CrossFormula { return c('vaccination-titer', 'titer(initial, doublings) = initial · 2^doublings', initial * ipow(2, doublings), nat(initial, doublings), 'titer', [initial, doublings]) }
   /** BOOSTER INTERVAL: a total span split into a number of intervals. value ⌊totalmonths / intervals⌋. */
-  static boosterinterval(totalmonths: number, intervals: number): CrossFormula { return c('vaccination-boosterinterval', 'boosterinterval(totalmonths, intervals) = ⌊totalmonths / intervals⌋', intervals > 0 ? Math.floor(totalmonths / intervals) : 0, nat(totalmonths, intervals) && intervals > 0, 'boosterinterval', [totalmonths, intervals]) }
+  static boosterinterval(totalmonths: number, intervals: number): CrossFormula { return c('vaccination-boosterinterval', 'boosterinterval(totalmonths, intervals) = ⌊totalmonths / intervals⌋', intervals > 0 ? quot(totalmonths, intervals) : 0, nat(totalmonths, intervals) && intervals > 0, 'boosterinterval', [totalmonths, intervals]) }
   /** SEROCONVERSION as a percentage of those tested who converted. value ⌊converted · 100 / tested⌋. */
-  static seroconversion(converted: number, tested: number): CrossFormula { return c('vaccination-seroconversion', 'seroconversion(converted, tested) = ⌊converted · 100 / tested⌋', tested > 0 ? Math.floor((converted * 100) / tested) : 0, nat(converted, tested) && tested > 0 && converted <= tested, 'seroconversion', [converted, tested]) }
+  static seroconversion(converted: number, tested: number): CrossFormula { return c('vaccination-seroconversion', 'seroconversion(converted, tested) = ⌊converted · 100 / tested⌋', tested > 0 ? quot((converted * 100), tested) : 0, nat(converted, tested) && tested > 0 && converted <= tested, 'seroconversion', [converted, tested]) }
   /** CAMPAIGN REACH: sites, each serving so many per day, over a number of days. value sites · perSite · days. */
   static campaignreach(sites: number, perSite: number, days: number): CrossFormula { return c('vaccination-campaignreach', 'campaignreach(sites, perSite, days) = sites · perSite · days', sites * perSite * days, nat(sites, perSite, days), 'campaignreach', [sites, perSite, days]) }
 }

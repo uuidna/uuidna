@@ -1,5 +1,6 @@
 import { gcdOf, hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** NUMBERTHEORY — THE ARITHMETIC OF THE WHOLE NUMBERS, AS EXACT INTEGERS. The oldest formulas: the greatest common divisor
  *  and the least common multiple, Euler's totient, how many divisors a number has, whether it is prime, a power taken under a
@@ -26,11 +27,11 @@ export class NumbertheoryFormulas {
   /** MODULAR EXPONENTIATION by repeated squaring. value base^exp mod mod. */
   static modpow(base: number, exp: number, mod: number): CrossFormula {
     let result = mod > 0 ? 1 % mod : 0, b = mod > 0 ? base % mod : 0, e = exp
-    if (mod > 0) while (e > 0) { if (e % 2 === 1) result = (result * b) % mod; e = Math.floor(e / 2); b = (b * b) % mod }
+    if (mod > 0) while (e > 0) { if (e % 2 === 1) result = (result * b) % mod; e = quot(e, 2); b = (b * b) % mod }
     return c('numbertheory-modpow', 'modpow(base, exp, mod) = base^exp mod mod (by squaring)', mod > 0 ? result : 0, nat(base, exp, mod) && mod > 0, 'modpow', [base, exp, mod])
   }
   /** DIGIT SUM: the sum of n's decimal digits. value Σ digits(n). */
-  static digitsum(n: number): CrossFormula { let sum = 0, m = n; while (m > 0) { sum += m % 10; m = Math.floor(m / 10) } return c('numbertheory-digitsum', 'digitsum(n) = Σ digits₁₀(n)', sum, nat(n), 'digitsum', [n]) }
+  static digitsum(n: number): CrossFormula { let sum = 0, m = n; while (m > 0) { sum += m % 10; m = quot(m, 10) } return c('numbertheory-digitsum', 'digitsum(n) = Σ digits₁₀(n)', sum, nat(n), 'digitsum', [n]) }
   /** FACTORIAL UNDER A MODULUS. value n! mod mod. */
   static factorialmod(n: number, mod: number): CrossFormula { let result = mod > 0 ? 1 % mod : 0; if (mod > 0) for (let k = 2; k <= n; k++) result = (result * k) % mod; return c('numbertheory-factorialmod', 'factorialmod(n, mod) = n! mod mod', mod > 0 ? result : 0, nat(n, mod) && mod > 0, 'factorialmod', [n, mod]) }
 }

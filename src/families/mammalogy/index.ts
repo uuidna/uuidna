@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** MAMMALOGY — THE STUDY OF MAMMALS, AS ARITHMETIC. A mammal's life is numbers: how long it carries young, how fast it burns
  *  energy, the ground one animal ranges over, the young per birth, milk over the days nursed, how many share a territory, the
@@ -18,15 +19,15 @@ export class MammalogyFormulas {
   /** HOME RANGE: the ground a mammal covers as mass at a factor. value mass · factor. */
   static homerange(mass: number, factor: number): CrossFormula { return c('mammalogy-homerange', 'homerange(mass, factor) = mass · factor', mass * factor, nat(mass, factor), 'homerange', [mass, factor]) }
   /** LITTER: young per birth. value ⌊offspring / births⌋. */
-  static litter(offspring: number, births: number): CrossFormula { return c('mammalogy-litter', 'litter(offspring, births) = ⌊offspring / births⌋', births > 0 ? Math.floor(offspring / births) : 0, nat(offspring, births) && births > 0, 'litter', [offspring, births]) }
+  static litter(offspring: number, births: number): CrossFormula { return c('mammalogy-litter', 'litter(offspring, births) = ⌊offspring / births⌋', births > 0 ? quot(offspring, births) : 0, nat(offspring, births) && births > 0, 'litter', [offspring, births]) }
   /** LACTATION: milk over the days nursed. value ⌊milk / days⌋. */
-  static lactation(milk: number, days: number): CrossFormula { return c('mammalogy-lactation', 'lactation(milk, days) = ⌊milk / days⌋', days > 0 ? Math.floor(milk / days) : 0, nat(milk, days) && days > 0, 'lactation', [milk, days]) }
+  static lactation(milk: number, days: number): CrossFormula { return c('mammalogy-lactation', 'lactation(milk, days) = ⌊milk / days⌋', days > 0 ? quot(milk, days) : 0, nat(milk, days) && days > 0, 'lactation', [milk, days]) }
   /** TERRITORY: individuals over the area they share. value ⌊individuals / area⌋. */
-  static territory(individuals: number, area: number): CrossFormula { return c('mammalogy-territory', 'territory(individuals, area) = ⌊individuals / area⌋', area > 0 ? Math.floor(individuals / area) : 0, nat(individuals, area) && area > 0, 'territory', [individuals, area]) }
+  static territory(individuals: number, area: number): CrossFormula { return c('mammalogy-territory', 'territory(individuals, area) = ⌊individuals / area⌋', area > 0 ? quot(individuals, area) : 0, nat(individuals, area) && area > 0, 'territory', [individuals, area]) }
   /** THERMONEUTRAL: the gap from body heat to the air. value max(0, body − ambient). */
-  static thermoneutral(body: number, ambient: number): CrossFormula { return c('mammalogy-thermoneutral', 'thermoneutral(body, ambient) = max(0, body − ambient)', Math.max(0, body - ambient), nat(body, ambient), 'thermoneutral', [body, ambient]) }
+  static thermoneutral(body: number, ambient: number): CrossFormula { return c('mammalogy-thermoneutral', 'thermoneutral(body, ambient) = max(0, body − ambient)', maxOf(0, body - ambient), nat(body, ambient), 'thermoneutral', [body, ambient]) }
   /** SURVIVAL as a percentage of the born. value ⌊surviving · 100 / born⌋. */
-  static survival(surviving: number, born: number): CrossFormula { return c('mammalogy-survival', 'survival(surviving, born) = ⌊surviving · 100 / born⌋', born > 0 ? Math.floor((surviving * 100) / born) : 0, nat(surviving, born) && born > 0 && surviving <= born, 'survival', [surviving, born]) }
+  static survival(surviving: number, born: number): CrossFormula { return c('mammalogy-survival', 'survival(surviving, born) = ⌊surviving · 100 / born⌋', born > 0 ? quot((surviving * 100), born) : 0, nat(surviving, born) && born > 0 && surviving <= born, 'survival', [surviving, born]) }
 }
 
 for (const name of ['gestation', 'homerange', 'lactation', 'litter', 'metabolism', 'survival', 'territory', 'thermoneutral'] as const)

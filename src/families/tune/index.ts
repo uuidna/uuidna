@@ -1,5 +1,6 @@
 import { mintOf, hexRegisterOf, latticeNamesOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ilog2, roundOf, roundQuot } from '../../exact.js'
 
 /** A432 AS THE STARTER OF THE CHAIN, DIFFERENT WAVELENGTHS CROSSING THE FRACTAL AT ONCE. The fundamental is not chosen,
  *  it is derived: the lattice already proves 432 = 2^hexbit · (plane − seed) = 16 · 27 (theorem presentation_stylesheet_hz,
@@ -26,19 +27,19 @@ export class TuneFormulas {
   /** The k-th octave of A432: 432 · 2^k Hz — the self-similar fractal doubling (the mintOf doubling), every band the same shape at a new scale. */
   static octave(k: number): CrossFormula { return f('tune-octave', 'octave(k) = 432 · 2^k Hz', A432 * mintOf(k), nat(k) && k < 24, 'octave', [k], { fractal: 'self-similar doubling' }) }
   /** The wavelength of a frequency in air, in millimetres: 343000 / hz — the physical length of the wave. */
-  static wavelength(hz: number): CrossFormula { return f('tune-wavelength', 'wavelength(hz) = 343000 mm/s / hz', hz > 0 ? Math.round(SOUND / hz) : 0, nat(hz) && hz > 0, 'wavelength', [hz]) }
+  static wavelength(hz: number): CrossFormula { return f('tune-wavelength', 'wavelength(hz) = 343000 mm/s / hz', hz > 0 ? roundQuot(SOUND, hz) : 0, nat(hz) && hz > 0, 'wavelength', [hz]) }
   /** The k-th perfect fifth stacked from A432 and folded into the starting octave, in Hz: 432 · (3/2)^k mod the octave
    *  — the Pythagorean chain, the reaction that spirals and never exactly returns. */
   static fifth(k: number): CrossFormula {
     let hz = A432
     for (let i = 0; i < k; i++) { hz = (hz * 3) / 2; while (hz >= A432 * 2) hz /= 2 }
-    return f('tune-fifth', 'fifth(k) = 432 · (3/2)^k folded into [432, 864) Hz', Math.round(hz), nat(k) && k < 24, 'fifth', [k], { chain: 'circle of fifths' })
+    return f('tune-fifth', 'fifth(k) = 432 · (3/2)^k folded into [432, 864) Hz', roundOf(hz), nat(k) && k < 24, 'fifth', [k], { chain: 'circle of fifths' })
   }
   /** An interval num/den in cents: round(1200 · log₂(num/den)) — the measure the harmonic lattice is read in. */
-  static cents(num: number, den: number): CrossFormula { return f('tune-cents', 'cents(num, den) = 1200 · log₂(num / den)', num > 0 && den > 0 ? Math.round(1200 * Math.log2(num / den)) : 0, nat(num, den) && num > 0 && den > 0, 'cents', [num, den]) }
+  static cents(num: number, den: number): CrossFormula { return f('tune-cents', 'cents(num, den) = 1200 · log₂(num / den)', num > 0 && den > 0 ? roundOf(1200 * Math.log2(num / den)) : 0, nat(num, den) && num > 0 && den > 0, 'cents', [num, den]) }
   /** The fractal depth up to the n-th harmonic: how many self-similar octave bands it spans, ⌊log₂ n⌋ + 1 — the whole
    *  fractal counted at once from the one starter. */
-  static fractal(n: number): CrossFormula { return f('tune-fractal', 'fractal(n) = ⌊log₂ n⌋ + 1 (octave bands up to the n-th harmonic)', n > 0 ? Math.floor(Math.log2(n)) + 1 : 0, nat(n) && n > 0, 'fractal', [n]) }
+  static fractal(n: number): CrossFormula { return f('tune-fractal', 'fractal(n) = ⌊log₂ n⌋ + 1 (octave bands up to the n-th harmonic)', n > 0 ? ilog2(n) + 1 : 0, nat(n) && n > 0, 'fractal', [n]) }
 }
 
 for (const name of ['cents', 'fifth', 'fractal', 'fundamental', 'harmonic', 'octave', 'wavelength'] as const)

@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, minOf, quot } from '../../exact.js'
 
 /** DEADRECKONING — POSITION WITHOUT A FIX, AS ARITHMETIC (course and speed over elapsed time, the oldest navigation).
  *  It is numbers: the distance run, the drift angle off the track, the position error against a fix, the time a run takes,
@@ -15,19 +16,19 @@ export class DeadreckoningFormulas {
   /** DISTANCE RUN: speed over the ground for a span of time. value speed · time. */
   static distance(speed: number, time: number): CrossFormula { return c('deadreckoning-distance', 'distance(speed, time) = speed · time', speed * time, nat(speed, time), 'distance', [speed, time]) }
   /** DRIFT ANGLE: cross-track offset over the distance run, in arcminutes. value ⌊cross · 60 / dist⌋. */
-  static driftangle(cross: number, dist: number): CrossFormula { return c('deadreckoning-driftangle', 'driftangle(cross, dist) = ⌊cross · 60 / dist⌋', dist > 0 ? Math.floor((cross * 60) / dist) : 0, nat(cross, dist) && dist > 0, 'driftangle', [cross, dist]) }
+  static driftangle(cross: number, dist: number): CrossFormula { return c('deadreckoning-driftangle', 'driftangle(cross, dist) = ⌊cross · 60 / dist⌋', dist > 0 ? quot((cross * 60), dist) : 0, nat(cross, dist) && dist > 0, 'driftangle', [cross, dist]) }
   /** POSITION ERROR: the gap between the reckoned position and the fix. value |reckoned − fix|. */
-  static positionerror(reckoned: number, fix: number): CrossFormula { return c('deadreckoning-positionerror', 'positionerror(reckoned, fix) = |reckoned − fix|', Math.max(reckoned, fix) - Math.min(reckoned, fix), nat(reckoned, fix), 'positionerror', [reckoned, fix]) }
+  static positionerror(reckoned: number, fix: number): CrossFormula { return c('deadreckoning-positionerror', 'positionerror(reckoned, fix) = |reckoned − fix|', maxOf(reckoned, fix) - minOf(reckoned, fix), nat(reckoned, fix), 'positionerror', [reckoned, fix]) }
   /** ELAPSED TIME: the distance to run over the speed made good. value ⌊dist / speed⌋. */
-  static elapsedtime(dist: number, speed: number): CrossFormula { return c('deadreckoning-elapsedtime', 'elapsedtime(dist, speed) = ⌊dist / speed⌋', speed > 0 ? Math.floor(dist / speed) : 0, nat(dist, speed) && speed > 0, 'elapsedtime', [dist, speed]) }
+  static elapsedtime(dist: number, speed: number): CrossFormula { return c('deadreckoning-elapsedtime', 'elapsedtime(dist, speed) = ⌊dist / speed⌋', speed > 0 ? quot(dist, speed) : 0, nat(dist, speed) && speed > 0, 'elapsedtime', [dist, speed]) }
   /** SPEED MADE GOOD: the distance made good over the time run. value ⌊dist / time⌋. */
-  static speedmadegood(dist: number, time: number): CrossFormula { return c('deadreckoning-speedmadegood', 'speedmadegood(dist, time) = ⌊dist / time⌋', time > 0 ? Math.floor(dist / time) : 0, nat(dist, time) && time > 0, 'speedmadegood', [dist, time]) }
+  static speedmadegood(dist: number, time: number): CrossFormula { return c('deadreckoning-speedmadegood', 'speedmadegood(dist, time) = ⌊dist / time⌋', time > 0 ? quot(dist, time) : 0, nat(dist, time) && time > 0, 'speedmadegood', [dist, time]) }
   /** SET AND DRIFT: the current's set carries the vessel at its drift rate over the hours. value set · hours. */
   static setandrift(set: number, hours: number): CrossFormula { return c('deadreckoning-setandrift', 'setandrift(set, hours) = set · hours', set * hours, nat(set, hours), 'setandrift', [set, hours]) }
   /** ESTIMATED POSITION: the start carried forward by the distance run. value start + dist. */
   static estimatedposition(start: number, dist: number): CrossFormula { return c('deadreckoning-estimatedposition', 'estimatedposition(start, dist) = start + dist', start + dist, nat(start, dist), 'estimatedposition', [start, dist]) }
   /** COURSE CORRECTION: the heading change to steer from the actual course onto the desired one. value |desired − actual|. */
-  static coursecorrection(desired: number, actual: number): CrossFormula { return c('deadreckoning-coursecorrection', 'coursecorrection(desired, actual) = |desired − actual|', Math.max(desired, actual) - Math.min(desired, actual), nat(desired, actual), 'coursecorrection', [desired, actual]) }
+  static coursecorrection(desired: number, actual: number): CrossFormula { return c('deadreckoning-coursecorrection', 'coursecorrection(desired, actual) = |desired − actual|', maxOf(desired, actual) - minOf(desired, actual), nat(desired, actual), 'coursecorrection', [desired, actual]) }
 }
 
 for (const name of ['coursecorrection', 'distance', 'driftangle', 'elapsedtime', 'estimatedposition', 'positionerror', 'setandrift', 'speedmadegood'] as const)

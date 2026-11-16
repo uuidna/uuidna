@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** DRIVER — the arithmetic the kernel driver counts in. DMA ring entries and 4K pages off a buffer, the payload a frame
  *  carries, packets a link passes per second, tx+rx queues per core, IRQ vectors, the bytes an MMIO window maps, and a
@@ -7,8 +8,8 @@ import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 
 const PROOF = 'driver counts: ring = bytes / desc; dmaPages = ceil(bytes / 4096); payload = max(0, mtu − hdr); pps = bw / pkt; queues = cores · 2; irq = bytes / 4; mmio = pages · 4096; descBytes = entries · desc; throughput = pps · payload; latency = us; buffers = ring · descBytes; coalesce = ceil(packets / perIrq); bandwidth = lanes · perLane; completion = ring − inflight; doorbell = queues · perQueue; driver crossed to firmware'
 const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
-const div = (a: number, b: number) => (b > 0 ? Math.floor(a / b) : 0)
-const ceilDiv = (a: number, b: number) => (b > 0 ? Math.floor((a + b - 1) / b) : 0)
+const div = (a: number, b: number) => (b > 0 ? quot(a, b) : 0)
+const ceilDiv = (a: number, b: number) => (b > 0 ? quot((a + b - 1), b) : 0)
 const f = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
   crossFormulaOf({ id, src: 'driver', dst: 'firmware', formula, value, proof: PROOF, ...extra }, holds, { name: `driver.${name}`, params })
 
@@ -18,7 +19,7 @@ export class DriverFormulas {
   /** 4K DMA pages needed for `bytes`: ceil(bytes / 4096). */
   static dmaPages(bytes: number): CrossFormula { return f('driver-dmaPages', 'dmaPages(bytes) = ceil(bytes / 4096)', ceilDiv(bytes, 4096), nat(bytes), 'dmaPages', [bytes]) }
   /** The payload a frame of `mtu` carries past a `hdr`-byte header: max(0, mtu − hdr). */
-  static payload(mtu: number, hdr: number): CrossFormula { return f('driver-payload', 'payload(mtu, hdr) = max(0, mtu − hdr)', Math.max(0, mtu - hdr), nat(mtu, hdr), 'payload', [mtu, hdr]) }
+  static payload(mtu: number, hdr: number): CrossFormula { return f('driver-payload', 'payload(mtu, hdr) = max(0, mtu − hdr)', maxOf(0, mtu - hdr), nat(mtu, hdr), 'payload', [mtu, hdr]) }
   /** Packets per second a `bw`-byte/s link passes at `pkt` bytes each: bw / pkt. */
   static pps(bw: number, pkt: number): CrossFormula { return f('driver-pps', 'pps(bw, pkt) = bw / pkt', div(bw, pkt), nat(bw, pkt) && pkt > 0, 'pps', [bw, pkt]) }
   /** tx+rx queues for `cores`: cores · 2. */

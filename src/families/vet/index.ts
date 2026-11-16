@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** VET — VETERINARY MEDICINE, AS ARITHMETIC. Treating animals is numbers: a dose by body weight, age in dog years, the
  *  body-condition score, the share of a herd that is sick, a due date from a breeding date, a daily feed ration, the
@@ -19,13 +20,13 @@ export class VetFormulas {
   /** BODY-CONDITION SCORE on the 1..9 scale. value score. */
   static bodyscore(score: number): CrossFormula { return c('vet-bodyscore', 'bodyscore(score) = score', score, nat(score) && score >= 1 && score <= 9, 'bodyscore', [score]) }
   /** HERD SICKNESS as a percentage. value ⌊sick · 100 / total⌋. */
-  static herd(sick: number, total: number): CrossFormula { return c('vet-herd', 'herd(sick, total) = ⌊sick · 100 / total⌋', total > 0 ? Math.floor((sick * 100) / total) : 0, nat(sick, total) && total > 0 && sick <= total, 'herd', [sick, total]) }
+  static herd(sick: number, total: number): CrossFormula { return c('vet-herd', 'herd(sick, total) = ⌊sick · 100 / total⌋', total > 0 ? quot((sick * 100), total) : 0, nat(sick, total) && total > 0 && sick <= total, 'herd', [sick, total]) }
   /** GESTATION: the due date, a breeding date plus the gestation period. value bred + period. */
   static gestation(bred: number, period: number): CrossFormula { return c('vet-gestation', 'gestation(bred, period) = bred + period', bred + period, nat(bred, period), 'gestation', [bred, period]) }
   /** FEED: a daily ration, a percentage of body weight. value ⌊weight · pct / 100⌋. */
-  static feed(weight: number, pct: number): CrossFormula { return c('vet-feed', 'feed(weight, pct) = ⌊weight · pct / 100⌋', Math.floor((weight * pct) / 100), nat(weight, pct), 'feed', [weight, pct]) }
+  static feed(weight: number, pct: number): CrossFormula { return c('vet-feed', 'feed(weight, pct) = ⌊weight · pct / 100⌋', quot((weight * pct), 100), nat(weight, pct), 'feed', [weight, pct]) }
   /** VACCINATION coverage as a percentage. value ⌊done · 100 / animals⌋. */
-  static vaccination(done: number, animals: number): CrossFormula { return c('vet-vaccination', 'vaccination(done, animals) = ⌊done · 100 / animals⌋', animals > 0 ? Math.floor((done * 100) / animals) : 0, nat(done, animals) && animals > 0 && done <= animals, 'vaccination', [done, animals]) }
+  static vaccination(done: number, animals: number): CrossFormula { return c('vet-vaccination', 'vaccination(done, animals) = ⌊done · 100 / animals⌋', animals > 0 ? quot((done * 100), animals) : 0, nat(done, animals) && animals > 0 && done <= animals, 'vaccination', [done, animals]) }
   /** FLUIDS: millilitres at a per-kilogram rate on body weight. value weight · mlPerKg. */
   static fluids(weight: number, mlPerKg: number): CrossFormula { return c('vet-fluids', 'fluids(weight, mlPerKg) = weight · mlPerKg', weight * mlPerKg, nat(weight, mlPerKg), 'fluids', [weight, mlPerKg]) }
 }

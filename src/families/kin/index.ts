@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot, roundOf } from '../../exact.js'
 
 /** THE COUNTS PEOPLE ASK ABOUT, AS COMBINATORICS: the Tzolkin and the Dreamspell (a kin of 13 tones × 20 seals, its
  *  correlation a parameter), the Day Out of Time as a coin, the sexagenary pillars, the biorhythm phases, the periods
@@ -18,7 +19,7 @@ export class KinFormulas {
    *  never a constant here. The Dreamspell skips 29 February (a day out of the count), so against the traditional count
    *  that keeps every day it loses one kin per leap year: the drift. The calendar round is 52 × 365 = 18980 days. */
   static kin(jdm: number, kin1: number): CrossFormula {
-    const days = Math.floor((jdm - kin1) / MINUTES)
+    const days = quot((jdm - kin1), MINUTES)
     return f('cal-kin', 'kin(jdm, kin1) = ((⌊(jdm − kin1)/1440⌋) mod 260) + 1', ((days % 260) + 260) % 260 + 1, nat(jdm, kin1) && jdm > 0 && kin1 > 0, 'kin', [jdm, kin1])
   }
   /** The tone (1..13) of a kin. */
@@ -26,7 +27,7 @@ export class KinFormulas {
   /** The seal (1..20) of a kin. */
   static seal(kin: number): CrossFormula { return f('cal-seal', 'seal(k) = ((k − 1) mod 20) + 1', ((kin - 1) % 20) + 1, nat(kin) && kin >= 1 && kin <= 260, 'seal', [kin]) }
   /** The Dreamspell's drift against the count that keeps every day: one kin per leap year, ⌊years/4⌋ after n years. */
-  static dreamspellDrift(years: number): CrossFormula { return f('cal-dreamspell-drift', 'drift_D(n) = ⌊n / 4⌋ kin (29 February is not counted)', Math.floor(years / 4), nat(years), 'dreamspellDrift', [years]) }
+  static dreamspellDrift(years: number): CrossFormula { return f('cal-dreamspell-drift', 'drift_D(n) = ⌊n / 4⌋ kin (29 February is not counted)', quot(years, 4), nat(years), 'dreamspellDrift', [years]) }
   /** The cycles: 0 the Tzolkin (260 = 13 × 20), 1 the Haab (365), 2 the calendar round (18980 = lcm), in days. */
   static cycle(which: number): CrossFormula { return f('cal-cycle', 'cycle(0) = 13 · 20, cycle(1) = 365, cycle(2) = lcm(260, 365) = 18980', [260, 365, 18980][which] ?? 0, nat(which) && which <= 2, 'cycle', [which]) }
   /** THE OTHER CYCLES PEOPLE ASK ABOUT, EXACT. 0 the synodic month in minutes (29.530589 d), 1 the Metonic cycle in
@@ -34,7 +35,7 @@ export class KinFormulas {
    *  4 the biorhythm round (lcm(23, 28, 33)), 5 the Long Count baktun in days (20 · 20 · 18 · 20), 6 the lunar year
    *  (12 lunations) in minutes. */
   static period(which: number): CrossFormula {
-    const value = [Math.round(29.530589 * MINUTES), 6940, 6585, 60, 21252, 144000, Math.round(12 * 29.530589 * MINUTES)][which] ?? 0
+    const value = [roundOf(29.530589 * MINUTES), 6940, 6585, 60, 21252, 144000, roundOf(12 * 29.530589 * MINUTES)][which] ?? 0
     return f('cal-period', 'period(0) synodic month (min), 1 Metonic (d), 2 Saros (d), 3 stems × branches, 4 lcm(23, 28, 33), 5 baktun (d), 6 lunar year (min)', value, nat(which) && which <= 6, 'period', [which])
   }
   /** A pillar of the sexagenary cycle for a count of days or years from its epoch: stem = c mod 10, branch = c mod 12, as stem · 12 + branch. */
@@ -45,7 +46,7 @@ export class KinFormulas {
   /** A biorhythm's phase at a birth minute and a day: 0 physical (23 d), 1 emotional (28), 2 intellectual (33); the day of the cycle, 0..period−1. */
   static biorhythm(which: number, birthJdm: number, jdm: number): CrossFormula {
     const period = [23, 28, 33][which] ?? 0
-    const days = Math.floor((jdm - birthJdm) / MINUTES)
+    const days = quot((jdm - birthJdm), MINUTES)
     return f('cal-biorhythm', 'phase(c, b, t) = ⌊(t − b)/1440⌋ mod period_c', period ? ((days % period) + period) % period : 0, nat(which, birthJdm, jdm) && which <= 2 && jdm >= birthJdm, 'biorhythm', [which, birthJdm, jdm])
   }
   /** The vortex: 2ⁿ mod 9 runs 1 2 4 8 7 5 with period 6 — the doubling of Qpu.Mint folded to a digital root. */
@@ -67,7 +68,7 @@ export class KinFormulas {
   /** The pure combinations of a chart of n bodies: 64ⁿ gate placements (exact while it fits a number, n ≤ 8). */
   static combinations(bodies: number): CrossFormula { return f('cal-combinations', 'C(n) = 64ⁿ', bodies <= 8 ? 64 ** bodies : 0, nat(bodies) && bodies <= 8, 'combinations', [bodies]) }
   /** The information of a chart of n bodies, in bits: 6 per gate, plus log₂ 6 per line. */
-  static bits(bodies: number): CrossFormula { return f('cal-bits', 'bits(n) = n · (6 + log₂ 6), rounded', Math.round(bodies * (6 + Math.log2(6))), nat(bodies), 'bits', [bodies]) }
+  static bits(bodies: number): CrossFormula { return f('cal-bits', 'bits(n) = n · (6 + log₂ 6), rounded', roundOf(bodies * (6 + Math.log2(6))), nat(bodies), 'bits', [bodies]) }
 }
 
 for (const name of ['biorhythm', 'bits', 'combinations', 'crossed', 'cycle', 'digitalRoot', 'dootKin', 'dreamspellDrift', 'enneagram', 'kin', 'period', 'pillar', 'seal', 'tone', 'vortex'] as const)

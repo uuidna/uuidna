@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { absOf, maxOf } from '../../exact.js'
 
 /** COLLIDE AND DISSOLVE — THE FORMULAS GROW NEW DOMAINS THE WAY A BEAM DOES, PROVEN BY CERN. Two quanta collide and
  *  their product is a new value; a value dissolves (decays) into its constituents. What the collisions reach that no
@@ -36,10 +37,10 @@ export class CollideFormulas {
   /** THE INVARIANT that survives the collision: the sum of squares, unchanged under the frame's rotation. value a² + b². */
   static invariant(a: number, b: number): CrossFormula { return f('collide-invariant', 'invariant(a, b) = a² + b²', a * a + b * b, nat(a, b), 'invariant', [a, b]) }
   /** THE IMBALANCE that escapes the detector: the missing momentum. value |a − b|. */
-  static balance(a: number, b: number): CrossFormula { return f('collide-balance', 'balance(a, b) = |a − b|', Math.abs(a - b), nat(a, b), 'balance', [a, b]) }
+  static balance(a: number, b: number): CrossFormula { return f('collide-balance', 'balance(a, b) = |a − b|', absOf(a - b), nat(a, b), 'balance', [a, b]) }
   /** THE MISSING FAMILIES: of the `domains` the collisions reach, `families` are served — the gap is the leads to grow.
    *  value domains − families; holds only when the families cover every domain the collisions reach (gap 0). */
-  static gap(domains: number, families: number): CrossFormula { return f('collide-gap', 'gap(domains, families) = domains − families; the missing families the collisions imply', Math.max(0, domains - families), nat(domains, families), 'gap', [domains, families]) }
+  static gap(domains: number, families: number): CrossFormula { return f('collide-gap', 'gap(domains, families) = domains − families; the missing families the collisions imply', maxOf(0, domains - families), nat(domains, families), 'gap', [domains, families]) }
 }
 
 for (const name of ['balance', 'channels', 'collide', 'dissolve', 'events', 'gap', 'invariant', 'product', 'threshold'] as const)

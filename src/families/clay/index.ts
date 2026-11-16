@@ -2,6 +2,7 @@ import { facesOf, hexRegisterOf, hexFamiliesOf, hexRunOf, qpuHexUuidOf } from '.
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { chooseOf, mintOf, latticeNamesOf, tenOf } from '../../quantum/processing/unit/index.js'
 import { leanRecomputed, leanAxioms, leanUnproven } from '../../quantum/processing/unit/lean.js'
+import { maxOf } from '../../exact.js'
 const L = { ...latticeNamesOf(), mintOf, chooseOf, tenOf }
 
 /** The σ-involution seals of "All Seven Clay Millennium Problems Sealed via Universal σ-Involution" (Rouschev, 2026,
@@ -121,7 +122,7 @@ export type ClaySealDomain = {
 export const claySealDomainOf = (name: ClaySealName, faces = facesOf().faces): ClaySealDomain => {
   const arity = hexFamiliesOf().get('clay')?.find((f) => f.name === name)?.arity ?? 0
   if (name === 'bsd') {
-    const ms = Array.from({ length: Math.max(0, faces - 2) }, (_, k) => k + 3)
+    const ms = Array.from({ length: maxOf(0, faces - 2) }, (_, k) => k + 3)
     if (!ms.includes(15)) ms.push(15)
     return { name, kind: 'm=3…faces ∪ {15}', params: ms.map((m) => [m]) }
   }

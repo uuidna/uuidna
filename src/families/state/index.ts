@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** STATE — WEB APP STATE MANAGEMENT, AS ARITHMETIC (stores, actions, selectors, rerenders, memoization, immutability).
  *  State is numbers: the stores an app holds, actions dispatched per second, selectors registered, the share of components
@@ -13,17 +14,17 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class StateFormulas {
   /** DISPATCH RATE: actions dispatched over seconds. value ⌊dispatched / seconds⌋. */
-  static actions(dispatched: number, seconds: number): CrossFormula { return c('state-actions', 'actions(dispatched, seconds) = ⌊dispatched / seconds⌋', seconds > 0 ? Math.floor(dispatched / seconds) : 0, nat(dispatched, seconds) && seconds > 0, 'actions', [dispatched, seconds]) }
+  static actions(dispatched: number, seconds: number): CrossFormula { return c('state-actions', 'actions(dispatched, seconds) = ⌊dispatched / seconds⌋', seconds > 0 ? quot(dispatched, seconds) : 0, nat(dispatched, seconds) && seconds > 0, 'actions', [dispatched, seconds]) }
   /** NESTING DEPTH: how deeply state is nested; holds when shallow. value nested. */
   static depth(nested: number): CrossFormula { return c('state-depth', 'depth(nested) = nested', nested, nat(nested) && nested <= 5, 'depth', [nested]) }
   /** DIFF: the share of a tree a change touches, as a percentage. value ⌊changed · 100 / total⌋. */
-  static diff(changed: number, total: number): CrossFormula { return c('state-diff', 'diff(changed, total) = ⌊changed · 100 / total⌋', total > 0 ? Math.floor((changed * 100) / total) : 0, nat(changed, total) && total > 0 && changed <= total, 'diff', [changed, total]) }
+  static diff(changed: number, total: number): CrossFormula { return c('state-diff', 'diff(changed, total) = ⌊changed · 100 / total⌋', total > 0 ? quot((changed * 100), total) : 0, nat(changed, total) && total > 0 && changed <= total, 'diff', [changed, total]) }
   /** HYDRATION: the share of persisted state restored, as a percentage. value ⌊restored · 100 / total⌋. */
-  static hydration(restored: number, total: number): CrossFormula { return c('state-hydration', 'hydration(restored, total) = ⌊restored · 100 / total⌋', total > 0 ? Math.floor((restored * 100) / total) : 0, nat(restored, total) && total > 0 && restored <= total, 'hydration', [restored, total]) }
+  static hydration(restored: number, total: number): CrossFormula { return c('state-hydration', 'hydration(restored, total) = ⌊restored · 100 / total⌋', total > 0 ? quot((restored * 100), total) : 0, nat(restored, total) && total > 0 && restored <= total, 'hydration', [restored, total]) }
   /** MEMOIZATION: the share of selector computes served from cache, as a percentage. value ⌊cached · 100 / computes⌋. */
-  static memoized(cached: number, computes: number): CrossFormula { return c('state-memoized', 'memoized(cached, computes) = ⌊cached · 100 / computes⌋', computes > 0 ? Math.floor((cached * 100) / computes) : 0, nat(cached, computes) && computes > 0 && cached <= computes, 'memoized', [cached, computes]) }
+  static memoized(cached: number, computes: number): CrossFormula { return c('state-memoized', 'memoized(cached, computes) = ⌊cached · 100 / computes⌋', computes > 0 ? quot((cached * 100), computes) : 0, nat(cached, computes) && computes > 0 && cached <= computes, 'memoized', [cached, computes]) }
   /** RERENDERS: the share of components that rerender on a change, as a percentage. value ⌊changed · 100 / components⌋. */
-  static rerenders(changed: number, components: number): CrossFormula { return c('state-rerenders', 'rerenders(changed, components) = ⌊changed · 100 / components⌋', components > 0 ? Math.floor((changed * 100) / components) : 0, nat(changed, components) && components > 0 && changed <= components, 'rerenders', [changed, components]) }
+  static rerenders(changed: number, components: number): CrossFormula { return c('state-rerenders', 'rerenders(changed, components) = ⌊changed · 100 / components⌋', components > 0 ? quot((changed * 100), components) : 0, nat(changed, components) && components > 0 && changed <= components, 'rerenders', [changed, components]) }
   /** SELECTORS: the selectors registered. value count. */
   static selectors(count: number): CrossFormula { return c('state-selectors', 'selectors(count) = count', count, nat(count), 'selectors', [count]) }
   /** STORES: the stores an app holds. value count. */

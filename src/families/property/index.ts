@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** PROPERTY — REAL ESTATE AS ARITHMETIC. The worth and the financing of land are numbers: the loan-to-value, the
  *  capitalization rate, the total mortgage repayment and its monthly instalment, the stamp duty, the owner's equity, the
@@ -13,21 +14,21 @@ const r = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class PropertyFormulas {
   /** LOAN-TO-VALUE as a percentage. value ⌊loan · 100 / value⌋. */
-  static ltv(loan: number, value: number): CrossFormula { return r('property-ltv', 'ltv(loan, value) = ⌊loan · 100 / value⌋', value > 0 ? Math.floor((loan * 100) / value) : 0, nat(loan, value) && value > 0, 'ltv', [loan, value]) }
+  static ltv(loan: number, value: number): CrossFormula { return r('property-ltv', 'ltv(loan, value) = ⌊loan · 100 / value⌋', value > 0 ? quot((loan * 100), value) : 0, nat(loan, value) && value > 0, 'ltv', [loan, value]) }
   /** THE CAPITALIZATION RATE as a percentage: annual rent over price. value ⌊rent · 100 / price⌋. */
-  static cap(rent: number, price: number): CrossFormula { return r('property-cap', 'cap(rent, price) = ⌊rent · 100 / price⌋', price > 0 ? Math.floor((rent * 100) / price) : 0, nat(rent, price) && price > 0, 'cap', [rent, price]) }
+  static cap(rent: number, price: number): CrossFormula { return r('property-cap', 'cap(rent, price) = ⌊rent · 100 / price⌋', price > 0 ? quot((rent * 100), price) : 0, nat(rent, price) && price > 0, 'cap', [rent, price]) }
   /** THE TOTAL MORTGAGE REPAYMENT (simple interest): principal plus principal · rate% · years. value principal + ⌊principal · rate · years / 100⌋. */
-  static mortgage(principal: number, rate: number, years: number): CrossFormula { return r('property-mortgage', 'mortgage(principal, rate, years) = principal + ⌊principal · rate · years / 100⌋', principal + Math.floor((principal * rate * years) / 100), nat(principal, rate, years), 'mortgage', [principal, rate, years]) }
+  static mortgage(principal: number, rate: number, years: number): CrossFormula { return r('property-mortgage', 'mortgage(principal, rate, years) = principal + ⌊principal · rate · years / 100⌋', principal + quot((principal * rate * years), 100), nat(principal, rate, years), 'mortgage', [principal, rate, years]) }
   /** THE MONTHLY INSTALMENT: a total repayment spread over `months`. value ⌊total / months⌋. */
-  static payment(total: number, months: number): CrossFormula { return r('property-payment', 'payment(total, months) = ⌊total / months⌋', months > 0 ? Math.floor(total / months) : 0, nat(total, months) && months > 0, 'payment', [total, months]) }
+  static payment(total: number, months: number): CrossFormula { return r('property-payment', 'payment(total, months) = ⌊total / months⌋', months > 0 ? quot(total, months) : 0, nat(total, months) && months > 0, 'payment', [total, months]) }
   /** STAMP DUTY at `rate`% of the price. value ⌊price · rate / 100⌋. */
-  static stampduty(price: number, rate: number): CrossFormula { return r('property-stampduty', 'stampduty(price, rate) = ⌊price · rate / 100⌋', Math.floor((price * rate) / 100), nat(price, rate) && rate <= 100, 'stampduty', [price, rate]) }
+  static stampduty(price: number, rate: number): CrossFormula { return r('property-stampduty', 'stampduty(price, rate) = ⌊price · rate / 100⌋', quot((price * rate), 100), nat(price, rate) && rate <= 100, 'stampduty', [price, rate]) }
   /** THE OWNER'S EQUITY: value less the loan outstanding. value max(0, value − loan). */
-  static equity(value: number, loan: number): CrossFormula { return r('property-equity', 'equity(value, loan) = max(0, value − loan)', Math.max(0, value - loan), nat(value, loan), 'equity', [value, loan]) }
+  static equity(value: number, loan: number): CrossFormula { return r('property-equity', 'equity(value, loan) = max(0, value − loan)', maxOf(0, value - loan), nat(value, loan), 'equity', [value, loan]) }
   /** AFFORDABILITY: the borrowing a buyer can carry at an income `multiple`. value income · multiple. */
   static afford(income: number, multiple: number): CrossFormula { return r('property-afford', 'afford(income, multiple) = income · multiple', income * multiple, nat(income, multiple), 'afford', [income, multiple]) }
   /** APPRECIATION: `pct`% added to the value. value ⌊value · pct / 100⌋. */
-  static appreciation(value: number, pct: number): CrossFormula { return r('property-appreciation', 'appreciation(value, pct) = ⌊value · pct / 100⌋', Math.floor((value * pct) / 100), nat(value, pct), 'appreciation', [value, pct]) }
+  static appreciation(value: number, pct: number): CrossFormula { return r('property-appreciation', 'appreciation(value, pct) = ⌊value · pct / 100⌋', quot((value * pct), 100), nat(value, pct), 'appreciation', [value, pct]) }
 }
 
 for (const name of ['afford', 'appreciation', 'cap', 'equity', 'ltv', 'mortgage', 'payment', 'stampduty'] as const)

@@ -2,6 +2,7 @@ import { test } from '../../quantum/processing/unit/receipted.js'
 import assert from 'node:assert/strict'
 import { hexFamiliesOf, hexRegistryOf, hexRunOf, qpuHexUuidOf, contentUuidOf, uuidReceiptOf } from '../../quantum/processing/unit/index.js'
 import { MerkabaFormulas, flowFamiliesOf } from './index.js'
+import { minOf } from '../../exact.js'
 
 /** A flow passes 3 through three distinct families; mirror(c, b, a) is the flow a → b → c and mirror(a, b, c) its
  *  counter-rotation; a formation is counted by the star when the two meet; the torus runs each from the other's
@@ -20,7 +21,7 @@ test('merkaba: trinity flows cross three families, their mirrors counter-rotate,
   const m = MerkabaFormulas.merkaba(0, 1, 2)
   assert.equal(m.holds, up.holds && down.holds && up.value === down.value && up.value > 0, 'a merkaba forms exactly when the flow meets its mirror')
   assert.equal(MerkabaFormulas.spin(0, 1, 2).value, up.value > down.value ? 1 : up.value < down.value ? 2 : 0)
-  const n = Math.min(names.length, 5)
+  const n = minOf(names.length, 5)
   const flows = MerkabaFormulas.flows(n), star = MerkabaFormulas.star(n)
   assert.ok(flows.value >= 0 && flows.value <= n * (n - 1) * (n - 2), 'flows are ordered triples of distinct families')
   assert.ok(star.value <= flows.value / 6 + 1, 'formations are unordered triples among the flows')

@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, minOf, quot, roundOf } from '../../exact.js'
 
 /** CALENDAR — scaffolded integer measures crossed to statistics. Every output an exact finite nonnegative integer. */
 
@@ -10,12 +11,12 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class CalendarFormulas {
   static daysinyear(x: number, y: number): CrossFormula { return c('calendar-daysinyear', 'daysinyear(x, y) = x + y', x + y, nat(x, y), 'daysinyear', [x, y]) }
-  static leapcycle(x: number, y: number): CrossFormula { return c('calendar-leapcycle', 'leapcycle(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'leapcycle', [x, y]) }
-  static weekcombos(x: number, y: number): CrossFormula { return c('calendar-weekcombos', 'weekcombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'weekcombos', [x, y]) }
+  static leapcycle(x: number, y: number): CrossFormula { return c('calendar-leapcycle', 'leapcycle(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'leapcycle', [x, y]) }
+  static weekcombos(x: number, y: number): CrossFormula { return c('calendar-weekcombos', 'weekcombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'weekcombos', [x, y]) }
   static monthorderings(x: number): CrossFormula { return c('calendar-monthorderings', 'monthorderings(x) = x!', x <= 12 ? ((n: number) => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r })(x) : 0, nat(x) && x <= 12, 'monthorderings', [x]) }
-  static intercalations(x: number, y: number): CrossFormula { return c('calendar-intercalations', 'intercalations(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'intercalations', [x, y]) }
+  static intercalations(x: number, y: number): CrossFormula { return c('calendar-intercalations', 'intercalations(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'intercalations', [x, y]) }
   static dayofweek(x: number, y: number): CrossFormula { return c('calendar-dayofweek', 'dayofweek(x, y) = x mod y', y > 0 ? x % y : 0, nat(x, y) && y > 0, 'dayofweek', [x, y]) }
-  static epochspan(x: number, y: number): CrossFormula { return c('calendar-epochspan', 'epochspan(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x, y), 'epochspan', [x, y]) }
+  static epochspan(x: number, y: number): CrossFormula { return c('calendar-epochspan', 'epochspan(x, y) = max(0, x − y)', maxOf(0, x - y), nat(x, y), 'epochspan', [x, y]) }
   static cyclepermutations(x: number, y: number): CrossFormula { return c('calendar-cyclepermutations', 'cyclepermutations(x, y) = x! / (x − y)!', x >= y && x <= 20 ? ((n: number, k: number) => { let r = 1; for (let i = 0; i < k; i++) r *= (n - i); return r })(x, y) : 0, nat(x, y) && x >= y && x <= 20, 'cyclepermutations', [x, y]) }
 }
 

@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, minOf, roundOf } from '../../exact.js'
 
 /** COSMOGONY — scaffolded integer measures crossed to philosophy. Every output an exact finite nonnegative integer. */
 
@@ -10,13 +11,13 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class CosmogonyFormulas {
   static stageorderings(x: number): CrossFormula { return c('cosmogony-stageorderings', 'stageorderings(x) = x!', x <= 12 ? ((n: number) => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r })(x) : 0, nat(x) && x <= 12, 'stageorderings', [x]) }
-  static elementcombos(x: number, y: number): CrossFormula { return c('cosmogony-elementcombos', 'elementcombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'elementcombos', [x, y]) }
+  static elementcombos(x: number, y: number): CrossFormula { return c('cosmogony-elementcombos', 'elementcombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'elementcombos', [x, y]) }
   static creationdays(x: number, y: number): CrossFormula { return c('cosmogony-creationdays', 'creationdays(x, y) = x + y', x + y, nat(x, y), 'creationdays', [x, y]) }
   static emanationlevels(x: number): CrossFormula { return c('cosmogony-emanationlevels', 'emanationlevels(x) = 2^x', x <= 30 ? 2 ** x : 0, nat(x) && x <= 30, 'emanationlevels', [x]) }
   static dualitypairs(x: number, y: number): CrossFormula { return c('cosmogony-dualitypairs', 'dualitypairs(x, y) = x · y', x * y, nat(x, y), 'dualitypairs', [x, y]) }
   static cyclelength(x: number, y: number): CrossFormula { return c('cosmogony-cyclelength', 'cyclelength(x, y) = x · y', x * y, nat(x, y), 'cyclelength', [x, y]) }
   static principlesubsets(x: number): CrossFormula { return c('cosmogony-principlesubsets', 'principlesubsets(x) = 2^x', x <= 30 ? 2 ** x : 0, nat(x) && x <= 30, 'principlesubsets', [x]) }
-  static orderfromchaos(x: number, y: number): CrossFormula { return c('cosmogony-orderfromchaos', 'orderfromchaos(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x, y), 'orderfromchaos', [x, y]) }
+  static orderfromchaos(x: number, y: number): CrossFormula { return c('cosmogony-orderfromchaos', 'orderfromchaos(x, y) = max(0, x − y)', maxOf(0, x - y), nat(x, y), 'orderfromchaos', [x, y]) }
 }
 
 for (const name of ['creationdays', 'cyclelength', 'dualitypairs', 'elementcombos', 'emanationlevels', 'orderfromchaos', 'principlesubsets', 'stageorderings'] as const)

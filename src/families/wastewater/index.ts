@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, maxOf, quot } from '../../exact.js'
 
 /** WASTEWATER — TREATMENT AS ARITHMETIC. A plant is numbers: the BOD mass a flow carries, COD read off BOD by a ratio,
  *  the percent an aerobic stage removes, how long water is held, how hard a surface is loaded, the sludge a stage lays down,
@@ -13,19 +14,19 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class WastewaterFormulas {
   /** AERATION: blowers a demand needs at a per-blower rate. value ⌈demand / rate⌉. */
-  static aeration(demand: number, rate: number): CrossFormula { return c('wastewater-aeration', 'aeration(demand, rate) = ⌈demand / rate⌉', rate > 0 ? Math.ceil(demand / rate) : 0, nat(demand, rate) && rate > 0, 'aeration', [demand, rate]) }
+  static aeration(demand: number, rate: number): CrossFormula { return c('wastewater-aeration', 'aeration(demand, rate) = ⌈demand / rate⌉', rate > 0 ? ceilQuot(demand, rate) : 0, nat(demand, rate) && rate > 0, 'aeration', [demand, rate]) }
   /** BOD LOAD: a flow carrying a concentration. value flow · conc. */
   static bod(flow: number, conc: number): CrossFormula { return c('wastewater-bod', 'bod(flow, conc) = flow · conc', flow * conc, nat(flow, conc), 'bod', [flow, conc]) }
   /** CLARIFIER OVERFLOW: a flow spread over the surface area. value ⌊flow / area⌋. */
-  static clarifier(flow: number, area: number): CrossFormula { return c('wastewater-clarifier', 'clarifier(flow, area) = ⌊flow / area⌋', area > 0 ? Math.floor(flow / area) : 0, nat(flow, area) && area > 0, 'clarifier', [flow, area]) }
+  static clarifier(flow: number, area: number): CrossFormula { return c('wastewater-clarifier', 'clarifier(flow, area) = ⌊flow / area⌋', area > 0 ? quot(flow, area) : 0, nat(flow, area) && area > 0, 'clarifier', [flow, area]) }
   /** COD from BOD by a ratio. value bod · ratio. */
   static cod(bod: number, ratio: number): CrossFormula { return c('wastewater-cod', 'cod(bod, ratio) = bod · ratio', bod * ratio, nat(bod, ratio), 'cod', [bod, ratio]) }
   /** SURFACE LOADING: a mass over the area it loads. value ⌊mass / area⌋. */
-  static loading(mass: number, area: number): CrossFormula { return c('wastewater-loading', 'loading(mass, area) = ⌊mass / area⌋', area > 0 ? Math.floor(mass / area) : 0, nat(mass, area) && area > 0, 'loading', [mass, area]) }
+  static loading(mass: number, area: number): CrossFormula { return c('wastewater-loading', 'loading(mass, area) = ⌊mass / area⌋', area > 0 ? quot(mass, area) : 0, nat(mass, area) && area > 0, 'loading', [mass, area]) }
   /** REMOVAL EFFICIENCY as a percentage. value ⌊(in − out) · 100 / in⌋. */
-  static removal(inp: number, out: number): CrossFormula { return c('wastewater-removal', 'removal(in, out) = ⌊(in − out) · 100 / in⌋', inp > 0 ? Math.floor((Math.max(0, inp - out) * 100) / inp) : 0, nat(inp, out) && inp > 0 && out <= inp, 'removal', [inp, out]) }
+  static removal(inp: number, out: number): CrossFormula { return c('wastewater-removal', 'removal(in, out) = ⌊(in − out) · 100 / in⌋', inp > 0 ? quot((maxOf(0, inp - out) * 100), inp) : 0, nat(inp, out) && inp > 0 && out <= inp, 'removal', [inp, out]) }
   /** RETENTION: how long a volume is held at a flow. value ⌊volume / flow⌋. */
-  static retention(volume: number, flow: number): CrossFormula { return c('wastewater-retention', 'retention(volume, flow) = ⌊volume / flow⌋', flow > 0 ? Math.floor(volume / flow) : 0, nat(volume, flow) && flow > 0, 'retention', [volume, flow]) }
+  static retention(volume: number, flow: number): CrossFormula { return c('wastewater-retention', 'retention(volume, flow) = ⌊volume / flow⌋', flow > 0 ? quot(volume, flow) : 0, nat(volume, flow) && flow > 0, 'retention', [volume, flow]) }
   /** SLUDGE: solids laid down over days. value solids · days. */
   static sludge(solids: number, days: number): CrossFormula { return c('wastewater-sludge', 'sludge(solids, days) = solids · days', solids * days, nat(solids, days), 'sludge', [solids, days]) }
 }

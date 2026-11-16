@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, maxOf, minOf, quot } from '../../exact.js'
 
 /** RATELIMITING — ADMITTING TRAFFIC, AS ARITHMETIC. A limiter is numbers: the tokens a bucket holds, the rate a leak
  *  drains, the requests counted in a window, the headroom left under a limit, how fast tokens refill, the burst a bucket
@@ -13,21 +14,21 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class RatelimitingFormulas {
   /** TOKEN BUCKET: tokens accrued at a rate over seconds, capped at capacity. value min(rate · seconds, capacity). */
-  static tokenbucket(rate: number, seconds: number, capacity: number): CrossFormula { return c('ratelimiting-tokenbucket', 'tokenbucket(rate, seconds, capacity) = min(rate · seconds, capacity)', Math.min(rate * seconds, capacity), nat(rate, seconds, capacity), 'tokenbucket', [rate, seconds, capacity]) }
+  static tokenbucket(rate: number, seconds: number, capacity: number): CrossFormula { return c('ratelimiting-tokenbucket', 'tokenbucket(rate, seconds, capacity) = min(rate · seconds, capacity)', minOf(rate * seconds, capacity), nat(rate, seconds, capacity), 'tokenbucket', [rate, seconds, capacity]) }
   /** LEAKY RATE: a fixed drain — volume over seconds. value ⌊volume / seconds⌋. */
-  static leakyrate(volume: number, seconds: number): CrossFormula { return c('ratelimiting-leakyrate', 'leakyrate(volume, seconds) = ⌊volume / seconds⌋', seconds > 0 ? Math.floor(volume / seconds) : 0, nat(volume, seconds) && seconds > 0, 'leakyrate', [volume, seconds]) }
+  static leakyrate(volume: number, seconds: number): CrossFormula { return c('ratelimiting-leakyrate', 'leakyrate(volume, seconds) = ⌊volume / seconds⌋', seconds > 0 ? quot(volume, seconds) : 0, nat(volume, seconds) && seconds > 0, 'leakyrate', [volume, seconds]) }
   /** WINDOW COUNT: requests averaged over the windows observed. value ⌊requests / windows⌋. */
-  static windowcount(requests: number, windows: number): CrossFormula { return c('ratelimiting-windowcount', 'windowcount(requests, windows) = ⌊requests / windows⌋', windows > 0 ? Math.floor(requests / windows) : 0, nat(requests, windows) && windows > 0, 'windowcount', [requests, windows]) }
+  static windowcount(requests: number, windows: number): CrossFormula { return c('ratelimiting-windowcount', 'windowcount(requests, windows) = ⌊requests / windows⌋', windows > 0 ? quot(requests, windows) : 0, nat(requests, windows) && windows > 0, 'windowcount', [requests, windows]) }
   /** THROTTLE MARGIN: the headroom left under a limit. value max(0, limit − used). */
-  static throttlemargin(limit: number, used: number): CrossFormula { return c('ratelimiting-throttlemargin', 'throttlemargin(limit, used) = max(0, limit − used)', Math.max(0, limit - used), nat(limit, used), 'throttlemargin', [limit, used]) }
+  static throttlemargin(limit: number, used: number): CrossFormula { return c('ratelimiting-throttlemargin', 'throttlemargin(limit, used) = max(0, limit − used)', maxOf(0, limit - used), nat(limit, used), 'throttlemargin', [limit, used]) }
   /** REFILL RATE: tokens restored per second. value ⌊tokens / seconds⌋. */
-  static refillrate(tokens: number, seconds: number): CrossFormula { return c('ratelimiting-refillrate', 'refillrate(tokens, seconds) = ⌊tokens / seconds⌋', seconds > 0 ? Math.floor(tokens / seconds) : 0, nat(tokens, seconds) && seconds > 0, 'refillrate', [tokens, seconds]) }
+  static refillrate(tokens: number, seconds: number): CrossFormula { return c('ratelimiting-refillrate', 'refillrate(tokens, seconds) = ⌊tokens / seconds⌋', seconds > 0 ? quot(tokens, seconds) : 0, nat(tokens, seconds) && seconds > 0, 'refillrate', [tokens, seconds]) }
   /** BURST CAPACITY: the steady rate plus the burst a bucket absorbs. value rate + burst. */
   static burstcapacity(rate: number, burst: number): CrossFormula { return c('ratelimiting-burstcapacity', 'burstcapacity(rate, burst) = rate + burst', rate + burst, nat(rate, burst), 'burstcapacity', [rate, burst]) }
   /** RETRY-AFTER: seconds a client must wait to clear the remaining debt at a rate. value ⌈remaining / rate⌉. */
-  static retryafter(remaining: number, rate: number): CrossFormula { return c('ratelimiting-retryafter', 'retryafter(remaining, rate) = ⌈remaining / rate⌉', rate > 0 ? Math.ceil(remaining / rate) : 0, nat(remaining, rate) && rate > 0, 'retryafter', [remaining, rate]) }
+  static retryafter(remaining: number, rate: number): CrossFormula { return c('ratelimiting-retryafter', 'retryafter(remaining, rate) = ⌈remaining / rate⌉', rate > 0 ? ceilQuot(remaining, rate) : 0, nat(remaining, rate) && rate > 0, 'retryafter', [remaining, rate]) }
   /** QUOTA REMAINING: the quota still unspent. value max(0, quota − used). */
-  static quotaremaining(quota: number, used: number): CrossFormula { return c('ratelimiting-quotaremaining', 'quotaremaining(quota, used) = max(0, quota − used)', Math.max(0, quota - used), nat(quota, used), 'quotaremaining', [quota, used]) }
+  static quotaremaining(quota: number, used: number): CrossFormula { return c('ratelimiting-quotaremaining', 'quotaremaining(quota, used) = max(0, quota − used)', maxOf(0, quota - used), nat(quota, used), 'quotaremaining', [quota, used]) }
 }
 
 for (const name of ['burstcapacity', 'leakyrate', 'quotaremaining', 'refillrate', 'retryafter', 'throttlemargin', 'tokenbucket', 'windowcount'] as const)

@@ -4,6 +4,7 @@ import { leanCallOf, leanModelOf } from '../../quantum/processing/unit/lean-eval
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { flowFamiliesOf } from '../merkaba/index.js'
 import { chooseOf, mintOf, latticeNamesOf, tenOf } from '../../quantum/processing/unit/index.js'
+import { ceilQuot, floorOf, maxOf, productExceedsPow2, quot } from '../../exact.js'
 const L = { ...latticeNamesOf(), mintOf, chooseOf, tenOf }
 
 /** Code quality by temperature and time, as Qpu.Physics measures a qubit. A file is hot when it keeps changing: its
@@ -42,19 +43,19 @@ export class HeatFormulas {
 
   /** Temperature: commits over days as millikelvin, ⌊1000 · commits / days⌋. */
   static temperature(commits: number, days: number): CrossFormula {
-    const mK = Math.floor((L.tenOf(L.n) * commits) / Math.max(days, L.seed))
+    const mK = quot((L.tenOf(L.n) * commits), maxOf(days, L.seed))
     return heatCross('heat-temperature', 'physics', 'T = ⌊1000 · commits / days⌋ mK', mK, nat(commits, days), 'temperature', [commits, days])
   }
 
   /** Signal: ⌊photon / thermal T⌋, the unit's own ratio; 0 means the noise drowns what the file delivers. */
   static signal(millikelvin: number): CrossFormula {
-    const value = millikelvin === 0 ? photon : Math.floor(photon / thermal(millikelvin))
+    const value = millikelvin === 0 ? photon : quot(photon, thermal(millikelvin))
     return heatCross('heat-signal', 'physics', 'S = ⌊h·f / k_B·T⌋ (photon / thermal T)', value, nat(millikelvin), 'signal', [millikelvin])
   }
 
   /** Coherence: days held per fix, ⌊days / (fixes + 1)⌋; every fix is a decoherence event. */
   static coherence(days: number, fixes: number): CrossFormula {
-    return heatCross('heat-coherence', 'physics', 'T₂ = ⌊days / (fixes + 1)⌋', Math.floor(days / (fixes + 1)), nat(days, fixes), 'coherence', [days, fixes])
+    return heatCross('heat-coherence', 'physics', 'T₂ = ⌊days / (fixes + 1)⌋', quot(days, (fixes + 1)), nat(days, fixes), 'coherence', [days, fixes])
   }
 
   /** Quality: the signal at the file's temperature held over its coherence time, S(T) · T₂. Zero when hot. */
@@ -66,12 +67,12 @@ export class HeatFormulas {
 
   /** Cooling: a file split k ways carries ⌈T / k⌉ each, and stays positive while T does. */
   static cooling(millikelvin: number, ways: number): CrossFormula {
-    return heatCross('heat-cooling', 'physics', 'T′ = ⌈T / k⌉', Math.ceil(millikelvin / Math.max(ways, 1)), nat(millikelvin, ways) && ways > 0, 'cooling', [millikelvin, ways])
+    return heatCross('heat-cooling', 'physics', 'T′ = ⌈T / k⌉', ceilQuot(millikelvin, maxOf(ways, 1)), nat(millikelvin, ways) && ways > 0, 'cooling', [millikelvin, ways])
   }
 
   /** The split that cools a file to a target: the least k with ⌈T / k⌉ ≤ target. */
   static ways(millikelvin: number, target: number): CrossFormula {
-    return heatCross('heat-ways', 'physics', 'k = ⌈T / target⌉', Math.max(1, Math.ceil(millikelvin / Math.max(target, 1))), nat(millikelvin, target) && target > 0, 'ways', [millikelvin, target])
+    return heatCross('heat-ways', 'physics', 'k = ⌈T / target⌉', maxOf(1, ceilQuot(millikelvin, maxOf(target, 1))), nat(millikelvin, target) && target > 0, 'ways', [millikelvin, target])
   }
 
   /** Erasure: the j-th formula of the f-th flow family (merkaba.develop's address) run on its first n inputs must erase
@@ -96,7 +97,7 @@ export class HeatFormulas {
   /** Landauer: erasing `bits` at a core temperature T costs at least bits · k_B · T · ln 2 — in 10⁻³² J at T in mK, with
    *  the Lean source's boltzmann (k_B in 10⁻²⁹ J/K). The unit reads no sensor: T is the device reading the caller saved. */
   static landauer(bits: number, millikelvin: number): CrossFormula {
-    return heatCross('heat-landauer', 'physics', 'E ≥ bits · k_B · T · ln 2 (10⁻³² J, T in mK)', Math.floor(bits * BOLTZMANN * millikelvin * Math.LN2), nat(bits, millikelvin), 'landauer', [bits, millikelvin], { proof: 'Landauer 1961; k_B from index.lean def boltzmann' })
+    return heatCross('heat-landauer', 'physics', 'E ≥ bits · k_B · T · ln 2 (10⁻³² J, T in mK)', floorOf(bits * BOLTZMANN * millikelvin * Math.LN2), nat(bits, millikelvin), 'landauer', [bits, millikelvin], { proof: 'Landauer 1961; k_B from index.lean def boltzmann' })
   }
 
   /** SLOW IS A WRAP: an address that answers slowly wraps a computation instead of reaching a value. A speed claim is not a
@@ -124,7 +125,7 @@ export class HeatFormulas {
     const ps: number[] = []
     for (let x = 2; ps.length < primes; x++) if (ps.every((p) => x % p !== 0)) ps.push(x)
     const jobs = ps.slice(0, facesOf().faces).map((p) => ({ p, residue: HeatFormulas.residue(k, p).value, call: { name: 'heat.residue', params: [k, p] } }))
-    const extra = { bits: k + 1, exact: ps.reduce((s, p) => s + Math.log2(p), 0) > k, jobs, proof: 'CRT: residues modulo coprime p determine a value below Πp' }
+    const extra = { bits: k + 1, exact: productExceedsPow2(ps, k), jobs, proof: 'CRT: residues modulo coprime p determine a value below Πp' }
     return heatCross('heat-split', 'crypto', '2ᵏ ↦ (2ᵏ mod p)ₚ, one job per prime, joined by the Chinese remainder theorem', ps.length, nat(k, primes) && primes > 0, 'split', [k, primes], extra)
   }
 }
@@ -136,7 +137,7 @@ for (const name of ['coherence', 'cooling', 'erasure', 'identity', 'landauer', '
 export type HeatReading = { file: string; commits: number; days: number; fixes: number; lines: number; age: number; since: number }
 
 /** Cold threshold: where photon / thermal T reaches 1 — T* = ⌊photon / (k_B · 10)⌋ mK. Named so reactor can cool to it. */
-export const heatThresholdOf = (): number => Math.floor(photon / (BOLTZMANN * L.tenOf(L.seed)))
+export const heatThresholdOf = (): number => quot(photon, (BOLTZMANN * L.tenOf(L.seed)))
 
 /** Every file's heat from its readings, hottest first: temperature, signal, coherence, quality, and the split that would
  *  bring it to the signal's threshold (the coldest temperature at which the signal is still 1). */

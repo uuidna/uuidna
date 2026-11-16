@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** FPGA — THE RECONFIGURABLE FABRIC, AS ARITHMETIC. An FPGA is numbers by the book: look-up tables and flip-flops
  *  across the slices, DSP slices across the columns, block-RAM capacity, the maximum clock from the period, fabric
@@ -21,9 +22,9 @@ export class FpgaFormulas {
   /** BRAM — total block-RAM capacity: the blocks times the kilobits each holds. value blocks · kbEach (Kb). */
   static bram(blocks: number, kbEach: number): CrossFormula { return f('fpga-bram', 'bram(blocks, kbEach) = blocks · kbEach (Kb)', blocks * kbEach, nat(blocks, kbEach), 'bram', [blocks, kbEach]) }
   /** FMAX — the maximum clock from the critical-path period in picoseconds. value ⌊1000000 / periodPs⌋ (MHz); holds periodPs > 0. */
-  static fmax(periodPs: number): CrossFormula { return f('fpga-fmax', 'fmax(periodPs) = ⌊1000000 / periodPs⌋ (MHz)', periodPs > 0 ? Math.floor(1000000 / periodPs) : 0, nat(periodPs) && periodPs > 0, 'fmax', [periodPs]) }
+  static fmax(periodPs: number): CrossFormula { return f('fpga-fmax', 'fmax(periodPs) = ⌊1000000 / periodPs⌋ (MHz)', periodPs > 0 ? quot(1000000, periodPs) : 0, nat(periodPs) && periodPs > 0, 'fmax', [periodPs]) }
   /** UTILIZATION — fabric utilisation: used resources as a percentage of the total. value ⌊used · 100 / total⌋; holds total > 0 and used ≤ total. */
-  static utilization(used: number, total: number): CrossFormula { return f('fpga-utilization', 'utilization(used, total) = ⌊used · 100 / total⌋', total > 0 ? Math.floor((used * 100) / total) : 0, nat(used, total) && total > 0 && used <= total, 'utilization', [used, total]) }
+  static utilization(used: number, total: number): CrossFormula { return f('fpga-utilization', 'utilization(used, total) = ⌊used · 100 / total⌋', total > 0 ? quot((used * 100), total) : 0, nat(used, total) && total > 0 && used <= total, 'utilization', [used, total]) }
   /** PIPELINE — pipeline depth: the register stages plus the combinational latency. value stages + latency. */
   static pipeline(stages: number, latency: number): CrossFormula { return f('fpga-pipeline', 'pipeline(stages, latency) = stages + latency', stages + latency, nat(stages, latency), 'pipeline', [stages, latency]) }
   /** THROUGHPUT — streaming throughput: the clock times the results produced each cycle. value fmaxMHz · perClock. */

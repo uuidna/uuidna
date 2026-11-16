@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, quot } from '../../exact.js'
 
 /** NIC — THE NETWORK INTERFACE CARD, AS ARITHMETIC. A network adapter is numbers by the book: the line rate, goodput
  *  after efficiency, packets per second from the frame size, the MTU, per-frame overhead, the full-duplex aggregate,
@@ -15,9 +16,9 @@ export class NicFormulas {
   /** LINERATE — the nominal line rate of the link. value gbps (Gb/s); holds nat. */
   static linerate(gbps: number): CrossFormula { return n('nic-linerate', 'linerate(gbps) = gbps (Gb/s)', gbps, nat(gbps), 'linerate', [gbps]) }
   /** THROUGHPUT — goodput: the line rate scaled by the efficiency percentage. value ⌊gbps · efficiencyPct / 100⌋; holds efficiencyPct ≤ 100. */
-  static throughput(gbps: number, efficiencyPct: number): CrossFormula { return n('nic-throughput', 'throughput(gbps, efficiencyPct) = ⌊gbps · efficiencyPct / 100⌋', Math.floor((gbps * efficiencyPct) / 100), nat(gbps, efficiencyPct) && efficiencyPct <= 100, 'throughput', [gbps, efficiencyPct]) }
+  static throughput(gbps: number, efficiencyPct: number): CrossFormula { return n('nic-throughput', 'throughput(gbps, efficiencyPct) = ⌊gbps · efficiencyPct / 100⌋', quot((gbps * efficiencyPct), 100), nat(gbps, efficiencyPct) && efficiencyPct <= 100, 'throughput', [gbps, efficiencyPct]) }
   /** PACKETS — packets per second the line rate carries at a given frame size. value ⌊gbps · 125000000 / frameBytes⌋; holds frameBytes > 0. */
-  static packets(gbps: number, frameBytes: number): CrossFormula { return n('nic-packets', 'packets(gbps, frameBytes) = ⌊gbps · 125000000 / frameBytes⌋ (pps)', frameBytes > 0 ? Math.floor((gbps * 125000000) / frameBytes) : 0, nat(gbps, frameBytes) && frameBytes > 0, 'packets', [gbps, frameBytes]) }
+  static packets(gbps: number, frameBytes: number): CrossFormula { return n('nic-packets', 'packets(gbps, frameBytes) = ⌊gbps · 125000000 / frameBytes⌋ (pps)', frameBytes > 0 ? quot((gbps * 125000000), frameBytes) : 0, nat(gbps, frameBytes) && frameBytes > 0, 'packets', [gbps, frameBytes]) }
   /** MTU — the maximum transmission unit in bytes. value bytes; holds nat. */
   static mtu(bytes: number): CrossFormula { return n('nic-mtu', 'mtu(bytes) = bytes', bytes, nat(bytes), 'mtu', [bytes]) }
   /** OVERHEAD — the framing overhead: the frame bytes beyond the payload. value frameBytes − payloadBytes; holds payloadBytes ≤ frameBytes. */
@@ -27,7 +28,7 @@ export class NicFormulas {
   /** QUEUES — the receive-side scaling queues: cores times the queues each core drives. value cores · perCore. */
   static queues(cores: number, perCore: number): CrossFormula { return n('nic-queues', 'queues(cores, perCore) = cores · perCore (RSS)', cores * perCore, nat(cores, perCore), 'queues', [cores, perCore]) }
   /** INTERRUPTS — the interrupts raised after coalescing a count of packets. value ⌈packets / coalesce⌉; holds coalesce > 0. */
-  static interrupts(packets: number, coalesce: number): CrossFormula { return n('nic-interrupts', 'interrupts(packets, coalesce) = ⌈packets / coalesce⌉', coalesce > 0 ? Math.ceil(packets / coalesce) : 0, nat(packets, coalesce) && coalesce > 0, 'interrupts', [packets, coalesce]) }
+  static interrupts(packets: number, coalesce: number): CrossFormula { return n('nic-interrupts', 'interrupts(packets, coalesce) = ⌈packets / coalesce⌉', coalesce > 0 ? ceilQuot(packets, coalesce) : 0, nat(packets, coalesce) && coalesce > 0, 'interrupts', [packets, coalesce]) }
   /** LATENCY — path latency: the per-hop delay across the hops, in microseconds. value hops · perHopUs (µs). */
   static latency(hops: number, perHopUs: number): CrossFormula { return n('nic-latency', 'latency(hops, perHopUs) = hops · perHopUs (µs)', hops * perHopUs, nat(hops, perHopUs), 'latency', [hops, perHopUs]) }
   /** BANDWIDTH — aggregate bandwidth across the link's lanes. value lanes · perLaneGbps (Gb/s). */

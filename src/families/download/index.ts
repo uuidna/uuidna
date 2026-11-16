@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, maxOf, quot } from '../../exact.js'
 
 /** DOWNLOAD — THE DOWNLOAD BLOCK USE CASE FROM payloadcms/website, AS ARITHMETIC. A file served to a browser is numbers:
  *  the transfer rate, the time left, how far it has come, the chunks it splits into, what remains to resume, the formats
@@ -13,19 +14,19 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class DownloadFormulas {
   /** TRANSFER RATE: bytes over seconds. value ⌊bytes / seconds⌋. */
-  static rate(bytes: number, seconds: number): CrossFormula { return c('download-rate', 'rate(bytes, seconds) = ⌊bytes / seconds⌋', seconds > 0 ? Math.floor(bytes / seconds) : 0, nat(bytes, seconds) && seconds > 0, 'rate', [bytes, seconds]) }
+  static rate(bytes: number, seconds: number): CrossFormula { return c('download-rate', 'rate(bytes, seconds) = ⌊bytes / seconds⌋', seconds > 0 ? quot(bytes, seconds) : 0, nat(bytes, seconds) && seconds > 0, 'rate', [bytes, seconds]) }
   /** ETA: the seconds left for the remaining bytes at a rate. value ⌈bytes / rate⌉. */
-  static eta(bytes: number, rate: number): CrossFormula { return c('download-eta', 'eta(bytes, rate) = ⌈bytes / rate⌉', rate > 0 ? Math.ceil(bytes / rate) : 0, nat(bytes, rate) && rate > 0, 'eta', [bytes, rate]) }
+  static eta(bytes: number, rate: number): CrossFormula { return c('download-eta', 'eta(bytes, rate) = ⌈bytes / rate⌉', rate > 0 ? ceilQuot(bytes, rate) : 0, nat(bytes, rate) && rate > 0, 'eta', [bytes, rate]) }
   /** PROGRESS as a percentage. value ⌊done · 100 / total⌋. */
-  static progress(done: number, total: number): CrossFormula { return c('download-progress', 'progress(done, total) = ⌊done · 100 / total⌋', total > 0 ? Math.floor((done * 100) / total) : 0, nat(done, total) && total > 0 && done <= total, 'progress', [done, total]) }
+  static progress(done: number, total: number): CrossFormula { return c('download-progress', 'progress(done, total) = ⌊done · 100 / total⌋', total > 0 ? quot((done * 100), total) : 0, nat(done, total) && total > 0 && done <= total, 'progress', [done, total]) }
   /** CHUNKS: the pieces a file splits into at a size each. value ⌈bytes / per⌉. */
-  static chunks(bytes: number, per: number): CrossFormula { return c('download-chunks', 'chunks(bytes, per) = ⌈bytes / per⌉', per > 0 ? Math.ceil(bytes / per) : 0, nat(bytes, per) && per > 0, 'chunks', [bytes, per]) }
+  static chunks(bytes: number, per: number): CrossFormula { return c('download-chunks', 'chunks(bytes, per) = ⌈bytes / per⌉', per > 0 ? ceilQuot(bytes, per) : 0, nat(bytes, per) && per > 0, 'chunks', [bytes, per]) }
   /** RESUME: the bytes that remain after an interruption. value max(0, total − done). */
-  static resume(done: number, total: number): CrossFormula { return c('download-resume', 'resume(done, total) = max(0, total − done)', Math.max(0, total - done), nat(done, total), 'resume', [done, total]) }
+  static resume(done: number, total: number): CrossFormula { return c('download-resume', 'resume(done, total) = max(0, total − done)', maxOf(0, total - done), nat(done, total), 'resume', [done, total]) }
   /** FORMATS: the count of formats offered. value count. */
   static formats(count: number): CrossFormula { return c('download-formats', 'formats(count) = count', count, nat(count), 'formats', [count]) }
   /** CHECKSUM: the share of blocks that validated, as a percentage. value ⌊valid · 100 / total⌋. */
-  static checksum(valid: number, total: number): CrossFormula { return c('download-checksum', 'checksum(valid, total) = ⌊valid · 100 / total⌋', total > 0 ? Math.floor((valid * 100) / total) : 0, nat(valid, total) && total > 0 && valid <= total, 'checksum', [valid, total]) }
+  static checksum(valid: number, total: number): CrossFormula { return c('download-checksum', 'checksum(valid, total) = ⌊valid · 100 / total⌋', total > 0 ? quot((valid * 100), total) : 0, nat(valid, total) && total > 0 && valid <= total, 'checksum', [valid, total]) }
   /** SIZE: files at a size each. value files · each. */
   static size(files: number, each: number): CrossFormula { return c('download-size', 'size(files, each) = files · each', files * each, nat(files, each), 'size', [files, each]) }
 }

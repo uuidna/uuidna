@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, maxOf, quot } from '../../exact.js'
 
 /** MANIFOLD — THE SHAPE OF SPACE, AS ARITHMETIC. A manifold is counted: its dimension, the genus of a surface, the Betti
  *  numbers that count holes, the Euler characteristic V − E + F, the charts an atlas needs, the boundary components, whether
@@ -12,17 +13,17 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class ManifoldFormulas {
   /** DIMENSION of a submanifold: the ambient dimension less its codimension. value max(0, ambient − codim). */
-  static dimension(ambient: number, codim: number): CrossFormula { return c('manifold-dimension', 'dimension(ambient, codim) = max(0, ambient − codim)', Math.max(0, ambient - codim), nat(ambient, codim), 'dimension', [ambient, codim]) }
+  static dimension(ambient: number, codim: number): CrossFormula { return c('manifold-dimension', 'dimension(ambient, codim) = max(0, ambient − codim)', maxOf(0, ambient - codim), nat(ambient, codim), 'dimension', [ambient, codim]) }
   /** GENUS of a closed orientable surface from its Euler characteristic. value max(0, ⌊(2 − euler) / 2⌋). */
-  static genus(euler: number): CrossFormula { return c('manifold-genus', 'genus(euler) = max(0, ⌊(2 − euler) / 2⌋)', Math.max(0, Math.floor((2 - euler) / 2)), nat(euler), 'genus', [euler]) }
+  static genus(euler: number): CrossFormula { return c('manifold-genus', 'genus(euler) = max(0, ⌊(2 − euler) / 2⌋)', maxOf(0, quot((2 - euler), 2)), nat(euler), 'genus', [euler]) }
   /** BETTI NUMBER: cycles that are not boundaries. value max(0, cycles − boundaries). */
-  static bettinumber(cycles: number, boundaries: number): CrossFormula { return c('manifold-bettinumber', 'bettinumber(cycles, boundaries) = max(0, cycles − boundaries)', Math.max(0, cycles - boundaries), nat(cycles, boundaries), 'bettinumber', [cycles, boundaries]) }
+  static bettinumber(cycles: number, boundaries: number): CrossFormula { return c('manifold-bettinumber', 'bettinumber(cycles, boundaries) = max(0, cycles − boundaries)', maxOf(0, cycles - boundaries), nat(cycles, boundaries), 'bettinumber', [cycles, boundaries]) }
   /** EULER CHARACTERISTIC: vertices minus edges plus faces. value max(0, v + f − e). */
-  static eulercharacteristic(v: number, e: number, f: number): CrossFormula { return c('manifold-eulercharacteristic', 'eulercharacteristic(v, e, f) = max(0, v + f − e)', Math.max(0, v + f - e), nat(v, e, f), 'eulercharacteristic', [v, e, f]) }
+  static eulercharacteristic(v: number, e: number, f: number): CrossFormula { return c('manifold-eulercharacteristic', 'eulercharacteristic(v, e, f) = max(0, v + f − e)', maxOf(0, v + f - e), nat(v, e, f), 'eulercharacteristic', [v, e, f]) }
   /** CHART COUNT: the charts an atlas needs to cover its points at a per-chart capacity. value ⌈points / perChart⌉. */
-  static chartcount(points: number, perChart: number): CrossFormula { return c('manifold-chartcount', 'chartcount(points, perChart) = ⌈points / perChart⌉', perChart > 0 ? Math.ceil(points / perChart) : 0, nat(points, perChart) && perChart > 0, 'chartcount', [points, perChart]) }
+  static chartcount(points: number, perChart: number): CrossFormula { return c('manifold-chartcount', 'chartcount(points, perChart) = ⌈points / perChart⌉', perChart > 0 ? ceilQuot(points, perChart) : 0, nat(points, perChart) && perChart > 0, 'chartcount', [points, perChart]) }
   /** BOUNDARY COMPONENTS: the cells on the boundary, the interior removed. value max(0, cells − interior). */
-  static boundarycomponents(cells: number, interior: number): CrossFormula { return c('manifold-boundarycomponents', 'boundarycomponents(cells, interior) = max(0, cells − interior)', Math.max(0, cells - interior), nat(cells, interior), 'boundarycomponents', [cells, interior]) }
+  static boundarycomponents(cells: number, interior: number): CrossFormula { return c('manifold-boundarycomponents', 'boundarycomponents(cells, interior) = max(0, cells − interior)', maxOf(0, cells - interior), nat(cells, interior), 'boundarycomponents', [cells, interior]) }
   /** ORIENTABILITY: 1 when the surface carries no cross-caps. value [crosscaps = 0]. */
   static orientability(genus: number, crosscaps: number): CrossFormula { return c('manifold-orientability', 'orientability(genus, crosscaps) = [crosscaps = 0]', crosscaps === 0 ? 1 : 0, nat(genus, crosscaps), 'orientability', [genus, crosscaps]) }
   /** HOMOLOGY RANK: the total rank, the Betti numbers summed. value b0 + b1 + b2. */

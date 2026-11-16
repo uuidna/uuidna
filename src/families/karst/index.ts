@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, minOf, quot, roundOf } from '../../exact.js'
 
 /** KARST — scaffolded integer measures crossed to geology. Every output an exact finite nonnegative integer. */
 
@@ -10,13 +11,13 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class KarstFormulas {
   static cavelength(x: number, y: number): CrossFormula { return c('karst-cavelength', 'cavelength(x, y) = x · y', x * y, nat(x, y), 'cavelength', [x, y]) }
-  static dissolutionrate(x: number, y: number): CrossFormula { return c('karst-dissolutionrate', 'dissolutionrate(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'dissolutionrate', [x, y]) }
-  static sinkholedensity(x: number, y: number): CrossFormula { return c('karst-sinkholedensity', 'sinkholedensity(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'sinkholedensity', [x, y]) }
-  static conduitpairs(x: number, y: number): CrossFormula { return c('karst-conduitpairs', 'conduitpairs(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'conduitpairs', [x, y]) }
-  static porosity(x: number, y: number): CrossFormula { return c('karst-porosity', 'porosity(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'porosity', [x, y]) }
-  static rechargerate(x: number, y: number): CrossFormula { return c('karst-rechargerate', 'rechargerate(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'rechargerate', [x, y]) }
+  static dissolutionrate(x: number, y: number): CrossFormula { return c('karst-dissolutionrate', 'dissolutionrate(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'dissolutionrate', [x, y]) }
+  static sinkholedensity(x: number, y: number): CrossFormula { return c('karst-sinkholedensity', 'sinkholedensity(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'sinkholedensity', [x, y]) }
+  static conduitpairs(x: number, y: number): CrossFormula { return c('karst-conduitpairs', 'conduitpairs(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'conduitpairs', [x, y]) }
+  static porosity(x: number, y: number): CrossFormula { return c('karst-porosity', 'porosity(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'porosity', [x, y]) }
+  static rechargerate(x: number, y: number): CrossFormula { return c('karst-rechargerate', 'rechargerate(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'rechargerate', [x, y]) }
   static passageorderings(x: number): CrossFormula { return c('karst-passageorderings', 'passageorderings(x) = x!', x <= 12 ? ((n: number) => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r })(x) : 0, nat(x) && x <= 12, 'passageorderings', [x]) }
-  static aquiferdepth(x: number, y: number): CrossFormula { return c('karst-aquiferdepth', 'aquiferdepth(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x, y), 'aquiferdepth', [x, y]) }
+  static aquiferdepth(x: number, y: number): CrossFormula { return c('karst-aquiferdepth', 'aquiferdepth(x, y) = max(0, x − y)', maxOf(0, x - y), nat(x, y), 'aquiferdepth', [x, y]) }
 }
 
 for (const name of ['aquiferdepth', 'cavelength', 'conduitpairs', 'dissolutionrate', 'passageorderings', 'porosity', 'rechargerate', 'sinkholedensity'] as const)

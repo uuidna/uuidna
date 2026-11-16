@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, minOf, quot, roundOf } from '../../exact.js'
 
 /** INEQUALITY — scaffolded integer measures crossed to statistics. Every output an exact finite nonnegative integer. */
 
@@ -9,14 +10,14 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
   crossFormulaOf({ id, src: 'inequality', dst: 'statistics', formula, value, proof: PROOF, ...extra }, holds, { name: `inequality.${name}`, params })
 
 export class InequalityFormulas {
-  static giniscaled(x: number, y: number): CrossFormula { return c('inequality-giniscaled', 'giniscaled(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'giniscaled', [x, y]) }
-  static quintileratio(x: number, y: number): CrossFormula { return c('inequality-quintileratio', 'quintileratio(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'quintileratio', [x, y]) }
-  static palmaratio(x: number, y: number): CrossFormula { return c('inequality-palmaratio', 'palmaratio(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'palmaratio', [x, y]) }
-  static lorenzgap(x: number, y: number): CrossFormula { return c('inequality-lorenzgap', 'lorenzgap(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x, y), 'lorenzgap', [x, y]) }
-  static percentilepairs(x: number, y: number): CrossFormula { return c('inequality-percentilepairs', 'percentilepairs(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'percentilepairs', [x, y]) }
-  static topshare(x: number, y: number): CrossFormula { return c('inequality-topshare', 'topshare(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'topshare', [x, y]) }
+  static giniscaled(x: number, y: number): CrossFormula { return c('inequality-giniscaled', 'giniscaled(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'giniscaled', [x, y]) }
+  static quintileratio(x: number, y: number): CrossFormula { return c('inequality-quintileratio', 'quintileratio(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'quintileratio', [x, y]) }
+  static palmaratio(x: number, y: number): CrossFormula { return c('inequality-palmaratio', 'palmaratio(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'palmaratio', [x, y]) }
+  static lorenzgap(x: number, y: number): CrossFormula { return c('inequality-lorenzgap', 'lorenzgap(x, y) = max(0, x − y)', maxOf(0, x - y), nat(x, y), 'lorenzgap', [x, y]) }
+  static percentilepairs(x: number, y: number): CrossFormula { return c('inequality-percentilepairs', 'percentilepairs(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'percentilepairs', [x, y]) }
+  static topshare(x: number, y: number): CrossFormula { return c('inequality-topshare', 'topshare(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'topshare', [x, y]) }
   static deciles(x: number, y: number): CrossFormula { return c('inequality-deciles', 'deciles(x, y) = x + y', x + y, nat(x, y), 'deciles', [x, y]) }
-  static theilindex(x: number, y: number): CrossFormula { return c('inequality-theilindex', 'theilindex(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'theilindex', [x, y]) }
+  static theilindex(x: number, y: number): CrossFormula { return c('inequality-theilindex', 'theilindex(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'theilindex', [x, y]) }
 }
 
 for (const name of ['deciles', 'giniscaled', 'lorenzgap', 'palmaratio', 'percentilepairs', 'quintileratio', 'theilindex', 'topshare'] as const)

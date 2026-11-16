@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** BACKHAUL — scaffolded integer measures crossed to logistics. Every output an exact finite nonnegative integer. */
 
@@ -9,13 +10,13 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
   crossFormulaOf({ id, src: 'backhaul', dst: 'logistics', formula, value, proof: PROOF, ...extra }, holds, { name: `backhaul.${name}`, params })
 
 export class BackhaulFormulas {
-  static emptymiles(x: number, y: number): CrossFormula { return c('backhaul-emptymiles', 'emptymiles(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x, y), 'emptymiles', [x, y]) }
-  static utilization(x: number, y: number): CrossFormula { return c('backhaul-utilization', 'utilization(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'utilization', [x, y]) }
+  static emptymiles(x: number, y: number): CrossFormula { return c('backhaul-emptymiles', 'emptymiles(x, y) = max(0, x − y)', maxOf(0, x - y), nat(x, y), 'emptymiles', [x, y]) }
+  static utilization(x: number, y: number): CrossFormula { return c('backhaul-utilization', 'utilization(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'utilization', [x, y]) }
   static revenuemiles(x: number, y: number): CrossFormula { return c('backhaul-revenuemiles', 'revenuemiles(x, y) = x · y', x * y, nat(x, y), 'revenuemiles', [x, y]) }
-  static matchrate(x: number, y: number): CrossFormula { return c('backhaul-matchrate', 'matchrate(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'matchrate', [x, y]) }
-  static deadheadratio(x: number, y: number): CrossFormula { return c('backhaul-deadheadratio', 'deadheadratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'deadheadratio', [x, y]) }
+  static matchrate(x: number, y: number): CrossFormula { return c('backhaul-matchrate', 'matchrate(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'matchrate', [x, y]) }
+  static deadheadratio(x: number, y: number): CrossFormula { return c('backhaul-deadheadratio', 'deadheadratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'deadheadratio', [x, y]) }
   static savings(x: number, y: number): CrossFormula { return c('backhaul-savings', 'savings(x, y) = x · y', x * y, nat(x, y), 'savings', [x, y]) }
-  static payloadratio(x: number, y: number): CrossFormula { return c('backhaul-payloadratio', 'payloadratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'payloadratio', [x, y]) }
+  static payloadratio(x: number, y: number): CrossFormula { return c('backhaul-payloadratio', 'payloadratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'payloadratio', [x, y]) }
   static cycledistance(x: number, y: number): CrossFormula { return c('backhaul-cycledistance', 'cycledistance(x, y) = x + y', x + y, nat(x, y), 'cycledistance', [x, y]) }
 }
 

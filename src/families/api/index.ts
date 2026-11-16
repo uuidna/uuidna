@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** API — the web interface's own arithmetic. Pages of a result set, a per-second rate-limit budget, exponential retry
  *  backoff, the status class of a code, quota remaining, a body's bytes, the method subsets a count opens, and a page's
@@ -7,8 +8,8 @@ import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 
 const PROOF = 'api counts: pages = ceil(total / perPage); window = limit / seconds; backoff = base · 2^attempt; statusClass = code / 100; remaining = max(0, quota − used); payload = fields · avg; methods = 2^k; offset = page · perPage; ratelimit = requests / windowSec; quota = limit − used; pagesize = ceil(total / perPage); latency = hops · perHop; throughput = rps · payload; retries = attempts − 1; versions = major·100 + minor; api crossed to software'
 const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
-const div = (a: number, b: number) => (b > 0 ? Math.floor(a / b) : 0)
-const ceilDiv = (a: number, b: number) => (b > 0 ? Math.floor((a + b - 1) / b) : 0)
+const div = (a: number, b: number) => (b > 0 ? quot(a, b) : 0)
+const ceilDiv = (a: number, b: number) => (b > 0 ? quot((a + b - 1), b) : 0)
 const f = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
   crossFormulaOf({ id, src: 'api', dst: 'software', formula, value, proof: PROOF, ...extra }, holds, { name: `api.${name}`, params })
 
@@ -22,7 +23,7 @@ export class ApiFormulas {
   /** The status class of an HTTP `code`: code / 100 (2, 3, 4, 5). */
   static statusClass(code: number): CrossFormula { return f('api-statusClass', 'statusClass(code) = code / 100', div(code, 100), nat(code), 'statusClass', [code]) }
   /** Quota left after `used` of `quota`: max(0, quota − used). */
-  static remaining(quota: number, used: number): CrossFormula { return f('api-remaining', 'remaining(quota, used) = max(0, quota − used)', Math.max(0, quota - used), nat(quota, used), 'remaining', [quota, used]) }
+  static remaining(quota: number, used: number): CrossFormula { return f('api-remaining', 'remaining(quota, used) = max(0, quota − used)', maxOf(0, quota - used), nat(quota, used), 'remaining', [quota, used]) }
   /** A body's bytes: `fields` of `avg` bytes each: fields · avg. */
   static payload(fields: number, avg: number): CrossFormula { return f('api-payload', 'payload(fields, avg) = fields · avg', fields * avg, nat(fields, avg), 'payload', [fields, avg]) }
   /** The method subsets `k` HTTP verbs open: 2^k (k ≤ 30). */

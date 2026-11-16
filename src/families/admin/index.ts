@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** ADMIN — THE PAYLOAD CMS ADMIN UI, AS ARITHMETIC (its config chosen by the registry, not by hand). The dashboard is numbers:
  *  the columns a list shows, how collections fan out into nav groups, the share of fields a component overrides, which
@@ -13,21 +14,21 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class AdminFormulas {
   /** LIST COLUMNS: the share of columns a list shows. value ⌊shown · 100 / total⌋. */
-  static columns(shown: number, total: number): CrossFormula { return c('admin-columns', 'columns(shown, total) = ⌊shown · 100 / total⌋', total > 0 ? Math.floor((shown * 100) / total) : 0, nat(shown, total) && total > 0 && shown <= total, 'columns', [shown, total]) }
+  static columns(shown: number, total: number): CrossFormula { return c('admin-columns', 'columns(shown, total) = ⌊shown · 100 / total⌋', total > 0 ? quot((shown * 100), total) : 0, nat(shown, total) && total > 0 && shown <= total, 'columns', [shown, total]) }
   /** CUSTOM COMPONENTS: the share of UI a component overrides. value ⌊custom · 100 / total⌋. */
-  static components(custom: number, total: number): CrossFormula { return c('admin-components', 'components(custom, total) = ⌊custom · 100 / total⌋', total > 0 ? Math.floor((custom * 100) / total) : 0, nat(custom, total) && total > 0 && custom <= total, 'components', [custom, total]) }
+  static components(custom: number, total: number): CrossFormula { return c('admin-components', 'components(custom, total) = ⌊custom · 100 / total⌋', total > 0 ? quot((custom * 100), total) : 0, nat(custom, total) && total > 0 && custom <= total, 'components', [custom, total]) }
   /** LIST DENSITY: the fields packed into each row. value ⌊fields / rows⌋. */
-  static density(fields: number, rows: number): CrossFormula { return c('admin-density', 'density(fields, rows) = ⌊fields / rows⌋', rows > 0 ? Math.floor(fields / rows) : 0, nat(fields, rows) && rows > 0, 'density', [fields, rows]) }
+  static density(fields: number, rows: number): CrossFormula { return c('admin-density', 'density(fields, rows) = ⌊fields / rows⌋', rows > 0 ? quot(fields, rows) : 0, nat(fields, rows) && rows > 0, 'density', [fields, rows]) }
   /** NAV GROUPS: the collections gathered into each group. value ⌊collections / groups⌋. */
-  static groups(collections: number, groups: number): CrossFormula { return c('admin-groups', 'groups(collections, groups) = ⌊collections / groups⌋', groups > 0 ? Math.floor(collections / groups) : 0, nat(collections, groups) && groups > 0, 'groups', [collections, groups]) }
+  static groups(collections: number, groups: number): CrossFormula { return c('admin-groups', 'groups(collections, groups) = ⌊collections / groups⌋', groups > 0 ? quot(collections, groups) : 0, nat(collections, groups) && groups > 0, 'groups', [collections, groups]) }
   /** HIDDEN FIELDS: the share of fields kept out of the admin. value ⌊hidden · 100 / total⌋. */
-  static hidden(hidden: number, total: number): CrossFormula { return c('admin-hidden', 'hidden(hidden, total) = ⌊hidden · 100 / total⌋', total > 0 ? Math.floor((hidden * 100) / total) : 0, nat(hidden, total) && total > 0 && hidden <= total, 'hidden', [hidden, total]) }
+  static hidden(hidden: number, total: number): CrossFormula { return c('admin-hidden', 'hidden(hidden, total) = ⌊hidden · 100 / total⌋', total > 0 ? quot((hidden * 100), total) : 0, nat(hidden, total) && total > 0 && hidden <= total, 'hidden', [hidden, total]) }
   /** LOAD COST: the custom components at a cost of milliseconds each. value components · ms. */
   static load(components: number, ms: number): CrossFormula { return c('admin-load', 'load(components, ms) = components · ms', components * ms, nat(components, ms), 'load', [components, ms]) }
   /** NAV ITEMS: the nav items carried by each group. value ⌊items / groups⌋. */
-  static nav(items: number, groups: number): CrossFormula { return c('admin-nav', 'nav(items, groups) = ⌊items / groups⌋', groups > 0 ? Math.floor(items / groups) : 0, nat(items, groups) && groups > 0, 'nav', [items, groups]) }
+  static nav(items: number, groups: number): CrossFormula { return c('admin-nav', 'nav(items, groups) = ⌊items / groups⌋', groups > 0 ? quot(items, groups) : 0, nat(items, groups) && groups > 0, 'nav', [items, groups]) }
   /** LIVE PREVIEW: the share of collections with a live preview. value ⌊enabled · 100 / collections⌋. */
-  static preview(enabled: number, collections: number): CrossFormula { return c('admin-preview', 'preview(enabled, collections) = ⌊enabled · 100 / collections⌋', collections > 0 ? Math.floor((enabled * 100) / collections) : 0, nat(enabled, collections) && collections > 0 && enabled <= collections, 'preview', [enabled, collections]) }
+  static preview(enabled: number, collections: number): CrossFormula { return c('admin-preview', 'preview(enabled, collections) = ⌊enabled · 100 / collections⌋', collections > 0 ? quot((enabled * 100), collections) : 0, nat(enabled, collections) && collections > 0 && enabled <= collections, 'preview', [enabled, collections]) }
 }
 
 for (const name of ['columns', 'components', 'density', 'groups', 'hidden', 'load', 'nav', 'preview'] as const)

@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** DESIGNTHEORY — BLOCK DESIGNS AS ARITHMETIC. A balanced incomplete block design (BIBD) is numbers by the book
  *  (van Lint & Wilson, A Course in Combinatorics): the two flag counts v·r and b·k that a 2-design equates, the
@@ -21,13 +22,13 @@ export class DesignTheoryFormulas {
   /** LAMBDACHECK — the left side of the 2-design identity r(k−1) = λ(v−1), the pairs through a point. value r · (k − 1). */
   static lambdacheck(v: number, r: number, k: number): CrossFormula { return d('designtheory-lambdacheck', 'lambdacheck(v, r, k) = r · (k − 1) [= λ(v − 1)]', r * (k - 1), nat(v, r, k) && k >= 1, 'lambdacheck', [v, r, k]) }
   /** REPLICATION — the replication number r from the design identity r(k−1)=λ(v−1). value ⌊λ(v−1)/(k−1)⌋; holds k > 1. */
-  static replication(lambda: number, v: number, k: number): CrossFormula { return d('designtheory-replication', 'replication(λ, v, k) = ⌊λ(v − 1) / (k − 1)⌋', k > 1 ? Math.floor((lambda * (v - 1)) / (k - 1)) : 0, nat(lambda, v, k) && k > 1, 'replication', [lambda, v, k]) }
+  static replication(lambda: number, v: number, k: number): CrossFormula { return d('designtheory-replication', 'replication(λ, v, k) = ⌊λ(v − 1) / (k − 1)⌋', k > 1 ? quot((lambda * (v - 1)), (k - 1)) : 0, nat(lambda, v, k) && k > 1, 'replication', [lambda, v, k]) }
   /** BLOCKS — the block count from the flag identity vr = bk. value ⌊v·r / k⌋; holds k > 0. */
-  static blocks(v: number, r: number, k: number): CrossFormula { return d('designtheory-blocks', 'blocks(v, r, k) = ⌊v · r / k⌋', k > 0 ? Math.floor((v * r) / k) : 0, nat(v, r, k) && k > 0, 'blocks', [v, r, k]) }
+  static blocks(v: number, r: number, k: number): CrossFormula { return d('designtheory-blocks', 'blocks(v, r, k) = ⌊v · r / k⌋', k > 0 ? quot((v * r), k) : 0, nat(v, r, k) && k > 0, 'blocks', [v, r, k]) }
   /** FISHER — Fisher's inequality: a 2-design has at least as many blocks as points. value [b ≥ v]. */
   static fisher(b: number, v: number): CrossFormula { return d('designtheory-fisher', "fisher(b, v) = [b ≥ v] (Fisher's inequality, 1 holds)", b >= v ? 1 : 0, nat(b, v), 'fisher', [b, v]) }
   /** STEINERTRIPLES — triples in a Steiner triple system on v points: each covers one of the ½v(v−1) pairs, three per triple. value ⌊v(v−1)/6⌋. */
-  static steinertriples(v: number): CrossFormula { return d('designtheory-steinertriples', 'steinertriples(v) = ⌊v(v − 1) / 6⌋', Math.floor((v * (v - 1)) / 6), nat(v), 'steinertriples', [v]) }
+  static steinertriples(v: number): CrossFormula { return d('designtheory-steinertriples', 'steinertriples(v) = ⌊v(v − 1) / 6⌋', quot((v * (v - 1)), 6), nat(v), 'steinertriples', [v]) }
   /** POINTS — the point count of a design, the ground set. value v. */
   static points(v: number): CrossFormula { return d('designtheory-points', 'points(v) = v', v, nat(v), 'points', [v]) }
   /** PAIRS — the unordered pairs of v points, the 2-subsets a design balances. value v(v−1)/2. */
@@ -35,9 +36,9 @@ export class DesignTheoryFormulas {
   /** PROJECTIVEORDER — points (and lines) of the projective plane PG(2,n) of order n. value n² + n + 1. */
   static projectiveorder(n: number): CrossFormula { return d('designtheory-projectiveorder', 'projectiveorder(n) = n² + n + 1 (points of PG(2,n))', n * n + n + 1, nat(n), 'projectiveorder', [n]) }
   /** REPLICATIONS — the replication number r from the flag identity bk = vr. value ⌊b·k / v⌋; holds v > 0. */
-  static replications(b: number, k: number, v: number): CrossFormula { return d('designtheory-replications', 'replications(b, k, v) = ⌊b · k / v⌋', v > 0 ? Math.floor((b * k) / v) : 0, nat(b, k, v) && v > 0, 'replications', [b, k, v]) }
+  static replications(b: number, k: number, v: number): CrossFormula { return d('designtheory-replications', 'replications(b, k, v) = ⌊b · k / v⌋', v > 0 ? quot((b * k), v) : 0, nat(b, k, v) && v > 0, 'replications', [b, k, v]) }
   /** BLOCKCOUNT — the block count b of a 2-design from its parameters, b = λv(v−1)/(k(k−1)). value ⌊λv(v−1)/(k(k−1))⌋; holds k > 1. */
-  static blockcount(lambda: number, v: number, k: number): CrossFormula { return d('designtheory-blockcount', 'blockcount(λ, v, k) = ⌊λv(v − 1) / (k(k − 1))⌋', k > 1 ? Math.floor((lambda * v * (v - 1)) / (k * (k - 1))) : 0, nat(lambda, v, k) && k > 1, 'blockcount', [lambda, v, k]) }
+  static blockcount(lambda: number, v: number, k: number): CrossFormula { return d('designtheory-blockcount', 'blockcount(λ, v, k) = ⌊λv(v − 1) / (k(k − 1))⌋', k > 1 ? quot((lambda * v * (v - 1)), (k * (k - 1))) : 0, nat(lambda, v, k) && k > 1, 'blockcount', [lambda, v, k]) }
   /** LINEORDER — points on a line of PG(2,n) (equivalently lines through a point), n + 1. value n + 1. */
   static lineorder(n: number): CrossFormula { return d('designtheory-lineorder', 'lineorder(n) = n + 1 (points per line of PG(2,n))', n + 1, nat(n), 'lineorder', [n]) }
   /** AFFINEPOINTS — points of the affine plane AG(2,n) of order n. value n². */

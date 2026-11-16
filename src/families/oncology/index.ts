@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** ONCOLOGY — THE MEASURE OF A TUMOUR, AS ARITHMETIC (chosen by the clinical registry, not by hand). Cancer is numbers:
  *  the TNM stage, the grade, survival, how fast it doubles, how far it shrank under treatment, the burden per volume,
@@ -16,15 +17,15 @@ export class OncologyFormulas {
   /** GRADE: the histological grade, a natural as given. value score. */
   static grade(score: number): CrossFormula { return c('oncology-grade', 'grade(score) = score', score, nat(score), 'grade', [score]) }
   /** SURVIVAL as a percentage. value ⌊alive · 100 / total⌋. */
-  static survival(alive: number, total: number): CrossFormula { return c('oncology-survival', 'survival(alive, total) = ⌊alive · 100 / total⌋', total > 0 ? Math.floor((alive * 100) / total) : 0, nat(alive, total) && total > 0 && alive <= total, 'survival', [alive, total]) }
+  static survival(alive: number, total: number): CrossFormula { return c('oncology-survival', 'survival(alive, total) = ⌊alive · 100 / total⌋', total > 0 ? quot((alive * 100), total) : 0, nat(alive, total) && total > 0 && alive <= total, 'survival', [alive, total]) }
   /** DOUBLING: the growth over the previous count, never negative. value max(0, current − previous). */
-  static doubling(current: number, previous: number): CrossFormula { return c('oncology-doubling', 'doubling(current, previous) = max(0, current − previous)', Math.max(0, current - previous), nat(current, previous), 'doubling', [current, previous]) }
+  static doubling(current: number, previous: number): CrossFormula { return c('oncology-doubling', 'doubling(current, previous) = max(0, current − previous)', maxOf(0, current - previous), nat(current, previous), 'doubling', [current, previous]) }
   /** RESPONSE: the shrinkage under treatment, as a percentage. value ⌊(before − after) · 100 / before⌋. */
-  static response(before: number, after: number): CrossFormula { return c('oncology-response', 'response(before, after) = ⌊(before − after) · 100 / before⌋', before > 0 ? Math.floor(((before - after) * 100) / before) : 0, nat(before, after) && before > 0 && after <= before, 'response', [before, after]) }
+  static response(before: number, after: number): CrossFormula { return c('oncology-response', 'response(before, after) = ⌊(before − after) · 100 / before⌋', before > 0 ? quot(((before - after) * 100), before) : 0, nat(before, after) && before > 0 && after <= before, 'response', [before, after]) }
   /** BURDEN: cells over the volume they occupy. value ⌊cells / volume⌋. */
-  static burden(cells: number, volume: number): CrossFormula { return c('oncology-burden', 'burden(cells, volume) = ⌊cells / volume⌋', volume > 0 ? Math.floor(cells / volume) : 0, nat(cells, volume) && volume > 0, 'burden', [cells, volume]) }
+  static burden(cells: number, volume: number): CrossFormula { return c('oncology-burden', 'burden(cells, volume) = ⌊cells / volume⌋', volume > 0 ? quot(cells, volume) : 0, nat(cells, volume) && volume > 0, 'burden', [cells, volume]) }
   /** REMISSION: the cleared fraction of those treated, as a percentage. value ⌊clear · 100 / treated⌋. */
-  static remission(clear: number, treated: number): CrossFormula { return c('oncology-remission', 'remission(clear, treated) = ⌊clear · 100 / treated⌋', treated > 0 ? Math.floor((clear * 100) / treated) : 0, nat(clear, treated) && treated > 0 && clear <= treated, 'remission', [clear, treated]) }
+  static remission(clear: number, treated: number): CrossFormula { return c('oncology-remission', 'remission(clear, treated) = ⌊clear · 100 / treated⌋', treated > 0 ? quot((clear * 100), treated) : 0, nat(clear, treated) && treated > 0 && clear <= treated, 'remission', [clear, treated]) }
   /** DOSE: the total radiation over the fractions delivered. value fractions · gray. */
   static dose(fractions: number, gray: number): CrossFormula { return c('oncology-dose', 'dose(fractions, gray) = fractions · gray', fractions * gray, nat(fractions, gray), 'dose', [fractions, gray]) }
 }

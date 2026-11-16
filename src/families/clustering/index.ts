@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** CLUSTERING — UNSUPERVISED GROUPING, AS ARITHMETIC (chosen by the registry, not by hand). Finding groups in data is
  *  numbers: a point's squared distance to its centroid, a clustering's inertia, the silhouette, the purity against labels,
@@ -17,17 +18,17 @@ export class ClusteringFormulas {
   /** INERTIA: the summed squared distance of points at an average squared distance. value points · avg. */
   static inertia(points: number, avg: number): CrossFormula { return c('clustering-inertia', 'inertia(points, avg) = points · avg', points * avg, nat(points, avg), 'inertia', [points, avg]) }
   /** SILHOUETTE as a percentage: the near-to-far separation (b − a) over the larger. value ⌊max(0, b − a) · 100 / max(a, b)⌋. */
-  static silhouette(a: number, b: number): CrossFormula { const m = Math.max(a, b); return c('clustering-silhouette', 'silhouette(a, b) = ⌊max(0, b − a) · 100 / max(a, b)⌋', m > 0 ? Math.floor((Math.max(0, b - a) * 100) / m) : 0, nat(a, b), 'silhouette', [a, b]) }
+  static silhouette(a: number, b: number): CrossFormula { const m = maxOf(a, b); return c('clustering-silhouette', 'silhouette(a, b) = ⌊max(0, b − a) · 100 / max(a, b)⌋', m > 0 ? quot((maxOf(0, b - a) * 100), m) : 0, nat(a, b), 'silhouette', [a, b]) }
   /** PURITY: the fraction of points matching the majority label, as a percentage. value ⌊correct · 100 / total⌋. */
-  static purity(correct: number, total: number): CrossFormula { return c('clustering-purity', 'purity(correct, total) = ⌊correct · 100 / total⌋', total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && correct <= total, 'purity', [correct, total]) }
+  static purity(correct: number, total: number): CrossFormula { return c('clustering-purity', 'purity(correct, total) = ⌊correct · 100 / total⌋', total > 0 ? quot((correct * 100), total) : 0, nat(correct, total) && correct <= total, 'purity', [correct, total]) }
   /** K SELECTION: the number of clusters a dataset wants at a per-cluster size. value ⌊points / per⌋. */
-  static kselection(points: number, per: number): CrossFormula { return c('clustering-kselection', 'kselection(points, per) = ⌊points / per⌋', per > 0 ? Math.floor(points / per) : 0, nat(points, per) && per > 0, 'kselection', [points, per]) }
+  static kselection(points: number, per: number): CrossFormula { return c('clustering-kselection', 'kselection(points, per) = ⌊points / per⌋', per > 0 ? quot(points, per) : 0, nat(points, per) && per > 0, 'kselection', [points, per]) }
   /** WITHIN-CLUSTER spread: points at a per-point squared spread. value points · spread. */
   static within(points: number, spread: number): CrossFormula { return c('clustering-within', 'within(points, spread) = points · spread', points * spread, nat(points, spread), 'within', [points, spread]) }
   /** BETWEEN-CLUSTER spread: the total spread not within clusters. value max(0, total − within). */
-  static between(total: number, within: number): CrossFormula { return c('clustering-between', 'between(total, within) = max(0, total − within)', Math.max(0, total - within), nat(total, within), 'between', [total, within]) }
+  static between(total: number, within: number): CrossFormula { return c('clustering-between', 'between(total, within) = max(0, total − within)', maxOf(0, total - within), nat(total, within), 'between', [total, within]) }
   /** DENSITY: points over the squared radius of their neighbourhood (no sqrt). value ⌊points / radius²⌋. */
-  static density(points: number, radius: number): CrossFormula { return c('clustering-density', 'density(points, radius) = ⌊points / radius²⌋', radius > 0 ? Math.floor(points / (radius * radius)) : 0, nat(points, radius) && radius > 0, 'density', [points, radius]) }
+  static density(points: number, radius: number): CrossFormula { return c('clustering-density', 'density(points, radius) = ⌊points / radius²⌋', radius > 0 ? quot(points, (radius * radius)) : 0, nat(points, radius) && radius > 0, 'density', [points, radius]) }
 }
 
 for (const name of ['between', 'centroiddist', 'density', 'inertia', 'kselection', 'purity', 'silhouette', 'within'] as const)

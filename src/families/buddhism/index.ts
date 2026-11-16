@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, roundOf } from '../../exact.js'
 
 /** BUDDHISM — scaffolded integer measures crossed to philosophy. Every output an exact finite nonnegative integer. */
 
@@ -16,7 +17,7 @@ export class BuddhismFormulas {
   static pathorderings(x: number): CrossFormula { return c('buddhism-pathorderings', 'pathorderings(x) = x!', x <= 12 ? ((n: number) => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r })(x) : 0, nat(x) && x <= 12, 'pathorderings', [x]) }
   static aggregates(x: number, y: number): CrossFormula { return c('buddhism-aggregates', 'aggregates(x, y) = x + y', x + y, nat(x, y), 'aggregates', [x, y]) }
   static rebirthrealms(x: number, y: number): CrossFormula { return c('buddhism-rebirthrealms', 'rebirthrealms(x, y) = x + y', x + y, nat(x, y), 'rebirthrealms', [x, y]) }
-  static meditationcombos(x: number, y: number): CrossFormula { return c('buddhism-meditationcombos', 'meditationcombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'meditationcombos', [x, y]) }
+  static meditationcombos(x: number, y: number): CrossFormula { return c('buddhism-meditationcombos', 'meditationcombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'meditationcombos', [x, y]) }
 }
 
 for (const name of ['aggregates', 'meditationcombos', 'nobletruths', 'pathfactors', 'pathorderings', 'preceptsubsets', 'rebirthrealms', 'suttacount'] as const)

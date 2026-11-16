@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** FUELCELL — scaffolded integer measures crossed to energy. Every output an exact finite nonnegative integer. */
 
@@ -11,12 +12,12 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 export class FuelcellFormulas {
   static cellvoltage(x: number, y: number): CrossFormula { return c('fuelcell-cellvoltage', 'cellvoltage(x, y) = x · y', x * y, nat(x, y), 'cellvoltage', [x, y]) }
   static stackvoltage(x: number, y: number): CrossFormula { return c('fuelcell-stackvoltage', 'stackvoltage(x, y) = x · y', x * y, nat(x, y), 'stackvoltage', [x, y]) }
-  static efficiency(x: number, y: number): CrossFormula { return c('fuelcell-efficiency', 'efficiency(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'efficiency', [x, y]) }
-  static currentdensity(x: number, y: number): CrossFormula { return c('fuelcell-currentdensity', 'currentdensity(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'currentdensity', [x, y]) }
+  static efficiency(x: number, y: number): CrossFormula { return c('fuelcell-efficiency', 'efficiency(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'efficiency', [x, y]) }
+  static currentdensity(x: number, y: number): CrossFormula { return c('fuelcell-currentdensity', 'currentdensity(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'currentdensity', [x, y]) }
   static powerdensity(x: number, y: number): CrossFormula { return c('fuelcell-powerdensity', 'powerdensity(x, y) = x · y', x * y, nat(x, y), 'powerdensity', [x, y]) }
   static stackcells(x: number, y: number): CrossFormula { return c('fuelcell-stackcells', 'stackcells(x, y) = x · y', x * y, nat(x, y), 'stackcells', [x, y]) }
-  static h2consumption(x: number, y: number): CrossFormula { return c('fuelcell-h2consumption', 'h2consumption(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'h2consumption', [x, y]) }
-  static degradation(x: number, y: number): CrossFormula { return c('fuelcell-degradation', 'degradation(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'degradation', [x, y]) }
+  static h2consumption(x: number, y: number): CrossFormula { return c('fuelcell-h2consumption', 'h2consumption(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'h2consumption', [x, y]) }
+  static degradation(x: number, y: number): CrossFormula { return c('fuelcell-degradation', 'degradation(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'degradation', [x, y]) }
 }
 
 for (const name of ['cellvoltage', 'currentdensity', 'degradation', 'efficiency', 'h2consumption', 'powerdensity', 'stackcells', 'stackvoltage'] as const)

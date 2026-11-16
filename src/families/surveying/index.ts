@@ -1,5 +1,6 @@
 import { hexRegisterOf, latticeNamesOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 const { fullTurn } = latticeNamesOf()
 
@@ -20,17 +21,17 @@ export class SurveyingFormulas {
   /** TRAVERSE: the chained length of the legs at a chain each. value legs · chain. */
   static traverse(legs: number, chain: number): CrossFormula { return c('surveying-traverse', 'traverse(legs, chain) = legs · chain', legs * chain, nat(legs, chain), 'traverse', [legs, chain]) }
   /** ELEVATION by height of instrument: the bench plus backsight less foresight. value max(0, bench + bs − fs). */
-  static elevation(bench: number, bs: number, fs: number): CrossFormula { return c('surveying-elevation', 'elevation(bench, bs, fs) = max(0, bench + bs − fs)', Math.max(0, bench + bs - fs), nat(bench, bs, fs), 'elevation', [bench, bs, fs]) }
+  static elevation(bench: number, bs: number, fs: number): CrossFormula { return c('surveying-elevation', 'elevation(bench, bs, fs) = max(0, bench + bs − fs)', maxOf(0, bench + bs - fs), nat(bench, bs, fs), 'elevation', [bench, bs, fs]) }
   /** GRADE as a percentage: the rise over the run. value ⌊rise · 100 / run⌋. */
-  static grade(rise: number, run: number): CrossFormula { return c('surveying-grade', 'grade(rise, run) = ⌊rise · 100 / run⌋', run > 0 ? Math.floor((rise * 100) / run) : 0, nat(rise, run) && run > 0, 'grade', [rise, run]) }
+  static grade(rise: number, run: number): CrossFormula { return c('surveying-grade', 'grade(rise, run) = ⌊rise · 100 / run⌋', run > 0 ? quot((rise * 100), run) : 0, nat(rise, run) && run > 0, 'grade', [rise, run]) }
   /** PARCEL AREA of a triangle: half the base times the height. value ⌊base · height / 2⌋. */
-  static area(base: number, height: number): CrossFormula { return c('surveying-area', 'area(base, height) = ⌊base · height / 2⌋', Math.floor((base * height) / 2), nat(base, height), 'area', [base, height]) }
+  static area(base: number, height: number): CrossFormula { return c('surveying-area', 'area(base, height) = ⌊base · height / 2⌋', quot((base * height), 2), nat(base, height), 'area', [base, height]) }
   /** CONTOUR LINES a cut crosses between two elevations at an interval. value ⌊max(0, high − low) / interval⌋. */
-  static contour(high: number, low: number, interval: number): CrossFormula { return c('surveying-contour', 'contour(high, low, interval) = ⌊max(0, high − low) / interval⌋', interval > 0 ? Math.floor(Math.max(0, high - low) / interval) : 0, nat(high, low, interval) && interval > 0 && high >= low, 'contour', [high, low, interval]) }
+  static contour(high: number, low: number, interval: number): CrossFormula { return c('surveying-contour', 'contour(high, low, interval) = ⌊max(0, high − low) / interval⌋', interval > 0 ? quot(maxOf(0, high - low), interval) : 0, nat(high, low, interval) && interval > 0 && high >= low, 'contour', [high, low, interval]) }
   /** OFFSET STAKES along a station line at an interval. value ⌊station / interval⌋. */
-  static offset(station: number, interval: number): CrossFormula { return c('surveying-offset', 'offset(station, interval) = ⌊station / interval⌋', interval > 0 ? Math.floor(station / interval) : 0, nat(station, interval) && interval > 0, 'offset', [station, interval]) }
+  static offset(station: number, interval: number): CrossFormula { return c('surveying-offset', 'offset(station, interval) = ⌊station / interval⌋', interval > 0 ? quot(station, interval) : 0, nat(station, interval) && interval > 0, 'offset', [station, interval]) }
   /** CLOSURE precision of the loop: the perimeter over the misclosure (reported as 1:value). value ⌊perimeter / misclose⌋. */
-  static closure(perimeter: number, misclose: number): CrossFormula { return c('surveying-closure', 'closure(perimeter, misclose) = ⌊perimeter / misclose⌋', misclose > 0 ? Math.floor(perimeter / misclose) : 0, nat(perimeter, misclose) && misclose > 0, 'closure', [perimeter, misclose]) }
+  static closure(perimeter: number, misclose: number): CrossFormula { return c('surveying-closure', 'closure(perimeter, misclose) = ⌊perimeter / misclose⌋', misclose > 0 ? quot(perimeter, misclose) : 0, nat(perimeter, misclose) && misclose > 0, 'closure', [perimeter, misclose]) }
 }
 
 for (const name of ['area', 'bearing', 'closure', 'contour', 'elevation', 'grade', 'offset', 'traverse'] as const)

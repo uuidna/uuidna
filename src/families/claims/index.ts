@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, minOf, quot } from '../../exact.js'
 
 /** CLAIMS — THE WORK OF PAYING A LOSS, AS ARITHMETIC (chosen by the public-API registry, not by hand). Settling claims is
  *  numbers: how often they come, how big they are, the loss ratio, the reserve still owed, the settled amount after the
@@ -13,19 +14,19 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class ClaimsFormulas {
   /** FREQUENCY: claims per thousand policies. value ⌊claims · 1000 / policies⌋. */
-  static frequency(claims: number, policies: number): CrossFormula { return c('claims-frequency', 'frequency(claims, policies) = ⌊claims · 1000 / policies⌋', policies > 0 ? Math.floor((claims * 1000) / policies) : 0, nat(claims, policies) && policies > 0, 'frequency', [claims, policies]) }
+  static frequency(claims: number, policies: number): CrossFormula { return c('claims-frequency', 'frequency(claims, policies) = ⌊claims · 1000 / policies⌋', policies > 0 ? quot((claims * 1000), policies) : 0, nat(claims, policies) && policies > 0, 'frequency', [claims, policies]) }
   /** SEVERITY: the average loss per claim. value ⌊total / claims⌋. */
-  static severity(total: number, claims: number): CrossFormula { return c('claims-severity', 'severity(total, claims) = ⌊total / claims⌋', claims > 0 ? Math.floor(total / claims) : 0, nat(total, claims) && claims > 0, 'severity', [total, claims]) }
+  static severity(total: number, claims: number): CrossFormula { return c('claims-severity', 'severity(total, claims) = ⌊total / claims⌋', claims > 0 ? quot(total, claims) : 0, nat(total, claims) && claims > 0, 'severity', [total, claims]) }
   /** LOSS RATIO: losses over premium as a percentage. value ⌊losses · 100 / premium⌋. */
-  static lossratio(losses: number, premium: number): CrossFormula { return c('claims-lossratio', 'lossratio(losses, premium) = ⌊losses · 100 / premium⌋', premium > 0 ? Math.floor((losses * 100) / premium) : 0, nat(losses, premium) && premium > 0, 'lossratio', [losses, premium]) }
+  static lossratio(losses: number, premium: number): CrossFormula { return c('claims-lossratio', 'lossratio(losses, premium) = ⌊losses · 100 / premium⌋', premium > 0 ? quot((losses * 100), premium) : 0, nat(losses, premium) && premium > 0, 'lossratio', [losses, premium]) }
   /** RESERVE: the loss still owed, incurred less paid. value max(0, incurred − paid). */
-  static reserve(incurred: number, paid: number): CrossFormula { return c('claims-reserve', 'reserve(incurred, paid) = max(0, incurred − paid)', Math.max(0, incurred - paid), nat(incurred, paid), 'reserve', [incurred, paid]) }
+  static reserve(incurred: number, paid: number): CrossFormula { return c('claims-reserve', 'reserve(incurred, paid) = max(0, incurred − paid)', maxOf(0, incurred - paid), nat(incurred, paid), 'reserve', [incurred, paid]) }
   /** SETTLEMENT: the claim after the deductible is taken off. value max(0, claim − deductible). */
-  static settlement(claim: number, deductible: number): CrossFormula { return c('claims-settlement', 'settlement(claim, deductible) = max(0, claim − deductible)', Math.max(0, claim - deductible), nat(claim, deductible), 'settlement', [claim, deductible]) }
+  static settlement(claim: number, deductible: number): CrossFormula { return c('claims-settlement', 'settlement(claim, deductible) = max(0, claim − deductible)', maxOf(0, claim - deductible), nat(claim, deductible), 'settlement', [claim, deductible]) }
   /** DEDUCTIBLE: the insured's retained portion of a loss. value min(loss, ded). */
-  static deductible(loss: number, ded: number): CrossFormula { return c('claims-deductible', 'deductible(loss, ded) = min(loss, ded)', Math.min(loss, ded), nat(loss, ded), 'deductible', [loss, ded]) }
+  static deductible(loss: number, ded: number): CrossFormula { return c('claims-deductible', 'deductible(loss, ded) = min(loss, ded)', minOf(loss, ded), nat(loss, ded), 'deductible', [loss, ded]) }
   /** PAYOUT: the claim capped at the policy limit. value min(claim, limit). */
-  static payout(claim: number, limit: number): CrossFormula { return c('claims-payout', 'payout(claim, limit) = min(claim, limit)', Math.min(claim, limit), nat(claim, limit), 'payout', [claim, limit]) }
+  static payout(claim: number, limit: number): CrossFormula { return c('claims-payout', 'payout(claim, limit) = min(claim, limit)', minOf(claim, limit), nat(claim, limit), 'payout', [claim, limit]) }
   /** INCURRED: the incurred loss, paid plus reserve. value paid + reserve. */
   static incurred(paid: number, reserve: number): CrossFormula { return c('claims-incurred', 'incurred(paid, reserve) = paid + reserve', paid + reserve, nat(paid, reserve), 'incurred', [paid, reserve]) }
 }

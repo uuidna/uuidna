@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** MACROECONOMICS — THE WHOLE ECONOMY, AS ARITHMETIC (chosen by the public-API registry, not by hand). An economy is
  *  numbers: output as spending, the price level year over year, who is without work, how fast output grows, the reach of
@@ -13,21 +14,21 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class MacroeconomicsFormulas {
   /** DEBT-TO-GDP: the deficit as a percentage of output. value ⌊deficit · 100 / gdp⌋. */
-  static debt(deficit_: number, gdp_: number): CrossFormula { return c('macroeconomics-debt', 'debt(deficit, gdp) = ⌊deficit · 100 / gdp⌋', gdp_ > 0 ? Math.floor((deficit_ * 100) / gdp_) : 0, nat(deficit_, gdp_) && gdp_ > 0, 'debt', [deficit_, gdp_]) }
+  static debt(deficit_: number, gdp_: number): CrossFormula { return c('macroeconomics-debt', 'debt(deficit, gdp) = ⌊deficit · 100 / gdp⌋', gdp_ > 0 ? quot((deficit_ * 100), gdp_) : 0, nat(deficit_, gdp_) && gdp_ > 0, 'debt', [deficit_, gdp_]) }
   /** DEFICIT: spending beyond revenue, never negative. value max(0, spending − revenue). */
-  static deficit(spending: number, revenue: number): CrossFormula { return c('macroeconomics-deficit', 'deficit(spending, revenue) = max(0, spending − revenue)', Math.max(0, spending - revenue), nat(spending, revenue), 'deficit', [spending, revenue]) }
+  static deficit(spending: number, revenue: number): CrossFormula { return c('macroeconomics-deficit', 'deficit(spending, revenue) = max(0, spending − revenue)', maxOf(0, spending - revenue), nat(spending, revenue), 'deficit', [spending, revenue]) }
   /** GDP: output as the sum of consumption and investment (G + NX proxy simplified into the pair). value consumption + investment. */
   static gdp(consumption: number, investment: number): CrossFormula { return c('macroeconomics-gdp', 'gdp(consumption, investment) = consumption + investment', consumption + investment, nat(consumption, investment), 'gdp', [consumption, investment]) }
   /** GROWTH: output change over the prior period, as a percentage. value ⌊(current − previous) · 100 / previous⌋. */
-  static growth(current: number, previous: number): CrossFormula { return c('macroeconomics-growth', 'growth(current, previous) = ⌊(current − previous) · 100 / previous⌋', previous > 0 ? Math.floor((current - previous) * 100 / previous) : 0, nat(current, previous) && previous > 0 && current >= previous, 'growth', [current, previous]) }
+  static growth(current: number, previous: number): CrossFormula { return c('macroeconomics-growth', 'growth(current, previous) = ⌊(current − previous) · 100 / previous⌋', previous > 0 ? quot((current - previous) * 100, previous) : 0, nat(current, previous) && previous > 0 && current >= previous, 'growth', [current, previous]) }
   /** INFLATION: the price level change over the prior period, as a percentage. value ⌊(current − previous) · 100 / previous⌋. */
-  static inflation(current: number, previous: number): CrossFormula { return c('macroeconomics-inflation', 'inflation(current, previous) = ⌊(current − previous) · 100 / previous⌋', previous > 0 ? Math.floor((current - previous) * 100 / previous) : 0, nat(current, previous) && previous > 0 && current >= previous, 'inflation', [current, previous]) }
+  static inflation(current: number, previous: number): CrossFormula { return c('macroeconomics-inflation', 'inflation(current, previous) = ⌊(current − previous) · 100 / previous⌋', previous > 0 ? quot((current - previous) * 100, previous) : 0, nat(current, previous) && previous > 0 && current >= previous, 'inflation', [current, previous]) }
   /** MULTIPLIER: the reach of spending at a marginal propensity to consume (percent, 0..99). value ⌊spending · 100 / (100 − mpc)⌋. */
-  static multiplier(spending: number, mpc: number): CrossFormula { return c('macroeconomics-multiplier', 'multiplier(spending, mpc) = ⌊spending · 100 / (100 − mpc)⌋', mpc < 100 ? Math.floor((spending * 100) / (100 - mpc)) : 0, nat(spending, mpc) && mpc < 100, 'multiplier', [spending, mpc]) }
+  static multiplier(spending: number, mpc: number): CrossFormula { return c('macroeconomics-multiplier', 'multiplier(spending, mpc) = ⌊spending · 100 / (100 − mpc)⌋', mpc < 100 ? quot((spending * 100), (100 - mpc)) : 0, nat(spending, mpc) && mpc < 100, 'multiplier', [spending, mpc]) }
   /** UNEMPLOYMENT: the jobless share of the labor force, as a percentage. value ⌊jobless · 100 / labor⌋. */
-  static unemployment(jobless: number, labor: number): CrossFormula { return c('macroeconomics-unemployment', 'unemployment(jobless, labor) = ⌊jobless · 100 / labor⌋', labor > 0 ? Math.floor((jobless * 100) / labor) : 0, nat(jobless, labor) && labor > 0 && jobless <= labor, 'unemployment', [jobless, labor]) }
+  static unemployment(jobless: number, labor: number): CrossFormula { return c('macroeconomics-unemployment', 'unemployment(jobless, labor) = ⌊jobless · 100 / labor⌋', labor > 0 ? quot((jobless * 100), labor) : 0, nat(jobless, labor) && labor > 0 && jobless <= labor, 'unemployment', [jobless, labor]) }
   /** VELOCITY: how often money turns over to produce output. value ⌊gdp / money⌋. */
-  static velocity(gdp_: number, money: number): CrossFormula { return c('macroeconomics-velocity', 'velocity(gdp, money) = ⌊gdp / money⌋', money > 0 ? Math.floor(gdp_ / money) : 0, nat(gdp_, money) && money > 0, 'velocity', [gdp_, money]) }
+  static velocity(gdp_: number, money: number): CrossFormula { return c('macroeconomics-velocity', 'velocity(gdp, money) = ⌊gdp / money⌋', money > 0 ? quot(gdp_, money) : 0, nat(gdp_, money) && money > 0, 'velocity', [gdp_, money]) }
 }
 
 for (const name of ['debt', 'deficit', 'gdp', 'growth', 'inflation', 'multiplier', 'unemployment', 'velocity'] as const)

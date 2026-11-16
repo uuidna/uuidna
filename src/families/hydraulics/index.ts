@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** HYDRAULICS — MOVING FLUID AS ARITHMETIC (pressure, continuity, Pascal's law, head, power, a Reynolds proxy, the
  *  mechanical advantage of a press). Pressure is force over area; flow is area times velocity; a press multiplies the
@@ -13,15 +14,15 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class HydraulicsFormulas {
   /** PRESSURE: force over area. value ⌊force / area⌋. */
-  static pressure(force: number, area: number): CrossFormula { return c('hydraulics-pressure', 'pressure(force, area) = ⌊force / area⌋', area > 0 ? Math.floor(force / area) : 0, nat(force, area) && area > 0, 'pressure', [force, area]) }
+  static pressure(force: number, area: number): CrossFormula { return c('hydraulics-pressure', 'pressure(force, area) = ⌊force / area⌋', area > 0 ? quot(force, area) : 0, nat(force, area) && area > 0, 'pressure', [force, area]) }
   /** CONTINUITY FLOW: Q = A · v. value area · velocity. */
   static flow(area: number, velocity: number): CrossFormula { return c('hydraulics-flow', 'flow(area, velocity) = area · velocity', area * velocity, nat(area, velocity), 'flow', [area, velocity]) }
   /** PASCAL'S LAW: force = pressure · area. value pressure · area. */
   static force(pressure: number, area: number): CrossFormula { return c('hydraulics-force', 'force(pressure, area) = pressure · area', pressure * area, nat(pressure, area), 'force', [pressure, area]) }
   /** VELOCITY: flow over area. value ⌊flow / area⌋. */
-  static velocity(flow: number, area: number): CrossFormula { return c('hydraulics-velocity', 'velocity(flow, area) = ⌊flow / area⌋', area > 0 ? Math.floor(flow / area) : 0, nat(flow, area) && area > 0, 'velocity', [flow, area]) }
+  static velocity(flow: number, area: number): CrossFormula { return c('hydraulics-velocity', 'velocity(flow, area) = ⌊flow / area⌋', area > 0 ? quot(flow, area) : 0, nat(flow, area) && area > 0, 'velocity', [flow, area]) }
   /** HEAD: pressure over density. value ⌊pressure / density⌋. */
-  static head(pressure: number, density: number): CrossFormula { return c('hydraulics-head', 'head(pressure, density) = ⌊pressure / density⌋', density > 0 ? Math.floor(pressure / density) : 0, nat(pressure, density) && density > 0, 'head', [pressure, density]) }
+  static head(pressure: number, density: number): CrossFormula { return c('hydraulics-head', 'head(pressure, density) = ⌊pressure / density⌋', density > 0 ? quot(pressure, density) : 0, nat(pressure, density) && density > 0, 'head', [pressure, density]) }
   /** HYDRAULIC POWER: flow · head. value flow · head. */
   static power(flow: number, head: number): CrossFormula { return c('hydraulics-power', 'power(flow, head) = flow · head', flow * head, nat(flow, head), 'power', [flow, head]) }
   /** REYNOLDS PROXY: velocity · diameter. value velocity · diameter. */

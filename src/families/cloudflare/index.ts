@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, roundOf } from '../../exact.js'
 
 /** CLOUDFLARE — THE WORKER BINDING SURFACE, AS ARITHMETIC. A Worker composes bindings: KV, R2, D1, Durable Objects,
  *  Queues, service bindings, Workers AI, Vectorize, Hyperdrive, Analytics Engine, Email, Browser Rendering, Workflows,
@@ -16,7 +17,7 @@ const SUBREQUESTS = 1000 // the paid per-invocation subrequest ceiling (50 on th
 
 const PROOF = 'Cloudflare Worker binding arithmetic: the binding surface and its combinatorial usage — 2^bindings subsets, 2^bindings−1 non-empty compositions, pairs C(n,2), triples C(n,3), k-subsets C(n,k), ordered pipelines P(n,k), the API method surface, the storage/stateful/compute categories, queue fan-out, edge reach, and the 1000 subrequest ceiling; deterministic integer identities crossed to cloud; a measure'
 const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
-const comb = (n: number, k: number): number => { if (k < 0 || k > n) return 0; k = Math.min(k, n - k); let r = 1; for (let i = 0; i < k; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) }
+const comb = (n: number, k: number): number => { if (k < 0 || k > n) return 0; k = minOf(k, n - k); let r = 1; for (let i = 0; i < k; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) }
 const perm = (n: number, k: number): number => { if (k < 0 || k > n) return 0; let r = 1; for (let i = 0; i < k; i++) r *= n - i; return r }
 const c = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
   crossFormulaOf({ id, src: 'cloudflare', dst: 'cloud', formula, value, proof: PROOF, ...extra }, holds, { name: `cloudflare.${name}`, params })

@@ -43,6 +43,7 @@ import {
   theorem,
   unit,
 } from '../../quantum/processing/unit/index.js'
+import { minOf } from '../../exact.js'
 
 /** Shor as a caller asked for it: the run on their n and a, whatever they are. Never a denial; the run itself says what it
  * found (a period, a gcd factor, or nothing), the sparse state means no modulus is past the host's reach, and `read`
@@ -159,7 +160,7 @@ export const shorOf = (modulusArg?: number | bigint, baseArg?: number | bigint, 
         }
         weights[y] = w
       }
-      prepareAmps = r > n - n ? qftSize * Math.min(r, qftSize) : n - n
+      prepareAmps = r > n - n ? qftSize * minOf(r, qftSize) : n - n
     } else {
       // A base sharing a factor with the modulus has no order, but the work register still holds a^x mod N for x < qftSize,
       // so the counting register splits into one class per distinct value (x and x' are one class iff a^x ≡ a^x' mod N —

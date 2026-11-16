@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** NEURALNET — A FEEDFORWARD NETWORK AS ARITHMETIC (chosen by the public-API registry, not by hand). A trained net is
  *  numbers: the parameters a dense layer carries, the layers a stack has, the neurons across a depth, the weights of a
@@ -21,9 +22,9 @@ export class NeuralnetFormulas {
   /** WEIGHTS: a fully-connected edge count between two layers. value inDim · outDim. */
   static weights(inDim: number, outDim: number): CrossFormula { return c('neuralnet-weights', 'weights(inDim, outDim) = inDim · outDim', inDim * outDim, nat(inDim, outDim), 'weights', [inDim, outDim]) }
   /** RELU: the rectified linear unit. value max(0, x). */
-  static relu(x: number): CrossFormula { return c('neuralnet-relu', 'relu(x) = max(0, x)', Math.max(0, x), nat(x), 'relu', [x]) }
+  static relu(x: number): CrossFormula { return c('neuralnet-relu', 'relu(x) = max(0, x)', maxOf(0, x), nat(x), 'relu', [x]) }
   /** FANIN: the average incoming edges per node. value ⌊edges / nodes⌋. */
-  static fanin(edges: number, nodes: number): CrossFormula { return c('neuralnet-fanin', 'fanin(edges, nodes) = ⌊edges / nodes⌋', nodes > 0 ? Math.floor(edges / nodes) : 0, nat(edges, nodes) && nodes > 0, 'fanin', [edges, nodes]) }
+  static fanin(edges: number, nodes: number): CrossFormula { return c('neuralnet-fanin', 'fanin(edges, nodes) = ⌊edges / nodes⌋', nodes > 0 ? quot(edges, nodes) : 0, nat(edges, nodes) && nodes > 0, 'fanin', [edges, nodes]) }
   /** FLOPS: a forward pass, two per multiply-accumulate plus one activation per node. value 2 · edges + nodes. */
   static flops(edges: number, nodes: number): CrossFormula { return c('neuralnet-flops', 'flops(edges, nodes) = 2 · edges + nodes', 2 * edges + nodes, nat(edges, nodes), 'flops', [edges, nodes]) }
   /** CAPACITY: the memory a parameter set occupies, in bits. value units · bits. */

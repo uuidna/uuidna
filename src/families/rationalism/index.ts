@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, quot, roundOf } from '../../exact.js'
 
 /** RATIONALISM — scaffolded integer measures crossed to logic. Every output an exact finite nonnegative integer. */
 
@@ -14,8 +15,8 @@ export class RationalismFormulas {
   static innateideas(x: number, y: number): CrossFormula { return c('rationalism-innateideas', 'innateideas(x, y) = x · y', x * y, nat(x, y), 'innateideas', [x, y]) }
   static proofpaths(x: number, y: number): CrossFormula { return c('rationalism-proofpaths', 'proofpaths(x, y) = x! / (x − y)!', x >= y && x <= 20 ? ((n: number, k: number) => { let r = 1; for (let i = 0; i < k; i++) r *= (n - i); return r })(x, y) : 0, nat(x, y) && x >= y && x <= 20, 'proofpaths', [x, y]) }
   static premisesubsets(x: number): CrossFormula { return c('rationalism-premisesubsets', 'premisesubsets(x) = 2^x', x <= 30 ? 2 ** x : 0, nat(x) && x <= 30, 'premisesubsets', [x]) }
-  static inferencepairs(x: number, y: number): CrossFormula { return c('rationalism-inferencepairs', 'inferencepairs(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'inferencepairs', [x, y]) }
-  static aprioriratio(x: number, y: number): CrossFormula { return c('rationalism-aprioriratio', 'aprioriratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'aprioriratio', [x, y]) }
+  static inferencepairs(x: number, y: number): CrossFormula { return c('rationalism-inferencepairs', 'inferencepairs(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'inferencepairs', [x, y]) }
+  static aprioriratio(x: number, y: number): CrossFormula { return c('rationalism-aprioriratio', 'aprioriratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'aprioriratio', [x, y]) }
   static necessitylevels(x: number, y: number): CrossFormula { return c('rationalism-necessitylevels', 'necessitylevels(x, y) = x + y', x + y, nat(x, y), 'necessitylevels', [x, y]) }
 }
 

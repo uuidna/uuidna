@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** GEOPOLITICS — STATES AND BLOCS AS ARITHMETIC (purely quantitative, neutral indices; no advice). Standing between
  *  states is numbers: a composite power index, the weight of an alliance, how much trade one side depends on, border
@@ -17,15 +18,15 @@ export class GeopoliticsFormulas {
   /** ALLIANCE WEIGHT: members at a per-member strength. value members · strength. */
   static allianceweight(members: number, strength: number): CrossFormula { return c('geopolitics-allianceweight', 'allianceweight(members, strength) = members · strength', members * strength, nat(members, strength), 'allianceweight', [members, strength]) }
   /** TRADE DEPENDENCY: imports as a percentage of total trade. value ⌊imports · 100 / total⌋. */
-  static tradedependency(imports: number, total: number): CrossFormula { return c('geopolitics-tradedependency', 'tradedependency(imports, total) = ⌊imports · 100 / total⌋', total > 0 ? Math.floor((imports * 100) / total) : 0, nat(imports, total) && total > 0 && imports <= total, 'tradedependency', [imports, total]) }
+  static tradedependency(imports: number, total: number): CrossFormula { return c('geopolitics-tradedependency', 'tradedependency(imports, total) = ⌊imports · 100 / total⌋', total > 0 ? quot((imports * 100), total) : 0, nat(imports, total) && total > 0 && imports <= total, 'tradedependency', [imports, total]) }
   /** BORDER TENSION: incidents averaged over days. value ⌊incidents / days⌋. */
-  static bordertension(incidents: number, days: number): CrossFormula { return c('geopolitics-bordertension', 'bordertension(incidents, days) = ⌊incidents / days⌋', days > 0 ? Math.floor(incidents / days) : 0, nat(incidents, days) && days > 0, 'bordertension', [incidents, days]) }
+  static bordertension(incidents: number, days: number): CrossFormula { return c('geopolitics-bordertension', 'bordertension(incidents, days) = ⌊incidents / days⌋', days > 0 ? quot(incidents, days) : 0, nat(incidents, days) && days > 0, 'bordertension', [incidents, days]) }
   /** INFLUENCE SCORE: allies weighted by votes each carries. value allies · votes. */
   static influencescore(allies: number, votes: number): CrossFormula { return c('geopolitics-influencescore', 'influencescore(allies, votes) = allies · votes', allies * votes, nat(allies, votes), 'influencescore', [allies, votes]) }
   /** SANCTION IMPACT: baseline trade less the restricted portion. value max(0, baseline − restricted). */
-  static sanctionimpact(baseline: number, restricted: number): CrossFormula { return c('geopolitics-sanctionimpact', 'sanctionimpact(baseline, restricted) = max(0, baseline − restricted)', Math.max(0, baseline - restricted), nat(baseline, restricted), 'sanctionimpact', [baseline, restricted]) }
+  static sanctionimpact(baseline: number, restricted: number): CrossFormula { return c('geopolitics-sanctionimpact', 'sanctionimpact(baseline, restricted) = max(0, baseline − restricted)', maxOf(0, baseline - restricted), nat(baseline, restricted), 'sanctionimpact', [baseline, restricted]) }
   /** BALANCE OF POWER: one bloc measured against another. value ⌊blocA · 100 / blocB⌋. */
-  static balanceofpower(blocA: number, blocB: number): CrossFormula { return c('geopolitics-balanceofpower', 'balanceofpower(blocA, blocB) = ⌊blocA · 100 / blocB⌋', blocB > 0 ? Math.floor((blocA * 100) / blocB) : 0, nat(blocA, blocB) && blocB > 0, 'balanceofpower', [blocA, blocB]) }
+  static balanceofpower(blocA: number, blocB: number): CrossFormula { return c('geopolitics-balanceofpower', 'balanceofpower(blocA, blocB) = ⌊blocA · 100 / blocB⌋', blocB > 0 ? quot((blocA * 100), blocB) : 0, nat(blocA, blocB) && blocB > 0, 'balanceofpower', [blocA, blocB]) }
   /** STABILITY INDEX: 1 when measured stability meets the target. value [actual ≥ target]. */
   static stabilityindex(target: number, actual: number): CrossFormula { return c('geopolitics-stabilityindex', 'stabilityindex(target, actual) = [actual ≥ target]', actual >= target ? 1 : 0, nat(target, actual), 'stabilityindex', [target, actual]) }
 }

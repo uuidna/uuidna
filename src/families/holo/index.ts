@@ -1,6 +1,7 @@
 import { concat, ed25519PublicKey, ed25519Sign, ed25519Verify, equal, fromHex, hexOf, hkdf, randomBytes, sha256, utf8, uuidFromBytesOf, type Bytes } from '../../core/crypt.js'
 import { hexRegisterOf, qpuHologramOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { clog2, quot } from '../../exact.js'
 
 /** One fragment of the hologram: a signed, SHA-256-chained UUID in its scale's stream that carries the root of all scales. */
 export interface HoloEntry {
@@ -128,12 +129,12 @@ const nat = (...xs: number[]): boolean => xs.every((x) => Number.isSafeInteger(x
 /** The hologram stream formulas over naturals, registered as the hex family `holo`. */
 export class HoloFormulas {
   static proofDepth(scales: number): CrossFormula {
-    return crossFormulaOf({ id: 'holo-proof', src: 'hologram', dst: 'merkle', formula: 'depth = ceil(log2(scales))', value: scales > 1 ? Math.ceil(Math.log2(scales)) : 0, proof: 'A fragment reaches the whole through one sibling per level' }, nat(scales) && scales > 0, { name: 'holo.proofDepth', params: [scales] })
+    return crossFormulaOf({ id: 'holo-proof', src: 'hologram', dst: 'merkle', formula: 'depth = ceil(log2(scales))', value: scales > 1 ? clog2(scales) : 0, proof: 'A fragment reaches the whole through one sibling per level' }, nat(scales) && scales > 0, { name: 'holo.proofDepth', params: [scales] })
   }
 
   static forgery(hashBits: number): CrossFormula {
     // the birthday bound as work, 2^⌊bits/2⌋ hash evaluations (the lattice's mintOf(bits/2)); its chance per try beside it
-    return crossFormulaOf({ id: 'holo-forgery', src: 'hologram', dst: 'qsec', formula: 'work_forge = 2^⌊hashBits/2⌋ (p_forge = 2^-(hashBits/2))', value: 2 ** Math.floor(hashBits / 2), proof: 'Splicing a fragment needs a SHA-256 collision; birthday bound', ...{ p: 2 ** -(hashBits / 2) } }, nat(hashBits) && hashBits > 0, { name: 'holo.forgery', params: [hashBits] })
+    return crossFormulaOf({ id: 'holo-forgery', src: 'hologram', dst: 'qsec', formula: 'work_forge = 2^⌊hashBits/2⌋ (p_forge = 2^-(hashBits/2))', value: 2 ** quot(hashBits, 2), proof: 'Splicing a fragment needs a SHA-256 collision; birthday bound', ...{ p: 2 ** -(hashBits / 2) } }, nat(hashBits) && hashBits > 0, { name: 'holo.forgery', params: [hashBits] })
   }
 }
 

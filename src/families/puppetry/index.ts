@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, quot, roundOf } from '../../exact.js'
 
 /** PUPPETRY — scaffolded integer measures crossed to kinematics. Every output an exact finite nonnegative integer. */
 
@@ -13,10 +14,10 @@ export class PuppetryFormulas {
   static jointcount(x: number, y: number): CrossFormula { return c('puppetry-jointcount', 'jointcount(x, y) = x · y', x * y, nat(x, y), 'jointcount', [x, y]) }
   static controlbars(x: number, y: number): CrossFormula { return c('puppetry-controlbars', 'controlbars(x, y) = x + y', x + y, nat(x, y), 'controlbars', [x, y]) }
   static manipulators(x: number, y: number): CrossFormula { return c('puppetry-manipulators', 'manipulators(x, y) = x + y', x + y, nat(x, y), 'manipulators', [x, y]) }
-  static gesturecombos(x: number, y: number): CrossFormula { return c('puppetry-gesturecombos', 'gesturecombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'gesturecombos', [x, y]) }
+  static gesturecombos(x: number, y: number): CrossFormula { return c('puppetry-gesturecombos', 'gesturecombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'gesturecombos', [x, y]) }
   static articulationpoints(x: number, y: number): CrossFormula { return c('puppetry-articulationpoints', 'articulationpoints(x, y) = x · y', x * y, nat(x, y), 'articulationpoints', [x, y]) }
   static riggingsubsets(x: number): CrossFormula { return c('puppetry-riggingsubsets', 'riggingsubsets(x) = 2^x', x <= 30 ? 2 ** x : 0, nat(x) && x <= 30, 'riggingsubsets', [x]) }
-  static motionrange(x: number, y: number): CrossFormula { return c('puppetry-motionrange', 'motionrange(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'motionrange', [x, y]) }
+  static motionrange(x: number, y: number): CrossFormula { return c('puppetry-motionrange', 'motionrange(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'motionrange', [x, y]) }
 }
 
 for (const name of ['articulationpoints', 'controlbars', 'gesturecombos', 'jointcount', 'manipulators', 'motionrange', 'riggingsubsets', 'strings'] as const)

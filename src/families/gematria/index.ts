@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, roundOf } from '../../exact.js'
 
 /** GEMATRIA — scaffolded integer measures crossed to linguistics. Every output an exact finite nonnegative integer. */
 
@@ -11,7 +12,7 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 export class GematriaFormulas {
   static lettervalue(x: number, y: number): CrossFormula { return c('gematria-lettervalue', 'lettervalue(x, y) = x · y', x * y, nat(x, y), 'lettervalue', [x, y]) }
   static wordtotal(x: number, y: number, z: number): CrossFormula { return c('gematria-wordtotal', 'wordtotal(x, y, z) = x + y + z', x + y + z, nat(x, y, z), 'wordtotal', [x, y, z]) }
-  static equivalences(x: number, y: number): CrossFormula { return c('gematria-equivalences', 'equivalences(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'equivalences', [x, y]) }
+  static equivalences(x: number, y: number): CrossFormula { return c('gematria-equivalences', 'equivalences(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'equivalences', [x, y]) }
   static cipherorderings(x: number): CrossFormula { return c('gematria-cipherorderings', 'cipherorderings(x) = x!', x <= 12 ? ((n: number) => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r })(x) : 0, nat(x) && x <= 12, 'cipherorderings', [x]) }
   static alphabetsize(x: number, y: number): CrossFormula { return c('gematria-alphabetsize', 'alphabetsize(x, y) = x + y', x + y, nat(x, y), 'alphabetsize', [x, y]) }
   static valuesum(x: number, y: number): CrossFormula { return c('gematria-valuesum', 'valuesum(x, y) = x · y', x * y, nat(x, y), 'valuesum', [x, y]) }

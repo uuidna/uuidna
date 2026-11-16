@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** HARDWARE — the silicon's own arithmetic. SMT threads off cores, cache lines and bus bytes off widths, PCIe lanes and
  *  BGA pins off a grid, dies off a wafer, per-core power off a TDP, and the address space a bit count opens. Each an exact
@@ -7,7 +8,7 @@ import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 
 const PROOF = 'hardware counts: threads = cores · 2 (SMT2); cache lines = bytes / 64; bus bytes = width / 8; lanes = slots · per-slot; pins = rows · cols; dies = wafer / die; per-core power = tdp / cores; address space = 2^bits'
 const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
-const div = (a: number, b: number) => (b > 0 ? Math.floor(a / b) : 0)
+const div = (a: number, b: number) => (b > 0 ? quot(a, b) : 0)
 const f = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
   crossFormulaOf({ id, src: 'hardware', dst: 'cross', formula, value, proof: PROOF, ...extra }, holds, { name: `hardware.${name}`, params })
 

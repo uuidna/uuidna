@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ilog2, maxOf, quot } from '../../exact.js'
 
 /** QUANTIZATION — CONTINUOUS AMPLITUDE MADE DISCRETE, AS ARITHMETIC. Mapping a signal onto a finite ladder is numbers: the
  *  levels a bit-depth gives, the size of each step across a range, the signal-to-noise a depth buys, the depth a level
@@ -15,19 +16,19 @@ export class QuantizationFormulas {
   /** LEVELS: the codes a bit-depth gives. value 2^bits. */
   static levels(bits: number): CrossFormula { return c('quantization-levels', 'levels(bits) = 2^bits', 2 ** bits, nat(bits) && bits <= 16, 'levels', [bits]) }
   /** STEP SIZE: a full-scale range split across its levels. value ⌊range / levels⌋. */
-  static stepsize(range: number, levels: number): CrossFormula { return c('quantization-stepsize', 'stepsize(range, levels) = ⌊range / levels⌋', levels > 0 ? Math.floor(range / levels) : 0, nat(range, levels) && levels > 0, 'stepsize', [range, levels]) }
+  static stepsize(range: number, levels: number): CrossFormula { return c('quantization-stepsize', 'stepsize(range, levels) = ⌊range / levels⌋', levels > 0 ? quot(range, levels) : 0, nat(range, levels) && levels > 0, 'stepsize', [range, levels]) }
   /** SIGNAL-TO-NOISE a bit-depth buys (dB, 6 dB per bit). value 6 · bits. */
   static snr(bits: number): CrossFormula { return c('quantization-snr', 'snr(bits) = 6 · bits', 6 * bits, nat(bits) && bits <= 16, 'snr', [bits]) }
   /** BIT DEPTH a level count implies. value ⌊log2(levels)⌋. */
-  static bits(levels: number): CrossFormula { return c('quantization-bits', 'bits(levels) = ⌊log2(levels)⌋', levels > 0 ? Math.floor(Math.log2(levels)) : 0, nat(levels) && levels > 0, 'bits', [levels]) }
+  static bits(levels: number): CrossFormula { return c('quantization-bits', 'bits(levels) = ⌊log2(levels)⌋', levels > 0 ? ilog2(levels) : 0, nat(levels) && levels > 0, 'bits', [levels]) }
   /** DYNAMIC RANGE: the largest code at a bit-depth. value 2^bits − 1. */
-  static dynamicrange(bits: number): CrossFormula { return c('quantization-dynamicrange', 'dynamicrange(bits) = 2^bits − 1', Math.max(0, 2 ** bits - 1), nat(bits) && bits <= 16, 'dynamicrange', [bits]) }
+  static dynamicrange(bits: number): CrossFormula { return c('quantization-dynamicrange', 'dynamicrange(bits) = 2^bits − 1', maxOf(0, 2 ** bits - 1), nat(bits) && bits <= 16, 'dynamicrange', [bits]) }
   /** QUANTIZATION ERROR: the worst-case rounding, half a step. value ⌊step / 2⌋. */
-  static quantizationerror(step: number): CrossFormula { return c('quantization-quantizationerror', 'quantizationerror(step) = ⌊step / 2⌋', Math.floor(step / 2), nat(step), 'quantizationerror', [step]) }
+  static quantizationerror(step: number): CrossFormula { return c('quantization-quantizationerror', 'quantizationerror(step) = ⌊step / 2⌋', quot(step, 2), nat(step), 'quantizationerror', [step]) }
   /** CODE RATE: bits per sample over the samples of a stream. value bits · samples. */
   static coderate(bits: number, samples: number): CrossFormula { return c('quantization-coderate', 'coderate(bits, samples) = bits · samples', bits * samples, nat(bits, samples), 'coderate', [bits, samples]) }
   /** RESOLUTION: the smallest increment a range resolves at a bit-depth. value ⌊range / 2^bits⌋. */
-  static resolution(range: number, bits: number): CrossFormula { return c('quantization-resolution', 'resolution(range, bits) = ⌊range / 2^bits⌋', Math.floor(range / (2 ** bits)), nat(range, bits) && bits <= 16, 'resolution', [range, bits]) }
+  static resolution(range: number, bits: number): CrossFormula { return c('quantization-resolution', 'resolution(range, bits) = ⌊range / 2^bits⌋', quot(range, (2 ** bits)), nat(range, bits) && bits <= 16, 'resolution', [range, bits]) }
 }
 
 for (const name of ['bits', 'coderate', 'dynamicrange', 'levels', 'quantizationerror', 'resolution', 'snr', 'stepsize'] as const)

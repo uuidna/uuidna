@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** ALGEBRA — THE SCHOOL FORMULAS AS INTEGER ARITHMETIC. A line, a parabola, a discriminant, a slope, a factorial, the
  *  greatest common divisor, a power, and the roots' discriminant from sum and product. Every value an integer; every
@@ -18,7 +19,7 @@ export class AlgebraFormulas {
   /** DISCRIMINANT: b² − 4ac (may be negative). value b² − 4 · ac. */
   static discriminant(b: number, ac: number): CrossFormula { return c('algebra-discriminant', 'discriminant(b, ac) = b² − 4 · ac', b * b - 4 * ac, nat(b, ac), 'discriminant', [b, ac]) }
   /** SLOPE: rise over run, scaled by 100 (guard run > 0). value ⌊rise · 100 / run⌋. */
-  static slope(rise: number, run: number): CrossFormula { return c('algebra-slope', 'slope(rise, run) = ⌊rise · 100 / run⌋', run > 0 ? Math.floor((rise * 100) / run) : 0, nat(rise, run) && run > 0, 'slope', [rise, run]) }
+  static slope(rise: number, run: number): CrossFormula { return c('algebra-slope', 'slope(rise, run) = ⌊rise · 100 / run⌋', run > 0 ? quot((rise * 100), run) : 0, nat(rise, run) && run > 0, 'slope', [rise, run]) }
   /** FACTORIAL: n! by iteration for small n (guard n ≥ 0, cap n ≤ 12). value n!. */
   static factorial(n: number): CrossFormula { let f = 0; if (n >= 0 && n <= 12) { f = 1; for (let i = 2; i <= n; i++) f = f * i } return c('algebra-factorial', 'factorial(n) = n! (0 ≤ n ≤ 12)', f, nat(n) && n <= 12, 'factorial', [n]) }
   /** GCD: the greatest common divisor by Euclid's algorithm. value gcd(a, b). */

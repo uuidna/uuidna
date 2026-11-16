@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** STEPS — THE STEPS BLOCK USE CASE FROM payloadcms/website, AS ARITHMETIC. A step-by-step flow (onboarding, a tutorial)
  *  is numbers: how far along a run is, which step is current, how many steps remain, the count of steps, whether a position
@@ -13,11 +14,11 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class StepsFormulas {
   /** PROGRESS: steps done as a percentage of the total. value ⌊done · 100 / total⌋. */
-  static progress(done: number, total: number): CrossFormula { return c('steps-progress', 'progress(done, total) = ⌊done · 100 / total⌋', total > 0 ? Math.floor((done * 100) / total) : 0, nat(done, total) && total > 0 && done <= total, 'progress', [done, total]) }
+  static progress(done: number, total: number): CrossFormula { return c('steps-progress', 'progress(done, total) = ⌊done · 100 / total⌋', total > 0 ? quot((done * 100), total) : 0, nat(done, total) && total > 0 && done <= total, 'progress', [done, total]) }
   /** CURRENT: the current step as a percentage of the total. value ⌊step · 100 / total⌋. */
-  static current(step: number, total: number): CrossFormula { return c('steps-current', 'current(step, total) = ⌊step · 100 / total⌋', total > 0 ? Math.floor((step * 100) / total) : 0, nat(step, total) && total > 0 && step <= total, 'current', [step, total]) }
+  static current(step: number, total: number): CrossFormula { return c('steps-current', 'current(step, total) = ⌊step · 100 / total⌋', total > 0 ? quot((step * 100), total) : 0, nat(step, total) && total > 0 && step <= total, 'current', [step, total]) }
   /** REMAINING: the steps left to do. value max(0, total − done). */
-  static remaining(done: number, total: number): CrossFormula { return c('steps-remaining', 'remaining(done, total) = max(0, total − done)', Math.max(0, total - done), nat(done, total), 'remaining', [done, total]) }
+  static remaining(done: number, total: number): CrossFormula { return c('steps-remaining', 'remaining(done, total) = max(0, total − done)', maxOf(0, total - done), nat(done, total), 'remaining', [done, total]) }
   /** COUNT: the number of steps in the flow. value steps. */
   static count(steps: number): CrossFormula { return c('steps-count', 'count(steps) = steps', steps, nat(steps), 'count', [steps]) }
   /** ORDER: 1 when a position is within the total. value [position ≤ total]. */
@@ -27,7 +28,7 @@ export class StepsFormulas {
   /** DEPTH: how deeply steps nest (holds at five or fewer). value nested. */
   static depth(nested: number): CrossFormula { return c('steps-depth', 'depth(nested) = nested', nested, nat(nested) && nested <= 5, 'depth', [nested]) }
   /** COMPLETION: finished runs as a percentage of started. value ⌊finished · 100 / started⌋. */
-  static completion(finished: number, started: number): CrossFormula { return c('steps-completion', 'completion(finished, started) = ⌊finished · 100 / started⌋', started > 0 ? Math.floor((finished * 100) / started) : 0, nat(finished, started) && started > 0 && finished <= started, 'completion', [finished, started]) }
+  static completion(finished: number, started: number): CrossFormula { return c('steps-completion', 'completion(finished, started) = ⌊finished · 100 / started⌋', started > 0 ? quot((finished * 100), started) : 0, nat(finished, started) && started > 0 && finished <= started, 'completion', [finished, started]) }
 }
 
 for (const name of ['completion', 'count', 'current', 'depth', 'duration', 'order', 'progress', 'remaining'] as const)

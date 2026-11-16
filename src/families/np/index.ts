@@ -1,5 +1,6 @@
 import { bigPowModOf, hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { absOf, ilog2, quot } from '../../exact.js'
 
 export type Graph = { n: number; edges: [number, number][] }
 /** CNF in DIMACS literals: variable v is v (true) or -v (false), 1-based. */
@@ -47,7 +48,7 @@ export const verifyHamCycle = (g: Graph, cycle: readonly number[]): boolean => {
 export const verifySubsetSum = (set: readonly number[], mask: number, target: number): boolean =>
   set.reduce((s, x, i) => s + ((mask >> i) & 1 ? x : 0), 0) === target
 
-export const verifySat = (cnf: Cnf, assignment: readonly boolean[]): boolean => cnf.every((clause) => clause.some((l) => assignment[Math.abs(l) - 1] === l > 0))
+export const verifySat = (cnf: Cnf, assignment: readonly boolean[]): boolean => cnf.every((clause) => clause.some((l) => assignment[absOf(l) - 1] === l > 0))
 
 // ---------------------------------------------------------------------------
 // Searches: produce a certificate or decide that none exists (small instances)
@@ -143,7 +144,7 @@ const isReachable = (g: Graph, s: number, v: number): boolean => {
 // ---------------------------------------------------------------------------
 
 const nat = (...xs: number[]): boolean => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
-const bitsOf = (x: number): number => (x > 0 ? Math.floor(Math.log2(x)) + 1 : 1)
+const bitsOf = (x: number): number => (x > 0 ? ilog2(x) + 1 : 1)
 
 // square-and-multiply: 4^k mod 3 in O(log k), so a reach width of any size stays cheap
 
@@ -151,12 +152,12 @@ export class NpFormulas {
   /** set packed as base-16 digits, mask selects digits */
   static subsetSum(set: number, mask: number): CrossFormula {
     let s = 0
-    for (let i = 0, x = set; x > 0; i++, x = Math.floor(x / 16)) if ((mask >> i) & 1) s += x % 16
+    for (let i = 0, x = set; x > 0; i++, x = quot(x, 16)) if ((mask >> i) & 1) s += x % 16
     return crossFormulaOf({ id: 'np-subset-sum', src: 'np', dst: 'np', formula: 'sum = Σ bit_i(mask) · digit_i(set)', value: s, proof: 'A Subset Sum certificate is checked in one pass over the set' }, nat(set, mask), { name: 'np.subsetSum', params: [set, mask] })
   }
 
   static edgeBit(adjacency: number, position: number): CrossFormula {
-    return crossFormulaOf({ id: 'np-edge-bit', src: 'np', dst: 'path', formula: 'edge(u, v) = floor(A / 2^(u·n + v)) mod 2', value: Math.floor(adjacency / 2 ** position) % 2, proof: 'An adjacency matrix packed into one natural; a logspace machine reads one bit' }, nat(adjacency, position), { name: 'np.edgeBit', params: [adjacency, position] })
+    return crossFormulaOf({ id: 'np-edge-bit', src: 'np', dst: 'path', formula: 'edge(u, v) = floor(A / 2^(u·n + v)) mod 2', value: quot(adjacency, 2 ** position) % 2, proof: 'An adjacency matrix packed into one natural; a logspace machine reads one bit' }, nat(adjacency, position), { name: 'np.edgeBit', params: [adjacency, position] })
   }
 
   static isTime(n: number): CrossFormula {

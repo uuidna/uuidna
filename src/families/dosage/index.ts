@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, quot } from '../../exact.js'
 
 /** DOSAGE — PRESCRIBING AS ARITHMETIC (chosen by the clinical registry, not by hand). A dose is numbers: amount by body
  *  weight, amount by body surface area, the daily total, the divided dose, the capped maximum, the pediatric scale-down,
@@ -19,13 +20,13 @@ export class DosageFormulas {
   /** DAILY TOTAL: a single dose taken a number of times. value dose · times. */
   static daily(dose: number, times: number): CrossFormula { return c('dosage-daily', 'daily(dose, times) = dose · times', dose * times, nat(dose, times), 'daily', [dose, times]) }
   /** DIVIDED DOSE: a daily total split across administrations. value ⌊daily / times⌋. */
-  static divided(daily: number, times: number): CrossFormula { return c('dosage-divided', 'divided(daily, times) = ⌊daily / times⌋', times > 0 ? Math.floor(daily / times) : 0, nat(daily, times) && times > 0, 'divided', [daily, times]) }
+  static divided(daily: number, times: number): CrossFormula { return c('dosage-divided', 'divided(daily, times) = ⌊daily / times⌋', times > 0 ? quot(daily, times) : 0, nat(daily, times) && times > 0, 'divided', [daily, times]) }
   /** MAXIMUM: a dose capped at a ceiling. value min(dose, cap). */
-  static maximum(dose: number, cap: number): CrossFormula { return c('dosage-maximum', 'maximum(dose, cap) = min(dose, cap)', Math.min(dose, cap), nat(dose, cap), 'maximum', [dose, cap]) }
+  static maximum(dose: number, cap: number): CrossFormula { return c('dosage-maximum', 'maximum(dose, cap) = min(dose, cap)', minOf(dose, cap), nat(dose, cap), 'maximum', [dose, cap]) }
   /** PEDIATRIC (Clark's rule): the adult dose scaled by weight against a 70 kg adult. value ⌊adult · weight / 70⌋. */
-  static pediatric(adult: number, weight: number): CrossFormula { return c('dosage-pediatric', 'pediatric(adult, weight) = ⌊adult · weight / 70⌋', Math.floor((adult * weight) / 70), nat(adult, weight), 'pediatric', [adult, weight]) }
+  static pediatric(adult: number, weight: number): CrossFormula { return c('dosage-pediatric', 'pediatric(adult, weight) = ⌊adult · weight / 70⌋', quot((adult * weight), 70), nat(adult, weight), 'pediatric', [adult, weight]) }
   /** MAINTENANCE: a percentage fraction of the loading dose. value ⌊loading · fraction / 100⌋. */
-  static maintenance(loading: number, fraction: number): CrossFormula { return c('dosage-maintenance', 'maintenance(loading, fraction) = ⌊loading · fraction / 100⌋', Math.floor((loading * fraction) / 100), nat(loading, fraction) && fraction <= 100, 'maintenance', [loading, fraction]) }
+  static maintenance(loading: number, fraction: number): CrossFormula { return c('dosage-maintenance', 'maintenance(loading, fraction) = ⌊loading · fraction / 100⌋', quot((loading * fraction), 100), nat(loading, fraction) && fraction <= 100, 'maintenance', [loading, fraction]) }
   /** CUMULATIVE EXPOSURE: a daily dose over a course of days. value dose · days. */
   static cumulative(dose: number, days: number): CrossFormula { return c('dosage-cumulative', 'cumulative(dose, days) = dose · days', dose * days, nat(dose, days), 'cumulative', [dose, days]) }
 }

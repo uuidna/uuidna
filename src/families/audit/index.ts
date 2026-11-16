@@ -10,6 +10,7 @@
 
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { hexRegisterOf, recognizeHolds } from '../../quantum/processing/unit/index.js'
+import { absOf, maxOf, minOf, truncOf } from '../../exact.js'
 
 // the law of this family: a compliance fusion holds only over lawful inputs — finite, non-negative scores
 const nat = (...xs: number[]): boolean => xs.every((x) => Number.isFinite(x) && x >= 0)
@@ -91,7 +92,7 @@ export class VectorEquilibriumAudit {
     // Identity = (mfa + rbac + access_review + provisioning) / 4
     const mfa = data.mfaEnabled ? 1.0 : 0.0
     const rbac = data.rbacImplemented ? 1.0 : 0.5
-    const review = data.accessReviewFreq ? Math.min(1.0, data.accessReviewFreq / 90) : 0.3 // Quarterly is 1.0
+    const review = data.accessReviewFreq ? minOf(1.0, data.accessReviewFreq / 90) : 0.3 // Quarterly is 1.0
     const prov = data.automatedProvisioning ? 1.0 : 0.6
     return (mfa + rbac + review + prov) / 4
   }
@@ -100,7 +101,7 @@ export class VectorEquilibriumAudit {
     // Data Protection = (encryption_at_rest + encryption_in_transit + key_management + dlp) / 4
     const atRest = data.encryptionAtRest ? 1.0 : 0.0
     const inTransit = data.encryptionInTransit ? 1.0 : 0.0
-    const keyMgmt = data.keyRotationDays ? Math.max(0, 1.0 - (data.keyRotationDays / 90)) : 0.4
+    const keyMgmt = data.keyRotationDays ? maxOf(0, 1.0 - (data.keyRotationDays / 90)) : 0.4
     const dlp = data.dlpEnabled ? 1.0 : 0.5
     return (atRest + inTransit + keyMgmt + dlp) / 4
   }
@@ -109,7 +110,7 @@ export class VectorEquilibriumAudit {
     // Infrastructure = (network_segmentation + firewall + patching + redundancy) / 4
     const segmentation = data.networkSegmented ? 1.0 : 0.4
     const firewall = data.firewallEnabled ? 1.0 : 0.0
-    const patching = data.patchCycleMs ? Math.max(0, 1.0 - (data.patchCycleMs / 30 / 86400000)) : 0.3
+    const patching = data.patchCycleMs ? maxOf(0, 1.0 - (data.patchCycleMs / 30 / 86400000)) : 0.3
     const redundancy = data.redundancyLevel || 0.5
     return (segmentation + firewall + patching + redundancy) / 4
   }
@@ -117,7 +118,7 @@ export class VectorEquilibriumAudit {
   private static scoreApplications(data: any): number {
     // Applications = (sdlc + code_review + sast + dast + sca) / 5
     const sdlc = data.sdlcProcess ? 1.0 : 0.3
-    const codeReview = data.codeReviewRate ? Math.min(1.0, data.codeReviewRate) : 0.5
+    const codeReview = data.codeReviewRate ? minOf(1.0, data.codeReviewRate) : 0.5
     const sast = data.sastEnabled ? 1.0 : 0.4
     const dast = data.dastEnabled ? 1.0 : 0.4
     const sca = data.scaEnabled ? 1.0 : 0.5
@@ -136,9 +137,9 @@ export class VectorEquilibriumAudit {
   private static scoreIncidentResponse(data: any): number {
     // Incident Response = (plan + training + metrics + testing) / 4
     const plan = data.irPlan ? 1.0 : 0.2
-    const training = data.trainingHours ? Math.min(1.0, data.trainingHours / 8) : 0.3
-    const metrics = data.mttrTargetMs ? Math.max(0, 1.0 - (data.mttrTargetMs / 3600000)) : 0.4
-    const testing = data.drillsPerYear ? Math.min(1.0, data.drillsPerYear / 4) : 0.3
+    const training = data.trainingHours ? minOf(1.0, data.trainingHours / 8) : 0.3
+    const metrics = data.mttrTargetMs ? maxOf(0, 1.0 - (data.mttrTargetMs / 3600000)) : 0.4
+    const testing = data.drillsPerYear ? minOf(1.0, data.drillsPerYear / 4) : 0.3
     return (plan + training + metrics + testing) / 4
   }
 
@@ -168,7 +169,7 @@ export class VectorEquilibriumAudit {
     const stdDev = Math.sqrt(variance)
 
     // Harmony = how centered around mean (lower stdDev = better)
-    const harmony = Math.max(0, 1 - stdDev)
+    const harmony = maxOf(0, 1 - stdDev)
 
     // Balance = how close all octants are to each other
     const balance = mean * (1 - stdDev)
@@ -256,7 +257,7 @@ export class AuditFormulas {
       (encAtRest ? 1 : 0) +
       (encInTransit ? 1 : 0) +
       (dlpEnabled ? 1 : 0) +
-      Math.min(1, breachResponse / 72) // Hours to respond
+      minOf(1, breachResponse / 72) // Hours to respond
     ) / 4
   }
 
@@ -278,8 +279,8 @@ export class AuditFormulas {
    * ir_capability = (plan_rating + mttr_compliance + training_score + testing_frequency) / 4
    */
   static incidentResponseCapability(planRating: number, mttrComplianceMs: number, trainingScore: number, testingFrequency: number): number {
-    const mttrCompliance = Math.min(1, 3600000 / Math.max(1, mttrComplianceMs)) // 1 hour SLA
-    const testingScore = Math.min(1, testingFrequency / 4) // Quarterly = 1.0
+    const mttrCompliance = minOf(1, 3600000 / maxOf(1, mttrComplianceMs)) // 1 hour SLA
+    const testingScore = minOf(1, testingFrequency / 4) // Quarterly = 1.0
 
     return (planRating + mttrCompliance + trainingScore + testingScore) / 4
   }
@@ -299,7 +300,7 @@ export class AuditFormulas {
   static computeRiskIndex(criticalGaps: Array<{ weight: number; severity: number }>): number {
     if (criticalGaps.length === 0) return 0
     const totalRisk = criticalGaps.reduce((sum, gap) => sum + gap.weight * gap.severity, 0)
-    return Math.min(1, totalRisk / criticalGaps.length)
+    return minOf(1, totalRisk / criticalGaps.length)
   }
 
   /**
@@ -319,7 +320,7 @@ export class AuditFormulas {
       hash = (hash << 5) - hash + char
       hash = hash & hash // Convert to 32bit integer
     }
-    return Math.abs(hash).toString(16)
+    return absOf(hash).toString(16)
   }
 
   // ==========================================================================
@@ -332,7 +333,7 @@ export class AuditFormulas {
    *  when each is an ADDRESS (a hex program with a resolve) — never a bare ask. value = open questions in the slice. */
   static async questions(from = 0): Promise<CrossFormula> {
     const { GateFormulas } = await import('../gate/index.js')
-    const at = Math.max(0, Math.trunc(from))
+    const at = maxOf(0, truncOf(from))
     const r = (await GateFormulas.leads(at)) as unknown as { value: number; leads?: string[]; next?: number }
     const leads = r.leads ?? []
     const addressed = leads.filter((x) => /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-/.test(String(x))).length
@@ -352,7 +353,7 @@ export class AuditFormulas {
    *  court lead carrying its resolve (routed to court, never removed, never silent). value = gaps in the slice. Paged. */
   static async realtime(from = 0): Promise<CrossFormula> {
     const { GateFormulas } = await import('../gate/index.js')
-    const at = Math.max(0, Math.trunc(from))
+    const at = maxOf(0, truncOf(from))
     const r = (await GateFormulas.gaps(at)) as unknown as { value: number; gaps?: { where?: string; why?: string; resolve?: string }[]; take?: number; total?: number; next?: number; warnings?: number }
     const gaps = r.gaps ?? []
     const routed = gaps.filter((g) => typeof g.resolve === 'string' && g.resolve.length > 0).length

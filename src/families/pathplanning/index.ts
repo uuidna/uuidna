@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** PATHPLANNING — MOVING A BODY THROUGH SPACE, AS ARITHMETIC (chosen by the registry, not by hand). A plan is numbers:
  *  the grid distances between two cells (Manhattan, Chebyshev, squared Euclid), the A* heuristic f = g + h, the nodes a
@@ -13,9 +14,9 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class PathplanningFormulas {
   /** CHEBYSHEV DISTANCE: the king's-move grid distance from the axis deltas. value max(dx, dy). */
-  static chebyshev(dx: number, dy: number): CrossFormula { return c('pathplanning-chebyshev', 'chebyshev(dx, dy) = max(dx, dy)', Math.max(dx, dy), nat(dx, dy), 'chebyshev', [dx, dy]) }
+  static chebyshev(dx: number, dy: number): CrossFormula { return c('pathplanning-chebyshev', 'chebyshev(dx, dy) = max(dx, dy)', maxOf(dx, dy), nat(dx, dy), 'chebyshev', [dx, dy]) }
   /** CLEARANCE: how far an obstacle at a distance stays outside the body's radius. value max(0, dist − radius). */
-  static clearance(dist: number, radius: number): CrossFormula { return c('pathplanning-clearance', 'clearance(dist, radius) = max(0, dist − radius)', Math.max(0, dist - radius), nat(dist, radius), 'clearance', [dist, radius]) }
+  static clearance(dist: number, radius: number): CrossFormula { return c('pathplanning-clearance', 'clearance(dist, radius) = max(0, dist − radius)', maxOf(0, dist - radius), nat(dist, radius), 'clearance', [dist, radius]) }
   /** SQUARED EUCLID DISTANCE: the no-sqrt distance from the axis deltas. value dx² + dy². */
   static euclidsq(dx: number, dy: number): CrossFormula { return c('pathplanning-euclidsq', 'euclidsq(dx, dy) = dx² + dy²', dx * dx + dy * dy, nat(dx, dy), 'euclidsq', [dx, dy]) }
   /** A* HEURISTIC: the f-score, cost so far plus the estimate ahead. value g + h. */
@@ -27,7 +28,7 @@ export class PathplanningFormulas {
   /** PATH COST: the steps of a route at a cost each. value steps · stepcost. */
   static pathcost(steps: number, stepcost: number): CrossFormula { return c('pathplanning-pathcost', 'pathcost(steps, stepcost) = steps · stepcost', steps * stepcost, nat(steps, stepcost), 'pathcost', [steps, stepcost]) }
   /** SMOOTHNESS: the share of a route that turns, as a percentage. value ⌊turns · 100 / total⌋. */
-  static smoothness(turns: number, total: number): CrossFormula { return c('pathplanning-smoothness', 'smoothness(turns, total) = ⌊turns · 100 / total⌋', total > 0 ? Math.floor((turns * 100) / total) : 0, nat(turns, total) && total > 0 && turns <= total, 'smoothness', [turns, total]) }
+  static smoothness(turns: number, total: number): CrossFormula { return c('pathplanning-smoothness', 'smoothness(turns, total) = ⌊turns · 100 / total⌋', total > 0 ? quot((turns * 100), total) : 0, nat(turns, total) && total > 0 && turns <= total, 'smoothness', [turns, total]) }
 }
 
 for (const name of ['chebyshev', 'clearance', 'euclidsq', 'heuristic', 'manhattan', 'nodesexpanded', 'pathcost', 'smoothness'] as const)

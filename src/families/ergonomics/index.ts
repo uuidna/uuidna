@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** ERGONOMICS — THE WORKPLACE ON THE BODY, AS ARITHMETIC (chosen by the registry, not by hand). Work put on a person is
  *  numbers: the lifting index of a load, how far a reach is of its limit, how far a posture is off neutral, repetition
@@ -15,19 +16,19 @@ export class ErgonomicsFormulas {
   /** LIFTING INDEX proxy: a load lifted at a frequency. value weight · frequency. */
   static lift(weight: number, frequency: number): CrossFormula { return c('ergonomics-lift', 'lift(weight, frequency) = weight · frequency', weight * frequency, nat(weight, frequency), 'lift', [weight, frequency]) }
   /** REACH as a percentage of its limit. value ⌊distance · 100 / limit⌋. */
-  static reach(distance: number, limit: number): CrossFormula { return c('ergonomics-reach', 'reach(distance, limit) = ⌊distance · 100 / limit⌋', limit > 0 ? Math.floor((distance * 100) / limit) : 0, nat(distance, limit) && limit > 0, 'reach', [distance, limit]) }
+  static reach(distance: number, limit: number): CrossFormula { return c('ergonomics-reach', 'reach(distance, limit) = ⌊distance · 100 / limit⌋', limit > 0 ? quot((distance * 100), limit) : 0, nat(distance, limit) && limit > 0, 'reach', [distance, limit]) }
   /** POSTURE deviation as a percentage of neutral. value ⌊deviation · 100 / neutral⌋. */
-  static posture(deviation: number, neutral: number): CrossFormula { return c('ergonomics-posture', 'posture(deviation, neutral) = ⌊deviation · 100 / neutral⌋', neutral > 0 ? Math.floor((deviation * 100) / neutral) : 0, nat(deviation, neutral) && neutral > 0, 'posture', [deviation, neutral]) }
+  static posture(deviation: number, neutral: number): CrossFormula { return c('ergonomics-posture', 'posture(deviation, neutral) = ⌊deviation · 100 / neutral⌋', neutral > 0 ? quot((deviation * 100), neutral) : 0, nat(deviation, neutral) && neutral > 0, 'posture', [deviation, neutral]) }
   /** REPETITION: movements over the minutes worked. value ⌊movements / minutes⌋. */
-  static repetition(movements: number, minutes: number): CrossFormula { return c('ergonomics-repetition', 'repetition(movements, minutes) = ⌊movements / minutes⌋', minutes > 0 ? Math.floor(movements / minutes) : 0, nat(movements, minutes) && minutes > 0, 'repetition', [movements, minutes]) }
+  static repetition(movements: number, minutes: number): CrossFormula { return c('ergonomics-repetition', 'repetition(movements, minutes) = ⌊movements / minutes⌋', minutes > 0 ? quot(movements, minutes) : 0, nat(movements, minutes) && minutes > 0, 'repetition', [movements, minutes]) }
   /** FATIGUE: time worked over time rested, as a percentage. value ⌊worked · 100 / rest⌋. */
-  static fatigue(worked: number, rest: number): CrossFormula { return c('ergonomics-fatigue', 'fatigue(worked, rest) = ⌊worked · 100 / rest⌋', rest > 0 ? Math.floor((worked * 100) / rest) : 0, nat(worked, rest) && rest > 0, 'fatigue', [worked, rest]) }
+  static fatigue(worked: number, rest: number): CrossFormula { return c('ergonomics-fatigue', 'fatigue(worked, rest) = ⌊worked · 100 / rest⌋', rest > 0 ? quot((worked * 100), rest) : 0, nat(worked, rest) && rest > 0, 'fatigue', [worked, rest]) }
   /** ILLUMINATION: lumens over the area lit. value ⌊lumens / area⌋. */
-  static illumination(lumens: number, area: number): CrossFormula { return c('ergonomics-illumination', 'illumination(lumens, area) = ⌊lumens / area⌋', area > 0 ? Math.floor(lumens / area) : 0, nat(lumens, area) && area > 0, 'illumination', [lumens, area]) }
+  static illumination(lumens: number, area: number): CrossFormula { return c('ergonomics-illumination', 'illumination(lumens, area) = ⌊lumens / area⌋', area > 0 ? quot(lumens, area) : 0, nat(lumens, area) && area > 0, 'illumination', [lumens, area]) }
   /** NOISE: ambient sound level. value decibels (holds nat). */
   static noise(decibels: number): CrossFormula { return c('ergonomics-noise', 'noise(decibels) = decibels', decibels, nat(decibels), 'noise', [decibels]) }
   /** STRAIN: force over capacity, as a percentage. value ⌊force · 100 / capacity⌋. */
-  static strain(force: number, capacity: number): CrossFormula { return c('ergonomics-strain', 'strain(force, capacity) = ⌊force · 100 / capacity⌋', capacity > 0 ? Math.floor((force * 100) / capacity) : 0, nat(force, capacity) && capacity > 0, 'strain', [force, capacity]) }
+  static strain(force: number, capacity: number): CrossFormula { return c('ergonomics-strain', 'strain(force, capacity) = ⌊force · 100 / capacity⌋', capacity > 0 ? quot((force * 100), capacity) : 0, nat(force, capacity) && capacity > 0, 'strain', [force, capacity]) }
 }
 
 for (const name of ['fatigue', 'illumination', 'lift', 'noise', 'posture', 'reach', 'repetition', 'strain'] as const)

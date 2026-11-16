@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** VITALS — GOOGLE CORE WEB VITALS, AS ARITHMETIC (the thresholds a page is graded by, not by hand). A page's field data is
  *  numbers: whether loading, interaction and layout clear the bar, the time to first byte and first paint, how much of a
@@ -24,11 +25,11 @@ export class VitalsFormulas {
   /** GOOD FCP: First Contentful Paint clears Google's 1800ms bar. value [ms ≤ 1800]. */
   static fcp(ms: number): CrossFormula { return c('vitals-fcp', 'fcp(ms) = [ms ≤ 1800]', ms <= 1800 ? 1 : 0, nat(ms), 'fcp', [ms]) }
   /** BUDGET: the share of a performance budget a resource burned. value ⌊used · 100 / total⌋. */
-  static budget(used: number, total: number): CrossFormula { return c('vitals-budget', 'budget(used, total) = ⌊used · 100 / total⌋', total > 0 ? Math.floor((used * 100) / total) : 0, nat(used, total) && total > 0, 'budget', [used, total]) }
+  static budget(used: number, total: number): CrossFormula { return c('vitals-budget', 'budget(used, total) = ⌊used · 100 / total⌋', total > 0 ? quot((used * 100), total) : 0, nat(used, total) && total > 0, 'budget', [used, total]) }
   /** SCORE: the share of metrics that passed, as a percentage. value ⌊passed · 100 / metrics⌋. */
-  static score(passed: number, metrics: number): CrossFormula { return c('vitals-score', 'score(passed, metrics) = ⌊passed · 100 / metrics⌋', metrics > 0 ? Math.floor((passed * 100) / metrics) : 0, nat(passed, metrics) && metrics > 0 && passed <= metrics, 'score', [passed, metrics]) }
+  static score(passed: number, metrics: number): CrossFormula { return c('vitals-score', 'score(passed, metrics) = ⌊passed · 100 / metrics⌋', metrics > 0 ? quot((passed * 100), metrics) : 0, nat(passed, metrics) && metrics > 0 && passed <= metrics, 'score', [passed, metrics]) }
   /** REGRESSION: how far a metric worsened since the last release, never below zero. value max(0, now − before). */
-  static regression(now: number, before: number): CrossFormula { return c('vitals-regression', 'regression(now, before) = max(0, now − before)', Math.max(0, now - before), nat(now, before), 'regression', [now, before]) }
+  static regression(now: number, before: number): CrossFormula { return c('vitals-regression', 'regression(now, before) = max(0, now − before)', maxOf(0, now - before), nat(now, before), 'regression', [now, before]) }
 }
 
 for (const name of ['budget', 'cls', 'fcp', 'inp', 'lcp', 'regression', 'score', 'ttfb'] as const)

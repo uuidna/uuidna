@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, quot } from '../../exact.js'
 
 /** RAMSEY — RAMSEY THEORY AND STANDARD COMBINATORICS, AS ARITHMETIC. The textbook statement that complete order is
  *  unavoidable: small exact Ramsey numbers R(s,t) (R(3,3)=6, R(3,4)=9, R(3,5)=14, R(4,4)=18), the friends-and-strangers
@@ -43,9 +44,9 @@ export class RamseyFormulas {
   /** BINOM — the binomial coefficient C(n,k), ways to choose k of n. value C(n,k); holds 0 ≤ k ≤ n ≤ 30. */
   static binom(n: number, k: number): CrossFormula { return r('ramsey-binom', 'binom(n, k) = C(n, k)', choose(n, k), nat(n, k) && k <= n && n <= 30, 'binom', [n, k]) }
   /** PIGEON — the pigeonhole bound: the fullest hole holds at least ⌈items/holes⌉. value ⌈items/holes⌉; holds holes > 0. */
-  static pigeon(items: number, holes: number): CrossFormula { return r('ramsey-pigeon', 'pigeon(items, holes) = ⌈items / holes⌉', holes > 0 ? Math.ceil(items / holes) : 0, nat(items, holes) && holes > 0, 'pigeon', [items, holes]) }
+  static pigeon(items: number, holes: number): CrossFormula { return r('ramsey-pigeon', 'pigeon(items, holes) = ⌈items / holes⌉', holes > 0 ? ceilQuot(items, holes) : 0, nat(items, holes) && holes > 0, 'pigeon', [items, holes]) }
   /** MONOCHROMATIC — the guaranteed monochromatic class size when edges take colors. value ⌊edges/colors⌋; holds colors > 0. */
-  static monochromatic(edges: number, colors: number): CrossFormula { return r('ramsey-monochromatic', 'monochromatic(edges, colors) = ⌊edges / colors⌋', colors > 0 ? Math.floor(edges / colors) : 0, nat(edges, colors) && colors > 0, 'monochromatic', [edges, colors]) }
+  static monochromatic(edges: number, colors: number): CrossFormula { return r('ramsey-monochromatic', 'monochromatic(edges, colors) = ⌊edges / colors⌋', colors > 0 ? quot(edges, colors) : 0, nat(edges, colors) && colors > 0, 'monochromatic', [edges, colors]) }
   /** SCHUR3 — Schur's number S(3) = 13 (largest n with {1..n} split into 3 sum-free sets). value 13. */
   static schur3(): CrossFormula { return r('ramsey-schur3', 'schur3() = S(3) = 13', 13, true, 'schur3', []) }
   /** VDW23 — the van der Waerden number W(2,3) = 9 (forces a monochromatic 3-term AP in any 2-coloring). value 9. */

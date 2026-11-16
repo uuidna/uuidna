@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** BIOMECHANICS — THE BODY AS MECHANISM, AS ARITHMETIC. Movement is numbers: the torque a muscle makes about a joint, the
  *  moment of inertia of a limb, the power in a lift, the impulse of a step, the ground reaction a stride returns, the
@@ -17,17 +18,17 @@ export class BiomechanicsFormulas {
   /** MOMENT OF INERTIA of a limb as a point mass at a radius. value mass · radius². */
   static moment(mass: number, radius: number): CrossFormula { return c('biomechanics-moment', 'moment(mass, radius) = mass · radius²', mass * radius * radius, nat(mass, radius), 'moment', [mass, radius]) }
   /** POWER in a lift: work done over the time taken. value ⌊work / time⌋. */
-  static power(work: number, time: number): CrossFormula { return c('biomechanics-power', 'power(work, time) = ⌊work / time⌋', time > 0 ? Math.floor(work / time) : 0, nat(work, time) && time > 0, 'power', [work, time]) }
+  static power(work: number, time: number): CrossFormula { return c('biomechanics-power', 'power(work, time) = ⌊work / time⌋', time > 0 ? quot(work, time) : 0, nat(work, time) && time > 0, 'power', [work, time]) }
   /** IMPULSE of a step: a force applied over a contact time. value force · time. */
   static impulse(force: number, time: number): CrossFormula { return c('biomechanics-impulse', 'impulse(force, time) = force · time', force * time, nat(force, time), 'impulse', [force, time]) }
   /** GROUND REACTION FORCE under acceleration: mass times gravity (10) plus accel. value mass · (accel + 10). */
   static groundreaction(mass: number, accel: number): CrossFormula { return c('biomechanics-groundreaction', 'groundreaction(mass, accel) = mass · (accel + 10)', mass * (accel + 10), nat(mass, accel), 'groundreaction', [mass, accel]) }
   /** LEVERAGE: the mechanical advantage of a lever, effort arm over load arm. value ⌊effort / load⌋. */
-  static leverage(effort: number, load: number): CrossFormula { return c('biomechanics-leverage', 'leverage(effort, load) = ⌊effort / load⌋', load > 0 ? Math.floor(effort / load) : 0, nat(effort, load) && load > 0, 'leverage', [effort, load]) }
+  static leverage(effort: number, load: number): CrossFormula { return c('biomechanics-leverage', 'leverage(effort, load) = ⌊effort / load⌋', load > 0 ? quot(effort, load) : 0, nat(effort, load) && load > 0, 'leverage', [effort, load]) }
   /** WORKLOAD of a session: reps at a load each (training volume). value reps · weight. */
   static workload(reps: number, weight: number): CrossFormula { return c('biomechanics-workload', 'workload(reps, weight) = reps · weight', reps * weight, nat(reps, weight), 'workload', [reps, weight]) }
   /** GAIT CADENCE: steps taken over the time taken. value ⌊steps / time⌋. */
-  static gait(steps: number, time: number): CrossFormula { return c('biomechanics-gait', 'gait(steps, time) = ⌊steps / time⌋', time > 0 ? Math.floor(steps / time) : 0, nat(steps, time) && time > 0, 'gait', [steps, time]) }
+  static gait(steps: number, time: number): CrossFormula { return c('biomechanics-gait', 'gait(steps, time) = ⌊steps / time⌋', time > 0 ? quot(steps, time) : 0, nat(steps, time) && time > 0, 'gait', [steps, time]) }
 }
 
 for (const name of ['gait', 'groundreaction', 'impulse', 'leverage', 'moment', 'power', 'torque', 'workload'] as const)

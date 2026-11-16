@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** SOFTWARE — the engineering arithmetic above the driver. Thousands of lines, test coverage, cyclomatic complexity,
  *  an estimate of defects, the feature-flag combinations a count opens, story-point hours, delivery velocity, and a
@@ -7,8 +8,8 @@ import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 
 const PROOF = 'software counts: kloc = loc / 1000; coverage = covered · 100 / total; cyclomatic = max(0, edges − nodes + 2); defects = kloc · rate; flags = 2^n; hours = points · 4; velocity = items / days; semver = major·1e6 + minor·1e3 + patch; density = defects / kloc; throughput = velocity · sprints; debt = hours · rate; effort = kloc · perKloc; teamsize = ceil(hours / perPerson); builds = commits · perCommit; mttr = downtime / incidents; software crossed to driver'
 const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
-const div = (a: number, b: number) => (b > 0 ? Math.floor(a / b) : 0)
-const ceilDiv = (a: number, b: number) => (b > 0 ? Math.floor((a + b - 1) / b) : 0)
+const div = (a: number, b: number) => (b > 0 ? quot(a, b) : 0)
+const ceilDiv = (a: number, b: number) => (b > 0 ? quot((a + b - 1), b) : 0)
 const f = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
   crossFormulaOf({ id, src: 'software', dst: 'driver', formula, value, proof: PROOF, ...extra }, holds, { name: `software.${name}`, params })
 
@@ -18,7 +19,7 @@ export class SoftwareFormulas {
   /** Percent line coverage of `covered` over `total`: covered · 100 / total. */
   static coverage(covered: number, total: number): CrossFormula { return f('software-coverage', 'coverage(covered, total) = covered · 100 / total', div(covered * 100, total), nat(covered, total) && total > 0, 'coverage', [covered, total]) }
   /** McCabe cyclomatic complexity of a connected graph: max(0, edges − nodes + 2). */
-  static cyclomatic(edges: number, nodes: number): CrossFormula { return f('software-cyclomatic', 'cyclomatic(edges, nodes) = max(0, edges − nodes + 2)', Math.max(0, edges - nodes + 2), nat(edges, nodes), 'cyclomatic', [edges, nodes]) }
+  static cyclomatic(edges: number, nodes: number): CrossFormula { return f('software-cyclomatic', 'cyclomatic(edges, nodes) = max(0, edges − nodes + 2)', maxOf(0, edges - nodes + 2), nat(edges, nodes), 'cyclomatic', [edges, nodes]) }
   /** Estimated defects of `kloc` thousand lines at `rate` per kloc: kloc · rate. */
   static defects(kloc: number, rate: number): CrossFormula { return f('software-defects', 'defects(kloc, rate) = kloc · rate', kloc * rate, nat(kloc, rate), 'defects', [kloc, rate]) }
   /** Feature-flag combinations `n` independent flags open: 2^n (n ≤ 30). */

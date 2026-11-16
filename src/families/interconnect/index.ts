@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** INTERCONNECT — BUSES AND LINKS, AS ARITHMETIC. A fabric is numbers by the book: the lanes a link set carries, raw
  *  bandwidth, usable throughput after line coding (128b/130b and the like), link latency over the hops, the bit width,
@@ -18,13 +19,13 @@ export class InterconnectFormulas {
   /** BANDWIDTH — raw bandwidth: the lanes times the Gbps each carries. value lanes · perLaneGbps. */
   static bandwidth(lanes: number, perLaneGbps: number): CrossFormula { return i('interconnect-bandwidth', 'bandwidth(lanes, perLaneGbps) = lanes · perLaneGbps', lanes * perLaneGbps, nat(lanes, perLaneGbps), 'bandwidth', [lanes, perLaneGbps]) }
   /** THROUGHPUT — usable bandwidth after line coding (e.g. 128/130). value ⌊bandwidthGbps · encodingNum / encodingDen⌋; holds encodingDen > 0. */
-  static throughput(bandwidthGbps: number, encodingNum: number, encodingDen: number): CrossFormula { return i('interconnect-throughput', 'throughput(bandwidthGbps, encodingNum, encodingDen) = ⌊bandwidthGbps · encodingNum / encodingDen⌋', encodingDen > 0 ? Math.floor((bandwidthGbps * encodingNum) / encodingDen) : 0, nat(bandwidthGbps, encodingNum, encodingDen) && encodingDen > 0, 'throughput', [bandwidthGbps, encodingNum, encodingDen]) }
+  static throughput(bandwidthGbps: number, encodingNum: number, encodingDen: number): CrossFormula { return i('interconnect-throughput', 'throughput(bandwidthGbps, encodingNum, encodingDen) = ⌊bandwidthGbps · encodingNum / encodingDen⌋', encodingDen > 0 ? quot((bandwidthGbps * encodingNum), encodingDen) : 0, nat(bandwidthGbps, encodingNum, encodingDen) && encodingDen > 0, 'throughput', [bandwidthGbps, encodingNum, encodingDen]) }
   /** LATENCY — link latency over the hops: the hops times the nanoseconds each adds. value hops · perHopNs. */
   static latency(hops: number, perHopNs: number): CrossFormula { return i('interconnect-latency', 'latency(hops, perHopNs) = hops · perHopNs', hops * perHopNs, nat(hops, perHopNs), 'latency', [hops, perHopNs]) }
   /** WIDTH — the bit width of the link: the lanes times the bits each carries. value lanes · bitsPerLane. */
   static width(lanes: number, bitsPerLane: number): CrossFormula { return i('interconnect-width', 'width(lanes, bitsPerLane) = lanes · bitsPerLane', lanes * bitsPerLane, nat(lanes, bitsPerLane), 'width', [lanes, bitsPerLane]) }
   /** TOPOLOGY — the links in a regular graph: nodes times degree over two (the handshake lemma). value ⌊nodes · degree / 2⌋. */
-  static topology(nodes: number, degree: number): CrossFormula { return i('interconnect-topology', 'topology(nodes, degree) = ⌊nodes · degree / 2⌋ (links in a regular graph)', Math.floor((nodes * degree) / 2), nat(nodes, degree), 'topology', [nodes, degree]) }
+  static topology(nodes: number, degree: number): CrossFormula { return i('interconnect-topology', 'topology(nodes, degree) = ⌊nodes · degree / 2⌋ (links in a regular graph)', quot((nodes * degree), 2), nat(nodes, degree), 'topology', [nodes, degree]) }
   /** DUPLEX — full-duplex bandwidth: the one-way bandwidth doubled. value bandwidthGbps · 2. */
   static duplex(bandwidthGbps: number): CrossFormula { return i('interconnect-duplex', 'duplex(bandwidthGbps) = bandwidthGbps · 2', bandwidthGbps * 2, nat(bandwidthGbps), 'duplex', [bandwidthGbps]) }
   /** TRANSFERS — total transfers: the giga-transfers-per-second across the lanes. value gtps · lanes. */

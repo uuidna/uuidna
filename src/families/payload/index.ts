@@ -1,6 +1,7 @@
 import { hexRegisterOf, hexFamiliesOf } from '../../quantum/processing/unit/index.js'
 import { DOORS } from '../../mcp/discovery.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** PAYLOAD IN QUANTUM CONFIGS — the lattice imagines a Payload CMS collection from a family. A QPU family is a collection:
  *  each of its formulas is a number field, the write is content-addressed and receipted (the court hooks, courtReceipt +
@@ -40,7 +41,7 @@ export class PayloadFormulas {
   static collections(): CrossFormula { const c = collectionsOf().length; return p('payload-collections', 'collections() = |families| (one collection each)', c, c > 0, 'collections', [], { collections: collectionsOf() }) }
   /** COVERAGE of the Payload API surface as a percentage: the features the unit uses over the features available. The
    *  surface is collections, fields, hooks, access, blocks, globals, versions, localization, plugins, jobs, endpoints. */
-  static coverage(used: number, surface: number): CrossFormula { return p('payload-coverage', 'coverage(used, surface) = ⌊used · 100 / surface⌋', surface > 0 ? Math.floor((used * 100) / surface) : 0, nat(used, surface) && surface > 0 && used <= surface, 'coverage', [used, surface]) }
+  static coverage(used: number, surface: number): CrossFormula { return p('payload-coverage', 'coverage(used, surface) = ⌊used · 100 / surface⌋', surface > 0 ? quot((used * 100), surface) : 0, nat(used, surface) && surface > 0 && used <= surface, 'coverage', [used, surface]) }
 }
 
 for (const name of ['collections', 'coverage', 'fields', 'imagine'] as const)

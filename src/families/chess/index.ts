@@ -3,6 +3,7 @@ import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { KinFormulas } from '../kin/index.js'
 import { LawFormulas } from '../law/index.js'
 import '../court/index.js'
+import { ipow, maxOf, quot } from '../../exact.js'
 
 const L = { ...latticeNamesOf() }
 
@@ -19,19 +20,19 @@ export class ChessFormulas {
   /** MATERIAL: a count of a piece at its value. value count · value. */
   static material(count: number, value: number): CrossFormula { return c('chess-material', 'material(count, value) = count · value', count * value, nat(count, value), 'material', [count, value]) }
   /** MOBILITY: the move advantage of one side over the other. value max(0, white − black). */
-  static mobility(white: number, black: number): CrossFormula { return c('chess-mobility', 'mobility(white, black) = max(0, white − black)', Math.max(0, white - black), nat(white, black), 'mobility', [white, black]) }
+  static mobility(white: number, black: number): CrossFormula { return c('chess-mobility', 'mobility(white, black) = max(0, white − black)', maxOf(0, white - black), nat(white, black), 'mobility', [white, black]) }
   /** BRANCHING: the average legal moves per position searched. value ⌊moves / positions⌋. */
-  static branching(moves: number, positions: number): CrossFormula { return c('chess-branching', 'branching(moves, positions) = ⌊moves / positions⌋', positions > 0 ? Math.floor(moves / positions) : 0, nat(moves, positions) && positions > 0, 'branching', [moves, positions]) }
+  static branching(moves: number, positions: number): CrossFormula { return c('chess-branching', 'branching(moves, positions) = ⌊moves / positions⌋', positions > 0 ? quot(moves, positions) : 0, nat(moves, positions) && positions > 0, 'branching', [moves, positions]) }
   /** PLY TO NODES: a full tree of the given branching to the given ply. value Σ branchingⁱ, i = 0..ply. */
-  static plytonodes(branching: number, ply: number): CrossFormula { return c('chess-plytonodes', 'plytonodes(branching, ply) = (branching^(ply+1) − 1) / (branching − 1)', branching - 1 > 0 ? (Math.pow(branching, ply + 1) - 1) / (branching - 1) : 0, nat(branching, ply) && branching > 1, 'plytonodes', [branching, ply]) }
+  static plytonodes(branching: number, ply: number): CrossFormula { return c('chess-plytonodes', 'plytonodes(branching, ply) = (branching^(ply+1) − 1) / (branching − 1)', branching - 1 > 0 ? quot(ipow(branching, ply + 1) - 1, branching - 1) : 0, nat(branching, ply) && branching > 1, 'plytonodes', [branching, ply]) }
   /** TEMPO: full moves from plies at a given plies-per-move. value ⌊plies / perMove⌋. */
-  static tempo(plies: number, perMove: number): CrossFormula { return c('chess-tempo', 'tempo(plies, perMove) = ⌊plies / perMove⌋', perMove > 0 ? Math.floor(plies / perMove) : 0, nat(plies, perMove) && perMove > 0, 'tempo', [plies, perMove]) }
+  static tempo(plies: number, perMove: number): CrossFormula { return c('chess-tempo', 'tempo(plies, perMove) = ⌊plies / perMove⌋', perMove > 0 ? quot(plies, perMove) : 0, nat(plies, perMove) && perMove > 0, 'tempo', [plies, perMove]) }
   /** CENTIPAWNS: a pawn score with its hundredths. value pawns · 100 + cents. */
   static centipawns(pawns: number, cents: number): CrossFormula { return c('chess-centipawns', 'centipawns(pawns, cents) = pawns · 100 + cents', pawns * 100 + cents, nat(pawns, cents) && cents < 100, 'centipawns', [pawns, cents]) }
   /** PERFT: the leaf count of a uniform tree at a depth. value branching^depth. */
-  static perft(branching: number, depth: number): CrossFormula { return c('chess-perft', 'perft(branching, depth) = branching^depth', Math.pow(branching, depth), nat(branching, depth), 'perft', [branching, depth]) }
+  static perft(branching: number, depth: number): CrossFormula { return c('chess-perft', 'perft(branching, depth) = branching^depth', ipow(branching, depth), nat(branching, depth), 'perft', [branching, depth]) }
   /** KING SAFETY: the attackers a king faces over its defenders. value max(0, attackers − defenders). */
-  static kingsafety(attackers: number, defenders: number): CrossFormula { return c('chess-kingsafety', 'kingsafety(attackers, defenders) = max(0, attackers − defenders)', Math.max(0, attackers - defenders), nat(attackers, defenders), 'kingsafety', [attackers, defenders]) }
+  static kingsafety(attackers: number, defenders: number): CrossFormula { return c('chess-kingsafety', 'kingsafety(attackers, defenders) = max(0, attackers − defenders)', maxOf(0, attackers - defenders), nat(attackers, defenders), 'kingsafety', [attackers, defenders]) }
 }
 
 for (const name of ['branching', 'centipawns', 'kingsafety', 'material', 'mobility', 'perft', 'plytonodes', 'tempo'] as const)

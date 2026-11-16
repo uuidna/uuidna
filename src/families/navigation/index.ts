@@ -1,5 +1,6 @@
 import { hexRegisterOf, latticeNamesOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 const { fullTurn } = latticeNamesOf()
 
@@ -19,17 +20,17 @@ export class NavigationFormulas {
   /** DISTANCE covered at a speed over a time. value speed · time. */
   static distance(speed: number, time: number): CrossFormula { return c('navigation-distance', 'distance(speed, time) = speed · time', speed * time, nat(speed, time), 'distance', [speed, time]) }
   /** ETA: the time still to run at a speed. value ⌊distance / speed⌋. */
-  static eta(distance: number, speed: number): CrossFormula { return c('navigation-eta', 'eta(distance, speed) = ⌊distance / speed⌋', speed > 0 ? Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'eta', [distance, speed]) }
+  static eta(distance: number, speed: number): CrossFormula { return c('navigation-eta', 'eta(distance, speed) = ⌊distance / speed⌋', speed > 0 ? quot(distance, speed) : 0, nat(distance, speed) && speed > 0, 'eta', [distance, speed]) }
   /** CROSSTRACK: how far off the planned line, as a fraction of the leg. value ⌊offset · 100 / leg⌋. */
-  static crosstrack(offset: number, leg: number): CrossFormula { return c('navigation-crosstrack', 'crosstrack(offset, leg) = ⌊offset · 100 / leg⌋', leg > 0 ? Math.floor((offset * 100) / leg) : 0, nat(offset, leg) && leg > 0, 'crosstrack', [offset, leg]) }
+  static crosstrack(offset: number, leg: number): CrossFormula { return c('navigation-crosstrack', 'crosstrack(offset, leg) = ⌊offset · 100 / leg⌋', leg > 0 ? quot((offset * 100), leg) : 0, nat(offset, leg) && leg > 0, 'crosstrack', [offset, leg]) }
   /** DILUTION: the fix geometry, error spread over the satellites in view (a GDOP proxy). value ⌊error / satellites⌋. */
-  static dilution(error: number, satellites: number): CrossFormula { return c('navigation-dilution', 'dilution(error, satellites) = ⌊error / satellites⌋', satellites > 0 ? Math.floor(error / satellites) : 0, nat(error, satellites) && satellites > 0, 'dilution', [error, satellites]) }
+  static dilution(error: number, satellites: number): CrossFormula { return c('navigation-dilution', 'dilution(error, satellites) = ⌊error / satellites⌋', satellites > 0 ? quot(error, satellites) : 0, nat(error, satellites) && satellites > 0, 'dilution', [error, satellites]) }
   /** WAYPOINT: the fraction of the route done. value ⌊completed · 100 / total⌋. */
-  static waypoint(completed: number, total: number): CrossFormula { return c('navigation-waypoint', 'waypoint(completed, total) = ⌊completed · 100 / total⌋', total > 0 ? Math.floor((completed * 100) / total) : 0, nat(completed, total) && total > 0 && completed <= total, 'waypoint', [completed, total]) }
+  static waypoint(completed: number, total: number): CrossFormula { return c('navigation-waypoint', 'waypoint(completed, total) = ⌊completed · 100 / total⌋', total > 0 ? quot((completed * 100), total) : 0, nat(completed, total) && total > 0 && completed <= total, 'waypoint', [completed, total]) }
   /** HEADING: the course once drift is taken out, normalised. value ((course + drift) mod 360 + 360) mod 360. */
   static heading(course: number, drift: number): CrossFormula { return c('navigation-heading', 'heading(course, drift) = ((course + drift) mod 360 + 360) mod 360', (((course + drift) % fullTurn) + fullTurn) % fullTurn, nat(course, drift), 'heading', [course, drift]) }
   /** ACCURACY: how often a fix holds. value ⌊fixes · 100 / attempts⌋. */
-  static accuracy(fixes: number, attempts: number): CrossFormula { return c('navigation-accuracy', 'accuracy(fixes, attempts) = ⌊fixes · 100 / attempts⌋', attempts > 0 ? Math.floor((fixes * 100) / attempts) : 0, nat(fixes, attempts) && attempts > 0 && fixes <= attempts, 'accuracy', [fixes, attempts]) }
+  static accuracy(fixes: number, attempts: number): CrossFormula { return c('navigation-accuracy', 'accuracy(fixes, attempts) = ⌊fixes · 100 / attempts⌋', attempts > 0 ? quot((fixes * 100), attempts) : 0, nat(fixes, attempts) && attempts > 0 && fixes <= attempts, 'accuracy', [fixes, attempts]) }
 }
 
 for (const name of ['accuracy', 'bearing', 'crosstrack', 'dilution', 'distance', 'eta', 'heading', 'waypoint'] as const)

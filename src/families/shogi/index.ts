@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, roundOf } from '../../exact.js'
 
 /** SHOGI — scaffolded integer measures crossed to graphtheory. Every output an exact finite nonnegative integer. */
 
@@ -12,7 +13,7 @@ export class ShogiFormulas {
   static squares(x: number, y: number): CrossFormula { return c('shogi-squares', 'squares(x, y) = x · y', x * y, nat(x, y), 'squares', [x, y]) }
   static pieces(x: number, y: number): CrossFormula { return c('shogi-pieces', 'pieces(x, y) = x · y', x * y, nat(x, y), 'pieces', [x, y]) }
   static promotions(x: number, y: number): CrossFormula { return c('shogi-promotions', 'promotions(x, y) = x + y', x + y, nat(x, y), 'promotions', [x, y]) }
-  static dropcombos(x: number, y: number): CrossFormula { return c('shogi-dropcombos', 'dropcombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'dropcombos', [x, y]) }
+  static dropcombos(x: number, y: number): CrossFormula { return c('shogi-dropcombos', 'dropcombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'dropcombos', [x, y]) }
   static movepaths(x: number, y: number): CrossFormula { return c('shogi-movepaths', 'movepaths(x, y) = x! / (x − y)!', x >= y && x <= 20 ? ((n: number, k: number) => { let r = 1; for (let i = 0; i < k; i++) r *= (n - i); return r })(x, y) : 0, nat(x, y) && x >= y && x <= 20, 'movepaths', [x, y]) }
   static handsubsets(x: number): CrossFormula { return c('shogi-handsubsets', 'handsubsets(x) = 2^x', x <= 30 ? 2 ** x : 0, nat(x) && x <= 30, 'handsubsets', [x]) }
   static rankcount(x: number, y: number): CrossFormula { return c('shogi-rankcount', 'rankcount(x, y) = x + y', x + y, nat(x, y), 'rankcount', [x, y]) }

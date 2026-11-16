@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** NUCLEARPOWER — scaffolded integer measures crossed to energy. Every output an exact finite nonnegative integer. */
 
@@ -10,13 +11,13 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class NuclearpowerFormulas {
   static thermaloutput(x: number, y: number): CrossFormula { return c('nuclearpower-thermaloutput', 'thermaloutput(x, y) = x · y', x * y, nat(x, y), 'thermaloutput', [x, y]) }
-  static electricaloutput(x: number, y: number): CrossFormula { return c('nuclearpower-electricaloutput', 'electricaloutput(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'electricaloutput', [x, y]) }
-  static efficiency(x: number, y: number): CrossFormula { return c('nuclearpower-efficiency', 'efficiency(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'efficiency', [x, y]) }
+  static electricaloutput(x: number, y: number): CrossFormula { return c('nuclearpower-electricaloutput', 'electricaloutput(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'electricaloutput', [x, y]) }
+  static efficiency(x: number, y: number): CrossFormula { return c('nuclearpower-efficiency', 'efficiency(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'efficiency', [x, y]) }
   static fuelburnup(x: number, y: number): CrossFormula { return c('nuclearpower-fuelburnup', 'fuelburnup(x, y) = x · y', x * y, nat(x, y), 'fuelburnup', [x, y]) }
-  static capacityfactor(x: number, y: number): CrossFormula { return c('nuclearpower-capacityfactor', 'capacityfactor(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'capacityfactor', [x, y]) }
+  static capacityfactor(x: number, y: number): CrossFormula { return c('nuclearpower-capacityfactor', 'capacityfactor(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'capacityfactor', [x, y]) }
   static halflifecycles(x: number, y: number): CrossFormula { return c('nuclearpower-halflifecycles', 'halflifecycles(x, y) = x + y', x + y, nat(x, y), 'halflifecycles', [x, y]) }
   static coolingloops(x: number, y: number): CrossFormula { return c('nuclearpower-coolingloops', 'coolingloops(x, y) = x + y', x + y, nat(x, y), 'coolingloops', [x, y]) }
-  static decayheat(x: number, y: number): CrossFormula { return c('nuclearpower-decayheat', 'decayheat(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'decayheat', [x, y]) }
+  static decayheat(x: number, y: number): CrossFormula { return c('nuclearpower-decayheat', 'decayheat(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'decayheat', [x, y]) }
 }
 
 for (const name of ['capacityfactor', 'coolingloops', 'decayheat', 'efficiency', 'electricaloutput', 'fuelburnup', 'halflifecycles', 'thermaloutput'] as const)

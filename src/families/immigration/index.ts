@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, minOf } from '../../exact.js'
 
 /** IMMIGRATION — STATUS AS ARITHMETIC. Who may enter and stay is numbers the system sets: a points-based score, the
  *  residence requirement, continuous residence within an absence allowance, visas granted under a quota, a sponsor's
@@ -19,11 +20,11 @@ export class ImmigrationFormulas {
   /** CONTINUOUS RESIDENCE: 1 when absences stay within the allowance. value [absences ≤ allowed]. */
   static continuous(absences: number, allowed: number): CrossFormula { return g('immigration-continuous', 'continuous(absences, allowed) = [absences ≤ allowed]', absences <= allowed ? 1 : 0, nat(absences, allowed), 'continuous', [absences, allowed]) }
   /** VISAS GRANTED under a quota: applications up to the cap. value min(applications, cap). */
-  static quota(applications: number, cap: number): CrossFormula { return g('immigration-quota', 'quota(applications, cap) = min(applications, cap)', Math.min(applications, cap), nat(applications, cap), 'quota', [applications, cap]) }
+  static quota(applications: number, cap: number): CrossFormula { return g('immigration-quota', 'quota(applications, cap) = min(applications, cap)', minOf(applications, cap), nat(applications, cap), 'quota', [applications, cap]) }
   /** THE SPONSOR'S INCOME TEST: 1 when income meets the threshold. value [income ≥ threshold]. */
   static sponsorship(income: number, threshold: number): CrossFormula { return g('immigration-sponsorship', 'sponsorship(income, threshold) = [income ≥ threshold]', income >= threshold ? 1 : 0, nat(income, threshold), 'sponsorship', [income, threshold]) }
   /** OVERSTAY: days present beyond the visa's validity. value max(0, days − visa). */
-  static overstay(days: number, visa: number): CrossFormula { return g('immigration-overstay', 'overstay(days, visa) = max(0, days − visa)', Math.max(0, days - visa), nat(days, visa), 'overstay', [days, visa]) }
+  static overstay(days: number, visa: number): CrossFormula { return g('immigration-overstay', 'overstay(days, visa) = max(0, days − visa)', maxOf(0, days - visa), nat(days, visa), 'overstay', [days, visa]) }
   /** NATURALIZATION: 1 when years of residence meet those required to naturalize. value [years ≥ required]. */
   static naturalization(years: number, required: number): CrossFormula { return g('immigration-naturalization', 'naturalization(years, required) = [years ≥ required]', years >= required ? 1 : 0, nat(years, required), 'naturalization', [years, required]) }
   /** DEPENDENTS on the application: adults plus children. value adults + children. */

@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, maxOf, quot } from '../../exact.js'
 
 /** DEDUP — CONTENT-ADDRESSED STORAGE, AS ARITHMETIC. The RAID array fingerprints what it carries: identical bytes share
  *  one physical block, so a file uploaded any number of times is stored once (the fingerprint is its address). A block is
@@ -19,25 +20,25 @@ export class DedupFormulas {
   /** DEDUPED — however many times identical content is uploaded, one physical copy is kept. value 1; holds uploads ≥ 1. */
   static deduped(uploads: number): CrossFormula { return d('dedup-deduped', 'deduped(uploads) = 1 physical copy for any number of identical uploads', uploads >= 1 ? 1 : 0, nat(uploads) && uploads >= 1, 'deduped', [uploads]) }
   /** HIT — the dedup hits: uploads that matched an existing block and stored nothing. value uploads − 1; holds uploads ≥ 1. */
-  static hit(uploads: number): CrossFormula { return d('dedup-hit', 'hit(uploads) = uploads − 1 (uploads that matched an existing block)', Math.max(uploads, 1) - 1, nat(uploads) && uploads >= 1, 'hit', [uploads]) }
+  static hit(uploads: number): CrossFormula { return d('dedup-hit', 'hit(uploads) = uploads − 1 (uploads that matched an existing block)', maxOf(uploads, 1) - 1, nat(uploads) && uploads >= 1, 'hit', [uploads]) }
   /** SAVED — the useless redundancy dedup removes: every upload past the first costs no storage. value (uploads − 1) · size; holds uploads ≥ 1. */
-  static saved(uploads: number, size: number): CrossFormula { return d('dedup-saved', 'saved(uploads, size) = (uploads − 1) · size (useless redundancy not stored)', (Math.max(uploads, 1) - 1) * size, nat(uploads, size) && uploads >= 1, 'saved', [uploads, size]) }
+  static saved(uploads: number, size: number): CrossFormula { return d('dedup-saved', 'saved(uploads, size) = (uploads − 1) · size (useless redundancy not stored)', (maxOf(uploads, 1) - 1) * size, nat(uploads, size) && uploads >= 1, 'saved', [uploads, size]) }
   /** LOGICAL — the bytes the uploads claim, before dedup. value uploads · size. */
   static logical(uploads: number, size: number): CrossFormula { return d('dedup-logical', 'logical(uploads, size) = uploads · size (bytes claimed before dedup)', uploads * size, nat(uploads, size), 'logical', [uploads, size]) }
   /** PHYSICAL — the bytes actually stored: one copy per distinct content. value unique · size. */
   static physical(unique: number, size: number): CrossFormula { return d('dedup-physical', 'physical(unique, size) = unique · size (one copy per distinct content)', unique * size, nat(unique, size), 'physical', [unique, size]) }
   /** RATIO — the dedup ratio, logical over physical as an integer percentage. value ⌊logical · 100 / physical⌋; holds physical > 0. */
-  static ratio(logical: number, physical: number): CrossFormula { return d('dedup-ratio', 'ratio(logical, physical) = ⌊logical · 100 / physical⌋', physical > 0 ? Math.floor((logical * 100) / physical) : 0, nat(logical, physical) && physical > 0, 'ratio', [logical, physical]) }
+  static ratio(logical: number, physical: number): CrossFormula { return d('dedup-ratio', 'ratio(logical, physical) = ⌊logical · 100 / physical⌋', physical > 0 ? quot((logical * 100), physical) : 0, nat(logical, physical) && physical > 0, 'ratio', [logical, physical]) }
   /** BLOCKS — the physical blocks kept: the number of distinct contents. value unique. */
   static blocks(unique: number): CrossFormula { return d('dedup-blocks', 'blocks(unique) = unique (physical blocks = distinct contents)', unique, nat(unique), 'blocks', [unique]) }
   /** CHUNK — a file split into content-defined chunks of a fixed size, each separately fingerprinted. value ⌈size / chunksize⌉; holds chunksize > 0. */
-  static chunk(size: number, chunksize: number): CrossFormula { return d('dedup-chunk', 'chunk(size, chunksize) = ⌈size / chunksize⌉ (content-defined chunks)', chunksize > 0 ? Math.ceil(size / chunksize) : 0, nat(size, chunksize) && chunksize > 0, 'chunk', [size, chunksize]) }
+  static chunk(size: number, chunksize: number): CrossFormula { return d('dedup-chunk', 'chunk(size, chunksize) = ⌈size / chunksize⌉ (content-defined chunks)', chunksize > 0 ? ceilQuot(size, chunksize) : 0, nat(size, chunksize) && chunksize > 0, 'chunk', [size, chunksize]) }
   /** REFCOUNT — the live links to a block: the references holding it in storage. value links. */
   static refcount(links: number): CrossFormula { return d('dedup-refcount', 'refcount(links) = links referencing the block', links, nat(links), 'refcount', [links]) }
   /** INCREF — a new link taken on a block. value links + 1. */
   static incref(links: number): CrossFormula { return d('dedup-incref', 'incref(links) = links + 1 (a new reference)', links + 1, nat(links), 'incref', [links]) }
   /** DECREF — a link dropped; the count never falls below zero. value max(0, links − 1). */
-  static decref(links: number): CrossFormula { return d('dedup-decref', 'decref(links) = max(0, links − 1) (a reference dropped)', Math.max(0, links - 1), nat(links), 'decref', [links]) }
+  static decref(links: number): CrossFormula { return d('dedup-decref', 'decref(links) = max(0, links − 1) (a reference dropped)', maxOf(0, links - 1), nat(links), 'decref', [links]) }
   /** PINNED — a block stays pinned in storage while any link references it. value [links > 0]. */
   static pinned(links: number): CrossFormula { return d('dedup-pinned', 'pinned(links) = [links > 0] — held while referenced', links > 0 ? 1 : 0, nat(links), 'pinned', [links]) }
   /** RELEASED — when the last link drops the block is released from the load: garbage-collected at zero references. value [links = 0]. */

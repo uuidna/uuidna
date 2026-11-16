@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** LIDAR — LIGHT DETECTION AND RANGING, AS ARITHMETIC. A pulse of light goes out and comes back: the range is the round-trip
  *  time at the speed of light, halved. The point cloud is numbers — density over area, accuracy in ppm, how many pulses
@@ -13,21 +14,21 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class LidarFormulas {
   /** RANGE: time-of-flight, round trip halved. value ⌊speed · time / 2⌋. */
-  static range(speed: number, time: number): CrossFormula { return c('lidar-range', 'range(speed, time) = ⌊speed · time / 2⌋', Math.floor((speed * time) / 2), nat(speed, time), 'range', [speed, time]) }
+  static range(speed: number, time: number): CrossFormula { return c('lidar-range', 'range(speed, time) = ⌊speed · time / 2⌋', quot((speed * time), 2), nat(speed, time), 'range', [speed, time]) }
   /** POINT DENSITY: points over area. value ⌊points / area⌋. */
-  static pointdensity(points: number, area: number): CrossFormula { return c('lidar-pointdensity', 'pointdensity(points, area) = ⌊points / area⌋', area > 0 ? Math.floor(points / area) : 0, nat(points, area) && area > 0, 'pointdensity', [points, area]) }
+  static pointdensity(points: number, area: number): CrossFormula { return c('lidar-pointdensity', 'pointdensity(points, area) = ⌊points / area⌋', area > 0 ? quot(points, area) : 0, nat(points, area) && area > 0, 'pointdensity', [points, area]) }
   /** ACCURACY in parts per million. value ⌊error · 10000 / range⌋. */
-  static accuracy(error: number, range_: number): CrossFormula { return c('lidar-accuracy', 'accuracy(error, range) = ⌊error · 10000 / range⌋', range_ > 0 ? Math.floor((error * 10000) / range_) : 0, nat(error, range_) && range_ > 0, 'accuracy', [error, range_]) }
+  static accuracy(error: number, range_: number): CrossFormula { return c('lidar-accuracy', 'accuracy(error, range) = ⌊error · 10000 / range⌋', range_ > 0 ? quot((error * 10000), range_) : 0, nat(error, range_) && range_ > 0, 'accuracy', [error, range_]) }
   /** RETURNS as a percentage of pulses. value ⌊detected · 100 / pulses⌋. */
-  static returns(detected: number, pulses: number): CrossFormula { return c('lidar-returns', 'returns(detected, pulses) = ⌊detected · 100 / pulses⌋', pulses > 0 ? Math.floor((detected * 100) / pulses) : 0, nat(detected, pulses) && pulses > 0, 'returns', [detected, pulses]) }
+  static returns(detected: number, pulses: number): CrossFormula { return c('lidar-returns', 'returns(detected, pulses) = ⌊detected · 100 / pulses⌋', pulses > 0 ? quot((detected * 100), pulses) : 0, nat(detected, pulses) && pulses > 0, 'returns', [detected, pulses]) }
   /** GROUND PENETRATION as a percentage of total returns. value ⌊ground · 100 / total⌋. */
-  static penetration(ground: number, total: number): CrossFormula { return c('lidar-penetration', 'penetration(ground, total) = ⌊ground · 100 / total⌋', total > 0 ? Math.floor((ground * 100) / total) : 0, nat(ground, total) && total > 0 && ground <= total, 'penetration', [ground, total]) }
+  static penetration(ground: number, total: number): CrossFormula { return c('lidar-penetration', 'penetration(ground, total) = ⌊ground · 100 / total⌋', total > 0 ? quot((ground * 100), total) : 0, nat(ground, total) && total > 0 && ground <= total, 'penetration', [ground, total]) }
   /** SWATH: altitude at a scan angle. value altitude · angle. */
   static swath(altitude: number, angle: number): CrossFormula { return c('lidar-swath', 'swath(altitude, angle) = altitude · angle', altitude * angle, nat(altitude, angle), 'swath', [altitude, angle]) }
   /** RESOLUTION: the ground sample spacing itself. value spacing. */
   static resolution(spacing: number): CrossFormula { return c('lidar-resolution', 'resolution(spacing) = spacing', spacing, nat(spacing), 'resolution', [spacing]) }
   /** NOISE: outliers as a percentage of points. value ⌊outliers · 100 / points⌋. */
-  static noise(outliers: number, points: number): CrossFormula { return c('lidar-noise', 'noise(outliers, points) = ⌊outliers · 100 / points⌋', points > 0 ? Math.floor((outliers * 100) / points) : 0, nat(outliers, points) && points > 0 && outliers <= points, 'noise', [outliers, points]) }
+  static noise(outliers: number, points: number): CrossFormula { return c('lidar-noise', 'noise(outliers, points) = ⌊outliers · 100 / points⌋', points > 0 ? quot((outliers * 100), points) : 0, nat(outliers, points) && points > 0 && outliers <= points, 'noise', [outliers, points]) }
 }
 
 for (const name of ['accuracy', 'noise', 'penetration', 'pointdensity', 'range', 'resolution', 'returns', 'swath'] as const)

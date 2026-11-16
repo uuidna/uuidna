@@ -2,6 +2,7 @@ import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { HeatFormulas, heatThresholdOf } from '../heat/index.js'
 import { PlasmaFormulas } from '../plasma/index.js'
+import { maxOf } from '../../exact.js'
 
 /**
  * REACTOR — refactors identifiable heat into cold fusion.
@@ -44,7 +45,7 @@ export class ReactorFormulas {
     const before = HeatFormulas.signal(millikelvin).value
     const after = HeatFormulas.signal(cooled.value).value
     const cold = after > 0
-    const fusion = PlasmaFormulas.fusion(after, Math.max(before, 1))
+    const fusion = PlasmaFormulas.fusion(after, maxOf(before, 1))
     const value = cold ? fusion.value : 0
     return r(
       'reactor-coldfusion',

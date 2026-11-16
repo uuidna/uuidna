@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** ACTUATION — MOVING THE WORLD, AS ARITHMETIC (chosen by the public-API registry, not by hand). Driving a load is
  *  numbers: the force a cylinder makes, the stroke a lead screw travels, a motor's holding torque, the duty cycle it can
@@ -19,15 +20,15 @@ export class ActuationFormulas {
   /** HOLDING TORQUE: current at the motor's torque constant. value current · kt. */
   static holdingtorque(current: number, kt: number): CrossFormula { return c('actuation-holdingtorque', 'holdingtorque(current, kt) = current · kt', current * kt, nat(current, kt), 'holdingtorque', [current, kt]) }
   /** DUTY CYCLE as a percentage: on-time over the full period. value ⌊on · 100 / total⌋. */
-  static dutycycle(on: number, total: number): CrossFormula { return c('actuation-dutycycle', 'dutycycle(on, total) = ⌊on · 100 / total⌋', total > 0 ? Math.floor((on * 100) / total) : 0, nat(on, total) && total > 0 && on <= total, 'dutycycle', [on, total]) }
+  static dutycycle(on: number, total: number): CrossFormula { return c('actuation-dutycycle', 'dutycycle(on, total) = ⌊on · 100 / total⌋', total > 0 ? quot((on * 100), total) : 0, nat(on, total) && total > 0 && on <= total, 'dutycycle', [on, total]) }
   /** RESPONSE TIME: the distance to cover at a slew speed. value ⌊distance / speed⌋. */
-  static responsetime(distance: number, speed: number): CrossFormula { return c('actuation-responsetime', 'responsetime(distance, speed) = ⌊distance / speed⌋', speed > 0 ? Math.floor(distance / speed) : 0, nat(distance, speed) && speed > 0, 'responsetime', [distance, speed]) }
+  static responsetime(distance: number, speed: number): CrossFormula { return c('actuation-responsetime', 'responsetime(distance, speed) = ⌊distance / speed⌋', speed > 0 ? quot(distance, speed) : 0, nat(distance, speed) && speed > 0, 'responsetime', [distance, speed]) }
   /** BACKLASH: lost motion per stage, accumulated over a gear train. value clearance · stages. */
   static backlash(clearance: number, stages: number): CrossFormula { return c('actuation-backlash', 'backlash(clearance, stages) = clearance · stages', clearance * stages, nat(clearance, stages), 'backlash', [clearance, stages]) }
   /** STIFFNESS: the force a joint resists per unit of deflection. value ⌊force / deflection⌋. */
-  static stiffness(force: number, deflection: number): CrossFormula { return c('actuation-stiffness', 'stiffness(force, deflection) = ⌊force / deflection⌋', deflection > 0 ? Math.floor(force / deflection) : 0, nat(force, deflection) && deflection > 0, 'stiffness', [force, deflection]) }
+  static stiffness(force: number, deflection: number): CrossFormula { return c('actuation-stiffness', 'stiffness(force, deflection) = ⌊force / deflection⌋', deflection > 0 ? quot(force, deflection) : 0, nat(force, deflection) && deflection > 0, 'stiffness', [force, deflection]) }
   /** THRUST: a lead screw converting torque, 2π scaled by 100, over the pitch. value ⌊torque · 628 / pitch⌋. */
-  static thrust(torque: number, pitch: number): CrossFormula { return c('actuation-thrust', 'thrust(torque, pitch) = ⌊torque · 628 / pitch⌋', pitch > 0 ? Math.floor((torque * 628) / pitch) : 0, nat(torque, pitch) && pitch > 0, 'thrust', [torque, pitch]) }
+  static thrust(torque: number, pitch: number): CrossFormula { return c('actuation-thrust', 'thrust(torque, pitch) = ⌊torque · 628 / pitch⌋', pitch > 0 ? quot((torque * 628), pitch) : 0, nat(torque, pitch) && pitch > 0, 'thrust', [torque, pitch]) }
 }
 
 for (const name of ['backlash', 'dutycycle', 'force', 'holdingtorque', 'responsetime', 'stiffness', 'stroke', 'thrust'] as const)

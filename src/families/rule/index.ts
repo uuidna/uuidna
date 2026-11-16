@@ -1,5 +1,6 @@
 import { facesOf, hexFamiliesOf, hexFamilyCapOf, hexRegisterOf, hexRegisteredSizeOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf } from '../../exact.js'
 
 /** RULES ARE FORMULAS. What governs the unit's own shape is computed, not written down: a family holds at most a
  *  nibble of formulas (fifteen; the sixteenth value is no formula), a sweep is a slice of faces per call, every
@@ -27,7 +28,7 @@ export class RuleFormulas {
   /** The formulas the i-th family (sorted) serves. */
   static nibbles(i: number): CrossFormula { const name = families()[i]; return f('rule-nibbles', 'nibbles(i) = |formulas served by family i|', name ? hexFamiliesOf().get(name)!.length : 0, name !== undefined, 'nibbles', [i], { family: name }) }
   /** What the i-th family registered beyond what it serves: truncated by the cap; holds only at zero. */
-  static truncated(i: number): CrossFormula { const name = families()[i]; const over = name ? Math.max(0, hexRegisteredSizeOf(name) - hexFamiliesOf().get(name)!.length) : 0; return f('rule-truncated', 'truncated(i) = registered − served', over, name !== undefined && over === 0, 'truncated', [i], { family: name }) }
+  static truncated(i: number): CrossFormula { const name = families()[i]; const over = name ? maxOf(0, hexRegisteredSizeOf(name) - hexFamiliesOf().get(name)!.length) : 0; return f('rule-truncated', 'truncated(i) = registered − served', over, name !== undefined && over === 0, 'truncated', [i], { family: name }) }
   /** How many families are past the cap: holds only at zero. */
   static over(): CrossFormula { const list = families().filter((name) => hexRegisteredSizeOf(name) > hexFamilyCapOf()); return f('rule-over', 'over = |{ f : registered(f) > cap }|', list.length, list.length === 0, 'over', [], { over: list }) }
   /** The room left in the i-th family: cap − served. */

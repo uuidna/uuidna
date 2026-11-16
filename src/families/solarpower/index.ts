@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** SOLARPOWER — scaffolded integer measures crossed to energy. Every output an exact finite nonnegative integer. */
 
@@ -10,13 +11,13 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class SolarpowerFormulas {
   static paneloutput(x: number, y: number): CrossFormula { return c('solarpower-paneloutput', 'paneloutput(x, y) = x · y', x * y, nat(x, y), 'paneloutput', [x, y]) }
-  static efficiency(x: number, y: number): CrossFormula { return c('solarpower-efficiency', 'efficiency(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'efficiency', [x, y]) }
+  static efficiency(x: number, y: number): CrossFormula { return c('solarpower-efficiency', 'efficiency(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'efficiency', [x, y]) }
   static irradiance(x: number, y: number): CrossFormula { return c('solarpower-irradiance', 'irradiance(x, y) = x · y', x * y, nat(x, y), 'irradiance', [x, y]) }
   static dailyyield(x: number, y: number): CrossFormula { return c('solarpower-dailyyield', 'dailyyield(x, y) = x · y', x * y, nat(x, y), 'dailyyield', [x, y]) }
   static arraysize(x: number, y: number): CrossFormula { return c('solarpower-arraysize', 'arraysize(x, y) = x · y', x * y, nat(x, y), 'arraysize', [x, y]) }
-  static degradation(x: number, y: number): CrossFormula { return c('solarpower-degradation', 'degradation(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'degradation', [x, y]) }
-  static inverterloss(x: number, y: number): CrossFormula { return c('solarpower-inverterloss', 'inverterloss(x, y) = max(0, x − y)', Math.max(0, x - y), nat(x, y), 'inverterloss', [x, y]) }
-  static capacityfactor(x: number, y: number): CrossFormula { return c('solarpower-capacityfactor', 'capacityfactor(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'capacityfactor', [x, y]) }
+  static degradation(x: number, y: number): CrossFormula { return c('solarpower-degradation', 'degradation(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'degradation', [x, y]) }
+  static inverterloss(x: number, y: number): CrossFormula { return c('solarpower-inverterloss', 'inverterloss(x, y) = max(0, x − y)', maxOf(0, x - y), nat(x, y), 'inverterloss', [x, y]) }
+  static capacityfactor(x: number, y: number): CrossFormula { return c('solarpower-capacityfactor', 'capacityfactor(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'capacityfactor', [x, y]) }
 }
 
 for (const name of ['arraysize', 'capacityfactor', 'dailyyield', 'degradation', 'efficiency', 'inverterloss', 'irradiance', 'paneloutput'] as const)

@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** DYNAMICS — NEWTONIAN MOTION, AS ARITHMETIC. A moving body is numbers: the force an acceleration needs, momentum, the
  *  impulse of a push, kinetic energy, the work a force does over a distance, power, the acceleration of a velocity change,
@@ -19,13 +20,13 @@ export class DynamicsFormulas {
   /** IMPULSE: a force applied over a time. value force · time. */
   static impulse(force: number, time: number): CrossFormula { return c('dynamics-impulse', 'impulse(force, time) = force · time', force * time, nat(force, time), 'impulse', [force, time]) }
   /** KINETIC ENERGY: half mass times velocity squared. value ⌊mass · velocity² / 2⌋. */
-  static kineticenergy(mass: number, velocity: number): CrossFormula { return c('dynamics-kineticenergy', 'kineticenergy(mass, velocity) = ⌊mass · velocity² / 2⌋', Math.floor((mass * velocity * velocity) / 2), nat(mass, velocity), 'kineticenergy', [mass, velocity]) }
+  static kineticenergy(mass: number, velocity: number): CrossFormula { return c('dynamics-kineticenergy', 'kineticenergy(mass, velocity) = ⌊mass · velocity² / 2⌋', quot((mass * velocity * velocity), 2), nat(mass, velocity), 'kineticenergy', [mass, velocity]) }
   /** WORK: a force over a distance. value force · distance. */
   static work(force: number, distance: number): CrossFormula { return c('dynamics-work', 'work(force, distance) = force · distance', force * distance, nat(force, distance), 'work', [force, distance]) }
   /** POWER: work done over the time it took. value ⌊work / time⌋. */
-  static power(work: number, time: number): CrossFormula { return c('dynamics-power', 'power(work, time) = ⌊work / time⌋', time > 0 ? Math.floor(work / time) : 0, nat(work, time) && time > 0, 'power', [work, time]) }
+  static power(work: number, time: number): CrossFormula { return c('dynamics-power', 'power(work, time) = ⌊work / time⌋', time > 0 ? quot(work, time) : 0, nat(work, time) && time > 0, 'power', [work, time]) }
   /** ACCELERATION: a change in velocity over a time. value ⌊deltav / time⌋. */
-  static acceleration(deltav: number, time: number): CrossFormula { return c('dynamics-acceleration', 'acceleration(deltav, time) = ⌊deltav / time⌋', time > 0 ? Math.floor(deltav / time) : 0, nat(deltav, time) && time > 0, 'acceleration', [deltav, time]) }
+  static acceleration(deltav: number, time: number): CrossFormula { return c('dynamics-acceleration', 'acceleration(deltav, time) = ⌊deltav / time⌋', time > 0 ? quot(deltav, time) : 0, nat(deltav, time) && time > 0, 'acceleration', [deltav, time]) }
   /** COLLISION: perfectly inelastic — two masses stuck together carry momentum (m1 + m2) · velocity. value (m1 + m2) · velocity. */
   static collision(m1: number, m2: number, velocity: number): CrossFormula { return c('dynamics-collision', 'collision(m1, m2, velocity) = (m1 + m2) · velocity', (m1 + m2) * velocity, nat(m1, m2, velocity), 'collision', [m1, m2, velocity]) }
 }

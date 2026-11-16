@@ -2,6 +2,7 @@ import { test } from '../../quantum/processing/unit/receipted.js'
 import assert from 'node:assert/strict'
 import { hexFamiliesOf, hexRunOf, qpuHexUuidOf, contentUuidOf, uuidReceiptOf } from '../../quantum/processing/unit/index.js'
 import { TuneFormulas } from './index.js'
+import { roundQuot } from '../../exact.js'
 
 /** A432 derived from the lattice starts the chain: the string harmonics, the octave fractal, the fifths that spiral —
  *  each wavelength a formula crossing the fractal, each a hex address. */
@@ -12,7 +13,7 @@ test('tune: A432 from the lattice seeds the harmonic fractal — string modes, o
   assert.equal(TuneFormulas.harmonic(3).value, 1296, 'the third harmonic, 3·432')
   assert.equal(TuneFormulas.octave(1).value, 864, 'one octave up doubles')
   assert.equal(TuneFormulas.octave(4).value, 432 * 16, 'four octaves: ·16, the fractal self-similar')
-  assert.equal(TuneFormulas.wavelength(432).value, Math.round(343000 / 432), 'the wave is ~794 mm long')
+  assert.equal(TuneFormulas.wavelength(432).value, roundQuot(343000, 432), 'the wave is ~794 mm long')
   assert.equal(TuneFormulas.fifth(0).value, 432, 'zero fifths is the fundamental')
   assert.equal(TuneFormulas.fifth(1).value, 648, 'a perfect fifth above 432 is 648 (3/2)')
   assert.equal(TuneFormulas.cents(3, 2).value, 702, 'a just fifth is 702 cents')

@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, maxOf, quot } from '../../exact.js'
 
 /** PASSWORDS — DEFENSIVE STRENGTH, AS ARITHMETIC (chosen by the public-API registry, not by hand). A credential policy is
  *  numbers: the entropy a password carries, the keyspace left after overhead, the lockout window, rotation cadence, the
@@ -16,19 +17,19 @@ export class PasswordsFormulas {
   /** ENTROPY: length times the bits each character carries, from an integer bits-per-char table. value length · bpc(alphabet). */
   static entropybits(length: number, alphabet: number): CrossFormula { return c('passwords-entropybits', 'entropybits(length, alphabet) = length · bpc(alphabet)', length * bpc(alphabet), nat(length, alphabet), 'entropybits', [length, alphabet]) }
   /** KEYSPACE: the entropy bits left after reserving some for salt and pepper overhead. value max(0, entropy − reserved). */
-  static keyspacebits(entropy: number, reserved: number): CrossFormula { return c('passwords-keyspacebits', 'keyspacebits(entropy, reserved) = max(0, entropy − reserved)', Math.max(0, entropy - reserved), nat(entropy, reserved), 'keyspacebits', [entropy, reserved]) }
+  static keyspacebits(entropy: number, reserved: number): CrossFormula { return c('passwords-keyspacebits', 'keyspacebits(entropy, reserved) = max(0, entropy − reserved)', maxOf(0, entropy - reserved), nat(entropy, reserved), 'keyspacebits', [entropy, reserved]) }
   /** LOCKOUT WINDOW: the minutes needed to cover the allowed attempts at a per-minute rate. value ⌈attempts / perMinute⌉. */
-  static lockoutwindow(attempts: number, perMinute: number): CrossFormula { return c('passwords-lockoutwindow', 'lockoutwindow(attempts, perMinute) = ⌈attempts / perMinute⌉', perMinute > 0 ? Math.ceil(attempts / perMinute) : 0, nat(attempts, perMinute) && perMinute > 0, 'lockoutwindow', [attempts, perMinute]) }
+  static lockoutwindow(attempts: number, perMinute: number): CrossFormula { return c('passwords-lockoutwindow', 'lockoutwindow(attempts, perMinute) = ⌈attempts / perMinute⌉', perMinute > 0 ? ceilQuot(attempts, perMinute) : 0, nat(attempts, perMinute) && perMinute > 0, 'lockoutwindow', [attempts, perMinute]) }
   /** ROTATION: how often to rotate, the policy maximum shortened by a risk factor. value ⌊maxDays / risk⌋. */
-  static rotationdays(maxDays: number, risk: number): CrossFormula { return c('passwords-rotationdays', 'rotationdays(maxDays, risk) = ⌊maxDays / risk⌋', risk > 0 ? Math.floor(maxDays / risk) : 0, nat(maxDays, risk) && risk > 0, 'rotationdays', [maxDays, risk]) }
+  static rotationdays(maxDays: number, risk: number): CrossFormula { return c('passwords-rotationdays', 'rotationdays(maxDays, risk) = ⌊maxDays / risk⌋', risk > 0 ? quot(maxDays, risk) : 0, nat(maxDays, risk) && risk > 0, 'rotationdays', [maxDays, risk]) }
   /** MIN-LENGTH SCORE: the characters a password has beyond the policy minimum. value max(0, length − minimum). */
-  static minlengthscore(length: number, minimum: number): CrossFormula { return c('passwords-minlengthscore', 'minlengthscore(length, minimum) = max(0, length − minimum)', Math.max(0, length - minimum), nat(length, minimum), 'minlengthscore', [length, minimum]) }
+  static minlengthscore(length: number, minimum: number): CrossFormula { return c('passwords-minlengthscore', 'minlengthscore(length, minimum) = max(0, length − minimum)', maxOf(0, length - minimum), nat(length, minimum), 'minlengthscore', [length, minimum]) }
   /** HASH COST: the total work of hashing, rounds at a cost per round. value rounds · msPerRound. */
   static hashcost(rounds: number, msPerRound: number): CrossFormula { return c('passwords-hashcost', 'hashcost(rounds, msPerRound) = rounds · msPerRound', rounds * msPerRound, nat(rounds, msPerRound), 'hashcost', [rounds, msPerRound]) }
   /** MFA BONUS: the strength points added by each extra authentication factor. value factors · perFactor. */
   static mfabonus(factors: number, perFactor: number): CrossFormula { return c('passwords-mfabonus', 'mfabonus(factors, perFactor) = factors · perFactor', factors * perFactor, nat(factors, perFactor), 'mfabonus', [factors, perFactor]) }
   /** REUSE RISK: the percentage of accounts whose password is breached and reused. value ⌊breached · 100 / accounts⌋. */
-  static reuserisk(accounts: number, breached: number): CrossFormula { return c('passwords-reuserisk', 'reuserisk(accounts, breached) = ⌊breached · 100 / accounts⌋', accounts > 0 ? Math.floor((breached * 100) / accounts) : 0, nat(accounts, breached) && accounts > 0 && breached <= accounts, 'reuserisk', [accounts, breached]) }
+  static reuserisk(accounts: number, breached: number): CrossFormula { return c('passwords-reuserisk', 'reuserisk(accounts, breached) = ⌊breached · 100 / accounts⌋', accounts > 0 ? quot((breached * 100), accounts) : 0, nat(accounts, breached) && accounts > 0 && breached <= accounts, 'reuserisk', [accounts, breached]) }
 }
 
 for (const name of ['entropybits', 'hashcost', 'keyspacebits', 'lockoutwindow', 'mfabonus', 'minlengthscore', 'reuserisk', 'rotationdays'] as const)

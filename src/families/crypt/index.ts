@@ -1,6 +1,7 @@
 import { ed25519PublicKey, ed25519Sign, fromHex, hexOf, md5, sha256, sha512, x25519 } from '../../core/crypt.js'
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot } from '../../exact.js'
 
 const nat = (...xs: number[]): boolean => xs.every((x) => Number.isSafeInteger(x) && x >= 0)
 
@@ -33,7 +34,7 @@ export class CryptFormulas {
   }
 
   static tagForgery(bytes: number): CrossFormula {
-    return crossFormulaOf({ id: 'crypt-poly1305', src: 'crypt', dst: 'chat', formula: 'p_forge <= 8 * ceil(bytes / 16) / 2^106', value: (8 * Math.ceil(bytes / 16)) / 2 ** 106, proof: 'RFC 8439 bound for one Poly1305 forgery attempt' }, nat(bytes), { name: 'crypt.tagForgery', params: [bytes] })
+    return crossFormulaOf({ id: 'crypt-poly1305', src: 'crypt', dst: 'chat', formula: 'p_forge <= 8 * ceil(bytes / 16) / 2^106', value: (8 * ceilQuot(bytes, 16)) / 2 ** 106, proof: 'RFC 8439 bound for one Poly1305 forgery attempt' }, nat(bytes), { name: 'crypt.tagForgery', params: [bytes] })
   }
 
   static nonceCollision(messages: number): CrossFormula {

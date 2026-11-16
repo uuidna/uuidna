@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** CUISINE — COOKING AS ARITHMETIC (chosen by the kitchen, not by hand). A recipe is numbers: scaling per serving, baker's
  *  hydration, cooked yield, oven temperature in celsius, portions per guest, the fat-to-flour ratio, a fermentation proof
@@ -12,21 +13,21 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class CuisineFormulas {
   /** COOKED YIELD as a percentage of raw. value ⌊cooked · 100 / raw⌋. */
-  static cooked(cooked: number, raw: number): CrossFormula { return c('cuisine-cooked', 'cooked(cooked, raw) = ⌊cooked · 100 / raw⌋', raw > 0 ? Math.floor((cooked * 100) / raw) : 0, nat(cooked, raw) && raw > 0, 'cooked', [cooked, raw]) }
+  static cooked(cooked: number, raw: number): CrossFormula { return c('cuisine-cooked', 'cooked(cooked, raw) = ⌊cooked · 100 / raw⌋', raw > 0 ? quot((cooked * 100), raw) : 0, nat(cooked, raw) && raw > 0, 'cooked', [cooked, raw]) }
   /** BAKER'S HYDRATION: water as a percentage of flour. value ⌊water · 100 / flour⌋. */
-  static hydration(water: number, flour: number): CrossFormula { return c('cuisine-hydration', 'hydration(water, flour) = ⌊water · 100 / flour⌋', flour > 0 ? Math.floor((water * 100) / flour) : 0, nat(water, flour) && flour > 0, 'hydration', [water, flour]) }
+  static hydration(water: number, flour: number): CrossFormula { return c('cuisine-hydration', 'hydration(water, flour) = ⌊water · 100 / flour⌋', flour > 0 ? quot((water * 100), flour) : 0, nat(water, flour) && flour > 0, 'hydration', [water, flour]) }
   /** PORTION: total divided among the guests. value ⌊total / guests⌋. */
-  static portion(total: number, guests: number): CrossFormula { return c('cuisine-portion', 'portion(total, guests) = ⌊total / guests⌋', guests > 0 ? Math.floor(total / guests) : 0, nat(total, guests) && guests > 0, 'portion', [total, guests]) }
+  static portion(total: number, guests: number): CrossFormula { return c('cuisine-portion', 'portion(total, guests) = ⌊total / guests⌋', guests > 0 ? quot(total, guests) : 0, nat(total, guests) && guests > 0, 'portion', [total, guests]) }
   /** FERMENTATION PROOF proxy: time by temperature. value time · temperature. */
   static proof(time: number, temperature_: number): CrossFormula { return c('cuisine-proof', 'proof(time, temperature) = time · temperature', time * temperature_, nat(time, temperature_), 'proof', [time, temperature_]) }
   /** FAT RATIO: fat as a percentage of flour. value ⌊fat · 100 / flour⌋. */
-  static ratio(fat: number, flour: number): CrossFormula { return c('cuisine-ratio', 'ratio(fat, flour) = ⌊fat · 100 / flour⌋', flour > 0 ? Math.floor((fat * 100) / flour) : 0, nat(fat, flour) && flour > 0, 'ratio', [fat, flour]) }
+  static ratio(fat: number, flour: number): CrossFormula { return c('cuisine-ratio', 'ratio(fat, flour) = ⌊fat · 100 / flour⌋', flour > 0 ? quot((fat * 100), flour) : 0, nat(fat, flour) && flour > 0, 'ratio', [fat, flour]) }
   /** REDUCTION: how far a sauce reduces, as a percentage. value ⌊(initial − final) · 100 / initial⌋. */
-  static reduction(initial: number, final: number): CrossFormula { return c('cuisine-reduction', 'reduction(initial, final) = ⌊(initial − final) · 100 / initial⌋', initial > 0 ? Math.floor(((initial - final) * 100) / initial) : 0, nat(initial, final) && initial > 0 && final <= initial, 'reduction', [initial, final]) }
+  static reduction(initial: number, final: number): CrossFormula { return c('cuisine-reduction', 'reduction(initial, final) = ⌊(initial − final) · 100 / initial⌋', initial > 0 ? quot(((initial - final) * 100), initial) : 0, nat(initial, final) && initial > 0 && final <= initial, 'reduction', [initial, final]) }
   /** RECIPE SCALING: per-serving amount by the servings. value perServing · servings. */
   static scaling(perServing: number, servings: number): CrossFormula { return c('cuisine-scaling', 'scaling(perServing, servings) = perServing · servings', perServing * servings, nat(perServing, servings), 'scaling', [perServing, servings]) }
   /** TEMPERATURE: fahrenheit to celsius. value ⌊(fahrenheit − 32) · 5 / 9⌋. */
-  static temperature(fahrenheit: number): CrossFormula { return c('cuisine-temperature', 'temperature(fahrenheit) = ⌊(fahrenheit − 32) · 5 / 9⌋', Math.floor(((fahrenheit - 32) * 5) / 9), nat(fahrenheit), 'temperature', [fahrenheit]) }
+  static temperature(fahrenheit: number): CrossFormula { return c('cuisine-temperature', 'temperature(fahrenheit) = ⌊(fahrenheit − 32) · 5 / 9⌋', quot(((fahrenheit - 32) * 5), 9), nat(fahrenheit), 'temperature', [fahrenheit]) }
 }
 
 for (const name of ['cooked', 'hydration', 'portion', 'proof', 'ratio', 'reduction', 'scaling', 'temperature'] as const)

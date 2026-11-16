@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** TRANSLATION — THE LANGUAGE-SERVICE DOMAIN, AS ARITHMETIC (chosen by the registry, not by hand). Moving text between
  *  languages is numbers: BLEU match, fuzzy-match reuse, words per hour, how far the target expands the source, how much of
@@ -13,21 +14,21 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class TranslationFormulas {
   /** BLEU: matched n-grams as a percentage of the total. value ⌊matches · 100 / total⌋. */
-  static bleu(matches: number, total: number): CrossFormula { return c('translation-bleu', 'bleu(matches, total) = ⌊matches · 100 / total⌋', total > 0 ? Math.floor((matches * 100) / total) : 0, nat(matches, total) && total > 0 && matches <= total, 'bleu', [matches, total]) }
+  static bleu(matches: number, total: number): CrossFormula { return c('translation-bleu', 'bleu(matches, total) = ⌊matches · 100 / total⌋', total > 0 ? quot((matches * 100), total) : 0, nat(matches, total) && total > 0 && matches <= total, 'bleu', [matches, total]) }
   /** FUZZY: translation-memory reuse as a percentage of the segments. value ⌊matched · 100 / segments⌋. */
-  static fuzzy(matched: number, segments: number): CrossFormula { return c('translation-fuzzy', 'fuzzy(matched, segments) = ⌊matched · 100 / segments⌋', segments > 0 ? Math.floor((matched * 100) / segments) : 0, nat(matched, segments) && segments > 0 && matched <= segments, 'fuzzy', [matched, segments]) }
+  static fuzzy(matched: number, segments: number): CrossFormula { return c('translation-fuzzy', 'fuzzy(matched, segments) = ⌊matched · 100 / segments⌋', segments > 0 ? quot((matched * 100), segments) : 0, nat(matched, segments) && segments > 0 && matched <= segments, 'fuzzy', [matched, segments]) }
   /** THROUGHPUT: words over the hours worked. value ⌊words / hours⌋. */
-  static throughput(words: number, hours: number): CrossFormula { return c('translation-throughput', 'throughput(words, hours) = ⌊words / hours⌋', hours > 0 ? Math.floor(words / hours) : 0, nat(words, hours) && hours > 0, 'throughput', [words, hours]) }
+  static throughput(words: number, hours: number): CrossFormula { return c('translation-throughput', 'throughput(words, hours) = ⌊words / hours⌋', hours > 0 ? quot(words, hours) : 0, nat(words, hours) && hours > 0, 'throughput', [words, hours]) }
   /** EXPANSION: target length against source, as a percentage. value ⌊target · 100 / source⌋. */
-  static expansion(target: number, source: number): CrossFormula { return c('translation-expansion', 'expansion(target, source) = ⌊target · 100 / source⌋', source > 0 ? Math.floor((target * 100) / source) : 0, nat(target, source) && source > 0, 'expansion', [target, source]) }
+  static expansion(target: number, source: number): CrossFormula { return c('translation-expansion', 'expansion(target, source) = ⌊target · 100 / source⌋', source > 0 ? quot((target * 100), source) : 0, nat(target, source) && source > 0, 'expansion', [target, source]) }
   /** COVERAGE: translated segments as a percentage of the total. value ⌊translated · 100 / total⌋. */
-  static coverage(translated: number, total: number): CrossFormula { return c('translation-coverage', 'coverage(translated, total) = ⌊translated · 100 / total⌋', total > 0 ? Math.floor((translated * 100) / total) : 0, nat(translated, total) && total > 0 && translated <= total, 'coverage', [translated, total]) }
+  static coverage(translated: number, total: number): CrossFormula { return c('translation-coverage', 'coverage(translated, total) = ⌊translated · 100 / total⌋', total > 0 ? quot((translated * 100), total) : 0, nat(translated, total) && total > 0 && translated <= total, 'coverage', [translated, total]) }
   /** EDIT: post-edit distance as a percentage of the words. value ⌊changes · 100 / words⌋. */
-  static edit(changes: number, words: number): CrossFormula { return c('translation-edit', 'edit(changes, words) = ⌊changes · 100 / words⌋', words > 0 ? Math.floor((changes * 100) / words) : 0, nat(changes, words) && words > 0 && changes <= words, 'edit', [changes, words]) }
+  static edit(changes: number, words: number): CrossFormula { return c('translation-edit', 'edit(changes, words) = ⌊changes · 100 / words⌋', words > 0 ? quot((changes * 100), words) : 0, nat(changes, words) && words > 0 && changes <= words, 'edit', [changes, words]) }
   /** GLOSSARY: hits per term. value ⌊hits / terms⌋. */
-  static glossary(terms: number, hits: number): CrossFormula { return c('translation-glossary', 'glossary(terms, hits) = ⌊hits / terms⌋', terms > 0 ? Math.floor(hits / terms) : 0, nat(terms, hits) && terms > 0, 'glossary', [terms, hits]) }
+  static glossary(terms: number, hits: number): CrossFormula { return c('translation-glossary', 'glossary(terms, hits) = ⌊hits / terms⌋', terms > 0 ? quot(hits, terms) : 0, nat(terms, hits) && terms > 0, 'glossary', [terms, hits]) }
   /** QUALITY: accepted segments as a percentage of those reviewed. value ⌊accepted · 100 / reviewed⌋. */
-  static quality(accepted: number, reviewed: number): CrossFormula { return c('translation-quality', 'quality(accepted, reviewed) = ⌊accepted · 100 / reviewed⌋', reviewed > 0 ? Math.floor((accepted * 100) / reviewed) : 0, nat(accepted, reviewed) && reviewed > 0 && accepted <= reviewed, 'quality', [accepted, reviewed]) }
+  static quality(accepted: number, reviewed: number): CrossFormula { return c('translation-quality', 'quality(accepted, reviewed) = ⌊accepted · 100 / reviewed⌋', reviewed > 0 ? quot((accepted * 100), reviewed) : 0, nat(accepted, reviewed) && reviewed > 0 && accepted <= reviewed, 'quality', [accepted, reviewed]) }
 }
 
 for (const name of ['bleu', 'coverage', 'edit', 'expansion', 'fuzzy', 'glossary', 'quality', 'throughput'] as const)

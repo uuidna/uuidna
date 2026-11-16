@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, clog2, maxOf, minOf, quot, roundOf } from '../../exact.js'
 
 /** COORDINATED DECENTRALISED INTELLIGENT JOBS. A job of `total` units splits across `agents` with no coordinator: each
  *  agent computes its own slice from its index alone (the first r agents carry one unit more), so the split needs no
@@ -14,9 +15,9 @@ const nat = (...xs: number[]) => xs.every((x) => Number.isSafeInteger(x) && x >=
 const f = (id: string, formula: string, value: number, holds: boolean, name: string, params: number[], extra: Record<string, unknown> = {}): CrossFormula =>
   crossFormulaOf({ id, src: 'job', dst: 'cross', formula, value, proof: PROOF, ...extra }, holds, { name: `job.${name}`, params })
 
-const sliceOf = (total: number, agents: number, i: number): number => { if (agents < 1 || i < 0 || i >= agents) return 0; const base = Math.floor(total / agents), r = total % agents; return base + (i < r ? 1 : 0) }
-const makespan = (total: number, agents: number): number => (agents < 1 ? 0 : Math.ceil(total / agents))
-const rounds = (agents: number): number => (agents < 1 ? 0 : Math.ceil(Math.log2(Math.max(1, agents))))
+const sliceOf = (total: number, agents: number, i: number): number => { if (agents < 1 || i < 0 || i >= agents) return 0; const base = quot(total, agents), r = total % agents; return base + (i < r ? 1 : 0) }
+const makespan = (total: number, agents: number): number => (agents < 1 ? 0 : ceilQuot(total, agents))
+const rounds = (agents: number): number => (agents < 1 ? 0 : clog2(maxOf(1, agents)))
 const speedup = (total: number, agents: number): number => { const cost = makespan(total, agents) + rounds(agents); return cost > 0 ? total / cost : 0 }
 
 export class JobFormulas {
@@ -24,12 +25,12 @@ export class JobFormulas {
    *  (total mod agents) agents carry one unit more, so the slices sum to total and differ by at most one. */
   static slice(total: number, agents: number): CrossFormula {
     // two params: total, and a packed (agents, i) — split agents and i from the second natural's high/low halves
-    const agent = Math.floor(agents / 4096), i = agents % 4096
+    const agent = quot(agents, 4096), i = agents % 4096
     const s = sliceOf(total, agent, i)
     return f('job-slice', 'slice(total, agents·4096 + i) = the i-th agent’s share, from its index alone', s, nat(total, agents) && agent >= 1 && i < agent, 'slice', [total, agents], { agent, i, of: agent })
   }
   /** How many agents to split `total` into chunks of at most `per`: ⌈total / per⌉. */
-  static agents(total: number, per: number): CrossFormula { return f('job-agents', 'agents(total, per) = ⌈total / per⌉', per > 0 ? Math.ceil(total / per) : 0, nat(total, per) && per > 0, 'agents', [total, per]) }
+  static agents(total: number, per: number): CrossFormula { return f('job-agents', 'agents(total, per) = ⌈total / per⌉', per > 0 ? ceilQuot(total, per) : 0, nat(total, per) && per > 0, 'agents', [total, per]) }
   /** The makespan: the most units any agent carries when `total` is split across `agents` — the job's wall length. */
   static makespan(total: number, agents: number): CrossFormula { return f('job-makespan', 'makespan(total, agents) = ⌈total / agents⌉', makespan(total, agents), nat(total, agents) && agents >= 1, 'makespan', [total, agents]) }
   /** The reduce rounds to combine every agent's result by doubling: ⌈log₂ agents⌉ — the decentralised coordination. */
@@ -38,7 +39,7 @@ export class JobFormulas {
   static messages(agents: number): CrossFormula { return f('job-messages', 'messages(agents) = 2 · (agents − 1)', agents > 0 ? 2 * (agents - 1) : 0, nat(agents) && agents >= 1, 'messages', [agents]) }
   /** The speedup of splitting `total` across `agents`, in thousandths: total / (makespan + rounds), the work divided
    *  by the longest agent plus the coordination it costs. Rises, peaks, then falls as coordination overtakes work. */
-  static speedup(total: number, agents: number): CrossFormula { return f('job-speedup', 'speedup(total, agents) = 1000 · total / (makespan + rounds)', Math.round(speedup(total, agents) * 1000), nat(total, agents) && total > 0 && agents >= 1, 'speedup', [total, agents], { makespan: makespan(total, agents), rounds: rounds(agents) }) }
+  static speedup(total: number, agents: number): CrossFormula { return f('job-speedup', 'speedup(total, agents) = 1000 · total / (makespan + rounds)', roundOf(speedup(total, agents) * 1000), nat(total, agents) && total > 0 && agents >= 1, 'speedup', [total, agents], { makespan: makespan(total, agents), rounds: rounds(agents) }) }
   /** THE DEFAULT JOB IS TO DISCOVER ALL: with no target named, the job the lattice runs is its own discovery — every
    *  family crossed with every other over the window, the relations and seals found. This formula runs that discovery
    *  and reports it as a job: the value is how many cross-formula relations were discovered (the work done), split
@@ -55,8 +56,8 @@ export class JobFormulas {
     const d = discoverMergeOf(parts)
     const work = d.relations.length
     let best = 1, bestS = 0
-    for (let a = 1; a <= Math.min(work, 4096); a++) { const s = speedup(work, a); if (s > bestS) { bestS = s; best = a } }
-    return f('job-discover', 'discover(n) = |relations| of the whole-lattice discovery, the default job, split across optimal agents', work, work > 0 && d.holds, 'discover', [n], { agents: best, makespan: makespan(work, best), rounds: rounds(best), seals: d.seals.length, liveRelations: d.liveRelations, relations: d.relations.slice(0, Math.max(0, n)).map((r) => `${r.families.join(' × ')} = ${r.value}`) })
+    for (let a = 1; a <= minOf(work, 4096); a++) { const s = speedup(work, a); if (s > bestS) { bestS = s; best = a } }
+    return f('job-discover', 'discover(n) = |relations| of the whole-lattice discovery, the default job, split across optimal agents', work, work > 0 && d.holds, 'discover', [n], { agents: best, makespan: makespan(work, best), rounds: rounds(best), seals: d.seals.length, liveRelations: d.liveRelations, relations: d.relations.slice(0, maxOf(0, n)).map((r) => `${r.families.join(' × ')} = ${r.value}`) })
   }
   /** THE INTELLIGENCE: the number of agents that maximises the speedup of a job of `total` units — where splitting
    *  more stops paying because the coordination rounds overtake the shrinking per-agent work. Beyond it you add heat,
@@ -64,9 +65,9 @@ export class JobFormulas {
   static optimal(total: number): CrossFormula {
     if (!(total > 0)) return f('job-optimal', 'optimal(total)', 0, false, 'optimal', [total])
     let best = 1, bestS = 0
-    const cap = Math.min(total, 4096)
+    const cap = minOf(total, 4096)
     for (let a = 1; a <= cap; a++) { const s = speedup(total, a); if (s > bestS) { bestS = s; best = a } }
-    return f('job-optimal', 'optimal(total) = argmax_agents speedup(total, agents)', best, nat(total) && total > 0, 'optimal', [total], { speedup: Math.round(bestS * 1000), makespan: makespan(total, best), rounds: rounds(best) })
+    return f('job-optimal', 'optimal(total) = argmax_agents speedup(total, agents)', best, nat(total) && total > 0, 'optimal', [total], { speedup: roundOf(bestS * 1000), makespan: makespan(total, best), rounds: rounds(best) })
   }
 }
 

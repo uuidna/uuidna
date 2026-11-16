@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot, roundQuot } from '../../exact.js'
 
 /** FORENSIC EVIDENCE MATH — the computable core the court admits. Not opinion: the numbers an examiner must defend under
  *  Daubert are arithmetic — a DNA random-match probability's order of magnitude, a likelihood ratio, the length of an
@@ -18,7 +19,7 @@ export class ForensicFormulas {
    *  value is n such that the profile is ~1 in 10^n. The CODIS standard is 13–20 loci. */
   static rmp(loci: number): CrossFormula { return f('forensic-rmp', 'rmp(loci) ≈ 1 in 10^loci (product of per-locus rarities)', loci, nat(loci), 'rmp', [loci], { oneIn: `10^${loci}`, codis: loci >= 13 }) }
   /** The likelihood ratio of a match, numerator over denominator, in thousandths (LR = p(E|prosecution) / p(E|defence)). */
-  static likelihood(numer: number, denom: number): CrossFormula { return f('forensic-likelihood', 'likelihood(a, b) = 1000 · a / b (the likelihood ratio)', denom > 0 ? Math.round((numer * 1000) / denom) : 0, nat(numer, denom) && denom > 0, 'likelihood', [numer, denom]) }
+  static likelihood(numer: number, denom: number): CrossFormula { return f('forensic-likelihood', 'likelihood(a, b) = 1000 · a / b (the likelihood ratio)', denom > 0 ? roundQuot((numer * 1000), denom) : 0, nat(numer, denom) && denom > 0, 'likelihood', [numer, denom]) }
   /** A chain of custody of `transfers` hashed handoffs: value the length; holds when at least one unbroken transfer is
    *  recorded (each handoff content-addressed, like the receipt chain). */
   static custody(transfers: number): CrossFormula { return f('forensic-custody', 'custody(transfers) = |hashed handoffs|; unbroken ⟺ ≥ 1', transfers, nat(transfers) && transfers >= 1, 'custody', [transfers]) }
@@ -27,7 +28,7 @@ export class ForensicFormulas {
   /** A method's error rate in parts per thousand: holds (admissible) when at or below 2% (20 per thousand), a Daubert factor. */
   static error(perThousand: number): CrossFormula { return f('forensic-error', 'error(perThousand) = [rate ≤ 20‰ (2%)]', perThousand <= 20 ? 1 : 0, nat(perThousand), 'error', [perThousand], { percent: perThousand / 10 }) }
   /** Expected matches of a trait of frequency 1/`freq` in a population of `pop`: pop / freq — how many others could share it. */
-  static rarity(freq: number, pop: number): CrossFormula { return f('forensic-rarity', 'rarity(freq, pop) = pop / freq (expected coincidental matches)', freq > 0 ? Math.floor(pop / freq) : 0, nat(freq, pop) && freq > 0, 'rarity', [freq, pop]) }
+  static rarity(freq: number, pop: number): CrossFormula { return f('forensic-rarity', 'rarity(freq, pop) = pop / freq (expected coincidental matches)', freq > 0 ? quot(pop, freq) : 0, nat(freq, pop) && freq > 0, 'rarity', [freq, pop]) }
   /** A blood-alcohol concentration in mg/dL against the per-se limit: holds (over the limit) when ≥ 80 mg/dL (0.08%). */
   static bac(mgDl: number): CrossFormula { return f('forensic-bac', 'bac(mgDl) = [mg/dL ≥ 80 (0.08% per-se limit)]', mgDl >= 80 ? 1 : 0, nat(mgDl), 'bac', [mgDl], { percent: mgDl / 1000 }) }
 }

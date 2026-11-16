@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** HYDROPONICS — SOILLESS GROWING, AS ARITHMETIC. Running a nutrient-film or deep-water bed is numbers: the conductivity of
  *  the solution, how far the pH is from target, the nitrogen-to-potassium ratio, the pump's flow rate, how densely a tray is
@@ -13,15 +14,15 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class HydroponicsFormulas {
   /** CONDUCTIVITY: EC from total dissolved solids at a conversion scale. value ⌊ppm / scale⌋. */
-  static ec(ppm: number, scale: number): CrossFormula { return c('hydroponics-ec', 'ec(ppm, scale) = ⌊ppm / scale⌋', scale > 0 ? Math.floor(ppm / scale) : 0, nat(ppm, scale) && scale > 0, 'ec', [ppm, scale]) }
+  static ec(ppm: number, scale: number): CrossFormula { return c('hydroponics-ec', 'ec(ppm, scale) = ⌊ppm / scale⌋', scale > 0 ? quot(ppm, scale) : 0, nat(ppm, scale) && scale > 0, 'ec', [ppm, scale]) }
   /** pH DISTANCE: points the solution sits above target. value max(0, current − target). */
-  static ph(current: number, target: number): CrossFormula { return c('hydroponics-ph', 'ph(current, target) = max(0, current − target)', Math.max(0, current - target), nat(current, target) && current <= 14 && target <= 14, 'ph', [current, target]) }
+  static ph(current: number, target: number): CrossFormula { return c('hydroponics-ph', 'ph(current, target) = max(0, current − target)', maxOf(0, current - target), nat(current, target) && current <= 14 && target <= 14, 'ph', [current, target]) }
   /** NUTRIENT RATIO: nitrogen against potassium, as a percentage. value ⌊nitrogen · 100 / potassium⌋. */
-  static nutrientratio(nitrogen: number, potassium: number): CrossFormula { return c('hydroponics-nutrientratio', 'nutrientratio(nitrogen, potassium) = ⌊nitrogen · 100 / potassium⌋', potassium > 0 ? Math.floor((nitrogen * 100) / potassium) : 0, nat(nitrogen, potassium) && potassium > 0, 'nutrientratio', [nitrogen, potassium]) }
+  static nutrientratio(nitrogen: number, potassium: number): CrossFormula { return c('hydroponics-nutrientratio', 'nutrientratio(nitrogen, potassium) = ⌊nitrogen · 100 / potassium⌋', potassium > 0 ? quot((nitrogen * 100), potassium) : 0, nat(nitrogen, potassium) && potassium > 0, 'nutrientratio', [nitrogen, potassium]) }
   /** FLOW RATE: reservoir volume over the pump's cycle minutes. value ⌊volume / minutes⌋. */
-  static flowrate(volume: number, minutes: number): CrossFormula { return c('hydroponics-flowrate', 'flowrate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ? Math.floor(volume / minutes) : 0, nat(volume, minutes) && minutes > 0, 'flowrate', [volume, minutes]) }
+  static flowrate(volume: number, minutes: number): CrossFormula { return c('hydroponics-flowrate', 'flowrate(volume, minutes) = ⌊volume / minutes⌋', minutes > 0 ? quot(volume, minutes) : 0, nat(volume, minutes) && minutes > 0, 'flowrate', [volume, minutes]) }
   /** PLANTING DENSITY: plants per unit of tray area. value ⌊plants / area⌋. */
-  static density(plants: number, area: number): CrossFormula { return c('hydroponics-density', 'density(plants, area) = ⌊plants / area⌋', area > 0 ? Math.floor(plants / area) : 0, nat(plants, area) && area > 0, 'density', [plants, area]) }
+  static density(plants: number, area: number): CrossFormula { return c('hydroponics-density', 'density(plants, area) = ⌊plants / area⌋', area > 0 ? quot(plants, area) : 0, nat(plants, area) && area > 0, 'density', [plants, area]) }
   /** RESERVOIR: total litres for the crop at a per-plant need. value plants · perPlant. */
   static reservoir(plants: number, perPlant: number): CrossFormula { return c('hydroponics-reservoir', 'reservoir(plants, perPlant) = plants · perPlant', plants * perPlant, nat(plants, perPlant), 'reservoir', [plants, perPlant]) }
   /** DOSING: millilitres of concentrate for the reservoir at a per-litre dose. value volume · mlPerLitre. */

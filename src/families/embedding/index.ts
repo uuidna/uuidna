@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** EMBEDDING — VECTORS AS ARITHMETIC. An embedding is a table of integer coordinates: how big the table is, the size of a
  *  lookup, the squared distance between two points, a dot-product similarity, a per-cent cosine proxy, a projection's
@@ -23,9 +24,9 @@ export class EmbeddingFormulas {
   /** LOOKUP: the flat offset of a row in a table with dim columns. value index · dim. */
   static lookup(index: number, dim: number): CrossFormula { return c('embedding-lookup', 'lookup(index, dim) = index · dim', index * dim, nat(index, dim), 'lookup', [index, dim]) }
   /** PROJECTION: the dimensions dropped when projecting dim down to keep. value max(0, dim − keep). */
-  static projection(dim: number, keep: number): CrossFormula { return c('embedding-projection', 'projection(dim, keep) = max(0, dim − keep)', Math.max(0, dim - keep), nat(dim, keep), 'projection', [dim, keep]) }
+  static projection(dim: number, keep: number): CrossFormula { return c('embedding-projection', 'projection(dim, keep) = max(0, dim − keep)', maxOf(0, dim - keep), nat(dim, keep), 'projection', [dim, keep]) }
   /** COSINE: a per-cent similarity proxy, dot over norm. value ⌊dot · 100 / norm⌋. */
-  static cosine(dot: number, norm: number): CrossFormula { return c('embedding-cosine', 'cosine(dot, norm) = ⌊dot · 100 / norm⌋', norm > 0 ? Math.floor((dot * 100) / norm) : 0, nat(dot, norm) && norm > 0, 'cosine', [dot, norm]) }
+  static cosine(dot: number, norm: number): CrossFormula { return c('embedding-cosine', 'cosine(dot, norm) = ⌊dot · 100 / norm⌋', norm > 0 ? quot((dot * 100), norm) : 0, nat(dot, norm) && norm > 0, 'cosine', [dot, norm]) }
   /** HAMMING DISTANCE between two integer codes. value popcount(a ⊕ b). */
   static hamming(a: number, b: number): CrossFormula { let x = (a ^ b) >>> 0, n = 0; while (x > 0) { n += x & 1; x >>>= 1 } return c('embedding-hamming', 'hamming(a, b) = popcount(a ⊕ b)', n, nat(a, b), 'hamming', [a, b]) }
 }

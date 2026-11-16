@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, quot, roundOf } from '../../exact.js'
 
 /** LATTICE — scaffolded integer measures crossed to crystallography. Every output an exact finite nonnegative integer. */
 
@@ -13,8 +14,8 @@ export class LatticeFormulas {
   static unitcells(x: number, y: number): CrossFormula { return c('lattice-unitcells', 'unitcells(x, y) = x · y', x * y, nat(x, y), 'unitcells', [x, y]) }
   static coordinationnumber(x: number, y: number): CrossFormula { return c('lattice-coordinationnumber', 'coordinationnumber(x, y) = x + y', x + y, nat(x, y), 'coordinationnumber', [x, y]) }
   static symmetryorderings(x: number): CrossFormula { return c('lattice-symmetryorderings', 'symmetryorderings(x) = x!', x <= 12 ? ((n: number) => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r })(x) : 0, nat(x) && x <= 12, 'symmetryorderings', [x]) }
-  static planepairs(x: number, y: number): CrossFormula { return c('lattice-planepairs', 'planepairs(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'planepairs', [x, y]) }
-  static packingfraction(x: number, y: number): CrossFormula { return c('lattice-packingfraction', 'packingfraction(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'packingfraction', [x, y]) }
+  static planepairs(x: number, y: number): CrossFormula { return c('lattice-planepairs', 'planepairs(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'planepairs', [x, y]) }
+  static packingfraction(x: number, y: number): CrossFormula { return c('lattice-packingfraction', 'packingfraction(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'packingfraction', [x, y]) }
   static latticevectors(x: number, y: number): CrossFormula { return c('lattice-latticevectors', 'latticevectors(x, y) = x + y', x + y, nat(x, y), 'latticevectors', [x, y]) }
   static millerindices(x: number): CrossFormula { return c('lattice-millerindices', 'millerindices(x) = 2^x', x <= 30 ? 2 ** x : 0, nat(x) && x <= 30, 'millerindices', [x]) }
 }

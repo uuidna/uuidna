@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, quot, roundOf } from '../../exact.js'
 
 /** SCREENWRITING — scaffolded integer measures crossed to statistics. Every output an exact finite nonnegative integer. */
 
@@ -11,11 +12,11 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 export class ScreenwritingFormulas {
   static acts(x: number, y: number): CrossFormula { return c('screenwriting-acts', 'acts(x, y) = x + y', x + y, nat(x, y), 'acts', [x, y]) }
   static scenecount(x: number, y: number): CrossFormula { return c('screenwriting-scenecount', 'scenecount(x, y) = x · y', x * y, nat(x, y), 'scenecount', [x, y]) }
-  static pagesperminute(x: number, y: number): CrossFormula { return c('screenwriting-pagesperminute', 'pagesperminute(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'pagesperminute', [x, y]) }
-  static beatcombos(x: number, y: number): CrossFormula { return c('screenwriting-beatcombos', 'beatcombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'beatcombos', [x, y]) }
+  static pagesperminute(x: number, y: number): CrossFormula { return c('screenwriting-pagesperminute', 'pagesperminute(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'pagesperminute', [x, y]) }
+  static beatcombos(x: number, y: number): CrossFormula { return c('screenwriting-beatcombos', 'beatcombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'beatcombos', [x, y]) }
   static plotpaths(x: number, y: number): CrossFormula { return c('screenwriting-plotpaths', 'plotpaths(x, y) = x! / (x − y)!', x >= y && x <= 20 ? ((n: number, k: number) => { let r = 1; for (let i = 0; i < k; i++) r *= (n - i); return r })(x, y) : 0, nat(x, y) && x >= y && x <= 20, 'plotpaths', [x, y]) }
   static charactercount(x: number, y: number): CrossFormula { return c('screenwriting-charactercount', 'charactercount(x, y) = x + y', x + y, nat(x, y), 'charactercount', [x, y]) }
-  static dialogueratio(x: number, y: number): CrossFormula { return c('screenwriting-dialogueratio', 'dialogueratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'dialogueratio', [x, y]) }
+  static dialogueratio(x: number, y: number): CrossFormula { return c('screenwriting-dialogueratio', 'dialogueratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'dialogueratio', [x, y]) }
   static structuresubsets(x: number): CrossFormula { return c('screenwriting-structuresubsets', 'structuresubsets(x) = 2^x', x <= 30 ? 2 ** x : 0, nat(x) && x <= 30, 'structuresubsets', [x]) }
 }
 

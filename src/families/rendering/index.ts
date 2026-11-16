@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** RENDERING — THE FRAME, AS ARITHMETIC (chosen by the public-API registry, not by hand). Drawing a picture is numbers:
  *  frames per second, the triangles a strip holds, the pixels on screen, rays times bounces, the fraction culled, samples
@@ -13,7 +14,7 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class RenderingFormulas {
   /** FRAMES PER SECOND: frames drawn over the seconds elapsed. value ⌊frames / seconds⌋. */
-  static fps(frames: number, seconds: number): CrossFormula { return c('rendering-fps', 'fps(frames, seconds) = ⌊frames / seconds⌋', seconds > 0 ? Math.floor(frames / seconds) : 0, nat(frames, seconds) && seconds > 0, 'fps', [frames, seconds]) }
+  static fps(frames: number, seconds: number): CrossFormula { return c('rendering-fps', 'fps(frames, seconds) = ⌊frames / seconds⌋', seconds > 0 ? quot(frames, seconds) : 0, nat(frames, seconds) && seconds > 0, 'fps', [frames, seconds]) }
   /** TRIANGLE STRIP: the triangles a strip of vertices holds. value vertices − 2. */
   static triangles(vertices: number): CrossFormula { return c('rendering-triangles', 'triangles(vertices) = vertices − 2', vertices > 2 ? vertices - 2 : 0, nat(vertices), 'triangles', [vertices]) }
   /** PIXELS on screen: width by height. value width · height. */
@@ -21,11 +22,11 @@ export class RenderingFormulas {
   /** RAYTRACING: rays times the bounces each takes. value rays · bounces. */
   static raytracing(rays: number, bounces: number): CrossFormula { return c('rendering-raytracing', 'raytracing(rays, bounces) = rays · bounces', rays * bounces, nat(rays, bounces), 'raytracing', [rays, bounces]) }
   /** CULLING: the percentage of the scene still drawn. value ⌊visible · 100 / total⌋. */
-  static culling(visible: number, total: number): CrossFormula { return c('rendering-culling', 'culling(visible, total) = ⌊visible · 100 / total⌋', total > 0 ? Math.floor((visible * 100) / total) : 0, nat(visible, total) && total > 0 && visible <= total, 'culling', [visible, total]) }
+  static culling(visible: number, total: number): CrossFormula { return c('rendering-culling', 'culling(visible, total) = ⌊visible · 100 / total⌋', total > 0 ? quot((visible * 100), total) : 0, nat(visible, total) && total > 0 && visible <= total, 'culling', [visible, total]) }
   /** SHADING: samples times the lights each shades. value samples · lights. */
   static shading(samples: number, lights: number): CrossFormula { return c('rendering-shading', 'shading(samples, lights) = samples · lights', samples * lights, nat(samples, lights), 'shading', [samples, lights]) }
   /** FRAME LATENCY: milliseconds the frames take at a refresh rate. value ⌊frames · 1000 / refresh⌋. */
-  static latency(frames: number, refresh: number): CrossFormula { return c('rendering-latency', 'latency(frames, refresh) = ⌊frames · 1000 / refresh⌋', refresh > 0 ? Math.floor((frames * 1000) / refresh) : 0, nat(frames, refresh) && refresh > 0, 'latency', [frames, refresh]) }
+  static latency(frames: number, refresh: number): CrossFormula { return c('rendering-latency', 'latency(frames, refresh) = ⌊frames · 1000 / refresh⌋', refresh > 0 ? quot((frames * 1000), refresh) : 0, nat(frames, refresh) && refresh > 0, 'latency', [frames, refresh]) }
   /** FILL RATE: pixels a clock sustains. value pixels · clock. */
   static fillrate(pixels_: number, clock: number): CrossFormula { return c('rendering-fillrate', 'fillrate(pixels, clock) = pixels · clock', pixels_ * clock, nat(pixels_, clock), 'fillrate', [pixels_, clock]) }
 }

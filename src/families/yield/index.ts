@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** YIELD — WHAT AN INVESTMENT RETURNS, AS ARITHMETIC (chosen by the finance registry, not by hand). Return is numbers:
  *  the current yield on a price, the nominal coupon yield, the effective yield over periods, the dividend yield, an
@@ -13,21 +14,21 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class YieldFormulas {
   /** COUPON RATE: annual coupon over face value, as a percentage. value ⌊coupon · 100 / face⌋. */
-  static couponrate(coupon: number, face: number): CrossFormula { return c('yield-couponrate', 'couponrate(coupon, face) = ⌊coupon · 100 / face⌋', face > 0 ? Math.floor((coupon * 100) / face) : 0, nat(coupon, face) && face > 0, 'couponrate', [coupon, face]) }
+  static couponrate(coupon: number, face: number): CrossFormula { return c('yield-couponrate', 'couponrate(coupon, face) = ⌊coupon · 100 / face⌋', face > 0 ? quot((coupon * 100), face) : 0, nat(coupon, face) && face > 0, 'couponrate', [coupon, face]) }
   /** CURRENT YIELD: annual income over the price paid, as a percentage. value ⌊income · 100 / price⌋. */
-  static current(income: number, price: number): CrossFormula { return c('yield-current', 'current(income, price) = ⌊income · 100 / price⌋', price > 0 ? Math.floor((income * 100) / price) : 0, nat(income, price) && price > 0, 'current', [income, price]) }
+  static current(income: number, price: number): CrossFormula { return c('yield-current', 'current(income, price) = ⌊income · 100 / price⌋', price > 0 ? quot((income * 100), price) : 0, nat(income, price) && price > 0, 'current', [income, price]) }
   /** DIVIDEND YIELD: annual dividend over the share price, as a percentage. value ⌊dividend · 100 / price⌋. */
-  static dividendyield(dividend: number, price: number): CrossFormula { return c('yield-dividendyield', 'dividendyield(dividend, price) = ⌊dividend · 100 / price⌋', price > 0 ? Math.floor((dividend * 100) / price) : 0, nat(dividend, price) && price > 0, 'dividendyield', [dividend, price]) }
+  static dividendyield(dividend: number, price: number): CrossFormula { return c('yield-dividendyield', 'dividendyield(dividend, price) = ⌊dividend · 100 / price⌋', price > 0 ? quot((dividend * 100), price) : 0, nat(dividend, price) && price > 0, 'dividendyield', [dividend, price]) }
   /** EFFECTIVE YIELD: a per-period rate compounded across the periods. value rate · periods. */
   static effective(rate: number, periods: number): CrossFormula { return c('yield-effective', 'effective(rate, periods) = rate · periods', rate * periods, nat(rate, periods), 'effective', [rate, periods]) }
   /** NOMINAL YIELD: the annual coupon over face value, as a percentage. value ⌊coupon · 100 / face⌋. */
-  static nominal(coupon: number, face: number): CrossFormula { return c('yield-nominal', 'nominal(coupon, face) = ⌊coupon · 100 / face⌋', face > 0 ? Math.floor((coupon * 100) / face) : 0, nat(coupon, face) && face > 0, 'nominal', [coupon, face]) }
+  static nominal(coupon: number, face: number): CrossFormula { return c('yield-nominal', 'nominal(coupon, face) = ⌊coupon · 100 / face⌋', face > 0 ? quot((coupon * 100), face) : 0, nat(coupon, face) && face > 0, 'nominal', [coupon, face]) }
   /** REAL YIELD: the nominal yield less inflation, never below zero. value max(0, nominal − inflation). */
-  static realyield(nominal: number, inflation: number): CrossFormula { return c('yield-realyield', 'realyield(nominal, inflation) = max(0, nominal − inflation)', Math.max(0, nominal - inflation), nat(nominal, inflation), 'realyield', [nominal, inflation]) }
+  static realyield(nominal: number, inflation: number): CrossFormula { return c('yield-realyield', 'realyield(nominal, inflation) = max(0, nominal − inflation)', maxOf(0, nominal - inflation), nat(nominal, inflation), 'realyield', [nominal, inflation]) }
   /** TAX-EQUIVALENT YIELD: a tax-free yield grossed up for a tax rate (percent). value ⌊muni · 100 / (100 − taxrate)⌋. */
-  static taxequivalent(muni: number, taxrate: number): CrossFormula { return c('yield-taxequivalent', 'taxequivalent(muni, taxrate) = ⌊muni · 100 / (100 − taxrate)⌋', 100 - taxrate > 0 ? Math.floor((muni * 100) / (100 - taxrate)) : 0, nat(muni, taxrate) && taxrate < 100, 'taxequivalent', [muni, taxrate]) }
+  static taxequivalent(muni: number, taxrate: number): CrossFormula { return c('yield-taxequivalent', 'taxequivalent(muni, taxrate) = ⌊muni · 100 / (100 − taxrate)⌋', 100 - taxrate > 0 ? quot((muni * 100), (100 - taxrate)) : 0, nat(muni, taxrate) && taxrate < 100, 'taxequivalent', [muni, taxrate]) }
   /** YIELD TO MATURITY: coupon plus amortized gain over face value, as a percentage. value ⌊(coupon + gain) · 100 / face⌋. */
-  static yieldtomaturity(coupon: number, gain: number, face: number): CrossFormula { return c('yield-yieldtomaturity', 'yieldtomaturity(coupon, gain, face) = ⌊(coupon + gain) · 100 / face⌋', face > 0 ? Math.floor(((coupon + gain) * 100) / face) : 0, nat(coupon, gain, face) && face > 0, 'yieldtomaturity', [coupon, gain, face]) }
+  static yieldtomaturity(coupon: number, gain: number, face: number): CrossFormula { return c('yield-yieldtomaturity', 'yieldtomaturity(coupon, gain, face) = ⌊(coupon + gain) · 100 / face⌋', face > 0 ? quot(((coupon + gain) * 100), face) : 0, nat(coupon, gain, face) && face > 0, 'yieldtomaturity', [coupon, gain, face]) }
 }
 
 for (const name of ['couponrate', 'current', 'dividendyield', 'effective', 'nominal', 'realyield', 'taxequivalent', 'yieldtomaturity'] as const)

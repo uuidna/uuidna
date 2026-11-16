@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, roundOf } from '../../exact.js'
 
 /** HINDUISM — scaffolded integer measures crossed to philosophy. Every output an exact finite nonnegative integer. */
 
@@ -10,7 +11,7 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class HinduismFormulas {
   static vedas(x: number, y: number): CrossFormula { return c('hinduism-vedas', 'vedas(x, y) = x + y', x + y, nat(x, y), 'vedas', [x, y]) }
-  static deitycombos(x: number, y: number): CrossFormula { return c('hinduism-deitycombos', 'deitycombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'deitycombos', [x, y]) }
+  static deitycombos(x: number, y: number): CrossFormula { return c('hinduism-deitycombos', 'deitycombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'deitycombos', [x, y]) }
   static yogapaths(x: number, y: number): CrossFormula { return c('hinduism-yogapaths', 'yogapaths(x, y) = x + y', x + y, nat(x, y), 'yogapaths', [x, y]) }
   static mantrarepetitions(x: number, y: number): CrossFormula { return c('hinduism-mantrarepetitions', 'mantrarepetitions(x, y) = x · y', x * y, nat(x, y), 'mantrarepetitions', [x, y]) }
   static chakras(x: number, y: number): CrossFormula { return c('hinduism-chakras', 'chakras(x, y) = x + y', x + y, nat(x, y), 'chakras', [x, y]) }

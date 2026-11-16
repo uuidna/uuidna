@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf } from '../../exact.js'
 
 /** RAY — A HEX-PROGRAM UUID SEEN AS PROGRAMMABLE RAYS AND STREAMS. An RFC 9562 v8 UUID is 32 hex nibbles / 128 bits; a
  *  RAY is one nibble emanating from the centre at its own angle, carrying a magnitude 0..15; a STREAM is a composition of
@@ -39,7 +40,7 @@ export class RayFormulas {
   /** The total angle swept by n rays: (n·360/32)|0 degrees. */
   static sweep(n: number): CrossFormula { return y('ray-sweep', 'sweep(n) = (n·360/32)|0 degrees', (n * TURN / NIBBLES) | 0, nat(n) && n <= NIBBLES, 'sweep', [n]) }
   /** The sectors n rays fill: min(n, 32), since the turn holds 32 sectors. */
-  static sectors(n: number): CrossFormula { return y('ray-sectors', 'sectors(n) = min(n, 32)', Math.min(n, NIBBLES), nat(n), 'sectors', [n]) }
+  static sectors(n: number): CrossFormula { return y('ray-sectors', 'sectors(n) = min(n, 32)', minOf(n, NIBBLES), nat(n), 'sectors', [n]) }
   /** A ray's parity: the nibble's low bit v & 1. */
   static parity(v: number): CrossFormula { return y('ray-parity', 'parity(v) = v & 1', v & 1, nat(v) && v < 16, 'parity', [v]) }
   /** Fold the 32 rays onto 16: i < 16 ? i : 31 − i, a trinity-friendly count that mirrors the far half onto the near. */

@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, minOf, roundOf } from '../../exact.js'
 
 /** NIM — scaffolded integer measures crossed to logic. Every output an exact finite nonnegative integer. */
 
@@ -11,11 +12,11 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 export class NimFormulas {
   static heaps(x: number, y: number): CrossFormula { return c('nim-heaps', 'heaps(x, y) = x + y', x + y, nat(x, y), 'heaps', [x, y]) }
   static totalstones(x: number, y: number, z: number): CrossFormula { return c('nim-totalstones', 'totalstones(x, y, z) = x + y + z', x + y + z, nat(x, y, z), 'totalstones', [x, y, z]) }
-  static movecombos(x: number, y: number): CrossFormula { return c('nim-movecombos', 'movecombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'movecombos', [x, y]) }
+  static movecombos(x: number, y: number): CrossFormula { return c('nim-movecombos', 'movecombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'movecombos', [x, y]) }
   static positionsubsets(x: number): CrossFormula { return c('nim-positionsubsets', 'positionsubsets(x) = 2^x', x <= 30 ? 2 ** x : 0, nat(x) && x <= 30, 'positionsubsets', [x]) }
   static grundyvalue(x: number, y: number): CrossFormula { return c('nim-grundyvalue', 'grundyvalue(x, y) = x mod y', y > 0 ? x % y : 0, nat(x, y) && y > 0, 'grundyvalue', [x, y]) }
   static winningmoves(x: number, y: number): CrossFormula { return c('nim-winningmoves', 'winningmoves(x, y) = x + y', x + y, nat(x, y), 'winningmoves', [x, y]) }
-  static heapmax(x: number, y: number): CrossFormula { return c('nim-heapmax', 'heapmax(x, y) = max(x, y)', Math.max(x, y), nat(x, y), 'heapmax', [x, y]) }
+  static heapmax(x: number, y: number): CrossFormula { return c('nim-heapmax', 'heapmax(x, y) = max(x, y)', maxOf(x, y), nat(x, y), 'heapmax', [x, y]) }
   static parity(x: number, y: number): CrossFormula { return c('nim-parity', 'parity(x, y) = x mod y', y > 0 ? x % y : 0, nat(x, y) && y > 0, 'parity', [x, y]) }
 }
 

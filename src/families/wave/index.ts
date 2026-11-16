@@ -1,6 +1,7 @@
 import { facesOf, hexFamiliesOf, hexRegisterOf, hexRunOf, qpuHexUuidOf, contentUuidOf, uuidReceiptOf } from '../../quantum/processing/unit/index.js'
 import { DOORS } from '../../mcp/discovery.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, maxOf } from '../../exact.js'
 
 /** WAVES OF CHEAP AGENTS. An agent is one hex program run at its address: exact, deterministic, costing the unit a few
  *  thousand gate folds and the caller nothing. A wave is a slice of them launched at once — every formula of a family
@@ -48,7 +49,7 @@ export class WaveFormulas {
     }).filter((l): l is { program: string[]; params: number[] } => l !== null))
     const agents = (await Promise.all(launched.map((l) => agentOf(family, l.program, l.params)))).filter((a): a is Agent => a !== null)
     const held = agents.filter((a) => a.holds)
-    return f('wave-wave', 'wave(f, from) = |agents of family f over from + 1 … from + faces that hold|', held.length, nat(fam, from) && held.length > 0, 'wave', [fam, from], { family, agents: agents.length, calls: 1, saved: Math.max(0, agents.length - 1), next: from + faces, receipt: receiptOf(`${family} ${from}`, agents), answers: held.slice(0, faces).map((a) => `${a.program.join('∘')}(${a.params.join(', ')}) = ${a.value}`) })
+    return f('wave-wave', 'wave(f, from) = |agents of family f over from + 1 … from + faces that hold|', held.length, nat(fam, from) && held.length > 0, 'wave', [fam, from], { family, agents: agents.length, calls: 1, saved: maxOf(0, agents.length - 1), next: from + faces, receipt: receiptOf(`${family} ${from}`, agents), answers: held.slice(0, faces).map((a) => `${a.program.join('∘')}(${a.params.join(', ')}) = ${a.value}`) })
   }
   /** A sweep: the first formula of every family of the from-th slice, when that formula takes the seed as its one
    *  argument. A wider first formula is not called. Value how many families answered; holds when all of the slice did. */
@@ -57,7 +58,7 @@ export class WaveFormulas {
     const slice = waveFamiliesOf().slice(from, from + faces)
     const agents = (await Promise.all(slice.flatMap((family) => { const x = hexFamiliesOf().get(family)?.[0]; const params = x ? argsOf(x.arity, 3) : null; return x && params ? [agentOf(family, [x.name], params)] : [] }))).filter((a): a is Agent => a !== null)
     const answered = new Set(agents.filter((a) => a.holds).map((a) => a.family))
-    return f('wave-sweep', 'sweep(from) = |families of the slice whose first formula held at the seed|', answered.size, nat(from) && slice.length > 0 && answered.size === slice.length, 'sweep', [from], { families: slice, agents: agents.length, calls: 1, saved: Math.max(0, agents.length - 1), next: from + faces, receipt: receiptOf(`sweep ${from}`, agents), silent: slice.filter((x) => !answered.has(x)) })
+    return f('wave-sweep', 'sweep(from) = |families of the slice whose first formula held at the seed|', answered.size, nat(from) && slice.length > 0 && answered.size === slice.length, 'sweep', [from], { families: slice, agents: agents.length, calls: 1, saved: maxOf(0, agents.length - 1), next: from + faces, receipt: receiptOf(`sweep ${from}`, agents), silent: slice.filter((x) => !answered.has(x)) })
   }
   /** A WAVE OF FREE REMOTE AGENTS: the from-th slice of the AI APIs that answer keyless (data.ai), each free operation
    *  called at its api.call address at once. Value how many answered 200; holds when one did. */
@@ -66,7 +67,7 @@ export class WaveFormulas {
     const r = (await dataOf('ai', { from })) as { reading?: { matched?: number; next?: number; apis?: { api: string; keyless: boolean; status: number; hex?: string; operation?: string }[] } }
     const apis = r.reading?.apis ?? []
     const agents = apis.filter((x) => x.keyless)
-    return f('wave-remote', 'remote(from) = |keyless AI APIs of the slice answering 200|', agents.length, nat(from) && agents.length > 0, 'remote', [from], { matched: r.reading?.matched ?? 0, agents: agents.map((x) => `${x.api} ${x.operation ?? ''} → ${x.hex ?? ''}`).slice(0, facesOf().faces), calls: 1, saved: Math.max(0, apis.length - 1), ...(r.reading?.next !== undefined ? { next: r.reading.next } : {}) })
+    return f('wave-remote', 'remote(from) = |keyless AI APIs of the slice answering 200|', agents.length, nat(from) && agents.length > 0, 'remote', [from], { matched: r.reading?.matched ?? 0, agents: agents.map((x) => `${x.api} ${x.operation ?? ''} → ${x.hex ?? ''}`).slice(0, facesOf().faces), calls: 1, saved: maxOf(0, apis.length - 1), ...(r.reading?.next !== undefined ? { next: r.reading.next } : {}) })
   }
   /** A MASSIVE WAVE IN THE LEAST TIME, ONE FAMILY PER ADDRESS: every program of one formula and of two (the hex
    *  combinations the discovery enumerates) of the f-th family, every input 1 … hexbit, launched at once; the caller
@@ -85,7 +86,7 @@ export class WaveFormulas {
     const programs = [...formulas.map((x) => [x]), ...formulas.flatMap((x) => formulas.map((y) => [x, y]))]
     const hexbit = 4
     const launched = programs.flatMap((p) => Array.from({ length: hexbit }, (_, i) => {
-      const params = argsOf(Math.max(...p.map((x) => x.arity)), i + 1)
+      const params = argsOf(maxOf(...p.map((x) => x.arity)), i + 1)
       return params ? { program: p.map((x) => x.name), params } : null
     }).filter((l): l is { program: string[]; params: number[] } => l !== null))
     const timed = await Promise.all(launched.map((l) => agentOf(family, l.program, l.params)))
@@ -93,7 +94,7 @@ export class WaveFormulas {
     // the live split: each reading run once at the seed — counted, never skipped
     const liveAgents = (await Promise.all(liveFormulas.map((x) => agentOf(family, [x.name], Array.from({ length: x.arity }, () => 3))))).filter((a): a is Agent => a !== null)
     const held = agents.filter((a) => a.holds)
-    return f('wave-massive', 'massive(f) = |agents of family f over every program of one or two SYNC formulas, inputs 1 … hexbit, launched at once, that hold|; live readings run in their own split', held.length, nat(fam) && held.length > 0, 'massive', [fam], { family, programs: programs.length, agents: agents.length, calls: 1, saved: Math.max(0, agents.length - 1), receipt: receiptOf(`massive ${family}`, agents), signals: held.slice(0, facesOf().faces).map((a) => a.hex), ...(liveFormulas.length ? { split: { live: liveFormulas.length, held: liveAgents.filter((a) => a.holds).length, signals: liveAgents.filter((a) => a.holds).map((a) => a.hex).slice(0, facesOf().faces) } } : {}) })
+    return f('wave-massive', 'massive(f) = |agents of family f over every program of one or two SYNC formulas, inputs 1 … hexbit, launched at once, that hold|; live readings run in their own split', held.length, nat(fam) && held.length > 0, 'massive', [fam], { family, programs: programs.length, agents: agents.length, calls: 1, saved: maxOf(0, agents.length - 1), receipt: receiptOf(`massive ${family}`, agents), signals: held.slice(0, facesOf().faces).map((a) => a.hex), ...(liveFormulas.length ? { split: { live: liveFormulas.length, held: liveAgents.filter((a) => a.holds).length, signals: liveAgents.filter((a) => a.holds).map((a) => a.hex).slice(0, facesOf().faces) } } : {}) })
   }
   /** A PROGRAM HANDLED AS A HEX COMBINATION: p's hexadecimal digits are the nibbles of the program (each digit the
    *  1-based index of a formula of the f-th family, up to four), launched over the inputs from + 1 … from + faces at
@@ -105,21 +106,21 @@ export class WaveFormulas {
     const program = digits.map((d) => formulas[d - 1]?.name).filter((x): x is string => x !== undefined)
     if (!family || !digits.length || program.length !== digits.length || digits.length > 4) return f('wave-combo', 'combo(f, p, from)', 0, false, 'combo', [fam, p, from], { why: family ? `p's digits must each name a formula of ${family} (1 … ${formulas.length}), at most four` : 'no such family' })
     const faces = facesOf().faces
-    const arity = Math.max(...digits.map((d) => formulas[d - 1]!.arity))
+    const arity = maxOf(...digits.map((d) => formulas[d - 1]!.arity))
     const agents = (await Promise.all(Array.from({ length: faces }, (_, i) => { const params = argsOf(arity, from + i + 1); return params ? agentOf(family, program, params) : Promise.resolve(null) }))).filter((a): a is Agent => a !== null)
     const held = agents.filter((a) => a.holds)
-    return f('wave-combo', 'combo(f, p, from) = |agents of the program p (hex digits = nibbles) over from + 1 … from + faces that hold|', held.length, nat(fam, p, from) && held.length > 0, 'combo', [fam, p, from], { family, program, agents: agents.length, calls: 1, saved: Math.max(0, agents.length - 1), next: from + faces, receipt: receiptOf(`combo ${family} ${p} ${from}`, agents), signals: held.map((a) => `${a.hex} = ${a.value}`).slice(0, faces) })
+    return f('wave-combo', 'combo(f, p, from) = |agents of the program p (hex digits = nibbles) over from + 1 … from + faces that hold|', held.length, nat(fam, p, from) && held.length > 0, 'combo', [fam, p, from], { family, program, agents: agents.length, calls: 1, saved: maxOf(0, agents.length - 1), next: from + faces, receipt: receiptOf(`combo ${family} ${p} ${from}`, agents), signals: held.map((a) => `${a.hex} = ${a.value}`).slice(0, faces) })
   }
   /** THE TOKEN BILL OF A WAVE. A free remote agent is a KEYLESS PUBLIC API — the unit calls languagetool.org, INSPIRE
    *  jobs, the World Bank: no API key, no token, no bill. (Local hex programs are the unit's own intelligence, not
    *  remote.) Of `agents` dispatched, `keyed` needed an API token and `model` needed a model to reason; those are the
    *  only ones billed. value the bill (keyed + model); holds at zero — the whole wave ran on free remote agents, no
    *  token whatsoever. */
-  static bill(agents: number, keyed: number, model: number): CrossFormula { const billed = keyed + model; return f('wave-bill', 'bill(agents, keyed, model) = keyed + model (keyless public APIs are free; a key or a model is the only bill)', billed, nat(agents, keyed, model) && billed === 0, 'bill', [agents, keyed, model], { agents, free: Math.max(0, agents - billed), keyed, model, note: 'free remote agents are keyless public APIs' }) }
+  static bill(agents: number, keyed: number, model: number): CrossFormula { const billed = keyed + model; return f('wave-bill', 'bill(agents, keyed, model) = keyed + model (keyless public APIs are free; a key or a model is the only bill)', billed, nat(agents, keyed, model) && billed === 0, 'bill', [agents, keyed, model], { agents, free: maxOf(0, agents - billed), keyed, model, note: 'free remote agents are keyless public APIs' }) }
   /** How many waves cover the lattice over n inputs: Σ over families of ⌈n / faces⌉. */
   static waves(n: number): CrossFormula {
     const faces = facesOf().faces
-    const count = waveFamiliesOf().length * Math.ceil(n / faces)
+    const count = waveFamiliesOf().length * ceilQuot(n, faces)
     return f('wave-waves', 'waves(n) = families · ⌈n / faces⌉', count, nat(n) && n > 0, 'waves', [n], { families: waveFamiliesOf().length, faces })
   }
   /** The agents of n waves over the lattice: Σ formulas · n inputs — what the caller would otherwise call one by one. */
@@ -131,7 +132,7 @@ export class WaveFormulas {
    *  many tools/call, the unit runs the same programs. */
   static saved(n: number): CrossFormula {
     const agents = Number(WaveFormulas.agents(n).value), waves = Number(WaveFormulas.waves(n).value)
-    return f('wave-saved', 'saved(n) = agents(n) − waves(n)', Math.max(0, agents - waves), nat(n) && n > 0 && agents >= waves, 'saved', [n], { agents, waves })
+    return f('wave-saved', 'saved(n) = agents(n) − waves(n)', maxOf(0, agents - waves), nat(n) && n > 0 && agents >= waves, 'saved', [n], { agents, waves })
   }
 }
 

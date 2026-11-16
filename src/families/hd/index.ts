@@ -1,5 +1,6 @@
 import { hexRegisterOf, latticeNamesOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { floorOf, minOf, quot, roundOf } from '../../exact.js'
 
 const { fullTurn, halfTurn } = latticeNamesOf()
 
@@ -65,9 +66,9 @@ export const sunLongitudeOf = (jd: number): number => {
 
 /** The gate and line at a longitude: the wheel is read from gate 41 at 302°. */
 export const gateLineOf = (deg: number): { gate: number; line: number; index: number } => {
-  const index = Math.floor(norm(deg - GATE_41_START) / GATE_ARC) % GATES
-  const line = Math.floor((norm(deg - GATE_41_START) - index * GATE_ARC) / LINE_ARC) + 1
-  return { gate: WHEEL[index]!, line: Math.min(line, LINES), index }
+  const index = quot(norm(deg - GATE_41_START), GATE_ARC) % GATES
+  const line = quot((norm(deg - GATE_41_START) - index * GATE_ARC), LINE_ARC) + 1
+  return { gate: WHEEL[index]!, line: minOf(line, LINES), index }
 }
 
 /** The design Julian day: the Sun 88° of solar arc before birth, found by bisection (the Sun moves ~1°/day). */
@@ -93,7 +94,7 @@ export const definitionOf = (gates: readonly number[]) => {
   const find = (x: number): number => (parent.get(x) === x ? x : find(parent.get(x)!))
   for (const [a, b] of defined) parent.set(find(centerOf(a)), find(centerOf(b)))
   const components = new Set([...centers].map(find)).size
-  return { defined, centers: [...centers].sort((a, b) => a - b), components, definition: DEFINITIONS[Math.min(components, DEFINITIONS.length - 1)]! }
+  return { defined, centers: [...centers].sort((a, b) => a - b), components, definition: DEFINITIONS[minOf(components, DEFINITIONS.length - 1)]! }
 }
 
 /** A chart's structure at a birth Julian day, from the Sun and Earth (the two bodies this unit computes): the
@@ -124,42 +125,42 @@ export class HdFormulas {
   /** How many channels a gate is in (the four of integration are in three). */
   static channels(gate: number): CrossFormula { return f('hd-channels', 'channels(g) = |{ c ∈ the 36 : g ∈ c }|', CHANNELS.filter(([x, y]) => x === gate || y === gate).length, nat(gate) && gate >= 1 && gate <= GATES, 'channels', [gate]) }
   /** The Sun's longitude at a birth minute (jdm), in tenths of a degree. */
-  static sun(jdm: number): CrossFormula { return f('hd-sun', 'sun(jdm): Meeus ch. 25 apparent longitude at jdm / 1440, ⌊10·λ⌋', Math.floor(sunLongitudeOf(jdm / MINUTES) * 10), nat(jdm) && jdm > 0, 'sun', [jdm]) }
+  static sun(jdm: number): CrossFormula { return f('hd-sun', 'sun(jdm): Meeus ch. 25 apparent longitude at jdm / 1440, ⌊10·λ⌋', floorOf(sunLongitudeOf(jdm / MINUTES) * 10), nat(jdm) && jdm > 0, 'sun', [jdm]) }
   /** The design minute of a birth minute: the Sun 88° of solar arc earlier. */
-  static design(jdm: number): CrossFormula { return f('hd-design', 'design(jdm): the jdm′ with sun(jdm′) = sun(jdm) − 88°', Math.round(designJdOf(jdm / MINUTES) * MINUTES), nat(jdm) && jdm > 0, 'design', [jdm]) }
+  static design(jdm: number): CrossFormula { return f('hd-design', 'design(jdm): the jdm′ with sun(jdm′) = sun(jdm) − 88°', roundOf(designJdOf(jdm / MINUTES) * MINUTES), nat(jdm) && jdm > 0, 'design', [jdm]) }
   /** The definition from the number of connected components of defined centers: 0 none, 1 single, 2 split, 3 triple, 4 quadruple. */
-  static definition(components: number): CrossFormula { return f('hd-definition', 'definition(k) = min(k, 4)', Math.min(components, DEFINITIONS.length - 1), nat(components), 'definition', [components]) }
+  static definition(components: number): CrossFormula { return f('hd-definition', 'definition(k) = min(k, 4)', minOf(components, DEFINITIONS.length - 1), nat(components), 'definition', [components]) }
   /** THE TIME AND PLACE OF BIRTH. The longitudes are geocentric, so the place enters through the clock: a local time
    *  becomes UT through the place's zone, or, where no zone is known, through its longitude (local mean time). A zone
    *  is minutes east of Greenwich plus 720 (0 = UTC−12, 720 = UTC, 1440 = UTC+12); ut() answers minutes from 00:00 UT
    *  of the local date plus 1440, so a birth before Greenwich midnight stays a natural; jdm() takes that. */
   static ut(hhmm: number, zone: number): CrossFormula {
-    const hour = Math.floor(hhmm / 100), minute = hhmm % 100
+    const hour = quot(hhmm, 100), minute = hhmm % 100
     const ok = nat(hhmm, zone) && hour <= 23 && minute <= 59 && zone <= 1440
     return f('hd-ut', 'ut(hhmm, zone) = 60h + min − (zone − 720) + 1440', ok ? hour * 60 + minute - (zone - 720) + 1440 : 0, ok, 'ut', [hhmm, zone])
   }
   /** The zone of a place by its longitude alone: local mean time, 4 minutes per degree east, in tenths of a degree east (0..3599). */
   static mean(longitude10: number): CrossFormula {
     const east = longitude10 <= 1800 ? longitude10 : longitude10 - 3600
-    return f('hd-mean', 'mean(λ) = ⌊4 · λ⌉ + 720 (minutes east of Greenwich, plus 720)', Math.round(east * 0.4) + 720, nat(longitude10) && longitude10 < 3600, 'mean', [longitude10])
+    return f('hd-mean', 'mean(λ) = ⌊4 · λ⌉ + 720 (minutes east of Greenwich, plus 720)', roundOf(east * 0.4) + 720, nat(longitude10) && longitude10 < 3600, 'mean', [longitude10])
   }
   /** A civil date as a human writes it, yyyymmdd (one 48-bit parameter), to its compact code y·372 + (m − 1)·31 + (d − 1),
    *  which fits the 24 bits a two-parameter program gives: jdm(code, minutes) takes it. */
   static code(yyyymmdd: number): CrossFormula {
-    const year = Math.floor(yyyymmdd / 10000), month = Math.floor(yyyymmdd / 100) % 100, day = yyyymmdd % 100
+    const year = quot(yyyymmdd, 10000), month = quot(yyyymmdd, 100) % 100, day = yyyymmdd % 100
     const ok = nat(yyyymmdd) && month >= 1 && month <= 12 && day >= 1 && day <= 31
     return f('hd-code', 'code(yyyymmdd) = 372·y + 31·(m − 1) + (d − 1)', ok ? year * 372 + (month - 1) * 31 + (day - 1) : 0, ok, 'code', [yyyymmdd])
   }
   /** A date code (hd.code) and ut() minutes to the Julian day in minutes (Meeus ch. 7): the unit every formula of a
    *  chart takes, so a chart is exact to the minute and the place of birth. */
   static jdm(code: number, minutes: number): CrossFormula {
-    const year = Math.floor(code / 372), month = Math.floor((code % 372) / 31) + 1, day = (code % 31) + 1
+    const year = quot(code, 372), month = quot((code % 372), 31) + 1, day = (code % 31) + 1
     let y = year, m = month
     if (m <= 2) { y -= 1; m += 12 }
-    const A = Math.floor(y / 100), B = 2 - A + Math.floor(A / 4)
-    const jd0 = Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + day + B - 1524.5
+    const A = quot(y, 100), B = 2 - A + quot(A, 4)
+    const jd0 = floorOf(365.25 * (y + 4716)) + floorOf(30.6001 * (m + 1)) + day + B - 1524.5
     const ok = nat(code, minutes) && month <= 12
-    return f('hd-jdm', 'jdm(code, m) = 1440 · jd₀(y, m, d) + m − 1440, jd₀ at 00:00 UT (Meeus ch. 7), (y, m, d) from the code', ok ? Math.round(jd0 * MINUTES) + minutes - MINUTES : 0, ok, 'jdm', [code, minutes])
+    return f('hd-jdm', 'jdm(code, m) = 1440 · jd₀(y, m, d) + m − 1440, jd₀ at 00:00 UT (Meeus ch. 7), (y, m, d) from the code', ok ? roundOf(jd0 * MINUTES) + minutes - MINUTES : 0, ok, 'jdm', [code, minutes])
   }
   /** The chart at a birth minute (jdm): the number of channels the Sun and Earth define, personality and design
    *  together; the run's steps carry the gates. A chat that knows a birth time asks this and cites the structure. */

@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf } from '../../exact.js'
 
 /** EVIDENCE — WHAT A TRIBUNAL WEIGHS, AS ARITHMETIC, ANY JURISDICTION. Whether a fact is in evidence is a set of
  *  thresholds the jurisdiction sets: the balance of the proof, enough corroboration, the probative value against the
@@ -15,7 +16,7 @@ export class EvidenceFormulas {
   /** THE BALANCE OF THE PROOF: 1 when the facts for outweigh the facts against. value [for > against]. */
   static weight(forFacts: number, against: number): CrossFormula { return e('evidence-weight', 'weight(for, against) = [for > against]', forFacts > against ? 1 : 0, nat(forFacts, against), 'weight', [forFacts, against]) }
   /** THE MARGIN: how far the facts for stand above the facts against. value max(0, for − against). */
-  static margin(forFacts: number, against: number): CrossFormula { return e('evidence-margin', 'margin(for, against) = max(0, for − against)', Math.max(0, forFacts - against), nat(forFacts, against), 'margin', [forFacts, against]) }
+  static margin(forFacts: number, against: number): CrossFormula { return e('evidence-margin', 'margin(for, against) = max(0, for − against)', maxOf(0, forFacts - against), nat(forFacts, against), 'margin', [forFacts, against]) }
   /** CORROBORATION: how many independent sources speak to the fact; holds when more than one (corroborated). */
   static corroboration(sources: number): CrossFormula { return e('evidence-corroboration', 'corroboration(sources) = sources; corroborated when > 1', sources, nat(sources) && sources > 1, 'corroboration', [sources]) }
   /** THE BALANCING TEST: admitted when the probative value exceeds the prejudice. value [probative > prejudice]. */

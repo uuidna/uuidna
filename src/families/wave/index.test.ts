@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import { facesOf, hexFamiliesOf, hexRunOf, qpuHexUuidOf, contentUuidOf, uuidReceiptOf } from '../../quantum/processing/unit/index.js'
 import { WaveFormulas, waveFamiliesOf } from './index.js'
 import '../../mcp/families.js'
+import { maxOf, minOf } from '../../exact.js'
 
 /** One call launches a wave of agents and answers one receipt: the calls saved are the agents less the waves, the
  *  unit runs the same programs, and no door or wave is launched by a wave. */
@@ -34,20 +35,20 @@ test('wave: one call launches faces agents and answers one receipt; the calls sa
   const k = hexFamiliesOf().get(names[i]!)!.length
   assert.equal(m.programs, k + k * k, 'every program of one or two formulas')
   const fs = hexFamiliesOf().get(names[i]!)!
-  const callable = fs.filter((x) => x.arity <= 1).length + fs.reduce((n, x) => n + fs.filter((y) => Math.max(x.arity, y.arity) <= 1).length, 0)
+  const callable = fs.filter((x) => x.arity <= 1).length + fs.reduce((n, x) => n + fs.filter((y) => maxOf(x.arity, y.arity) <= 1).length, 0)
   assert.ok(m.agents === callable * 4 && m.value > 0, `${m.agents} agents`)
   assert.ok(m.signals.every((u) => /^[0-9a-f-]{36}$/.test(u)), 'every signal is a UUID')
   // a program as a hex combination: 0x21 is the second formula composed with the first
   const c = (await WaveFormulas.combo(i, 0x21, 0)) as unknown as { program: string[]; agents: number; holds: boolean }
   assert.deepEqual(c.program, [hexFamiliesOf().get(names[i]!)![1]!.name, hexFamiliesOf().get(names[i]!)![0]!.name])
-  const comboArity = Math.max(hexFamiliesOf().get(names[i]!)![1]!.arity, hexFamiliesOf().get(names[i]!)![0]!.arity)
+  const comboArity = maxOf(hexFamiliesOf().get(names[i]!)![1]!.arity, hexFamiliesOf().get(names[i]!)![0]!.arity)
   assert.equal(c.agents, comboArity <= 1 ? faces : 0)
   assert.equal((await WaveFormulas.combo(i, 0xf, 0)).holds, false, 'a digit past the family names no formula')
   // the remote agents: a slice of the AI APIs read for the credential they ask and called free; the reading says which
   const rem = (await WaveFormulas.remote(0)) as unknown as { value: number; matched: number; agents: string[]; calls: number }
   assert.equal(rem.calls, 1)
   assert.ok(rem.matched > 0, 'the registry names AI APIs')
-  assert.equal(rem.agents.length, Math.min(rem.value, faces))
+  assert.equal(rem.agents.length, minOf(rem.value, faces))
   uuidReceiptOf('wave remote', contentUuidOf(rem), { agents: rem.value })
   // the wave at its own address through the unit
   // the token bill: free remote agents are keyless public APIs — no key, no token, no bill; only keyed APIs or model leads bill

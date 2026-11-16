@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** ATHLETICS — PERFORMANCE AS ARITHMETIC. Sport is numbers: pace per unit of distance, speed over time, stride per step,
  *  the even split across laps, an estimated VO2 max, mechanical power, the height of a jump, and a scoring-table points
@@ -12,21 +13,21 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class AthleticsFormulas {
   /** PACE: seconds per unit of distance. value ⌊seconds / distance⌋. */
-  static pace(seconds: number, distance: number): CrossFormula { return c('athletics-pace', 'pace(seconds, distance) = ⌊seconds / distance⌋', distance > 0 ? Math.floor(seconds / distance) : 0, nat(seconds, distance) && distance > 0, 'pace', [seconds, distance]) }
+  static pace(seconds: number, distance: number): CrossFormula { return c('athletics-pace', 'pace(seconds, distance) = ⌊seconds / distance⌋', distance > 0 ? quot(seconds, distance) : 0, nat(seconds, distance) && distance > 0, 'pace', [seconds, distance]) }
   /** SPEED: distance over seconds. value ⌊distance / seconds⌋. */
-  static speed(distance: number, seconds: number): CrossFormula { return c('athletics-speed', 'speed(distance, seconds) = ⌊distance / seconds⌋', seconds > 0 ? Math.floor(distance / seconds) : 0, nat(distance, seconds) && seconds > 0, 'speed', [distance, seconds]) }
+  static speed(distance: number, seconds: number): CrossFormula { return c('athletics-speed', 'speed(distance, seconds) = ⌊distance / seconds⌋', seconds > 0 ? quot(distance, seconds) : 0, nat(distance, seconds) && seconds > 0, 'speed', [distance, seconds]) }
   /** STRIDE: distance per step. value ⌊distance / steps⌋. */
-  static stride(distance: number, steps: number): CrossFormula { return c('athletics-stride', 'stride(distance, steps) = ⌊distance / steps⌋', steps > 0 ? Math.floor(distance / steps) : 0, nat(distance, steps) && steps > 0, 'stride', [distance, steps]) }
+  static stride(distance: number, steps: number): CrossFormula { return c('athletics-stride', 'stride(distance, steps) = ⌊distance / steps⌋', steps > 0 ? quot(distance, steps) : 0, nat(distance, steps) && steps > 0, 'stride', [distance, steps]) }
   /** SPLIT: an even share of the total across the laps. value ⌊total / laps⌋. */
-  static split(total: number, laps: number): CrossFormula { return c('athletics-split', 'split(total, laps) = ⌊total / laps⌋', laps > 0 ? Math.floor(total / laps) : 0, nat(total, laps) && laps > 0, 'split', [total, laps]) }
+  static split(total: number, laps: number): CrossFormula { return c('athletics-split', 'split(total, laps) = ⌊total / laps⌋', laps > 0 ? quot(total, laps) : 0, nat(total, laps) && laps > 0, 'split', [total, laps]) }
   /** VO2 MAX: a speed-over-age estimate. value ⌊speed · 1000 / age⌋. */
-  static vo2max(speed_: number, age: number): CrossFormula { return c('athletics-vo2max', 'vo2max(speed, age) = ⌊speed · 1000 / age⌋', age > 0 ? Math.floor((speed_ * 1000) / age) : 0, nat(speed_, age) && age > 0, 'vo2max', [speed_, age]) }
+  static vo2max(speed_: number, age: number): CrossFormula { return c('athletics-vo2max', 'vo2max(speed, age) = ⌊speed · 1000 / age⌋', age > 0 ? quot((speed_ * 1000), age) : 0, nat(speed_, age) && age > 0, 'vo2max', [speed_, age]) }
   /** POWER: work over time. value ⌊work / time⌋. */
-  static power(work: number, time: number): CrossFormula { return c('athletics-power', 'power(work, time) = ⌊work / time⌋', time > 0 ? Math.floor(work / time) : 0, nat(work, time) && time > 0, 'power', [work, time]) }
+  static power(work: number, time: number): CrossFormula { return c('athletics-power', 'power(work, time) = ⌊work / time⌋', time > 0 ? quot(work, time) : 0, nat(work, time) && time > 0, 'power', [work, time]) }
   /** JUMP: height from takeoff speed under gravity. value ⌊takeoff² / (2 · gravity)⌋. */
-  static jump(takeoff: number, gravity: number): CrossFormula { return c('athletics-jump', 'jump(takeoff, gravity) = ⌊takeoff² / (2 · gravity)⌋', gravity > 0 ? Math.floor((takeoff * takeoff) / (2 * gravity)) : 0, nat(takeoff, gravity) && gravity > 0, 'jump', [takeoff, gravity]) }
+  static jump(takeoff: number, gravity: number): CrossFormula { return c('athletics-jump', 'jump(takeoff, gravity) = ⌊takeoff² / (2 · gravity)⌋', gravity > 0 ? quot((takeoff * takeoff), (2 * gravity)) : 0, nat(takeoff, gravity) && gravity > 0, 'jump', [takeoff, gravity]) }
   /** POINTS: a scoring-table total against a standard. value ⌊performance · 1000 / standard⌋. */
-  static points(performance: number, standard: number): CrossFormula { return c('athletics-points', 'points(performance, standard) = ⌊performance · 1000 / standard⌋', standard > 0 ? Math.floor((performance * 1000) / standard) : 0, nat(performance, standard) && standard > 0, 'points', [performance, standard]) }
+  static points(performance: number, standard: number): CrossFormula { return c('athletics-points', 'points(performance, standard) = ⌊performance · 1000 / standard⌋', standard > 0 ? quot((performance * 1000), standard) : 0, nat(performance, standard) && standard > 0, 'points', [performance, standard]) }
 }
 
 for (const name of ['jump', 'pace', 'points', 'power', 'speed', 'split', 'stride', 'vo2max'] as const)

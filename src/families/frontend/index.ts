@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** FRONTEND — MANY FRONTENDS, ONE PAYLOAD API. Payload is headless: its REST, GraphQL and Local API feed any frontend —
  *  the Next app here, but equally VitePress (latest), Astro, Nuxt, SvelteKit, Remix. This family is the arithmetic of that:
@@ -20,15 +21,15 @@ export class FrontendFormulas {
   /** BUILD TIME: pages at a per-page cost. value pages · perPage. */
   static build(pages: number, perPage: number): CrossFormula { return f('frontend-build', 'build(pages, perPage) = pages · perPage', pages * perPage, nat(pages, perPage), 'build', [pages, perPage]) }
   /** THE CDN CACHE HIT RATE as a percentage. value ⌊hits · 100 / requests⌋. */
-  static cache(hits: number, requests: number): CrossFormula { return f('frontend-cache', 'cache(hits, requests) = ⌊hits · 100 / requests⌋', requests > 0 ? Math.floor((hits * 100) / requests) : 0, nat(hits, requests) && requests > 0 && hits <= requests, 'cache', [hits, requests]) }
+  static cache(hits: number, requests: number): CrossFormula { return f('frontend-cache', 'cache(hits, requests) = ⌊hits · 100 / requests⌋', requests > 0 ? quot((hits * 100), requests) : 0, nat(hits, requests) && requests > 0 && hits <= requests, 'cache', [hits, requests]) }
   /** HYDRATION as a percentage: the interactive islands over the total. value ⌊interactive · 100 / total⌋. */
-  static hydration(interactive: number, total: number): CrossFormula { return f('frontend-hydration', 'hydration(interactive, total) = ⌊interactive · 100 / total⌋', total > 0 ? Math.floor((interactive * 100) / total) : 0, nat(interactive, total) && total > 0 && interactive <= total, 'hydration', [interactive, total]) }
+  static hydration(interactive: number, total: number): CrossFormula { return f('frontend-hydration', 'hydration(interactive, total) = ⌊interactive · 100 / total⌋', total > 0 ? quot((interactive * 100), total) : 0, nat(interactive, total) && total > 0 && interactive <= total, 'hydration', [interactive, total]) }
   /** THE FRAMEWORKS the one Payload API serves. value the count; holds when it serves at least one (it is headless). */
   static frameworks(count: number): CrossFormula { return f('frontend-frameworks', 'frameworks(count) = count; the frontends the headless API serves (Next, VitePress, Astro, Nuxt, SvelteKit, Remix…)', count, nat(count) && count >= 1, 'frameworks', [count], { examples: ['next', 'vitepress', 'astro', 'nuxt', 'sveltekit', 'remix'] }) }
   /** THE HEADLESS COMBINATIONS: one API's endpoints across many frontends. value endpoints · frontends. */
   static headless(endpoints: number, frontends: number): CrossFormula { return f('frontend-headless', 'headless(endpoints, frontends) = endpoints · frontends (one API, many frontends)', endpoints * frontends, nat(endpoints, frontends), 'headless', [endpoints, frontends]) }
   /** THE ISR CADENCE: how many regenerations fit a window at a revalidate interval. value ⌊window / interval⌋. */
-  static isr(window: number, interval: number): CrossFormula { return f('frontend-isr', 'isr(window, interval) = ⌊window / interval⌋', interval > 0 ? Math.floor(window / interval) : 0, nat(window, interval) && interval > 0, 'isr', [window, interval]) }
+  static isr(window: number, interval: number): CrossFormula { return f('frontend-isr', 'isr(window, interval) = ⌊window / interval⌋', interval > 0 ? quot(window, interval) : 0, nat(window, interval) && interval > 0, 'isr', [window, interval]) }
 }
 
 for (const name of ['build', 'cache', 'fetch', 'frameworks', 'headless', 'hydration', 'isr', 'pages'] as const)

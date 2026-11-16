@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, quot, roundOf } from '../../exact.js'
 
 /** SIKHISM — scaffolded integer measures crossed to anthropology. Every output an exact finite nonnegative integer. */
 
@@ -14,9 +15,9 @@ export class SikhismFormulas {
   static pillars(x: number, y: number): CrossFormula { return c('sikhism-pillars', 'pillars(x, y) = x + y', x + y, nat(x, y), 'pillars', [x, y]) }
   static prayerorderings(x: number): CrossFormula { return c('sikhism-prayerorderings', 'prayerorderings(x) = x!', x <= 12 ? ((n: number) => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r })(x) : 0, nat(x) && x <= 12, 'prayerorderings', [x]) }
   static articlesoffaith(x: number, y: number): CrossFormula { return c('sikhism-articlesoffaith', 'articlesoffaith(x, y) = x + y', x + y, nat(x, y), 'articlesoffaith', [x, y]) }
-  static hymncombos(x: number, y: number): CrossFormula { return c('sikhism-hymncombos', 'hymncombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'hymncombos', [x, y]) }
+  static hymncombos(x: number, y: number): CrossFormula { return c('sikhism-hymncombos', 'hymncombos(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'hymncombos', [x, y]) }
   static communitymeals(x: number, y: number): CrossFormula { return c('sikhism-communitymeals', 'communitymeals(x, y) = x · y', x * y, nat(x, y), 'communitymeals', [x, y]) }
-  static devotionratio(x: number, y: number): CrossFormula { return c('sikhism-devotionratio', 'devotionratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'devotionratio', [x, y]) }
+  static devotionratio(x: number, y: number): CrossFormula { return c('sikhism-devotionratio', 'devotionratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'devotionratio', [x, y]) }
 }
 
 for (const name of ['articlesoffaith', 'communitymeals', 'devotionratio', 'gurus', 'hymncombos', 'pillars', 'prayerorderings', 'scripturepages'] as const)

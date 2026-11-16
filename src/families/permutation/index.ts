@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ipow } from '../../exact.js'
 
 /** PERMUTATION — THE SYMMETRIC GROUP, AS ARITHMETIC. A permutation of n is numbers by the book (Stanley EC1): the n!
  *  arrangements, k-permutations and binomial subsets, the maximum inversions and major index C(n,2) (the Mahonian
@@ -30,7 +31,7 @@ export class PermutationFormulas {
   /** DESCENTS — the maximum descents of a permutation of n, bounded by the n−1 adjacent gaps. value n − 1; holds n ≥ 1. */
   static descents(n: number): CrossFormula { return p('permutation-descents', 'descents(n) = n − 1 (maximum, n ≥ 1)', n >= 1 ? n - 1 : 0, nat(n) && n >= 1, 'descents', [n]) }
   /** EULERIAN — the Eulerian number A(n, 1), permutations of n with exactly one descent. value 2^n − n − 1; holds n ≥ 1. */
-  static eulerian(n: number): CrossFormula { return p('permutation-eulerian', 'eulerian(n) = A(n, 1) = 2^n − n − 1 (n ≥ 1)', n >= 1 ? Math.pow(2, n) - n - 1 : 0, nat(n) && n >= 1, 'eulerian', [n]) }
+  static eulerian(n: number): CrossFormula { return p('permutation-eulerian', 'eulerian(n) = A(n, 1) = 2^n − n − 1 (n ≥ 1)', n >= 1 ? ipow(2, n) - n - 1 : 0, nat(n) && n >= 1, 'eulerian', [n]) }
   /** EXCEDANCES — the maximum excedances of a permutation of n (positions with π(i) > i). value n − 1; holds n ≥ 1. */
   static excedances(n: number): CrossFormula { return p('permutation-excedances', 'excedances(n) = n − 1 (maximum, n ≥ 1)', n >= 1 ? n - 1 : 0, nat(n) && n >= 1, 'excedances', [n]) }
   /** FACTORIAL — the n! arrangements of n distinct symbols. value n! from the table; holds 0 ≤ n ≤ 8. */

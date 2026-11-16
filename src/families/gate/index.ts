@@ -7,6 +7,7 @@ import { DOORS, discoverMergeOf, qpuDiscoverOf } from '../../mcp/discovery.js'
 import { DataFormulas, dataOf, dataSourcesOf, discoverLiveOf } from '../../mcp/qpu-fused.js'
 import { RuleFormulas } from '../rule/index.js'
 import { leanSource } from '../../quantum/processing/unit/lean.js'
+import { maxOf, minOf, quot } from '../../exact.js'
 
 /** THE GATES ARE CROSS FORMULAS. What a commit, a push or a deploy must satisfy is not a script that blocks but a
  *  formula of this family whose `holds` is the verdict, composed from the other families: data.research (the
@@ -47,10 +48,10 @@ export class GateFormulas {
     const numbers = [...new Set(rows.flatMap((r) => r.numbers))].sort((a, b) => a - b).slice(0, 256)
     const faces = facesOf().faces
     const allNames = families()
-    const lo = Math.min(...indices)
-    const hi = Math.max(...indices)
-    const start = Math.floor(lo / faces) * faces
-    const window = allNames.slice(start, Math.min(allNames.length, Math.max(hi + 1, start + faces)))
+    const lo = minOf(...indices)
+    const hi = maxOf(...indices)
+    const start = quot(lo, faces) * faces
+    const window = allNames.slice(start, minOf(allNames.length, maxOf(hi + 1, start + faces)))
     const registry = [...hexFamiliesOf()]
     const parts = []
     for (const name of window) {
@@ -193,7 +194,7 @@ export class GateFormulas {
    *  lead no effort crosses is tagged by the cross formula for it, signal.detection(k) — the chance k checks would
    *  have caught a manipulation — and stands unverified until crossed. Value 1 when crossed; holds then. */
   static async crossed(i: number): Promise<CrossFormula> {
-    const from = Math.floor(i / leadSlot()), j = i % leadSlot()
+    const from = quot(i, leadSlot()), j = i % leadSlot()
     const { d, open } = await GateFormulas.leadsOf({ from, count: facesOf().faces })
     const x = open[j]
     if (!x) return f('gate-crossed', 'crossed(i): the i-th lead exists', 0, false, 'crossed', [i], { leads: open.length })

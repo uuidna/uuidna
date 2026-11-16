@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** AQUAFARMING — RAISING FISH IN TANKS AND PONDS, AS ARITHMETIC. Running a farm is numbers: how densely a tank is stocked,
  *  the standing biomass, the daily feed, the oxygen the stock demands, how many survive to harvest, the water a system turns
@@ -13,19 +14,19 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class AquafarmingFormulas {
   /** STOCKING DENSITY: fish per unit of water volume. value ⌊fish / volume⌋. */
-  static stockingdensity(fish: number, volume: number): CrossFormula { return c('aquafarming-stockingdensity', 'stockingdensity(fish, volume) = ⌊fish / volume⌋', volume > 0 ? Math.floor(fish / volume) : 0, nat(fish, volume) && volume > 0, 'stockingdensity', [fish, volume]) }
+  static stockingdensity(fish: number, volume: number): CrossFormula { return c('aquafarming-stockingdensity', 'stockingdensity(fish, volume) = ⌊fish / volume⌋', volume > 0 ? quot(fish, volume) : 0, nat(fish, volume) && volume > 0, 'stockingdensity', [fish, volume]) }
   /** BIOMASS: the standing weight of the stock. value count · weight. */
   static biomass(count: number, weight: number): CrossFormula { return c('aquafarming-biomass', 'biomass(count, weight) = count · weight', count * weight, nat(count, weight), 'biomass', [count, weight]) }
   /** FEED RATE: a percentage of biomass fed each day. value ⌊biomass · percent / 100⌋. */
-  static feedrate(biomass: number, percent: number): CrossFormula { return c('aquafarming-feedrate', 'feedrate(biomass, percent) = ⌊biomass · percent / 100⌋', Math.floor((biomass * percent) / 100), nat(biomass, percent) && percent <= 100, 'feedrate', [biomass, percent]) }
+  static feedrate(biomass: number, percent: number): CrossFormula { return c('aquafarming-feedrate', 'feedrate(biomass, percent) = ⌊biomass · percent / 100⌋', quot((biomass * percent), 100), nat(biomass, percent) && percent <= 100, 'feedrate', [biomass, percent]) }
   /** OXYGEN DEMAND: the stock's draw at a per-kg rate. value ⌊biomass · rate / 1000⌋. */
-  static oxygendemand(biomass: number, rate: number): CrossFormula { return c('aquafarming-oxygendemand', 'oxygendemand(biomass, rate) = ⌊biomass · rate / 1000⌋', Math.floor((biomass * rate) / 1000), nat(biomass, rate), 'oxygendemand', [biomass, rate]) }
+  static oxygendemand(biomass: number, rate: number): CrossFormula { return c('aquafarming-oxygendemand', 'oxygendemand(biomass, rate) = ⌊biomass · rate / 1000⌋', quot((biomass * rate), 1000), nat(biomass, rate), 'oxygendemand', [biomass, rate]) }
   /** SURVIVAL RATE as a percentage. value ⌊harvested · 100 / stocked⌋. */
-  static survivalrate(stocked: number, harvested: number): CrossFormula { return c('aquafarming-survivalrate', 'survivalrate(stocked, harvested) = ⌊harvested · 100 / stocked⌋', stocked > 0 ? Math.floor((harvested * 100) / stocked) : 0, nat(stocked, harvested) && stocked > 0 && harvested <= stocked, 'survivalrate', [stocked, harvested]) }
+  static survivalrate(stocked: number, harvested: number): CrossFormula { return c('aquafarming-survivalrate', 'survivalrate(stocked, harvested) = ⌊harvested · 100 / stocked⌋', stocked > 0 ? quot((harvested * 100), stocked) : 0, nat(stocked, harvested) && stocked > 0 && harvested <= stocked, 'survivalrate', [stocked, harvested]) }
   /** WATER EXCHANGE: volume turned over per day. value volume · turnovers. */
   static waterexchange(volume: number, turnovers: number): CrossFormula { return c('aquafarming-waterexchange', 'waterexchange(volume, turnovers) = volume · turnovers', volume * turnovers, nat(volume, turnovers), 'waterexchange', [volume, turnovers]) }
   /** GROWTH RATE: weight gained per day over a period. value ⌊(final − initial) / days⌋. */
-  static growthrate(final: number, initial: number, days: number): CrossFormula { return c('aquafarming-growthrate', 'growthrate(final, initial, days) = ⌊(final − initial) / days⌋', days > 0 ? Math.floor(Math.max(0, final - initial) / days) : 0, nat(final, initial, days) && days > 0 && final >= initial, 'growthrate', [final, initial, days]) }
+  static growthrate(final: number, initial: number, days: number): CrossFormula { return c('aquafarming-growthrate', 'growthrate(final, initial, days) = ⌊(final − initial) / days⌋', days > 0 ? quot(maxOf(0, final - initial), days) : 0, nat(final, initial, days) && days > 0 && final >= initial, 'growthrate', [final, initial, days]) }
   /** HARVEST WEIGHT: the total weight pulled at harvest. value count · avgweight. */
   static harvestweight(count: number, avgweight: number): CrossFormula { return c('aquafarming-harvestweight', 'harvestweight(count, avgweight) = count · avgweight', count * avgweight, nat(count, avgweight), 'harvestweight', [count, avgweight]) }
 }

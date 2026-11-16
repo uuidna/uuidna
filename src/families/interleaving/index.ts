@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** INTERLEAVING — SPREADING SYMBOLS SO A BURST OF NOISE HITS MANY CODEWORDS AT ONCE, AS ARITHMETIC. A block interleaver is
  *  a matrix: write by rows, read by columns, and an error burst is scattered. The numbers are depth, span, block size, the
@@ -17,15 +18,15 @@ export class InterleavingFormulas {
   /** SPAN: the symbols an interleave window covers, depth over symbols. value depth · symbols. */
   static span(depth: number, symbols: number): CrossFormula { return c('interleaving-span', 'span(depth, symbols) = depth · symbols', depth * symbols, nat(depth, symbols), 'span', [depth, symbols]) }
   /** BLOCK SIZE: the symbols per block when a total is split into blocks. value ⌊total / blocks⌋. */
-  static blocksize(total: number, blocks: number): CrossFormula { return c('interleaving-blocksize', 'blocksize(total, blocks) = ⌊total / blocks⌋', blocks > 0 ? Math.floor(total / blocks) : 0, nat(total, blocks) && blocks > 0, 'blocksize', [total, blocks]) }
+  static blocksize(total: number, blocks: number): CrossFormula { return c('interleaving-blocksize', 'blocksize(total, blocks) = ⌊total / blocks⌋', blocks > 0 ? quot(total, blocks) : 0, nat(total, blocks) && blocks > 0, 'blocksize', [total, blocks]) }
   /** FILL DELAY: symbols buffered before readout, depth over the rate. value ⌊depth / rate⌋. */
-  static delay(depth: number, rate: number): CrossFormula { return c('interleaving-delay', 'delay(depth, rate) = ⌊depth / rate⌋', rate > 0 ? Math.floor(depth / rate) : 0, nat(depth, rate) && rate > 0, 'delay', [depth, rate]) }
+  static delay(depth: number, rate: number): CrossFormula { return c('interleaving-delay', 'delay(depth, rate) = ⌊depth / rate⌋', rate > 0 ? quot(depth, rate) : 0, nat(depth, rate) && rate > 0, 'delay', [depth, rate]) }
   /** BURST PROTECTION: the burst length the interleave survives, depth less the overhead. value max(0, depth − overhead). */
-  static burstprotection(depth: number, overhead: number): CrossFormula { return c('interleaving-burstprotection', 'burstprotection(depth, overhead) = max(0, depth − overhead)', Math.max(0, depth - overhead), nat(depth, overhead), 'burstprotection', [depth, overhead]) }
+  static burstprotection(depth: number, overhead: number): CrossFormula { return c('interleaving-burstprotection', 'burstprotection(depth, overhead) = max(0, depth − overhead)', maxOf(0, depth - overhead), nat(depth, overhead), 'burstprotection', [depth, overhead]) }
   /** MATRIX CELLS: the cells of the write/read matrix, rows by columns. value rows · cols. */
   static matrixcells(rows: number, cols: number): CrossFormula { return c('interleaving-matrixcells', 'matrixcells(rows, cols) = rows · cols', rows * cols, nat(rows, cols), 'matrixcells', [rows, cols]) }
   /** SPREAD FACTOR: how far apart adjacent symbols land, a distance over the symbols. value ⌊distance / symbols⌋. */
-  static spreadfactor(distance: number, symbols: number): CrossFormula { return c('interleaving-spreadfactor', 'spreadfactor(distance, symbols) = ⌊distance / symbols⌋', symbols > 0 ? Math.floor(distance / symbols) : 0, nat(distance, symbols) && symbols > 0, 'spreadfactor', [distance, symbols]) }
+  static spreadfactor(distance: number, symbols: number): CrossFormula { return c('interleaving-spreadfactor', 'spreadfactor(distance, symbols) = ⌊distance / symbols⌋', symbols > 0 ? quot(distance, symbols) : 0, nat(distance, symbols) && symbols > 0, 'spreadfactor', [distance, symbols]) }
   /** LATENCY: end-to-end time to fill the interleave, depth symbols at a per-symbol period. value depth · period. */
   static latency(depth: number, period: number): CrossFormula { return c('interleaving-latency', 'latency(depth, period) = depth · period', depth * period, nat(depth, period), 'latency', [depth, period]) }
 }

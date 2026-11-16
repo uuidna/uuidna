@@ -7,6 +7,7 @@ import { CalFormulas } from '../cal/index.js'
 import { YiFormulas } from '../yi/index.js'
 import { KinFormulas } from '../kin/index.js'
 import '../../mcp/families.js'
+import { maxOf, minOf, roundOf } from '../../exact.js'
 
 /** THE COMBINATIONS OF THE STRUCTURE, EVERY ONE. The wheel partitions the circle into 64 gates of 6 lines; the nine
  *  centers partition the 64 gates; the 36 channels join gates of different centers; the design day lies 70–100 days
@@ -65,7 +66,7 @@ test('hd: the design day is 70–100 days before birth and the chart defines cha
     assert.ok(chart.activations.every((a) => a.gate >= 1 && a.gate <= 64 && a.line >= 1 && a.line <= 6))
     assert.ok(chart.holds)
     assert.ok(['none', 'single', 'split', 'triple split', 'quadruple split'].includes(chart.definition))
-    assert.equal(HdFormulas.design(jd * 1440).value, Math.round(chart.designJd * 1440), 'design takes and gives the minute')
+    assert.equal(HdFormulas.design(jd * 1440).value, roundOf(chart.designJd * 1440), 'design takes and gives the minute')
     uuidReceiptOf(`hd chart ${jd}`, contentUuidOf(chart), { gates: chart.gates.length, definition: chart.definition })
   }
 })
@@ -85,7 +86,7 @@ test("cal: the calendar's drift explains the wheel — a day per 128 Julian or 3
     const jdm = Number(HdFormulas.jdm(Number(HdFormulas.code(20000000 + month * 100 + 15).value), 2160).value)
     const speed = Number(CalFormulas.sunSpeed(jdm).value)
     assert.ok(speed >= 950 && speed <= 1022, `month ${month}: ${speed} thousandths of a degree a day`)
-    fast = Math.min(fast, speed); slow = Math.max(slow, speed)
+    fast = minOf(fast, speed); slow = maxOf(slow, speed)
     const days = Number(CalFormulas.designDays(jdm).value) / 100
     assert.ok(days > 86 && days < 93, `month ${month}: 88° took ${days} days (88/1.019 … 88/0.953)`)
     assert.equal(CalFormulas.designDays(jdm).holds, true)

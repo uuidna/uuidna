@@ -39,7 +39,7 @@ export function chooseOf(nn: number, k: number): number {
 }
 
 /**
- * 10^k by repeated multiplication (no Math.pow), used for page sizes and deadlines.
+ * 10^k by repeated multiplication (no host power routine), used for page sizes and deadlines.
  * @wing lattice
  * @kind builder
  */

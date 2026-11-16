@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, quot } from '../../exact.js'
 
 /** RAM — DRAM MAIN MEMORY, AS ARITHMETIC. A memory system is numbers by the book: total capacity across modules, the
  *  channels that span them, transfer bandwidth, ranks of chips, CAS latency in picoseconds, rows refreshed per window,
@@ -15,11 +16,11 @@ export class RamFormulas {
   /** CAPACITY — total memory across the modules. value modules · gbEach (GB). */
   static capacity(modules: number, gbEach: number): CrossFormula { return r('ram-capacity', 'capacity(modules, gbEach) = modules · gbEach (GB)', modules * gbEach, nat(modules, gbEach), 'capacity', [modules, gbEach]) }
   /** CHANNELS — the memory channels the modules populate, rounded up. value ⌈modules / perChannel⌉; holds perChannel > 0. */
-  static channels(modules: number, perChannel: number): CrossFormula { return r('ram-channels', 'channels(modules, perChannel) = ⌈modules / perChannel⌉', perChannel > 0 ? Math.ceil(modules / perChannel) : 0, nat(modules, perChannel) && perChannel > 0, 'channels', [modules, perChannel]) }
+  static channels(modules: number, perChannel: number): CrossFormula { return r('ram-channels', 'channels(modules, perChannel) = ⌈modules / perChannel⌉', perChannel > 0 ? ceilQuot(modules, perChannel) : 0, nat(modules, perChannel) && perChannel > 0, 'channels', [modules, perChannel]) }
   /** BANDWIDTH — transfer bandwidth: bus width in bytes times the transfers per second. value busWidthBytes · mtps. */
   static bandwidth(busWidthBytes: number, mtps: number): CrossFormula { return r('ram-bandwidth', 'bandwidth(busWidthBytes, mtps) = busWidthBytes · mtps', busWidthBytes * mtps, nat(busWidthBytes, mtps), 'bandwidth', [busWidthBytes, mtps]) }
   /** RANKS — the ranks the chips form, whole ranks only. value ⌊chips / perRank⌋; holds perRank > 0. */
-  static ranks(chips: number, perRank: number): CrossFormula { return r('ram-ranks', 'ranks(chips, perRank) = ⌊chips / perRank⌋', perRank > 0 ? Math.floor(chips / perRank) : 0, nat(chips, perRank) && perRank > 0, 'ranks', [chips, perRank]) }
+  static ranks(chips: number, perRank: number): CrossFormula { return r('ram-ranks', 'ranks(chips, perRank) = ⌊chips / perRank⌋', perRank > 0 ? quot(chips, perRank) : 0, nat(chips, perRank) && perRank > 0, 'ranks', [chips, perRank]) }
   /** CASLATENCY — CAS latency as time: the CAS cycles times the clock period in picoseconds. value cycles · tckPs (ps). */
   static caslatency(cycles: number, tckPs: number): CrossFormula { return r('ram-caslatency', 'caslatency(cycles, tckPs) = cycles · tckPs (ps)', cycles * tckPs, nat(cycles, tckPs), 'caslatency', [cycles, tckPs]) }
   /** REFRESH — rows refreshed within one tREFC window. value rows; holds nat. */
@@ -31,7 +32,7 @@ export class RamFormulas {
   /** LATENCY — access latency in cycles: CAS plus RAS-to-CAS delay. value cas + rcd. */
   static latency(cas: number, rcd: number): CrossFormula { return r('ram-latency', 'latency(cas, rcd) = cas + rcd', cas + rcd, nat(cas, rcd), 'latency', [cas, rcd]) }
   /** UTILIZATION — memory utilisation: used as a percentage of the total. value ⌊used · 100 / total⌋; holds total > 0 and used ≤ total. */
-  static utilization(used: number, total: number): CrossFormula { return r('ram-utilization', 'utilization(used, total) = ⌊used · 100 / total⌋', total > 0 ? Math.floor((used * 100) / total) : 0, nat(used, total) && total > 0 && used <= total, 'utilization', [used, total]) }
+  static utilization(used: number, total: number): CrossFormula { return r('ram-utilization', 'utilization(used, total) = ⌊used · 100 / total⌋', total > 0 ? quot((used * 100), total) : 0, nat(used, total) && total > 0 && used <= total, 'utilization', [used, total]) }
 }
 
 for (const name of ['bandwidth', 'banks', 'burst', 'capacity', 'caslatency', 'channels', 'latency', 'ranks', 'refresh', 'utilization'] as const)

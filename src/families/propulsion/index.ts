@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** PROPULSION — MOVING MASS, AS ARITHMETIC (chosen by the engineering registry, not by hand). A thrust chamber is numbers:
  *  thrust from pressure over an area, propulsive efficiency, specific fuel consumption, the bypass ratio, the compression
@@ -15,13 +16,13 @@ export class PropulsionFormulas {
   /** THRUST: chamber pressure over the nozzle area. value pressure · area. */
   static thrust(pressure: number, area: number): CrossFormula { return c('propulsion-thrust', 'thrust(pressure, area) = pressure · area', pressure * area, nat(pressure, area), 'thrust', [pressure, area]) }
   /** PROPULSIVE EFFICIENCY as a percentage. value ⌊output · 100 / input⌋. */
-  static efficiency(output: number, input: number): CrossFormula { return c('propulsion-efficiency', 'efficiency(output, input) = ⌊output · 100 / input⌋', input > 0 ? Math.floor((output * 100) / input) : 0, nat(output, input) && input > 0 && output <= input, 'efficiency', [output, input]) }
+  static efficiency(output: number, input: number): CrossFormula { return c('propulsion-efficiency', 'efficiency(output, input) = ⌊output · 100 / input⌋', input > 0 ? quot((output * 100), input) : 0, nat(output, input) && input > 0 && output <= input, 'efficiency', [output, input]) }
   /** SPECIFIC FUEL CONSUMPTION: fuel per unit of thrust (per thousand). value ⌊fuel · 1000 / thrust_⌋. */
-  static specificfuel(fuel: number, thrust_: number): CrossFormula { return c('propulsion-specificfuel', 'specificfuel(fuel, thrust_) = ⌊fuel · 1000 / thrust_⌋', thrust_ > 0 ? Math.floor((fuel * 1000) / thrust_) : 0, nat(fuel, thrust_) && thrust_ > 0, 'specificfuel', [fuel, thrust_]) }
+  static specificfuel(fuel: number, thrust_: number): CrossFormula { return c('propulsion-specificfuel', 'specificfuel(fuel, thrust_) = ⌊fuel · 1000 / thrust_⌋', thrust_ > 0 ? quot((fuel * 1000), thrust_) : 0, nat(fuel, thrust_) && thrust_ > 0, 'specificfuel', [fuel, thrust_]) }
   /** BYPASS RATIO: secondary flow over primary flow (percent). value ⌊secondary · 100 / primary⌋. */
-  static bypass(secondary: number, primary: number): CrossFormula { return c('propulsion-bypass', 'bypass(secondary, primary) = ⌊secondary · 100 / primary⌋', primary > 0 ? Math.floor((secondary * 100) / primary) : 0, nat(secondary, primary) && primary > 0, 'bypass', [secondary, primary]) }
+  static bypass(secondary: number, primary: number): CrossFormula { return c('propulsion-bypass', 'bypass(secondary, primary) = ⌊secondary · 100 / primary⌋', primary > 0 ? quot((secondary * 100), primary) : 0, nat(secondary, primary) && primary > 0, 'bypass', [secondary, primary]) }
   /** COMPRESSION RATIO: outlet pressure over inlet pressure (percent). value ⌊outlet · 100 / inlet⌋. */
-  static compression(outlet: number, inlet: number): CrossFormula { return c('propulsion-compression', 'compression(outlet, inlet) = ⌊outlet · 100 / inlet⌋', inlet > 0 ? Math.floor((outlet * 100) / inlet) : 0, nat(outlet, inlet) && inlet > 0, 'compression', [outlet, inlet]) }
+  static compression(outlet: number, inlet: number): CrossFormula { return c('propulsion-compression', 'compression(outlet, inlet) = ⌊outlet · 100 / inlet⌋', inlet > 0 ? quot((outlet * 100), inlet) : 0, nat(outlet, inlet) && inlet > 0, 'compression', [outlet, inlet]) }
   /** SHAFT POWER: force at a velocity. value force · velocity. */
   static power(force: number, velocity: number): CrossFormula { return c('propulsion-power', 'power(force, velocity) = force · velocity', force * velocity, nat(force, velocity), 'power', [force, velocity]) }
   /** EXHAUST TEMPERATURE: the measured reading, held. value temperature. */

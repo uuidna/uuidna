@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** CRYSTALLOGRAPHY — THE STRUCTURE OF SOLIDS, AS ARITHMETIC. Diffraction and lattices are numbers: the Bragg order,
  *  the d-spacing from an angle, atoms per cell, packing fraction, coordination number, the unit-cell area, the count of
@@ -15,11 +16,11 @@ export class CrystallographyFormulas {
   /** BRAGG: the order times the wavelength (nλ proxy). value order · wavelength. */
   static bragg(order: number, wavelength: number): CrossFormula { return c('crystallography-bragg', 'bragg(order, wavelength) = order · wavelength', order * wavelength, nat(order, wavelength), 'bragg', [order, wavelength]) }
   /** SPACING: the d-spacing from a wavelength over an angle. value ⌊wavelength · 1000 / angle⌋. */
-  static spacing(wavelength: number, angle: number): CrossFormula { return c('crystallography-spacing', 'spacing(wavelength, angle) = ⌊wavelength · 1000 / angle⌋', angle > 0 ? Math.floor((wavelength * 1000) / angle) : 0, nat(wavelength, angle) && angle > 0, 'spacing', [wavelength, angle]) }
+  static spacing(wavelength: number, angle: number): CrossFormula { return c('crystallography-spacing', 'spacing(wavelength, angle) = ⌊wavelength · 1000 / angle⌋', angle > 0 ? quot((wavelength * 1000), angle) : 0, nat(wavelength, angle) && angle > 0, 'spacing', [wavelength, angle]) }
   /** DENSITY: atoms over the cell. value ⌊atoms / cell⌋. */
-  static density(atoms: number, cell: number): CrossFormula { return c('crystallography-density', 'density(atoms, cell) = ⌊atoms / cell⌋', cell > 0 ? Math.floor(atoms / cell) : 0, nat(atoms, cell) && cell > 0, 'density', [atoms, cell]) }
+  static density(atoms: number, cell: number): CrossFormula { return c('crystallography-density', 'density(atoms, cell) = ⌊atoms / cell⌋', cell > 0 ? quot(atoms, cell) : 0, nat(atoms, cell) && cell > 0, 'density', [atoms, cell]) }
   /** PACKING: the occupied fraction of the volume, as a percentage. value ⌊occupied · 100 / volume⌋. */
-  static packing(occupied: number, volume: number): CrossFormula { return c('crystallography-packing', 'packing(occupied, volume) = ⌊occupied · 100 / volume⌋', volume > 0 ? Math.floor((occupied * 100) / volume) : 0, nat(occupied, volume) && volume > 0 && occupied <= volume, 'packing', [occupied, volume]) }
+  static packing(occupied: number, volume: number): CrossFormula { return c('crystallography-packing', 'packing(occupied, volume) = ⌊occupied · 100 / volume⌋', volume > 0 ? quot((occupied * 100), volume) : 0, nat(occupied, volume) && volume > 0 && occupied <= volume, 'packing', [occupied, volume]) }
   /** COORDINATION: the neighbour count. value neighbors. */
   static coordination(neighbors: number): CrossFormula { return c('crystallography-coordination', 'coordination(neighbors) = neighbors', neighbors, nat(neighbors), 'coordination', [neighbors]) }
   /** UNIT CELL: the base area from two edges. value a · b. */
@@ -27,7 +28,7 @@ export class CrystallographyFormulas {
   /** SYMMETRY: the count of symmetry operations. value operations. */
   static symmetry(operations: number): CrossFormula { return c('crystallography-symmetry', 'symmetry(operations) = operations', operations, nat(operations), 'symmetry', [operations]) }
   /** MILLER: the intercept over the plane index. value ⌊intercept / plane⌋. */
-  static miller(intercept: number, plane: number): CrossFormula { return c('crystallography-miller', 'miller(intercept, plane) = ⌊intercept / plane⌋', plane > 0 ? Math.floor(intercept / plane) : 0, nat(intercept, plane) && plane > 0, 'miller', [intercept, plane]) }
+  static miller(intercept: number, plane: number): CrossFormula { return c('crystallography-miller', 'miller(intercept, plane) = ⌊intercept / plane⌋', plane > 0 ? quot(intercept, plane) : 0, nat(intercept, plane) && plane > 0, 'miller', [intercept, plane]) }
 }
 
 for (const name of ['bragg', 'coordination', 'density', 'miller', 'packing', 'spacing', 'symmetry', 'unitcell'] as const)

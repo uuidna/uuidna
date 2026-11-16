@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** SMOKING — scaffolded integer measures crossed to microbiology. Every output an exact finite nonnegative integer. */
 
@@ -10,12 +11,12 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class SmokingFormulas {
   static smoketime(x: number, y: number): CrossFormula { return c('smoking-smoketime', 'smoketime(x, y) = x · y', x * y, nat(x, y), 'smoketime', [x, y]) }
-  static temperaturezone(x: number, y: number): CrossFormula { return c('smoking-temperaturezone', 'temperaturezone(x, y) = max(x, y)', Math.max(x, y), nat(x, y), 'temperaturezone', [x, y]) }
-  static phenoldeposition(x: number, y: number): CrossFormula { return c('smoking-phenoldeposition', 'phenoldeposition(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'phenoldeposition', [x, y]) }
-  static moisturereduction(x: number, y: number): CrossFormula { return c('smoking-moisturereduction', 'moisturereduction(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'moisturereduction', [x, y]) }
-  static penetrationdepth(x: number, y: number): CrossFormula { return c('smoking-penetrationdepth', 'penetrationdepth(x, y) = ⌊x / y⌋', y > 0 ? Math.floor(x / y) : 0, nat(x, y) && y > 0, 'penetrationdepth', [x, y]) }
-  static preservationindex(x: number, y: number): CrossFormula { return c('smoking-preservationindex', 'preservationindex(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'preservationindex', [x, y]) }
-  static woodratio(x: number, y: number): CrossFormula { return c('smoking-woodratio', 'woodratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'woodratio', [x, y]) }
+  static temperaturezone(x: number, y: number): CrossFormula { return c('smoking-temperaturezone', 'temperaturezone(x, y) = max(x, y)', maxOf(x, y), nat(x, y), 'temperaturezone', [x, y]) }
+  static phenoldeposition(x: number, y: number): CrossFormula { return c('smoking-phenoldeposition', 'phenoldeposition(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'phenoldeposition', [x, y]) }
+  static moisturereduction(x: number, y: number): CrossFormula { return c('smoking-moisturereduction', 'moisturereduction(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'moisturereduction', [x, y]) }
+  static penetrationdepth(x: number, y: number): CrossFormula { return c('smoking-penetrationdepth', 'penetrationdepth(x, y) = ⌊x / y⌋', y > 0 ? quot(x, y) : 0, nat(x, y) && y > 0, 'penetrationdepth', [x, y]) }
+  static preservationindex(x: number, y: number): CrossFormula { return c('smoking-preservationindex', 'preservationindex(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'preservationindex', [x, y]) }
+  static woodratio(x: number, y: number): CrossFormula { return c('smoking-woodratio', 'woodratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'woodratio', [x, y]) }
   static surfacecolor(x: number, y: number): CrossFormula { return c('smoking-surfacecolor', 'surfacecolor(x, y) = x · y', x * y, nat(x, y), 'surfacecolor', [x, y]) }
 }
 

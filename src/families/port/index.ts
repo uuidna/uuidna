@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, maxOf, minOf, quot } from '../../exact.js'
 
 /** PORTING AS COMBINATORICS. Moving code between platforms is layout arithmetic over open, published formats: a binary
  *  is identified by its magic number, a struct's size and field offsets follow the C ABI's natural-alignment rule, a
@@ -30,7 +31,7 @@ export class PortFormulas {
    *  alignment `align` here. align 0 is treated as 1 (packed). */
   static align(offset: number, align: number): CrossFormula {
     const a = align < 1 ? 1 : align
-    const aligned = Math.ceil(offset / a) * a
+    const aligned = ceilQuot(offset, a) * a
     return f('port-align', 'align(o, a) = ⌈o / a⌉ · a', aligned, nat(offset, align) && (a & (a - 1)) === 0, 'align', [offset, align], { padding: aligned - offset })
   }
   /** The size of a struct whose field sizes are the hex digits of `fields` (each digit a field of that many bytes,
@@ -39,15 +40,15 @@ export class PortFormulas {
   static layout(fields: number): CrossFormula {
     const sizes = fields > 0 ? fields.toString(16).split('').map((d) => parseInt(d, 16)).filter((d) => d > 0) : []
     let offset = 0, maxAlign = 1
-    for (const s of sizes) { offset = Math.ceil(offset / s) * s + s; maxAlign = Math.max(maxAlign, s) }
-    const total = Math.ceil(offset / maxAlign) * maxAlign
+    for (const s of sizes) { offset = ceilQuot(offset, s) * s + s; maxAlign = maxOf(maxAlign, s) }
+    const total = ceilQuot(offset, maxAlign) * maxAlign
     return f('port-layout', 'layout(fields) = struct size under natural alignment', sizes.length ? total : 0, nat(fields) && sizes.length > 0, 'layout', [fields], { fields: sizes, align: maxAlign, tail: total - offset })
   }
   /** The offset of the i-th field (0-based) of the struct whose field sizes are the hex digits of `fields`. */
   static offset(fields: number, i: number): CrossFormula {
     const sizes = fields > 0 ? fields.toString(16).split('').map((d) => parseInt(d, 16)).filter((d) => d > 0) : []
     let offset = 0, at = 0
-    for (const [k, s] of sizes.entries()) { offset = Math.ceil(offset / s) * s; if (k === i) { at = offset; break } offset += s }
+    for (const [k, s] of sizes.entries()) { offset = ceilQuot(offset, s) * s; if (k === i) { at = offset; break } offset += s }
     return f('port-offset', 'offset(fields, i) = the i-th field’s aligned offset', i < sizes.length ? at : 0, nat(fields, i) && i < sizes.length, 'offset', [fields, i], { field: sizes[i], of: sizes.length })
   }
   /** The pointer width in bytes of the data model m (0 ILP32, 1 LP64, 2 LLP64, 3 ILP64): what a pointer costs when
@@ -63,15 +64,15 @@ export class PortFormulas {
   }
   /** A value of `bytes` bytes with its byte order reversed: the same scalar read on the other endianness. */
   static swap(x: number, bytes: number): CrossFormula {
-    const b = bytes < 1 ? 1 : Math.min(bytes, 6)
+    const b = bytes < 1 ? 1 : minOf(bytes, 6)
     let v = x >>> 0, out = 0
-    for (let k = 0; k < b; k++) { out = out * 256 + (v % 256); v = Math.floor(v / 256) }
+    for (let k = 0; k < b; k++) { out = out * 256 + (v % 256); v = quot(v, 256) }
     return f('port-swap', 'swap(x, bytes) = x with its bytes reversed', out, nat(x, bytes) && bytes >= 1 && bytes <= 6, 'swap', [x, bytes], { bytes: b })
   }
   /** The padding bytes a field of alignment `align` needs at `offset`: align(offset, align) − offset. */
   static pad(offset: number, align: number): CrossFormula {
     const a = align < 1 ? 1 : align
-    return f('port-pad', 'pad(o, a) = ⌈o / a⌉ · a − o', Math.ceil(offset / a) * a - offset, nat(offset, align) && (a & (a - 1)) === 0, 'pad', [offset, align])
+    return f('port-pad', 'pad(o, a) = ⌈o / a⌉ · a − o', ceilQuot(offset, a) * a - offset, nat(offset, align) && (a & (a - 1)) === 0, 'pad', [offset, align])
   }
 }
 

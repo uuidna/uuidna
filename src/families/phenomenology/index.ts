@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { minOf, quot, roundOf } from '../../exact.js'
 
 /** PHENOMENOLOGY — scaffolded integer measures crossed to philosophy. Every output an exact finite nonnegative integer. */
 
@@ -14,9 +15,9 @@ export class PhenomenologyFormulas {
   static horizonlayers(x: number): CrossFormula { return c('phenomenology-horizonlayers', 'horizonlayers(x) = 2^x', x <= 30 ? 2 ** x : 0, nat(x) && x <= 30, 'horizonlayers', [x]) }
   static noesisnoema(x: number, y: number): CrossFormula { return c('phenomenology-noesisnoema', 'noesisnoema(x, y) = x · y', x * y, nat(x, y), 'noesisnoema', [x, y]) }
   static epochestages(x: number): CrossFormula { return c('phenomenology-epochestages', 'epochestages(x) = x!', x <= 12 ? ((n: number) => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r })(x) : 0, nat(x) && x <= 12, 'epochestages', [x]) }
-  static experiencepairs(x: number, y: number): CrossFormula { return c('phenomenology-experiencepairs', 'experiencepairs(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = Math.min(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return Math.round(r) })(x, y) : 0, nat(x, y) && x >= y, 'experiencepairs', [x, y]) }
+  static experiencepairs(x: number, y: number): CrossFormula { return c('phenomenology-experiencepairs', 'experiencepairs(x, y) = C(x, y)', x >= y ? ((n: number, k: number) => { let kk = minOf(k, n - k); let r = 1; for (let i = 0; i < kk; i++) r = (r * (n - i)) / (i + 1); return roundOf(r) })(x, y) : 0, nat(x, y) && x >= y, 'experiencepairs', [x, y]) }
   static consciousnessmodes(x: number, y: number): CrossFormula { return c('phenomenology-consciousnessmodes', 'consciousnessmodes(x, y) = x + y', x + y, nat(x, y), 'consciousnessmodes', [x, y]) }
-  static givennessratio(x: number, y: number): CrossFormula { return c('phenomenology-givennessratio', 'givennessratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? Math.floor((x * 100) / y) : 0, nat(x, y) && y > 0, 'givennessratio', [x, y]) }
+  static givennessratio(x: number, y: number): CrossFormula { return c('phenomenology-givennessratio', 'givennessratio(x, y) = ⌊x · 100 / y⌋', y > 0 ? quot((x * 100), y) : 0, nat(x, y) && y > 0, 'givennessratio', [x, y]) }
 }
 
 for (const name of ['consciousnessmodes', 'epochestages', 'experiencepairs', 'givennessratio', 'horizonlayers', 'intentionalacts', 'noesisnoema', 'reductions'] as const)

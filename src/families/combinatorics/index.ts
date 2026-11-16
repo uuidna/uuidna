@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, minOf } from '../../exact.js'
 
 /** COMBINATORICS — COUNTING, AS ARITHMETIC. The ways to arrange and choose are exact integers: n factorial, the ordered
  *  pick (permutations), the unordered pick (combinations), identical items into boxes (stars and bars), the fixed-point-free
@@ -16,7 +17,7 @@ const fact = (n: number): number => { let r = 1; for (let i = 2; i <= n; i++) r 
 /** C(n, k) by the multiplicative method (shorter side); 0 when k is out of range. */
 const comb = (n: number, k: number): number => {
   if (k < 0 || k > n) return 0
-  const m = Math.min(k, Math.max(0, n - k))
+  const m = minOf(k, maxOf(0, n - k))
   let r = 1
   for (let i = 1; i <= m; i++) r = (r * (n - m + i)) / i
   return r
@@ -33,7 +34,7 @@ const derange = (n: number): number => {
   let prev = 1
   if (n === 0) return 1
   for (let i = 1; i <= n; i++) prev = i * prev + (i % 2 === 0 ? 1 : -1)
-  return Math.max(0, prev)
+  return maxOf(0, prev)
 }
 
 export class CombinatoricsFormulas {

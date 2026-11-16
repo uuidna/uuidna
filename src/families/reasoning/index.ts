@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** REASONING — DRAWING CONCLUSIONS, AS ARITHMETIC. Thinking is numbers: the steps an inference takes, how often it lands
  *  correct, whether a deduction is valid, the share that is biased, the load it puts on working memory, how long a response
@@ -15,19 +16,19 @@ export class ReasoningFormulas {
   /** INFERENCE STEPS: premises expanded by the rules that fire on each. value premises · rules. */
   static inferencesteps(premises: number, rules: number): CrossFormula { return c('reasoning-inferencesteps', 'inferencesteps(premises, rules) = premises · rules', premises * rules, nat(premises, rules), 'inferencesteps', [premises, rules]) }
   /** ACCURACY as a percentage. value ⌊correct · 100 / total⌋. */
-  static accuracy(correct: number, total: number): CrossFormula { return c('reasoning-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋', total > 0 ? Math.floor((correct * 100) / total) : 0, nat(correct, total) && total > 0 && correct <= total, 'accuracy', [correct, total]) }
+  static accuracy(correct: number, total: number): CrossFormula { return c('reasoning-accuracy', 'accuracy(correct, total) = ⌊correct · 100 / total⌋', total > 0 ? quot((correct * 100), total) : 0, nat(correct, total) && total > 0 && correct <= total, 'accuracy', [correct, total]) }
   /** DEDUCTION VALIDITY: 1 when the conclusion asserts no more than the premises support. value [conclusion ≤ premises]. */
   static deductionvalidity(premises: number, conclusion: number): CrossFormula { return c('reasoning-deductionvalidity', 'deductionvalidity(premises, conclusion) = [conclusion ≤ premises]', conclusion <= premises ? 1 : 0, nat(premises, conclusion), 'deductionvalidity', [premises, conclusion]) }
   /** BIAS RATE as a percentage of judgements that are biased. value ⌊biased · 100 / total⌋. */
-  static biasrate(biased: number, total: number): CrossFormula { return c('reasoning-biasrate', 'biasrate(biased, total) = ⌊biased · 100 / total⌋', total > 0 ? Math.floor((biased * 100) / total) : 0, nat(biased, total) && total > 0 && biased <= total, 'biasrate', [biased, total]) }
+  static biasrate(biased: number, total: number): CrossFormula { return c('reasoning-biasrate', 'biasrate(biased, total) = ⌊biased · 100 / total⌋', total > 0 ? quot((biased * 100), total) : 0, nat(biased, total) && total > 0 && biased <= total, 'biasrate', [biased, total]) }
   /** WORKING-MEMORY LOAD: items held at a size each. value items · size. */
   static workingmemoryload(items: number, size: number): CrossFormula { return c('reasoning-workingmemoryload', 'workingmemoryload(items, size) = items · size', items * size, nat(items, size), 'workingmemoryload', [items, size]) }
   /** RESPONSE LATENCY: total milliseconds over the responses given. value ⌊total / responses⌋. */
-  static responselatency(total: number, responses: number): CrossFormula { return c('reasoning-responselatency', 'responselatency(total, responses) = ⌊total / responses⌋', responses > 0 ? Math.floor(total / responses) : 0, nat(total, responses) && responses > 0, 'responselatency', [total, responses]) }
+  static responselatency(total: number, responses: number): CrossFormula { return c('reasoning-responselatency', 'responselatency(total, responses) = ⌊total / responses⌋', responses > 0 ? quot(total, responses) : 0, nat(total, responses) && responses > 0, 'responselatency', [total, responses]) }
   /** SYLLOGISM SCORE: correct syllogisms at points each. value correct · points. */
   static syllogismscore(correct: number, points: number): CrossFormula { return c('reasoning-syllogismscore', 'syllogismscore(correct, points) = correct · points', correct * points, nat(correct, points), 'syllogismscore', [correct, points]) }
   /** CONFIDENCE CALIBRATION: how far confidence runs ahead of accuracy. value max(0, confidence − accuracy). */
-  static confidencecalibration(confidence: number, accuracy: number): CrossFormula { return c('reasoning-confidencecalibration', 'confidencecalibration(confidence, accuracy) = max(0, confidence − accuracy)', Math.max(0, confidence - accuracy), nat(confidence, accuracy) && confidence <= 100 && accuracy <= 100, 'confidencecalibration', [confidence, accuracy]) }
+  static confidencecalibration(confidence: number, accuracy: number): CrossFormula { return c('reasoning-confidencecalibration', 'confidencecalibration(confidence, accuracy) = max(0, confidence − accuracy)', maxOf(0, confidence - accuracy), nat(confidence, accuracy) && confidence <= 100 && accuracy <= 100, 'confidencecalibration', [confidence, accuracy]) }
 }
 
 for (const name of ['accuracy', 'biasrate', 'confidencecalibration', 'deductionvalidity', 'inferencesteps', 'responselatency', 'syllogismscore', 'workingmemoryload'] as const)

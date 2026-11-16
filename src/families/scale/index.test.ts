@@ -2,6 +2,7 @@ import { test } from '../../quantum/processing/unit/receipted.js'
 import assert from 'node:assert/strict'
 import { hexFamiliesOf, hexRunOf, qpuHexUuidOf, contentUuidOf, uuidReceiptOf } from '../../quantum/processing/unit/index.js'
 import { ScaleFormulas } from './index.js'
+import { roundOf } from '../../exact.js'
 
 /** The scored instruments exact; the score is a measure, not the verdict; contested ones are flagged. */
 test('scale: PCL-R, Static-99R, Trotter-Gleser stature, Flesch, Hounsfield, polygraph ESS — instruments, not verdicts', async (t) => {
@@ -9,7 +10,7 @@ test('scale: PCL-R, Static-99R, Trotter-Gleser stature, Flesch, Hounsfield, poly
   assert.equal(ScaleFormulas.pclr(29).value, 0)
   assert.equal(ScaleFormulas.static99(6).value, 5, 'score 6 is well-above-average risk')
   assert.equal(ScaleFormulas.static99(0).value, 1, 'score 0 is low')
-  assert.equal(ScaleFormulas.stature(450).value, Math.round(2.38 * 45 + 61), 'a 450mm femur gives stature in cm')
+  assert.equal(ScaleFormulas.stature(450).value, roundOf(2.38 * 45 + 61), 'a 450mm femur gives stature in cm')
   assert.ok(Number(ScaleFormulas.flesch(10, 100, 150).value) !== 0, 'Flesch reading ease computes')
   assert.equal(ScaleFormulas.hounsfield(1000).value, 3, 'HU 0 is fluid/water band')
   assert.equal(ScaleFormulas.hounsfield(2000).value, 5, 'HU +1000 is bone')

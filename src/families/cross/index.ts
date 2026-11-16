@@ -1,6 +1,7 @@
 import { contentUuidOf, uuidReceiptOf, hexRegisterOf, qpuHexUuidOf } from '../../quantum/processing/unit/index.js'
 import { chooseOf, mintOf, hexParamMaxOf, latticeNamesOf, tenOf } from '../../quantum/processing/unit/index.js'
 import { contextOf, hexDecodeOf, hexFamiliesOf, hexDiscoverOf } from '../../quantum/processing/unit/index.js'
+import { ipow, maxOf } from '../../exact.js'
 // the lattice names and the three formulas every number here is written in
 const L = { ...latticeNamesOf(), mintOf, chooseOf, tenOf }
 
@@ -112,7 +113,7 @@ export class CrossDomainFormulas {
       src: 'deployment',
       dst: 'obs',
       formula: 'health_score = max(0, 1 - buildTime/300) * max(0, 1 - testTime/180)',
-      value: Math.max(0, 1 - buildTime / (L.n * L.tenOf(L.coins))) * Math.max(0, 1 - testTime / 180),
+      value: maxOf(0, 1 - buildTime / (L.n * L.tenOf(L.coins))) * maxOf(0, 1 - testTime / 180),
       proof: 'Build+test speed indicates system health'}, nat(buildTime, testTime), { name: 'cross.deploymentToObs', params: [buildTime, testTime] })
   }
 
@@ -132,8 +133,8 @@ export class CrossDomainFormulas {
       src: 'med',
       dst: 'qsec',
       formula: 'keyspace = 2^keyLen * patientCount',
-      value: Math.pow(2, keyLen) * patientCount,
-      proof: 'Each patient needs separate quantum key for HIPAA compliance'}, nat(patientCount, keyLen) && Number.isSafeInteger(Math.pow(2, keyLen) * patientCount), { name: 'cross.medSecureWithQSec', params: [patientCount, keyLen] })
+      value: ipow(2, keyLen) * patientCount,
+      proof: 'Each patient needs separate quantum key for HIPAA compliance'}, nat(patientCount, keyLen) && Number.isSafeInteger(ipow(2, keyLen) * patientCount), { name: 'cross.medSecureWithQSec', params: [patientCount, keyLen] })
   }
 
   static observabilityToUI(anomalies: number, signals: number): CrossFormula {
@@ -190,9 +191,9 @@ export class CrossDomainFormulas {
     return [
       { from: 'qsec', to: 'compress', formula: 'entropy→ratio', transform: (k: any) => 1 / (1 + Math.log2(k.keyLen || L.mintOf(L.rays))) },
       { from: 'obs', to: 'ml', formula: 'signals→accuracy', transform: (s: any) => 1 - (1 / (1 + (s.count || 0) / L.tenOf(L.coins))) },
-      { from: 'deployment', to: 'obs', formula: 'timing→health', transform: (t: any) => Math.max(0, 1 - (t.build ?? 0) / (L.n * L.tenOf(L.coins))) * Math.max(0, 1 - (t.test ?? 0) / 180) },
+      { from: 'deployment', to: 'obs', formula: 'timing→health', transform: (t: any) => maxOf(0, 1 - (t.build ?? 0) / (L.n * L.tenOf(L.coins))) * maxOf(0, 1 - (t.test ?? 0) / 180) },
       { from: 'quantum', to: 'enterprise', formula: 'proofs→risk', transform: (p: any) => 1 / (1 + (p.count || 0)) },
-      { from: 'med', to: 'qsec', formula: 'patients→keyspace', transform: (m: any) => Math.pow(2, m.keyLen ?? L.mintOf(L.rays)) * (m.count ?? 0) },
+      { from: 'med', to: 'qsec', formula: 'patients→keyspace', transform: (m: any) => ipow(2, m.keyLen ?? L.mintOf(L.rays)) * (m.count ?? 0) },
       { from: 'obs', to: 'ui', formula: 'anomalies→urgency', transform: (o: any) => (o.anomalies ?? 0) / ((o.signals ?? 0) + 1) }
     ]
   }

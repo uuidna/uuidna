@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** PROCUREMENT — BUYING AS ARITHMETIC (chosen by the registry, not by hand). Sourcing is numbers: the savings a
  *  negotiation wins, the spend a line item books, the share of compliant orders, the lead time to receipt, an economic
@@ -13,21 +14,21 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class ProcurementFormulas {
   /** SAVINGS: what a negotiation shaves off the baseline, never below zero. value max(0, baseline − negotiated). */
-  static savings(baseline: number, negotiated: number): CrossFormula { return c('procurement-savings', 'savings(baseline, negotiated) = max(0, baseline − negotiated)', Math.max(0, baseline - negotiated), nat(baseline, negotiated), 'savings', [baseline, negotiated]) }
+  static savings(baseline: number, negotiated: number): CrossFormula { return c('procurement-savings', 'savings(baseline, negotiated) = max(0, baseline − negotiated)', maxOf(0, baseline - negotiated), nat(baseline, negotiated), 'savings', [baseline, negotiated]) }
   /** SPEND: units at a unit price. value units · price. */
   static spend(units: number, price: number): CrossFormula { return c('procurement-spend', 'spend(units, price) = units · price', units * price, nat(units, price), 'spend', [units, price]) }
   /** COMPLIANCE: the share of compliant orders as a percentage. value ⌊compliant · 100 / total⌋. */
-  static compliance(compliant: number, total: number): CrossFormula { return c('procurement-compliance', 'compliance(compliant, total) = ⌊compliant · 100 / total⌋', total > 0 ? Math.floor((compliant * 100) / total) : 0, nat(compliant, total) && total > 0 && compliant <= total, 'compliance', [compliant, total]) }
+  static compliance(compliant: number, total: number): CrossFormula { return c('procurement-compliance', 'compliance(compliant, total) = ⌊compliant · 100 / total⌋', total > 0 ? quot((compliant * 100), total) : 0, nat(compliant, total) && total > 0 && compliant <= total, 'compliance', [compliant, total]) }
   /** LEAD TIME: days from order to receipt, never below zero. value max(0, received − ordered). */
-  static leadtime(ordered: number, received: number): CrossFormula { return c('procurement-leadtime', 'leadtime(ordered, received) = max(0, received − ordered)', Math.max(0, received - ordered), nat(ordered, received), 'leadtime', [ordered, received]) }
+  static leadtime(ordered: number, received: number): CrossFormula { return c('procurement-leadtime', 'leadtime(ordered, received) = max(0, received − ordered)', maxOf(0, received - ordered), nat(ordered, received), 'leadtime', [ordered, received]) }
   /** ECONOMIC ORDER QUANTITY proxy: demand over the per-order cost. value ⌊demand / cost⌋. */
-  static eoq(demand: number, cost: number): CrossFormula { return c('procurement-eoq', 'eoq(demand, cost) = ⌊demand / cost⌋', cost > 0 ? Math.floor(demand / cost) : 0, nat(demand, cost) && cost > 0, 'eoq', [demand, cost]) }
+  static eoq(demand: number, cost: number): CrossFormula { return c('procurement-eoq', 'eoq(demand, cost) = ⌊demand / cost⌋', cost > 0 ? quot(demand, cost) : 0, nat(demand, cost) && cost > 0, 'eoq', [demand, cost]) }
   /** SUPPLIER on-time rate as a percentage. value ⌊delivered · 100 / promised⌋. */
-  static supplier(delivered: number, promised: number): CrossFormula { return c('procurement-supplier', 'supplier(delivered, promised) = ⌊delivered · 100 / promised⌋', promised > 0 ? Math.floor((delivered * 100) / promised) : 0, nat(delivered, promised) && promised > 0 && delivered <= promised, 'supplier', [delivered, promised]) }
+  static supplier(delivered: number, promised: number): CrossFormula { return c('procurement-supplier', 'supplier(delivered, promised) = ⌊delivered · 100 / promised⌋', promised > 0 ? quot((delivered * 100), promised) : 0, nat(delivered, promised) && promised > 0 && delivered <= promised, 'supplier', [delivered, promised]) }
   /** VOLUME DISCOUNT: a rate (percent) off a volume. value ⌊volume · rate / 100⌋. */
-  static discount(volume: number, rate: number): CrossFormula { return c('procurement-discount', 'discount(volume, rate) = ⌊volume · rate / 100⌋', Math.floor((volume * rate) / 100), nat(volume, rate), 'discount', [volume, rate]) }
+  static discount(volume: number, rate: number): CrossFormula { return c('procurement-discount', 'discount(volume, rate) = ⌊volume · rate / 100⌋', quot((volume * rate), 100), nat(volume, rate), 'discount', [volume, rate]) }
   /** QUALITY: the share of accepted goods as a percentage. value ⌊accepted · 100 / received⌋. */
-  static quality(accepted: number, received: number): CrossFormula { return c('procurement-quality', 'quality(accepted, received) = ⌊accepted · 100 / received⌋', received > 0 ? Math.floor((accepted * 100) / received) : 0, nat(accepted, received) && received > 0 && accepted <= received, 'quality', [accepted, received]) }
+  static quality(accepted: number, received: number): CrossFormula { return c('procurement-quality', 'quality(accepted, received) = ⌊accepted · 100 / received⌋', received > 0 ? quot((accepted * 100), received) : 0, nat(accepted, received) && received > 0 && accepted <= received, 'quality', [accepted, received]) }
 }
 
 for (const name of ['compliance', 'discount', 'eoq', 'leadtime', 'quality', 'savings', 'spend', 'supplier'] as const)

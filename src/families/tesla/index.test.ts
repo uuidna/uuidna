@@ -14,7 +14,8 @@ test('tesla: the relations the patents claim hold as formulas, and cross the lat
   assert.equal(TeslaFormulas.turns(10, 1000).value, 100000, 'a hundred to one, in thousandths')
   assert.equal(TeslaFormulas.quarter(150).value, 500, 'Colorado Springs: ~150 kHz wants a 500 m quarter wave')
   assert.equal(TeslaFormulas.schumann(1).value, 7830, 'the fundamental, 7.83 Hz')
-  for (const n of [2, 3, 4]) assert.equal(TeslaFormulas.schumann(n).value, Math.round(7830 * Math.sqrt((n * (n + 1)) / 2)), `mode ${n}: 7.83 Hz · √(n(n+1)/2)`)
+  // 7830·√3 = 13561.96, 7830·√6 = 19179.50, 7830·√10 = 24760.63 — each rounded to the nearest
+  for (const [n, hz] of [[2, 13562], [3, 19180], [4, 24761]] as const) assert.equal(TeslaFormulas.schumann(n).value, hz, `mode ${n}: 7.83 Hz · √(n(n+1)/2)`)
   assert.equal(TeslaFormulas.earth(1).value, 40075)
   assert.equal(TeslaFormulas.field(2, 1).value, 2, 'two phases, one pole pair: 381,968')
   assert.equal(TeslaFormulas.field(3, 2).value, 6)

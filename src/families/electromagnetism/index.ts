@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { quot } from '../../exact.js'
 
 /** ELECTROMAGNETISM — FIELDS AND CHARGES, AS ARITHMETIC (chosen by the public-API registry, not by hand). Charge,
  *  field, flux, induction, waves, impedance, power flux and capacitance are numbers: a force proxy from charges, the field
@@ -15,19 +16,19 @@ export class ElectromagnetismFormulas {
   /** COULOMB: a force proxy from two charges. value q1 · q2. */
   static coulomb(q1: number, q2: number): CrossFormula { return c('electromagnetism-coulomb', 'coulomb(q1, q2) = q1 · q2', q1 * q2, nat(q1, q2), 'coulomb', [q1, q2]) }
   /** FIELD: a charge's field at a distance. value ⌊charge / distance²⌋. */
-  static field(charge: number, distance: number): CrossFormula { return c('electromagnetism-field', 'field(charge, distance) = ⌊charge / distance²⌋', distance > 0 ? Math.floor(charge / (distance * distance)) : 0, nat(charge, distance) && distance > 0, 'field', [charge, distance]) }
+  static field(charge: number, distance: number): CrossFormula { return c('electromagnetism-field', 'field(charge, distance) = ⌊charge / distance²⌋', distance > 0 ? quot(charge, (distance * distance)) : 0, nat(charge, distance) && distance > 0, 'field', [charge, distance]) }
   /** FLUX: field through an area. value field · area. */
   static flux(field: number, area: number): CrossFormula { return c('electromagnetism-flux', 'flux(field, area) = field · area', field * area, nat(field, area), 'flux', [field, area]) }
   /** INDUCTION: Faraday — flux change over time. value ⌊flux / time⌋. */
-  static induction(flux: number, time: number): CrossFormula { return c('electromagnetism-induction', 'induction(flux, time) = ⌊flux / time⌋', time > 0 ? Math.floor(flux / time) : 0, nat(flux, time) && time > 0, 'induction', [flux, time]) }
+  static induction(flux: number, time: number): CrossFormula { return c('electromagnetism-induction', 'induction(flux, time) = ⌊flux / time⌋', time > 0 ? quot(flux, time) : 0, nat(flux, time) && time > 0, 'induction', [flux, time]) }
   /** WAVE: a speed proxy — frequency times wavelength. value frequency · wavelength. */
   static wave(frequency: number, wavelength: number): CrossFormula { return c('electromagnetism-wave', 'wave(frequency, wavelength) = frequency · wavelength', frequency * wavelength, nat(frequency, wavelength), 'wave', [frequency, wavelength]) }
   /** IMPEDANCE: Ohm — voltage over current. value ⌊voltage / current⌋. */
-  static impedance(voltage: number, current: number): CrossFormula { return c('electromagnetism-impedance', 'impedance(voltage, current) = ⌊voltage / current⌋', current > 0 ? Math.floor(voltage / current) : 0, nat(voltage, current) && current > 0, 'impedance', [voltage, current]) }
+  static impedance(voltage: number, current: number): CrossFormula { return c('electromagnetism-impedance', 'impedance(voltage, current) = ⌊voltage / current⌋', current > 0 ? quot(voltage, current) : 0, nat(voltage, current) && current > 0, 'impedance', [voltage, current]) }
   /** POYNTING: an energy-flux proxy from the fields. value electric · magnetic. */
   static poynting(electric: number, magnetic: number): CrossFormula { return c('electromagnetism-poynting', 'poynting(electric, magnetic) = electric · magnetic', electric * magnetic, nat(electric, magnetic), 'poynting', [electric, magnetic]) }
   /** CAPACITANCE: charge stored per volt. value ⌊charge / voltage⌋. */
-  static capacitance(charge: number, voltage: number): CrossFormula { return c('electromagnetism-capacitance', 'capacitance(charge, voltage) = ⌊charge / voltage⌋', voltage > 0 ? Math.floor(charge / voltage) : 0, nat(charge, voltage) && voltage > 0, 'capacitance', [charge, voltage]) }
+  static capacitance(charge: number, voltage: number): CrossFormula { return c('electromagnetism-capacitance', 'capacitance(charge, voltage) = ⌊charge / voltage⌋', voltage > 0 ? quot(charge, voltage) : 0, nat(charge, voltage) && voltage > 0, 'capacitance', [charge, voltage]) }
 }
 
 for (const name of ['capacitance', 'coulomb', 'field', 'flux', 'impedance', 'induction', 'poynting', 'wave'] as const)

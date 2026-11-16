@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** ASTROBIOLOGY — THE SEARCH FOR LIFE, AS ARITHMETIC. Where life can sit (the habitable zone), how many worlds might
  *  host it (Drake), how clear its traces are (biosignatures), how a cell spends energy (metabolism), how far past the
@@ -17,15 +18,15 @@ export class AstrobiologyFormulas {
   /** DRAKE: communicating civilisations as a product of rate, life-fraction, and lifetime. value rate · fraction · lifetime. */
   static drake(rate: number, fraction: number, lifetime: number): CrossFormula { return c('astrobiology-drake', 'drake(rate, fraction, lifetime) = rate · fraction · lifetime', rate * fraction * lifetime, nat(rate, fraction, lifetime), 'drake', [rate, fraction, lifetime]) }
   /** BIOSIGNATURE: markers detected out of those sought, as a percentage. value ⌊detected · 100 / total⌋. */
-  static biosignature(detected: number, total: number): CrossFormula { return c('astrobiology-biosignature', 'biosignature(detected, total) = ⌊detected · 100 / total⌋', total > 0 ? Math.floor((detected * 100) / total) : 0, nat(detected, total) && total > 0 && detected <= total, 'biosignature', [detected, total]) }
+  static biosignature(detected: number, total: number): CrossFormula { return c('astrobiology-biosignature', 'biosignature(detected, total) = ⌊detected · 100 / total⌋', total > 0 ? quot((detected * 100), total) : 0, nat(detected, total) && total > 0 && detected <= total, 'biosignature', [detected, total]) }
   /** METABOLISM: energy budget spread over the cells it feeds. value ⌊energy / cells⌋. */
-  static metabolism(energy: number, cells: number): CrossFormula { return c('astrobiology-metabolism', 'metabolism(energy, cells) = ⌊energy / cells⌋', cells > 0 ? Math.floor(energy / cells) : 0, nat(energy, cells) && cells > 0, 'metabolism', [energy, cells]) }
+  static metabolism(energy: number, cells: number): CrossFormula { return c('astrobiology-metabolism', 'metabolism(energy, cells) = ⌊energy / cells⌋', cells > 0 ? quot(energy, cells) : 0, nat(energy, cells) && cells > 0, 'metabolism', [energy, cells]) }
   /** EXTREMOPHILE: the survival margin below a thermal limit. value max(0, limit − temp). */
-  static extremophile(temp: number, limit: number): CrossFormula { return c('astrobiology-extremophile', 'extremophile(temp, limit) = max(0, limit − temp)', Math.max(0, limit - temp), nat(temp, limit), 'extremophile', [temp, limit]) }
+  static extremophile(temp: number, limit: number): CrossFormula { return c('astrobiology-extremophile', 'extremophile(temp, limit) = max(0, limit − temp)', maxOf(0, limit - temp), nat(temp, limit), 'extremophile', [temp, limit]) }
   /** PANSPERMIA: seeds surviving a transit, scaled by survival rate over distance. value ⌊seeds · survival / distance⌋. */
-  static panspermia(seeds: number, survival: number, distance: number): CrossFormula { return c('astrobiology-panspermia', 'panspermia(seeds, survival, distance) = ⌊seeds · survival / distance⌋', distance > 0 ? Math.floor((seeds * survival) / distance) : 0, nat(seeds, survival, distance) && distance > 0 && survival <= 100, 'panspermia', [seeds, survival, distance]) }
+  static panspermia(seeds: number, survival: number, distance: number): CrossFormula { return c('astrobiology-panspermia', 'panspermia(seeds, survival, distance) = ⌊seeds · survival / distance⌋', distance > 0 ? quot((seeds * survival), distance) : 0, nat(seeds, survival, distance) && distance > 0 && survival <= 100, 'panspermia', [seeds, survival, distance]) }
   /** OXYGENATION: atmospheric oxygen as a percentage of the whole. value ⌊oxygen · 100 / total⌋. */
-  static oxygenation(oxygen: number, total: number): CrossFormula { return c('astrobiology-oxygenation', 'oxygenation(oxygen, total) = ⌊oxygen · 100 / total⌋', total > 0 ? Math.floor((oxygen * 100) / total) : 0, nat(oxygen, total) && total > 0 && oxygen <= total, 'oxygenation', [oxygen, total]) }
+  static oxygenation(oxygen: number, total: number): CrossFormula { return c('astrobiology-oxygenation', 'oxygenation(oxygen, total) = ⌊oxygen · 100 / total⌋', total > 0 ? quot((oxygen * 100), total) : 0, nat(oxygen, total) && total > 0 && oxygen <= total, 'oxygenation', [oxygen, total]) }
   /** ABIOGENESIS: cumulative prebiotic reactions over elapsed time. value reactions · time. */
   static abiogenesis(reactions: number, time: number): CrossFormula { return c('astrobiology-abiogenesis', 'abiogenesis(reactions, time) = reactions · time', reactions * time, nat(reactions, time), 'abiogenesis', [reactions, time]) }
 }

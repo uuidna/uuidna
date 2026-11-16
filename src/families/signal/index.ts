@@ -1,6 +1,7 @@
 import { foldOf, hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { drbgOf, randomBytes, sha256, utf8 } from '../../core/crypt.js'
+import { ceilQuot, maxOf, minOf, quot, truncOf } from '../../exact.js'
 
 export interface SecureSignal {
   id: string
@@ -41,7 +42,7 @@ export const QBER_LIMIT = 0.11
 /** The seed of a formula reading: a reading passes it, so its value reproduces. A key never does: a key draws from the CSPRNG. */
 export const SIGNAL_READING_SEED = sha256(utf8('qpu signal family: reading seed'))
 const randomBits = (n: number, draw: (k: number) => Uint8Array): number[] => {
-  const bytes = draw(Math.ceil(n / 8))
+  const bytes = draw(ceilQuot(n, 8))
   return Array.from({ length: n }, (_, i) => (bytes[i >> 3]! >> (i & 7)) & 1)
 }
 
@@ -54,7 +55,7 @@ const popcount = (x: bigint): number => {
 }
 
 export const bitsToBytes = (bits: readonly number[]): Uint8Array => {
-  const out = new Uint8Array(Math.ceil(bits.length / 8))
+  const out = new Uint8Array(ceilQuot(bits.length, 8))
   bits.forEach((b, i) => (out[i >> 3]! |= b << (i & 7)))
   return out
 }
@@ -86,7 +87,7 @@ export class QuantumSecureSignalling {
       return bob[i] === basis ? b : coin[i]!
     })
     const kept = alice.bits.flatMap((_, i) => (bob[i] === alice.basis[i] ? [i] : []))
-    const sampled = Math.floor(kept.length / 4)
+    const sampled = quot(kept.length, 4)
     const errors = kept.slice(0, sampled).filter((i) => received[i] !== alice.bits[i]).length
     const qber = sampled > 0 ? errors / sampled : 0
     return { bits: kept.slice(sampled).map((i) => alice.bits[i]!), raw: n, sifted: kept.length, sampled, errors, qber, holds: sampled > 0 && qber <= QBER_LIMIT }
@@ -126,7 +127,7 @@ export class QuantumSecureSignalling {
 
   /** Hops on the dims-cube between the corners src and dst fold to: their Hamming distance. */
   static route(src: string, dst: string, dims: number): SignalPath {
-    const d = Math.max(1, Math.min(64, Math.trunc(dims)))
+    const d = maxOf(1, minOf(64, truncOf(dims)))
     const hops = popcount((foldBits(src) ^ foldBits(dst)) & ((1n << BigInt(d)) - 1n))
     return { src, dst, dims, hops, verified: hops <= dims / 2 }
   }
@@ -170,7 +171,7 @@ export class SignalFormulas {
   }
 
   static hops(dims: number, a: number, b: number): CrossFormula {
-    const value = popcount(BigInt((a ^ b) >>> 0) & ((1n << BigInt(Math.min(32, dims))) - 1n))
+    const value = popcount(BigInt((a ^ b) >>> 0) & ((1n << BigInt(minOf(32, dims))) - 1n))
     return crossFormulaOf({ id: 'signal-hops', src: 'qsec', dst: 'route', formula: 'hops = popcount((a xor b) mod 2^dims)', value, proof: 'A route on the hypercube flips one differing coordinate per hop' }, nat(dims, a, b) && dims > 0 && dims <= 32, { name: 'signal.hops', params: [dims, a, b] })
   }
 

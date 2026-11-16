@@ -2,6 +2,7 @@ import { hexRegisterOf, hexFamiliesOf } from '../../quantum/processing/unit/inde
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { apiRegistryOf } from '../../mcp/api-door.js'
 import { DOORS } from '../../mcp/discovery.js'
+import { quot } from '../../exact.js'
 
 /** READY — THE SKILLS THAT FIND THE GAPS AND PROVE NOT READY. The unit does not decide for itself what it still lacks: it
  *  reads the public-API registry's own category tags — the real-world domains — and counts the ones no family covers.
@@ -54,7 +55,7 @@ export class ReadyFormulas {
     const fams = familyNames()
     const total = cats.size
     const covered = [...cats.keys()].filter((c) => isCovered(fams, c)).length
-    const pct = total > 0 ? Math.floor((covered * 100) / total) : 0
+    const pct = total > 0 ? quot((covered * 100), total) : 0
     return f('ready-coverage', 'coverage() = ⌊covered categories · 100 / all categories⌋', pct, total > 0 && pct === 100, 'coverage', [], { covered, total })
   }
   /** PROVE NOT READY: readiness holds ONLY when no registry domain is uncovered. value the number still uncovered; while it

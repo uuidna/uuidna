@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf } from '../../exact.js'
 
 /** LOGICGATES — DIGITAL LOGIC AS ARITHMETIC (chosen by the gate-level registry, not by hand). A gate is numbers: the
  *  boolean functions on 0/1 bits (and, or, xor, nand, nor), the 2:1 selector that picks one of two bits, the inputs a
@@ -19,9 +20,9 @@ export class LogicgatesFormulas {
   /** XOR: the bits differ. value a ⊕ b. */
   static xor(a: number, b: number): CrossFormula { return c('logicgates-xor', 'xor(a, b) = a ⊕ b', a ^ b, nat(a, b) && a <= 1 && b <= 1, 'xor', [a, b]) }
   /** NAND: not both set. value 1 − (a ∧ b). */
-  static nand(a: number, b: number): CrossFormula { return c('logicgates-nand', 'nand(a, b) = 1 − (a ∧ b)', Math.max(0, 1 - (a & b)), nat(a, b) && a <= 1 && b <= 1, 'nand', [a, b]) }
+  static nand(a: number, b: number): CrossFormula { return c('logicgates-nand', 'nand(a, b) = 1 − (a ∧ b)', maxOf(0, 1 - (a & b)), nat(a, b) && a <= 1 && b <= 1, 'nand', [a, b]) }
   /** NOR: neither set. value 1 − (a ∨ b). */
-  static nor(a: number, b: number): CrossFormula { return c('logicgates-nor', 'nor(a, b) = 1 − (a ∨ b)', Math.max(0, 1 - (a | b)), nat(a, b) && a <= 1 && b <= 1, 'nor', [a, b]) }
+  static nor(a: number, b: number): CrossFormula { return c('logicgates-nor', 'nor(a, b) = 1 − (a ∨ b)', maxOf(0, 1 - (a | b)), nat(a, b) && a <= 1 && b <= 1, 'nor', [a, b]) }
   /** MUX: a 2:1 selector; sel picks b, else a. value sel ? b : a. */
   static mux(sel: number, a: number, b: number): CrossFormula { return c('logicgates-mux', 'mux(sel, a, b) = sel ? b : a', sel === 1 ? b : a, nat(sel, a, b) && sel <= 1 && a <= 1 && b <= 1, 'mux', [sel, a, b]) }
   /** FANOUT: inputs driven = gates each driving loads. value gates · loads. */

@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot } from '../../exact.js'
 
 /** THE COURT TOOLKIT AS FORMULAS — ANY CASE, ANY JURISDICTION, NO ADVICE UNTIL REVIEWED. What a clerk computes in any
  *  court is arithmetic over the numbers that jurisdiction supplies: a limitation period in days, a filing deadline from
@@ -50,7 +51,7 @@ export class LawFormulas {
   /** A deadline: `start` day-number plus `days` — the day a filing is due (day numbers, e.g. Julian day). */
   static deadline(start: number, days: number): CrossFormula { const measure = start + days; return f('law-deadline', 'deadline(start, days) = start + days', measure, nat(start, days), 'deadline', [start, days], { lead: true, missing: 'compliant', measure }) }
   /** The quorum of a body of `members` at `pct` percent, rounded up: the least present for business. */
-  static quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? Math.ceil((members * pct) / 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members, pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) }
+  static quorum(members: number, pct: number): CrossFormula { const measure = members > 0 ? ceilQuot((members * pct), 100) : 0; return f('law-quorum', 'quorum(members, pct) = ⌈members · pct / 100⌉', measure, nat(members, pct) && members > 0 && pct <= 100, 'quorum', [members, pct], { lead: true, missing: 'quorate', measure }) }
   /** 1 when `votes` is a simple majority of `total` (more than half). */
   static majority(votes: number, total: number): CrossFormula { const boolean = total > 0 && 2 * votes > total ? 1 : 0; return f('law-majority', 'majority(votes, total) = [2 · votes > total]', boolean, nat(votes, total) && votes <= total && total > 0, 'majority', [votes, total], { boolean }) }
   /** 1 when `votes` meets a super-majority of `total` at `pct` percent (e.g. 67 for two-thirds, 75 for three-quarters). */

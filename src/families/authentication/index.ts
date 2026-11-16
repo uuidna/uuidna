@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** AUTHENTICATION — PROVING WHO IS THERE, AS ARITHMETIC (chosen by the identity registry, not by hand). Access is numbers:
  *  the entropy of a secret, the false-reject and false-accept rates of a biometric, the sessions per user, the lockout
@@ -15,13 +16,13 @@ export class AuthenticationFormulas {
   /** ENTROPY: a bits proxy for a secret over a charset of a given length. value charset · length. */
   static entropy(charset: number, length: number): CrossFormula { return c('authentication-entropy', 'entropy(charset, length) = charset · length', charset * length, nat(charset, length), 'entropy', [charset, length]) }
   /** FALSE REJECT: genuine attempts wrongly refused, as a percentage. value ⌊rejected · 100 / genuine⌋. */
-  static falsereject(rejected: number, genuine: number): CrossFormula { return c('authentication-falsereject', 'falsereject(rejected, genuine) = ⌊rejected · 100 / genuine⌋', genuine > 0 ? Math.floor((rejected * 100) / genuine) : 0, nat(rejected, genuine) && genuine > 0 && rejected <= genuine, 'falsereject', [rejected, genuine]) }
+  static falsereject(rejected: number, genuine: number): CrossFormula { return c('authentication-falsereject', 'falsereject(rejected, genuine) = ⌊rejected · 100 / genuine⌋', genuine > 0 ? quot((rejected * 100), genuine) : 0, nat(rejected, genuine) && genuine > 0 && rejected <= genuine, 'falsereject', [rejected, genuine]) }
   /** FALSE ACCEPT: impostors wrongly admitted, as a percentage. value ⌊accepted · 100 / impostors⌋. */
-  static falseaccept(accepted: number, impostors: number): CrossFormula { return c('authentication-falseaccept', 'falseaccept(accepted, impostors) = ⌊accepted · 100 / impostors⌋', impostors > 0 ? Math.floor((accepted * 100) / impostors) : 0, nat(accepted, impostors) && impostors > 0, 'falseaccept', [accepted, impostors]) }
+  static falseaccept(accepted: number, impostors: number): CrossFormula { return c('authentication-falseaccept', 'falseaccept(accepted, impostors) = ⌊accepted · 100 / impostors⌋', impostors > 0 ? quot((accepted * 100), impostors) : 0, nat(accepted, impostors) && impostors > 0, 'falseaccept', [accepted, impostors]) }
   /** SESSIONS per user: active sessions over the users holding them. value ⌊active / users⌋. */
-  static sessions(active: number, users: number): CrossFormula { return c('authentication-sessions', 'sessions(active, users) = ⌊active / users⌋', users > 0 ? Math.floor(active / users) : 0, nat(active, users) && users > 0, 'sessions', [active, users]) }
+  static sessions(active: number, users: number): CrossFormula { return c('authentication-sessions', 'sessions(active, users) = ⌊active / users⌋', users > 0 ? quot(active, users) : 0, nat(active, users) && users > 0, 'sessions', [active, users]) }
   /** LOCKOUT: attempts beyond the threshold trigger the lock. value max(0, attempts − threshold). */
-  static lockout(attempts: number, threshold: number): CrossFormula { return c('authentication-lockout', 'lockout(attempts, threshold) = max(0, attempts − threshold)', Math.max(0, attempts - threshold), nat(attempts, threshold), 'lockout', [attempts, threshold]) }
+  static lockout(attempts: number, threshold: number): CrossFormula { return c('authentication-lockout', 'lockout(attempts, threshold) = max(0, attempts − threshold)', maxOf(0, attempts - threshold), nat(attempts, threshold), 'lockout', [attempts, threshold]) }
   /** TOKEN LIFE: the seconds a token stays valid. value seconds. */
   static tokenlife(seconds: number): CrossFormula { return c('authentication-tokenlife', 'tokenlife(seconds) = seconds', seconds, nat(seconds), 'tokenlife', [seconds]) }
   /** STRENGTH: a password over a count of character classes at a length. value classes · length. */

@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** HARVEST — BRINGING A CROP IN, AS ARITHMETIC (chosen by the public-API registry, not by hand). Reaping is numbers: the
  *  yield an area collects, the fraction lost, units brought in per hour, labor spent, how hard a machine is worked, the
@@ -15,19 +16,19 @@ export class HarvestFormulas {
   /** YIELD COLLECTED: an area at a per-area rate. value area · rate. */
   static ratescollected(area: number, rate: number): CrossFormula { return c('harvest-ratescollected', 'ratescollected(area, rate) = area · rate', area * rate, nat(area, rate), 'ratescollected', [area, rate]) }
   /** LOSS as a percentage of the crop. value ⌊lost · 100 / total⌋. */
-  static losspercent(lost: number, total: number): CrossFormula { return c('harvest-losspercent', 'losspercent(lost, total) = ⌊lost · 100 / total⌋', total > 0 ? Math.floor((lost * 100) / total) : 0, nat(lost, total) && total > 0 && lost <= total, 'losspercent', [lost, total]) }
+  static losspercent(lost: number, total: number): CrossFormula { return c('harvest-losspercent', 'losspercent(lost, total) = ⌊lost · 100 / total⌋', total > 0 ? quot((lost * 100), total) : 0, nat(lost, total) && total > 0 && lost <= total, 'losspercent', [lost, total]) }
   /** THROUGHPUT: units brought in over the hours worked. value ⌊units / hours⌋. */
-  static throughput(units: number, hours: number): CrossFormula { return c('harvest-throughput', 'throughput(units, hours) = ⌊units / hours⌋', hours > 0 ? Math.floor(units / hours) : 0, nat(units, hours) && hours > 0, 'throughput', [units, hours]) }
+  static throughput(units: number, hours: number): CrossFormula { return c('harvest-throughput', 'throughput(units, hours) = ⌊units / hours⌋', hours > 0 ? quot(units, hours) : 0, nat(units, hours) && hours > 0, 'throughput', [units, hours]) }
   /** LABOR: workers over the hours each works. value workers · hours. */
   static laborhours(workers: number, hours: number): CrossFormula { return c('harvest-laborhours', 'laborhours(workers, hours) = workers · hours', workers * hours, nat(workers, hours), 'laborhours', [workers, hours]) }
   /** MACHINE EFFICIENCY: worked against rated capacity, as a percentage. value ⌊actual · 100 / capacity⌋. */
-  static machineefficiency(actual: number, capacity: number): CrossFormula { return c('harvest-machineefficiency', 'machineefficiency(actual, capacity) = ⌊actual · 100 / capacity⌋', capacity > 0 ? Math.floor((actual * 100) / capacity) : 0, nat(actual, capacity) && capacity > 0, 'machineefficiency', [actual, capacity]) }
+  static machineefficiency(actual: number, capacity: number): CrossFormula { return c('harvest-machineefficiency', 'machineefficiency(actual, capacity) = ⌊actual · 100 / capacity⌋', capacity > 0 ? quot((actual * 100), capacity) : 0, nat(actual, capacity) && capacity > 0, 'machineefficiency', [actual, capacity]) }
   /** MOISTURE: water in the grain, as a percentage. value ⌊water · 100 / total⌋. */
-  static moisturecontent(water: number, total: number): CrossFormula { return c('harvest-moisturecontent', 'moisturecontent(water, total) = ⌊water · 100 / total⌋', total > 0 ? Math.floor((water * 100) / total) : 0, nat(water, total) && total > 0 && water <= total, 'moisturecontent', [water, total]) }
+  static moisturecontent(water: number, total: number): CrossFormula { return c('harvest-moisturecontent', 'moisturecontent(water, total) = ⌊water · 100 / total⌋', total > 0 ? quot((water * 100), total) : 0, nat(water, total) && total > 0 && water <= total, 'moisturecontent', [water, total]) }
   /** STORED YIELD: what survives the gross after loss. value max(0, gross − loss). */
-  static storageyield(gross: number, loss: number): CrossFormula { return c('harvest-storageyield', 'storageyield(gross, loss) = max(0, gross − loss)', Math.max(0, gross - loss), nat(gross, loss), 'storageyield', [gross, loss]) }
+  static storageyield(gross: number, loss: number): CrossFormula { return c('harvest-storageyield', 'storageyield(gross, loss) = max(0, gross − loss)', maxOf(0, gross - loss), nat(gross, loss), 'storageyield', [gross, loss]) }
   /** WINDOW: days the harvest window still holds. value max(0, deadline − current). */
-  static windowdays(deadline: number, current: number): CrossFormula { return c('harvest-windowdays', 'windowdays(deadline, current) = max(0, deadline − current)', Math.max(0, deadline - current), nat(deadline, current), 'windowdays', [deadline, current]) }
+  static windowdays(deadline: number, current: number): CrossFormula { return c('harvest-windowdays', 'windowdays(deadline, current) = max(0, deadline − current)', maxOf(0, deadline - current), nat(deadline, current), 'windowdays', [deadline, current]) }
 }
 
 for (const name of ['laborhours', 'losspercent', 'machineefficiency', 'moisturecontent', 'ratescollected', 'storageyield', 'throughput', 'windowdays'] as const)

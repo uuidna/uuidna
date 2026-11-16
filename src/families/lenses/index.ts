@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf, quot } from '../../exact.js'
 
 /** LENSES — GEOMETRIC OPTICS AS ARITHMETIC (chosen by the public-API registry, not by hand). A lens is numbers: the
  *  focal length an object and image fix, magnification, the f-number, optical power, the image distance the thin-lens
@@ -13,21 +14,21 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class LensesFormulas {
   /** DEPTH OF FIELD (hyperfocal distance): focal length squared over f-number times circle of confusion. value ⌊f² / (N · coc)⌋. */
-  static depthoffield(f: number, N: number, coc: number): CrossFormula { const d = N * coc; return c('lenses-depthoffield', 'depthoffield(f, N, coc) = ⌊f² / (N · coc)⌋', d > 0 ? Math.floor((f * f) / d) : 0, nat(f, N, coc) && N > 0 && coc > 0, 'depthoffield', [f, N, coc]) }
+  static depthoffield(f: number, N: number, coc: number): CrossFormula { const d = N * coc; return c('lenses-depthoffield', 'depthoffield(f, N, coc) = ⌊f² / (N · coc)⌋', d > 0 ? quot((f * f), d) : 0, nat(f, N, coc) && N > 0 && coc > 0, 'depthoffield', [f, N, coc]) }
   /** FIELD OF VIEW: the width a sensor sees at a distance through a lens. value ⌊distance · sensor / f⌋. */
-  static fieldofview(distance: number, sensor: number, f: number): CrossFormula { return c('lenses-fieldofview', 'fieldofview(distance, sensor, f) = ⌊distance · sensor / f⌋', f > 0 ? Math.floor((distance * sensor) / f) : 0, nat(distance, sensor, f) && f > 0, 'fieldofview', [distance, sensor, f]) }
+  static fieldofview(distance: number, sensor: number, f: number): CrossFormula { return c('lenses-fieldofview', 'fieldofview(distance, sensor, f) = ⌊distance · sensor / f⌋', f > 0 ? quot((distance * sensor), f) : 0, nat(distance, sensor, f) && f > 0, 'fieldofview', [distance, sensor, f]) }
   /** F-NUMBER: focal length over aperture diameter. value ⌊f / D⌋. */
-  static fnumber(f: number, D: number): CrossFormula { return c('lenses-fnumber', 'fnumber(f, D) = ⌊f / D⌋', D > 0 ? Math.floor(f / D) : 0, nat(f, D) && D > 0, 'fnumber', [f, D]) }
+  static fnumber(f: number, D: number): CrossFormula { return c('lenses-fnumber', 'fnumber(f, D) = ⌊f / D⌋', D > 0 ? quot(f, D) : 0, nat(f, D) && D > 0, 'fnumber', [f, D]) }
   /** FOCAL LENGTH from an object and image distance (thin lens). value ⌊obj · img / (obj + img)⌋. */
-  static focallength(obj: number, img: number): CrossFormula { const s = obj + img; return c('lenses-focallength', 'focallength(obj, img) = ⌊obj · img / (obj + img)⌋', s > 0 ? Math.floor((obj * img) / s) : 0, nat(obj, img) && s > 0, 'focallength', [obj, img]) }
+  static focallength(obj: number, img: number): CrossFormula { const s = obj + img; return c('lenses-focallength', 'focallength(obj, img) = ⌊obj · img / (obj + img)⌋', s > 0 ? quot((obj * img), s) : 0, nat(obj, img) && s > 0, 'focallength', [obj, img]) }
   /** IMAGE DISTANCE from object distance and focal length (thin lens). value ⌊obj · f / (obj − f)⌋. */
-  static imagedistance(obj: number, f: number): CrossFormula { const d = Math.max(0, obj - f); return c('lenses-imagedistance', 'imagedistance(obj, f) = ⌊obj · f / (obj − f)⌋', d > 0 ? Math.floor((obj * f) / d) : 0, nat(obj, f) && d > 0, 'imagedistance', [obj, f]) }
+  static imagedistance(obj: number, f: number): CrossFormula { const d = maxOf(0, obj - f); return c('lenses-imagedistance', 'imagedistance(obj, f) = ⌊obj · f / (obj − f)⌋', d > 0 ? quot((obj * f), d) : 0, nat(obj, f) && d > 0, 'imagedistance', [obj, f]) }
   /** MAGNIFICATION: image distance over object distance. value ⌊img / obj⌋. */
-  static magnification(img: number, obj: number): CrossFormula { return c('lenses-magnification', 'magnification(img, obj) = ⌊img / obj⌋', obj > 0 ? Math.floor(img / obj) : 0, nat(img, obj) && obj > 0, 'magnification', [img, obj]) }
+  static magnification(img: number, obj: number): CrossFormula { return c('lenses-magnification', 'magnification(img, obj) = ⌊img / obj⌋', obj > 0 ? quot(img, obj) : 0, nat(img, obj) && obj > 0, 'magnification', [img, obj]) }
   /** NUMERICAL APERTURE (scaled ×1000): half the aperture over focal length. value ⌊500 · D / f⌋. */
-  static numericalaperture(D: number, f: number): CrossFormula { return c('lenses-numericalaperture', 'numericalaperture(D, f) = ⌊500 · D / f⌋', f > 0 ? Math.floor((500 * D) / f) : 0, nat(D, f) && f > 0, 'numericalaperture', [D, f]) }
+  static numericalaperture(D: number, f: number): CrossFormula { return c('lenses-numericalaperture', 'numericalaperture(D, f) = ⌊500 · D / f⌋', f > 0 ? quot((500 * D), f) : 0, nat(D, f) && f > 0, 'numericalaperture', [D, f]) }
   /** OPTICAL POWER in diopters: a thousand over the focal length (mm). value ⌊1000 / f⌋. */
-  static power(f: number): CrossFormula { return c('lenses-power', 'power(f) = ⌊1000 / f⌋', f > 0 ? Math.floor(1000 / f) : 0, nat(f) && f > 0, 'power', [f]) }
+  static power(f: number): CrossFormula { return c('lenses-power', 'power(f) = ⌊1000 / f⌋', f > 0 ? quot(1000, f) : 0, nat(f) && f > 0, 'power', [f]) }
 }
 
 for (const name of ['depthoffield', 'fieldofview', 'fnumber', 'focallength', 'imagedistance', 'magnification', 'numericalaperture', 'power'] as const)

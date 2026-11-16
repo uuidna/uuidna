@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { maxOf } from '../../exact.js'
 
 /** CAUSAL — causal inference as exact combinatorics, not a fabricated coverage number. The edges a DAG on n nodes can
  *  hold, the edges of a causal chain, the adjustment sets a confounder set admits (2^k), the binary counterfactual
@@ -16,7 +17,7 @@ export class CausalFormulas {
   /** Maximum edges of a DAG on `nodes` (one per ordered pair): nodes(nodes−1)/2. */
   static edges(nodes: number): CrossFormula { return f('causal-edges', 'edges(nodes) = nodes(nodes−1)/2', (nodes * (nodes - 1)) / 2, nat(nodes), 'edges', [nodes]) }
   /** Edges of a causal chain through `nodes`: nodes − 1 (0 for none). */
-  static chains(nodes: number): CrossFormula { return f('causal-chains', 'chains(nodes) = max(0, nodes − 1)', Math.max(0, nodes - 1), nat(nodes), 'chains', [nodes]) }
+  static chains(nodes: number): CrossFormula { return f('causal-chains', 'chains(nodes) = max(0, nodes − 1)', maxOf(0, nodes - 1), nat(nodes), 'chains', [nodes]) }
   /** The adjustment sets a set of `confounders` admits: 2^confounders (confounders ≤ 30). */
   static backdoorSets(confounders: number): CrossFormula { return f('causal-backdoorSets', 'backdoorSets(confounders) = 2^confounders', pow2(confounders), nat(confounders) && confounders <= 30, 'backdoorSets', [confounders]) }
   /** The binary counterfactual worlds over `vars` variables: 2^vars (vars ≤ 30). */

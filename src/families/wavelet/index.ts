@@ -1,5 +1,6 @@
 import { hexRegisterOf } from '../../quantum/processing/unit/index.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
+import { ceilQuot, maxOf, quot } from '../../exact.js'
 
 /** WAVELET — MULTIRESOLUTION ANALYSIS AS ARITHMETIC (chosen by the transform registry, not by hand). A wavelet decomposition
  *  is numbers: how many levels a signal admits, the scale at a level, the coefficients a level carries, how much a thresholded
@@ -13,21 +14,21 @@ const c = (id: string, formula: string, value: number, holds: boolean, name: str
 
 export class WaveletFormulas {
   /** LEVELS: the decomposition levels a signal of a length admits at a base window. value ⌊length / base⌋. */
-  static levels(length: number, base: number): CrossFormula { return c('wavelet-levels', 'levels(length, base) = ⌊length / base⌋', base > 0 ? Math.floor(length / base) : 0, nat(length, base) && base > 0, 'levels', [length, base]) }
+  static levels(length: number, base: number): CrossFormula { return c('wavelet-levels', 'levels(length, base) = ⌊length / base⌋', base > 0 ? quot(length, base) : 0, nat(length, base) && base > 0, 'levels', [length, base]) }
   /** SCALE: the scale factor at a level for a base dilation. value factor · level. */
   static scale(factor: number, level: number): CrossFormula { return c('wavelet-scale', 'scale(factor, level) = factor · level', factor * level, nat(factor, level), 'scale', [factor, level]) }
   /** COEFFICIENTS: the coefficients a level carries over a signal length. value ⌊length / level⌋. */
-  static coefficients(length: number, level: number): CrossFormula { return c('wavelet-coefficients', 'coefficients(length, level) = ⌊length / level⌋', level > 0 ? Math.floor(length / level) : 0, nat(length, level) && level > 0, 'coefficients', [length, level]) }
+  static coefficients(length: number, level: number): CrossFormula { return c('wavelet-coefficients', 'coefficients(length, level) = ⌊length / level⌋', level > 0 ? quot(length, level) : 0, nat(length, level) && level > 0, 'coefficients', [length, level]) }
   /** COMPRESSION as a percentage: the fraction of coefficients dropped. value ⌊(original − retained) · 100 / original⌋. */
-  static compression(original: number, retained: number): CrossFormula { return c('wavelet-compression', 'compression(original, retained) = ⌊(original − retained) · 100 / original⌋', original > 0 ? Math.floor((Math.max(0, original - retained) * 100) / original) : 0, nat(original, retained) && original > 0 && retained <= original, 'compression', [original, retained]) }
+  static compression(original: number, retained: number): CrossFormula { return c('wavelet-compression', 'compression(original, retained) = ⌊(original − retained) · 100 / original⌋', original > 0 ? quot((maxOf(0, original - retained) * 100), original) : 0, nat(original, retained) && original > 0 && retained <= original, 'compression', [original, retained]) }
   /** DECOMPOSITION: the subbands a decomposition yields from approximation and detail bands. value approx + detail. */
   static decomposition(approx: number, detail: number): CrossFormula { return c('wavelet-decomposition', 'decomposition(approx, detail) = approx + detail', approx + detail, nat(approx, detail), 'decomposition', [approx, detail]) }
   /** ENERGY: the energy in a band, amplitude over its samples. value amplitude · samples. */
   static energy(amplitude: number, samples: number): CrossFormula { return c('wavelet-energy', 'energy(amplitude, samples) = amplitude · samples', amplitude * samples, nat(amplitude, samples), 'energy', [amplitude, samples]) }
   /** VANISHING MOMENTS: a Daubechies filter of a tap count has half as many vanishing moments. value ⌊taps / 2⌋. */
-  static vanishingmoments(taps: number): CrossFormula { return c('wavelet-vanishingmoments', 'vanishingmoments(taps) = ⌊taps / 2⌋', 2 > 0 ? Math.floor(taps / 2) : 0, nat(taps), 'vanishingmoments', [taps]) }
+  static vanishingmoments(taps: number): CrossFormula { return c('wavelet-vanishingmoments', 'vanishingmoments(taps) = ⌊taps / 2⌋', 2 > 0 ? quot(taps, 2) : 0, nat(taps), 'vanishingmoments', [taps]) }
   /** DETAIL COEFFICIENTS: the detail coefficients spread across a band count, rounded up. value ⌈coeffs / bands⌉. */
-  static detailcoeffs(coeffs: number, bands: number): CrossFormula { return c('wavelet-detailcoeffs', 'detailcoeffs(coeffs, bands) = ⌈coeffs / bands⌉', bands > 0 ? Math.ceil(coeffs / bands) : 0, nat(coeffs, bands) && bands > 0, 'detailcoeffs', [coeffs, bands]) }
+  static detailcoeffs(coeffs: number, bands: number): CrossFormula { return c('wavelet-detailcoeffs', 'detailcoeffs(coeffs, bands) = ⌈coeffs / bands⌉', bands > 0 ? ceilQuot(coeffs, bands) : 0, nat(coeffs, bands) && bands > 0, 'detailcoeffs', [coeffs, bands]) }
 }
 
 for (const name of ['coefficients', 'compression', 'decomposition', 'detailcoeffs', 'energy', 'levels', 'scale', 'vanishingmoments'] as const)
