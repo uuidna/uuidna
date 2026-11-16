@@ -7,7 +7,7 @@ description: All public live model data compared on the lattice's own instrument
 
 > A model's token is a **bet**: sampled, transient, billed per emission, gone when its window closes. The
 > uuidna unit is a **receipt**: minted, permanent, verified free. This page compares **every model in the
-> public feed** — 467 of them, read live from [openrouter.ai/api/v1/models (public, keyless)](https://openrouter.ai/api/v1/models) at the `src/os`
+> public feed** — 468 of them, read live from [openrouter.ai/api/v1/models (public, keyless)](https://openrouter.ai/api/v1/models) at the `src/os`
 > boundary and mirrored for anyone to recompute — and keeps each figure's honesty class visible:
 > **computed** (arithmetic, sealed in [lean/Models.lean](/theorem/llm_folds_to_hexbit_pairs)),
 > **reported** (the feed's published figures, never benchmarked here), or **UNVERIFIED** (no measurement
@@ -23,7 +23,7 @@ hexbits** ([`a_token_approximates_eight_hexbits`](/theorem/a_token_approximates_
   window, the 2,000,000-token widest included, is finite against the 2¹²⁸-state lattice the
   folds land in ([`every_context_is_finite_against_the_lattice`](/theorem/every_context_is_finite_against_the_lattice)). uuidna's side: 2^128 addressable states (32 hexbits per address), PERMANENT — the ledger outlives every context window.
 - **Speed**: the public feed publishes no throughput, so this page carries **no speed numbers at all** —
-  a column of guesses would be 467 fabricated citations. uuidna's own speed is of a different kind
+  a column of guesses would be 468 fabricated citations. uuidna's own speed is of a different kind
   and recomputable: mint/verify O(1) per receipt after a one-time kernel proof; no sampling loop (uuidna_gate_status recomputes live).
 - **Messaging** ([`speaking_an_address_costs_the_text`](/theorem/speaking_an_address_costs_the_text)): speaking a 128-bit address in text costs 288
   bits — 44% efficiency, identical for every model, because it is the text's cost. The table counts each
@@ -56,7 +56,7 @@ Fold your own — any text, any model's output — with `foldLlm()` in
 [`src/quantum/models`](https://github.com/uuidna/uuidna/tree/main/src/quantum/models), or mint the address
 live in the [terminal](/terminal).
 
-## The census — all 467 public models
+## The census — all 468 public models
 
 Windows and prices are the feed's **reported** figures (prices verbatim, per token, as published — labels,
 not numbers this page computes on); hexbit capacity and uuids/window are **computed** and sealed. Widest
@@ -264,6 +264,7 @@ window first.
 | `qwen/qwen3.8-max-0902` | 1,000,000 | 8,000,000 | 111,111 | 0.000002 / 0.000006 |
 | `qwen/qwen3.8-max-prime` | 1,000,000 | 8,000,000 | 111,111 | 0.000004 / 0.000012 |
 | `qwen/qwen3.8-omni-flash` | 1,000,000 | 8,000,000 | 111,111 | 0.00000015 / 0.00000047 |
+| `qwen/qwen4-max` | 1,000,000 | 8,000,000 | 111,111 | 0.0000015 / 0.0000045 |
 | `sakana/fugu-max` | 1,000,000 | 8,000,000 | 111,111 | 0.000002 / 0.000006 |
 | `sakana/fugu-ultra` | 1,000,000 | 8,000,000 | 111,111 | 0.000005 / 0.00003 |
 | `sakana/fugu-ultra-v2` | 1,000,000 | 8,000,000 | 111,111 | 0.000005 / 0.00003 |
@@ -374,8 +375,8 @@ window first.
 | `qwen/qwen3.5-122b-a10b` | 262,144 | 2,097,152 | 29,127 | 0.00000026 / 0.00000208 |
 | `qwen/qwen3.5-27b` | 262,144 | 2,097,152 | 29,127 | 0.00000026 / 0.0000026 |
 | `qwen/qwen3.5-35b-a3b` | 262,144 | 2,097,152 | 29,127 | 0.00000014 / 0.000001 |
-| `qwen/qwen3.5-397b-a17b` | 262,144 | 2,097,152 | 29,127 | 0.0000006 / 0.0000036 |
-| `qwen/qwen3.5-9b` | 262,144 | 2,097,152 | 29,127 | 0.000000165 / 0.000000243 |
+| `qwen/qwen3.5-397b-a17b` | 262,144 | 2,097,152 | 29,127 | 0.00000045 / 0.000003 |
+| `qwen/qwen3.5-9b` | 262,144 | 2,097,152 | 29,127 | 0.000000107 / 0.000000157 |
 | `qwen/qwen3.6-27b` | 262,144 | 2,097,152 | 29,127 | 0.00000032 / 0.0000032 |
 | `qwen/qwen3.6-35b-a3b` | 262,144 | 2,097,152 | 29,127 | 0.0000001 / 0.0000009 |
 | `qwen/qwen3.7-plus:batch` | 262,144 | 2,097,152 | 29,127 | 0.00000023 / 0.00000092 |
@@ -417,7 +418,7 @@ window first.
 | `perplexity/sonar-pro` | 200,000 | 1,600,000 | 22,222 | 0.000003 / 0.000015 |
 | `perplexity/sonar-pro-search` | 200,000 | 1,600,000 | 22,222 | 0.000003 / 0.000015 |
 | `z-ai/glm-4.7-flash` | 200,000 | 1,600,000 | 22,222 | 0.0000000605 / 0.0000004 |
-| `minimax/minimax-m2.5` | 198,000 | 1,584,000 | 22,000 | 0.00000027 / 0.00000095 |
+| `minimax/minimax-m2.5` | 198,000 | 1,584,000 | 22,000 | 0.000000295 / 0.0000012 |
 | `minimax/minimax-m2.7` | 196,608 | 1,572,864 | 21,845 | 0.00000021 / 0.00000084 |
 | `cohere/command-a-plus` | 192,000 | 1,536,000 | 21,333 | 0.0000003 / 0.0000015 |
 | `deepseek/deepseek-chat` | 163,840 | 1,310,720 | 18,204 | 0.0000002574 / 0.0000010287 |
@@ -532,6 +533,6 @@ window first.
 | `undi95/remm-slerp-l2-13b` | 6,144 | 49,152 | 682 | 0.0000003 / 0.0000005 |
 | `openai/gpt-3.5-turbo-0613` | 4,095 | 32,760 | 455 | 0.000001 / 0.000002 |
 
-**Census receipt** `e44efe0f-82fe-8057-899d-6df5244b5a80` — as hexbits `[14, 4, 4, 14, 15, 14, 0, 15, 8, 2, 15, 14, 8, 0, 5, 7, 8, 9, 9, 13, 6, 13, 15, 5, 2, 4, 4, 11, 5, 10, 8, 0]` — recompute it from the same
+**Census receipt** `84aed80c-e89e-83f4-b0a5-77171516fd9a` — as hexbits `[8, 4, 10, 14, 13, 8, 0, 12, 14, 8, 9, 14, 8, 3, 15, 4, 11, 0, 10, 5, 7, 7, 1, 7, 1, 5, 1, 6, 15, 13, 9, 10]` — recompute it from the same
 mirror and it returns, byte for byte. The mirror refreshes from the live feed on every lean run; a model that
 enters or leaves the feed enters or leaves this page, re-sealed.

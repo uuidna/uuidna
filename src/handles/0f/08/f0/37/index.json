@@ -1,0 +1,12 @@
+{
+  "handle": "0f08f037",
+  "address": "0f08f037-28a3-8989-b166-79bc4422d7fd",
+  "kind": "chunk",
+  "keys": [
+    "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure"
+  ],
+  "statement": "((498 * 100 < 767190) ∧ (1729 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674))",
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

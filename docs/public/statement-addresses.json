@@ -31192,14 +31192,14 @@
   },
   {
    "key": "context_windows_are_transient_hexbits",
-   "statement": "(((modelContextRows.map (fun r => r.length)).sum) = 467) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
-   "normalised": "(((modelContextRows.map(fun r=>r.length)).sum)=467)∧((modelContextRows.map(fun r=>r.map(fun c=>c*8)))=modelTransientRows)",
+   "statement": "(((modelContextRows.map (fun r => r.length)).sum) = 468) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+   "normalised": "(((modelContextRows.map(fun r=>r.length)).sum)=468)∧((modelContextRows.map(fun r=>r.map(fun c=>c*8)))=modelTransientRows)",
    "rawLength": 138,
    "normalisedLength": 121,
    "rawBytes": 140,
    "normalisedBytes": 123,
-   "address": "327c056b-f15c-81aa-83e9-d0474491ea70",
-   "sha256": "206822f59fae2fda7d91bdab73764bd537f30fe2ea87746f1ec02de1b7ba96d9"
+   "address": "6d84cb74-2895-88be-a89e-ba600fe22582",
+   "sha256": "f282f987a1d90936d8a07e6d2dc01dc8996d07d705b6ec9944c7dc4bc3791998"
   },
   {
    "key": "speaking_an_address_costs_the_text",
@@ -62784,14 +62784,14 @@
   },
   {
    "key": "the_generated_closure_partitions_into_three_kinds",
-   "statement": "(2775881 + 498 + 767181 = 3543560) ∧ ((2775881 > 3 * 767181) ∧ (2775881 < 4 * 767181))",
-   "normalised": "(2775881+498+767181=3543560)∧((2775881>3*767181)∧(2775881<4*767181))",
+   "statement": "(2775988 + 498 + 767190 = 3543676) ∧ ((2775988 > 3 * 767190) ∧ (2775988 < 4 * 767190))",
+   "normalised": "(2775988+498+767190=3543676)∧((2775988>3*767190)∧(2775988<4*767190))",
    "rawLength": 86,
    "normalisedLength": 68,
    "rawBytes": 90,
    "normalisedBytes": 72,
-   "address": "af081fff-d549-8e3f-93f9-54d9c959fd36",
-   "sha256": "8b47b98137ad3f35da096278834af7207ff8852e2411d34306e1688169e68ad3"
+   "address": "42db66b5-e211-88de-a937-7ca61c3b89a6",
+   "sha256": "17a7fdd88594fa76b41174ce921e7fffdb15b52742a62f4a2dd60b5895b8fa92"
   },
   {
    "key": "the_arithmetic_alphabet_partitions_by_its_own_algebra",
@@ -62806,25 +62806,25 @@
   },
   {
    "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-   "statement": "((143712 * 5 < 767181) ∧ (143712 * 6 > 767181)) ∧ (143712 < 767181)",
-   "normalised": "((143712*5<767181)∧(143712*6>767181))∧(143712<767181)",
+   "statement": "((143728 * 5 < 767190) ∧ (143728 * 6 > 767190)) ∧ (143728 < 767190)",
+   "normalised": "((143728*5<767190)∧(143728*6>767190))∧(143728<767190)",
    "rawLength": 67,
    "normalisedLength": 53,
    "rawBytes": 71,
    "normalisedBytes": 57,
-   "address": "86ab8f64-070c-8c06-98e3-59ef8558ef16",
-   "sha256": "eea6f424741522da76dd9d48e5d6b5a7d5a14414a631e639c505f119fd540287"
+   "address": "7049cfd3-83da-8936-a4c1-437f1e42f69b",
+   "sha256": "badca80b42360140f4229ab9aa71b9acbdc633c35308e9662210345b4aceb54c"
   },
   {
    "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-   "statement": "((498 * 100 < 767181) ∧ (1729 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674))",
-   "normalised": "((498*100<767181)∧(1729>114))∧((114*14≤1674)∧(114*15>1674))",
+   "statement": "((498 * 100 < 767190) ∧ (1729 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674))",
+   "normalised": "((498*100<767190)∧(1729>114))∧((114*14≤1674)∧(114*15>1674))",
    "rawLength": 79,
    "normalisedLength": 59,
    "rawBytes": 87,
    "normalisedBytes": 67,
-   "address": "f6dde964-3243-8eb1-9035-8ca321a4108a",
-   "sha256": "4713cc721ba6619d72c56ca848a4db115d164b487d51c13a304d40984316b113"
+   "address": "5327cb32-34ef-8d63-bef7-6da6f3316e10",
+   "sha256": "2c9638b9bc6642abb3e914d4dc5318b4ae49600af07bb14bf13972434f23cedc"
   },
   {
    "key": "the_same_arithmetic_answers_more_than_one_domain",

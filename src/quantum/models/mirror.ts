@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 467,
+ "count": 468,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -1122,8 +1122,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "minimax/minimax-m2.5",
    "name": "MiniMax: MiniMax M2.5",
    "contextTokens": 198000,
-   "promptPrice": "0.00000027",
-   "completionPrice": "0.00000095"
+   "promptPrice": "0.000000295",
+   "completionPrice": "0.0000012"
   },
   {
    "id": "minimax/minimax-m2.7",
@@ -2487,15 +2487,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-397b-a17b",
    "name": "Qwen: Qwen3.5 397B A17B",
    "contextTokens": 262144,
-   "promptPrice": "0.0000006",
-   "completionPrice": "0.0000036"
+   "promptPrice": "0.00000045",
+   "completionPrice": "0.000003"
   },
   {
    "id": "qwen/qwen3.5-9b",
    "name": "Qwen: Qwen3.5-9B",
    "contextTokens": 262144,
-   "promptPrice": "0.000000165",
-   "completionPrice": "0.000000243"
+   "promptPrice": "0.000000107",
+   "completionPrice": "0.000000157"
   },
   {
    "id": "qwen/qwen3.5-flash-02-23",
@@ -2629,6 +2629,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1000000,
    "promptPrice": "0.00000015",
    "completionPrice": "0.00000047"
+  },
+  {
+   "id": "qwen/qwen4-max",
+   "name": "Qwen: Qwen4 Max",
+   "contextTokens": 1000000,
+   "promptPrice": "0.0000015",
+   "completionPrice": "0.0000045"
   },
   {
    "id": "recursive/flint-v1.0:free",

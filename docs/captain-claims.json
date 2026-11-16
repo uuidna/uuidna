@@ -481576,8 +481576,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "6494a004-d929-88f5-a6cd-9cc159aaa240",
-      "address": "65e9848b-ad72-8b6f-aea1-e78ed05c7742",
+      "lineAddress": "eeddff70-bfdd-84c1-9585-69fc018619c2",
+      "address": "f9d51b74-2803-8fef-8e22-6f44f08b2d1c",
       "principle": "The models",
       "held": "discovery+formalisation"
     },
@@ -501689,8 +501689,8 @@
     },
     {
       "key": "the_generated_closure_partitions_into_three_kinds",
-      "lineAddress": "fa7a4a19-505d-88bb-80c5-a87dfe707f35",
-      "address": "e1db873b-d1a1-8c53-a986-6c57d222ea6f",
+      "lineAddress": "9e3d00cd-dab5-83bf-a603-49a5df18535f",
+      "address": "5b0aa823-648d-88c0-9212-eea11ff731ad",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -501703,15 +501703,15 @@
     },
     {
       "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-      "lineAddress": "f5a7ef58-7371-8e5d-abed-c7b5b13753e6",
-      "address": "ce9990fb-be4b-8998-a295-496e2f9d6578",
+      "lineAddress": "e18e8426-1d26-864c-8929-3c92cef65a88",
+      "address": "705ac849-4a22-8d89-9670-e03b083964ce",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-      "lineAddress": "1f838555-c95b-8717-86ab-d82d8a15c820",
-      "address": "f569f58c-b9c2-8b16-b1e8-545d2cb8e11f",
+      "lineAddress": "8f53cf3c-dfac-8e3c-8238-f0bfbc93ddb5",
+      "address": "c5647eaa-e1ea-87d2-b827-96de4f72c706",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -509860,7 +509860,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "69185105-4ded-8615-ae92-7f2af56842a8",
+  "claim_receipt": "8bdb6507-d469-8d17-b295-959c214c6a53",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

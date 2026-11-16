@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:e33b130f-eaee-8518-80f0-0be19f7a0d51",
+  "@id": "urn:uuid:e20f15c0-1412-8e79-942a-71e4fe280f43",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each paged theorem the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy), and the pageless span as one collection. Integrity, not truth.",
@@ -87866,11 +87866,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:6494a004-d929-88f5-a6cd-9cc159aaa240",
+        "@id": "urn:uuid:eeddff70-bfdd-84c1-9585-69fc018619c2",
         "@type": "ScholarlyArticle",
-        "headline": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 467 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 467, not the vendors.",
-        "abstract": "(((modelContextRows.map (fun r => r.length)).sum) = 467) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
-        "identifier": "65e9848b-ad72-8b6f-aea1-e78ed05c7742",
+        "headline": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 468 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 468, not the vendors.",
+        "abstract": "(((modelContextRows.map (fun r => r.length)).sum) = 468) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+        "identifier": "f9d51b74-2803-8fef-8e22-6f44f08b2d1c",
         "url": "https://uuidna.com/theorem/context_windows_are_transient_hexbits",
         "keywords": "models, The models",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Models.lean",
@@ -87888,7 +87888,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/65e9848b"
+          "https://uuidna.com/f9d51b74"
         ]
       }
     },
@@ -87899,7 +87899,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:c5806bc4-a861-8377-8035-c46d2660fb90",
         "@type": "ScholarlyArticle",
-        "headline": "MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, \"Universally Unique IDentifiers (UUIDs)\", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 467 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).",
+        "headline": "MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, \"Universally Unique IDentifiers (UUIDs)\", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 468 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).",
         "abstract": "(36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows)",
         "identifier": "28b73899-48fa-86d1-93b4-4f6f2852b597",
         "url": "https://uuidna.com/theorem/speaking_an_address_costs_the_text",
@@ -87961,7 +87961,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:ddca61e3-57b1-87d0-b5bc-dd3138fd87a5",
         "@type": "ScholarlyArticle",
-        "headline": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 467 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.",
+        "headline": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 468 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.",
         "abstract": "(2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8)))",
         "identifier": "0958d5f7-a2df-878b-bbaf-72fefb4d60dd",
         "url": "https://uuidna.com/theorem/every_context_is_finite_against_the_lattice",
@@ -176898,11 +176898,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:fa7a4a19-505d-88bb-80c5-a87dfe707f35",
+        "@id": "urn:uuid:9e3d00cd-dab5-83bf-a603-49a5df18535f",
         "@type": "ScholarlyArticle",
-        "headline": "CLAIMED: of 3543560 crosses the corpus's own integers generate, 2775881 are forced by an operator's algebra, 498 are stated, and 767181 remain — and the three account for the whole, 2775881 + 498 + 767181 = 3543560, with the forced between 3 and 4 times the unstated.",
-        "abstract": "(2775881 + 498 + 767181 = 3543560) ∧ ((2775881 > 3 * 767181) ∧ (2775881 < 4 * 767181))",
-        "identifier": "e1db873b-d1a1-8c53-a986-6c57d222ea6f",
+        "headline": "CLAIMED: of 3543676 crosses the corpus's own integers generate, 2775988 are forced by an operator's algebra, 498 are stated, and 767190 remain — and the three account for the whole, 2775988 + 498 + 767190 = 3543676, with the forced between 3 and 4 times the unstated.",
+        "abstract": "(2775988 + 498 + 767190 = 3543676) ∧ ((2775988 > 3 * 767190) ∧ (2775988 < 4 * 767190))",
+        "identifier": "5b0aa823-648d-88c0-9212-eea11ff731ad",
         "url": "https://uuidna.com/theorem/the_generated_closure_partitions_into_three_kinds",
         "keywords": "cross-formulas, THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/CrossFormulas.lean",
@@ -176920,7 +176920,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/e1db873b"
+          "https://uuidna.com/5b0aa823"
         ]
       }
     },
@@ -176960,11 +176960,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:f5a7ef58-7371-8e5d-abed-c7b5b13753e6",
+        "@id": "urn:uuid:e18e8426-1d26-864c-8929-3c92cef65a88",
         "@type": "ScholarlyArticle",
-        "headline": "CLAIMED: of 767181 unstated crosses, 143712 join integers no single wing carries all three of — between one 6th and one 5th of them, since 143712 × 5 < 767181 and 143712 × 6 > 767181, so the large majority stays inside a single wing.",
-        "abstract": "((143712 * 5 < 767181) ∧ (143712 * 6 > 767181)) ∧ (143712 < 767181)",
-        "identifier": "ce9990fb-be4b-8998-a295-496e2f9d6578",
+        "headline": "CLAIMED: of 767190 unstated crosses, 143728 join integers no single wing carries all three of — between one 6th and one 5th of them, since 143728 × 5 < 767190 and 143728 × 6 > 767190, so the large majority stays inside a single wing.",
+        "abstract": "((143728 * 5 < 767190) ∧ (143728 * 6 > 767190)) ∧ (143728 < 767190)",
+        "identifier": "705ac849-4a22-8d89-9670-e03b083964ce",
         "url": "https://uuidna.com/theorem/most_of_the_unstated_remainder_stays_inside_one_wing",
         "keywords": "cross-formulas, THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/CrossFormulas.lean",
@@ -176982,7 +176982,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/ce9990fb"
+          "https://uuidna.com/705ac849"
         ]
       }
     },
@@ -176991,11 +176991,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:1f838555-c95b-8717-86ab-d82d8a15c820",
+        "@id": "urn:uuid:8f53cf3c-dfac-8e3c-8238-f0bfbc93ddb5",
         "@type": "ScholarlyArticle",
-        "headline": "CLAIMED: the 1674 formula-shaped statements across 114 wings are built from 1729 distinct integers and state 498 crosses, against 767181 their own integers generate unstated — fewer than one in a hundred, since 498 × 100 < 767181, at between 14 and 15 formulas per wing.",
-        "abstract": "((498 * 100 < 767181) ∧ (1729 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674))",
-        "identifier": "f569f58c-b9c2-8b16-b1e8-545d2cb8e11f",
+        "headline": "CLAIMED: the 1674 formula-shaped statements across 114 wings are built from 1729 distinct integers and state 498 crosses, against 767190 their own integers generate unstated — fewer than one in a hundred, since 498 × 100 < 767190, at between 14 and 15 formulas per wing.",
+        "abstract": "((498 * 100 < 767190) ∧ (1729 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674))",
+        "identifier": "c5647eaa-e1ea-87d2-b827-96de4f72c706",
         "url": "https://uuidna.com/theorem/the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
         "keywords": "cross-formulas, THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/CrossFormulas.lean",
@@ -177013,7 +177013,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/f569f58c"
+          "https://uuidna.com/c5647eaa"
         ]
       }
     },

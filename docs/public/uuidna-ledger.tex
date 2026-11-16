@@ -42498,10 +42498,10 @@ theorem a_token_approximates_eight_hexbits : (4 * 2 = 8) ∧ (8 * 4 = 32) ∧ (4
 \noindent Content-address \texttt{59ce118e-1587-8dfb-bf58-c959f5739ac7}.
 \end{proof}
 
-\begin{theorem}[HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 467 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 467, not the vendors.]
+\begin{theorem}[HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 468 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 468, not the vendors.]
 \label{thm:context-windows-are-transient-hexbits}
 \begin{lstlisting}[language=lean]
-(((modelContextRows.map (fun r => r.length)).sum) = 467) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)
+(((modelContextRows.map (fun r => r.length)).sum) = 468) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -42509,12 +42509,12 @@ theorem a_token_approximates_eight_hexbits : (4 * 2 = 8) ∧ (8 * 4 = 32) ∧ (4
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem context_windows_are_transient_hexbits : (((modelContextRows.map (fun r => r.length)).sum) = 467) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows) := by decide
+theorem context_windows_are_transient_hexbits : (((modelContextRows.map (fun r => r.length)).sum) = 468) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{65e9848b-ad72-8b6f-aea1-e78ed05c7742}.
+\noindent Content-address \texttt{f9d51b74-2803-8fef-8e22-6f44f08b2d1c}.
 \end{proof}
 
-\begin{theorem}[MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, "Universally Unique IDentifiers (UUIDs)", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44\% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 467 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).]
+\begin{theorem}[MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, "Universally Unique IDentifiers (UUIDs)", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44\% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 468 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).]
 \label{thm:speaking-an-address-costs-the-text}
 \begin{lstlisting}[language=lean]
 (36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows)
@@ -42544,7 +42544,7 @@ theorem crypto_widths_are_fixed_not_sampled : (32 * 8 = 256) ∧ (16 * 8 = 128) 
 \noindent Content-address \texttt{4daa3c87-c5cd-824e-8b81-10faf473d3a9}.
 \end{proof}
 
-\begin{theorem}[CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 467 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.]
+\begin{theorem}[CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 468 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.]
 \label{thm:every-context-is-finite-against-the-lattice}
 \begin{lstlisting}[language=lean]
 (2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8)))
@@ -88504,18 +88504,18 @@ theorem two_routes_reach_four_hundred_and_thirty_two : ([16 * 27, (1 + 1) * 3 * 
 
 \section{THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25}
 
-\begin{theorem}[CLAIMED: of 3543560 crosses the corpus's own integers generate, 2775881 are forced by an operator's algebra, 498 are stated, and 767181 remain — and the three account for the whole, 2775881 + 498 + 767181 = 3543560, with the forced between 3 and 4 times the unstated.]
+\begin{theorem}[CLAIMED: of 3543676 crosses the corpus's own integers generate, 2775988 are forced by an operator's algebra, 498 are stated, and 767190 remain — and the three account for the whole, 2775988 + 498 + 767190 = 3543676, with the forced between 3 and 4 times the unstated.]
 \label{thm:the-generated-closure-partitions-into-three-kinds}
 \[
-  2775881 + 498 + 767181 = 3543560 \quad\land\quad 2775881 > 3 \cdot 767181 \quad\land\quad 2775881 < 4 \cdot 767181
+  2775988 + 498 + 767190 = 3543676 \quad\land\quad 2775988 > 3 \cdot 767190 \quad\land\quad 2775988 < 4 \cdot 767190
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem the_generated_closure_partitions_into_three_kinds : (2775881 + 498 + 767181 = 3543560) ∧ ((2775881 > 3 * 767181) ∧ (2775881 < 4 * 767181)) := by decide
+theorem the_generated_closure_partitions_into_three_kinds : (2775988 + 498 + 767190 = 3543676) ∧ ((2775988 > 3 * 767190) ∧ (2775988 < 4 * 767190)) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{e1db873b-d1a1-8c53-a986-6c57d222ea6f}.
+\noindent Content-address \texttt{5b0aa823-648d-88c0-9212-eea11ff731ad}.
 \end{proof}
 
 \begin{theorem}[CLAIMED: the 6 arithmetic operators the sealed formulas use split by what they do over the corpus's own integers — 2 commutative (* +), 3 forced on their diagonal (\% - /), 1 neither (\textasciicircum{}) — and 2 + 3 + 1 = 6.]
@@ -88532,32 +88532,32 @@ theorem the_arithmetic_alphabet_partitions_by_its_own_algebra : ((2 + 3 + 1 = 6)
 \noindent Content-address \texttt{23ada59a-4cdb-8039-94c3-cdd81827a5c2}.
 \end{proof}
 
-\begin{theorem}[CLAIMED: of 767181 unstated crosses, 143712 join integers no single wing carries all three of — between one 6th and one 5th of them, since 143712 × 5 < 767181 and 143712 × 6 > 767181, so the large majority stays inside a single wing.]
+\begin{theorem}[CLAIMED: of 767190 unstated crosses, 143728 join integers no single wing carries all three of — between one 6th and one 5th of them, since 143728 × 5 < 767190 and 143728 × 6 > 767190, so the large majority stays inside a single wing.]
 \label{thm:most-of-the-unstated-remainder-stays-inside-one-wing}
 \[
-  143712 \cdot 5 < 767181 \quad\land\quad 143712 \cdot 6 > 767181 \quad\land\quad 143712 < 767181
+  143728 \cdot 5 < 767190 \quad\land\quad 143728 \cdot 6 > 767190 \quad\land\quad 143728 < 767190
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem most_of_the_unstated_remainder_stays_inside_one_wing : ((143712 * 5 < 767181) ∧ (143712 * 6 > 767181)) ∧ (143712 < 767181) := by decide
+theorem most_of_the_unstated_remainder_stays_inside_one_wing : ((143728 * 5 < 767190) ∧ (143728 * 6 > 767190)) ∧ (143728 < 767190) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{ce9990fb-be4b-8998-a295-496e2f9d6578}.
+\noindent Content-address \texttt{705ac849-4a22-8d89-9670-e03b083964ce}.
 \end{proof}
 
-\begin{theorem}[CLAIMED: the 1674 formula-shaped statements across 114 wings are built from 1729 distinct integers and state 498 crosses, against 767181 their own integers generate unstated — fewer than one in a hundred, since 498 × 100 < 767181, at between 14 and 15 formulas per wing.]
+\begin{theorem}[CLAIMED: the 1674 formula-shaped statements across 114 wings are built from 1729 distinct integers and state 498 crosses, against 767190 their own integers generate unstated — fewer than one in a hundred, since 498 × 100 < 767190, at between 14 and 15 formulas per wing.]
 \label{thm:the-corpus-has-sealed-under-a-hundredth-of-its-own-closure}
 \[
-  498 \cdot 100 < 767181 \quad\land\quad 1729 > 114 \quad\land\quad 114 \cdot 14 \le 1674 \quad\land\quad 114 \cdot 15 > 1674
+  498 \cdot 100 < 767190 \quad\land\quad 1729 > 114 \quad\land\quad 114 \cdot 14 \le 1674 \quad\land\quad 114 \cdot 15 > 1674
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem the_corpus_has_sealed_under_a_hundredth_of_its_own_closure : ((498 * 100 < 767181) ∧ (1729 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674)) := by decide
+theorem the_corpus_has_sealed_under_a_hundredth_of_its_own_closure : ((498 * 100 < 767190) ∧ (1729 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674)) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{f569f58c-b9c2-8b16-b1e8-545d2cb8e11f}.
+\noindent Content-address \texttt{c5647eaa-e1ea-87d2-b827-96de4f72c706}.
 \end{proof}
 
 \begin{theorem}[CLAIMED: 1674 formula-shaped statements carry 1602 distinct byte-strings and 1469 distinct algebraic forms, so 205 statements restate a form another already holds — and those split 129 copies against 15 crosses, the widest cross spanning 3 wings. Most repetition is waste; a small part of it is a bridge.]
