@@ -14,7 +14,7 @@
 import { writeFileSync, readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
-import { referenceDois, type Reference } from '../references.js'
+import { referenceDois, identifiersIn, type Reference } from '../references.js'
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
 
@@ -80,10 +80,9 @@ const resolve = async (doi: string): Promise<Reference> => {
 // credit too and no ledger field holds it. The .lean file is the text the kernel signed and the text a reader
 // checks, so it is what gets scanned; the ledger relation is merged in rather than replaced, so a DOI reachable
 // either way is attributed either way.
-const DOI_TOKEN = /\b10\.\d{4,9}\/[^\s")<>,;]+/g
 const byWing = referenceDois()
 for (const f of readdirSync(join(ROOT, 'lean')).filter((f) => f.endsWith('.lean'))) {
-  const found = (readFileSync(join(ROOT, 'lean', f), 'utf8').match(DOI_TOKEN) ?? []).map((d) => d.replace(/[.,;:)\]]+$/, ''))
+  const found = identifiersIn(readFileSync(join(ROOT, 'lean', f), 'utf8'))
   if (!found.length) continue
   byWing.set(f, [...new Set([...(byWing.get(f) ?? []), ...found])].sort())
 }

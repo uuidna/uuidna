@@ -39,18 +39,18 @@ const FACTS = [
     lean: 'theorem octave_doubling : [48, 96, 192, 384] = [48, 48*2, 96*2, 192*2] := by decide' },
   // ── chemistry: the atom fills by counting quantum states. A shell n holds 2n² electrons (2 spin × n² orbitals);
   //    a subshell of angular momentum l holds 4l+2. Both are pure counts — the periodic table's shape is arithmetic. ──
-  { key: 'electron_shells_2n2', why: 'electron shells hold 2n² each — [2,8,18,32] for n=1..4 (2 spin states × n² orbitals); the shape of the periodic table is a count',
+  { key: 'electron_shells_2n2', source: ['10.1080/14786442408634535', '10.1007/BF02980631'], why: 'electron shells hold 2n² each — [2,8,18,32] for n=1..4 (2 spin states × n² orbitals); the shape of the periodic table is a count',
     js: () => JSON.stringify([1, 2, 3, 4].map((n) => 2 * n * n)) === JSON.stringify([2, 8, 18, 32]),
     lean: "theorem electron_shells_2n2 : (List.range' 1 4).map (fun n => 2 * n * n) = [2, 8, 18, 32] := by decide" },
-  { key: 'subshell_capacities_4l2', why: 'the subshells s,p,d,f hold 4l+2 = [2,6,10,14] for l=0..3 — (2l+1) orbitals × 2 spins',
+  { key: 'subshell_capacities_4l2', source: ['10.1080/14786442408634535', '10.1007/BF02980631'], why: 'the subshells s,p,d,f hold 4l+2 = [2,6,10,14] for l=0..3 — (2l+1) orbitals × 2 spins',
     js: () => JSON.stringify([0, 1, 2, 3].map((l) => 4 * l + 2)) === JSON.stringify([2, 6, 10, 14]),
     lean: "theorem subshell_capacities_4l2 : (List.range 4).map (fun l => 4 * l + 2) = [2, 6, 10, 14] := by decide" },
   // ── music: 12-tone equal temperament is ℤ/12. A perfect fifth is +7; since gcd(7,12)=1 the fifths cycle through
   //    all twelve pitch classes (the circle of fifths), and the tritone +6 is a fixed-point-free involution. ──
-  { key: 'circle_of_fifths', why: 'the circle of fifths: stacking fifths (+7 mod 12) visits ALL twelve pitch classes — 7 is coprime to 12, so ×7 permutes ℤ/12',
+  { key: 'circle_of_fifths', source: ['10.2307/3679467'], why: 'the circle of fifths: stacking fifths (+7 mod 12) visits ALL twelve pitch classes — 7 is coprime to 12, so ×7 permutes ℤ/12',
     js: () => [...Array(12).keys()].every((t) => [...Array(12).keys()].some((k) => (7 * k) % 12 === t)),
     lean: "theorem circle_of_fifths : (List.range 12).all (fun t => (List.range 12).any (fun k => (7 * k) % 12 == t)) := by decide" },
-  { key: 'tritone_involution', why: 'the tritone (+6 mod 12) is a fixed-point-free involution — the octave splits exactly in half, each note its own tritone-of-tritone',
+  { key: 'tritone_involution', source: ['10.2307/3679467'], why: 'the tritone (+6 mod 12) is a fixed-point-free involution — the octave splits exactly in half, each note its own tritone-of-tritone',
     js: () => [...Array(12).keys()].every((p) => ((p + 6) % 12 + 6) % 12 === p && (p + 6) % 12 !== p),
     lean: "theorem tritone_involution : (List.range 12).all (fun p => ((p + 6) % 12 + 6) % 12 == p && (p + 6) % 12 != p) := by decide" },
   // ── chemistry: the pH scale is the SAME reflection as the vortex. pH ↦ 14−pH (pH+pOH=14) is an involution on

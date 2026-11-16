@@ -15,12 +15,14 @@ def gutStringTension : Nat := 100
 
 /-- CLAIMED: the Planck energy is 897713235294117 times the LHC's collision energy, exactly — 13600 GeV divides
     1.220890 x 10^19 GeV 897713235294117 times with 8800 GeV left over. String theory's characteristic scale is
-    fifteen orders of magnitude past the most energetic instrument ever built. -/
+    fifteen orders of magnitude past the most energetic instrument ever built. Source: DOI
+    10.1103/RevModPhys.97.025002. -/
 theorem collider_energy_is_below_the_planck_scale : (13600 * 897713235294117 + 8800 = 12208900000000000000) ∧ (8800 < 13600) := by decide
 
 /-- CLAIMED: the shortest separation at which the 1/r^2 law has been tested is 3217314099569684239182554733009
     Planck lengths, exactly — 52 micrometres over 1.616255 x 10^-35 m, with a remainder of 538705 in units of
-    10^-41 m. Extra dimensions are excluded above that separation and untouched below it. -/
+    10^-41 m. Extra dimensions are excluded above that separation and untouched below it. Source: DOI
+    10.1103/RevModPhys.97.025002. -/
 theorem newtonian_gravity_is_verified_far_above_the_planck_length : (1616255 * 3217314099569684239182554733009 + 538705 = 52 * 10 ^ 35) ∧ (538705 < 1616255) := by decide
 
 /-- CLAIMED: the proton's lifetime bound exceeds the age of the universe 1739130434782608695652173 times over —

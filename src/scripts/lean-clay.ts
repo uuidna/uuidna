@@ -58,17 +58,17 @@ const FACTS = [
     js: () => R(16).filter((t) => popcount(t) === 1).length === 4 && 2 ** (2 ** 2) === 16,
     lean: 'theorem two_bit_conjunctions_are_four_of_sixteen : ((List.range 16).filter (fun t => ((List.range 4).filter (fun i => (t / (2^i)) % 2 == 1)).length == 1)).length = 4 ∧ (2^(2^2) = 16) := by decide' },
 
-  { key: 'mertens_squared_under_n_on_the_first_twenty',
+  { key: 'mertens_squared_under_n_on_the_first_twenty', source: ['10.1515/crll.1985.357.138'],
     why: `Riemann, through Mertens: M(n) = Σ μ(k), and |M(n)| ≤ √n — stated squared to stay in exact integers — holds for every n through 20. It was conjectured for ALL n and is FALSE (Odlyzko–te Riele, 1985), which is why the key names the window and not the conjecture: a predicate can hold on every element of a window and fail at the next.`,
     js: () => R(20).every((i) => mertens(i + 1) ** 2 <= i + 1),
     lean: `theorem mertens_squared_under_n_on_the_first_twenty : ((${JSON.stringify(MERT.map((m, i) => [m * m, i + 1])).replace(/\[/g, '(').replace(/\]/g, ')').replace(/^\(/, '[').replace(/\)$/, ']')} : List (Nat \u00d7 Nat)).all (fun q => q.1 \u2264 q.2)) = true := by decide` },
 
-  { key: 'hasse_bound_holds_at_four_primes',
+  { key: 'hasse_bound_holds_at_four_primes', source: ['10.1515/crll.1936.175.193'],
     why: `Birch–Swinnerton-Dyer, through point counting: #E(F_p) on y² = x³ + 1, counted exhaustively at p = 5, 7, 11, 13, and Hasse's bound (p + 1 − N)² ≤ 4p at each. Hasse's theorem is proven mathematics; the counts here are decided, and the rank the conjecture is about is not touched.`,
     js: () => R(PS.length).every((i) => (PS[i]! + 1 - countE(PS[i]!)) ** 2 <= 4 * PS[i]!),
     lean: `theorem hasse_bound_holds_at_four_primes : ((${JSON.stringify(PS.map((p) => [(p + 1 - countE(p)) ** 2, p])).replace(/\[/g, '(').replace(/\]/g, ')').replace(/^\(/, '[').replace(/\)$/, ']')} : List (Nat \u00d7 Nat)).all (fun q => q.1 \u2264 4 * q.2)) = true := by decide` },
 
-  { key: 'four_simplex_boundary_euler_is_zero',
+  { key: 'four_simplex_boundary_euler_is_zero', source: ['10.48550/arXiv.math/0211159'],
     why: 'Poincaré, as combinatorics: the boundary of the 4-simplex triangulates the 3-sphere with 5 vertices, 10 edges, 10 faces and 5 cells, so χ = 5 − 10 + 10 − 5 = 0 — the Euler characteristic every closed odd-dimensional manifold has. The conjecture (proved by Perelman, 2003) is not this; this is the arithmetic of one triangulation.',
     js: () => R(4).reduce((a, i) => a + (i % 2 === 0 ? [5, 10, 10, 5][i]! : -[5, 10, 10, 5][i]!), 0) === 0,
     lean: 'theorem four_simplex_boundary_euler_is_zero : ((5:Int) - 10 + 10 - 5 = 0) ∧ (([5,10,10,5] : List Int).length = 4) := by decide' },

@@ -105,7 +105,8 @@ theorem note_values_are_doublings : 1 * 16 = 16 ∧ 2 * 8 = 16 ∧ 4 * 4 = 16 �
     arithmetic and has never confirmed a measurement. Sealed is the exponent arithmetic — 128 = 4·32 and 2² = 4,
     so √4 = 2 needs no root: the square IS the witness. the proportionality M² ∝ bits and every microgram ride
     physics (ħ, G, c, the Bekenstein bound) that no kernel decides; what the kernel holds is that WHATEVER that
-    physics scales, the handle-to-uuid step scales it by exactly two. -/
+    physics scales, the handle-to-uuid step scales it by exactly two. Source: DOI 10.1103/RevModPhys.97.025002;
+    DOI 10.1103/PhysRevD.7.2333; DOI 10.1007/BF02345020. -/
 theorem two_coins_in_kilograms : 128 = 4 * 32 ∧ 128 / 32 = 4 ∧ 2 ^ 2 = 4 := by decide
 
 /-- A HANDLE'S CAPACITY SURVIVES EVERY ENTANGLEMENT IT RADIATES — TYPOGRAPHY INCLUDED. One handle spans 16⁸ =

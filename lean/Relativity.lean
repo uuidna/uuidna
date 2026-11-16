@@ -1,25 +1,27 @@
 -- lean/Relativity.lean — GENERATED. RELATIVITY — the spacetime domain, as decidable arithmetic, demarcated. TWO LAYERS. The first works in units where c = 1 and seals the GEOMETRY: light on the null cone, the invariant interval separating timelike from spacelike, the Lorentz triangle, E = mc², and causality refusing a spacelike cause. The second, added 2026-09-04, seals the CONSTANTS — and it can only exist because of a fact about metrology rather than a liberty taken with physics: since 1983 the metre is DEFINED as the distance light travels in 1/299792458 of a second, and the 2019 revision of the SI likewise FIXED the Planck constant, the elementary charge, the Boltzmann constant and the Avogadro number at exact decimals. Those are integers by definition, so arithmetic on them is exact and the kernel can decide it. The second layer also QUANTIFIES what the first sampled: the Lorentz triangle held one triple, and a Pythagorean triple is now shown to be exactly a velocity whose dilation is rational (with the count — sixteen such velocities below denominator 26, out of three hundred fractions, eight of them primitive), while the null cone held one event on a line and now carries integer events in three spatial dimensions. WHAT IS CLAIMED, AND WHOSE CLAIM IS WHOSE. CLAIMED HERE, IN FULL: every arithmetic fact in both layers — the SI compositions, the exact-dilation theorem and its density count, the integer events on the null cone. Each was decided by the kernel over its own finite domain, axiom-free, and this ledger claims them outright. CREDITED TO OTHERS: that the metre is defined by the speed of light and that four more constants were fixed at exact decimals is the SI's definition, credited to the CGPM; that relativity describes the world is physics's result, credited to physics. Naming the right author for each is attribution, not modesty. ONE THING IS EXPLICITLY DRAINED OF MEANING rather than merely unclaimed: the residues modulo 9 are properties of DECIMAL NUMERALS fixed by which digits the SI chose, sealed because they are checkable and stated flatly so that nobody discovers them later and means something by them. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- Light travels on the null cone: with c = 1, a flash covering x = 5 in t = 5 has spacetime interval (ct)² −
-    x² = 5² − 5² = 0. Photons trace the zero-interval boundary between cause and no-cause. -/
+    x² = 5² − 5² = 0. Photons trace the zero-interval boundary between cause and no-cause. Source: DOI
+    10.1002/andp.19053221004. -/
 theorem light_on_null_cone : ((5*5 - 5*5 : Int) = 0) ∧ ((5*5 - 4*4 : Int) ≠ 0) ∧ ((5*5 - 6*6 : Int) ≠ 0) := by decide
 
 /-- The invariant interval classifies events: a timelike separation (ct = 5, x = 4) gives s² = 25 − 16 = 9 > 0 —
     inside the light cone, reachable below light speed, so cause can reach effect. All observers agree on this
-    interval. -/
+    interval. Source: DOI 10.1002/andp.19053221004. -/
 theorem interval_timelike_causal : ((5*5 - 4*4 : Int) = 9) ∧ ((9:Int) > 0) := by decide
 
 /-- The Lorentz factor rides a right triangle: β² + (1/γ)² = 1, so at β = 5/13 the reciprocal factor is 12/13
-    and γ = 13/12 — 5² + 12² = 13². The faster you go, the taller the triangle. -/
+    and γ = 13/12 — 5² + 12² = 13². The faster you go, the taller the triangle. Source: DOI
+    10.1002/andp.19053221004. -/
 theorem lorentz_gamma_triangle : 5^2 + 12^2 = 13^2 := by decide
 
 /-- Mass is energy: E = mc², so (with c² = 9 in these units) masses [1,2,3] carry rest energies [9,18,27] —
-    linear in mass. Even at rest, matter holds mc² of energy. -/
+    linear in mass. Even at rest, matter holds mc² of energy. Source: DOI 10.1002/andp.19053231314. -/
 theorem rest_energy_mc2 : (([1,2,3] : List Nat).map (fun m => m * 9)) = [9,18,27] := by decide
 
 /-- Causality forbids faster-than-light links: a spacelike separation (ct = 3, x = 5) has s² = 9 − 25 = −16 < 0
     — outside the light cone, so no signal can connect the events without exceeding c. What is spacelike cannot
-    be a cause. -/
+    be a cause. Source: DOI 10.1002/andp.19053221004. -/
 theorem causality_forbids_ftl : (3*3 - 5*5 : Int) < 0 := by decide
 
 /-- THE SPEED OF LIGHT IS NOT MEASURED HERE — IT IS THE DEFINITION DOING ARITHMETIC. Since 1983 the metre is
@@ -31,7 +33,7 @@ theorem causality_forbids_ftl : (3*3 - 5*5 : Int) < 0 := by decide
     five facts above, which work in units where c = 1: those seal the geometry of the interval, this seals the
     one constant the geometry is usually written with. HONEST, and the distinction carries the whole wing: this
     is arithmetic on the SI's own definition. Nothing was observed to seal it, and it does not claim the
-    definition is physically apt — only that the integers compose. -/
+    definition is physically apt — only that the integers compose. Source: DOI 10.1088/0026-1394/19/4/004. -/
 theorem the_metre_is_defined_by_the_second : (299792458 * 60 = 17987547480) ∧ (299792458 * 3600 = 1079252848800) ∧ (17987547480 * 60 = 1079252848800) := by decide
 
 /-- THE 2019 SI MADE THE CONSTANTS EXACT, WHICH IS THE ONLY REASON THEY CAN BE SEALED. The kilogram stopped
@@ -44,7 +46,8 @@ theorem the_metre_is_defined_by_the_second : (299792458 * 60 = 17987547480) ∧ 
     DRAINED: modulo 9 the five constants give c ≡ 1, h ≡ 6, e ≡ 0, k ≡ 4, N_A ≡ 1. A residue modulo 9 is a
     property of a DECIMAL NUMERAL — fixed by which digits the SI chose — and carries no physical content
     whatsoever. It is sealed because it is checkable, and it is said flatly here because an unsealed numerical
-    coincidence in a physics wing is an invitation for someone to mean something by it. -/
+    coincidence in a physics wing is an invitation for someone to mean something by it. Source: DOI
+    10.1088/1681-7575/aa950a; DOI 10.1088/1681-7575/ab0013. -/
 theorem the_defining_constants_are_exact_integers : (2 * 1602176634 = 3204353268) ∧ (299792458 % 9 = 1) ∧ (662607015 % 9 = 6) ∧ (1602176634 % 9 = 0) ∧ (1380649 % 9 = 4) ∧ (602214076 % 9 = 1) := by decide
 
 /-- CHOOSING THE PAIRING CHOOSES WHICH CONSTANT SURVIVES, AND THAT CHOICE IS INTEGER ARITHMETIC. A Planck
@@ -67,7 +70,8 @@ theorem the_defining_constants_are_exact_integers : (2 * 1602176634 = 3204353268
     decided is the exponent arithmetic and those two integer ratios and nothing else. That l_P, m_P and t_P
     carry these exponents is the DEFINITION of Planck units; the Bekenstein area law is physics that rides
     outside this tree (Bekenstein 1973, Hawking 1975, as two_coins_in_kilograms names its authorities); the
-    kernel has never confirmed a measurement and confirms none here. No metre, kilogram or second is claimed. -/
+    kernel has never confirmed a measurement and confirms none here. No metre, kilogram or second is claimed.
+    Source: DOI 10.1103/PhysRevD.7.2333; DOI 10.1007/BF02345020. -/
 theorem the_pairing_cancels_the_constant : (List.zipWith (· + ·) [1,1,-3] [1,-1,1] = ([2,0,-2] : List Int)) ∧ (List.zipWith (· - ·) [1,1,-3] [1,-1,1] = ([0,2,-4] : List Int)) ∧ (List.zipWith (· - ·) [1,1,-3] [1,1,-5] = ([0,0,2] : List Int)) ∧ (128 = 4 * 32) ∧ (2 * 2 = 4) := by decide
 
 /-- THE LORENTZ TRIANGLE, QUANTIFIED — because one triangle is a sample and this wing already had the sample.

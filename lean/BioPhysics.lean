@@ -33,18 +33,19 @@ theorem sound_ladder_432 : ((List.range' 1 9).map (fun d => 48 * d) = [48,96,144
 theorem octave_doubling : [48, 96, 192, 384] = [48, 48*2, 96*2, 192*2] := by decide
 
 /-- electron shells hold 2n² each — [2,8,18,32] for n=1..4 (2 spin states × n² orbitals); the shape of the
-    periodic table is a count -/
+    periodic table is a count Source: DOI 10.1080/14786442408634535; DOI 10.1007/BF02980631. -/
 theorem electron_shells_2n2 : (List.range' 1 4).map (fun n => 2 * n * n) = [2, 8, 18, 32] := by decide
 
-/-- the subshells s,p,d,f hold 4l+2 = [2,6,10,14] for l=0..3 — (2l+1) orbitals × 2 spins -/
+/-- the subshells s,p,d,f hold 4l+2 = [2,6,10,14] for l=0..3 — (2l+1) orbitals × 2 spins Source: DOI
+    10.1080/14786442408634535; DOI 10.1007/BF02980631. -/
 theorem subshell_capacities_4l2 : (List.range 4).map (fun l => 4 * l + 2) = [2, 6, 10, 14] := by decide
 
 /-- the circle of fifths: stacking fifths (+7 mod 12) visits ALL twelve pitch classes — 7 is coprime to 12, so
-    ×7 permutes ℤ/12 -/
+    ×7 permutes ℤ/12 Source: DOI 10.2307/3679467. -/
 theorem circle_of_fifths : (List.range 12).all (fun t => (List.range 12).any (fun k => (7 * k) % 12 == t)) := by decide
 
 /-- the tritone (+6 mod 12) is a fixed-point-free involution — the octave splits exactly in half, each note its
-    own tritone-of-tritone -/
+    own tritone-of-tritone Source: DOI 10.2307/3679467. -/
 theorem tritone_involution : (List.range 12).all (fun p => ((p + 6) % 12 + 6) % 12 == p && (p + 6) % 12 != p) := by decide
 
 /-- the pH scale reflects: pH ↦ 14−pH is an involution on 0..14 with a SINGLE fixed point 7 (neutral) — the

@@ -147,7 +147,15 @@ export interface Fact {
   js?: () => boolean
   defs?: string
   skill?: string  // the CAPABILITY this fact demonstrates — authored inline (the single source)
+  /** the DOIs of the textbook, paper or standard the prose's claim about the world rests on. emit appends them to
+   *  the doc and the manifest name, so the kernel-signed text names its source and gen-references resolves it */
+  source?: readonly string[]
 }
+
+/** sourced(prose, dois) → the prose with its sources stated in the form references.ts reads back. A fact with no
+ *  source keeps its prose byte for byte, so only the wings that gain a source move. */
+export const sourced = (prose: string, dois: readonly string[] = []): string =>
+  dois.length ? `${prose.replace(/\s+$/, '')} Source: ${dois.map((d) => `DOI ${d}`).join('; ')}.` : prose
 
 // emit's arguments: the target Lean file, its header comment, the facts to prove, and shared Lean defs. `skill` is
 // the file-level default capability (most domains are uniform); a Fact's own `skill` overrides it per fact.
@@ -357,15 +365,16 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
   // `theorem` in the block: the sentence is the fact's, and each theorem the fact seals is entitled to it. No
   // generated wing writes a multi-theorem fact today — this changes nothing in the current tree and is here so that
   // the first one to do so is documented rather than silently half-documented.
+  const proseOf = (f: Fact): string => sourced(f.name || f.why || f.stmt || f.key, f.source)
   const body = facts.map((f) => {
-    const doc = docComment(f.name || f.why || f.stmt || f.key)
+    const doc = docComment(proseOf(f))
     return f.lean ? f.lean.replace(/^theorem\s/gm, doc + 'theorem ') : doc + `theorem ${f.key} : ${f.stmt} := by decide`
   }).join('\n\n')
   const lean = `-- lean/${file} — GENERATED. ${header} ${proofsOf(facts)}, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n${defs ? defs.trim() + '\n\n' : ''}${body}\n`
   // The manifest carries {key, name, skill} — the microdata bridge. skill is the inline, authored capability
   // (a Fact's own skill, else the file-level default); omitted when neither is set, so the ledger falls back.
   const manifestPath = join(ROOT, 'lean', file.replace('.lean', '').toLowerCase() + '-manifest.json')
-  const manifest = JSON.stringify(facts.map((f) => { const s = f.skill ?? skill; const c = cases.get(f.key) ?? 1; return s ? { key: f.key, name: f.name || f.stmt || f.key, skill: s, cases: c } : { key: f.key, name: f.name || f.stmt || f.key, cases: c } }), null, 0) + '\n'
+  const manifest = JSON.stringify(facts.map((f) => { const s = f.skill ?? skill; const c = cases.get(f.key) ?? 1; const name = sourced(f.name || f.stmt || f.key, f.source); return s ? { key: f.key, name, skill: s, cases: c } : { key: f.key, name, cases: c } }), null, 0) + '\n'
   // THE DELTA GATE, decided BEFORE any write: byte-identical content means the kernel's prior signature stands,
   // so an unchanged wing costs neither the spawn NOR the two file writes — the whole step is verify-by-receipt.
   // (Both files must exist: a deleted artifact must be rewritten even when the address matches.)

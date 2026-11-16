@@ -110,27 +110,27 @@ const FACTS = [
   // cancels; the CODATA 2022 measurements say the numbers then agree, and
   // both are checked — l/t against c to 1 part per million, which is the
   // uncertainty in l and t themselves since c is exact by SI definition.
-  { key: 'kinematics_cancels_both', skill: 'wave',
+  { key: 'kinematics_cancels_both', source: ['10.1103/RevModPhys.97.025002'], skill: 'wave',
     why: 'LENGTH OVER TIME LEAVES NEITHER QUANTUM NOR GRAVITY. Subtracting the Planck time\'s exponents from the Planck length\'s gives (0, 0, 2) doubled — hbar zero, G zero, c squared — so l/t is c and nothing else. Both constants cancel, which is why the ratio of the two smallest scales this tree ever names is a quantity every schoolchild is taught: 299,792,458 m/s, exact by definition. Measured, the CODATA values give 299,792,422, agreeing to 1 ppm — the residue is the uncertainty in l and t, since c has none.',
     js: () => { const l=[1,1,-3], t=[1,1,-5]; const d=l.map((x,i)=>x-t[i]); return d[0]===0 && d[1]===0 && d[2]===2 && 5-3===2 },
     lean: 'theorem kinematics_cancels_both : ((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ (5 - 3 = 2) := by decide' },
 
-  { key: 'product_isolates_quantum', skill: 'wave',
+  { key: 'product_isolates_quantum', source: ['10.1103/RevModPhys.97.025002'], skill: 'wave',
     why: 'LENGTH TIMES MASS CANCELS GRAVITY AND LEAVES THE QUANTUM. Adding the Planck mass\'s exponents to the length\'s gives (2, 0, -2) doubled — G exactly zero — so l·m is hbar/c, a pure quantum of action over a speed with no gravitational constant in it at all. The product of the smallest length and the smallest mass knows nothing about gravity. CODATA agrees to six significant figures: 3.51767 x 10^-43 either way.',
     js: () => { const l=[1,1,-3], m=[1,-1,1]; const d=l.map((x,i)=>x+m[i]); return d[0]===2 && d[1]===0 && d[2]===-2 },
     lean: 'theorem product_isolates_quantum : ((1 + 1 = 2) ∧ (1 - 1 = 0)) ∧ (3 - 1 = 2) := by decide' },
 
-  { key: 'ratio_isolates_gravity', skill: 'wave',
+  { key: 'ratio_isolates_gravity', source: ['10.1103/RevModPhys.97.025002'], skill: 'wave',
     why: 'AND LENGTH OVER MASS CANCELS THE QUANTUM AND LEAVES GRAVITY — the mirror of the one above, which is why the pair is sealed together. Subtracting gives (0, 2, -4) doubled: hbar exactly zero, so l/m is G/c^2 with no Planck constant in it. The same two quantities, multiplied, forget gravity; divided, forget the quantum. CODATA agrees to six figures: 7.42616 x 10^-28. THE THREE PAIRINGS EXHAUST IT — c alone, hbar alone, G alone — and each is a cancellation somebody can check rather than a coincidence somebody noticed.',
     js: () => { const l=[1,1,-3], m=[1,-1,1]; const d=l.map((x,i)=>x-m[i]); return d[0]===0 && d[1]===2 && d[2]===-4 },
     lean: 'theorem ratio_isolates_gravity : ((1 - 1 = 0) ∧ (1 + 1 = 2)) ∧ (3 + 1 = 4) := by decide' },
 
-  { key: 'crossing_sits_inside', skill: 'wave',
+  { key: 'crossing_sits_inside', source: ['10.1103/RevModPhys.97.025002'], skill: 'wave',
     why: 'AND THE CROSSING IS AT 116 BITS, WHICH IS INSIDE THE ADDRESS. The two theorems below say 2^128 clears Planck resolution on a metre and 2^96 does not; between them sits a width where it first happens, and walking it gives 116 — 1616255 · 2^115 < 10^41 and 1616255 · 2^116 > 10^41, on the same CODATA 2022 Planck length the two theorems below use — 1.616255(18) x 10^-35 m, physics.nist.gov. So the frontier is not at either end of this tree\'s arithmetic: the leaf payload falls short by exactly twenty bits, and the full address clears it by twelve. A bound established by the same walk that uses it is a shape this ledger has caught before, so both sides are decided rather than the crossing being quoted from one.',
     js: () => 1616255n * 2n ** 115n < 10n ** 41n && 1616255n * 2n ** 116n > 10n ** 41n && 96 < 116 && 116 < 128,
     lean: 'theorem crossing_sits_inside : ((1616255 * 2 ^ 115 < 10 ^ 41) ∧ (1616255 * 2 ^ 116 > 10 ^ 41)) ∧ ((96 < 116) ∧ (116 < 128)) := by decide' },
 
-  { key: 'mass_selects_cancellation', skill: 'wave',
+  { key: 'mass_selects_cancellation', source: ['10.1103/RevModPhys.97.025002'], skill: 'wave',
     why: 'WHAT CANCELS IS CHOSEN BY THE MASS, NOT BY ITS PARTNER — the generalisation the three pairings above do not state. Pair the Planck TIME with the mass instead of the length: t·m gives (2, 0, -4) doubled, G zero again; t/m gives (0, 2, -6), hbar zero again. The same two constants are isolated, and all that changed is a power of c — hbar/c^2 where length gave hbar/c, G/c^3 where length gave G/c^2. So multiplying by the mass kills gravity and dividing by it kills the quantum WHATEVER it is paired with, and the partner only selects which power of c is left standing. That makes the three pairings above instances rather than a coincidence of three. AND THE NUMBERS AGREE, which the three pairings above each state and this one did not: CODATA 2022 gives t·m = 1.173369 x 10^-51 kg s against hbar/c^2 = 1.173369 x 10^-51, and t/m = 2.477101 x 10^-36 s/kg against G/c^3 = 2.477100 x 10^-36 — six figures either way, the residue being the uncertainty in G (2.2 x 10^-5 relative), the largest of the four constants used.',
     js: () => { const t=[1,1,-5], m=[1,-1,1];
       const prod=t.map((x,i)=>x+m[i]), quot=t.map((x,i)=>x-m[i]);
@@ -173,7 +173,7 @@ const FACTS = [
     js: () => 26 - 2 === 24 && 10 - 2 === 8 && 24 - 8 === 16,
     lean: 'theorem transverse_dimensions_pack_densest : ((26 - 2 = 24) \u2227 (10 - 2 = 8)) \u2227 (24 - 8 = 16) := by decide' },
 
-  { key: 'pairings_exhaust_the_cancellations', skill: 'wave',
+  { key: 'pairings_exhaust_the_cancellations', source: ['10.1103/RevModPhys.97.025002'], skill: 'wave',
     why: 'THE EXHAUSTION ITSELF, WHICH THE PAIRINGS ABOVE ASSERTED AND NOTHING DECIDED. ratio_isolates_gravity says in prose that the three pairings EXHAUST it — c alone, hbar alone, G alone — and a sentence claiming a search is complete is exactly the kind this ledger makes somebody run. So run it: the three Planck quantities admit SIX signed pairings, and each is computed here from the exponent vectors rather than quoted. A pairing CANCELS when the hbar exponent or the G exponent is zero, which is the criterion the three theorems above use, stated once instead of three times. Five of the six cancel — l/t kills both and leaves c, l·m and t·m kill G, l/m and t/m kill hbar — and the sixth, l·t, kills neither: (2, 2, -8), named in the second half so the theorem says WHICH one fails rather than only how many. That settles both claims at once. The exhaustion is real: projected onto (hbar, G) the five take exactly three values, (0,0), (2,0) and (0,2), so there is no fourth isolation to find. And mass_selects_cancellation sharpens: every pairing WITH the mass cancels something, while of the two mass-free pairings only the ratio does. NOT CLAIMED: that six is the only way to combine three quantities — these are the signed pairings, and a longer product is a different question nobody has asked here. AND THE ONE THAT FAILS IS CHECKABLE TOO, which is what keeps this from being arithmetic about itself: (2, 2, -8) halves to (1, 1, -4), so l·t is hbar·G/c^4 — it carries BOTH constants, which is precisely why it cancels neither. CODATA 2022 (physics.nist.gov) agrees to six figures: l·t = 8.713630 x 10^-79 m s against hbar·G/c^4 = 8.713629 x 10^-79, the residue again the 2.2 x 10^-5 uncertainty. The five cancellations and the one failure are therefore both measured, not merely counted.',
     js: () => { const l=[1,1,-3], t=[1,1,-5], m=[1,-1,1]
       const pair = (a: number[], b: number[], s: number): number[] => a.map((x, i) => x + s * b[i]!)
@@ -189,17 +189,17 @@ const FACTS = [
   // carries no reals, so it is written as the integers CODATA states —
   // 1616255 over 10^41 — and every comparison below is integer arithmetic on
   // those. THE FACT IS CODATA'S; the formalisation is what is claimed here.
-  { key: 'handle_outreaches_planck', skill: 'wave',
+  { key: 'handle_outreaches_planck', source: ['10.1103/RevModPhys.97.025002'], skill: 'wave',
     why: 'A FULL ADDRESS OUTREACHES THE PLANCK LENGTH ON A METRE, and this is the only comparison in this wing that is not about itself. One metre holds 10^41/1616255 = 61,871,424,991,724,696,907,356,821,788,641,025 Planck lengths — about 6.19 x 10^34 — using the CODATA 2022 value 1.616255(18) x 10^-35 m (physics.nist.gov). A uuidna address admits 2^122 values, so it has MORE distinct names than a metre has smallest-possible distances. Written as 1616255 · 2^122 > 10^41 because this tree holds no reals and a decimal would be a rounding nobody could check. THE EXPONENT IS 122 AND NOT 128, and it was 128 here until 2026-09-25. A uuid is 128 bits WIDE but formatUuid stamps six of them — four for the version nibble, two for the RFC variant — so the space of addresses this tree can actually mint is 2^122, a factor of 64 smaller. address.ts measured that over 20,000 addresses and said so in prose; this theorem counted the container instead of the contents, which is the width a reader would quote. The conclusion survives the correction — 1616255 · 2^122 is about 8.6 x 10^42, still past 10^41 — so what changes is the honesty of the count and not the direction. NOT CLAIMED: anything physical. The Planck length is not a pixel of space and nothing here says it is; what is decided is a comparison of two integer magnitudes, one of them a measured constant somebody else established.',
     js: () => 1616255n * 2n ** 122n > 10n ** 41n,
     lean: 'theorem handle_outreaches_planck : 1616255 * 2 ^ 122 > 10 ^ 41 := by decide' },
 
-  { key: 'planck_margin_bounded', skill: 'wave',
+  { key: 'planck_margin_bounded', source: ['10.1103/RevModPhys.97.025002'], skill: 'wave',
     why: 'AND BY HOW MUCH, because a direction without a magnitude is the weaker half of the statement. The margin is 85 — a uuidna address carries about eighty-five distinct values for every Planck length along a metre, on CODATA 2022\'s 1.616255(18) x 10^-35 m (physics.nist.gov), whose 1.1 x 10^-5 relative uncertainty moves that figure by less than one part in ten thousand and so cannot reach either bound. Decided as a two-sided bound, between 80 and 90, so the figure cannot drift by a factor and still pass: an inequality that only says "greater" would hold just as well if the true margin were 2 or 10^20, and it is neither. THAT DISCIPLINE IS WHY THIS ONE HAD TO MOVE. The bound sealed here was 5,000 to 6,000, on a margin of 5,499 computed from 2^128 — and 5,499/64 is 85, so at the width this tree actually mints the old bound is not merely generous, it is FALSE. A two-sided bound chosen so a factor cannot slip through caught a factor of 64 the moment the exponent was made honest, which is the whole reason for preferring it to a one-sided one.',
     js: () => (1616255n * 2n ** 122n) / 10n ** 41n > 80n && (1616255n * 2n ** 122n) / 10n ** 41n < 90n,
     lean: 'theorem planck_margin_bounded : (1616255 * 2 ^ 122 / 10 ^ 41 > 80) ∧ (1616255 * 2 ^ 122 / 10 ^ 41 < 90) := by decide' },
 
-  { key: 'payload_falls_short', skill: 'wave',
+  { key: 'payload_falls_short', source: ['10.1103/RevModPhys.97.025002'], skill: 'wave',
     why: 'THE CONTROL, AND IT NAMES WHERE THE LINE FALLS. The bound is a property of the width chosen, not a fact about addresses in general — so the same arithmetic must be able to fail, and it does, one level down. A leaf payload is 2^96 and 1616255 · 2^96 < 10^41 — the same CODATA 2022 Planck length (1.616255(18) x 10^-35 m, physics.nist.gov) the three theorems above compare against, which is what makes this a control and not a different measurement: ninety-six bits do NOT reach the Planck length on a metre, and neither does the 32-bit handle. Only the whole 128-bit address does. That is why the handle is a PATH to a leaf and the leaf carries the full uuid — the part of the address the tree spends on location is precisely the part that could not stand alone at this scale.',
     js: () => 1616255n * 2n ** 96n < 10n ** 41n && 1616255n * 2n ** 32n < 10n ** 41n,
     lean: 'theorem payload_falls_short : (1616255 * 2 ^ 96 < 10 ^ 41) ∧ (1616255 * 2 ^ 32 < 10 ^ 41) := by decide' },

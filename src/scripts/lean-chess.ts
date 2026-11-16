@@ -57,7 +57,7 @@ const FACTS = [
     js: () => KNIGHT.length === 8,
     lean: 'theorem knight_has_eight_moves : ([(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)] : List (Int × Int)).length = 8 := by decide' },
 
-  { key: 'closed_knight_tour_even',
+  { key: 'closed_knight_tour_even', source: ['10.1080/0025570X.1991.11977627'],
     why: 'Because a knight flips colour every move, it returns to its start colour only after an EVEN number of moves — so a closed knight’s tour has even length, and the full-board tour is 64 (even). 64 % 2 = 0.',
     js: () => { const c = (s: number): number => (((s - s % 8) / 8) + (s % 8)) % 2; const R = Array.from({length: 64}, (_, i) => i); return R.filter((s) => c(s) === 0).length === 32 && R.filter((s) => c(s) === 1).length === 32 },
     lean: 'theorem closed_knight_tour_even : (((List.range 64).filter (fun s => ((s / 8) + (s % 8)) % 2 == 0)).length = 32) \u2227 (((List.range 64).filter (fun s => ((s / 8) + (s % 8)) % 2 == 1)).length = 32) \u2227 (64 % 2 = 0) := by decide' },

@@ -6,7 +6,7 @@
     from the letters by the rank rule (alphabetic_three_ranks), and Lean decides the four sums. So both numbers
     fit both readings, which is the refutation that 616 confirms Nero alone (Williams 2007, Tyndale Bulletin
     58.1); gematria_forces_collisions says the same in general. Which reading the author meant is not decided
-    here. -/
+    here. Source: DOI 10.53751/001c.29233. -/
 theorem beast_number_fits_two_readings : [50,200,6,50,100,60,200].foldl (fun a v => a + v) 0 = 666 ∧ [50,200,6,100,60,200].foldl (fun a v => a + v) 0 = 616 ∧ [400,200,10,6,50].foldl (fun a v => a + v) 0 = 666 ∧ [400,200,10,6].foldl (fun a v => a + v) 0 = 616 := by decide
 
 /-- NICOMACHUS WAS WRONG ABOUT THE DIGITS, AND ONE NUMBER SHOWS IT. Nicomachus of Gerasa claimed the nth perfect

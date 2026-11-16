@@ -9,18 +9,18 @@ theorem two_bit_conjunctions_are_four_of_sixteen : ((List.range 16).filter (fun 
 /-- Riemann, through Mertens: M(n) = Σ μ(k), and |M(n)| ≤ √n — stated squared to stay in exact integers — holds
     for every n through 20. It was conjectured for ALL n and is FALSE (Odlyzko–te Riele, 1985), which is why the
     key names the window and not the conjecture: a predicate can hold on every element of a window and fail at
-    the next. -/
+    the next. Source: DOI 10.1515/crll.1985.357.138. -/
 theorem mertens_squared_under_n_on_the_first_twenty : (([(1,1),(0,2),(1,3),(1,4),(4,5),(1,6),(4,7),(4,8),(4,9),(1,10),(4,11),(4,12),(9,13),(4,14),(1,15),(1,16),(4,17),(4,18),(9,19),(9,20)] : List (Nat × Nat)).all (fun q => q.1 ≤ q.2)) = true := by decide
 
 /-- Birch–Swinnerton-Dyer, through point counting: #E(F_p) on y² = x³ + 1, counted exhaustively at p = 5, 7, 11,
     13, and Hasse's bound (p + 1 − N)² ≤ 4p at each. Hasse's theorem is proven mathematics; the counts here are
-    decided, and the rank the conjecture is about is not touched. -/
+    decided, and the rank the conjecture is about is not touched. Source: DOI 10.1515/crll.1936.175.193. -/
 theorem hasse_bound_holds_at_four_primes : (([(0,5),(16,7),(0,11),(4,13)] : List (Nat × Nat)).all (fun q => q.1 ≤ 4 * q.2)) = true := by decide
 
 /-- Poincaré, as combinatorics: the boundary of the 4-simplex triangulates the 3-sphere with 5 vertices, 10
     edges, 10 faces and 5 cells, so χ = 5 − 10 + 10 − 5 = 0 — the Euler characteristic every closed
     odd-dimensional manifold has. The conjecture (proved by Perelman, 2003) is not this; this is the arithmetic
-    of one triangulation. -/
+    of one triangulation. Source: DOI 10.48550/arXiv.math/0211159. -/
 theorem four_simplex_boundary_euler_is_zero : ((5:Int) - 10 + 10 - 5 = 0) ∧ (([5,10,10,5] : List Int).length = 4) := by decide
 
 /-- Yang–Mills, through its structure constants: SU(2)'s are the Levi-Civita symbol, and of the 27 index triples

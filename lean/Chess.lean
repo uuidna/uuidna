@@ -49,7 +49,8 @@ theorem knight_leap_is_odd : 1 + 2 = 3 ∧ 3 % 2 = 1 := by decide
 theorem knight_has_eight_moves : ([(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)] : List (Int × Int)).length = 8 := by decide
 
 /-- Because a knight flips colour every move, it returns to its start colour only after an EVEN number of moves
-    — so a closed knight’s tour has even length, and the full-board tour is 64 (even). 64 % 2 = 0. -/
+    — so a closed knight’s tour has even length, and the full-board tour is 64 (even). 64 % 2 = 0. Source: DOI
+    10.1080/0025570X.1991.11977627. -/
 theorem closed_knight_tour_even : (((List.range 64).filter (fun s => ((s / 8) + (s % 8)) % 2 == 0)).length = 32) ∧ (((List.range 64).filter (fun s => ((s / 8) + (s % 8)) % 2 == 1)).length = 32) ∧ (64 % 2 = 0) := by decide
 
 /-- A rook on an otherwise-empty board attacks 14 squares — 7 along its rank and 7 along its file (all but its

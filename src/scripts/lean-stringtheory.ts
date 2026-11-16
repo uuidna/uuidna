@@ -72,13 +72,13 @@ const SEARCHES = [
 ] as const
 
 const FACTS = [
-  { key: 'collider_energy_is_below_the_planck_scale', skill: 'string-theory-searches',
+  { key: 'collider_energy_is_below_the_planck_scale', source: ['10.1103/RevModPhys.97.025002'], skill: 'string-theory-searches',
     name: `CLAIMED: the Planck energy is ${ENERGY.q} times the LHC's collision energy, exactly — 13600 GeV divides 1.220890 x 10^19 GeV ${ENERGY.q} times with ${ENERGY.r} GeV left over. String theory's characteristic scale is fifteen orders of magnitude past the most energetic instrument ever built.`,
     why: 'THE FIRST QUESTION ABOUT A SEARCH IS WHETHER IT COULD HAVE FOUND ANYTHING. Division with remainder is exact by construction, so this seals the gap rather than estimating it: the Planck energy 1.220890 x 10^19 GeV (CODATA 2022, physics.nist.gov) over the LHC\'s 13.6 TeV centre-of-mass energy. No incremental collider closes a factor of this size — the ratio is not a difficulty of engineering but the reason the energy frontier is silent on this question. WHOSE CLAIM: the division is CLAIMED here, decided by the kernel. That the LHC reaches 13.6 TeV is CERN\'s, credited under the CMS open-data DOIs this ledger already cites; that the Planck energy is what CODATA says is NIST\'s.',
     js: () => LHC_GEV * ENERGY.q + ENERGY.r === PLANCK_GEV && ENERGY.r < LHC_GEV,
     lean: `theorem collider_energy_is_below_the_planck_scale : (13600 * ${ENERGY.q} + ${ENERGY.r} = 12208900000000000000) ∧ (${ENERGY.r} < 13600) := by decide` },
 
-  { key: 'newtonian_gravity_is_verified_far_above_the_planck_length', skill: 'string-theory-searches',
+  { key: 'newtonian_gravity_is_verified_far_above_the_planck_length', source: ['10.1103/RevModPhys.97.025002'], skill: 'string-theory-searches',
     name: `CLAIMED: the shortest separation at which the 1/r^2 law has been tested is ${LENGTH.q} Planck lengths, exactly — 52 micrometres over 1.616255 x 10^-35 m, with a remainder of ${LENGTH.r} in units of 10^-41 m. Extra dimensions are excluded above that separation and untouched below it.`,
     why: 'AN EXTRA DIMENSION CURLED SMALLER THAN THE SHORTEST TESTED SEPARATION IS NOT REFUTED BY THE TEST. Eot-Wash verified Newton\'s inverse-square law down to 52 micrometres (Lee et al., PRL 124, 101101, 2020, DOI 10.1103/PhysRevLett.124.101101), which this seals as a distance in Planck lengths using the same CODATA constant handle_outreaches_planck already uses. Thirty orders of magnitude separate the experiment\'s reach from the scale where string theory places its geometry, and the null result constrains only the region actually probed. WHOSE CLAIM: the division is CLAIMED here. That the balance held its calibration to 52 micrometres is the Eot-Wash group\'s, credited under its DOI and credited first.',
     js: () => PLANCK_LEN_E41 * LENGTH.q + LENGTH.r === EOTWASH_LEN_E41 && LENGTH.r < PLANCK_LEN_E41,

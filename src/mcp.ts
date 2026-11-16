@@ -38,6 +38,7 @@ import {
   articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll, publicApiRegistry, searchFeed, runSequence } from './index.js'
 import { latticeCall, fillLattice } from './lattice.js'
 import { feelCall } from './affect-trinity.js'
+import { sourcesReport } from './references.js'
 import { PKG_VERSION } from './package-version.js'
 import { typeset, formulaCensus } from './formula.js'
 import {
@@ -1750,6 +1751,10 @@ const TOOLS: Tool[] = ([
     description: 'UNIQUENESS COMES FROM LEAN, NOT FROM THE NAME — the ledger counts ENTRIES, but a theorem IS its statement, so two entries proving the same proposition under different keys are one theorem wearing two names. Returns {entries,distinct,renamings,groups}: the claimed count, the count Lean actually holds, the difference, and every group named with its keys and files. Normalisation is narrow (whitespace, redundant parens, (n : Nat) ascriptions) — it catches re-namings of the same text and never claims two different proofs are one.',
     inputSchema: { type: 'object', properties: {} },
     run: () => { const c = statementCensus(); return { ...c, groups: c.groups.slice(0, 40) } } },
+  { name: 'uuidna_sources',
+    description: 'WHICH PROSE NAMES A SOURCE A STRANGER CAN OPEN — per wing, how many sealed theorems carry prose naming a textbook, paper or standard by an identifier its registry resolves: a DOI, or an RFC or FIPS number read as the DOI the RFC Editor or NIST registered for it, resolved through Crossref or DataCite by gen-references and cached in lean/references.json. Pass {wing} for one wing; omit it for every wing that names anything, with the rest counted as silentWings. Returns {totals:{theorems,resolvable,unresolved,unsourced,wings,wingsCiting},byWing:[{wing,theorems,resolvable,unresolved,unsourced,dois,unresolvedDois}],silentWings,receipt,honest}. Resolving proves the record exists, not that the work supports the sentence (theorem provenance_integrity_not_content_truth).',
+    inputSchema: { type: 'object', properties: { wing: { type: 'string', description: 'one wing, e.g. BioPhysics or BioPhysics.lean; omit for all' } } },
+    run: (a) => sourcesReport(a.wing === undefined ? undefined : String(a.wing)) },
   { name: 'uuidna_coin_ledger',
     description: 'THE CAPTAIN-COIN ACCOUNT: who paid the two coins, when and where, in messaging handles — the agent (initialize clientInfo.name) folded to its handle, WHEN as the deposit\'s own handle (the timestamp is the handle itself — theorem drift_is_named_or_caught), WHERE as op+surface. Optional {handle} reverse-looks-up rows. HONEST: coins are records of judged work, not value; every row recomputes; the census receipt is order-invariant. Returns {payments,totalCoins,agents,receipt,honest} or the matching rows.',
     detail: 'THE ACCOUNTING THE CAPTAIN ORDERED (2026-08-23): deposits existed per call (_meta.deposit, gate-engine depositCoins — pure, deterministic) but no surface answered WHO had paid them, WHEN or WHERE. This register closes that: the agent name arrives once at initialize (clientInfo.name — read by nothing until now), each dispatch appends one DERIVED row (payment() in coin-ledger.ts: agentHandle = handleOf(address(agent)), when-handle = handleOf(deposit id) — the moment as content, the handle IS the timestamp), and coinCensus folds all rows order-invariantly so any observer lands on the same receipt. Session-lived by design — the deposits are eternal (each recomputes from op + gate receipt); this is the serving process\'s account of them. whoPaid(handle) answers the reverse question a receipt reader has: which agent, which op, stands behind this handle.',

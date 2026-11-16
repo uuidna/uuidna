@@ -21,6 +21,7 @@ const FACTS = [
     const S = (xs: readonly number[]): string => `${L(xs)}.foldl (fun a v => a + v) 0`
     return {
       key: 'beast_number_fits_two_readings',
+      source: ['10.53751/001c.29233'],
       why: `THE NUMBER DOES NOT PICK OUT ITS NAME. Revelation 13:18 gives 666 and the oldest papyrus, P115, gives 616. Spelled in Hebrew letters, "Nero Caesar" sums to ${sumOf(nero)} from the Greek Neron and ${sumOf(neroLatin)} from the Latin Nero; the word for "beast" itself, thērion, sums to ${sumOf(beast)} and, in its genitive form, ${sumOf(beastGen)}. Every letter value is derived from the letters by the rank rule (alphabetic_three_ranks), and Lean decides the four sums. So both numbers fit both readings, which is the refutation that 616 confirms Nero alone (Williams 2007, Tyndale Bulletin 58.1); gematria_forces_collisions says the same in general. Which reading the author meant is not decided here.`,
       js: () => sumOf(nero) === 666 && sumOf(neroLatin) === 616 && sumOf(beast) === 666 && sumOf(beastGen) === 616,
       lean: `theorem beast_number_fits_two_readings : ${S(nero)} = 666 ∧ ${S(neroLatin)} = 616 ∧ ${S(beast)} = 666 ∧ ${S(beastGen)} = 616 := by decide`,

@@ -1,9 +1,9 @@
--- lean/HandleStore.lean — GENERATED. THE HANDLE STORE — a finite tree whose smallest leaf carries the whole address. `src/handles/aa/bb/cc/dd/index.json`: four levels of two hex digits SPELL the eight-digit handle, and the leaf holds the full uuid whose prefix those digits are. Measured over the 76,199 leaves present, the path spells the handle in 76,199 of 76,199 and the handle is the address prefix in 76,199 of 76,199. THE HOLOGRAM IS AN IDENTITY, NOT AN IMAGE. Two hex digits branch 256 ways and every level branches identically, so a subtree at any depth has the shape of the tree; four levels give 256⁴ = 16⁸ = 2³² leaves; a uuid is 2¹²⁸ and the path spends 32 of those bits, so 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ EXACTLY. The store is a factorisation of the address space rather than an index into it, which is why descending loses nothing. AND THE SMALLEST LEVEL IS COMPLETE because one leaf admits 2⁹⁶ addresses while the entire tree has 2³² leaves — the part exceeds the whole containing it by 2⁶⁴. Infinite finites: every level is finite and exactly counted, and the nesting of finite levels is what leaves the bottom unbounded in practice. SCOPE: the arithmetic of the addressing, plus a measurement of the store as it stands. Nothing here claims the store is full — 76,199 leaves of a possible 2³², sealed as its own theorem so capacity and occupancy can never be quoted as one number — and nothing claims a leaf's payload space is realisable on any disk. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/HandleStore.lean — GENERATED. THE HANDLE STORE — a finite tree whose smallest leaf carries the whole address. `src/handles/aa/bb/cc/dd/index.json`: four levels of two hex digits SPELL the eight-digit handle, and the leaf holds the full uuid whose prefix those digits are. Measured over the 73,099 leaves present, the path spells the handle in 73,099 of 73,099 and the handle is the address prefix in 73,099 of 73,099. THE HOLOGRAM IS AN IDENTITY, NOT AN IMAGE. Two hex digits branch 256 ways and every level branches identically, so a subtree at any depth has the shape of the tree; four levels give 256⁴ = 16⁸ = 2³² leaves; a uuid is 2¹²⁸ and the path spends 32 of those bits, so 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ EXACTLY. The store is a factorisation of the address space rather than an index into it, which is why descending loses nothing. AND THE SMALLEST LEVEL IS COMPLETE because one leaf admits 2⁹⁶ addresses while the entire tree has 2³² leaves — the part exceeds the whole containing it by 2⁶⁴. Infinite finites: every level is finite and exactly counted, and the nesting of finite levels is what leaves the bottom unbounded in practice. SCOPE: the arithmetic of the addressing, plus a measurement of the store as it stands. Nothing here claims the store is full — 73,099 leaves of a possible 2³², sealed as its own theorem so capacity and occupancy can never be quoted as one number — and nothing claims a leaf's payload space is realisable on any disk. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- THE FOLDERS ARE THE NAME, NOT A ROUTE TO IT. Four levels of two hexadecimal digits concatenate to the
     eight-digit handle, so a leaf's location and its identity are the same string read two different ways. There
     is no lookup between them and nothing to fall out of step: 4 × 2 = 8. Measured over the store as it stands,
-    the path spells the handle in 76,199 of 76,199 leaves. -/
+    the path spells the handle in 73,099 of 73,099 leaves. -/
 theorem the_path_spells_the_handle : (4 * 2 = 8) ∧ (8 * 4 = 32) := by decide
 
 /-- THE FRACTAL CLAIM, AS A CONSTANT RATHER THAN A RESEMBLANCE. Two hex digits branch 256 ways, and every one of
@@ -30,30 +30,33 @@ theorem the_index_factorises_the_whole_space : (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (
     NESTING of finite levels that leaves the bottom unbounded in practice. -/
 theorem the_smallest_leaf_outruns_the_whole_index : (2 ^ 96 > 2 ^ 32) ∧ (2 ^ 96 = 2 ^ 32 * 2 ^ 64) := by decide
 
-/-- AND THE CAPACITY IS NOT A CLAIM ABOUT WHAT IS WRITTEN. The store carries 76,199 leaves against 4,294,967,296
+/-- AND THE CAPACITY IS NOT A CLAIM ABOUT WHAT IS WRITTEN. The store carries 73,099 leaves against 4,294,967,296
     the addressing admits — decided here so the two numbers can never be quoted as one. A capacity describes
     what the scheme permits; an occupancy describes what exists; a ledger that let those drift together would be
-    overstating itself by a factor of about 56,365. -/
-theorem the_store_holds_far_less_than_it_admits : 76199 < 2 ^ 32 := by decide
+    overstating itself by a factor of about 58,755. -/
+theorem the_store_holds_far_less_than_it_admits : 73099 < 2 ^ 32 := by decide
 
 /-- LENGTH OVER TIME LEAVES NEITHER QUANTUM NOR GRAVITY. Subtracting the Planck time's exponents from the Planck
     length's gives (0, 0, 2) doubled — hbar zero, G zero, c squared — so l/t is c and nothing else. Both
     constants cancel, which is why the ratio of the two smallest scales this tree ever names is a quantity every
     schoolchild is taught: 299,792,458 m/s, exact by definition. Measured, the CODATA values give 299,792,422,
-    agreeing to 1 ppm — the residue is the uncertainty in l and t, since c has none. -/
+    agreeing to 1 ppm — the residue is the uncertainty in l and t, since c has none. Source: DOI
+    10.1103/RevModPhys.97.025002. -/
 theorem kinematics_cancels_both : ((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ (5 - 3 = 2) := by decide
 
 /-- LENGTH TIMES MASS CANCELS GRAVITY AND LEAVES THE QUANTUM. Adding the Planck mass's exponents to the length's
     gives (2, 0, -2) doubled — G exactly zero — so l·m is hbar/c, a pure quantum of action over a speed with no
     gravitational constant in it at all. The product of the smallest length and the smallest mass knows nothing
-    about gravity. CODATA agrees to six significant figures: 3.51767 x 10^-43 either way. -/
+    about gravity. CODATA agrees to six significant figures: 3.51767 x 10^-43 either way. Source: DOI
+    10.1103/RevModPhys.97.025002. -/
 theorem product_isolates_quantum : ((1 + 1 = 2) ∧ (1 - 1 = 0)) ∧ (3 - 1 = 2) := by decide
 
 /-- AND LENGTH OVER MASS CANCELS THE QUANTUM AND LEAVES GRAVITY — the mirror of the one above, which is why the
     pair is sealed together. Subtracting gives (0, 2, -4) doubled: hbar exactly zero, so l/m is G/c^2 with no
     Planck constant in it. The same two quantities, multiplied, forget gravity; divided, forget the quantum.
     CODATA agrees to six figures: 7.42616 x 10^-28. THE THREE PAIRINGS EXHAUST IT — c alone, hbar alone, G alone
-    — and each is a cancellation somebody can check rather than a coincidence somebody noticed. -/
+    — and each is a cancellation somebody can check rather than a coincidence somebody noticed. Source: DOI
+    10.1103/RevModPhys.97.025002. -/
 theorem ratio_isolates_gravity : ((1 - 1 = 0) ∧ (1 + 1 = 2)) ∧ (3 + 1 = 4) := by decide
 
 /-- AND THE CROSSING IS AT 116 BITS, WHICH IS INSIDE THE ADDRESS. The two theorems below say 2^128 clears Planck
@@ -62,7 +65,8 @@ theorem ratio_isolates_gravity : ((1 - 1 = 0) ∧ (1 + 1 = 2)) ∧ (3 + 1 = 4) :
     two theorems below use — 1.616255(18) x 10^-35 m, physics.nist.gov. So the frontier is not at either end of
     this tree's arithmetic: the leaf payload falls short by exactly twenty bits, and the full address clears it
     by twelve. A bound established by the same walk that uses it is a shape this ledger has caught before, so
-    both sides are decided rather than the crossing being quoted from one. -/
+    both sides are decided rather than the crossing being quoted from one. Source: DOI
+    10.1103/RevModPhys.97.025002. -/
 theorem crossing_sits_inside : ((1616255 * 2 ^ 115 < 10 ^ 41) ∧ (1616255 * 2 ^ 116 > 10 ^ 41)) ∧ ((96 < 116) ∧ (116 < 128)) := by decide
 
 /-- WHAT CANCELS IS CHOSEN BY THE MASS, NOT BY ITS PARTNER — the generalisation the three pairings above do not
@@ -74,7 +78,7 @@ theorem crossing_sits_inside : ((1616255 * 2 ^ 115 < 10 ^ 41) ∧ (1616255 * 2 ^
     three. AND THE NUMBERS AGREE, which the three pairings above each state and this one did not: CODATA 2022
     gives t·m = 1.173369 x 10^-51 kg s against hbar/c^2 = 1.173369 x 10^-51, and t/m = 2.477101 x 10^-36 s/kg
     against G/c^3 = 2.477100 x 10^-36 — six figures either way, the residue being the uncertainty in G (2.2 x
-    10^-5 relative), the largest of the four constants used. -/
+    10^-5 relative), the largest of the four constants used. Source: DOI 10.1103/RevModPhys.97.025002. -/
 theorem mass_selects_cancellation : ((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ ((1 + 1 = 2) ∧ (1 + 1 = 2)) := by decide
 
 /-- THE BOSONIC CRITICAL DIMENSION IS A SUM THAT VANISHES. A conformal field theory on the world-sheet carries a
@@ -122,7 +126,8 @@ theorem transverse_dimensions_pack_densest : ((26 - 2 = 24) ∧ (10 - 2 = 8)) �
     arithmetic about itself: (2, 2, -8) halves to (1, 1, -4), so l·t is hbar·G/c^4 — it carries BOTH constants,
     which is precisely why it cancels neither. CODATA 2022 (physics.nist.gov) agrees to six figures: l·t =
     8.713630 x 10^-79 m s against hbar·G/c^4 = 8.713629 x 10^-79, the residue again the 2.2 x 10^-5 uncertainty.
-    The five cancellations and the one failure are therefore both measured, not merely counted. -/
+    The five cancellations and the one failure are therefore both measured, not merely counted. Source: DOI
+    10.1103/RevModPhys.97.025002. -/
 theorem pairings_exhaust_the_cancellations : (((([ List.zipWith (· - ·) [1,1,-3] [1,1,-5], List.zipWith (· + ·) [1,1,-3] [1,-1,1], List.zipWith (· - ·) [1,1,-3] [1,-1,1], List.zipWith (· + ·) [1,1,-5] [1,-1,1], List.zipWith (· - ·) [1,1,-5] [1,-1,1], List.zipWith (· + ·) [1,1,-3] [1,1,-5] ]) : List (List Int)).filter (fun v => v.headD 0 = 0 ∨ (v.drop 1).headD 0 = 0)).length = 5) ∧ (List.zipWith (· + ·) [1,1,-3] [1,1,-5] = ([2,2,-8] : List Int)) := by decide
 
 /-- A FULL ADDRESS OUTREACHES THE PLANCK LENGTH ON A METRE, and this is the only comparison in this wing that is
@@ -138,7 +143,7 @@ theorem pairings_exhaust_the_cancellations : (((([ List.zipWith (· - ·) [1,1,-
     8.6 x 10^42, still past 10^41 — so what changes is the honesty of the count and not the direction. NOT
     CLAIMED: anything physical. The Planck length is not a pixel of space and nothing here says it is; what is
     decided is a comparison of two integer magnitudes, one of them a measured constant somebody else
-    established. -/
+    established. Source: DOI 10.1103/RevModPhys.97.025002. -/
 theorem handle_outreaches_planck : 1616255 * 2 ^ 122 > 10 ^ 41 := by decide
 
 /-- AND BY HOW MUCH, because a direction without a magnitude is the weaker half of the statement. The margin is
@@ -150,7 +155,8 @@ theorem handle_outreaches_planck : 1616255 * 2 ^ 122 > 10 ^ 41 := by decide
     WHY THIS ONE HAD TO MOVE. The bound sealed here was 5,000 to 6,000, on a margin of 5,499 computed from 2^128
     — and 5,499/64 is 85, so at the width this tree actually mints the old bound is not merely generous, it is
     FALSE. A two-sided bound chosen so a factor cannot slip through caught a factor of 64 the moment the
-    exponent was made honest, which is the whole reason for preferring it to a one-sided one. -/
+    exponent was made honest, which is the whole reason for preferring it to a one-sided one. Source: DOI
+    10.1103/RevModPhys.97.025002. -/
 theorem planck_margin_bounded : (1616255 * 2 ^ 122 / 10 ^ 41 > 80) ∧ (1616255 * 2 ^ 122 / 10 ^ 41 < 90) := by decide
 
 /-- THE CONTROL, AND IT NAMES WHERE THE LINE FALLS. The bound is a property of the width chosen, not a fact
@@ -160,5 +166,5 @@ theorem planck_margin_bounded : (1616255 * 2 ^ 122 / 10 ^ 41 > 80) ∧ (1616255 
     different measurement: ninety-six bits do NOT reach the Planck length on a metre, and neither does the
     32-bit handle. Only the whole 128-bit address does. That is why the handle is a PATH to a leaf and the leaf
     carries the full uuid — the part of the address the tree spends on location is precisely the part that could
-    not stand alone at this scale. -/
+    not stand alone at this scale. Source: DOI 10.1103/RevModPhys.97.025002. -/
 theorem payload_falls_short : (1616255 * 2 ^ 96 < 10 ^ 41) ∧ (1616255 * 2 ^ 32 < 10 ^ 41) := by decide
