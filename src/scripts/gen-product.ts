@@ -47,9 +47,11 @@ const row = (cells: readonly string[]): string => `| ${cells.join(' | ')} |`
 const table = (head: readonly string[], rows: readonly (readonly string[])[]): string =>
   [row(head), `|${head.map(() => '---').join('|')}|`, ...rows.map(row)].join('\n')
 
+// the description is a quoted YAML scalar: the package name begins with `@`, which YAML reserves, and an unquoted
+// value starting with it fails the site build's front-matter parse
 const md = `---
 title: Product
-description: ${pkg.name} ${pkg.version} described as ISO/IEC 25051:2014 5.1 asks of a ready-to-use software product, every figure read from its source.
+description: ${JSON.stringify(`${pkg.name} ${pkg.version} described as ISO/IEC 25051:2014 5.1 asks of a ready-to-use software product, every figure read from its source.`)}
 ---
 
 # Product

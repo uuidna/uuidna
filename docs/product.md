@@ -1,6 +1,6 @@
 ---
 title: Product
-description: @uuidna/uuidna 0.3.1 described as ISO/IEC 25051:2014 5.1 asks of a ready-to-use software product, every figure read from its source.
+description: "@uuidna/uuidna 0.3.1 described as ISO/IEC 25051:2014 5.1 asks of a ready-to-use software product, every figure read from its source."
 ---
 
 # Product
@@ -59,7 +59,7 @@ simulation served locally up to 16 qubits.
 
 ## Limits and known limitations (5.1.5.4)
 
-262 open lead(s) ship as known limitations, each closing when a UUID program decides it (`run.program`) or a
+283 open lead(s) ship as known limitations, each closing when a UUID program decides it (`run.program`) or a
 verdict settles it:
 
 | Source | Open leads |
@@ -67,6 +67,7 @@ verdict settles it:
 | mcp-self-sufficiency | 181 |
 | refusals | 35 |
 | api-github-audit | 35 |
+| ledger | 21 |
 | api-search-feed | 7 |
 | expose | 3 |
 | api-school-queue | 1 |
