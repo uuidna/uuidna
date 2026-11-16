@@ -513,15 +513,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4.1-flash-1017",
    "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000002",
-   "completionPrice": "0.000000108"
+   "promptPrice": "0.0000003",
+   "completionPrice": "0.0000012"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash-1017:batch",
    "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000029",
-   "completionPrice": "0.000000253"
+   "promptPrice": "0.00000005",
+   "completionPrice": "0.00000015"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash:batch",
@@ -1143,8 +1143,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "minimax/minimax-m3.1-flash",
    "name": "MiniMax: MiniMax M3.1 Flash",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000075",
-   "completionPrice": "0.0000003"
+   "promptPrice": "0.00000015",
+   "completionPrice": "0.0000006"
   },
   {
    "id": "minimax/minimax-m3:batch",
@@ -1367,8 +1367,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k3.1-pro",
    "name": "MoonshotAI: Kimi K3.1 Pro",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000023",
-   "completionPrice": "0.0000115"
+   "promptPrice": "0.0000002403",
+   "completionPrice": "0.0000084023"
   },
   {
    "id": "moonshotai/kimi-k3.1-pro:batch",
@@ -2494,8 +2494,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-9b",
    "name": "Qwen: Qwen3.5-9B",
    "contextTokens": 262144,
-   "promptPrice": "0.000000168",
-   "completionPrice": "0.000000247"
+   "promptPrice": "0.000000165",
+   "completionPrice": "0.000000243"
   },
   {
    "id": "qwen/qwen3.5-flash-02-23",
@@ -3180,8 +3180,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-flash-latest",
    "name": "DeepSeek: DeepSeek Flash Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000002",
-   "completionPrice": "0.000000108"
+   "promptPrice": "0.000000036",
+   "completionPrice": "0.0000005"
   },
   {
    "id": "~deepseek/deepseek-pro-latest",

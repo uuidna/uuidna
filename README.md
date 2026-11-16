@@ -1,6 +1,6 @@
 # uuidna — 72,323 distinct theorems under 72,409 keys · 2 coins · one receipt
 
-`6b8584b2-185d-8be1-a6e4-a699b26e8e2d`
+`3d46f96a-d0eb-8701-9e14-47f5d449f7eb`
 
 **What every theorem carries, and what most do not.** Of 72,409 keys: proof · falsifier · address hold for all of them; **witness 51** (0.0%), **symbol 1419** (1.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 3 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
@@ -313,7 +313,7 @@ disagree with a figure there.
 - **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits man→app→hexbit 4,761 / 4,761 (100%);
   provenance compile 28,661 / 28,661 packages (100%)
   ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json);
-  community 22,700 / 22,700 = 100%; man compile 4,761 / 4,761; monitor receipt `4bf39b71-7049-81ba-aeff-6b053f086944`;
+  community 22,700 / 22,700 = 100%; man compile 4,761 / 4,761; monitor receipt `f128e464-373f-8fde-bb46-1f2fa6f4fde8`;
   VitePress monitor [/os](https://uuidna.com/os)). Nothing installed or executed — provenance on the hexbit lattice
   ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).
   Captain unlocks ride every sealed key — each theorem unlocks what it states
