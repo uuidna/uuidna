@@ -10436,8 +10436,8 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "11e626c3-a361-80d3-98db-7b19e5eb31a4",
-      "address": "00ddee78-3ca2-8257-866d-65cdb556beed",
+      "lineAddress": "267dee77-bb90-894f-8f23-2ec104cd1a59",
+      "address": "7c8f6e5f-9b9d-8581-a05e-2dabd493a8b6",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
@@ -501689,8 +501689,8 @@
     },
     {
       "key": "the_generated_closure_partitions_into_three_kinds",
-      "lineAddress": "47ebadd2-9f20-8cdd-aff1-7607b86c3f17",
-      "address": "e4538479-bbbb-8a98-bbcc-183c1d9def33",
+      "lineAddress": "3c859a7e-0ef8-8416-bda6-02784589a931",
+      "address": "e1a85cb7-e401-8d9b-a538-60e97426046d",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -501703,8 +501703,8 @@
     },
     {
       "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-      "lineAddress": "9903f102-e3de-8503-9926-e9bf0d925f01",
-      "address": "10378c49-76e3-8727-8bad-6870374df378",
+      "lineAddress": "64bc0d53-8556-8865-94aa-e2f8aa2ec9b0",
+      "address": "d922a8f3-9505-825d-a5b0-da3623284e05",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -509860,7 +509860,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "8221bfd2-feca-896a-b371-017c8552f8a3",
+  "claim_receipt": "4116c2f0-41fd-8949-9d26-6bf8e2310858",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

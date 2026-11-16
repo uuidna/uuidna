@@ -520,8 +520,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4.1-flash-1017:batch",
    "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000005",
-   "completionPrice": "0.00000015"
+   "promptPrice": "0.000000043",
+   "completionPrice": "0.000000384"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash:batch",
@@ -842,8 +842,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "google/gemma-4-26b-a4b-it",
    "name": "Google: Gemma 4 26B A4B ",
    "contextTokens": 262144,
-   "promptPrice": "0.0000000675",
-   "completionPrice": "0.000000225"
+   "promptPrice": "0.00000009",
+   "completionPrice": "0.0000003"
   },
   {
    "id": "google/gemma-4-26b-a4b-it:free",
@@ -892,7 +892,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "IBM: Granite 4.2 8B",
    "contextTokens": 131072,
    "promptPrice": "0.00000006",
-   "completionPrice": "0.00000025"
+   "completionPrice": "0.00000015"
   },
   {
    "id": "inclusionai/ling-3.0-flash",
@@ -2494,8 +2494,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-9b",
    "name": "Qwen: Qwen3.5-9B",
    "contextTokens": 262144,
-   "promptPrice": "0.000000107",
-   "completionPrice": "0.000000157"
+   "promptPrice": "0.000000047",
+   "completionPrice": "0.00000007"
   },
   {
    "id": "qwen/qwen3.5-flash-02-23",
