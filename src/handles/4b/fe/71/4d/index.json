@@ -1,0 +1,12 @@
+{
+  "handle": "4bfe714d",
+  "address": "4bfe714d-b08d-8979-ba9a-87dfc3719604",
+  "kind": "chunk",
+  "keys": [
+    "fam_cosmology"
+  ],
+  "statement": "(((1400 : Int) / (20 : Int)) = (70 : Int)) ∧ (((70 : Int) * (10 : Int)) = (700 : Int)) ∧ (((1400 : Int) / (70 : Int)) = (20 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (10 : Int))) = (0 : Int)) ∧ (((300 : Int) * (14 : Int)) = (4200 : Int)) ∧ ((((27 : Int) * (1000 : Int)) / (30 : Int)) = (900 : Int)) ∧ (((2 : Int) * ((1100 : Int) + (1 : Int))) = (2202 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

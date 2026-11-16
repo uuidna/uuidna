@@ -1,0 +1,12 @@
+{
+  "handle": "04cdea29",
+  "address": "04cdea29-2097-8f03-b02d-3871e6a04fb8",
+  "kind": "chunk",
+  "keys": [
+    "fam_hash"
+  ],
+  "statement": "(((2 : Int) ^ (10 : Nat)) = (1024 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (900 : Int))) = (100 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ (((32 : Int) * (8 : Int)) = (256 : Int)) ∧ (((2 : Int) + (2 : Int)) = (4 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((160 : Int) / (20 : Int)) = (8 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int))",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

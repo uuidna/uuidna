@@ -1,0 +1,12 @@
+{
+  "handle": "26911a2f",
+  "address": "26911a2f-b286-85cf-8443-caabfa4a264e",
+  "statement": "(((((80 : Int) - (50 : Int)) * (100 : Int)) / (50 : Int)) = (60 : Int)) ∧ (((((80 : Int) - (50 : Int)) * (100 : Int)) / (80 : Int)) = (37 : Int)) ∧ (((12000 : Int) / (1000 : Int)) = (12 : Int)) ∧ ((((200 : Int) * (100 : Int)) / (1000 : Int)) = (20 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (1000 : Int)) = (3 : Int)) ∧ ((if (if (90 : Int) ≥ (75 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (50 : Int) ≥ (75 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((40 : Int) * (25 : Int)) = (1000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_retail"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

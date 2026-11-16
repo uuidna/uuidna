@@ -1,0 +1,12 @@
+{
+  "handle": "67e883b7",
+  "address": "67e883b7-b1b1-87c6-9fb8-0b08ba776d9e",
+  "kind": "chunk",
+  "keys": [
+    "fam_fertilization"
+  ],
+  "statement": "((fmax (0 : Int) ((200 : Int) - (50 : Int))) = (150 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (40 : Int)) = (25 : Int)) ∧ (((50 : Int) * (120 : Int)) = (6000 : Int)) ∧ (((8 : Int) * (25 : Int)) = (200 : Int)) ∧ ((((200 : Int) * (15 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (40 : Int)) = (150 : Int)) ∧ (((180 : Int) / (3 : Int)) = (60 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (200 : Int)) = (60 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int))",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

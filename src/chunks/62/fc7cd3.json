@@ -1,0 +1,12 @@
+{
+  "handle": "62fc7cd3",
+  "address": "62fc7cd3-8bec-8d72-826a-a4b820ad7f07",
+  "statement": "((fmax (0 : Int) ((10050 : Int) - (10000 : Int))) = (50 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (300 : Int))) = (4700 : Int)) ∧ ((((120 : Int) * (110 : Int)) / (100 : Int)) = (132 : Int)) ∧ ((((fmax (0 : Int) ((110 : Int) - (100 : Int))) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((((50000 : Int) * (25 : Int)) / (10000 : Int)) = (125 : Int)) ∧ ((-((-(1000 : Int)) / (30 : Int))) = (34 : Int)) ∧ ((fmax (0 : Int) (((1000 : Int) - (600 : Int)) - (100 : Int))) = (300 : Int)) ∧ ((((fmax (0 : Int) ((100 : Int) - (110 : Int))) * (100 : Int)) / (110 : Int)) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_arbitrage"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

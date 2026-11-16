@@ -1,0 +1,12 @@
+{
+  "handle": "777469eb",
+  "address": "777469eb-a8ef-8a21-aec3-c3719bff3e50",
+  "statement": "(((4 : Int) * (4 : Int)) = (16 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (100 : Int))) = (20 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((100 : Int) * (5 : Int)) = (500 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((400 : Int) / (4 : Int)) = (100 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_localization"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

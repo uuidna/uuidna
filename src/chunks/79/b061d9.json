@@ -1,0 +1,12 @@
+{
+  "handle": "79b061d9",
+  "address": "79b061d9-a882-8932-aa04-0c0c910479bf",
+  "statement": "(((60000 : Int) / (1000 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((440 : Int) - (40 : Int))) = (400 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (440 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (40 : Int))) = (160 : Int)) ∧ ((fmax (0 : Int) ((140 : Int) - (40 : Int))) = (100 : Int)) ∧ (((6000 : Int) / (6 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (4 : Int))) = (6 : Int)) ∧ ((((360 : Int) * (1000 : Int)) / (900 : Int)) = (400 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (1000 : Int)) = (40 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_electrocardiography"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

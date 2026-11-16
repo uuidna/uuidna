@@ -1,0 +1,12 @@
+{
+  "handle": "acd2a385",
+  "address": "acd2a385-1a1e-8f5d-9def-608a78a40b39",
+  "statement": "((fmax (0 : Int) ((18 : Int) - (15 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (15 : Int))) = (0 : Int)) ∧ (((400 : Int) * (3 : Int)) = (1200 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1200 : Int)) = (50 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (5 : Int))) = (25 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((25 : Int) - (18 : Int))) = (7 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (40 : Int)) = (125 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_climatology"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

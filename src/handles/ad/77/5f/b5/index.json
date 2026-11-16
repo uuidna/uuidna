@@ -1,0 +1,12 @@
+{
+  "handle": "ad775fb5",
+  "address": "ad775fb5-fa12-85f6-b1f9-60448c94d166",
+  "kind": "chunk",
+  "keys": [
+    "fam_loan"
+  ],
+  "statement": "(((20000 : Int) * (1 : Int)) = (20000 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((24000 : Int) / (360 : Int)) = (66 : Int)) ∧ (((30 : Int) * (12 : Int)) = (360 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((20000 : Int) / (360 : Int)) = (55 : Int)) ∧ (((2 : Int) + (0 : Int)) = (2 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

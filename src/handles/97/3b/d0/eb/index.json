@@ -1,0 +1,12 @@
+{
+  "handle": "973bd0eb",
+  "address": "973bd0eb-ae4a-8f04-b935-08338da9d376",
+  "kind": "chunk",
+  "keys": [
+    "fam_neuron"
+  ],
+  "statement": "(((1000 : Int) * (7 : Int)) = (7000 : Int)) ∧ (((1000 : Int) + (0 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((70 : Int) - (55 : Int))) = (15 : Int)) ∧ (((100 : Int) * (10 : Int)) = (1000 : Int)) ∧ (((100 : Int) * (1 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (2 : Int))) = (18 : Int)) ∧ (((6 : Int) + (0 : Int)) = (6 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

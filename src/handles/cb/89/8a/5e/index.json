@@ -1,0 +1,12 @@
+{
+  "handle": "cb898a5e",
+  "address": "cb898a5e-a6f9-8c75-ab87-2ae40e880f8b",
+  "kind": "chunk",
+  "keys": [
+    "fam_biomass"
+  ],
+  "statement": "(((18000 : Int) / (1000 : Int)) = (18 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int)) ∧ ((((850 : Int) * (100 : Int)) / (1000 : Int)) = (85 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((500 : Int) / (2 : Int)) = (250 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((((1000 : Int) - (400 : Int)) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((5000 : Int) / (10 : Int)) = (500 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

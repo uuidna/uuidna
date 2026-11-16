@@ -1,0 +1,12 @@
+{
+  "handle": "e31e9caa",
+  "address": "e31e9caa-4ab1-8a83-bac8-1b3343469a1d",
+  "kind": "chunk",
+  "keys": [
+    "fam_psu"
+  ],
+  "statement": "(((12 : Int) * (50 : Int)) = (600 : Int)) ∧ ((((540 : Int) * (100 : Int)) / (600 : Int)) = (90 : Int)) ∧ (((850 : Int) - (600 : Int)) = (250 : Int)) ∧ (((4 : Int) * (20 : Int)) = (80 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (850 : Int)) = (70 : Int)) ∧ (((600 : Int) - (540 : Int)) = (60 : Int)) ∧ (((600 : Int) / (12 : Int)) = (50 : Int)) ∧ (((3 : Int) - (2 : Int)) = (1 : Int)) ∧ ((50 : Int) = (50 : Int)) ∧ (((600 : Int) * (2 : Int)) = (1200 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

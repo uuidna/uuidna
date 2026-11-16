@@ -1,0 +1,12 @@
+{
+  "handle": "2b4c908a",
+  "address": "2b4c908a-6c31-88e7-86b8-7e47f5924f6d",
+  "kind": "chunk",
+  "keys": [
+    "fam_rheumatology"
+  ],
+  "statement": "((fmax (0 : Int) ((15 : Int) - (5 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (5 : Int))) = (0 : Int)) ∧ ((((5 : Int) + (3 : Int)) + ((20 : Int) / (10 : Int))) = (10 : Int)) ∧ (((300 : Int) / (12 : Int)) = (25 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (80 : Int)) = (25 : Int)) ∧ (((25 : Int) + (10 : Int)) = (35 : Int)) ∧ (((5 : Int) + (3 : Int)) = (8 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (90 : Int)) = (66 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

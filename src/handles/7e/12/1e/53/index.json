@@ -1,0 +1,12 @@
+{
+  "handle": "7e121e53",
+  "address": "7e121e53-da41-8464-b756-69599da56eee",
+  "kind": "chunk",
+  "keys": [
+    "fam_dyeing"
+  ],
+  "statement": "((((3 : Int) * (100 : Int)) / (100 : Int)) = (3 : Int)) ∧ (((2000 : Int) / (100 : Int)) = (20 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((50 : Int) / (10 : Int)) = (5 : Int)) ∧ (((30 : Int) + ((2 : Int) * (30 : Int))) = (90 : Int)) ∧ ((((4 : Int) + (5 : Int)) / (2 : Int)) = (4 : Int)) ∧ (((5 : Int) * (10 : Int)) = (50 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

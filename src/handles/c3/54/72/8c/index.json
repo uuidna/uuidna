@@ -1,0 +1,12 @@
+{
+  "handle": "c354728c",
+  "address": "c354728c-500a-8bb2-a27f-3e1d960c0507",
+  "kind": "chunk",
+  "keys": [
+    "fam_psalmody"
+  ],
+  "statement": "(((100 : Int) + (50 : Int)) = (150 : Int)) ∧ (((150 : Int) * (16 : Int)) = (2400 : Int)) ∧ (((22 : Int) + (0 : Int)) = (22 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (8 : Int)))) = (40320 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (150 : Int)) (Int.toNat (2 : Int)))) = (11175 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (10 : Int)))) / (Int.ofNat (ffact (Int.toNat ((10 : Int) - (2 : Int)))))) = (90 : Int)) ∧ (((4 : Int) * (3 : Int)) = (12 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

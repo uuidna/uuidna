@@ -1,0 +1,12 @@
+{
+  "handle": "e55c06d6",
+  "address": "e55c06d6-154c-8e29-81e8-d61e13c55f4c",
+  "statement": "((((30 : Int) ^ (2 : Nat)) + ((40 : Int) ^ (2 : Nat))) = (2500 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) (((50 : Int) ^ (2 : Nat)) - ((30 : Int) ^ (2 : Nat)))) = (1600 : Int)) ∧ (((5 : Int) * (120 : Int)) = (600 : Int)) ∧ ((((((10 : Int) - (350 : Int)) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (20 : Int)) ∧ ((((1000 : Int) * (25 : Int)) / (100 : Int)) = (250 : Int)) ∧ (((900 : Int) / (15 : Int)) = (60 : Int)) ∧ ((((200 : Int) ^ (2 : Nat)) / (10 : Int)) = (4000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_waypoint"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

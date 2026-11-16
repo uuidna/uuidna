@@ -7628,6 +7628,12 @@ The ledger holds this as [cross_topography_wave_difference_17265](/theorem/cross
 ```
 
 
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. Leach, P.; Mealling, M.; Salz, R. (2005). A Universally Unique IDentifier (UUID) URN Namespace. [https://doi.org/10.17487/RFC4122](https://doi.org/10.17487/RFC4122)
+
 ::: warning 
 WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. The boundary is confirmed by the wing's own sealed theorems — e.g. [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — never merely denied.
 :::

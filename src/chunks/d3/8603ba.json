@@ -1,0 +1,12 @@
+{
+  "handle": "d38603ba",
+  "address": "d38603ba-89df-8434-8aab-8de6aab10831",
+  "statement": "(((48000 : Int) / (4 : Int)) = (12000 : Int)) ∧ ((fmax (0 : Int) ((3000 : Int) - (1000 : Int))) = (2000 : Int)) ∧ (((4000 : Int) + (500 : Int)) = (4500 : Int)) ∧ (((4 : Int) * (6 : Int)) = (24 : Int)) ∧ ((-((-(96 : Int)) / (24 : Int))) = (4 : Int)) ∧ (((fmax (0 : Int) ((101 : Int) - (1 : Int))) / (2 : Int)) = (50 : Int)) ∧ ((((4 : Int) * (6 : Int)) * (3 : Int)) = (72 : Int)) ∧ (((12000 : Int) / (4 : Int)) = (3000 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (3000 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_filtering"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

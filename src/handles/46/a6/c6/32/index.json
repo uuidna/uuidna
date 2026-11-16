@@ -1,0 +1,12 @@
+{
+  "handle": "46a6c632",
+  "address": "46a6c632-98b8-8d75-be14-3032af88e9d2",
+  "kind": "chunk",
+  "keys": [
+    "fam_apoptosis"
+  ],
+  "statement": "((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((((1000 : Int) - (250 : Int)) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ (((500 : Int) * (4 : Int)) = (2000 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ ((-((-(1000 : Int)) / (30 : Int))) = (34 : Int)) ∧ ((fmax (0 : Int) ((800 : Int) - (300 : Int))) = (500 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (800 : Int))) = (0 : Int)) ∧ ((((15 : Int) * (1000 : Int)) / (1000 : Int)) = (15 : Int)) ∧ (((240 : Int) / (4 : Int)) = (60 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

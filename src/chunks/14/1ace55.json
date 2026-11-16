@@ -1,0 +1,12 @@
+{
+  "handle": "141ace55",
+  "address": "141ace55-6eeb-8b3c-9b06-355c3a871f53",
+  "statement": "(((1000 : Int) / (5 : Int)) = (200 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ (((500 : Int) / (100 : Int)) = (5 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((fmax (0 : Int) ((1000 : Int) - (200 : Int))) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((8000 : Int) * (100 : Int)) / (10000 : Int)) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_lemmatization"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

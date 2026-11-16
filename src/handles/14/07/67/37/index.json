@@ -1,0 +1,12 @@
+{
+  "handle": "14076737",
+  "address": "14076737-e8c7-801b-8159-c662624f2b40",
+  "kind": "chunk",
+  "keys": [
+    "fam_nuclearpower"
+  ],
+  "statement": "(((3 : Int) * (1000 : Int)) = (3000 : Int)) ∧ (((3000 : Int) / (3 : Int)) = (1000 : Int)) ∧ ((((33 : Int) * (100 : Int)) / (100 : Int)) = (33 : Int)) ∧ (((45 : Int) * (1 : Int)) = (45 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (100 : Int)) = (7 : Int))",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

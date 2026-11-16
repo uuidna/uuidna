@@ -1,0 +1,12 @@
+{
+  "handle": "6067f5b6",
+  "address": "6067f5b6-86bd-84ae-b765-1b5b00d77419",
+  "kind": "chunk",
+  "keys": [
+    "fam_slotting"
+  ],
+  "statement": "(((500 : Int) / (50 : Int)) = (10 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((900 : Int) / (100 : Int)) = (9 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ (((600 : Int) / (6 : Int)) = (100 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (200 : Int)) = (20 : Int)) ∧ (((800 : Int) / (40 : Int)) = (20 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

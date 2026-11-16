@@ -1,0 +1,12 @@
+{
+  "handle": "bc96932f",
+  "address": "bc96932f-5a32-81d4-acd1-d040f7c1fe4f",
+  "kind": "chunk",
+  "keys": [
+    "fam_hardware"
+  ],
+  "statement": "(((8 : Int) * (2 : Int)) = (16 : Int)) ∧ (((4096 : Int) / (64 : Int)) = (64 : Int)) ∧ (((64 : Int) / (8 : Int)) = (8 : Int)) ∧ (((4 : Int) * (16 : Int)) = (64 : Int)) ∧ (((39 : Int) * (39 : Int)) = (1521 : Int)) ∧ (((70000 : Int) / (100 : Int)) = (700 : Int)) ∧ (((70000 : Int) / (0 : Int)) = (0 : Int)) ∧ (((125 : Int) / (8 : Int)) = (15 : Int)) ∧ (((2 : Int) ^ (20 : Nat)) = (1048576 : Int))",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

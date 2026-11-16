@@ -1,0 +1,12 @@
+{
+  "handle": "20c22704",
+  "address": "20c22704-6b30-820b-b827-7232b447cbf7",
+  "kind": "chunk",
+  "keys": [
+    "fam_motivation"
+  ],
+  "statement": "((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (50 : Int))) = (0 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ (((6 : Int) * (7 : Int)) = (42 : Int)) ∧ (((50 : Int) * (4 : Int)) = (200 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (8 : Int)) = (87 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

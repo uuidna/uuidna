@@ -1,0 +1,12 @@
+{
+  "handle": "288ec601",
+  "address": "288ec601-303b-8f01-9ec3-db3f27b1ccc3",
+  "statement": "(((3500 : Int) / (70 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (20 : Int)) = (300 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((fmax (0 : Int) ((190 : Int) - (60 : Int))) = (130 : Int)) ∧ (((120 : Int) * (5 : Int)) = (600 : Int)) ∧ (((10 : Int) * (42 : Int)) = (420 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (300 : Int)) = (10 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_endurance"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "89b83f6c",
+  "address": "89b83f6c-9649-8b8b-bfa7-4490d65692da",
+  "statement": "((((90 : Int) * (100 : Int)) / (120 : Int)) = (75 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (80 : Int)) = (125 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (50 : Int)) = (60 : Int)) ∧ (((100 : Int) / (5 : Int)) = (20 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (3 : Int))) = (5 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_physiotherapy"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

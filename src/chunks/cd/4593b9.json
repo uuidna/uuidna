@@ -1,0 +1,12 @@
+{
+  "handle": "cd4593b9",
+  "address": "cd4593b9-5995-8f47-b758-7ab5bd3eae04",
+  "statement": "((((2 : Int) * (10000 : Int)) / (10000 : Int)) = (2 : Int)) ∧ ((((50 : Int) * (10000 : Int)) / (10000 : Int)) = (50 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((2048 : Int) = (2048 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_biometrics"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

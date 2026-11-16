@@ -1,0 +1,12 @@
+{
+  "handle": "a9b1485d",
+  "address": "a9b1485d-d4bf-8f3c-97d3-6b0e5c954d18",
+  "statement": "(((100 : Int) * (4 : Int)) = (400 : Int)) ∧ (((50 : Int) * (4 : Int)) = (200 : Int)) ∧ (((50 : Int) * (4 : Int)) = (200 : Int)) ∧ (((20 : Int) * (9 : Int)) = (180 : Int)) ∧ ((fmax (0 : Int) ((2200 : Int) - (1800 : Int))) = (400 : Int)) ∧ ((fmax (0 : Int) ((2200 : Int) - (2500 : Int))) = (0 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ (((2100 : Int) / (70 : Int)) = (30 : Int)) ∧ (((70 : Int) * (24 : Int)) = (1680 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_nutrition"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f7bccb3b",
+  "address": "f7bccb3b-da88-8a95-ba60-69aa1f4fc7b9",
+  "kind": "chunk",
+  "keys": [
+    "fam_monasticism"
+  ],
+  "statement": "(((7 : Int) + (1 : Int)) = (8 : Int)) ∧ (((73 : Int) * (1 : Int)) = (73 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (7 : Int)))) = (5040 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (3 : Int)) (Int.toNat (2 : Int)))) = (3 : Int)) ∧ (((12 : Int) * (2 : Int)) = (24 : Int)) ∧ (((1440 : Int) / (8 : Int)) = (180 : Int)) ∧ ((((16 : Int) * (100 : Int)) / (24 : Int)) = (66 : Int)) ∧ (((2 : Int) ^ (3 : Nat)) = (8 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "64fcb41b",
+  "address": "64fcb41b-26cb-8293-be18-78188d2879f8",
+  "kind": "chunk",
+  "keys": [
+    "fam_glider"
+  ],
+  "statement": "(((400 : Int) / (10 : Int)) = (40 : Int)) ∧ (((100 : Int) / (100 : Int)) = (1 : Int)) ∧ (((15 : Int) * (1 : Int)) = (15 : Int)) ∧ (((225 : Int) / (15 : Int)) = (15 : Int)) ∧ (((60 : Int) * (1 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ ((fmax (0 : Int) ((2000 : Int) - (1500 : Int))) = (500 : Int)) ∧ (((40 : Int) * (1000 : Int)) = (40000 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

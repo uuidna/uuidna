@@ -1,0 +1,12 @@
+{
+  "handle": "f84c4dc4",
+  "address": "f84c4dc4-39f3-86a8-8dfa-0c0d525b927f",
+  "kind": "chunk",
+  "keys": [
+    "fam_ballistics"
+  ],
+  "statement": "((((10 : Int) * ((400 : Int) ^ (2 : Nat))) / (2000 : Int)) = (800 : Int)) ∧ (((10 : Int) * (400 : Int)) = (4000 : Int)) ∧ (((800 : Int) / (2 : Int)) = (400 : Int)) ∧ ((((490 : Int) * ((100 : Int) ^ (2 : Nat))) / ((700 : Int) ^ (2 : Nat))) = (10 : Int)) ∧ (((800 : Int) / (4 : Int)) = (200 : Int)) ∧ ((((10 : Int) * (400 : Int)) / (4000 : Int)) = (1 : Int)) ∧ ((((2 : Int) * (300 : Int)) / (100 : Int)) = (6 : Int)) ∧ (((800 : Int) / (400 : Int)) = (2 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

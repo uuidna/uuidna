@@ -1,0 +1,12 @@
+{
+  "handle": "accf1210",
+  "address": "accf1210-2ad7-8935-a50e-15edcc49c9d3",
+  "statement": "(((1000 : Int) / (100 : Int)) = (10 : Int)) ∧ (((50 : Int) / (10 : Int)) = (5 : Int)) ∧ ((((785 : Int) * (100 : Int)) / (1000 : Int)) = (78 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (100 : Int)) = (800 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((42 : Int) = (42 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_simulation"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

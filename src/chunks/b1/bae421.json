@@ -1,0 +1,12 @@
+{
+  "handle": "b1bae421",
+  "address": "b1bae421-fd05-8ca4-a706-184e39db7865",
+  "statement": "((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (90 : Int)) = (33 : Int)) ∧ (((120 : Int) / (4 : Int)) = (30 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (20 : Int)) = (15 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (8 : Int)) = (62 : Int)) ∧ ((fmax (0 : Int) ((14 : Int) - (10 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (10 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_project"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

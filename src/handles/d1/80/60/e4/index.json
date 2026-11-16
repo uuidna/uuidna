@@ -1,0 +1,12 @@
+{
+  "handle": "d18060e4",
+  "address": "d18060e4-98e8-8330-b678-741fa8bfa098",
+  "kind": "chunk",
+  "keys": [
+    "fam_mitosis"
+  ],
+  "statement": "(((5 : Int) * ((2 : Int) ^ (3 : Nat))) = (40 : Int)) ∧ (((100 : Int) * (46 : Int)) = (4600 : Int)) ∧ ((((11 : Int) + (8 : Int)) + (5 : Int)) = (24 : Int)) ∧ (((48 : Int) / (4 : Int)) = (12 : Int)) ∧ (((48 : Int) / (24 : Int)) = (2 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (24 : Int)) = (25 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

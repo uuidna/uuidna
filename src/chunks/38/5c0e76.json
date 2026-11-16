@@ -1,0 +1,12 @@
+{
+  "handle": "385c0e76",
+  "address": "385c0e76-e723-863b-9ca9-dd2d2038eee2",
+  "statement": "(((2 : Int) * ((2 : Int) ^ (3 : Nat))) = (16 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (200 : Int))) = (800 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ (((5000 : Int) / (10 : Int)) = (500 : Int)) ∧ ((fmax (0 : Int) ((150 : Int) - (50 : Int))) = (100 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (100 : Int)) = (400 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_immunology"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

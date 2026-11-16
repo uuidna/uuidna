@@ -1,0 +1,12 @@
+{
+  "handle": "d567dd2d",
+  "address": "d567dd2d-71bc-8ac7-ba7d-535d926e2b10",
+  "kind": "chunk",
+  "keys": [
+    "fam_nuclearphysics"
+  ],
+  "statement": "(((1000 : Int) / ((2 : Int) ^ (3 : Nat))) = (125 : Int)) ∧ (((1000 : Int) - ((1000 : Int) / ((2 : Int) ^ (3 : Nat)))) = (875 : Int)) ∧ (((56 : Int) * (8 : Int)) = (448 : Int)) ∧ ((fmax (0 : Int) ((940 : Int) - (931 : Int))) = (9 : Int)) ∧ ((if (if (100 : Int) ≥ (95 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (90 : Int) ≥ (95 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((100 : Int) * (200 : Int)) = (20000 : Int))",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

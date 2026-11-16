@@ -1,0 +1,12 @@
+{
+  "handle": "10b45534",
+  "address": "10b45534-25be-8142-9118-8cb5609bdf45",
+  "statement": "(((1200 : Int) / (10 : Int)) = (120 : Int)) ∧ (((5200 : Int) / (100 : Int)) = (52 : Int)) ∧ (((500 : Int) * (12 : Int)) = (6000 : Int)) ∧ (((20 : Int) * (500 : Int)) = (10000 : Int)) ∧ (((((10 : Int) * (10000 : Int)) * (52 : Int)) / (1000 : Int)) = (5200 : Int)) ∧ ((fmax (0 : Int) (((12 : Int) ^ (2 : Nat)) - ((5 : Int) ^ (2 : Nat)))) = (119 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (3200 : Int))) = (1800 : Int)) ∧ ((fmax (0 : Int) ((5500 : Int) - (5200 : Int))) = (300 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (5200 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_drilling"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

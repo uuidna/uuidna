@@ -1,0 +1,12 @@
+{
+  "handle": "f1fa1763",
+  "address": "f1fa1763-b488-8fa1-bd78-479683e36869",
+  "statement": "(((500 : Int) * (40 : Int)) = (20000 : Int)) ∧ (((1000 : Int) * (3 : Int)) = (3000 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((0 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ (((3000 : Int) / (1000 : Int)) = (3 : Int)) ∧ (((10000 : Int) / (500 : Int)) = (20 : Int)) ∧ (((1000 : Int) * (4 : Int)) = (4000 : Int)) ∧ (((5000 : Int) / (1000 : Int)) = (5 : Int)) ∧ (((6000 : Int) / (1500 : Int)) = (4 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_lexicography"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

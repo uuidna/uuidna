@@ -1,0 +1,12 @@
+{
+  "handle": "638f878e",
+  "address": "638f878e-7948-8097-92ba-eb0aecbe308c",
+  "statement": "((if (1 : Int) ≠ 0 ∧ (1 : Int) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (1 : Int) ≠ 0 ∨ (0 : Int) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ (((1 : Int) - (if (1 : Int) ≠ 0 ∧ (1 : Int) ≠ 0 then (1 : Int) else 0)) = (0 : Int)) ∧ (((1 : Int) - (if (0 : Int) ≠ 0 ∨ (0 : Int) ≠ 0 then (1 : Int) else 0)) = (1 : Int)) ∧ ((if (1 : Int) ≠ 0 then (1 : Int) else (0 : Int)) = (1 : Int)) ∧ ((if (0 : Int) ≠ 0 then (1 : Int) else (0 : Int)) = (0 : Int)) ∧ (((4 : Int) * (8 : Int)) = (32 : Int)) ∧ (((10 : Int) * (2 : Int)) = (20 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_logicgates"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

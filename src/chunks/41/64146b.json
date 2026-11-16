@@ -1,0 +1,12 @@
+{
+  "handle": "4164146b",
+  "address": "4164146b-4eea-8b18-85ab-10304598eb36",
+  "statement": "((fmax (0 : Int) ((50 : Int) - ((20 : Int) / (2 : Int)))) = (40 : Int)) ∧ (((80 : Int) + ((50 : Int) / (10 : Int))) = (85 : Int)) ∧ ((((10 : Int) * (30 : Int)) / (15 : Int)) = (20 : Int)) ∧ (((90 : Int) + (((90 : Int) * (60 : Int)) / (1000 : Int))) = (95 : Int)) ∧ ((((20 : Int) * (3 : Int)) / (2 : Int)) = (30 : Int)) ∧ ((if (if (5 : Int) ≤ (10 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (20 : Int) ≤ (10 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((fmax (0 : Int) (((50 : Int) - ((20 : Int) / (2 : Int))) + ((40 : Int) / (20 : Int)))) = (42 : Int)) ∧ ((((20 : Int) + (40 : Int)) / (2 : Int)) = (30 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_windchill"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

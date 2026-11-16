@@ -1,0 +1,12 @@
+{
+  "handle": "43cae9be",
+  "address": "43cae9be-5bf9-8ffe-9f67-eed629f299ec",
+  "kind": "chunk",
+  "keys": [
+    "fam_financial"
+  ],
+  "statement": "((-((-(100000 : Int)) / (40 : Int))) = (2500 : Int)) ∧ ((-((-(50000 : Int)) / (12000 : Int))) = (5 : Int)) ∧ (((((15000 : Int) - (10000 : Int)) * (100 : Int)) / (10000 : Int)) = (50 : Int)) ∧ (((((200000 : Int) - (120000 : Int)) * (100 : Int)) / (200000 : Int)) = (40 : Int)) ∧ (((300000 : Int) / (100000 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((80000 : Int) - (50000 : Int))) = (30000 : Int)) ∧ ((fmax (0 : Int) ((50000 : Int) - (80000 : Int))) = (0 : Int)) ∧ (((300000 : Int) / (30000 : Int)) = (10 : Int)) ∧ ((((1000 : Int) * (((100 : Int) + (10 : Int)) ^ (3 : Nat))) / ((100 : Int) ^ (3 : Nat))) = (1331 : Int))",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

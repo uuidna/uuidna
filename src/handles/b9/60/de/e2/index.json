@@ -1,0 +1,12 @@
+{
+  "handle": "b960dee2",
+  "address": "b960dee2-b56d-8a5b-97dc-c9b50c14966f",
+  "kind": "chunk",
+  "keys": [
+    "fam_rheology"
+  ],
+  "statement": "(((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((600 : Int) / (3 : Int)) = (200 : Int)) ∧ (((900 : Int) / (30 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (40 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (350 : Int))) = (150 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ (((600 : Int) / (12 : Int)) = (50 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

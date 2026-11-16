@@ -1,0 +1,69 @@
+{
+  "file": "FamiliesY.lean",
+  "slug": "familiesy",
+  "status": "usable",
+  "address": "64a923f3-b8bb-8404-9d46-669e926406db",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "FamiliesY.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"FamiliesY.lean\",\n \"url\": \"https://uuidna.com/lean/FamiliesY.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 1,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_yield",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "yield: couponrate(80, 1000) = 8; current(500, 10000) = 5; dividendyield(250, 10000) = 2; effective(2, 4) = 8; nominal(60, 1000) = 6; realyield(7, 3) = 4; realyield(2, 5) = 0; taxequivalent(4, 20) = 5; yieldtomaturity(50, 10, 1000) = 6"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((80 : Int) * (100 : Int)) / (1000 : Int)) = (8 : Int)) ∧ ((((500 : Int) * (100 : Int)) / (10000 : Int)) = (5 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (10000 : Int)) = (2 : Int)) ∧ (((2 : Int) * (4 : Int)) = (8 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (1000 : Int)) = (6 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (3 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((2 : Int) - (5 : Int))) = (0 : Int)) ∧ ((((4 : Int) * (100 : Int)) / ((100 : Int) - (20 : Int))) = (5 : Int)) ∧ (((((50 : Int) + (10 : Int)) * (100 : Int)) / (1000 : Int)) = (6 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_yield : ((((80 : Int) * (100 : Int)) / (1000 : Int)) = (8 : Int)) ∧ ((((500 : Int) * (100 : Int)) / (10000 : Int)) = (5 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (10000 : Int)) = (2 : Int)) ∧ (((2 : Int) * (4 : Int)) = (8 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (1000 : Int)) = (6 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (3 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((2 : Int) - (5 : Int))) = (0 : Int)) ∧ ((((4 : Int) * (100 : Int)) / ((100 : Int) - (20 : Int))) = (5 : Int)) ∧ (((((50 : Int) + (10 : Int)) * (100 : Int)) / (1000 : Int)) = (6 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

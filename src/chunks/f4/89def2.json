@@ -1,0 +1,12 @@
+{
+  "handle": "f489def2",
+  "address": "f489def2-196f-85a6-8f66-4beb14c40184",
+  "statement": "((fmax (0 : Int) ((10000 : Int) - (4000 : Int))) = (6000 : Int)) ∧ ((fmax (0 : Int) ((4000 : Int) - (10000 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((8000 : Int) - (3000 : Int))) = (5000 : Int)) ∧ ((2500 : Int) = (2500 : Int)) ∧ (((500 : Int) * (10 : Int)) = (5000 : Int)) ∧ ((((100000 : Int) * (10 : Int)) / (100 : Int)) = (10000 : Int)) ∧ ((((20000 : Int) * (5 : Int)) / (100 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((7000 : Int) - (2000 : Int))) = (5000 : Int)) ∧ ((if (if (7 : Int) ≤ (14 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (21 : Int) ≤ (14 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_contract"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

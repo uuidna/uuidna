@@ -1,0 +1,12 @@
+{
+  "handle": "0fbefc2e",
+  "address": "0fbefc2e-0634-81a8-b105-36fed222a817",
+  "kind": "chunk",
+  "keys": [
+    "fam_reinsurance"
+  ],
+  "statement": "((((1000 : Int) * (30 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (300 : Int))) = (700 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (1000 : Int))) = (0 : Int)) ∧ (((500 : Int) * (4 : Int)) = (2000 : Int)) ∧ ((((40 : Int) * (5000 : Int)) / (100 : Int)) = (2000 : Int)) ∧ (((9 : Int) * (1000 : Int)) = (9000 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (1000 : Int))) = (4000 : Int)) ∧ ((fmax (0 : Int) ((10000 : Int) - (2000 : Int))) = (8000 : Int)) ∧ (((8000 : Int) / (4 : Int)) = (2000 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "269b6c1e",
+  "address": "269b6c1e-f143-83a3-9574-63d4ca4cee3c",
+  "kind": "chunk",
+  "keys": [
+    "fam_pharmacokinetics"
+  ],
+  "statement": "(((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((50 : Int) * (2 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((500 : Int) / (10 : Int)) = (50 : Int)) ∧ (((600 : Int) / (6 : Int)) = (100 : Int)) ∧ (((10 : Int) * (50 : Int)) = (500 : Int)) ∧ ((((5 : Int) * (24 : Int)) / (12 : Int)) = (10 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (90 : Int)) = (50 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

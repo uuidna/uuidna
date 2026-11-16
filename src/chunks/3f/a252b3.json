@@ -1,0 +1,12 @@
+{
+  "handle": "3fa252b3",
+  "address": "3fa252b3-dfe0-8af8-83d9-ad20200bea78",
+  "statement": "((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ ((((3 : Int) * (10000 : Int)) / (10000 : Int)) = (3 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ ((if (if (15000 : Int) ≥ (10000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (5000 : Int) ≥ (10000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (80 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (50 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (5 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((365 : Int) - (100 : Int))) = (265 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (365 : Int))) = (0 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_kyc"
+  ],
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

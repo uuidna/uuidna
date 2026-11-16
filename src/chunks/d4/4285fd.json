@@ -1,0 +1,12 @@
+{
+  "handle": "d44285fd",
+  "address": "d44285fd-eee4-8256-846e-b37186a8d0ee",
+  "statement": "(((360 : Int) - (120 : Int)) = (240 : Int)) ∧ ((((((255 : Int) * (54 : Int)) + ((0 : Int) * (183 : Int))) + ((0 : Int) * (19 : Int))) / (256 : Int)) = (53 : Int)) ∧ (((((90 : Int) + (120 : Int)) + (150 : Int)) / (3 : Int)) = (120 : Int)) ∧ (((((0 : Int) * ((100 : Int) - (50 : Int))) + ((200 : Int) * (50 : Int))) / (100 : Int)) = (100 : Int)) ∧ ((((300 : Int) + (120 : Int)) % (360 : Int)) = (60 : Int)) ∧ (((((200 : Int) - (50 : Int)) * (100 : Int)) / (200 : Int)) = (75 : Int)) ∧ (((100 : Int) + ((((255 : Int) - (100 : Int)) * (50 : Int)) / (100 : Int))) = (177 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_colortheory"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "497a7281",
+  "address": "497a7281-fb05-86b5-bb3c-24b7cd67a9b6",
+  "statement": "((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((1200 : Int) / (50 : Int)) = (24 : Int)) ∧ (((50 : Int) * (24 : Int)) = (1200 : Int)) ∧ (((5000 : Int) / (1000 : Int)) = (5 : Int)) ∧ (((800 : Int) / (10 : Int)) = (80 : Int)) ∧ ((((500 : Int) * (20 : Int)) / (100 : Int)) = (100 : Int)) ∧ (((4 : Int) * (7 : Int)) = (28 : Int)) ∧ ((if (if (100 : Int) ≥ (50 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (30 : Int) ≥ (50 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_parasitology"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

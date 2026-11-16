@@ -1,0 +1,12 @@
+{
+  "handle": "6c1295ca",
+  "address": "6c1295ca-c989-8407-823e-c410c6eff61b",
+  "statement": "((Int.ofNat (fchoose (Int.toNat (7 : Int)) (Int.toNat (2 : Int)))) = (21 : Int)) ∧ (((7 : Int) + (0 : Int)) = (7 : Int)) ∧ (((21 : Int) + (7 : Int)) = (28 : Int)) ∧ (((28 : Int) * (6 : Int)) = (168 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (6 : Int)))) = (720 : Int)) ∧ (((2 : Int) ^ (7 : Nat)) = (128 : Int)) ∧ (((6 : Int) + (0 : Int)) = (6 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (7 : Int)))) / (Int.ofNat (ffact (Int.toNat ((7 : Int) - (2 : Int)))))) = (42 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_dominoes"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

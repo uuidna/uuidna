@@ -1,0 +1,12 @@
+{
+  "handle": "52039af8",
+  "address": "52039af8-0558-8c21-aa34-08d6e09e87ff",
+  "kind": "chunk",
+  "keys": [
+    "fam_metabolomics"
+  ],
+  "statement": "(((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (200 : Int)) = (12 : Int)) ∧ ((42 : Int) = (42 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (90 : Int)) = (50 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "77dd2e6f",
+  "address": "77dd2e6f-08a3-8dc9-ade8-263b32b5722f",
+  "statement": "(((12000 : Int) / (100 : Int)) = (120 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((1200 : Int) / (120 : Int)) = (10 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ (((300 : Int) / (2 : Int)) = (150 : Int)) ∧ (((140 : Int) / (1 : Int)) = (140 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_nephrology"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

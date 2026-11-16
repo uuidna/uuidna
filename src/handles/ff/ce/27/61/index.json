@@ -1,0 +1,12 @@
+{
+  "handle": "ffce2761",
+  "address": "ffce2761-9882-85b0-9c63-f6d0a35d89f2",
+  "kind": "chunk",
+  "keys": [
+    "fam_deadreckoning"
+  ],
+  "statement": "(((12 : Int) * (3 : Int)) = (36 : Int)) ∧ ((((10 : Int) * (60 : Int)) / (60 : Int)) = (10 : Int)) ∧ (((360 : Int) / (12 : Int)) = (30 : Int)) ∧ (((360 : Int) / (0 : Int)) = (0 : Int)) ∧ (((360 : Int) / (30 : Int)) = (12 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ (((100 : Int) + (36 : Int)) = (136 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

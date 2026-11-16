@@ -1,0 +1,12 @@
+{
+  "handle": "880d98e2",
+  "address": "880d98e2-6017-8e89-9361-fa38bc8ba24a",
+  "kind": "chunk",
+  "keys": [
+    "fam_plasma"
+  ],
+  "statement": "(((1000 : Int) / (40 : Int)) = (25 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)) ∧ ((((1000 : Int) * (100 : Int)) / (100 : Int)) = (1000 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((100 : Int) * (3 : Int)) = (300 : Int)) ∧ (((64 : Int) / (8 : Int)) = (8 : Int)) ∧ ((((3 : Int) * (360 : Int)) / (64 : Int)) = (16 : Int)) ∧ ((((0 : Int) * (360 : Int)) / (64 : Int)) = (0 : Int)) ∧ ((if (if (3 : Int) ≤ (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

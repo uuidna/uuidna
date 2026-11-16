@@ -1,0 +1,12 @@
+{
+  "handle": "bc7f7333",
+  "address": "bc7f7333-e9a8-8871-87f7-113f99ad7199",
+  "statement": "((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((30 : Int) / (10 : Int)) = (3 : Int)) ∧ (((2000 : Int) / (4 : Int)) = (500 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (150 : Int)) = (30 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_pathology"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

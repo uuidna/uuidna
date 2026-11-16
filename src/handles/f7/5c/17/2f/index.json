@@ -1,0 +1,12 @@
+{
+  "handle": "f75c172f",
+  "address": "f75c172f-d0f2-832e-9879-64049aefce19",
+  "kind": "chunk",
+  "keys": [
+    "fam_bayesian"
+  ],
+  "statement": "((((250 : Int) * (800 : Int)) / (400 : Int)) = (500 : Int)) ∧ ((((90 : Int) * (1000 : Int)) / (100 : Int)) = (900 : Int)) ∧ ((((1 : Int) * (1000 : Int)) / (4 : Int)) = (250 : Int)) ∧ (((300 : Int) + (100 : Int)) = (400 : Int)) ∧ ((((250 : Int) * (1000 : Int)) / ((1000 : Int) - (250 : Int))) = (333 : Int)) ∧ ((((1000 : Int) * (1000 : Int)) / ((1000 : Int) - (1000 : Int))) = (0 : Int)) ∧ ((((800 : Int) * (1000 : Int)) / (200 : Int)) = (4000 : Int)) ∧ ((((333 : Int) * (4000 : Int)) / (1000 : Int)) = (1332 : Int)) ∧ ((((300 : Int) + (100 : Int)) + (100 : Int)) = (500 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

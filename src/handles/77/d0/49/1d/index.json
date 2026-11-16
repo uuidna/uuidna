@@ -1,0 +1,12 @@
+{
+  "handle": "77d0491d",
+  "address": "77d0491d-a711-8fb7-9a69-03c1c9c4a655",
+  "kind": "chunk",
+  "keys": [
+    "fam_cern"
+  ],
+  "statement": "(((7000 : Int) * (2 : Int)) = (14000 : Int)) ∧ (((40 : Int) * (1000 : Int)) = (40000 : Int)) ∧ (((60000 : Int) / (100 : Int)) = (600 : Int)) ∧ (((4 : Int) + (3 : Int)) = (7 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((25 : Int) / (1 : Int)) = (25 : Int)) ∧ (((100 : Int) * (10 : Int)) = (1000 : Int)) ∧ (((40000 : Int) / (40 : Int)) = (1000 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

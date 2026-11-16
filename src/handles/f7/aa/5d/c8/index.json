@@ -1,0 +1,12 @@
+{
+  "handle": "f7aa5dc8",
+  "address": "f7aa5dc8-0788-8de0-8be1-09e878f4b121",
+  "kind": "chunk",
+  "keys": [
+    "fam_spaceflight"
+  ],
+  "statement": "(((9400 : Int) * (1 : Int)) = (9400 : Int)) ∧ (((11 : Int) * (1000 : Int)) = (11000 : Int)) ∧ (((5400 : Int) / (60 : Int)) = (90 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (100 : Int)) = (4 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (3 : Int)))) = (6 : Int)) ∧ (((480 : Int) / (2 : Int)) = (240 : Int)) ∧ (((400 : Int) * (1 : Int)) = (400 : Int)) ∧ (((150 : Int) / (100 : Int)) = (1 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

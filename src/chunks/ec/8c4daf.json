@@ -1,0 +1,12 @@
+{
+  "handle": "ec8c4daf",
+  "address": "ec8c4daf-85a4-84d3-9c81-9e41b80318d9",
+  "statement": "(((28000 : Int) / (28 : Int)) = (1000 : Int)) ∧ (((1000 : Int) * (28 : Int)) = (28000 : Int)) ∧ ((((65 : Int) * (100 : Int)) / (100 : Int)) = (65 : Int)) ∧ ((fmax (0 : Int) ((378 : Int) - ((60000 : Int) / (1000 : Int)))) = (318 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (100 : Int)) = (150 : Int)) ∧ (((50000 : Int) / (25 : Int)) = (2000 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (100 : Int)) = (250 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_polymers"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

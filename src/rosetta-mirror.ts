@@ -214,10 +214,10 @@ dna_base_pairing_involution 31
 codons_sixty_four 31
 sound_ladder_432 27
 octave_doubling 27
-electron_shells_2n2 27
-subshell_capacities_4l2 27
-circle_of_fifths 27
-tritone_involution 27
+electron_shells_2n2 31
+subshell_capacities_4l2 31
+circle_of_fifths 31
+tritone_involution 31
 ph_reflection_seven 27
 ph_conjugate_sum_14 27
 punnett_three_to_one 27
@@ -294,7 +294,7 @@ chessboard_sixty_four 27
 chessboard_two_colours 27
 knight_leap_is_odd 27
 knight_has_eight_moves 27
-closed_knight_tour_even 27
+closed_knight_tour_even 31
 rook_open_board_fourteen 27
 bishop_stays_on_colour 27
 queen_corner_twentyone 27
@@ -364,9 +364,9 @@ sbox_z5_permutation_count 27
 byte_xor_hexbit_involution 27
 #Clay.lean
 two_bit_conjunctions_are_four_of_sixteen 27
-mertens_squared_under_n_on_the_first_twenty 27
-hasse_bound_holds_at_four_primes 27
-four_simplex_boundary_euler_is_zero 27
+mertens_squared_under_n_on_the_first_twenty 31
+hasse_bound_holds_at_four_primes 31
+four_simplex_boundary_euler_is_zero 31
 levi_civita_nonzero_on_six_of_twentyseven 27
 closed_grid_differences_sum_to_zero 27
 torus_betti_alternates_to_zero 27
@@ -70800,11 +70800,11 @@ the_certified_ratio_has_no_ceiling_where_every_speedup_does 27
 neither_light_nor_execution_is_outrun 27
 absence_defeats_the_algorithm_and_not_the_machine 27
 #Relativity.lean
-light_on_null_cone 27
-interval_timelike_causal 27
-lorentz_gamma_triangle 27
-rest_energy_mc2 27
-causality_forbids_ftl 27
+light_on_null_cone 31
+interval_timelike_causal 31
+lorentz_gamma_triangle 31
+rest_energy_mc2 31
+causality_forbids_ftl 31
 the_metre_is_defined_by_the_second 31
 the_defining_constants_are_exact_integers 31
 the_pairing_cancels_the_constant 31
@@ -71239,7 +71239,7 @@ sanitize_bidi_overrides_are_five 27
 sanitize_bidi_isolates_are_four 27
 sanitize_bidi_points_are_nine 27
 #Scripture.lean
-beast_number_fits_two_readings 27
+beast_number_fits_two_readings 31
 nicomachus_digit_rule_fails 27
 augustine_six_is_perfect 27
 sefer_yetzirah_stones_build_houses 27
@@ -71398,8 +71398,8 @@ truss_maxwell_rule 27
 stress_is_force_over_area 27
 hookes_law 27
 #StringTheory.lean
-collider_energy_is_below_the_planck_scale 27
-newtonian_gravity_is_verified_far_above_the_planck_length 27
+collider_energy_is_below_the_planck_scale 31
+newtonian_gravity_is_verified_far_above_the_planck_length 31
 the_proton_outlives_the_universe_many_times_over 27
 one_probe_reached_the_planck_scale_and_found_nothing 27
 the_cmb_excludes_gut_scale_cosmic_strings 27
@@ -72712,44 +72712,60 @@ export const CLAIMS = `abo_klein_four 10.1038/345229a0
 affect_feel_defined 10.1037/0033-295X.110.1.145
 affect_flip_involution 10.1037/h0077714
 affect_loop_order 10.1037/0003-066X.46.8.819
+beast_number_fits_two_readings 10.53751/001c.29233
 blood_types_eight 10.3181/00379727-43-11151
 bulge_exceeds_relief WGS 84
+causality_forbids_ftl 10.1002/andp.19053221004
+circle_of_fifths 10.2307/3679467
+closed_knight_tour_even 10.1080/0025570X.1991.11977627
 codons_sixty_four 10.1073/pnas.47.10.1588
+collider_energy_is_below_the_planck_scale 10.1103/RevModPhys.97.025002
 crossing_sits_inside CODATA
 cuts_break_successors 10.1007/BF00196791
 dna_base_pairing_involution 10.1038/171737a0
 edits_break_recompute 10.1007/BF00196791
+electron_shells_2n2 10.1080/14786442408634535
 energy_is_reachable_by_four_independent_routes SI
 eratosthenes_fiftieth_circle Eratosthenes
+four_simplex_boundary_euler_is_zero 10.48550/arXiv.math/0211159
 handle_outreaches_planck CODATA
 hardware_above_landauer Landauer
+hasse_bound_holds_at_four_primes 10.1515/crll.1936.175.193
+interval_timelike_causal 10.1002/andp.19053221004
 kelvin_floor_carries_the_hundred SI
 kinematics_cancels_both CODATA
 landauer_bound_derived SI
 landauer_floor_falls_with_temperature Landauer
+light_on_null_cone 10.1002/andp.19053221004
 light_speed_rounds_to_300000 SI
+lorentz_gamma_triangle 10.1002/andp.19053221004
 mass_selects_cancellation CODATA
+mertens_squared_under_n_on_the_first_twenty 10.1515/crll.1985.357.138
+newtonian_gravity_is_verified_far_above_the_planck_length 10.1103/RevModPhys.97.025002
 pairings_exhaust_the_cancellations CODATA
 payload_falls_short CODATA
 planck_margin_bounded CODATA
 product_isolates_quantum CODATA
 ratio_isolates_gravity CODATA
+rest_energy_mc2 10.1002/andp.19053231314
 reversible_erases_nothing Landauer
 self_model_cantor 10.1007/BFb0080769
 self_model_lawvere 10.1007/BFb0080769
+subshell_capacities_4l2 10.1080/14786442408634535
 the_defining_constants_are_exact_integers SI
 the_metre_is_defined_by_the_second SI
 the_pairing_cancels_the_constant SI
+tritone_involution 10.2307/3679467
 two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 35, falsifier: 63 }
+export const FLOOR = { witness: 51, falsifier: 63 }
 
 // Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
 // wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as
 // an absence of corroboration.
-export const UNREACHED: readonly string[] = ["collider_energy_is_below_the_planck_scale","newtonian_gravity_is_verified_far_above_the_planck_length","one_probe_reached_the_planck_scale_and_found_nothing","the_cmb_excludes_gut_scale_cosmic_strings","the_proton_outlives_the_universe_many_times_over"]
+export const UNREACHED: readonly string[] = ["one_probe_reached_the_planck_scale_and_found_nothing","the_cmb_excludes_gut_scale_cosmic_strings","the_proton_outlives_the_universe_many_times_over"]
 
 // The WITNESS rule these legs were decided by, as a digest of its own source. A later run compares it: if the
 // digest moved and the anchored count FELL, the instrument changed rather than any claim, and that fall must be

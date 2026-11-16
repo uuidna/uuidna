@@ -1,0 +1,12 @@
+{
+  "handle": "07c6081a",
+  "address": "07c6081a-833e-8596-a28a-3b1696d2feb3",
+  "statement": "((((15 : Int) * (100 : Int)) / (200 : Int)) = (7 : Int)) ∧ ((((70 : Int) * (100 : Int)) / ((70 : Int) + (30 : Int))) = (70 : Int)) ∧ (((365 : Int) * (4 : Int)) = (1460 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (300 : Int)) = (4 : Int)) ∧ (((6000 : Int) / (50 : Int)) = (120 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (75 : Int))) = (15 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (80 : Int))) = (0 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (40 : Int)) = (20 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_bilingualism"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

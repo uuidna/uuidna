@@ -1,15 +1,15 @@
 ---
 title: "THE ASKED QUESTIONS"
-description: "Computed from lean/Asked.lean — 30 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Asked.lean — 31 sealed theorems, every claim citing its proof."
 ---
 
 # THE ASKED QUESTIONS
 
-> THE ASKED QUESTIONS — every arithmetic statement recorded through uuidna_ask, decided by the kernel itself: true as asked, or false and so negated; once sealed, uuidna_decide answers the same words VERIFIED. — held by [asked_26ca622d](/theorem/asked_26ca622d) and its 29 siblings below.
+> THE ASKED QUESTIONS — every arithmetic statement recorded through uuidna_ask, decided by the kernel itself: true as asked, or false and so negated; once sealed, uuidna_decide answers the same words VERIFIED. — held by [asked_26ca622d](/theorem/asked_26ca622d) and its 30 siblings below.
 
-**30 theorems** and **2,828,760 decided cases**, from [asked_26ca622d](/theorem/asked_26ca622d) onward, each proven `by decide` in <a href="/lean/Asked.lean">lean/Asked.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 24 of its 30 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [asked_2de03c6f](/theorem/asked_2de03c6f). A boundary stated here is decided.
+**31 theorems** and **2,534,811 decided cases**, from [asked_26ca622d](/theorem/asked_26ca622d) onward, each proven `by decide` in <a href="/lean/Asked.lean">lean/Asked.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 25 of its 31 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [asked_2de03c6f](/theorem/asked_2de03c6f). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAsked.lean)** — nothing to install. The editor fetches `lean/Asked.lean` from the repository and re-decides all 30 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAsked.lean)** — nothing to install. The editor fetches `lean/Asked.lean` from the repository and re-decides all 31 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### asked: 2^999 <= 777837470563092890142638518829526106447229343976758445056476290478009531724781082272103844659812718681408543… — holds
 The ledger holds this as [asked_26ca622d](/theorem/asked_26ca622d) — proven `by decide`, sorry-free:
@@ -219,6 +219,13 @@ The ledger holds this as [asked_78d18fd7](/theorem/asked_78d18fd7) — proven `b
 
 ```lean
 ¬ (7778374705630928901426385188295261064472293439767584450564762904780095317247810822721038446598127186814085438745846911396600071001374809981225413367649417301928427872874705586838153932355802114527488924178998304307438276447053410282371888984822745504021147881223973035161036008037727897669611699130903%97=0)
+```
+
+### asked: powmod(2, 77783747056309289014263851882952610644722934397675844505647629047800953172478108227210384465981271868140854… — fails
+The ledger holds this as [asked_2e97ab43](/theorem/asked_2e97ab43) — proven `by decide`, sorry-free:
+
+```lean
+¬ ((powmod (2) (7778374705630928901426385188295261064472293439767584450564762904780095317247810822721038446598127186814085438745846911396600071001374809981225413367649417301928427872874705586838153932355802114527488924178998304307438276447053410282371888984822745504021147881223973035161036008037727897669611699130903 - 1) (7778374705630928901426385188295261064472293439767584450564762904780095317247810822721038446598127186814085438745846911396600071001374809981225413367649417301928427872874705586838153932355802114527488924178998304307438276447053410282371888984822745504021147881223973035161036008037727897669611699130903)) = 1)
 ```
 
 

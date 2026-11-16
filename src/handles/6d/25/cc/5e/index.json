@@ -1,0 +1,12 @@
+{
+  "handle": "6d25cc5e",
+  "address": "6d25cc5e-cd8d-84fe-9614-fdd7b5106ab5",
+  "kind": "chunk",
+  "keys": [
+    "fam_sintering"
+  ],
+  "statement": "(((((95 : Int) - (60 : Int)) * (100 : Int)) / ((100 : Int) - (60 : Int))) = (87 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((500 : Int) * (100 : Int)) / (100 : Int)) = (500 : Int)) ∧ (((1200 : Int) / (10 : Int)) = (120 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (95 : Int))) = (5 : Int)) ∧ (((((100 : Int) - (85 : Int)) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ ((((1500 : Int) * (75 : Int)) / (100 : Int)) = (1125 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

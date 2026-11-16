@@ -1,0 +1,12 @@
+{
+  "handle": "d63f8a30",
+  "address": "d63f8a30-0170-8304-9267-b27b1a66f7c8",
+  "kind": "chunk",
+  "keys": [
+    "fam_tuning"
+  ],
+  "statement": "(((12 : Int) * (100 : Int)) = (1200 : Int)) ∧ (((3 : Int) * (12 : Int)) = (36 : Int)) ∧ ((((880 : Int) * (1000 : Int)) / (440 : Int)) = (2000 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((12 : Int) * (7 : Int)) = (84 : Int)) ∧ (((440 : Int) * ((2 : Int) ^ (1 : Nat))) = (880 : Int)) ∧ (((1200 : Int) / (100 : Int)) = (12 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

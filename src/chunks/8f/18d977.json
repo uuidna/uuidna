@@ -1,0 +1,12 @@
+{
+  "handle": "8f18d977",
+  "address": "8f18d977-e075-8cd5-a03d-964acf8d5686",
+  "statement": "((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ ((((65 : Int) * (100 : Int)) / (100 : Int)) = (65 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (100 : Int)) = (3 : Int)) ∧ (((120 : Int) / (60 : Int)) = (2 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (10 : Int)) = (700 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((900 : Int) / (30 : Int)) = (30 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_pedology"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

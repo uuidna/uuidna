@@ -1,0 +1,12 @@
+{
+  "handle": "77a2ca7d",
+  "address": "77a2ca7d-95a5-8bdc-a3c3-0ae3f985f355",
+  "statement": "((((1500 : Int) * (4 : Int)) / (2 : Int)) = (3000 : Int)) ∧ ((((2 : Int) * (3000 : Int)) / (1500 : Int)) = (4 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((1500 : Int) * (1000 : Int)) / (1500 : Int)) = (1000 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ (((3000 : Int) * (7 : Int)) = (21000 : Int)) ∧ (((500 : Int) * (40 : Int)) = (20000 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_bathymetry"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

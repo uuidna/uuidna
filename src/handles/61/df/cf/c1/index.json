@@ -1,0 +1,12 @@
+{
+  "handle": "61dfcfc1",
+  "address": "61dfcfc1-2b26-85fd-9fdb-79fadf7ced40",
+  "kind": "chunk",
+  "keys": [
+    "fam_rocketry"
+  ],
+  "statement": "(((300 : Int) * (3000 : Int)) = (900000 : Int)) ∧ (((900 : Int) * (120 : Int)) = (108000 : Int)) ∧ ((((1500 : Int) * (100 : Int)) / (1000 : Int)) = (150 : Int)) ∧ (((3000 : Int) * (2 : Int)) = (6000 : Int)) ∧ ((((1000 : Int) * (100 : Int)) / (250 : Int)) = (400 : Int)) ∧ (((9000 : Int) / (30 : Int)) = (300 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((3 : Int) = (3 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

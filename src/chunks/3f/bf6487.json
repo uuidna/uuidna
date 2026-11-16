@@ -1,0 +1,12 @@
+{
+  "handle": "3fbf6487",
+  "address": "3fbf6487-a97c-8e5a-9c33-84dd89187cd3",
+  "statement": "((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (20 : Int)) = (400 : Int)) ∧ (((300 : Int) / (25 : Int)) = (12 : Int)) ∧ ((((240 : Int) * (100 : Int)) / (100 : Int)) = (240 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((78 : Int) = (78 : Int)) ∧ ((((96 : Int) * (100 : Int)) / ((96 : Int) + (4 : Int))) = (96 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_distillation"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

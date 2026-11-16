@@ -1,0 +1,12 @@
+{
+  "handle": "10b51907",
+  "address": "10b51907-7113-88e6-b68f-fd03c58c7743",
+  "statement": "((fmax (0 : Int) ((72 : Int) - (60 : Int))) = (12 : Int)) ∧ (((4 : Int) * (3 : Int)) = (12 : Int)) ∧ (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ (((8 : Int) * (2 : Int)) = (16 : Int)) ∧ (((36 : Int) / (12 : Int)) = (3 : Int)) ∧ (((64 : Int) + ((4 : Int) * (3 : Int))) = (76 : Int)) ∧ (((120 : Int) / (4 : Int)) = (30 : Int)) ∧ (((4 : Int) * (8 : Int)) = (32 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_arpeggio"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

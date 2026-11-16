@@ -1,0 +1,12 @@
+{
+  "handle": "329aa008",
+  "address": "329aa008-4d81-8276-8d07-529f96a77ccf",
+  "kind": "chunk",
+  "keys": [
+    "fam_raster"
+  ],
+  "statement": "(((1920 : Int) * (1080 : Int)) = (2073600 : Int)) ∧ (((3000 : Int) / (10 : Int)) = (300 : Int)) ∧ (((1000 : Int) * (3 : Int)) = (3000 : Int)) ∧ ((((1920 : Int) * (100 : Int)) / (1080 : Int)) = (177 : Int)) ∧ ((((4000 : Int) * (3000 : Int)) / (1000000 : Int)) = (12 : Int)) ∧ (((3 : Int) * (8 : Int)) = (24 : Int)) ∧ (((1000 : Int) / (100 : Int)) = (10 : Int)) ∧ (((500 : Int) * (2 : Int)) = (1000 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

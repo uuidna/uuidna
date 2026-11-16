@@ -1,0 +1,12 @@
+{
+  "handle": "5ea5efb5",
+  "address": "5ea5efb5-1c25-83eb-9be8-265109f26632",
+  "statement": "(((60 : Int) * (60 : Int)) = (3600 : Int)) ∧ (((2 : Int) ^ (10 : Nat)) = (1024 : Int)) ∧ (((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ (((16 : Int) * (16 : Int)) = (256 : Int)) ∧ (((3600 : Int) / (60 : Int)) = (60 : Int)) ∧ (((100 : Int) * (50 : Int)) = (5000 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((10 : Int) + (2 : Int)) = (12 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_geo"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

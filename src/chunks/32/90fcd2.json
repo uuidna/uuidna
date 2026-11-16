@@ -1,0 +1,12 @@
+{
+  "handle": "3290fcd2",
+  "address": "3290fcd2-0f39-8f4f-a681-863cd5790e35",
+  "statement": "((((10000 : Int) * (12 : Int)) / (100 : Int)) = (1200 : Int)) ∧ (((90000 : Int) / (300 : Int)) = (300 : Int)) ∧ (((((1000 : Int) - (400 : Int)) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((5000 : Int) * (16 : Int)) = (80000 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (1000 : Int)) = (15 : Int)) ∧ (((30000 : Int) / (10000 : Int)) = (3 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (200 : Int)) = (40 : Int)) ∧ (((1200 : Int) / (100 : Int)) = (12 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_publishing"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

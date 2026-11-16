@@ -1,0 +1,12 @@
+{
+  "handle": "dd2d861c",
+  "address": "dd2d861c-d45b-8d6e-989c-32eee6a09e98",
+  "kind": "chunk",
+  "keys": [
+    "fam_star"
+  ],
+  "statement": "(((4 : Int) * (100 : Int)) = (400 : Int)) ∧ ((fmax (0 : Int) ((15 : Int) - (5 : Int))) = (10 : Int)) ∧ (((3260 : Int) / (1000 : Int)) = (3 : Int)) ∧ (((2 : Int) * (1 : Int)) = (2 : Int)) ∧ (((7 : Int) + (0 : Int)) = (7 : Int)) ∧ (((10 : Int) * (1000 : Int)) = (10000 : Int)) ∧ (((7 : Int) * (100 : Int)) = (700 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (7 : Int)) (Int.toNat (2 : Int)))) = (21 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

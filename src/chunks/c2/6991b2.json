@@ -1,0 +1,12 @@
+{
+  "handle": "c26991b2",
+  "address": "c26991b2-bad6-88e4-af64-ac7cda5f4a84",
+  "statement": "((((20 : Int) * (100 : Int)) / (5 : Int)) = (400 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int)) ∧ (((500 : Int) / (25 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (80 : Int))) = (20 : Int)) ∧ (((90 : Int) / (30 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (600 : Int))) = (400 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (70 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_microeconomics"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

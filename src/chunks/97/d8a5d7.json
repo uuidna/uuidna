@@ -1,0 +1,12 @@
+{
+  "handle": "97d8a5d7",
+  "address": "97d8a5d7-95bc-80d1-9da6-a3411793076c",
+  "statement": "(((5000 : Int) / (10 : Int)) = (500 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((60 : Int) * (3 : Int)) = (180 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((20 : Int) * (25 : Int)) = (500 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (200 : Int)) = (150 : Int)) ∧ (((3 : Int) * (100 : Int)) = (300 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_vibration"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

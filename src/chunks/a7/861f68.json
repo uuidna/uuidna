@@ -1,0 +1,12 @@
+{
+  "handle": "a7861f68",
+  "address": "a7861f68-acac-8a04-96a7-ad05449b689d",
+  "statement": "(((500 : Int) * (10 : Int)) = (5000 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((3 : Int) + (2 : Int)) = (5 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((12 : Int) * (3 : Int)) = (36 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_toponymy"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

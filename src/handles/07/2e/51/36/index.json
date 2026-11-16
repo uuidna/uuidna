@@ -1,0 +1,12 @@
+{
+  "handle": "072e5136",
+  "address": "072e5136-fd67-8829-a06a-0b39f6549a20",
+  "kind": "chunk",
+  "keys": [
+    "fam_linguistics"
+  ],
+  "statement": "(((100 : Int) * (2 : Int)) = (200 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (1000 : Int)) = (40 : Int)) ∧ (((500 : Int) / (25 : Int)) = (20 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((44 : Int) = (44 : Int)) ∧ ((((50 : Int) * (1000000 : Int)) / (1000000 : Int)) = (50 : Int)) ∧ (((200 : Int) * (3 : Int)) = (600 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (20 : Int)) = (25 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

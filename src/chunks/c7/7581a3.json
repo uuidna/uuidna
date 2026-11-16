@@ -1,0 +1,12 @@
+{
+  "handle": "c77581a3",
+  "address": "c77581a3-8224-80bc-b9fa-d8cae928ab40",
+  "statement": "((((100 : Int) * (5 : Int)) * (3 : Int)) = (1500 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((500 : Int) * (10 : Int)) = (5000 : Int)) ∧ (((5000 : Int) / (50 : Int)) = (100 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (75 : Int)) = (200 : Int)) ∧ (((180 : Int) / (60 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((105 : Int) - (100 : Int))) = (5 : Int)) ∧ (((20 : Int) * (50 : Int)) = (1000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_strength"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

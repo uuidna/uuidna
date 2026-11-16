@@ -1,0 +1,12 @@
+{
+  "handle": "a50ce6ed",
+  "address": "a50ce6ed-eb65-8582-987a-0b56ae462128",
+  "kind": "chunk",
+  "keys": [
+    "fam_amplifiers"
+  ],
+  "statement": "(((1000 : Int) / (5 : Int)) = (200 : Int)) ∧ ((((50 : Int) * (10 : Int)) / (5 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((20000 : Int) - (20 : Int))) = (19980 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((10000 : Int) / (2 : Int)) = (5000 : Int)) ∧ (((120 : Int) * (5 : Int)) = (600 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ (((10000 : Int) / (10 : Int)) = (1000 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cd4dc6ed",
+  "address": "cd4dc6ed-cc65-8c52-956a-fac2ea131e0c",
+  "kind": "chunk",
+  "keys": [
+    "fam_butchery"
+  ],
+  "statement": "((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((8 : Int) + (0 : Int)) = (8 : Int)) ∧ (((300 : Int) * (1 : Int)) = (300 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ (((21 : Int) * (1 : Int)) = (21 : Int)) ∧ (((300 : Int) / (2 : Int)) = (150 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

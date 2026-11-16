@@ -1,0 +1,12 @@
+{
+  "handle": "209ee909",
+  "address": "209ee909-2f1b-80e1-a965-0553bd323108",
+  "kind": "chunk",
+  "keys": [
+    "fam_ergonomics"
+  ],
+  "statement": "(((20 : Int) * (6 : Int)) = (120 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (90 : Int)) = (33 : Int)) ∧ (((120 : Int) / (60 : Int)) = (2 : Int)) ∧ ((((480 : Int) * (100 : Int)) / (60 : Int)) = (800 : Int)) ∧ (((10000 : Int) / (20 : Int)) = (500 : Int)) ∧ ((85 : Int) = (85 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

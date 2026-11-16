@@ -1,0 +1,12 @@
+{
+  "handle": "3b46460d",
+  "address": "3b46460d-17c1-86cc-b601-8df4c26f03a3",
+  "statement": "((((1000000 : Int) * (4 : Int)) / (100 : Int)) = (40000 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (7 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (12 : Int))) = (0 : Int)) ∧ (((2460000 : Int) + (3 : Int)) = (2460003 : Int)) ∧ ((if (if (600 : Int) ≥ (500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (100 : Int) ≥ (500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((4 : Int) * (5 : Int)) = (20 : Int)) ∧ (((3 : Int) * (5000 : Int)) = (15000 : Int)) ∧ ((if (if (7 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_compliance"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

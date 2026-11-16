@@ -1,0 +1,12 @@
+{
+  "handle": "0e04384d",
+  "address": "0e04384d-a6a2-8b65-9438-e3940a0b600f",
+  "statement": "((((4 : Int) * (100 : Int)) / (100 : Int)) = (4 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((38 : Int) / (10 : Int)) = (3 : Int)) ∧ (((2 : Int) * (7 : Int)) = (14 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (100 : Int)) = (8 : Int)) ∧ (((12 : Int) * (30 : Int)) = (360 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_pickling"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

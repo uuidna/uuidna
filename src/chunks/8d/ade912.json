@@ -1,0 +1,12 @@
+{
+  "handle": "8dade912",
+  "address": "8dade912-2cac-80d1-92fc-aba0ec4e204f",
+  "statement": "(((6 : Int) * (100 : Int)) = (600 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((if (if (3 : Int) ≤ (6 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (7 : Int) ≤ (6 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ (((10 : Int) * (6 : Int)) = (60 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_hook"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

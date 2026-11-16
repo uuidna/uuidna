@@ -1,0 +1,12 @@
+{
+  "handle": "eefda698",
+  "address": "eefda698-5ae6-8f0d-aa21-e2e497128c57",
+  "kind": "chunk",
+  "keys": [
+    "fam_corpus"
+  ],
+  "statement": "((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ (((12 : Int) * (40 : Int)) = (480 : Int)) ∧ ((((3 : Int) * (1000 : Int)) / (1000 : Int)) = (3 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (50 : Int)) = (50 : Int)) ∧ ((fmax (0 : Int) ((150 : Int) - (40 : Int))) = (110 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (150 : Int))) = (0 : Int)) ∧ (((500 : Int) * (2000 : Int)) = (1000000 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

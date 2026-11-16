@@ -1,0 +1,12 @@
+{
+  "handle": "13e73e9b",
+  "address": "13e73e9b-6ed5-8b7f-af69-a860454a4654",
+  "kind": "chunk",
+  "keys": [
+    "fam_law"
+  ],
+  "statement": "(((6 : Int) * (365 : Int)) = (2190 : Int)) ∧ (((2460000 : Int) + (21 : Int)) = (2460021 : Int)) ∧ ((-((-((9 : Int) * (50 : Int))) / (100 : Int))) = (5 : Int)) ∧ ((if (if ((2 : Int) * (5 : Int)) > (9 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if ((2 : Int) * (4 : Int)) > (9 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if ((100 : Int) * (6 : Int)) ≥ ((9 : Int) * (66 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if ((100 : Int) * (5 : Int)) ≥ ((9 : Int) * (66 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if ((100 : Int) * (6 : Int)) ≥ ((9 : Int) * (67 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (21 : Int) ≥ (14 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (21 : Int) ≥ (28 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((0 : Int) = (0 : Int)) ∧ ((1 : Int) = (1 : Int)) ∧ ((fmax (0 : Int) ((14 : Int) - (9 : Int))) = (5 : Int)) ∧ ((fmax (0 : Int) ((14 : Int) - (14 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((90121 : Int) - (400 : Int))) = (89721 : Int)) ∧ ((fmax (0 : Int) ((400 : Int) - (400 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (14 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

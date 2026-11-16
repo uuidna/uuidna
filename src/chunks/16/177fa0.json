@@ -1,0 +1,12 @@
+{
+  "handle": "16177fa0",
+  "address": "16177fa0-7e28-89c8-96b7-95da60622cf2",
+  "statement": "(((((150 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (100 : Int)) = (8 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (300 : Int))) = (200 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (500 : Int))) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((12000 : Int) * (6 : Int)) / (1200 : Int)) = (60 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((200000 : Int) / (1000 : Int)) = (200 : Int)) ∧ ((((1000 : Int) * (1200 : Int)) / (120000 : Int)) = (10 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_realestate"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "5173f8f6",
+  "address": "5173f8f6-cdef-8ad8-811a-04ada8cd56bc",
+  "statement": "((((12 : Int) * (15 : Int)) / ((3 : Int) ^ (2 : Nat))) = (20 : Int)) ∧ (((100 : Int) / ((5 : Int) ^ (2 : Nat))) = (4 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((100 : Int) / (5 : Int)) = (20 : Int)) ∧ ((((10 : Int) * (6 : Int)) / (2 : Int)) = (30 : Int)) ∧ (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ (((7 : Int) * (9 : Int)) = (63 : Int)) ∧ (((20 : Int) * (5 : Int)) = (100 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_electrostatics"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

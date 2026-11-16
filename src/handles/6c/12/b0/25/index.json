@@ -1,0 +1,12 @@
+{
+  "handle": "6c12b025",
+  "address": "6c12b025-3431-8fb7-a45c-2f7840c54820",
+  "kind": "chunk",
+  "keys": [
+    "fam_petrology"
+  ],
+  "statement": "((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ ((((720 : Int) * (100 : Int)) / (1000 : Int)) = (72 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (200 : Int)) = (15 : Int)) ∧ (((5300 : Int) / (2 : Int)) = (2650 : Int)) ∧ ((((30 : Int) + (55 : Int)) + (5 : Int)) = (90 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (50 : Int)) = (80 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (40 : Int)) = (25 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

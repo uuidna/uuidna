@@ -1,0 +1,12 @@
+{
+  "handle": "8466a3ec",
+  "address": "8466a3ec-410f-8c22-87aa-eda022f03bfa",
+  "kind": "chunk",
+  "keys": [
+    "fam_checksum"
+  ],
+  "statement": "(((1000 : Int) % (256 : Int)) = (232 : Int)) ∧ ((((256 : Int) - (1 : Int)) - ((300 : Int) % (256 : Int))) = (211 : Int)) ∧ (((1000 : Int) + (32 : Int)) = (1032 : Int)) ∧ ((((20 : Int) * (256 : Int)) + (10 : Int)) = (5130 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)) ∧ ((((32 : Int) * (100 : Int)) / (1000 : Int)) = (3 : Int)) ∧ (((1000 : Int) % (64 : Int)) = (40 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

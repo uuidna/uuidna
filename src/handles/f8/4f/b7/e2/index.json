@@ -1,0 +1,12 @@
+{
+  "handle": "f84fb7e2",
+  "address": "f84fb7e2-4979-8238-aa72-ce84288d9958",
+  "kind": "chunk",
+  "keys": [
+    "fam_asteroid"
+  ],
+  "statement": "(((500 : Int) * (1 : Int)) = (500 : Int)) ∧ (((1 : Int) + (0 : Int)) = (1 : Int)) ∧ (((1000 : Int) * (1000 : Int)) = (1000000 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ (((240 : Int) / (10 : Int)) = (24 : Int)) ∧ (((5 : Int) + (0 : Int)) = (5 : Int)) ∧ (((1 : Int) * (1000 : Int)) = (1000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

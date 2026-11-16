@@ -1,0 +1,12 @@
+{
+  "handle": "3812dd1c",
+  "address": "3812dd1c-88f7-8128-a32d-7d2700920fc7",
+  "statement": "([0,0,11,12,4,11,11,14].take 6 = [0,0,11,12,4,11,12,1].take 6) ∧ ([0,0,11,12,4,11,11,14] ≠ ([0,0,11,12,4,11,12,1] : List Nat)) ∧ (72933 < 73096)",
+  "tactic": "decide",
+  "keys": [
+    "the_third_level_already_shares"
+  ],
+  "files": [
+    "Cyber.lean"
+  ]
+}

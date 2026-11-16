@@ -1,0 +1,12 @@
+{
+  "handle": "dff2e8ec",
+  "address": "dff2e8ec-4658-8776-a13f-9441235092de",
+  "kind": "chunk",
+  "keys": [
+    "fam_sudoku"
+  ],
+  "statement": "(((9 : Int) * (9 : Int)) = (81 : Int)) ∧ (((3 : Int) * (3 : Int)) = (9 : Int)) ∧ (((17 : Int) + (0 : Int)) = (17 : Int)) ∧ (((2 : Int) ^ (9 : Nat)) = (512 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (6 : Int)))) = (720 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (9 : Int)) (Int.toNat (2 : Int)))) = (36 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((fmax (0 : Int) ((81 : Int) - (30 : Int))) = (51 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

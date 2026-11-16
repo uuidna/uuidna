@@ -1,0 +1,12 @@
+{
+  "handle": "6a265ebb",
+  "address": "6a265ebb-1e02-84cc-a31d-f55fc62de671",
+  "kind": "chunk",
+  "keys": [
+    "fam_tribology"
+  ],
+  "statement": "((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((300 : Int) / (100 : Int)) = (3 : Int)) ∧ (((5000 : Int) / (25 : Int)) = (200 : Int)) ∧ (((900 : Int) / (30 : Int)) = (30 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ (((1000000 : Int) / (500 : Int)) = (2000 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

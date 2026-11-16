@@ -1,0 +1,12 @@
+{
+  "handle": "14f1a65e",
+  "address": "14f1a65e-3f71-8322-8673-ef5b63dc1105",
+  "statement": "((((10 : Int) ^ (2 : Nat)) / (4 : Int)) = (25 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((2000 : Int) / (5 : Int)) = (400 : Int)) ∧ ((((3 : Int) * (1000 : Int)) / (1000 : Int)) = (3 : Int)) ∧ (((90 : Int) / (10 : Int)) = (9 : Int)) ∧ (((50 : Int) / (10 : Int)) = (5 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((600 : Int) / (20 : Int)) = (30 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_biophysics"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

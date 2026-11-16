@@ -1,0 +1,12 @@
+{
+  "handle": "0944a971",
+  "address": "0944a971-2ab5-8954-bca1-01f4b5c401ad",
+  "kind": "chunk",
+  "keys": [
+    "fam_funnel"
+  ],
+  "statement": "((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((600 : Int) / (30 : Int)) = (20 : Int)) ∧ ((((450 : Int) * (100 : Int)) / (1000 : Int)) = (45 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ ((((700 : Int) * (100 : Int)) / (1000 : Int)) = (70 : Int)) ∧ (((480 : Int) / (8 : Int)) = (60 : Int))",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

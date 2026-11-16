@@ -1,0 +1,12 @@
+{
+  "handle": "8ae315a3",
+  "address": "8ae315a3-85f3-8ac8-9686-3eab42473a19",
+  "statement": "((100 : Int) = (100 : Int)) ∧ ((((100 : Int) * (90 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((10 : Int) * (125000000 : Int)) / (1500 : Int)) = (833333 : Int)) ∧ ((9000 : Int) = (9000 : Int)) ∧ (((1518 : Int) - (1500 : Int)) = (18 : Int)) ∧ (((100 : Int) * (2 : Int)) = (200 : Int)) ∧ (((8 : Int) * (4 : Int)) = (32 : Int)) ∧ ((-((-(1000 : Int)) / (64 : Int))) = (16 : Int)) ∧ (((16 : Int) * (32 : Int)) = (512 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_nic"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

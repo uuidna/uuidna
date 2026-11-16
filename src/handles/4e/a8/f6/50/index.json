@@ -1,0 +1,12 @@
+{
+  "handle": "4ea8f650",
+  "address": "4ea8f650-f80d-8744-8425-f47f68fbc238",
+  "kind": "chunk",
+  "keys": [
+    "fam_maillard"
+  ],
+  "statement": "((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ (((6 : Int) * (12 : Int)) = (72 : Int)) ∧ (((180 : Int) / (30 : Int)) = (6 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (60 : Int)) = (66 : Int)) ∧ (((12 : Int) * (8 : Int)) = (96 : Int)) ∧ (((70 : Int) / (10 : Int)) = (7 : Int)) ∧ (((300 : Int) / (5 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

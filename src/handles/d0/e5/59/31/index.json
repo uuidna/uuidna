@@ -1,0 +1,12 @@
+{
+  "handle": "d0e55931",
+  "address": "d0e55931-94f7-819b-9b3d-9fc1cd2f2992",
+  "kind": "chunk",
+  "keys": [
+    "fam_steps"
+  ],
+  "statement": "((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (5 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((5 : Int) - (3 : Int))) = (2 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((if (if (3 : Int) ≤ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (6 : Int) ≤ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((5 : Int) * (30 : Int)) = (150 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

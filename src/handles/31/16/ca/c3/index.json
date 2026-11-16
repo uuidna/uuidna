@@ -1,0 +1,12 @@
+{
+  "handle": "3116cac3",
+  "address": "3116cac3-f4f5-859e-866d-4ac56958c746",
+  "kind": "chunk",
+  "keys": [
+    "fam_agriculture"
+  ],
+  "statement": "(((9000 : Int) / (3 : Int)) = (3000 : Int)) ∧ (((40 : Int) * (120 : Int)) = (4800 : Int)) ∧ (((40 : Int) * (25 : Int)) = (1000 : Int)) ∧ (((40 : Int) * (150 : Int)) = (6000 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int)) ∧ ((((130 : Int) * (100 : Int)) / (100 : Int)) = (130 : Int)) ∧ (((3000 : Int) * (3 : Int)) = (9000 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

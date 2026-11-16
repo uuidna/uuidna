@@ -1,0 +1,12 @@
+{
+  "handle": "f92ac72b",
+  "address": "f92ac72b-9ff2-83de-a5a1-7c8da38eacb3",
+  "kind": "chunk",
+  "keys": [
+    "fam_sixsigma"
+  ],
+  "statement": "((((400 : Int) * (100 : Int)) / (300 : Int)) = (133 : Int)) ∧ (((1000 : Int) * (3 : Int)) = (3000 : Int)) ∧ ((((5 : Int) * (1000000 : Int)) / (1000 : Int)) = (5000 : Int)) ∧ ((((20 : Int) * (1000 : Int)) / (1000 : Int)) = (20 : Int)) ∧ (((1000 : Int) * (5 : Int)) = (5000 : Int)) ∧ (((((95 : Int) * (90 : Int)) * (90 : Int)) / (10000 : Int)) = (76 : Int)) ∧ (((600 : Int) / (100 : Int)) = (6 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

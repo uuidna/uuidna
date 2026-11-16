@@ -1,0 +1,12 @@
+{
+  "handle": "338d57c7",
+  "address": "338d57c7-6259-8264-a10b-9f2aa3aabfd2",
+  "kind": "chunk",
+  "keys": [
+    "fam_altimetry"
+  ],
+  "statement": "(((500 : Int) + ((fmax (0 : Int) ((1013 : Int) - (1003 : Int))) * (27 : Int))) = (770 : Int)) ∧ (((5000 : Int) + ((120 : Int) * (fmax (0 : Int) ((25 : Int) - (15 : Int))))) = (6200 : Int)) ∧ ((fmax (0 : Int) ((1850 : Int) - (1200 : Int))) = (650 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (2000 : Int)) = (7 : Int)) ∧ (((fmax (0 : Int) ((1000 : Int) - (400 : Int))) / (6 : Int)) = (100 : Int)) ∧ (((3600 : Int) / (3 : Int)) = (1200 : Int)) ∧ ((((29 : Int) * (250 : Int)) * (2 : Int)) = (14500 : Int)) ∧ ((((30 : Int) * (1000 : Int)) / (400 : Int)) = (75 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

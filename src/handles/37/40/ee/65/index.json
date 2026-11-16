@@ -1,0 +1,12 @@
+{
+  "handle": "3740ee65",
+  "address": "3740ee65-30b6-894a-bdc3-682f1c8e8f08",
+  "kind": "chunk",
+  "keys": [
+    "fam_epigenetics"
+  ],
+  "statement": "((((30 : Int) * (100 : Int)) / (40 : Int)) = (75 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (2 : Int)) = (50 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ (((3650 : Int) / (50 : Int)) = (73 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (80 : Int)) = (25 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

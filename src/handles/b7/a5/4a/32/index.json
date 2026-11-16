@@ -1,0 +1,12 @@
+{
+  "handle": "b7a54a32",
+  "address": "b7a54a32-35d3-8c8d-83bc-7b550532a7f4",
+  "kind": "chunk",
+  "keys": [
+    "fam_cargo"
+  ],
+  "statement": "(((300 : Int) + ((150 : Int) * (2 : Int))) = (600 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((500 : Int) * (33 : Int)) = (16500 : Int)) ∧ ((((40000 : Int) + (5000 : Int)) + (3000 : Int)) = (48000 : Int)) ∧ (((200 : Int) * (25 : Int)) = (5000 : Int)) ∧ ((-((-(1000 : Int)) / (48 : Int))) = (21 : Int)) ∧ ((-((-(5000 : Int)) / (300 : Int))) = (17 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

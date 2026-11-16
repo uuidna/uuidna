@@ -1,0 +1,12 @@
+{
+  "handle": "d7b7b502",
+  "address": "d7b7b502-0923-80f4-a30a-4c65079dc1ed",
+  "kind": "chunk",
+  "keys": [
+    "fam_remotesensing"
+  ],
+  "statement": "(((((80 : Int) - (40 : Int)) * (100 : Int)) / ((80 : Int) + (40 : Int))) = (33 : Int)) ∧ (((4000 : Int) / (1000 : Int)) = (4 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (80 : Int)) = (50 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ ((16 : Int) = (16 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((700 : Int) * (10 : Int)) = (7000 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

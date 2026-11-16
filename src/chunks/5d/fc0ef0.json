@@ -1,0 +1,12 @@
+{
+  "handle": "5dfc0ef0",
+  "address": "5dfc0ef0-54c6-8515-a791-3666427219ab",
+  "statement": "(((100 : Int) * (12 : Int)) = (1200 : Int)) ∧ (((1200 : Int) / (2 : Int)) = (600 : Int)) ∧ (((60000 : Int) / (628 : Int)) = (95 : Int)) ∧ (((100 : Int) * (10 : Int)) = (1000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ (((25 : Int) * (1 : Int)) = (25 : Int)) ∧ (((100 : Int) + (200 : Int)) = (300 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (100 : Int)) = (1 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_capacitor"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

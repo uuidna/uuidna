@@ -1,0 +1,12 @@
+{
+  "handle": "6abb1d94",
+  "address": "6abb1d94-7e49-8c45-b0a5-78b547bb08c7",
+  "statement": "(((((1000 : Int) - (850 : Int)) * (100 : Int)) / (1000 : Int)) = (15 : Int)) ∧ (((((600 : Int) - (480 : Int)) * (100 : Int)) / (600 : Int)) = (20 : Int)) ∧ (((200 : Int) / (10 : Int)) = (20 : Int)) ∧ ((205 : Int) = (205 : Int)) ∧ (((((120 : Int) - (108 : Int)) * (100 : Int)) / (120 : Int)) = (10 : Int)) ∧ (((640 : Int) / (1 : Int)) = (640 : Int)) ∧ ((55 : Int) = (55 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1200 : Int)) = (75 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_roasting"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f673ba0c",
+  "address": "f673ba0c-dcf8-8db6-b78e-c65145c91dfa",
+  "kind": "chunk",
+  "keys": [
+    "fam_harvest"
+  ],
+  "statement": "(((40 : Int) * (150 : Int)) = (6000 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (200 : Int)) = (10 : Int)) ∧ (((6000 : Int) / (8 : Int)) = (750 : Int)) ∧ (((12 : Int) * (8 : Int)) = (96 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((14 : Int) * (100 : Int)) / (100 : Int)) = (14 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (300 : Int))) = (4700 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (12 : Int))) = (18 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (30 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

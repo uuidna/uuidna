@@ -1,0 +1,12 @@
+{
+  "handle": "bafd634e",
+  "address": "bafd634e-954f-843e-ad8a-3925e4a4c5f6",
+  "statement": "(((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (100 : Int)) = (10 : Int)) ∧ (((64 : Int) + (0 : Int)) = (64 : Int)) ∧ (((120 : Int) / (4 : Int)) = (30 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ (((10 : Int) * (60 : Int)) = (600 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_queue"
+  ],
+  "files": [
+    "FamiliesQ.lean"
+  ]
+}

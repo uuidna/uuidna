@@ -1,0 +1,12 @@
+{
+  "handle": "a14e3580",
+  "address": "a14e3580-ea0d-866e-84a1-96b306042c25",
+  "statement": "((-((-(100000 : Int)) / (4096 : Int))) = (25 : Int)) ∧ (((8 : Int) * (4096 : Int)) = (32768 : Int)) ∧ (((1000000 : Int) / (1000 : Int)) = (1000 : Int)) ∧ (((64 : Int) * (1024 : Int)) = (65536 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((10000 : Int) / (188 : Int)) = (53 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_stream"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

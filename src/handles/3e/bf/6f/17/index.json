@@ -1,0 +1,12 @@
+{
+  "handle": "3ebf6f17",
+  "address": "3ebf6f17-8a7a-8c55-bb1e-775edfae3c64",
+  "kind": "chunk",
+  "keys": [
+    "fam_hanoi"
+  ],
+  "statement": "(((10 : Int) + (0 : Int)) = (10 : Int)) ∧ (((2 : Int) ^ (10 : Nat)) = (1024 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((10 : Int) + (0 : Int)) = (10 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ (((1024 : Int) * (1 : Int)) = (1024 : Int))",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

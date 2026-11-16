@@ -1,0 +1,12 @@
+{
+  "handle": "290cc515",
+  "address": "290cc515-2465-8059-92a7-dc5dbe4dc4e1",
+  "statement": "(0 < 72337) ∧ (0 + 72337 = 72337)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

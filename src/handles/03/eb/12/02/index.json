@@ -1,0 +1,12 @@
+{
+  "handle": "03eb1202",
+  "address": "03eb1202-d529-8ca2-9544-44103594fe96",
+  "kind": "chunk",
+  "keys": [
+    "fam_geochemistry"
+  ],
+  "statement": "((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((500 : Int) * (100 : Int)) / (100 : Int)) = (500 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((((35 : Int) * (1000 : Int)) / (1000 : Int)) = (35 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (20 : Int)) = (400 : Int)) ∧ ((((25 : Int) * (1000 : Int)) / (100 : Int)) = (250 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

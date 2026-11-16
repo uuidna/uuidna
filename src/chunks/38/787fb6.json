@@ -1,0 +1,12 @@
+{
+  "handle": "38787fb6",
+  "address": "38787fb6-fea4-8fbd-802f-f061bdaf5c13",
+  "statement": "((((12 : Int) * (100 : Int)) / (10 : Int)) = (120 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((((fmax (0 : Int) ((60 : Int) - (40 : Int))) * (100 : Int)) / ((60 : Int) + (40 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (75 : Int))) = (25 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (80 : Int))) = (0 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (50 : Int)) = (60 : Int)) ∧ (((49 : Int) / (7 : Int)) = (7 : Int)) ∧ ((((120 : Int) * (60 : Int)) / (60 : Int)) = (120 : Int)) ∧ ((fmax (0 : Int) ((48 : Int) - (8 : Int))) = (40 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_neuropsychology"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

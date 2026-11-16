@@ -1,0 +1,12 @@
+{
+  "handle": "a881fbfd",
+  "address": "a881fbfd-7bd3-88f1-ba61-a61364fa17ee",
+  "kind": "chunk",
+  "keys": [
+    "fam_cloud"
+  ],
+  "statement": "(((720 : Int) * (5 : Int)) = (3600 : Int)) ∧ ((((999 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((1000 : Int) * (5 : Int)) = (5000 : Int)) ∧ ((((10000 : Int) * (90 : Int)) / (1000 : Int)) = (900 : Int)) ∧ ((if (if (99 : Int) ≥ (95 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (90 : Int) ≥ (95 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

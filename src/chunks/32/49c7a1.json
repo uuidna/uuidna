@@ -1,0 +1,12 @@
+{
+  "handle": "3249c7a1",
+  "address": "3249c7a1-1ab4-81a5-8e36-f34038943459",
+  "statement": "((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((700 : Int) * (100 : Int)) / (1000 : Int)) = (70 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((((1000 : Int) - (600 : Int)) * (100 : Int)) / (1000 : Int)) = (40 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_recycling"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

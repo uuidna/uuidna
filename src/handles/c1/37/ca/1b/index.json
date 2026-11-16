@@ -1,0 +1,12 @@
+{
+  "handle": "c137ca1b",
+  "address": "c137ca1b-bcd8-833e-862b-483822be2cb4",
+  "kind": "chunk",
+  "keys": [
+    "fam_qsec"
+  ],
+  "statement": "(((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ (((16 : Int) * (8 : Int)) = (128 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ (((10000 : Int) * (1 : Int)) = (10000 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)) ∧ (((2 : Int) ^ (10 : Nat)) = (1024 : Int)) ∧ (((16 : Int) + (0 : Int)) = (16 : Int)) ∧ ((fmax (0 : Int) ((256 : Int) - (128 : Int))) = (128 : Int))",
+  "files": [
+    "FamiliesQ.lean"
+  ]
+}

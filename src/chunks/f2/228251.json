@@ -1,0 +1,12 @@
+{
+  "handle": "f2228251",
+  "address": "f2228251-075b-8f38-bed7-e3baab4f98fd",
+  "statement": "((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((40 : Int) ^ (2 : Nat)) + ((30 : Int) ^ (2 : Nat))) = (2500 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((if (if (45 : Int) ≥ (40 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (30 : Int) ≥ (40 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((((100 : Int) - (60 : Int)) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((((60 : Int) - (100 : Int)) * (100 : Int)) / (60 : Int)) = (-67 : Int)) ∧ (((5 : Int) * (100000 : Int)) = (500000 : Int)) ∧ ((((1000000 : Int) * (10 : Int)) / (100 : Int)) = (100000 : Int)) ∧ (((40 : Int) + (30 : Int)) = (70 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_antitrust"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

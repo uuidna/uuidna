@@ -1,0 +1,12 @@
+{
+  "handle": "917ad041",
+  "address": "917ad041-2eec-8575-9d09-f82cba2fccd5",
+  "kind": "chunk",
+  "keys": [
+    "fam_origami"
+  ],
+  "statement": "(((20 : Int) + (12 : Int)) = (32 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (6 : Int)))) = (720 : Int)) ∧ (((16 : Int) * (2 : Int)) = (32 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (100 : Int)) = (100 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((180 : Int) / (4 : Int)) = (45 : Int)) ∧ (((8 : Int) * (4 : Int)) = (32 : Int))",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

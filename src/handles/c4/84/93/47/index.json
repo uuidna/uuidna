@@ -1,0 +1,12 @@
+{
+  "handle": "c4849347",
+  "address": "c4849347-533b-8944-bc67-196650fb17b3",
+  "kind": "chunk",
+  "keys": [
+    "fam_ornithology"
+  ],
+  "statement": "(((1200 : Int) / (40 : Int)) = (30 : Int)) ∧ (((48 : Int) / (12 : Int)) = (4 : Int)) ∧ (((8000 : Int) / (40 : Int)) = (200 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (50 : Int)) = (1200 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((240 : Int) / (60 : Int)) = (4 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int))",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

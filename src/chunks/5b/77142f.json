@@ -1,0 +1,12 @@
+{
+  "handle": "5b77142f",
+  "address": "5b77142f-c42d-8a8a-a5e0-99b184775401",
+  "statement": "((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((72 : Int) + (8 : Int)) = (80 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ (((350 : Int) / (4 : Int)) = (87 : Int)) ∧ (((5 : Int) * (4 : Int)) = (20 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ ((fmax (0 : Int) ((85 : Int) - (60 : Int))) = (25 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (70 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_assessment"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

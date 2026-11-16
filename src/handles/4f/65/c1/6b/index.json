@@ -1,0 +1,12 @@
+{
+  "handle": "4f65c16b",
+  "address": "4f65c16b-1755-873e-874b-6238ad07a06e",
+  "kind": "chunk",
+  "keys": [
+    "fam_alloys"
+  ],
+  "statement": "((((20 : Int) + ((60 : Int) / (6 : Int))) + ((50 : Int) / (5 : Int))) = (40 : Int)) ∧ ((((88 : Int) * (100 : Int)) / (100 : Int)) = (88 : Int)) ∧ ((((580 : Int) * (2 : Int)) / (4 : Int)) = (290 : Int)) ∧ (((16000 : Int) / (2 : Int)) = (8000 : Int)) ∧ (((600 : Int) / (3 : Int)) = (200 : Int)) ∧ ((((1538 : Int) + (1085 : Int)) / (2 : Int)) = (1311 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ (((40000 : Int) / (80 : Int)) = (500 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

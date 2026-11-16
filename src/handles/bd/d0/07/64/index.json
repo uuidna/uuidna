@@ -1,0 +1,12 @@
+{
+  "handle": "bdd00764",
+  "address": "bdd00764-3900-82e9-bef4-8ee728376873",
+  "kind": "chunk",
+  "keys": [
+    "fam_thermochemistry"
+  ],
+  "statement": "(((2 : Int) * (286 : Int)) = (572 : Int)) ∧ (((900 : Int) / (300 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - ((300 : Int) * (2 : Int)))) = (400 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - ((300 : Int) * (2 : Int)))) = (0 : Int)) ∧ (((400 : Int) / (8 : Int)) = (50 : Int)) ∧ ((((100 : Int) * (4 : Int)) * (25 : Int)) = (10000 : Int)) ∧ (((4 : Int) * (413 : Int)) = (1652 : Int)) ∧ ((((100 : Int) + (200 : Int)) + (300 : Int)) = (600 : Int)) ∧ ((fmax (0 : Int) ((150 : Int) - (50 : Int))) = (100 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (150 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0795349c",
+  "address": "0795349c-93a6-8511-804b-639dab9ed2a8",
+  "statement": "((if (if (60 : Int) ≥ (51 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (85 : Int) ≥ (90 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((1000 : Int) + ((((1000 : Int) * (5 : Int)) * (3 : Int)) / (100 : Int))) = (1150 : Int)) ∧ (((((10000 : Int) * (8 : Int)) * (365 : Int)) / (36500 : Int)) = (800 : Int)) ∧ (((10 : Int) * (250 : Int)) = (2500 : Int)) ∧ ((((3000 : Int) * (2 : Int)) / (3 : Int)) = (2000 : Int)) ∧ ((((100000 : Int) * (30 : Int)) / (100 : Int)) = (30000 : Int)) ∧ ((fmin (500000 : Int) (250000 : Int)) = (250000 : Int)) ∧ ((fmin (100000 : Int) (250000 : Int)) = (100000 : Int)) ∧ ((((100000 : Int) * (33 : Int)) / (100 : Int)) = (33000 : Int)) ∧ (((((10000 : Int) * (120 : Int)) / (100 : Int)) + (500 : Int)) = (12500 : Int)) ∧ (((1000 : Int) + ((((1000 : Int) * (365 : Int)) * (10 : Int)) / (36500 : Int))) = (1100 : Int)) ∧ ((if (if (20 : Int) ≥ (21 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (21 : Int) ≥ (21 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((((100000 : Int) * (3 : Int)) / (10 : Int)) = (30000 : Int)) ∧ ((if (if (500 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2000 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (400 : Int) > (365 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (200 : Int) > (365 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (2 : Int) ≤ (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (5 : Int) ≤ (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_court"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fe73ab35",
+  "address": "fe73ab35-2231-850a-84e5-6e3f803f5a2d",
+  "kind": "chunk",
+  "keys": [
+    "fam_serialization"
+  ],
+  "statement": "(((12 : Int) * (100 : Int)) = (1200 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (1200 : Int))) = (3800 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (2000 : Int))) = (0 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((3800 : Int) + ((4 : Int) * (50 : Int))) = (4000 : Int)) ∧ (((-((-(300 : Int)) / (3 : Int))) * (4 : Int)) = (400 : Int)) ∧ (((20 : Int) * (3 : Int)) = (60 : Int)) ∧ (((8 : Int) * (16 : Int)) = (128 : Int)) ∧ ((-((-(1000 : Int)) / (64 : Int))) = (16 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

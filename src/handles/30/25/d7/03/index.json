@@ -1,0 +1,12 @@
+{
+  "handle": "3025d703",
+  "address": "3025d703-b800-86a9-9e27-26a116927bef",
+  "kind": "chunk",
+  "keys": [
+    "fam_melody"
+  ],
+  "statement": "((fmax (0 : Int) ((60 : Int) - (48 : Int))) = (12 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (8 : Int))) = (12 : Int)) ∧ ((((80 : Int) * (100 : Int)) / ((80 : Int) + (20 : Int))) = (80 : Int)) ∧ (((64 : Int) / (8 : Int)) = (8 : Int)) ∧ (((48 : Int) / (4 : Int)) = (12 : Int)) ∧ (((64 : Int) % (12 : Int)) = (4 : Int)) ∧ ((((60 : Int) + (7 : Int)) % (12 : Int)) = (7 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (50 : Int)) = (200 : Int)) ∧ (((64 : Int) / (0 : Int)) = (0 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

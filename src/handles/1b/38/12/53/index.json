@@ -1,0 +1,12 @@
+{
+  "handle": "1b381253",
+  "address": "1b381253-0643-80b0-8b7e-8fccebf971ae",
+  "kind": "chunk",
+  "keys": [
+    "fam_deontology"
+  ],
+  "statement": "(((7 : Int) + (3 : Int)) = (10 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (5 : Int)))) / (Int.ofNat (ffact (Int.toNat ((5 : Int) - (2 : Int)))))) = (20 : Int)) ∧ (((5 : Int) * (2 : Int)) = (10 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (8 : Int))) = (4 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

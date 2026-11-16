@@ -1,0 +1,12 @@
+{
+  "handle": "c141d623",
+  "address": "c141d623-7b9a-808e-8bec-2d9bff475ca9",
+  "kind": "chunk",
+  "keys": [
+    "fam_mining"
+  ],
+  "statement": "((((5 : Int) * (1000000 : Int)) / (1000 : Int)) = (5000 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((1000000 : Int) * (5000 : Int)) / (1000000 : Int)) = (5000 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((if (if (5000 : Int) ≥ (3000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2000 : Int) ≥ (3000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((12000 : Int) / (24 : Int)) = (500 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((500 : Int) * (7 : Int)) = (3500 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

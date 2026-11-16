@@ -1,0 +1,12 @@
+{
+  "handle": "3ed5e117",
+  "address": "3ed5e117-16f7-86db-be47-abf0ee4c2ac8",
+  "kind": "chunk",
+  "keys": [
+    "fam_landslide"
+  ],
+  "statement": "(((450 : Int) / (10 : Int)) = (45 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int)) ∧ (((30 : Int) * (20 : Int)) = (600 : Int)) ∧ ((((50 : Int) * (40 : Int)) * (10 : Int)) = (20000 : Int)) ∧ (((600 : Int) / (60 : Int)) = (10 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (120 : Int))) = (80 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

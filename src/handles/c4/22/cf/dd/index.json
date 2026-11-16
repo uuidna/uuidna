@@ -1,0 +1,12 @@
+{
+  "handle": "c422cfdd",
+  "address": "c422cfdd-4609-8de9-a866-b3c75356ac8d",
+  "kind": "chunk",
+  "keys": [
+    "fam_enzymology"
+  ],
+  "statement": "((((100 : Int) * (50 : Int)) / ((50 : Int) + (50 : Int))) = (50 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (5 : Int)) = (200 : Int)) ∧ (((200 : Int) / (4 : Int)) = (50 : Int)) ∧ (((((100 : Int) - (25 : Int)) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ ((((200 : Int) * (1000 : Int)) / (4 : Int)) = (50000 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (400 : Int))) = (600 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

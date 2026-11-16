@@ -1,0 +1,12 @@
+{
+  "handle": "fbda0922",
+  "address": "fbda0922-b715-8255-aa99-bbef06b25f86",
+  "kind": "chunk",
+  "keys": [
+    "fam_acquisition"
+  ],
+  "statement": "(((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (200 : Int)) = (300 : Int)) ∧ (((200 : Int) / (50 : Int)) = (4 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (200 : Int)) = (40 : Int)) ∧ (((3000 : Int) / (30 : Int)) = (100 : Int)) ∧ ((((5000 : Int) * (100 : Int)) / (1000 : Int)) = (500 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

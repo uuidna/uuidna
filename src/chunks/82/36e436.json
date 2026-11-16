@@ -1,0 +1,12 @@
+{
+  "handle": "8236e436",
+  "address": "8236e436-a64a-881d-8267-b87e4df449eb",
+  "statement": "((((4 : Int) * (100 : Int)) / (7 : Int)) = (57 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (4 : Int))) = (3 : Int)) ∧ ((((2 : Int) * (2 : Int)) + (1 : Int)) = (5 : Int)) ∧ (((4 : Int) + (3 : Int)) = (7 : Int)) ∧ (((fmax (0 : Int) ((5 : Int) - (1 : Int))) / (2 : Int)) = (2 : Int)) ∧ ((((512 : Int) * (100 : Int)) / (1024 : Int)) = (50 : Int)) ∧ (((3 : Int) % (2 : Int)) = (1 : Int)) ∧ (((4 : Int) % (2 : Int)) = (0 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_coding"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

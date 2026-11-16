@@ -74,7 +74,7 @@ The ledger holds this as [knight_has_eight_moves](/theorem/knight_has_eight_move
 ([(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)] : List (Int × Int)).length = 8
 ```
 
-### Because a knight flips colour every move, it returns to its start colour only after an EVEN number of moves — so a closed knight’s tour has even length, and the full-board tour is 64 (even). 64 % 2 = 0.
+### Because a knight flips colour every move, it returns to its start colour only after an EVEN number of moves — so a closed knight’s tour has even length, and the full-board tour is 64 (even). 64 % 2 = 0. Source: DOI 10.1080/0025570X.1991.11977627.
 The ledger holds this as [closed_knight_tour_even](/theorem/closed_knight_tour_even) — proven `by decide`, sorry-free:
 
 ```lean
@@ -102,6 +102,12 @@ The ledger holds this as [queen_corner_twentyone](/theorem/queen_corner_twentyon
 7 + 7 + 7 = 21
 ```
 
+
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. Schwenk, Allen J. (1991). Which Rectangular Chessboards Have a Knight's Tour? Mathematics Magazine. [https://doi.org/10.1080/0025570X.1991.11977627](https://doi.org/10.1080/0025570X.1991.11977627)
 
 ::: warning 
 THE CHESSBOARD — the 8×8 = 64 = 2⁶ board, its two-colouring, and the pieces’ parity and reach, decidable. The boundary is confirmed by the wing's own sealed theorems — e.g. [torus_chessboard_chi_zero](/theorem/torus_chessboard_chi_zero) — never merely denied.

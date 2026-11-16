@@ -1,0 +1,12 @@
+{
+  "handle": "a9abada7",
+  "address": "a9abada7-70f7-8d38-91c8-cc70935e5dbe",
+  "statement": "(((100 : Int) * (3 : Int)) = (300 : Int)) ∧ (((3600 : Int) / (60 : Int)) = (60 : Int)) ∧ (((2 : Int) * (180 : Int)) = (360 : Int)) ∧ (((50 : Int) * (4 : Int)) = (200 : Int)) ∧ (((60 : Int) * (10 : Int)) = (600 : Int)) ∧ (((628 : Int) / (100 : Int)) = (6 : Int)) ∧ (((12 : Int) + (0 : Int)) = (12 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_rotation"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

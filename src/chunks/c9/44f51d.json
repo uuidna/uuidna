@@ -1,0 +1,12 @@
+{
+  "handle": "c944f51d",
+  "address": "c944f51d-7ee8-80ea-b670-0f67c52be370",
+  "statement": "(((5000 : Int) * (12 : Int)) = (60000 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (1500 : Int))) = (3500 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ (((100 : Int) * (1 : Int)) = (100 : Int)) ∧ (((10 : Int) * (45 : Int)) = (450 : Int)) ∧ (((500 : Int) + (200 : Int)) = (700 : Int)) ∧ (((26 : Int) + (0 : Int)) = (26 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_payroll"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

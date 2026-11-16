@@ -1,0 +1,12 @@
+{
+  "handle": "35cf83df",
+  "address": "35cf83df-c37c-8f6c-8169-9af77d5b56af",
+  "statement": "(((50 : Int) * (12 : Int)) = (600 : Int)) ∧ (((1000 : Int) * (12 : Int)) = (12000 : Int)) ∧ ((((200 : Int) * (15 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((100 : Int) * (50 : Int)) = (5000 : Int)) ∧ ((fmax (0 : Int) (((50 : Int) * (12 : Int)) - (500 : Int))) = (100 : Int)) ∧ ((fmax (0 : Int) (((40 : Int) * (12 : Int)) - (600 : Int))) = (0 : Int)) ∧ (((10 : Int) * (25 : Int)) = (250 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (50 : Int))) = (40 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (90 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_pricing"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8a19e270",
+  "address": "8a19e270-6547-88b0-babb-75bfb39dca6f",
+  "kind": "chunk",
+  "keys": [
+    "fam_gerontology"
+  ],
+  "statement": "(((75 : Int) + (5 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((10000 : Int) - (3000 : Int))) = (7000 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((800 : Int) / (10 : Int)) = (80 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((3650 : Int) / (365 : Int)) = (10 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

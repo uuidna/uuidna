@@ -1,0 +1,12 @@
+{
+  "handle": "921bc0a5",
+  "address": "921bc0a5-8cd9-82bc-93f5-2f4c153884dd",
+  "statement": "(((40 : Int) + (20 : Int)) = (60 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((((2 : Int) + (3 : Int)) + (1 : Int)) = (6 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)) ∧ (((12 : Int) * (4 : Int)) = (48 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (50 : Int))) = (150 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_historiography"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

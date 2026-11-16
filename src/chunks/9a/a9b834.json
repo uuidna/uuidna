@@ -1,0 +1,12 @@
+{
+  "handle": "9aa9b834",
+  "address": "9aa9b834-51e4-85f9-abe9-dd7876f43dad",
+  "statement": "(((1000 : Int) * (6 : Int)) = (6000 : Int)) ∧ (((100 : Int) / (5 : Int)) = (20 : Int)) ∧ (((1120 : Int) + (300 : Int)) = (1420 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((20 : Int) * (100 : Int)) / ((20 : Int) + (80 : Int))) = (20 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((600 : Int) / (100 : Int)) = (6 : Int)) ∧ (((3600 : Int) / ((6 : Int) * (6 : Int))) = (100 : Int)) ∧ (((3600 : Int) / ((0 : Int) * (0 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_nanomaterials"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

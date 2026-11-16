@@ -1,0 +1,12 @@
+{
+  "handle": "f419eaf0",
+  "address": "f419eaf0-f236-8e2c-a8be-4b0235a6f23b",
+  "kind": "chunk",
+  "keys": [
+    "fam_watershed"
+  ],
+  "statement": "((((200 : Int) * (60 : Int)) / (100 : Int)) = (120 : Int)) ∧ (((1500 : Int) / (30 : Int)) = (50 : Int)) ∧ (((3600 : Int) / (2 : Int)) = (1800 : Int)) ∧ (((((100 : Int) * (50 : Int)) * (20 : Int)) / (100 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (120 : Int))) = (80 : Int)) ∧ (((500 : Int) * (300 : Int)) = (150000 : Int)) ∧ ((fmax (0 : Int) ((1200 : Int) - (300 : Int))) = (900 : Int))",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

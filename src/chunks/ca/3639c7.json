@@ -1,0 +1,12 @@
+{
+  "handle": "ca3639c7",
+  "address": "ca3639c7-1bd3-8153-b690-9dd6f6e9eebf",
+  "statement": "(((100 : Int) * (12 : Int)) = (1200 : Int)) ∧ (((12 : Int) + (4 : Int)) = (16 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((500 : Int) * (1 : Int)) = (500 : Int)) ∧ (((3 : Int) * (12 : Int)) = (36 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((6 : Int) * (4 : Int)) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_battery"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

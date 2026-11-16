@@ -5,54 +5,54 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 75450,
-        "keys": 80808,
-        "renamings": 5358,
+        "distinct": 72323,
+        "keys": 72409,
+        "renamings": 86,
         "principles": 293,
         "skills": 133,
         "coins": 2,
         "largestPrinciple": "The four-hex span, part 1 (4096)",
         "smallestPrinciple": "The six-cube translation by 9 (1)",
-        "ledgerReceipt": "64e2b890-0260-8680-a842-fcc3c55d6719"
+        "ledgerReceipt": "6b8584b2-185d-8be1-a6e4-a699b26e8e2d"
       },
-      "address": "6c88af27-8885-8784-b787-5d7dcdbda055"
+      "address": "4e66ebb5-5687-8883-b703-27d9b05f89d5"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 80808,
-        "ledgerKeys": 80808,
+        "theoremsMeasured": 72409,
+        "ledgerKeys": 72409,
         "unmeasured": 0,
         "decideStepsHexbits": 7,
         "decideStepsBits": 29
       },
-      "address": "173d65a8-5c28-8480-b8e1-f1db2bbfaac5"
+      "address": "ec7cfcb8-bf4b-85a7-bebe-721089b53a3d"
     },
     {
       "title": "Citation audit",
       "source": "audit-citations.json",
       "present": true,
       "facts": {
-        "publications": 266,
-        "sealedTheorems": 71254,
+        "publications": 293,
+        "sealedTheorems": 72409,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "481f715f-e45d-8a26-aa84-f07c685eba8e"
+      "address": "3692a3fd-3883-8d99-b4ce-9e8cef89b2c1"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 3881,
-        "roots": 2126,
-        "supported": 3881,
+        "modules": 3886,
+        "roots": 2131,
+        "supported": 3886,
         "dead": 0,
-        "receipt": "6fa909a2-367e-8143-b9fe-813bf44c944f"
+        "receipt": "aabaeda0-0011-8206-afdc-5d169a06b470"
       },
-      "address": "f5999293-29d9-8a86-9fcc-3372b870efeb"
+      "address": "f2e1f5f3-a665-87b9-a348-fc2af8c8e6a0"
     },
     {
       "title": "Package inventory",
@@ -70,11 +70,11 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "cc7d525b418db39e",
-        "unifiedFold": "c9c1bfabca40c8e1",
+        "foldReceipt": "88e9052b51fbdb4f",
+        "unifiedFold": "5a848adbae8566e0",
         "zeroEntropy": "true"
       },
-      "address": "bcd0ec3b-4e77-896b-8e66-316dfae0a4e1"
+      "address": "ce638b1f-f689-8d21-a8d9-e466fda70eab"
     },
     {
       "title": "Gate receipt",
@@ -94,72 +94,72 @@
         "analyticsReport": "absent (folded)",
         "gapsJson": "absent — count from coverage().uncoveredFiles",
         "uncoveredFiles": 0,
-        "captainClaimsTheorems": 80808,
+        "captainClaimsTheorems": 72409,
         "captainClaimsComplete": "present (twin of captain-claims.json)",
         "researchLeads": 0,
         "handleRoot": "src/handles live round-trip"
       },
-      "address": "01b3f33a-4cf6-8e16-94b5-a7af84fbd034"
+      "address": "33035fbc-4439-860f-8e3f-b18e1aa55e1e"
     }
   ],
-  "receipt": "a797d152-88e9-86be-bdb5-3e9fd51e9661",
-  "handle": "a797d152",
+  "receipt": "47921199-9c50-8e4a-8b0d-dc044943c916",
+  "handle": "47921199",
   "hexbits": [
-    10,
+    4,
     7,
     9,
-    7,
-    13,
-    1,
-    5,
     2,
-    8,
-    8,
-    14,
+    1,
+    1,
     9,
-    8,
-    6,
-    11,
-    14,
-    11,
-    13,
-    11,
+    9,
+    9,
+    12,
     5,
+    0,
+    8,
+    14,
+    4,
+    10,
+    8,
+    11,
+    0,
+    13,
+    13,
+    12,
+    0,
+    4,
+    4,
+    9,
+    4,
     3,
-    14,
+    12,
     9,
-    15,
-    13,
-    5,
     1,
-    14,
-    9,
-    6,
-    6,
-    1
+    6
   ],
-  "door": "https://uuidna.com/a797d152",
+  "door": "https://uuidna.com/47921199",
   "coin": [
-    10,
+    4,
     7,
     9,
-    7,
-    13,
-    1,
-    5,
     2,
-    8,
+    1,
+    1,
+    9,
+    9,
+    9,
+    12,
+    5,
+    0,
     8,
     14,
-    9,
-    8,
-    6,
-    11,
-    14
+    4,
+    10
   ],
   "place": {
-    "handle": "a797d152",
-    "value": 2811744594,
+    "handle": "47921199",
+    "value": 1200755097,
     "span": 4294967296,
     "residue": 0,
     "nilpotent": true,

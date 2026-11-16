@@ -1,0 +1,12 @@
+{
+  "handle": "fadbec61",
+  "address": "fadbec61-48da-81bd-9a87-146158d9ec6c",
+  "kind": "chunk",
+  "keys": [
+    "fam_vaccination"
+  ],
+  "statement": "((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((((5 : Int) - (1 : Int)) * (100 : Int)) / (5 : Int)) = (80 : Int)) ∧ ((((fmax (0 : Int) ((100 : Int) - (5 : Int))) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((1000 : Int) * (2 : Int)) = (2000 : Int)) ∧ (((10 : Int) * ((2 : Int) ^ (3 : Nat))) = (80 : Int)) ∧ (((12 : Int) / (2 : Int)) = (6 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((((10 : Int) * (100 : Int)) * (5 : Int)) = (5000 : Int))",
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

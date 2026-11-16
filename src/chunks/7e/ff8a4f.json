@@ -1,0 +1,12 @@
+{
+  "handle": "7eff8a4f",
+  "address": "7eff8a4f-65ec-8c10-9c7c-dde421144c24",
+  "statement": "(((50 : Int) * (2 : Int)) = (100 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (35 : Int)) = (200 : Int)) ∧ ((((80 : Int) * (8 : Int)) / (8 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (100 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (100 : Int))) = (0 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((50 : Int) * (24 : Int)) = (1200 : Int)) ∧ ((((100 : Int) * (60 : Int)) / (60 : Int)) = (100 : Int)) ∧ (((900 : Int) / (9 : Int)) = (100 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_airquality"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7dde5fdd",
+  "address": "7dde5fdd-71bf-8524-b0ff-fdabe4cf8278",
+  "kind": "chunk",
+  "keys": [
+    "fam_burndown"
+  ],
+  "statement": "((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (100 : Int))) = (0 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((80 : Int) / (10 : Int)) = (8 : Int)) ∧ ((-((-(60 : Int)) / (8 : Int))) = (8 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (5 : Int))) = (15 : Int)) ∧ (((120 : Int) / (6 : Int)) = (20 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (80 : Int)) = (50 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (40 : Int))) = (10 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

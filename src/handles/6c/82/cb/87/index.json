@@ -1,0 +1,12 @@
+{
+  "handle": "6c82cb87",
+  "address": "6c82cb87-a7f3-8f9e-8d82-e4d02e360a01",
+  "kind": "chunk",
+  "keys": [
+    "fam_geopolitics"
+  ],
+  "statement": "((((50 : Int) + (30 : Int)) + (20 : Int)) = (100 : Int)) ∧ (((12 : Int) * (8 : Int)) = (96 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((100 : Int) / (30 : Int)) = (3 : Int)) ∧ (((15 : Int) * (4 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (300 : Int))) = (700 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (400 : Int)) = (150 : Int)) ∧ ((if (if (85 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (50 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

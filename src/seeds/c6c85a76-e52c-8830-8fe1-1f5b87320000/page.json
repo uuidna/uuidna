@@ -1,0 +1,357 @@
+{
+  "file": "FamiliesK.lean",
+  "slug": "familiesk",
+  "status": "usable",
+  "address": "af1f2b5b-a394-83cb-9caf-00fb5304b04a",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "FamiliesK.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"FamiliesK.lean\",\n \"url\": \"https://uuidna.com/lean/FamiliesK.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 9,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_kalman",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "kalman: gain(3, 1) = 75; predictedstate(100, 5, 2) = 110; updatedestimate(100, 75, 8) = 106; errorcovariance(80, 75) = 20; innovation(110, 100) = 10; measurementresidual(110, 106) = 4; processnoise(3, 4) = 12; steadygain(2, 6) = 25"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((3 : Int) * (100 : Int)) / ((3 : Int) + (1 : Int))) = (75 : Int)) ∧ (((100 : Int) + ((5 : Int) * (2 : Int))) = (110 : Int)) ∧ (((100 : Int) + (((75 : Int) * (8 : Int)) / (100 : Int))) = (106 : Int)) ∧ (((((100 : Int) - (75 : Int)) * (80 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((110 : Int) - (100 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) ((110 : Int) - (106 : Int))) = (4 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ ((((2 : Int) * (100 : Int)) / ((2 : Int) + (6 : Int))) = (25 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_kalman : ((((3 : Int) * (100 : Int)) / ((3 : Int) + (1 : Int))) = (75 : Int)) ∧ (((100 : Int) + ((5 : Int) * (2 : Int))) = (110 : Int)) ∧ (((100 : Int) + (((75 : Int) * (8 : Int)) / (100 : Int))) = (106 : Int)) ∧ (((((100 : Int) - (75 : Int)) * (80 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((110 : Int) - (100 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) ((110 : Int) - (106 : Int))) = (4 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ ((((2 : Int) * (100 : Int)) / ((2 : Int) + (6 : Int))) = (25 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_karst",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "karst: cavelength(2000, 3) = 6000; dissolutionrate(100, 10) = 10; sinkholedensity(500, 50) = 10; conduitpairs(10, 2) = 45; porosity(30, 100) = 30; rechargerate(6000, 60) = 100; passageorderings(5) = 120; aquiferdepth(300, 50) = 250"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((2000 : Int) * (3 : Int)) = (6000 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((500 : Int) / (50 : Int)) = (10 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (50 : Int))) = (250 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_karst : (((2000 : Int) * (3 : Int)) = (6000 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((500 : Int) / (50 : Int)) = (10 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (50 : Int))) = (250 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_kerning",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "kerning: pairadjust(120, 40) = 80; tracking(10, 20) = 200; emratio(750, 1000) = 750; sidebearing(80, 80) = 160; advancewidth(500, 80, 80) = 660; wordspacing(5, 250) = 1000; units(3, 1000) = 3000; optical(72, 950) = 68"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((fmax (0 : Int) ((120 : Int) - (40 : Int))) = (80 : Int)) ∧ (((10 : Int) * (20 : Int)) = (200 : Int)) ∧ ((((750 : Int) * (1000 : Int)) / (1000 : Int)) = (750 : Int)) ∧ (((80 : Int) + (80 : Int)) = (160 : Int)) ∧ ((((500 : Int) + (80 : Int)) + (80 : Int)) = (660 : Int)) ∧ (((fmax (0 : Int) ((5 : Int) - (1 : Int))) * (250 : Int)) = (1000 : Int)) ∧ (((3 : Int) * (1000 : Int)) = (3000 : Int)) ∧ ((((72 : Int) * (950 : Int)) / (1000 : Int)) = (68 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_kerning : ((fmax (0 : Int) ((120 : Int) - (40 : Int))) = (80 : Int)) ∧ (((10 : Int) * (20 : Int)) = (200 : Int)) ∧ ((((750 : Int) * (1000 : Int)) / (1000 : Int)) = (750 : Int)) ∧ (((80 : Int) + (80 : Int)) = (160 : Int)) ∧ ((((500 : Int) + (80 : Int)) + (80 : Int)) = (660 : Int)) ∧ (((fmax (0 : Int) ((5 : Int) - (1 : Int))) * (250 : Int)) = (1000 : Int)) ∧ (((3 : Int) * (1000 : Int)) = (3000 : Int)) ∧ ((((72 : Int) * (950 : Int)) / (1000 : Int)) = (68 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_kinematics",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "kinematics: velocity(100, 20) = 5; acceleration(60, 12) = 5; displacement(5, 20) = 100; momentum(10, 5) = 50; kinetic(10, 4) = 80; projectile(10, 10) = 10; freefall(10, 3) = 45; impulse(20, 5) = 100; velocity(100, 0) = 0; projectile(10, 0) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((100 : Int) / (20 : Int)) = (5 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((5 : Int) * (20 : Int)) = (100 : Int)) ∧ (((10 : Int) * (5 : Int)) = (50 : Int)) ∧ ((((10 : Int) * ((4 : Int) ^ (2 : Nat))) / (2 : Int)) = (80 : Int)) ∧ ((((10 : Int) ^ (2 : Nat)) / (10 : Int)) = (10 : Int)) ∧ ((((10 : Int) * ((3 : Int) ^ (2 : Nat))) / (2 : Int)) = (45 : Int)) ∧ (((20 : Int) * (5 : Int)) = (100 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((10 : Int) ^ (2 : Nat)) / (0 : Int)) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_kinematics : (((100 : Int) / (20 : Int)) = (5 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((5 : Int) * (20 : Int)) = (100 : Int)) ∧ (((10 : Int) * (5 : Int)) = (50 : Int)) ∧ ((((10 : Int) * ((4 : Int) ^ (2 : Nat))) / (2 : Int)) = (80 : Int)) ∧ ((((10 : Int) ^ (2 : Nat)) / (10 : Int)) = (10 : Int)) ∧ ((((10 : Int) * ((3 : Int) ^ (2 : Nat))) / (2 : Int)) = (45 : Int)) ∧ (((20 : Int) * (5 : Int)) = (100 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((10 : Int) ^ (2 : Nat)) / (0 : Int)) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_kinesiology",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "kinesiology: rangeofmotion(150, 20) = 130; flexion(30, 60) = 90; extension(90, 30) = 60; muscleactivation(300, 400) = 75; jointangle(360, 4) = 90; momentarm(50, 12) = 600; contraction(100, 70) = 30; balance(5, 10) = 1; balance(15, 10) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((fmax (0 : Int) ((150 : Int) - (20 : Int))) = (130 : Int)) ∧ (((30 : Int) + (60 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (30 : Int))) = (60 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (400 : Int)) = (75 : Int)) ∧ (((360 : Int) / (4 : Int)) = (90 : Int)) ∧ (((50 : Int) * (12 : Int)) = (600 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int)) ∧ ((if (if (5 : Int) ≤ (10 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (15 : Int) ≤ (10 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_kinesiology : ((fmax (0 : Int) ((150 : Int) - (20 : Int))) = (130 : Int)) ∧ (((30 : Int) + (60 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (30 : Int))) = (60 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (400 : Int)) = (75 : Int)) ∧ (((360 : Int) / (4 : Int)) = (90 : Int)) ∧ (((50 : Int) * (12 : Int)) = (600 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int)) ∧ ((if (if (5 : Int) ≤ (10 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (15 : Int) ≤ (10 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_kinship",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "kinship: coefficientrelatedness(2) = 250; coefficientrelatedness(1) = 500; generationdistance(2, 6) = 4; degreeremoval(3, 5) = 2; consanguinity(3, 2) = 250; descendants(2, 4) = 16; ancestorcount(5) = 32; cousindegree(4) = 3; lineagedepth(1900, 2000, 25) = 4"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((1000 : Int) / ((2 : Int) ^ (2 : Nat))) = (250 : Int)) ∧ (((1000 : Int) / ((2 : Int) ^ (1 : Nat))) = (500 : Int)) ∧ ((fmax (0 : Int) ((6 : Int) - (2 : Int))) = (4 : Int)) ∧ (((fmax (3 : Int) (5 : Int)) - (fmin (3 : Int) (5 : Int))) = (2 : Int)) ∧ (((2 : Int) * ((1000 : Int) / ((2 : Int) ^ (3 : Nat)))) = (250 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((fmax (0 : Int) ((4 : Int) - (1 : Int))) = (3 : Int)) ∧ (((fmax (0 : Int) ((2000 : Int) - (1900 : Int))) / (25 : Int)) = (4 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_kinship : (((1000 : Int) / ((2 : Int) ^ (2 : Nat))) = (250 : Int)) ∧ (((1000 : Int) / ((2 : Int) ^ (1 : Nat))) = (500 : Int)) ∧ ((fmax (0 : Int) ((6 : Int) - (2 : Int))) = (4 : Int)) ∧ (((fmax (3 : Int) (5 : Int)) - (fmin (3 : Int) (5 : Int))) = (2 : Int)) ∧ (((2 : Int) * ((1000 : Int) / ((2 : Int) ^ (3 : Nat)))) = (250 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((fmax (0 : Int) ((4 : Int) - (1 : Int))) = (3 : Int)) ∧ (((fmax (0 : Int) ((2000 : Int) - (1900 : Int))) / (25 : Int)) = (4 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_knitting",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "knitting: gauge(22, 10) = 22; courses(30, 10) = 30; wales(3, 40) = 120; stitch(120, 150) = 18000; looplength(6000, 1000) = 6; tightness(200, 5) = 40; productivity(84, 20, 60) = 100800; gsm(50, 2500) = 200"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((22 : Int) * (10 : Int)) / (10 : Int)) = (22 : Int)) ∧ ((((30 : Int) * (10 : Int)) / (10 : Int)) = (30 : Int)) ∧ (((3 : Int) * (40 : Int)) = (120 : Int)) ∧ (((120 : Int) * (150 : Int)) = (18000 : Int)) ∧ (((6000 : Int) / (1000 : Int)) = (6 : Int)) ∧ (((200 : Int) / (5 : Int)) = (40 : Int)) ∧ ((((84 : Int) * (20 : Int)) * (60 : Int)) = (100800 : Int)) ∧ ((((50 : Int) * (10000 : Int)) / (2500 : Int)) = (200 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_knitting : ((((22 : Int) * (10 : Int)) / (10 : Int)) = (22 : Int)) ∧ ((((30 : Int) * (10 : Int)) / (10 : Int)) = (30 : Int)) ∧ (((3 : Int) * (40 : Int)) = (120 : Int)) ∧ (((120 : Int) * (150 : Int)) = (18000 : Int)) ∧ (((6000 : Int) / (1000 : Int)) = (6 : Int)) ∧ (((200 : Int) / (5 : Int)) = (40 : Int)) ∧ ((((84 : Int) * (20 : Int)) * (60 : Int)) = (100800 : Int)) ∧ ((((50 : Int) * (10000 : Int)) / (2500 : Int)) = (200 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_knot",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "knot: crossingnumber(3, 2) = 3; genus(3, 2) = 1; bridgenumber(2, 3) = 2; writhe(5, 2) = 3; writhe(2, 5) = 0; determinant(1) = 3; stickcount(3) = 6"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((fmin ((3 : Int) * ((2 : Int) - (1 : Int))) ((2 : Int) * ((3 : Int) - (1 : Int)))) = (3 : Int)) ∧ (((((3 : Int) - (2 : Int)) + (1 : Int)) / (2 : Int)) = (1 : Int)) ∧ ((fmin (2 : Int) (3 : Int)) = (2 : Int)) ∧ ((fmax (0 : Int) ((5 : Int) - (2 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((2 : Int) - (5 : Int))) = (0 : Int)) ∧ ((((2 : Int) * (1 : Int)) + (1 : Int)) = (3 : Int)) ∧ (((3 : Int) + (3 : Int)) = (6 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_knot : ((fmin ((3 : Int) * ((2 : Int) - (1 : Int))) ((2 : Int) * ((3 : Int) - (1 : Int)))) = (3 : Int)) ∧ (((((3 : Int) - (2 : Int)) + (1 : Int)) / (2 : Int)) = (1 : Int)) ∧ ((fmin (2 : Int) (3 : Int)) = (2 : Int)) ∧ ((fmax (0 : Int) ((5 : Int) - (2 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((2 : Int) - (5 : Int))) = (0 : Int)) ∧ ((((2 : Int) * (1 : Int)) + (1 : Int)) = (3 : Int)) ∧ (((3 : Int) + (3 : Int)) = (6 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_kyc",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "kyc: completeness(18, 20) = 90; screening(3, 10000) = 3; risk(7, 10) = 70; aml(15000, 10000) = 1; aml(5000, 10000) = 0; diligence(80, 70) = 1; diligence(50, 70) = 0; ubo(4, 5) = 80; expiry(365, 100) = 265; expiry(100, 365) = 0; monitoring(12, 4) = 3"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ ((((3 : Int) * (10000 : Int)) / (10000 : Int)) = (3 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ ((if (if (15000 : Int) ≥ (10000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (5000 : Int) ≥ (10000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (80 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (50 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (5 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((365 : Int) - (100 : Int))) = (265 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (365 : Int))) = (0 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_kyc : ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ ((((3 : Int) * (10000 : Int)) / (10000 : Int)) = (3 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ ((if (if (15000 : Int) ≥ (10000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (5000 : Int) ≥ (10000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (80 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (50 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (5 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((365 : Int) - (100 : Int))) = (265 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (365 : Int))) = (0 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

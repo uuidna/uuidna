@@ -1,0 +1,12 @@
+{
+  "handle": "2f03b492",
+  "address": "2f03b492-4a98-8ee8-93e7-188d632038eb",
+  "statement": "(((4 : Int) * (16 : Int)) = (64 : Int)) ∧ (((16 : Int) * (32 : Int)) = (512 : Int)) ∧ ((((130 : Int) * (128 : Int)) / (130 : Int)) = (128 : Int)) ∧ (((5 : Int) * (100 : Int)) = (500 : Int)) ∧ (((16 : Int) * (1 : Int)) = (16 : Int)) ∧ ((((8 : Int) * (3 : Int)) / (2 : Int)) = (12 : Int)) ∧ (((512 : Int) * (2 : Int)) = (1024 : Int)) ∧ (((32 : Int) * (16 : Int)) = (512 : Int)) ∧ (((130 : Int) - (128 : Int)) = (2 : Int)) ∧ (((8 : Int) - (1 : Int)) = (7 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_interconnect"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

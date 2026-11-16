@@ -1,0 +1,12 @@
+{
+  "handle": "4389e74e",
+  "address": "4389e74e-c25f-8d3a-8cf5-6277b579f3a4",
+  "kind": "chunk",
+  "keys": [
+    "fam_refraction"
+  ],
+  "statement": "((((300 : Int) * (1000 : Int)) / (225 : Int)) = (1333 : Int)) ∧ ((((1000 : Int) * (30 : Int)) / (1333 : Int)) = (22 : Int)) ∧ ((((1000 : Int) * (90 : Int)) / (1333 : Int)) = (67 : Int)) ∧ ((fmax (0 : Int) ((1340 : Int) - (1330 : Int))) = (10 : Int)) ∧ ((((1333 : Int) * (100 : Int)) / (1000 : Int)) = (133 : Int)) ∧ ((((300 : Int) * (1000 : Int)) / (1333 : Int)) = (225 : Int)) ∧ ((fmax (0 : Int) (((40 : Int) + (35 : Int)) - (60 : Int))) = (15 : Int)) ∧ ((if (if (50 : Int) ≥ (48 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (40 : Int) ≥ (48 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

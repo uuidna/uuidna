@@ -1,0 +1,12 @@
+{
+  "handle": "cf34fc20",
+  "address": "cf34fc20-b3eb-82d4-b342-96de3ba69859",
+  "statement": "((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ (((12000 : Int) / (80 : Int)) = (150 : Int)) ∧ (((12000 : Int) / (100 : Int)) = (120 : Int)) ∧ (((450 : Int) / (100 : Int)) = (4 : Int)) ∧ (((300 : Int) / (100 : Int)) = (3 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_hospitality"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

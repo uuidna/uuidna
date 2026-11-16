@@ -1,0 +1,12 @@
+{
+  "handle": "c350bf36",
+  "address": "c350bf36-a8f1-8755-aa81-fb15bfcae673",
+  "statement": "((((650 : Int) * (100 : Int)) / (1000 : Int)) = (65 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (300 : Int))) = (700 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (300 : Int))) = (0 : Int)) ∧ ((((350 : Int) * (100 : Int)) / (1000 : Int)) = (35 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((10000 : Int) / (500 : Int)) = (20 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ (((1200 : Int) / (4 : Int)) = (300 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_landuse"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

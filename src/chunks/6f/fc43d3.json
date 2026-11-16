@@ -1,0 +1,12 @@
+{
+  "handle": "6ffc43d3",
+  "address": "6ffc43d3-e28f-862b-89b0-34b6db0d793d",
+  "statement": "(((12 : Int) + (2 : Int)) = (14 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (6 : Int)))) = (720 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (14 : Int)) (Int.toNat (2 : Int)))) = (91 : Int)) ∧ (((20 : Int) * (30 : Int)) = (600 : Int)) ∧ (((600 : Int) / (20 : Int)) = (30 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((40 : Int) * (1 : Int)) = (40 : Int)) ∧ (((600 : Int) / (50 : Int)) = (12 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_pilgrimage"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

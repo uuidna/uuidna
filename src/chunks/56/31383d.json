@@ -1,0 +1,12 @@
+{
+  "handle": "5631383d",
+  "address": "5631383d-5ab8-893e-a688-ab91387d8abb",
+  "statement": "(((100 : Int) * (2 : Int)) = (200 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ (((900 : Int) / (6 : Int)) = (150 : Int)) ∧ ((-((-(100 : Int)) / (7 : Int))) = (15 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (120 : Int))) = (180 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (150 : Int))) = (0 : Int)) ∧ (((10 : Int) / (2 : Int)) = (5 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (60 : Int)) = (50 : Int)) ∧ (((480 : Int) / (4 : Int)) = (120 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_prosody"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

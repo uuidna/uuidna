@@ -1,0 +1,12 @@
+{
+  "handle": "2eeea3f2",
+  "address": "2eeea3f2-5912-896f-b6df-c419fd17f2c2",
+  "kind": "chunk",
+  "keys": [
+    "fam_electrical"
+  ],
+  "statement": "(((120 : Int) * (10 : Int)) = (1200 : Int)) ∧ (((240 : Int) / (10 : Int)) = (24 : Int)) ∧ (((30 : Int) + (40 : Int)) = (70 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((240 : Int) * (100 : Int)) / (120 : Int)) = (200 : Int)) ∧ (((1200 : Int) / (120 : Int)) = (10 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((3000 : Int) / (60 : Int)) = (50 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

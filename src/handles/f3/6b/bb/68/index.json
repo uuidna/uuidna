@@ -1,0 +1,12 @@
+{
+  "handle": "f36bbb68",
+  "address": "f36bbb68-7b01-8a48-8bda-b13d0d8634da",
+  "kind": "chunk",
+  "keys": [
+    "fam_calendar"
+  ],
+  "statement": "(((360 : Int) + (5 : Int)) = (365 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (7 : Int)) (Int.toNat (2 : Int)))) = (21 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (6 : Int)))) = (720 : Int)) ∧ (((19 : Int) / (7 : Int)) = (2 : Int)) ∧ (((365 : Int) % (7 : Int)) = (1 : Int)) ∧ ((fmax (0 : Int) ((2000 : Int) - (1 : Int))) = (1999 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (7 : Int)))) / (Int.ofNat (ffact (Int.toNat ((7 : Int) - (3 : Int)))))) = (210 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bba898cd",
+  "address": "bba898cd-d223-8372-a347-4460028ef9dc",
+  "statement": "(((500 : Int) * (3 : Int)) = (1500 : Int)) ∧ (((160 : Int) * (45 : Int)) = (7200 : Int)) ∧ (((200 : Int) * (25 : Int)) = (5000 : Int)) ∧ ((((10000 : Int) * (15 : Int)) / (100 : Int)) = (1500 : Int)) ∧ (((8000 : Int) + (((8000 : Int) * (20 : Int)) / (100 : Int))) = (9600 : Int)) ∧ ((((20000 : Int) * (10 : Int)) / (100 : Int)) = (2000 : Int)) ∧ (((5000 : Int) / (200 : Int)) = (25 : Int)) ∧ ((((7200 : Int) + (5000 : Int)) + (1500 : Int)) = (13700 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_estimating"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

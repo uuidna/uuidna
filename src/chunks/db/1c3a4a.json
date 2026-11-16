@@ -1,0 +1,12 @@
+{
+  "handle": "db1c3a4a",
+  "address": "db1c3a4a-cbf0-820d-a358-5192f74ec839",
+  "statement": "(((12 : Int) * (50 : Int)) = (600 : Int)) ∧ (((3 : Int) * (50 : Int)) = (150 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (150 : Int)) = (400 : Int)) ∧ (((200 : Int) * (3 : Int)) = (600 : Int)) ∧ ((((680 : Int) * (100 : Int)) / (340 : Int)) = (200 : Int)) ∧ (((1000 : Int) * (9 : Int)) = (9000 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((3000 : Int) / (50 : Int)) = (60 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_aerodynamics"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

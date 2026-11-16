@@ -1,0 +1,12 @@
+{
+  "handle": "2391b057",
+  "address": "2391b057-b0e9-8b30-aa1a-1d8fbfbb9b69",
+  "statement": "(((150 : Int) + (10 : Int)) = (160 : Int)) ∧ (((800 : Int) * (1 : Int)) = (800 : Int)) ∧ (((120 : Int) + (0 : Int)) = (120 : Int)) ∧ ((fmax (180 : Int) (90 : Int)) = (180 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ (((120 : Int) / (2 : Int)) = (60 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((12 : Int) * (1 : Int)) = (12 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_monsoon"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a90990a9",
+  "address": "a90990a9-9d66-8197-90de-ca58b95f212d",
+  "kind": "chunk",
+  "keys": [
+    "fam_heliophysics"
+  ],
+  "statement": "(((12 : Int) * (1000 : Int)) = (12000 : Int)) ∧ (((fmax (0 : Int) ((2025 : Int) - (2008 : Int))) % (11 : Int)) = (6 : Int)) ∧ (((5000 : Int) / (1000 : Int)) = (5 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((1361 : Int) / (1 : Int)) = (1361 : Int)) ∧ (((56 : Int) / (8 : Int)) = (7 : Int)) ∧ (((2000 : Int) / (400 : Int)) = (5 : Int)) ∧ ((((10 : Int) * (5 : Int)) + (32 : Int)) = (82 : Int))",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

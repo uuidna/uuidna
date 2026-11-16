@@ -1,0 +1,12 @@
+{
+  "handle": "2e5586fb",
+  "address": "2e5586fb-3821-8278-b602-09afdf9f403c",
+  "statement": "(((20 : Int) * (5 : Int)) = (100 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ (((5000 : Int) / (50 : Int)) = (100 : Int)) ∧ (((1 : Int) + ((100 : Int) * (1 : Int))) = (101 : Int)) ∧ (((40 : Int) * (8 : Int)) = (320 : Int)) ∧ ((-((-(1000 : Int)) / (30 : Int))) = (34 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((600 : Int) / (8 : Int)) = (75 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_graphql"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

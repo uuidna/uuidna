@@ -1,0 +1,12 @@
+{
+  "handle": "fdf10235",
+  "address": "fdf10235-7071-84bd-9b06-b717e92b493e",
+  "statement": "((((100 : Int) * (2 : Int)) / (10 : Int)) = (20 : Int)) ∧ ((((1500 : Int) * (40 : Int)) / (100 : Int)) = (600 : Int)) ∧ (((20 : Int) + (600 : Int)) = (620 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (600 : Int)) = (20 : Int)) ∧ ((((fmax (0 : Int) ((100 : Int) - (25 : Int))) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (75 : Int))) = (25 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (120 : Int))) = (380 : Int)) ∧ ((((240 : Int) * (100 : Int)) / (120 : Int)) = (200 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_clearance"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

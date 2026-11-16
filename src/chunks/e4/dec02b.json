@@ -1,0 +1,12 @@
+{
+  "handle": "e4dec02b",
+  "address": "e4dec02b-e5b5-833b-91d5-db1b2faf808e",
+  "statement": "(((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (20 : Int))) = (30 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (3 : Int))) = (97 : Int)) ∧ (((((50 : Int) * (200 : Int)) + (((100 : Int) - (50 : Int)) * (100 : Int))) / (100 : Int)) = (150 : Int)) ∧ ((fmax (0 : Int) ((150 : Int) - (100 : Int))) = (50 : Int)) ∧ (((100 : Int) + ((5 : Int) * (3 : Int))) = (115 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_timeseries"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

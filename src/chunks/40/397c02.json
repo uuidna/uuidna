@@ -1,0 +1,12 @@
+{
+  "handle": "40397c02",
+  "address": "40397c02-892b-823c-82d1-b306b9ca2c13",
+  "statement": "(((450 : Int) / (5 : Int)) = (90 : Int)) ∧ (((1000 : Int) / (40 : Int)) = (25 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((80 : Int) + (90 : Int)) / (2 : Int)) = (85 : Int)) ∧ ((fmax (0 : Int) ((((120 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) ((((90 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int))) = (0 : Int)) ∧ ((((32 : Int) * (100 : Int)) / (40 : Int)) = (80 : Int)) ∧ (((100 : Int) / (20 : Int)) = (5 : Int)) ∧ (((90 : Int) * (2 : Int)) = (180 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_performance"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

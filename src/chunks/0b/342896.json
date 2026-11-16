@@ -1,0 +1,12 @@
+{
+  "handle": "0b342896",
+  "address": "0b342896-5eac-86b5-a76d-0ba8474e7729",
+  "statement": "((((50 : Int) * (1000000 : Int)) / (10000 : Int)) = (5000 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((5 : Int) * (10000 : Int)) / (1000 : Int)) = (50 : Int)) ∧ ((((10000 : Int) * ((100 : Int) - (80 : Int))) / (100 : Int)) = (2000 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((((2 : Int) * (10000 : Int)) / (10000 : Int)) = (2 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_photogrammetry"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

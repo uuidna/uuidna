@@ -1,0 +1,12 @@
+{
+  "handle": "55150eb2",
+  "address": "55150eb2-fcf4-88fa-9f26-c6f5eb19722e",
+  "statement": "(((24000 : Int) / (24 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (150 : Int))) = (850 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (150 : Int))) = (0 : Int)) ∧ ((((60000 : Int) * (6 : Int)) / (1200 : Int)) = (300 : Int)) ∧ ((fmax (0 : Int) ((60000 : Int) - (18000 : Int))) = (42000 : Int)) ∧ ((-((-(12500 : Int)) / (1000 : Int))) = (13 : Int)) ∧ (((1000 : Int) * (360 : Int)) = (360000 : Int)) ∧ ((-((-(12000 : Int)) / ((800 : Int) + (200 : Int)))) = (12 : Int)) ∧ (((50000 : Int) / (10 : Int)) = (5000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_amortization"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

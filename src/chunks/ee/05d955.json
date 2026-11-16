@@ -1,0 +1,12 @@
+{
+  "handle": "ee05d955",
+  "address": "ee05d955-e1f5-8013-8258-583049eefb8f",
+  "statement": "((((2 : Int) * (7500 : Int)) / (1500 : Int)) = (10 : Int)) ∧ ((((1500 : Int) * (4 : Int)) / (2 : Int)) = (3000 : Int)) ∧ (((1500 : Int) / (5 : Int)) = (300 : Int)) ∧ (((3 : Int) * (50 : Int)) = (150 : Int)) ∧ (((((2 : Int) * (5000 : Int)) * (3 : Int)) / (1500 : Int)) = (20 : Int)) ∧ ((((300 : Int) * (2 : Int)) / (2 : Int)) = (300 : Int)) ∧ (((1000 : Int) * (1500 : Int)) = (1500000 : Int)) ∧ ((((20 : Int) ^ (2 : Nat)) / ((4 : Int) * (5 : Int))) = (20 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_ultrasonics"
+  ],
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

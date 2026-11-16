@@ -1,0 +1,12 @@
+{
+  "handle": "e852b228",
+  "address": "e852b228-01c2-8b88-9056-ba59546c4484",
+  "kind": "chunk",
+  "keys": [
+    "fam_chemical"
+  ],
+  "statement": "((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ (((30 : Int) * (4 : Int)) = (120 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (150 : Int))) = (50 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (150 : Int))) = (0 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

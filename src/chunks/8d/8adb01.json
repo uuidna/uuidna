@@ -1,0 +1,12 @@
+{
+  "handle": "8d8adb01",
+  "address": "8d8adb01-ee8a-83d2-b6f9-8f235b074db4",
+  "statement": "(((1500 : Int) + (0 : Int)) = (1500 : Int)) ∧ ((fmax (0 : Int) ((1500 : Int) - (40 : Int))) = (1460 : Int)) ∧ ((-((-(5000 : Int)) / (1480 : Int))) = (4 : Int)) ∧ (((20 : Int) * (8 : Int)) = (160 : Int)) ∧ (((1000000 : Int) / (1000 : Int)) = (1000 : Int)) ∧ (((65535 : Int) % (256 : Int)) = (255 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_packet"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

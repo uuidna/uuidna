@@ -1,0 +1,12 @@
+{
+  "handle": "0eeec9f9",
+  "address": "0eeec9f9-517b-884c-bf1a-ba0c8651530b",
+  "statement": "(((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((2 : Int) + (1 : Int)) = (3 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((3 : Int) + (2 : Int)) = (5 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_existentialism"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

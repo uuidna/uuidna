@@ -1,0 +1,12 @@
+{
+  "handle": "956d6e7d",
+  "address": "956d6e7d-4c7a-8792-b248-d3b40b159fb9",
+  "statement": "((((850 : Int) * (100 : Int)) / (1000 : Int)) = (85 : Int)) ∧ (((200 : Int) * (3 : Int)) = (600 : Int)) ∧ ((((12 : Int) - (10 : Int)) + (2 : Int)) = (4 : Int)) ∧ (((40 : Int) * (2 : Int)) = (80 : Int)) ∧ (((300 : Int) + (120 : Int)) = (420 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1200 : Int)) = (50 : Int)) ∧ ((((50 : Int) * (8 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((5000 : Int) * (8 : Int)) / (1000 : Int)) = (40 : Int)) ∧ (((120 : Int) / (6 : Int)) = (20 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_devtools"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

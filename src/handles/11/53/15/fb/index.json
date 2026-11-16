@@ -1,0 +1,12 @@
+{
+  "handle": "115315fb",
+  "address": "115315fb-b89e-87e4-bb89-46123c52dda3",
+  "kind": "chunk",
+  "keys": [
+    "fam_primatology"
+  ],
+  "statement": "((((1200 : Int) * (1000 : Int)) / (60 : Int)) = (20000 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ (((500 : Int) / (20 : Int)) = (25 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ (((2000 : Int) / (8 : Int)) = (250 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (20 : Int)) = (25 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (30 : Int)) = (50 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

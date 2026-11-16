@@ -1,0 +1,12 @@
+{
+  "handle": "6b24a935",
+  "address": "6b24a935-8987-8666-ada7-f87c6906d34a",
+  "kind": "chunk",
+  "keys": [
+    "fam_straingauge"
+  ],
+  "statement": "(((2000 : Int) / (1000 : Int)) = (2 : Int)) ∧ ((((2 : Int) * (1000000 : Int)) / (2000 : Int)) = (1000 : Int)) ∧ (((2 : Int) * (1000 : Int)) = (2000 : Int)) ∧ ((((5000 : Int) * (2000 : Int)) / (4000 : Int)) = (2500 : Int)) ∧ (((1000 : Int) * (200 : Int)) = (200000 : Int)) ∧ (((2000 : Int) / (2 : Int)) = (1000 : Int)) ∧ ((((10 : Int) * (1000 : Int)) / (5000 : Int)) = (2 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ (((2000 : Int) / (0 : Int)) = (0 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

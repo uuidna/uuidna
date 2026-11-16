@@ -1,0 +1,12 @@
+{
+  "handle": "fe59e944",
+  "address": "fe59e944-9406-8fb2-a7a0-f34925d2b657",
+  "statement": "(((12 : Int) / (3 : Int)) = (4 : Int)) ∧ (((20 : Int) / (5 : Int)) = (4 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ (((15 : Int) / (5 : Int)) = (3 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_syntax"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

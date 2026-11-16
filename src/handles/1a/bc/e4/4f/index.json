@@ -1,0 +1,12 @@
+{
+  "handle": "1abce44f",
+  "address": "1abce44f-80e9-859b-b387-15d2a0fc6c67",
+  "kind": "chunk",
+  "keys": [
+    "fam_gravimetry"
+  ],
+  "statement": "((fmax (0 : Int) ((9810 : Int) - (9805 : Int))) = (5 : Int)) ∧ (((3 : Int) * (100 : Int)) = (300 : Int)) ∧ (((1 : Int) * (110 : Int)) = (110 : Int)) ∧ ((fmax (0 : Int) ((2700 : Int) - (2300 : Int))) = (400 : Int)) ∧ (((500 : Int) / (10 : Int)) = (50 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ (((200 : Int) / (4 : Int)) = (50 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

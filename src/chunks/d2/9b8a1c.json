@@ -1,0 +1,12 @@
+{
+  "handle": "d29b8a1c",
+  "address": "d29b8a1c-3cad-8d8e-8641-6b77ab3f4e26",
+  "statement": "(((70 : Int) * (10 : Int)) = (700 : Int)) ∧ ((((100 : Int) * (100 : Int)) / ((10 : Int) ^ (2 : Nat))) = (100 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((2 : Int) * (20 : Int)) / (10 : Int)) = (4 : Int)) ∧ ((((100 : Int) * (61 : Int)) / ((6000 : Int) + (100 : Int))) = (1 : Int)) ∧ ((((6000 : Int) * (1 : Int)) / (100 : Int)) = (60 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_gravity"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

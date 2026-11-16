@@ -1,0 +1,12 @@
+{
+  "handle": "ac697efb",
+  "address": "ac697efb-8a52-88bd-aebe-cf8d562d4954",
+  "kind": "chunk",
+  "keys": [
+    "fam_anesthesiology"
+  ],
+  "statement": "(((70 : Int) + (50 : Int)) = (120 : Int)) ∧ (((70 : Int) * (2 : Int)) = (140 : Int)) ∧ (((1200 : Int) / (24 : Int)) = (50 : Int)) ∧ ((((120 : Int) + ((2 : Int) * (60 : Int))) / (3 : Int)) = (80 : Int)) ∧ ((((5000 : Int) * (fmax (0 : Int) ((45 : Int) - (30 : Int)))) / (45 : Int)) = (1666 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (50 : Int)) = (200 : Int)) ∧ (((70 : Int) * (50 : Int)) = (3500 : Int)) ∧ ((if (if (45 : Int) ≤ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (70 : Int) ≤ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

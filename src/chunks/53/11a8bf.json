@@ -1,0 +1,12 @@
+{
+  "handle": "5311a8bf",
+  "address": "5311a8bf-1a0a-8b11-a368-6ea5c2b01e76",
+  "statement": "(((50 : Int) * (3 : Int)) = (150 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((190 : Int) - (100 : Int))) = (90 : Int)) ∧ ((fmax (0 : Int) ((190 : Int) - (200 : Int))) = (0 : Int)) ∧ ((((10000 : Int) * (90 : Int)) / (1000 : Int)) = (900 : Int)) ∧ ((((999 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ (((1000 : Int) * (5 : Int)) = (5000 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (100 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (100 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_hosting"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

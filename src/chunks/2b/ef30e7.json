@@ -1,0 +1,12 @@
+{
+  "handle": "2bef30e7",
+  "address": "2bef30e7-b729-823e-84df-09467b847cd1",
+  "statement": "((((4200 : Int) * (10 : Int)) / (500 : Int)) = (84 : Int)) ∧ (((10 : Int) * (48 : Int)) = (480 : Int)) ∧ (((200000 : Int) * (12 : Int)) = (2400000 : Int)) ∧ ((((1000000 : Int) * (12 : Int)) / (100 : Int)) = (120000 : Int)) ∧ ((((5000000 : Int) * (30 : Int)) / (100 : Int)) = (1500000 : Int)) ∧ ((((900 : Int) * (8 : Int)) / (60 : Int)) = (120 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((42 : Int) * (100 : Int)) / (48 : Int)) = (87 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_entertainment"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

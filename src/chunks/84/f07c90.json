@@ -1,0 +1,12 @@
+{
+  "handle": "84f07c90",
+  "address": "84f07c90-04d9-853f-bb15-abb113a8eaf7",
+  "statement": "((((20 : Int) * (20 : Int)) * (40 : Int)) = (16000 : Int)) ∧ (((16000 : Int) / (1000 : Int)) = (16 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((12 : Int) * (4 : Int)) = (48 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (100 : Int)) = (150 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_sculpture"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "14739125",
+  "address": "14739125-7b29-88c7-b505-6c6012e875e4",
+  "statement": "(((300 : Int) * (1 : Int)) = (300 : Int)) ∧ (((30 : Int) * (1 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (980 : Int))) = (20 : Int)) ∧ (((8000 : Int) * (1 : Int)) = (8000 : Int)) ∧ (((10 : Int) + (0 : Int)) = (10 : Int)) ∧ (((20 : Int) * (1000 : Int)) = (20000 : Int)) ∧ (((700 : Int) * (1 : Int)) = (700 : Int)) ∧ (((300 : Int) / (10 : Int)) = (30 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_submarine"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

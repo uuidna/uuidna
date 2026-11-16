@@ -1,0 +1,12 @@
+{
+  "handle": "813c0a9c",
+  "address": "813c0a9c-bbfd-87e2-92eb-12e2b73e6ad2",
+  "kind": "chunk",
+  "keys": [
+    "fam_typography"
+  ],
+  "statement": "((if (if (66 : Int) ≤ (66 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (80 : Int) ≤ (66 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((16 : Int) * ((5 : Int) ^ (2 : Nat))) / ((4 : Int) ^ (2 : Nat))) = (25 : Int)) ∧ ((((32 : Int) * (25 : Int)) / (100 : Int)) = (8 : Int)) ∧ ((((16 : Int) * (150 : Int)) / (100 : Int)) = (24 : Int)) ∧ (((660 : Int) / (6 : Int)) = (110 : Int)) ∧ ((if (if (2 : Int) > (1 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (1 : Int) > (1 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((4 : Int) * (100 : Int)) = (400 : Int)) ∧ (((10 : Int) * (24 : Int)) = (240 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

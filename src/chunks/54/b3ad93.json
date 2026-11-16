@@ -1,0 +1,12 @@
+{
+  "handle": "54b3ad93",
+  "address": "54b3ad93-798f-8512-abe6-553abc1f1a4d",
+  "statement": "(((30 : Int) * (20 : Int)) = (600 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((314 : Int) * ((10 : Int) ^ (2 : Nat))) / (100 : Int)) = (314 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ (((1000 : Int) / (40 : Int)) = (25 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (120 : Int))) = (0 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_gis"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

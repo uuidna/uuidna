@@ -1,0 +1,12 @@
+{
+  "handle": "a3834119",
+  "address": "a3834119-cc86-8a2d-ac2d-2e9ac26f4e32",
+  "statement": "((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ (((2000 : Int) / (1000 : Int)) = (2 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ (((1200 : Int) / (100 : Int)) = (12 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ (((1000 : Int) * (60 : Int)) = (60000 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_poultry"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

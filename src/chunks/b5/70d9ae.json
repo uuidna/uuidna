@@ -1,0 +1,12 @@
+{
+  "handle": "b570d9ae",
+  "address": "b570d9ae-9cdd-83c5-b158-0e886422724e",
+  "statement": "(((9000 : Int) / (300 : Int)) = (30 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((((50 : Int) * (1000 : Int)) / (1000 : Int)) = (50 : Int)) ∧ (((20 : Int) * (3 : Int)) = (60 : Int)) ∧ (((500 : Int) * (8 : Int)) = (4000 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_greenspace"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

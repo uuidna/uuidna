@@ -1,0 +1,12 @@
+{
+  "handle": "7913756a",
+  "address": "7913756a-67ea-85ce-9474-bd567eb2fe09",
+  "statement": "(((2000 : Int) / (1000 : Int)) = (2 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((1000 : Int) / (2 : Int)) = (500 : Int)) ∧ ((((500 : Int) * (90 : Int)) / (1000 : Int)) = (45 : Int)) ∧ ((((1000 : Int) * (707 : Int)) / (1000 : Int)) = (707 : Int)) ∧ ((fmax (0 : Int) ((2050 : Int) - (2048 : Int))) = (2 : Int)) ∧ ((fmax (0 : Int) ((2048 : Int) - (2050 : Int))) = (0 : Int)) ∧ (((8 : Int) * (2 : Int)) = (16 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_accelerometer"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ea56a63e",
+  "address": "ea56a63e-e06b-881a-8882-20b6ad9f9b83",
+  "kind": "chunk",
+  "keys": [
+    "fam_epistemology"
+  ],
+  "statement": "(((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((3 : Int) + (2 : Int)) = (5 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (5 : Int)) (Int.toNat (2 : Int)))) = (10 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

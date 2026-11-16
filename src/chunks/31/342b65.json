@@ -1,0 +1,12 @@
+{
+  "handle": "31342b65",
+  "address": "31342b65-2335-8e5b-98bb-a11210102597",
+  "statement": "((fmax (0 : Int) ((13 : Int) - (11 : Int))) = (2 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((7 : Int) * (13 : Int)) = (91 : Int)) ∧ ((fmax (0 : Int) ((91 : Int) - (20 : Int))) = (71 : Int)) ∧ (((2 : Int) + (0 : Int)) = (2 : Int)) ∧ (((100 : Int) / (2 : Int)) = (50 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_prime"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

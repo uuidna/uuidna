@@ -1,0 +1,12 @@
+{
+  "handle": "1cc7a4a4",
+  "address": "1cc7a4a4-839b-893a-aa6c-8f4acb8dce0d",
+  "statement": "(((((18 : Int) - (1 : Int)) % (9 : Int)) + (1 : Int)) = (9 : Int)) ∧ (((((10 : Int) - (1 : Int)) % (9 : Int)) + (1 : Int)) = (1 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_numen"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "44ad0277",
+  "address": "44ad0277-0e5a-85a9-9d3e-f13e74350322",
+  "kind": "chunk",
+  "keys": [
+    "fam_pagination"
+  ],
+  "statement": "((-((-(95 : Int)) / (10 : Int))) = (10 : Int)) ∧ (((fmax (0 : Int) ((5 : Int) - (1 : Int))) * (20 : Int)) = (80 : Int)) ∧ ((-((-((85 : Int) + (10 : Int))) / (10 : Int))) = (10 : Int)) ∧ ((-((-(100 : Int)) / (16 : Int))) = (7 : Int)) ∧ ((((960 : Int) + (20 : Int)) / ((220 : Int) + (20 : Int))) = (4 : Int)) ∧ (((66 : Int) * (45 : Int)) = (2970 : Int)) ∧ (((5 : Int) * (20 : Int)) = (100 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0e64a291",
+  "address": "0e64a291-f1f8-81f3-8704-635bac26e33b",
+  "statement": "(((500 : Int) * (6 : Int)) = (3000 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (20 : Int)) = (400 : Int)) ∧ (((100 : Int) / (5 : Int)) = (20 : Int)) ∧ (((600 : Int) / (3 : Int)) = (200 : Int)) ∧ (((500 : Int) - (480 : Int)) = (20 : Int)) ∧ (((480 : Int) - (500 : Int)) = (-20 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((900 : Int) / (3 : Int)) = (300 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_spectroscopy"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

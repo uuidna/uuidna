@@ -1,0 +1,12 @@
+{
+  "handle": "efa82637",
+  "address": "efa82637-cce6-8f0c-b7d9-9c8e890326d3",
+  "statement": "(((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((300 : Int) * (4 : Int)) = (1200 : Int)) ∧ ((fmax (0 : Int) ((400 : Int) - (120 : Int))) = (280 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (400 : Int))) = (0 : Int)) ∧ (((100 : Int) + (80 : Int)) = (180 : Int)) ∧ ((((5000 : Int) * (30 : Int)) / (100 : Int)) = (1500 : Int)) ∧ ((((2000 : Int) * (1000 : Int)) / (40 : Int)) = (50000 : Int)) ∧ (((64000 : Int) / (400 : Int)) = (160 : Int)) ∧ (((1600 : Int) / (4 : Int)) = (400 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_suspension"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

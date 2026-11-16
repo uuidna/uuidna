@@ -1,0 +1,12 @@
+{
+  "handle": "03751e15",
+  "address": "03751e15-4f3c-8260-969d-e5ca21856dc9",
+  "statement": "((((1000000 : Int) * (10 : Int)) / (100 : Int)) = (100000 : Int)) ∧ ((fmax (0 : Int) ((1000000 : Int) - (100000 : Int))) = (900000 : Int)) ∧ ((((500000 : Int) * (8 : Int)) / (100 : Int)) = (40000 : Int)) ∧ ((((120000 : Int) * (100 : Int)) / (100000 : Int)) = (120 : Int)) ∧ ((fmax (0 : Int) ((600 : Int) - (200 : Int))) = (400 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (10000 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((10000 : Int) - (6000 : Int))) = (4000 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_banking"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

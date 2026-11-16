@@ -1,0 +1,12 @@
+{
+  "handle": "d908a85b",
+  "address": "d908a85b-9855-848e-af3a-96f16247e570",
+  "statement": "(((600 : Int) / (12 : Int)) = (50 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ ((((1000 : Int) * (12 : Int)) / (100 : Int)) = (120 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (30 : Int)) = (200 : Int)) ∧ (((200 : Int) * (30 : Int)) = (6000 : Int)) ∧ ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ ((-((-(500 : Int)) / (50 : Int))) = (10 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_dosimetry"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

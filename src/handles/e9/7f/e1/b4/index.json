@@ -1,0 +1,12 @@
+{
+  "handle": "e97fe1b4",
+  "address": "e97fe1b4-f074-84c9-ab7f-c54ec28b96f4",
+  "kind": "chunk",
+  "keys": [
+    "fam_designtheory"
+  ],
+  "statement": "(((7 : Int) * (3 : Int)) = (21 : Int)) ∧ (((7 : Int) * (3 : Int)) = (21 : Int)) ∧ ((((7 : Int) * (3 : Int)) / (3 : Int)) = (7 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((7 : Int) * (3 : Int)) / (7 : Int)) = (3 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

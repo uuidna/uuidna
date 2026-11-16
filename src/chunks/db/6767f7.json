@@ -1,0 +1,12 @@
+{
+  "handle": "db6767f7",
+  "address": "db6767f7-4cd8-81a0-919b-3ceab802beb4",
+  "statement": "(((40 : Int) * (25 : Int)) = (1000 : Int)) ∧ (((2000 : Int) * (3 : Int)) = (6000 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (1200 : Int))) = (3800 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (1200 : Int))) = (0 : Int)) ∧ ((((1000 : Int) * (100 : Int)) / (40 : Int)) = (2500 : Int)) ∧ ((if (if (800 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (1200 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (1000 : Int)) = (15 : Int)) ∧ ((((10000 : Int) * (20 : Int)) / (100 : Int)) = (2000 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_fishery"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

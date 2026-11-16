@@ -1,0 +1,12 @@
+{
+  "handle": "8fb62059",
+  "address": "8fb62059-5ecd-8d4c-b6e3-5719de7a8ce4",
+  "kind": "chunk",
+  "keys": [
+    "fam_patent"
+  ],
+  "statement": "(((2026 : Int) + (20 : Int)) = (2046 : Int)) ∧ ((if (if (11 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (13 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((500000 : Int) * (4 : Int)) / (100 : Int)) = (20000 : Int)) ∧ (((10000 : Int) * (3 : Int)) = (30000 : Int)) ∧ (((3 : Int) + (17 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((10000 : Int) - (2000 : Int))) = (8000 : Int)) ∧ (((10 : Int) * (1600 : Int)) = (16000 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

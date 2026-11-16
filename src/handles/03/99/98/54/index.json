@@ -1,0 +1,12 @@
+{
+  "handle": "03999854",
+  "address": "03999854-f807-881c-97ab-bce2b0e8bb27",
+  "kind": "chunk",
+  "keys": [
+    "fam_events"
+  ],
+  "statement": "((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((450 : Int) * (100 : Int)) / (500 : Int)) = (90 : Int)) ∧ (((200 : Int) * (50 : Int)) = (10000 : Int)) ∧ (((10000 : Int) / (200 : Int)) = (50 : Int)) ∧ (((600 : Int) / (200 : Int)) = (3 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ (((850 : Int) / (200 : Int)) = (4 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

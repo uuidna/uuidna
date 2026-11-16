@@ -1,0 +1,12 @@
+{
+  "handle": "76961338",
+  "address": "76961338-14b0-812a-aea6-e62c0060f5e4",
+  "kind": "chunk",
+  "keys": [
+    "fam_preservation"
+  ],
+  "statement": "(((30 : Int) * (12 : Int)) = (360 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ (((42 : Int) / (10 : Int)) = (4 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)) ∧ ((fmax (0 : Int) ((25 : Int) - (4 : Int))) = (21 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a6e8630c",
+  "address": "a6e8630c-fcc2-8079-92c6-672e871c0034",
+  "statement": "(((fmax (0 : Int) ((300 : Int) - (100 : Int))) / (2 : Int)) = (100 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ ((((400 : Int) * (50 : Int)) / (100 : Int)) = (200 : Int)) ∧ ((((300 : Int) + (100 : Int)) / (2 : Int)) = (200 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ (((600 : Int) / (200 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (100 : Int))) = (200 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_fatigue"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

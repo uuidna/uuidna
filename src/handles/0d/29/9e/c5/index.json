@@ -1,0 +1,12 @@
+{
+  "handle": "0d299ec5",
+  "address": "0d299ec5-bf9f-840a-b2d7-fd6ed5ce99b6",
+  "kind": "chunk",
+  "keys": [
+    "fam_meiosis"
+  ],
+  "statement": "(((10 : Int) * (4 : Int)) = (40 : Int)) ∧ (((46 : Int) / (2 : Int)) = (23 : Int)) ∧ (((23 : Int) * (2 : Int)) = (46 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ (((4 : Int) * (4 : Int)) = (16 : Int)) ∧ (((23 : Int) * (2 : Int)) = (46 : Int)) ∧ (((46 : Int) * (2 : Int)) = (92 : Int)) ∧ ((((100 : Int) * (3 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((100 : Int) * (1 : Int)) / (0 : Int)) = (0 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

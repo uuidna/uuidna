@@ -1,0 +1,12 @@
+{
+  "handle": "94cee509",
+  "address": "94cee509-02cf-8b21-bdd9-04318330a8ae",
+  "statement": "(((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int)) ∧ ((250 : Int) = (250 : Int)) ∧ (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((1200 : Int) = (1200 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_streaming"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

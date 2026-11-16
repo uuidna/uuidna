@@ -1,0 +1,12 @@
+{
+  "handle": "490c0f16",
+  "address": "490c0f16-9d7e-86f4-9052-2b68ea8da6c1",
+  "statement": "((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((500 : Int) / (100 : Int)) = (5 : Int)) ∧ ((((1 : Int) * (1000000 : Int)) / (1000000 : Int)) = (1 : Int)) ∧ ((fmax (0 : Int) (((100 : Int) - (5 : Int)) + (1 : Int))) = (96 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((1000 : Int) * (1000 : Int)) / (1000 : Int)) = (1000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_bioinformatics"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0506fa37",
+  "address": "0506fa37-068b-8e9d-b377-e7534aebf0a8",
+  "kind": "chunk",
+  "keys": [
+    "fam_caramelization"
+  ],
+  "statement": "((fmax (160 : Int) (170 : Int)) = (170 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ (((8 : Int) * (10 : Int)) = (80 : Int)) ∧ (((600 : Int) / (10 : Int)) = (60 : Int)) ∧ (((170 : Int) / (30 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (90 : Int))) = (10 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

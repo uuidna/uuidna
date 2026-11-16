@@ -1,0 +1,12 @@
+{
+  "handle": "b28d938c",
+  "address": "b28d938c-6abd-8ade-b8a6-162a4e3672ed",
+  "statement": "(((26 : Int) * (2 : Int)) = (52 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (26 : Int)) (Int.toNat (2 : Int)))) = (325 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ (((4 : Int) + (2 : Int)) = (6 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((8 : Int) + (4 : Int)) = (12 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ ((((98 : Int) * (100 : Int)) / (100 : Int)) = (98 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_transliteration"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

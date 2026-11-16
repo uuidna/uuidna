@@ -1,0 +1,12 @@
+{
+  "handle": "27529562",
+  "address": "27529562-3866-86ca-ab9f-7a4d55a13bd6",
+  "kind": "chunk",
+  "keys": [
+    "fam_licensing"
+  ],
+  "statement": "((-((-(100 : Int)) / (5 : Int))) = (20 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ (((12 : Int) * (100 : Int)) = (1200 : Int)) ∧ ((if (if (80 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (100 : Int) ≤ (80 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((20 : Int) * (50 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (100 : Int))) = (20 : Int)) ∧ (((2024 : Int) + (3 : Int)) = (2027 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (250 : Int))) = (750 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

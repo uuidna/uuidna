@@ -1,0 +1,2445 @@
+{
+  "file": "FamiliesM.lean",
+  "slug": "familiesm",
+  "status": "usable",
+  "address": "af268349-db20-807d-af4b-6304462cd6f0",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "FamiliesM.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"FamiliesM.lean\",\n \"url\": \"https://uuidna.com/lean/FamiliesM.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 67,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_machining",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "machining: chipload(100, 4) = 25; cuttingspeed(50, 2000) = 314; feedrate(5, 2000) = 10000; materialremoval(3, 10) = 30; passrate(950, 1000) = 95; passrate(0, 0) = 0; surfacefinish(32) = 32; toollife(10000, 25) = 400; toollife(10000, 0) = 0; tolerance(5, 10000) = 500; tolerance(5, 0) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((((50 : Int) * (2000 : Int)) * (314 : Int)) / (100000 : Int)) = (314 : Int)) ∧ (((5 : Int) * (2000 : Int)) = (10000 : Int)) ∧ (((3 : Int) * (10 : Int)) = (30 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((0 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((32 : Int) = (32 : Int)) ∧ (((10000 : Int) / (25 : Int)) = (400 : Int)) ∧ (((10000 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((5 : Int) * (1000000 : Int)) / (10000 : Int)) = (500 : Int)) ∧ ((((5 : Int) * (1000000 : Int)) / (0 : Int)) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_machining : (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((((50 : Int) * (2000 : Int)) * (314 : Int)) / (100000 : Int)) = (314 : Int)) ∧ (((5 : Int) * (2000 : Int)) = (10000 : Int)) ∧ (((3 : Int) * (10 : Int)) = (30 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((0 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((32 : Int) = (32 : Int)) ∧ (((10000 : Int) / (25 : Int)) = (400 : Int)) ∧ (((10000 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((5 : Int) * (1000000 : Int)) / (10000 : Int)) = (500 : Int)) ∧ ((((5 : Int) * (1000000 : Int)) / (0 : Int)) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_macroeconomics",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "macroeconomics: gdp(1000, 500) = 1500; inflation(110, 100) = 10; unemployment(5, 100) = 5; growth(110, 100) = 10; multiplier(100, 80) = 500; velocity(2000, 100) = 20; deficit(1000, 700) = 300; debt(300, 1000) = 30"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((1000 : Int) + (500 : Int)) = (1500 : Int)) ∧ (((((110 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((((110 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((((100 : Int) * (100 : Int)) / ((100 : Int) - (80 : Int))) = (500 : Int)) ∧ (((2000 : Int) / (100 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (700 : Int))) = (300 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_macroeconomics : (((1000 : Int) + (500 : Int)) = (1500 : Int)) ∧ (((((110 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((((110 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((((100 : Int) * (100 : Int)) / ((100 : Int) - (80 : Int))) = (500 : Int)) ∧ (((2000 : Int) / (100 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (700 : Int))) = (300 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_magnetism",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "magnetism: field(5, 200) = 1000; force(3, 40) = 120; flux(10, 50) = 500; induction(1000, 4) = 250; induction(1000, 0) = 0; torque(6, 7) = 42; permeability(900, 3) = 300; permeability(900, 0) = 0; reluctance(5, 2) = 2500; reluctance(5, 0) = 0; dipole(100, 4) = 25; dipole(100, 0) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((5 : Int) * (200 : Int)) = (1000 : Int)) ∧ (((3 : Int) * (40 : Int)) = (120 : Int)) ∧ (((10 : Int) * (50 : Int)) = (500 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((1000 : Int) / (0 : Int)) = (0 : Int)) ∧ (((6 : Int) * (7 : Int)) = (42 : Int)) ∧ (((900 : Int) / (3 : Int)) = (300 : Int)) ∧ (((900 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (2 : Int)) = (2500 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (0 : Int)) = (0 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_magnetism : (((5 : Int) * (200 : Int)) = (1000 : Int)) ∧ (((3 : Int) * (40 : Int)) = (120 : Int)) ∧ (((10 : Int) * (50 : Int)) = (500 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((1000 : Int) / (0 : Int)) = (0 : Int)) ∧ (((6 : Int) * (7 : Int)) = (42 : Int)) ∧ (((900 : Int) / (3 : Int)) = (300 : Int)) ∧ (((900 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (2 : Int)) = (2500 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (0 : Int)) = (0 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_magnetometry",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "magnetometry: fieldstrength(50000, 1) = 50000; anomaly(52000, 50000) = 2000; declination(15, 3) = 12; inclination(900, 10) = 90; gradient(2000, 100) = 20; surveylines(40, 10) = 400; susceptibility(1000, 100) = 10; reversalcount(5, 3) = 8"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((50000 : Int) * (1 : Int)) = (50000 : Int)) ∧ ((fmax (0 : Int) ((52000 : Int) - (50000 : Int))) = (2000 : Int)) ∧ ((fmax (0 : Int) ((15 : Int) - (3 : Int))) = (12 : Int)) ∧ (((900 : Int) / (10 : Int)) = (90 : Int)) ∧ (((2000 : Int) / (100 : Int)) = (20 : Int)) ∧ (((40 : Int) * (10 : Int)) = (400 : Int)) ∧ (((1000 : Int) / (100 : Int)) = (10 : Int)) ∧ (((5 : Int) + (3 : Int)) = (8 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_magnetometry : (((50000 : Int) * (1 : Int)) = (50000 : Int)) ∧ ((fmax (0 : Int) ((52000 : Int) - (50000 : Int))) = (2000 : Int)) ∧ ((fmax (0 : Int) ((15 : Int) - (3 : Int))) = (12 : Int)) ∧ (((900 : Int) / (10 : Int)) = (90 : Int)) ∧ (((2000 : Int) / (100 : Int)) = (20 : Int)) ∧ (((40 : Int) * (10 : Int)) = (400 : Int)) ∧ (((1000 : Int) / (100 : Int)) = (10 : Int)) ∧ (((5 : Int) + (3 : Int)) = (8 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_maillard",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "maillard: reactionrate(75, 100) = 75; browningindex(6, 12) = 72; temperaturefactor(180, 30) = 6; aminosugarratio(40, 60) = 66; flavorcompounds(12, 8) = 96; phfactor(70, 10) = 7; timetocolor(300, 5) = 60; crustthickness(10, 3) = 7"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ (((6 : Int) * (12 : Int)) = (72 : Int)) ∧ (((180 : Int) / (30 : Int)) = (6 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (60 : Int)) = (66 : Int)) ∧ (((12 : Int) * (8 : Int)) = (96 : Int)) ∧ (((70 : Int) / (10 : Int)) = (7 : Int)) ∧ (((300 : Int) / (5 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_maillard : ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ (((6 : Int) * (12 : Int)) = (72 : Int)) ∧ (((180 : Int) / (30 : Int)) = (6 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (60 : Int)) = (66 : Int)) ∧ (((12 : Int) * (8 : Int)) = (96 : Int)) ∧ (((70 : Int) / (10 : Int)) = (7 : Int)) ∧ (((300 : Int) / (5 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_malacology",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "malacology: shellwhorls(5, 2) = 7; spiralratio(161, 100) = 161; speciescount(800, 10) = 8000; radulateeth(100, 5) = 500; chambercount(30, 0) = 30; growthlines(12, 3) = 36; shellcombos(10, 2) = 45; aperturesize(100, 4) = 25"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((5 : Int) + (2 : Int)) = (7 : Int)) ∧ ((((161 : Int) * (100 : Int)) / (100 : Int)) = (161 : Int)) ∧ (((800 : Int) * (10 : Int)) = (8000 : Int)) ∧ (((100 : Int) * (5 : Int)) = (500 : Int)) ∧ (((30 : Int) + (0 : Int)) = (30 : Int)) ∧ (((12 : Int) * (3 : Int)) = (36 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_malacology : (((5 : Int) + (2 : Int)) = (7 : Int)) ∧ ((((161 : Int) * (100 : Int)) / (100 : Int)) = (161 : Int)) ∧ (((800 : Int) * (10 : Int)) = (8000 : Int)) ∧ (((100 : Int) * (5 : Int)) = (500 : Int)) ∧ (((30 : Int) + (0 : Int)) = (30 : Int)) ∧ (((12 : Int) * (3 : Int)) = (36 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_malware",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "malware: detection(950, 1000) = 95; falsepositive(5, 1000) = 0; spread(30, 100) = 30; signatures(50000) = 50000; quarantine(90, 100) = 90; dwell(21) = 21; entropy(7, 10) = 70; remediation(80, 100) = 80"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((50000 : Int) = (50000 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((21 : Int) = (21 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_malware : ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((50000 : Int) = (50000 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((21 : Int) = (21 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mammalogy",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mammalogy: gestation(280) = 280; metabolism(70, 3) = 210; homerange(70, 4) = 280; litter(12, 3) = 4; lactation(6000, 60) = 100; territory(100, 25) = 4; thermoneutral(37, 20) = 17; thermoneutral(20, 37) = 0; survival(80, 100) = 80"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((280 : Int) = (280 : Int)) ∧ (((70 : Int) * (3 : Int)) = (210 : Int)) ∧ (((70 : Int) * (4 : Int)) = (280 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((37 : Int) - (20 : Int))) = (17 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (37 : Int))) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mammalogy : ((280 : Int) = (280 : Int)) ∧ (((70 : Int) * (3 : Int)) = (210 : Int)) ∧ (((70 : Int) * (4 : Int)) = (280 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((37 : Int) - (20 : Int))) = (17 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (37 : Int))) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_manifold",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "manifold: dimension(5, 2) = 3; genus(0) = 1; bettinumber(10, 4) = 6; eulercharacteristic(8, 12, 6) = 2; chartcount(100, 30) = 4; boundarycomponents(10, 7) = 3; homologyrank(1, 2, 1) = 4"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((fmax (0 : Int) ((5 : Int) - (2 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) (((2 : Int) - (0 : Int)) / (2 : Int))) = (1 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (4 : Int))) = (6 : Int)) ∧ ((fmax (0 : Int) (((8 : Int) + (6 : Int)) - (12 : Int))) = (2 : Int)) ∧ ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (7 : Int))) = (3 : Int)) ∧ ((((1 : Int) + (2 : Int)) + (1 : Int)) = (4 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_manifold : ((fmax (0 : Int) ((5 : Int) - (2 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) (((2 : Int) - (0 : Int)) / (2 : Int))) = (1 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (4 : Int))) = (6 : Int)) ∧ ((fmax (0 : Int) (((8 : Int) + (6 : Int)) - (12 : Int))) = (2 : Int)) ∧ ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (7 : Int))) = (3 : Int)) ∧ ((((1 : Int) + (2 : Int)) + (1 : Int)) = (4 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_manipulator",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "manipulator: dof(6, 0) = 6; reach(3, 400) = 1200; payload(600, 3) = 200; workspace(10, 5) = 500; jointrange(270, 90) = 180; repeatability(100, 8) = 12; linkspeed(1000, 4) = 250; singularities(2, 1, 2) = 5; payload(100, 0) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((fmax (0 : Int) ((6 : Int) - (0 : Int))) = (6 : Int)) ∧ (((3 : Int) * (400 : Int)) = (1200 : Int)) ∧ (((600 : Int) / (3 : Int)) = (200 : Int)) ∧ ((((10 : Int) * (10 : Int)) * (5 : Int)) = (500 : Int)) ∧ ((fmax (0 : Int) ((270 : Int) - (90 : Int))) = (180 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ ((((2 : Int) + (1 : Int)) + (2 : Int)) = (5 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_manipulator : ((fmax (0 : Int) ((6 : Int) - (0 : Int))) = (6 : Int)) ∧ (((3 : Int) * (400 : Int)) = (1200 : Int)) ∧ (((600 : Int) / (3 : Int)) = (200 : Int)) ∧ ((((10 : Int) * (10 : Int)) * (5 : Int)) = (500 : Int)) ∧ ((fmax (0 : Int) ((270 : Int) - (90 : Int))) = (180 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ ((((2 : Int) + (1 : Int)) + (2 : Int)) = (5 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_manufacturing",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "manufacturing: throughput(1200, 8) = 150; oee(90, 80) = 72; defects(5, 1000) = 0; cycletime(480, 120) = 4; yield(950, 1000) = 95; takt(28800, 240) = 120; inventory(500, 50) = 10; capacity(12, 100) = 1200"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((1200 : Int) / (8 : Int)) = (150 : Int)) ∧ ((((90 : Int) * (80 : Int)) / (100 : Int)) = (72 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ (((480 : Int) / (120 : Int)) = (4 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((28800 : Int) / (240 : Int)) = (120 : Int)) ∧ (((500 : Int) / (50 : Int)) = (10 : Int)) ∧ (((12 : Int) * (100 : Int)) = (1200 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_manufacturing : (((1200 : Int) / (8 : Int)) = (150 : Int)) ∧ ((((90 : Int) * (80 : Int)) / (100 : Int)) = (72 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ (((480 : Int) / (120 : Int)) = (4 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((28800 : Int) / (240 : Int)) = (120 : Int)) ∧ (((500 : Int) / (50 : Int)) = (10 : Int)) ∧ (((12 : Int) * (100 : Int)) = (1200 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_marination",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "marination: penetrationdepth(20, 4) = 5; aciduptake(15, 100) = 15; tenderization(40, 100) = 40; marinatetime(4, 60) = 240; saltdiffusion(100, 10) = 10; flavorload(12, 5) = 60; phshift(60, 45) = 15; weightgain(8, 100) = 8"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((20 : Int) / (4 : Int)) = (5 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((4 : Int) * (60 : Int)) = (240 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((60 : Int) - (45 : Int))) = (15 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (100 : Int)) = (8 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_marination : (((20 : Int) / (4 : Int)) = (5 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((4 : Int) * (60 : Int)) = (240 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((60 : Int) - (45 : Int))) = (15 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (100 : Int)) = (8 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_maritime",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "maritime: demurrage(5, 8) = 3; demurrage(8, 5) = 0; freight(5000, 12) = 60000; generalaverage(20000, 500000) = 4; salvage(1000000, 15) = 150000; tonnage(100, 20, 8) = 160; draft(1000, 50) = 20; collision(3, 4) = 75; limitation(5000, 60) = 300000"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((fmax (0 : Int) ((8 : Int) - (5 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((5 : Int) - (8 : Int))) = (0 : Int)) ∧ (((5000 : Int) * (12 : Int)) = (60000 : Int)) ∧ ((((20000 : Int) * (100 : Int)) / (500000 : Int)) = (4 : Int)) ∧ ((((1000000 : Int) * (15 : Int)) / (100 : Int)) = (150000 : Int)) ∧ (((((100 : Int) * (20 : Int)) * (8 : Int)) / (100 : Int)) = (160 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ (((5000 : Int) * (60 : Int)) = (300000 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_maritime : ((fmax (0 : Int) ((8 : Int) - (5 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((5 : Int) - (8 : Int))) = (0 : Int)) ∧ (((5000 : Int) * (12 : Int)) = (60000 : Int)) ∧ ((((20000 : Int) * (100 : Int)) / (500000 : Int)) = (4 : Int)) ∧ ((((1000000 : Int) * (15 : Int)) / (100 : Int)) = (150000 : Int)) ∧ (((((100 : Int) * (20 : Int)) * (8 : Int)) / (100 : Int)) = (160 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ (((5000 : Int) * (60 : Int)) = (300000 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_marketing",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "marketing: roas(40000, 10000) = 400; cpc(5000, 2500) = 2; cpm(5000, 1000000) = 5; cpl(10000, 200) = 50; roi(15000, 10000) = 50; roi(5000, 10000) = -50; budget(500, 30) = 15000; reach(15000, 5) = 3000000; churn(50, 1000) = 5"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((40000 : Int) * (100 : Int)) / (10000 : Int)) = (400 : Int)) ∧ (((5000 : Int) / (2500 : Int)) = (2 : Int)) ∧ ((((5000 : Int) * (1000 : Int)) / (1000000 : Int)) = (5 : Int)) ∧ (((10000 : Int) / (200 : Int)) = (50 : Int)) ∧ (((((15000 : Int) - (10000 : Int)) * (100 : Int)) / (10000 : Int)) = (50 : Int)) ∧ (((((5000 : Int) - (10000 : Int)) * (100 : Int)) / (10000 : Int)) = (-50 : Int)) ∧ (((500 : Int) * (30 : Int)) = (15000 : Int)) ∧ ((((15000 : Int) * (1000 : Int)) / (5 : Int)) = (3000000 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_marketing : ((((40000 : Int) * (100 : Int)) / (10000 : Int)) = (400 : Int)) ∧ (((5000 : Int) / (2500 : Int)) = (2 : Int)) ∧ ((((5000 : Int) * (1000 : Int)) / (1000000 : Int)) = (5 : Int)) ∧ (((10000 : Int) / (200 : Int)) = (50 : Int)) ∧ (((((15000 : Int) - (10000 : Int)) * (100 : Int)) / (10000 : Int)) = (50 : Int)) ∧ (((((5000 : Int) - (10000 : Int)) * (100 : Int)) / (10000 : Int)) = (-50 : Int)) ∧ (((500 : Int) * (30 : Int)) = (15000 : Int)) ∧ ((((15000 : Int) * (1000 : Int)) / (5 : Int)) = (3000000 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_masonry",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "masonry: bricks(10, 60) = 600; mortar(600, 2) = 1200; courses(1000, 75) = 13; bond(1000, 250) = 4; wall(5, 3) = 15; joint(13, 10) = 130; coverage(600, 60) = 10; waste(600, 5) = 30"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((10 : Int) * (60 : Int)) = (600 : Int)) ∧ (((600 : Int) * (2 : Int)) = (1200 : Int)) ∧ (((1000 : Int) / (75 : Int)) = (13 : Int)) ∧ (((1000 : Int) / (250 : Int)) = (4 : Int)) ∧ (((5 : Int) * (3 : Int)) = (15 : Int)) ∧ (((13 : Int) * (10 : Int)) = (130 : Int)) ∧ (((600 : Int) / (60 : Int)) = (10 : Int)) ∧ ((((600 : Int) * (5 : Int)) / (100 : Int)) = (30 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_masonry : (((10 : Int) * (60 : Int)) = (600 : Int)) ∧ (((600 : Int) * (2 : Int)) = (1200 : Int)) ∧ (((1000 : Int) / (75 : Int)) = (13 : Int)) ∧ (((1000 : Int) / (250 : Int)) = (4 : Int)) ∧ (((5 : Int) * (3 : Int)) = (15 : Int)) ∧ (((13 : Int) * (10 : Int)) = (130 : Int)) ∧ (((600 : Int) / (60 : Int)) = (10 : Int)) ∧ ((((600 : Int) * (5 : Int)) / (100 : Int)) = (30 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_materials",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "materials: stress(1000, 10) = 100; strain(5, 100) = 5; density(1000, 10) = 100; modulus(200, 2) = 100; hardness(500, 5) = 100; fatigue(100, 1000) = 1; fatigue(2000, 1000) = 0; thermal(10, 12) = 120; yield(50, 100) = 1; yield(150, 100) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((200 : Int) / (2 : Int)) = (100 : Int)) ∧ (((500 : Int) / (5 : Int)) = (100 : Int)) ∧ ((if (if (100 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2000 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((10 : Int) * (12 : Int)) = (120 : Int)) ∧ ((if (if (50 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (150 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_materials : (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((200 : Int) / (2 : Int)) = (100 : Int)) ∧ (((500 : Int) / (5 : Int)) = (100 : Int)) ∧ ((if (if (100 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2000 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((10 : Int) * (12 : Int)) = (120 : Int)) ∧ ((if (if (50 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (150 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_matrix",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "matrix: elements(4, 4) = 16; mults(4, 4, 4) = 64; adds(16, 3) = 48; trace(10, 6) = 16; rank(4, 3) = 3; determinant(100, 40) = 60; transpose(4, 4) = 16; combos(4, 2) = 6; ranknullity(2, 3) = 5; nullity(4, 1) = 3; symmetricentries(4) = 10; offdiagonal(4) = 12; identitytrace(5) = 5; minors(4) = 16"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((4 : Int) * (4 : Int)) = (16 : Int)) ∧ ((((4 : Int) * (4 : Int)) * (4 : Int)) = (64 : Int)) ∧ (((16 : Int) * (3 : Int)) = (48 : Int)) ∧ (((10 : Int) + (6 : Int)) = (16 : Int)) ∧ ((fmin (4 : Int) (3 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ (((4 : Int) * (4 : Int)) = (16 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (4 : Int)) (Int.toNat (2 : Int)))) = (6 : Int)) ∧ (((2 : Int) + (3 : Int)) = (5 : Int)) ∧ (((4 : Int) - (1 : Int)) = (3 : Int)) ∧ ((((4 : Int) * ((4 : Int) + (1 : Int))) / (2 : Int)) = (10 : Int)) ∧ (((4 : Int) * ((4 : Int) - (1 : Int))) = (12 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ (((4 : Int) ^ (2 : Nat)) = (16 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_matrix : (((4 : Int) * (4 : Int)) = (16 : Int)) ∧ ((((4 : Int) * (4 : Int)) * (4 : Int)) = (64 : Int)) ∧ (((16 : Int) * (3 : Int)) = (48 : Int)) ∧ (((10 : Int) + (6 : Int)) = (16 : Int)) ∧ ((fmin (4 : Int) (3 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ (((4 : Int) * (4 : Int)) = (16 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (4 : Int)) (Int.toNat (2 : Int)))) = (6 : Int)) ∧ (((2 : Int) + (3 : Int)) = (5 : Int)) ∧ (((4 : Int) - (1 : Int)) = (3 : Int)) ∧ ((((4 : Int) * ((4 : Int) + (1 : Int))) / (2 : Int)) = (10 : Int)) ∧ (((4 : Int) * ((4 : Int) - (1 : Int))) = (12 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ (((4 : Int) ^ (2 : Nat)) = (16 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mealplanning",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mealplanning: meals(3, 7) = 21; portions(4, 3) = 12; caloriesperday(2000, 1) = 2000; ingredientpairs(20, 2) = 190; weeklyorderings(5) = 120; varietysubsets(5) = 32; prepminutes(30, 7) = 210; budgetpermeal(100, 21) = 4"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((3 : Int) * (7 : Int)) = (21 : Int)) ∧ (((4 : Int) * (3 : Int)) = (12 : Int)) ∧ (((2000 : Int) * (1 : Int)) = (2000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (2 : Int)))) = (190 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((30 : Int) * (7 : Int)) = (210 : Int)) ∧ (((100 : Int) / (21 : Int)) = (4 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mealplanning : (((3 : Int) * (7 : Int)) = (21 : Int)) ∧ (((4 : Int) * (3 : Int)) = (12 : Int)) ∧ (((2000 : Int) * (1 : Int)) = (2000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (2 : Int)))) = (190 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((30 : Int) * (7 : Int)) = (210 : Int)) ∧ (((100 : Int) / (21 : Int)) = (4 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mechanical",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mechanical: torque(100, 5) = 500; power(9549, 1000) = 1000; stress(1000, 20) = 50; strain(5, 1000) = 5; gear(60, 20) = 300; efficiency(80, 100) = 80; thermal(1000, 25) = 40; spring(500, 10) = 50"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((100 : Int) * (5 : Int)) = (500 : Int)) ∧ ((((9549 : Int) * (1000 : Int)) / (9549 : Int)) = (1000 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (20 : Int)) = (300 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ (((500 : Int) / (10 : Int)) = (50 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mechanical : (((100 : Int) * (5 : Int)) = (500 : Int)) ∧ ((((9549 : Int) * (1000 : Int)) / (9549 : Int)) = (1000 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (20 : Int)) = (300 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ (((500 : Int) / (10 : Int)) = (50 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_med",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "med: bmi(80, 180) = 24; dose(70, 5) = 350; gcs(4, 5, 6) = 15; gcs(1, 1, 1) = 3; map(120, 80) = 93; packyears(20, 15) = 15; impairment(30, 100) = 30; causation(250, 100) = 250; frequency(8) = 3"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((80 : Int) * (10000 : Int)) / ((180 : Int) ^ (2 : Nat))) = (24 : Int)) ∧ (((70 : Int) * (5 : Int)) = (350 : Int)) ∧ ((((4 : Int) + (5 : Int)) + (6 : Int)) = (15 : Int)) ∧ ((((1 : Int) + (1 : Int)) + (1 : Int)) = (3 : Int)) ∧ ((((120 : Int) + ((2 : Int) * (80 : Int))) / (3 : Int)) = (93 : Int)) ∧ ((((20 : Int) * (15 : Int)) / (20 : Int)) = (15 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (100 : Int)) = (250 : Int)) ∧ (((24 : Int) / (8 : Int)) = (3 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_med : ((((80 : Int) * (10000 : Int)) / ((180 : Int) ^ (2 : Nat))) = (24 : Int)) ∧ (((70 : Int) * (5 : Int)) = (350 : Int)) ∧ ((((4 : Int) + (5 : Int)) + (6 : Int)) = (15 : Int)) ∧ ((((1 : Int) + (1 : Int)) + (1 : Int)) = (3 : Int)) ∧ ((((120 : Int) + ((2 : Int) * (80 : Int))) / (3 : Int)) = (93 : Int)) ∧ ((((20 : Int) * (15 : Int)) / (20 : Int)) = (15 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (100 : Int)) = (250 : Int)) ∧ (((24 : Int) / (8 : Int)) = (3 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_media",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "media: aspect(1600, 900) = 177; gallery(10, 3) = 4; lazy(6, 10) = 60; caption(80, 120) = 1; caption(200, 120) = 0; sizes(5) = 5; fit(800, 1000) = 80; load(10000, 500) = 20; ratio(1600, 900) = 1; ratio(900, 1600) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((1600 : Int) * (100 : Int)) / (900 : Int)) = (177 : Int)) ∧ ((-((-(10 : Int)) / (3 : Int))) = (4 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (10 : Int)) = (60 : Int)) ∧ ((if (if (80 : Int) ≤ (120 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (200 : Int) ≤ (120 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ (((10000 : Int) / (500 : Int)) = (20 : Int)) ∧ ((if (if (1600 : Int) ≥ (900 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (900 : Int) ≥ (1600 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_media : ((((1600 : Int) * (100 : Int)) / (900 : Int)) = (177 : Int)) ∧ ((-((-(10 : Int)) / (3 : Int))) = (4 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (10 : Int)) = (60 : Int)) ∧ ((if (if (80 : Int) ≤ (120 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (200 : Int) ≤ (120 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ (((10000 : Int) / (500 : Int)) = (20 : Int)) ∧ ((if (if (1600 : Int) ≥ (900 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (900 : Int) ≥ (1600 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_meiosis",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "meiosis: gametes(10) = 40; haploid(46) = 23; crossovers(23, 2) = 46; recombinants(15, 100) = 15; variation(4, 4) = 16; diploidrestore(23) = 46; chromatids(46) = 92; segregation(100, 3, 4) = 75; segregation(100, 1, 0) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((10 : Int) * (4 : Int)) = (40 : Int)) ∧ (((46 : Int) / (2 : Int)) = (23 : Int)) ∧ (((23 : Int) * (2 : Int)) = (46 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ (((4 : Int) * (4 : Int)) = (16 : Int)) ∧ (((23 : Int) * (2 : Int)) = (46 : Int)) ∧ (((46 : Int) * (2 : Int)) = (92 : Int)) ∧ ((((100 : Int) * (3 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((100 : Int) * (1 : Int)) / (0 : Int)) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_meiosis : (((10 : Int) * (4 : Int)) = (40 : Int)) ∧ (((46 : Int) / (2 : Int)) = (23 : Int)) ∧ (((23 : Int) * (2 : Int)) = (46 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ (((4 : Int) * (4 : Int)) = (16 : Int)) ∧ (((23 : Int) * (2 : Int)) = (46 : Int)) ∧ (((46 : Int) * (2 : Int)) = (92 : Int)) ∧ ((((100 : Int) * (3 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((100 : Int) * (1 : Int)) / (0 : Int)) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_melody",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "melody: range(60, 48) = 12; contour(20, 8) = 12; stepleap(80, 20) = 80; phraselength(64, 8) = 8; motifrepeat(48, 4) = 12; pitchclass(64) = 4; transposition(60, 7) = 7; density(100, 50) = 200; phraselength(64, 0) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((fmax (0 : Int) ((60 : Int) - (48 : Int))) = (12 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (8 : Int))) = (12 : Int)) ∧ ((((80 : Int) * (100 : Int)) / ((80 : Int) + (20 : Int))) = (80 : Int)) ∧ (((64 : Int) / (8 : Int)) = (8 : Int)) ∧ (((48 : Int) / (4 : Int)) = (12 : Int)) ∧ (((64 : Int) % (12 : Int)) = (4 : Int)) ∧ ((((60 : Int) + (7 : Int)) % (12 : Int)) = (7 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (50 : Int)) = (200 : Int)) ∧ (((64 : Int) / (0 : Int)) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_melody : ((fmax (0 : Int) ((60 : Int) - (48 : Int))) = (12 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (8 : Int))) = (12 : Int)) ∧ ((((80 : Int) * (100 : Int)) / ((80 : Int) + (20 : Int))) = (80 : Int)) ∧ (((64 : Int) / (8 : Int)) = (8 : Int)) ∧ (((48 : Int) / (4 : Int)) = (12 : Int)) ∧ (((64 : Int) % (12 : Int)) = (4 : Int)) ∧ ((((60 : Int) + (7 : Int)) % (12 : Int)) = (7 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (50 : Int)) = (200 : Int)) ∧ (((64 : Int) / (0 : Int)) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_membrane",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "membrane: restingpotential(90, 20) = 70; nernst(2, 1) = 122; permeability(1000, 10, 5) = 20; fluidity(300, 10) = 30; surfacearea(5) = 300; transportrate(6000, 60) = 100; capacitance(1000, 10) = 100; selectivity(95, 100) = 95; selectivity(50, 100) = 50"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((fmax (0 : Int) ((90 : Int) - (20 : Int))) = (70 : Int)) ∧ ((((61 : Int) * (2 : Int)) / (1 : Int)) = (122 : Int)) ∧ (((1000 : Int) / ((10 : Int) * (5 : Int))) = (20 : Int)) ∧ (((300 : Int) / (10 : Int)) = (30 : Int)) ∧ (((12 : Int) * ((5 : Int) ^ (2 : Nat))) = (300 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_membrane : ((fmax (0 : Int) ((90 : Int) - (20 : Int))) = (70 : Int)) ∧ ((((61 : Int) * (2 : Int)) / (1 : Int)) = (122 : Int)) ∧ (((1000 : Int) / ((10 : Int) * (5 : Int))) = (20 : Int)) ∧ (((300 : Int) / (10 : Int)) = (30 : Int)) ∧ (((12 : Int) * ((5 : Int) ^ (2 : Nat))) = (300 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_memory",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "memory: retention(90, 100) = 90; forgetting(10, 100) = 10; recall(75, 100) = 75; recognition(95, 100) = 95; span(7) = 7; consolidation(80, 100) = 80; interference(20, 100) = 20; spacing(12, 3) = 4"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_memory : ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_merchandising",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "merchandising: margin(100, 60) = 40; markup(100, 80) = 25; sellthrough(75, 100) = 75; turnover(1000, 200) = 5; facings(120, 8) = 15; planogram(5, 20) = 100; assortment(12, 30) = 360; gmroi(500, 250) = 200"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((((100 : Int) - (60 : Int)) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((((100 : Int) - (80 : Int)) * (100 : Int)) / (80 : Int)) = (25 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ (((1000 : Int) / (200 : Int)) = (5 : Int)) ∧ (((120 : Int) / (8 : Int)) = (15 : Int)) ∧ (((5 : Int) * (20 : Int)) = (100 : Int)) ∧ (((12 : Int) * (30 : Int)) = (360 : Int)) ∧ ((((500 : Int) * (100 : Int)) / (250 : Int)) = (200 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_merchandising : (((((100 : Int) - (60 : Int)) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((((100 : Int) - (80 : Int)) * (100 : Int)) / (80 : Int)) = (25 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ (((1000 : Int) / (200 : Int)) = (5 : Int)) ∧ (((120 : Int) / (8 : Int)) = (15 : Int)) ∧ (((5 : Int) * (20 : Int)) = (100 : Int)) ∧ (((12 : Int) * (30 : Int)) = (360 : Int)) ∧ ((((500 : Int) * (100 : Int)) / (250 : Int)) = (200 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_merkle",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "merkle: leaves(4) = 16; treeheight(4, 0) = 4; proofsize(4, 32) = 128; hashcombos(8, 2) = 28; nodecount(2, 15) = 30; siblingpairs(16, 2) = 120; rootpaths(4, 2) = 12; verificationsteps(4, 1) = 5"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ (((4 : Int) * (32 : Int)) = (128 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ (((2 : Int) * (15 : Int)) = (30 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (16 : Int)) (Int.toNat (2 : Int)))) = (120 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (4 : Int)))) / (Int.ofNat (ffact (Int.toNat ((4 : Int) - (2 : Int)))))) = (12 : Int)) ∧ (((4 : Int) + (1 : Int)) = (5 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_merkle : (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ (((4 : Int) * (32 : Int)) = (128 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ (((2 : Int) * (15 : Int)) = (30 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (16 : Int)) (Int.toNat (2 : Int)))) = (120 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (4 : Int)))) / (Int.ofNat (ffact (Int.toNat ((4 : Int) - (2 : Int)))))) = (12 : Int)) ∧ (((4 : Int) + (1 : Int)) = (5 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_messaging",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "messaging: delivery(950, 1000) = 95; open(300, 950) = 31; bounce(50, 1000) = 5; latency(4000, 1000) = 4; queue(1000, 700) = 300; throughput(6000, 60) = 100; cost(100000, 50) = 5000; retry(10, 3) = 3"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (950 : Int)) = (31 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((4000 : Int) / (1000 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (700 : Int))) = (300 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((100000 : Int) * (50 : Int)) / (1000 : Int)) = (5000 : Int)) ∧ ((fmin (10 : Int) (3 : Int)) = (3 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_messaging : ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (950 : Int)) = (31 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((4000 : Int) / (1000 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (700 : Int))) = (300 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((100000 : Int) * (50 : Int)) / (1000 : Int)) = (5000 : Int)) ∧ ((fmin (10 : Int) (3 : Int)) = (3 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_metabolism",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "metabolism: bmr(1500, 1) = 1500; atp(36, 1) = 36; calories(2000, 1) = 2000; pathways(3, 0) = 3; glucose(180, 6) = 30; oxygen(250, 1) = 250; enzymes(100, 5) = 500; combos(6, 2) = 15"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((1500 : Int) * (1 : Int)) = (1500 : Int)) ∧ (((36 : Int) * (1 : Int)) = (36 : Int)) ∧ (((2000 : Int) * (1 : Int)) = (2000 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((180 : Int) / (6 : Int)) = (30 : Int)) ∧ (((250 : Int) * (1 : Int)) = (250 : Int)) ∧ (((100 : Int) * (5 : Int)) = (500 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_metabolism : (((1500 : Int) * (1 : Int)) = (1500 : Int)) ∧ (((36 : Int) * (1 : Int)) = (36 : Int)) ∧ (((2000 : Int) * (1 : Int)) = (2000 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((180 : Int) / (6 : Int)) = (30 : Int)) ∧ (((250 : Int) * (1 : Int)) = (250 : Int)) ∧ (((100 : Int) * (5 : Int)) = (500 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_metabolomics",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "metabolomics: concentration(1000, 50) = 20; flux(12, 5) = 60; pathway(100, 8) = 12; foldchange(300, 100) = 300; turnover(25, 200) = 12; retention(42) = 42; ratio(45, 90) = 50; coverage(80, 100) = 80"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (200 : Int)) = (12 : Int)) ∧ ((42 : Int) = (42 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (90 : Int)) = (50 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_metabolomics : (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (200 : Int)) = (12 : Int)) ∧ ((42 : Int) = (42 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (90 : Int)) = (50 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_metallurgy",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "metallurgy: hardness(600, 3) = 200; alloy(18, 100) = 18; tensile(5000, 25) = 200; ductility(120, 100) = 20; grain(1000, 25) = 40; modulus(400, 2) = 200; fatigue(1000000, 500) = 2000; corrosion(15, 100) = 15"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((600 : Int) / (3 : Int)) = (200 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (100 : Int)) = (18 : Int)) ∧ (((5000 : Int) / (25 : Int)) = (200 : Int)) ∧ (((((120 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ (((400 : Int) / (2 : Int)) = (200 : Int)) ∧ (((1000000 : Int) / (500 : Int)) = (2000 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_metallurgy : (((600 : Int) / (3 : Int)) = (200 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (100 : Int)) = (18 : Int)) ∧ (((5000 : Int) / (25 : Int)) = (200 : Int)) ∧ (((((120 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ (((400 : Int) / (2 : Int)) = (200 : Int)) ∧ (((1000000 : Int) / (500 : Int)) = (2000 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_meteoritics",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "meteoritics: energy(10, 20) = 2000; crater(2000, 5) = 400; ablation(100, 30) = 70; flux(1000, 50) = 20; velocity(6000, 60) = 100; composition(30, 120) = 25; magnitude(900, 3) = 100; survival(100, 70) = 30; survival(50, 80) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((10 : Int) * ((20 : Int) ^ (2 : Nat))) / (2 : Int)) = (2000 : Int)) ∧ (((2000 : Int) / (5 : Int)) = (400 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ (((900 : Int) / ((3 : Int) ^ (2 : Nat))) = (100 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (80 : Int))) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_meteoritics : ((((10 : Int) * ((20 : Int) ^ (2 : Nat))) / (2 : Int)) = (2000 : Int)) ∧ (((2000 : Int) / (5 : Int)) = (400 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ (((900 : Int) / ((3 : Int) ^ (2 : Nat))) = (100 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (80 : Int))) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_meteorology",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "meteorology: humidity(75, 100) = 75; dewpoint(20, 5) = 15; heatindex(30, 10) = 40; windchill(10, 4) = 6; pressure(1013, 13) = 1000; lapse(25, 6) = 19; precipitation(1000, 50) = 20; visibility(80, 40) = 200"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (5 : Int))) = (15 : Int)) ∧ (((30 : Int) + (10 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (4 : Int))) = (6 : Int)) ∧ ((fmax (0 : Int) ((1013 : Int) - (13 : Int))) = (1000 : Int)) ∧ ((fmax (0 : Int) ((25 : Int) - (6 : Int))) = (19 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (40 : Int)) = (200 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_meteorology : ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (5 : Int))) = (15 : Int)) ∧ (((30 : Int) + (10 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (4 : Int))) = (6 : Int)) ∧ ((fmax (0 : Int) ((1013 : Int) - (13 : Int))) = (1000 : Int)) ∧ ((fmax (0 : Int) ((25 : Int) - (6 : Int))) = (19 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (40 : Int)) = (200 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_microbiology",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "microbiology: growth(100, 3) = 800; generation(600, 3) = 200; cfu(50, 1000) = 50000; mic(8) = 8; resistance(25, 100) = 25; zone(18) = 18; viability(950, 1000) = 95; od(1000, 10) = 100"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((100 : Int) * ((2 : Int) ^ (3 : Nat))) = (800 : Int)) ∧ (((600 : Int) / (3 : Int)) = (200 : Int)) ∧ (((50 : Int) * (1000 : Int)) = (50000 : Int)) ∧ ((8 : Int) = (8 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ ((18 : Int) = (18 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_microbiology : (((100 : Int) * ((2 : Int) ^ (3 : Nat))) = (800 : Int)) ∧ (((600 : Int) / (3 : Int)) = (200 : Int)) ∧ (((50 : Int) * (1000 : Int)) = (50000 : Int)) ∧ ((8 : Int) = (8 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ ((18 : Int) = (18 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_microeconomics",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "microeconomics: elasticity(20, 5) = 400; surplus(100, 70) = 30; marginal(500, 25) = 20; equilibrium(80, 100) = 20; utility(90, 30) = 3; profit(1000, 600) = 400; monopoly(60, 100) = 60; deadweight(15, 100) = 15; elasticity(20, 0) = 0; surplus(50, 70) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((20 : Int) * (100 : Int)) / (5 : Int)) = (400 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int)) ∧ (((500 : Int) / (25 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (80 : Int))) = (20 : Int)) ∧ (((90 : Int) / (30 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (600 : Int))) = (400 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (70 : Int))) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_microeconomics : ((((20 : Int) * (100 : Int)) / (5 : Int)) = (400 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int)) ∧ (((500 : Int) / (25 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (80 : Int))) = (20 : Int)) ∧ (((90 : Int) / (30 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (600 : Int))) = (400 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (70 : Int))) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_microscopy",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "microscopy: magnification(40, 10) = 400; resolution(500, 2) = 125; resolution(500, 0) = 0; numericalaperture(1, 55) = 55; fieldofview(20, 40) = 500; depthoffield(500, 5) = 20; totalmag(40, 10, 2) = 800; workingdistance(300, 2) = 150; pixelsize(36000, 6000) = 6"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((40 : Int) * (10 : Int)) = (400 : Int)) ∧ (((500 : Int) / ((2 : Int) * (2 : Int))) = (125 : Int)) ∧ (((500 : Int) / ((2 : Int) * (0 : Int))) = (0 : Int)) ∧ (((1 : Int) * (55 : Int)) = (55 : Int)) ∧ ((((20 : Int) * (1000 : Int)) / (40 : Int)) = (500 : Int)) ∧ (((500 : Int) / ((5 : Int) * (5 : Int))) = (20 : Int)) ∧ ((((40 : Int) * (10 : Int)) * (2 : Int)) = (800 : Int)) ∧ (((300 : Int) / (2 : Int)) = (150 : Int)) ∧ (((36000 : Int) / (6000 : Int)) = (6 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_microscopy : (((40 : Int) * (10 : Int)) = (400 : Int)) ∧ (((500 : Int) / ((2 : Int) * (2 : Int))) = (125 : Int)) ∧ (((500 : Int) / ((2 : Int) * (0 : Int))) = (0 : Int)) ∧ (((1 : Int) * (55 : Int)) = (55 : Int)) ∧ ((((20 : Int) * (1000 : Int)) / (40 : Int)) = (500 : Int)) ∧ (((500 : Int) / ((5 : Int) * (5 : Int))) = (20 : Int)) ∧ ((((40 : Int) * (10 : Int)) * (2 : Int)) = (800 : Int)) ∧ (((300 : Int) / (2 : Int)) = (150 : Int)) ∧ (((36000 : Int) / (6000 : Int)) = (6 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_migration",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "migration: netmigration(5000, 3000) = 2000; netmigration(3000, 5000) = 0; grossflow(5000, 3000) = 8000; rate(2000, 50000) = 40; pushpull(30, 70) = 40; remittanceshare(300, 1500) = 20; settlementratio(800, 1000) = 80; returnrate(250, 1000) = 25; integrationindex(60, 90, 3) = 51"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((fmax (0 : Int) ((5000 : Int) - (3000 : Int))) = (2000 : Int)) ∧ ((fmax (0 : Int) ((3000 : Int) - (5000 : Int))) = (0 : Int)) ∧ (((5000 : Int) + (3000 : Int)) = (8000 : Int)) ∧ ((((2000 : Int) * (1000 : Int)) / (50000 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((70 : Int) - (30 : Int))) = (40 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1500 : Int)) = (20 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((((60 : Int) + (90 : Int)) + (3 : Int)) / (3 : Int)) = (51 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_migration : ((fmax (0 : Int) ((5000 : Int) - (3000 : Int))) = (2000 : Int)) ∧ ((fmax (0 : Int) ((3000 : Int) - (5000 : Int))) = (0 : Int)) ∧ (((5000 : Int) + (3000 : Int)) = (8000 : Int)) ∧ ((((2000 : Int) * (1000 : Int)) / (50000 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((70 : Int) - (30 : Int))) = (40 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1500 : Int)) = (20 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((((60 : Int) + (90 : Int)) + (3 : Int)) / (3 : Int)) = (51 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_milling",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "milling: extraction(720, 1000) = 72; yield(1000, 75) = 750; throughput(6000, 60) = 100; flour(1000, 250) = 750; bran(1000, 750) = 250; fineness(950, 1000) = 95; moisture(14, 100) = 14; blend(600, 300, 100) = 1000"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((720 : Int) * (100 : Int)) / (1000 : Int)) = (72 : Int)) ∧ ((((1000 : Int) * (75 : Int)) / (100 : Int)) = (750 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (250 : Int))) = (750 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (750 : Int))) = (250 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((14 : Int) * (100 : Int)) / (100 : Int)) = (14 : Int)) ∧ ((((600 : Int) + (300 : Int)) + (100 : Int)) = (1000 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_milling : ((((720 : Int) * (100 : Int)) / (1000 : Int)) = (72 : Int)) ∧ ((((1000 : Int) * (75 : Int)) / (100 : Int)) = (750 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (250 : Int))) = (750 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (750 : Int))) = (250 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((14 : Int) * (100 : Int)) / (100 : Int)) = (14 : Int)) ∧ ((((600 : Int) + (300 : Int)) + (100 : Int)) = (1000 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mime",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mime: gestures(12, 8) = 20; illusiontypes(4, 3) = 12; isolationpoints(6, 6) = 12; sequenceorderings(4) = 24; gesturepairs(12, 2) = 66; tempobeats(60, 1) = 60; spacegrid(8, 8) = 64; claritypct(90, 100) = 90"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((12 : Int) + (8 : Int)) = (20 : Int)) ∧ (((4 : Int) * (3 : Int)) = (12 : Int)) ∧ (((6 : Int) + (6 : Int)) = (12 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((60 : Int) * (1 : Int)) = (60 : Int)) ∧ (((8 : Int) * (8 : Int)) = (64 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mime : (((12 : Int) + (8 : Int)) = (20 : Int)) ∧ (((4 : Int) * (3 : Int)) = (12 : Int)) ∧ (((6 : Int) + (6 : Int)) = (12 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((60 : Int) * (1 : Int)) = (60 : Int)) ∧ (((8 : Int) * (8 : Int)) = (64 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mineralogy",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mineralogy: hardness(7) = 7; density(300, 100) = 3; cleavage(3) = 3; refraction(544, 1) = 544000; grade(25, 75) = 25; crystallinity(80, 100) = 80; purity(90, 100) = 90; specific(2650, 1000) = 2650"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((7 : Int) = (7 : Int)) ∧ (((300 : Int) / (100 : Int)) = (3 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((544 : Int) * (1000 : Int)) / (1 : Int)) = (544000 : Int)) ∧ ((((25 : Int) * (100 : Int)) / ((25 : Int) + (75 : Int))) = (25 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((2650 : Int) * (1000 : Int)) / (1000 : Int)) = (2650 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mineralogy : ((7 : Int) = (7 : Int)) ∧ (((300 : Int) / (100 : Int)) = (3 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((544 : Int) * (1000 : Int)) / (1 : Int)) = (544000 : Int)) ∧ ((((25 : Int) * (100 : Int)) / ((25 : Int) + (75 : Int))) = (25 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((2650 : Int) * (1000 : Int)) / (1000 : Int)) = (2650 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mining",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mining: grade(5, 1000) = 5000; recovery(90, 100) = 90; reserves(1000000, 5000) = 5000; stripping(300, 100) = 300; cutoff(5000, 3000) = 1; cutoff(2000, 3000) = 0; throughput(12000, 24) = 500; yield(80, 100) = 80; cost(500, 7) = 3500"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((5 : Int) * (1000000 : Int)) / (1000 : Int)) = (5000 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((1000000 : Int) * (5000 : Int)) / (1000000 : Int)) = (5000 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((if (if (5000 : Int) ≥ (3000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2000 : Int) ≥ (3000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((12000 : Int) / (24 : Int)) = (500 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((500 : Int) * (7 : Int)) = (3500 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mining : ((((5 : Int) * (1000000 : Int)) / (1000 : Int)) = (5000 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((1000000 : Int) * (5000 : Int)) / (1000000 : Int)) = (5000 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((if (if (5000 : Int) ≥ (3000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2000 : Int) ≥ (3000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((12000 : Int) / (24 : Int)) = (500 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((500 : Int) * (7 : Int)) = (3500 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mitosis",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mitosis: cellcount(5, 3) = 40; chromosomes(100, 46) = 4600; cyclelength(11, 8, 5) = 24; doublingtime(48, 4) = 12; generations(48, 24) = 2; growthfraction(300, 1000) = 30; mitoticindex(50, 1000) = 5; phasefraction(6, 24) = 25"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((5 : Int) * ((2 : Int) ^ (3 : Nat))) = (40 : Int)) ∧ (((100 : Int) * (46 : Int)) = (4600 : Int)) ∧ ((((11 : Int) + (8 : Int)) + (5 : Int)) = (24 : Int)) ∧ (((48 : Int) / (4 : Int)) = (12 : Int)) ∧ (((48 : Int) / (24 : Int)) = (2 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (24 : Int)) = (25 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mitosis : (((5 : Int) * ((2 : Int) ^ (3 : Nat))) = (40 : Int)) ∧ (((100 : Int) * (46 : Int)) = (4600 : Int)) ∧ ((((11 : Int) + (8 : Int)) + (5 : Int)) = (24 : Int)) ∧ (((48 : Int) / (4 : Int)) = (12 : Int)) ∧ (((48 : Int) / (24 : Int)) = (2 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (24 : Int)) = (25 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mixing",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mixing: gain(100, 3) = 300; headroom(24, 18) = 6; headroom(18, 24) = 0; pan(25, 75) = 25; compression(100, 40, 4) = 55; compression(30, 40, 4) = 30; ratio(100, 25) = 4; loudness(600, 8) = 75; crossfade(100, 200, 25) = 125; bus(8, 125) = 1000"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((100 : Int) * (3 : Int)) = (300 : Int)) ∧ ((fmax (0 : Int) ((24 : Int) - (18 : Int))) = (6 : Int)) ∧ ((fmax (0 : Int) ((18 : Int) - (24 : Int))) = (0 : Int)) ∧ ((((25 : Int) * (100 : Int)) / ((25 : Int) + (75 : Int))) = (25 : Int)) ∧ ((if (if (100 : Int) ≤ (40 : Int) then (1 : Int) else 0) ≠ 0 then (100 : Int) else ((40 : Int) + (((100 : Int) - (40 : Int)) / (4 : Int)))) = (55 : Int)) ∧ ((if (if (30 : Int) ≤ (40 : Int) then (1 : Int) else 0) ≠ 0 then (30 : Int) else ((40 : Int) + (((30 : Int) - (40 : Int)) / (4 : Int)))) = (30 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ (((600 : Int) / (8 : Int)) = (75 : Int)) ∧ (((((100 : Int) * ((100 : Int) - (25 : Int))) + ((200 : Int) * (25 : Int))) / (100 : Int)) = (125 : Int)) ∧ (((8 : Int) * (125 : Int)) = (1000 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mixing : (((100 : Int) * (3 : Int)) = (300 : Int)) ∧ ((fmax (0 : Int) ((24 : Int) - (18 : Int))) = (6 : Int)) ∧ ((fmax (0 : Int) ((18 : Int) - (24 : Int))) = (0 : Int)) ∧ ((((25 : Int) * (100 : Int)) / ((25 : Int) + (75 : Int))) = (25 : Int)) ∧ ((if (if (100 : Int) ≤ (40 : Int) then (1 : Int) else 0) ≠ 0 then (100 : Int) else ((40 : Int) + (((100 : Int) - (40 : Int)) / (4 : Int)))) = (55 : Int)) ∧ ((if (if (30 : Int) ≤ (40 : Int) then (1 : Int) else 0) ≠ 0 then (30 : Int) else ((40 : Int) + (((30 : Int) - (40 : Int)) / (4 : Int)))) = (30 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ (((600 : Int) / (8 : Int)) = (75 : Int)) ∧ (((((100 : Int) * ((100 : Int) - (25 : Int))) + ((200 : Int) * (25 : Int))) / (100 : Int)) = (125 : Int)) ∧ (((8 : Int) * (125 : Int)) = (1000 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mixology",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mixology: abv(40, 100) = 40; dilution(60, 20) = 25; ratio(60, 20) = 3; sugarcontent(200, 50) = 100; servings(750, 50) = 15; pour(3, 30) = 90; balance(20, 12) = 8; strength(40, 90) = 36"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((20 : Int) * (100 : Int)) / ((60 : Int) + (20 : Int))) = (25 : Int)) ∧ (((60 : Int) / (20 : Int)) = (3 : Int)) ∧ ((((200 : Int) * (50 : Int)) / (100 : Int)) = (100 : Int)) ∧ (((750 : Int) / (50 : Int)) = (15 : Int)) ∧ (((3 : Int) * (30 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (12 : Int))) = (8 : Int)) ∧ ((((40 : Int) * (90 : Int)) / (100 : Int)) = (36 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mixology : ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((20 : Int) * (100 : Int)) / ((60 : Int) + (20 : Int))) = (25 : Int)) ∧ (((60 : Int) / (20 : Int)) = (3 : Int)) ∧ ((((200 : Int) * (50 : Int)) / (100 : Int)) = (100 : Int)) ∧ (((750 : Int) / (50 : Int)) = (15 : Int)) ∧ (((3 : Int) * (30 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (12 : Int))) = (8 : Int)) ∧ ((((40 : Int) * (90 : Int)) / (100 : Int)) = (36 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_ml",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "ml: parameters(1000, 12) = 12000; accuracy(95, 100) = 95; featurecombos(20, 3) = 1140; epochs(50, 1) = 50; layersubsets(6) = 64; learningrate(1000, 100) = 10; gradientsteps(1000, 10) = 10000; f1score(88, 100) = 88"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((1000 : Int) * (12 : Int)) = (12000 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (3 : Int)))) = (1140 : Int)) ∧ (((50 : Int) * (1 : Int)) = (50 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ (((1000 : Int) / (100 : Int)) = (10 : Int)) ∧ (((1000 : Int) * (10 : Int)) = (10000 : Int)) ∧ ((((88 : Int) * (100 : Int)) / (100 : Int)) = (88 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_ml : (((1000 : Int) * (12 : Int)) = (12000 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (3 : Int)))) = (1140 : Int)) ∧ (((50 : Int) * (1 : Int)) = (50 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ (((1000 : Int) / (100 : Int)) = (10 : Int)) ∧ (((1000 : Int) * (10 : Int)) = (10000 : Int)) ∧ ((((88 : Int) * (100 : Int)) / (100 : Int)) = (88 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mobility",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mobility: modeshare(45, 100) = 45; commutetime(30, 60) = 30; triprate(300, 100) = 3; accessibility(1000, 20) = 50; congestion(90, 60) = 150; vehicleoccupancy(120, 40) = 3; farecost(12, 3) = 36; networkcoverage(80, 100) = 80; triprate(10, 0) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((((30 : Int) * (60 : Int)) / (60 : Int)) = (30 : Int)) ∧ (((300 : Int) / (100 : Int)) = (3 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (60 : Int)) = (150 : Int)) ∧ (((120 : Int) / (40 : Int)) = (3 : Int)) ∧ (((12 : Int) * (3 : Int)) = (36 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((10 : Int) / (0 : Int)) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mobility : ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((((30 : Int) * (60 : Int)) / (60 : Int)) = (30 : Int)) ∧ (((300 : Int) / (100 : Int)) = (3 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (60 : Int)) = (150 : Int)) ∧ (((120 : Int) / (40 : Int)) = (3 : Int)) ∧ (((12 : Int) * (3 : Int)) = (36 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((10 : Int) / (0 : Int)) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_modular",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "modular: residue(100, 7) = 2; inverse(22, 7) = 3; classes(1000, 26) = 12; order(6, 2) = 3; power(8) = 256; gcd(12, 18) = 12; ring(7, 0) = 7; combos(8, 2) = 28"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((100 : Int) % (7 : Int)) = (2 : Int)) ∧ (((22 : Int) / (7 : Int)) = (3 : Int)) ∧ (((1000 : Int) % (26 : Int)) = (12 : Int)) ∧ (((6 : Int) / (2 : Int)) = (3 : Int)) ∧ (((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ ((fmin (12 : Int) (18 : Int)) = (12 : Int)) ∧ (((7 : Int) + (0 : Int)) = (7 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_modular : (((100 : Int) % (7 : Int)) = (2 : Int)) ∧ (((22 : Int) / (7 : Int)) = (3 : Int)) ∧ (((1000 : Int) % (26 : Int)) = (12 : Int)) ∧ (((6 : Int) / (2 : Int)) = (3 : Int)) ∧ (((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ ((fmin (12 : Int) (18 : Int)) = (12 : Int)) ∧ (((7 : Int) + (0 : Int)) = (7 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_modulation",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "modulation: index(50, 100) = 50; bandwidth(75, 15) = 180; sidebands(3) = 7; deviation(5, 15) = 75; carrierpower(100, 50) = 200; symbolrate(9600, 4) = 2400; bitrate(2400, 4) = 9600; efficiency(9600, 2400) = 400; efficiency(9600, 0) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ (((2 : Int) * ((75 : Int) + (15 : Int))) = (180 : Int)) ∧ ((((2 : Int) * (3 : Int)) + (1 : Int)) = (7 : Int)) ∧ (((5 : Int) * (15 : Int)) = (75 : Int)) ∧ ((((100 : Int) ^ (2 : Nat)) / (50 : Int)) = (200 : Int)) ∧ (((9600 : Int) / (4 : Int)) = (2400 : Int)) ∧ (((2400 : Int) * (4 : Int)) = (9600 : Int)) ∧ ((((9600 : Int) * (100 : Int)) / (2400 : Int)) = (400 : Int)) ∧ ((((9600 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_modulation : ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ (((2 : Int) * ((75 : Int) + (15 : Int))) = (180 : Int)) ∧ ((((2 : Int) * (3 : Int)) + (1 : Int)) = (7 : Int)) ∧ (((5 : Int) * (15 : Int)) = (75 : Int)) ∧ ((((100 : Int) ^ (2 : Nat)) / (50 : Int)) = (200 : Int)) ∧ (((9600 : Int) / (4 : Int)) = (2400 : Int)) ∧ (((2400 : Int) * (4 : Int)) = (9600 : Int)) ∧ ((((9600 : Int) * (100 : Int)) / (2400 : Int)) = (400 : Int)) ∧ ((((9600 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_monasticism",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "monasticism: hoursofprayer(7, 1) = 8; ruleclauses(73, 1) = 73; officeorderings(7) = 5040; vowcombos(3, 2) = 3; communitysize(12, 2) = 24; dailycycle(1440, 8) = 180; silenceratio(16, 24) = 66; obediencelevels(3) = 8"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((7 : Int) + (1 : Int)) = (8 : Int)) ∧ (((73 : Int) * (1 : Int)) = (73 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (7 : Int)))) = (5040 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (3 : Int)) (Int.toNat (2 : Int)))) = (3 : Int)) ∧ (((12 : Int) * (2 : Int)) = (24 : Int)) ∧ (((1440 : Int) / (8 : Int)) = (180 : Int)) ∧ ((((16 : Int) * (100 : Int)) / (24 : Int)) = (66 : Int)) ∧ (((2 : Int) ^ (3 : Nat)) = (8 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_monasticism : (((7 : Int) + (1 : Int)) = (8 : Int)) ∧ (((73 : Int) * (1 : Int)) = (73 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (7 : Int)))) = (5040 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (3 : Int)) (Int.toNat (2 : Int)))) = (3 : Int)) ∧ (((12 : Int) * (2 : Int)) = (24 : Int)) ∧ (((1440 : Int) / (8 : Int)) = (180 : Int)) ∧ ((((16 : Int) * (100 : Int)) / (24 : Int)) = (66 : Int)) ∧ (((2 : Int) ^ (3 : Nat)) = (8 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_monitoring",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "monitoring: uptime(999, 1000) = 99; mttr(600, 5) = 120; mttf(8760, 12) = 730; alerts(30, 120) = 25; apdex(950, 1000) = 95; noise(20, 80) = 25; coverage(85, 100) = 85; incidents(3, 12) = 25"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((999 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ (((600 : Int) / (5 : Int)) = (120 : Int)) ∧ (((8760 : Int) / (12 : Int)) = (730 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (80 : Int)) = (25 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_monitoring : ((((999 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ (((600 : Int) / (5 : Int)) = (120 : Int)) ∧ (((8760 : Int) / (12 : Int)) = (730 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (80 : Int)) = (25 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_monopoly",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "monopoly: marketshare(90, 100) = 90; markup(40, 100) = 40; deadweightloss(500, 10) = 50; lernerindex(40, 100) = 40; outputreduction(1000, 600) = 400; pricemargin(150, 100) = 50; barriersubsets(5) = 32; profitmax(10000, 2) = 5000"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((500 : Int) / (10 : Int)) = (50 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (600 : Int))) = (400 : Int)) ∧ ((fmax (0 : Int) ((150 : Int) - (100 : Int))) = (50 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((10000 : Int) / (2 : Int)) = (5000 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_monopoly : ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((500 : Int) / (10 : Int)) = (50 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (600 : Int))) = (400 : Int)) ∧ ((fmax (0 : Int) ((150 : Int) - (100 : Int))) = (50 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((10000 : Int) / (2 : Int)) = (5000 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_monorail",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "monorail: speed(8000, 60) = 133; headwayseconds(600, 10) = 60; capacity(200, 6) = 1200; stations(12, 8) = 20; traveltime(3600, 133) = 27; accelrate(100, 10) = 10; gradientpct(6, 100) = 6; throughput(1200, 10) = 12000"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((8000 : Int) / (60 : Int)) = (133 : Int)) ∧ (((600 : Int) / (10 : Int)) = (60 : Int)) ∧ (((200 : Int) * (6 : Int)) = (1200 : Int)) ∧ (((12 : Int) + (8 : Int)) = (20 : Int)) ∧ (((3600 : Int) / (133 : Int)) = (27 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (100 : Int)) = (6 : Int)) ∧ (((1200 : Int) * (10 : Int)) = (12000 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_monorail : (((8000 : Int) / (60 : Int)) = (133 : Int)) ∧ (((600 : Int) / (10 : Int)) = (60 : Int)) ∧ (((200 : Int) * (6 : Int)) = (1200 : Int)) ∧ (((12 : Int) + (8 : Int)) = (20 : Int)) ∧ (((3600 : Int) / (133 : Int)) = (27 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (100 : Int)) = (6 : Int)) ∧ (((1200 : Int) * (10 : Int)) = (12000 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_monsoon",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "monsoon: onsetday(150, 10) = 160; rainfall(800, 1) = 800; durationdays(120, 0) = 120; windreversal(180, 90) = 180; intensityindex(70, 100) = 70; rainydays(120, 2) = 60; deficitpct(20, 100) = 20; cyclelength(12, 1) = 12"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((150 : Int) + (10 : Int)) = (160 : Int)) ∧ (((800 : Int) * (1 : Int)) = (800 : Int)) ∧ (((120 : Int) + (0 : Int)) = (120 : Int)) ∧ ((fmax (180 : Int) (90 : Int)) = (180 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ (((120 : Int) / (2 : Int)) = (60 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((12 : Int) * (1 : Int)) = (12 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_monsoon : (((150 : Int) + (10 : Int)) = (160 : Int)) ∧ (((800 : Int) * (1 : Int)) = (800 : Int)) ∧ (((120 : Int) + (0 : Int)) = (120 : Int)) ∧ ((fmax (180 : Int) (90 : Int)) = (180 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ (((120 : Int) / (2 : Int)) = (60 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((12 : Int) * (1 : Int)) = (12 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_moon",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "moon: phase(29, 8) = 5; distance(384, 1000) = 384000; period(27, 0) = 27; diameter(3474, 1) = 3474; tides(2, 1) = 2; libration(8, 1) = 7; craters(1000, 100) = 100000; combos(6, 2) = 15"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((29 : Int) % (8 : Int)) = (5 : Int)) ∧ (((384 : Int) * (1000 : Int)) = (384000 : Int)) ∧ (((27 : Int) + (0 : Int)) = (27 : Int)) ∧ (((3474 : Int) * (1 : Int)) = (3474 : Int)) ∧ (((2 : Int) * (1 : Int)) = (2 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (1 : Int))) = (7 : Int)) ∧ (((1000 : Int) * (100 : Int)) = (100000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_moon : (((29 : Int) % (8 : Int)) = (5 : Int)) ∧ (((384 : Int) * (1000 : Int)) = (384000 : Int)) ∧ (((27 : Int) + (0 : Int)) = (27 : Int)) ∧ (((3474 : Int) * (1 : Int)) = (3474 : Int)) ∧ (((2 : Int) * (1 : Int)) = (2 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (1 : Int))) = (7 : Int)) ∧ (((1000 : Int) * (100 : Int)) = (100000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_morphology",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "morphology: morphemes(300, 100) = 3; inflection(6, 8) = 75; derivation(50, 10) = 5; affixation(30, 20) = 150; productivity(5, 1000) = 0; allomorphy(12, 4) = 3; transparency(70, 100) = 70; density(150, 100) = 150"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((300 : Int) / (100 : Int)) = (3 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (8 : Int)) = (75 : Int)) ∧ (((50 : Int) / (10 : Int)) = (5 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (20 : Int)) = (150 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (100 : Int)) = (150 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_morphology : (((300 : Int) / (100 : Int)) = (3 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (8 : Int)) = (75 : Int)) ∧ (((50 : Int) / (10 : Int)) = (5 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (20 : Int)) = (150 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (100 : Int)) = (150 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mortgage",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mortgage: ltv(160, 200) = 80; dti(2000, 5000) = 40; downpayment(200, 160) = 40; principal(1200, 500) = 700; interestportion(50000, 6) = 250; equity(50000, 30000) = 20000; pmi(85, 80) = 1; pmi(75, 80) = 0; affordability(12000, 4) = 48000"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((160 : Int) * (100 : Int)) / (200 : Int)) = (80 : Int)) ∧ ((((2000 : Int) * (100 : Int)) / (5000 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (160 : Int))) = (40 : Int)) ∧ ((fmax (0 : Int) ((1200 : Int) - (500 : Int))) = (700 : Int)) ∧ ((((50000 : Int) * (6 : Int)) / (1200 : Int)) = (250 : Int)) ∧ ((fmax (0 : Int) ((50000 : Int) - (30000 : Int))) = (20000 : Int)) ∧ ((if (if (85 : Int) > (80 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (75 : Int) > (80 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((12000 : Int) * (4 : Int)) = (48000 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mortgage : ((((160 : Int) * (100 : Int)) / (200 : Int)) = (80 : Int)) ∧ ((((2000 : Int) * (100 : Int)) / (5000 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (160 : Int))) = (40 : Int)) ∧ ((fmax (0 : Int) ((1200 : Int) - (500 : Int))) = (700 : Int)) ∧ ((((50000 : Int) * (6 : Int)) / (1200 : Int)) = (250 : Int)) ∧ ((fmax (0 : Int) ((50000 : Int) - (30000 : Int))) = (20000 : Int)) ∧ ((if (if (85 : Int) > (80 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (75 : Int) > (80 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((12000 : Int) * (4 : Int)) = (48000 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mosaic",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mosaic: tilecount(40, 30) = 1200; tessellationangle(360, 6) = 60; groutratio(10, 100) = 10; colorcombos(12, 3) = 220; symmetryorderings(4) = 24; gridcells(50, 50) = 2500; tilesubsets(5) = 32; coverage(95, 100) = 95"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((40 : Int) * (30 : Int)) = (1200 : Int)) ∧ (((360 : Int) / (6 : Int)) = (60 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ (((50 : Int) * (50 : Int)) = (2500 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mosaic : (((40 : Int) * (30 : Int)) = (1200 : Int)) ∧ (((360 : Int) / (6 : Int)) = (60 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ (((50 : Int) * (50 : Int)) = (2500 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_motion",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "motion: frames(1000, 60) = 60; fps(120, 2) = 60; delay(4) = 300; stagger(5, 50) = 250; total(300, 150) = 450; progress(150, 300) = 50; easing(12) = 12"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((1000 : Int) * (60 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((120 : Int) / (2 : Int)) = (60 : Int)) ∧ (((4 : Int) * (75 : Int)) = (300 : Int)) ∧ (((5 : Int) * (50 : Int)) = (250 : Int)) ∧ (((300 : Int) + (150 : Int)) = (450 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (300 : Int)) = (50 : Int)) ∧ ((12 : Int) = (12 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_motion : ((((1000 : Int) * (60 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((120 : Int) / (2 : Int)) = (60 : Int)) ∧ (((4 : Int) * (75 : Int)) = (300 : Int)) ∧ (((5 : Int) * (50 : Int)) = (250 : Int)) ∧ (((300 : Int) + (150 : Int)) = (450 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (300 : Int)) = (50 : Int)) ∧ ((12 : Int) = (12 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_motivation",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "motivation: expectancy(8, 10) = 80; valence(100, 40) = 60; valence(30, 50) = 0; instrumentality(9, 10) = 90; drive(6, 7) = 42; incentive(50, 4) = 200; persistence(100, 8) = 12; goalgradient(100, 30) = 4; selfefficacy(7, 8) = 87"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (50 : Int))) = (0 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ (((6 : Int) * (7 : Int)) = (42 : Int)) ∧ (((50 : Int) * (4 : Int)) = (200 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (8 : Int)) = (87 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_motivation : ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (50 : Int))) = (0 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ (((6 : Int) * (7 : Int)) = (42 : Int)) ∧ (((50 : Int) * (4 : Int)) = (200 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (8 : Int)) = (87 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mtbf",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mtbf: meantime(8760, 3) = 2920; failurerate(5, 1000000) = 5; mttr(48, 6) = 8; uptime(990, 10) = 99; hazardrate(2, 100, 10000) = 2; cumulativehours(100, 500) = 50000; fits(1, 1000000) = 1000; operatinglife(50000, 12000) = 38000; operatinglife(10000, 12000) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((8760 : Int) / (3 : Int)) = (2920 : Int)) ∧ ((((5 : Int) * (1000000 : Int)) / (1000000 : Int)) = (5 : Int)) ∧ (((48 : Int) / (6 : Int)) = (8 : Int)) ∧ ((((990 : Int) * (100 : Int)) / ((990 : Int) + (10 : Int))) = (99 : Int)) ∧ ((((2 : Int) * (1000000 : Int)) / ((100 : Int) * (10000 : Int))) = (2 : Int)) ∧ (((100 : Int) * (500 : Int)) = (50000 : Int)) ∧ ((((1 : Int) * (1000000000 : Int)) / (1000000 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((50000 : Int) - (12000 : Int))) = (38000 : Int)) ∧ ((fmax (0 : Int) ((10000 : Int) - (12000 : Int))) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mtbf : (((8760 : Int) / (3 : Int)) = (2920 : Int)) ∧ ((((5 : Int) * (1000000 : Int)) / (1000000 : Int)) = (5 : Int)) ∧ (((48 : Int) / (6 : Int)) = (8 : Int)) ∧ ((((990 : Int) * (100 : Int)) / ((990 : Int) + (10 : Int))) = (99 : Int)) ∧ ((((2 : Int) * (1000000 : Int)) / ((100 : Int) * (10000 : Int))) = (2 : Int)) ∧ (((100 : Int) * (500 : Int)) = (50000 : Int)) ∧ ((((1 : Int) * (1000000000 : Int)) / (1000000 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((50000 : Int) - (12000 : Int))) = (38000 : Int)) ∧ ((fmax (0 : Int) ((10000 : Int) - (12000 : Int))) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_music",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "music: interval(7) = 7; octave(60) = 5; bpm(240, 4) = 60; beats(4, 4) = 16; frequency(440, 12) = 751; transpose(60, 7) = 67; bars(16, 4) = 4; tempo(500, 1) = 120"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((7 : Int) = (7 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((240 : Int) / (4 : Int)) = (60 : Int)) ∧ (((4 : Int) * (4 : Int)) = (16 : Int)) ∧ ((((440 : Int) * ((1000 : Int) + ((12 : Int) * (59 : Int)))) / (1000 : Int)) = (751 : Int)) ∧ (((60 : Int) + (7 : Int)) = (67 : Int)) ∧ (((16 : Int) / (4 : Int)) = (4 : Int)) ∧ (((60000 : Int) / (500 : Int)) = (120 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_music : ((7 : Int) = (7 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((240 : Int) / (4 : Int)) = (60 : Int)) ∧ (((4 : Int) * (4 : Int)) = (16 : Int)) ∧ ((((440 : Int) * ((1000 : Int) + ((12 : Int) * (59 : Int)))) / (1000 : Int)) = (751 : Int)) ∧ (((60 : Int) + (7 : Int)) = (67 : Int)) ∧ (((16 : Int) / (4 : Int)) = (4 : Int)) ∧ (((60000 : Int) / (500 : Int)) = (120 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mutation",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mutation: rate(1000000, 1000) = 1000; types(3, 0) = 3; substitutions(100, 3) = 300; frequency(5, 1000) = 5; hotspots(10, 2) = 20; silent(25, 100) = 25; generations(100, 1) = 100; combos(6, 2) = 15"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((1000000 : Int) / (1000 : Int)) = (1000 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((100 : Int) * (3 : Int)) = (300 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((10 : Int) * (2 : Int)) = (20 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ (((100 : Int) * (1 : Int)) = (100 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mutation : (((1000000 : Int) / (1000 : Int)) = (1000 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((100 : Int) * (3 : Int)) = (300 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((10 : Int) * (2 : Int)) = (20 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ (((100 : Int) * (1 : Int)) = (100 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mycology",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mycology: colonization(750, 1000) = 75; decomposition(300, 1000) = 30; efficiency(500, 1000) = 50; fruiting(100, 10) = 10; germination(450, 1000) = 45; growth(100, 3) = 800; mycelium(50, 4) = 200; spore(10000, 100) = 100"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((500 : Int) * (100 : Int)) / (1000 : Int)) = (50 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((((450 : Int) * (100 : Int)) / (1000 : Int)) = (45 : Int)) ∧ (((100 : Int) * ((2 : Int) ^ (3 : Nat))) = (800 : Int)) ∧ (((50 : Int) * (4 : Int)) = (200 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mycology : ((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((500 : Int) * (100 : Int)) / (1000 : Int)) = (50 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((((450 : Int) * (100 : Int)) / (1000 : Int)) = (45 : Int)) ∧ (((100 : Int) * ((2 : Int) ^ (3 : Nat))) = (800 : Int)) ∧ (((50 : Int) * (4 : Int)) = (200 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_myrmecology",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "myrmecology: colonysize(10000, 5) = 50000; castecount(3, 1) = 4; foragingpaths(5) = 120; pheromonetrails(12, 4) = 48; nestchambers(40, 20) = 60; tandempairs(20, 2) = 190; workerratio(95, 100) = 95; broodstages(4, 0) = 4"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((10000 : Int) * (5 : Int)) = (50000 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((12 : Int) * (4 : Int)) = (48 : Int)) ∧ (((40 : Int) + (20 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (2 : Int)))) = (190 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_myrmecology : (((10000 : Int) * (5 : Int)) = (50000 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((12 : Int) * (4 : Int)) = (48 : Int)) ∧ (((40 : Int) + (20 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (2 : Int)))) = (190 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mysticism",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mysticism: stages(3, 4) = 7; ascentorderings(7) = 5040; unionstates(5) = 32; virtuecombos(7, 3) = 35; contemplationlevels(3, 3) = 9; darknesslight(100, 40) = 60; numberpaths(10, 3) = 720; illuminationratio(70, 100) = 70"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((3 : Int) + (4 : Int)) = (7 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (7 : Int)))) = (5040 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (7 : Int)) (Int.toNat (3 : Int)))) = (35 : Int)) ∧ (((3 : Int) * (3 : Int)) = (9 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (10 : Int)))) / (Int.ofNat (ffact (Int.toNat ((10 : Int) - (3 : Int)))))) = (720 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mysticism : (((3 : Int) + (4 : Int)) = (7 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (7 : Int)))) = (5040 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (7 : Int)) (Int.toNat (3 : Int)))) = (35 : Int)) ∧ (((3 : Int) * (3 : Int)) = (9 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (10 : Int)))) / (Int.ofNat (ffact (Int.toNat ((10 : Int) - (3 : Int)))))) = (720 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mythography",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mythography: mythcount(200, 100) = 300; variantpaths(5) = 120; motifpairs(20, 2) = 190; typeindex(50, 10) = 500; culturesubsets(6) = 64; diffusionlinks(12, 5) = 60; archetypecombos(12, 3) = 220; versioncount(40, 20) = 60"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((200 : Int) + (100 : Int)) = (300 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (2 : Int)))) = (190 : Int)) ∧ (((50 : Int) * (10 : Int)) = (500 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int)) ∧ (((40 : Int) + (20 : Int)) = (60 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mythography : (((200 : Int) + (100 : Int)) = (300 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (2 : Int)))) = (190 : Int)) ∧ (((50 : Int) * (10 : Int)) = (500 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int)) ∧ (((40 : Int) + (20 : Int)) = (60 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_mythology",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "mythology: pantheonsize(12, 3) = 15; deitypairs(12, 2) = 66; archetypecount(7, 2) = 14; narrativeorderings(6) = 720; motifsubsets(5) = 32; genealogylinks(12, 3) = 36; questcombos(10, 3) = 120; variantcount(40, 20) = 60"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((12 : Int) + (3 : Int)) = (15 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((7 : Int) * (2 : Int)) = (14 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (6 : Int)))) = (720 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((12 : Int) * (3 : Int)) = (36 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)) ∧ (((40 : Int) + (20 : Int)) = (60 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_mythology : (((12 : Int) + (3 : Int)) = (15 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((7 : Int) * (2 : Int)) = (14 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (6 : Int)))) = (720 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((12 : Int) * (3 : Int)) = (36 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)) ∧ (((40 : Int) + (20 : Int)) = (60 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

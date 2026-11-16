@@ -1,0 +1,12 @@
+{
+  "handle": "881c57eb",
+  "address": "881c57eb-363d-8e78-b481-356f99c4b550",
+  "kind": "chunk",
+  "keys": [
+    "fam_redshift"
+  ],
+  "statement": "((((fmax (0 : Int) ((700 : Int) - (500 : Int))) * (1000 : Int)) / (500 : Int)) = (400 : Int)) ∧ ((((100 : Int) * (30000 : Int)) / (1000 : Int)) = (3000 : Int)) ∧ (((7000 : Int) / (70 : Int)) = (100 : Int)) ∧ ((((500 : Int) * (400 : Int)) / (1000 : Int)) = (200 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((1000000 : Int) / ((1000 : Int) + (1000 : Int))) = (500 : Int)) ∧ ((((3000 : Int) * (1000 : Int)) / (30000 : Int)) = (100 : Int)) ∧ ((((100 : Int) * (4000 : Int)) / (1000 : Int)) = (400 : Int)) ∧ ((((fmax (0 : Int) ((500 : Int) - (700 : Int))) * (1000 : Int)) / (700 : Int)) = (0 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

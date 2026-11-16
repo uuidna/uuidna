@@ -1,0 +1,12 @@
+{
+  "handle": "7ead3016",
+  "address": "7ead3016-514d-8089-baf6-77ee499af996",
+  "kind": "chunk",
+  "keys": [
+    "fam_physiology"
+  ],
+  "statement": "(((70 : Int) * (24 : Int)) = (1680 : Int)) ∧ (((3500 : Int) / (70 : Int)) = (50 : Int)) ∧ (((12 : Int) * (10 : Int)) = (120 : Int)) ∧ (((1800 : Int) / (20 : Int)) = (90 : Int)) ∧ ((((285 : Int) * (1000 : Int)) / (1000 : Int)) = (285 : Int)) ∧ ((((74 : Int) * (100 : Int)) / (100 : Int)) = (74 : Int)) ∧ (((12 : Int) * (500 : Int)) = (6000 : Int)) ∧ ((((98 : Int) * (100 : Int)) / (100 : Int)) = (98 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

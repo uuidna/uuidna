@@ -1,0 +1,12 @@
+{
+  "handle": "f2b3d22f",
+  "address": "f2b3d22f-fb84-854e-b0e5-a9ded86076ea",
+  "statement": "((fmax (4 : Int) (5 : Int)) = (5 : Int)) ∧ (((1000 : Int) * (3 : Int)) = (3000 : Int)) ∧ (((5000 : Int) / (1000 : Int)) = (5 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((12 : Int) * (1000 : Int)) = (12000 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (200 : Int))) = (800 : Int)) ∧ (((100 : Int) * (4 : Int)) = (400 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_vulcanology"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

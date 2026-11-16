@@ -1,0 +1,12 @@
+{
+  "handle": "826055a0",
+  "address": "826055a0-54e3-8344-ab07-b555c622e555",
+  "kind": "chunk",
+  "keys": [
+    "fam_elo"
+  ],
+  "statement": "((((32 : Int) * (fmax (0 : Int) ((100 : Int) - (60 : Int)))) / (100 : Int)) = (12 : Int)) ∧ ((fmax (0 : Int) ((1600 : Int) - (1400 : Int))) = (200 : Int)) ∧ ((if (if (10 : Int) < (30 : Int) then (1 : Int) else 0) ≠ 0 then (40 : Int) else (if (if (1500 : Int) ≥ (2400 : Int) then (1 : Int) else 0) ≠ 0 then (10 : Int) else (20 : Int))) = (40 : Int)) ∧ ((if (if (50 : Int) < (30 : Int) then (1 : Int) else 0) ≠ 0 then (40 : Int) else (if (if (1500 : Int) ≥ (2400 : Int) then (1 : Int) else 0) ≠ 0 then (10 : Int) else (20 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) ((1500 : Int) + (((400 : Int) * ((8 : Int) - (2 : Int))) / ((8 : Int) + (2 : Int))))) = (1740 : Int)) ∧ ((fmin (100 : Int) ((50 : Int) + ((200 : Int) / (10 : Int)))) = (70 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (10 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) ((1500 : Int) - ((6 : Int) * (10 : Int)))) = (1440 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

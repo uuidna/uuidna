@@ -1,0 +1,12 @@
+{
+  "handle": "978fb2ff",
+  "address": "978fb2ff-8828-810c-9913-07003dacf31b",
+  "kind": "chunk",
+  "keys": [
+    "fam_dermatology"
+  ],
+  "statement": "(((9 : Int) * (2 : Int)) = (18 : Int)) ∧ (((3 : Int) + (7 : Int)) = (10 : Int)) ∧ (((8 : Int) * (30 : Int)) = (240 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ (((100 : Int) / (5 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (50 : Int))) = (40 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (50 : Int))) = (0 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

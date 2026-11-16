@@ -1,0 +1,12 @@
+{
+  "handle": "0cb40bdb",
+  "address": "0cb40bdb-4440-850b-91b7-057a874eeb92",
+  "statement": "(((1000 : Int) / ((10 : Int) ^ (2 : Nat))) = (10 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((4000 : Int) / ((20 : Int) ^ (2 : Nat))) = (10 : Int)) ∧ (((100 : Int) * (2 : Int)) = (200 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((1000 : Int) * ((100 : Int) - (30 : Int))) / (100 : Int)) = (700 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_planetology"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "53f5673d",
+  "address": "53f5673d-3c19-8e16-99c1-13449134b30a",
+  "statement": "(((100 : Int) / (20 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - ((2 : Int) * (10 : Int)))) = (30 : Int)) ∧ (((80 : Int) - (75 : Int)) = (5 : Int)) ∧ (((4 : Int) * ((5 : Int) ^ (2 : Nat))) = (100 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((2 : Int) * (10 : Int)) + (30 : Int)) = (50 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_regression"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

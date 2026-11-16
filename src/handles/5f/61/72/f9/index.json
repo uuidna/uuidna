@@ -1,0 +1,12 @@
+{
+  "handle": "5f6172f9",
+  "address": "5f6172f9-a062-8404-8f42-4cf8dc82fab8",
+  "kind": "chunk",
+  "keys": [
+    "fam_gastronomy"
+  ],
+  "statement": "(((2000 : Int) / (8 : Int)) = (250 : Int)) ∧ ((((250 : Int) + (120 : Int)) + (80 : Int)) = (450 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (250 : Int))) = (750 : Int)) ∧ (((300 : Int) * (3 : Int)) = (900 : Int)) ∧ (((60 : Int) * (3 : Int)) = (180 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (180 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) ((900 : Int) - (300 : Int))) = (600 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (900 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

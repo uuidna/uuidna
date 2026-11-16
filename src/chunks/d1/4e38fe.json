@@ -1,0 +1,12 @@
+{
+  "handle": "d14e38fe",
+  "address": "d14e38fe-8ab5-8c4e-baef-8d89d96b08af",
+  "statement": "(((2 : Int) + (0 : Int)) = (2 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((12 : Int) + (12 : Int)) = (24 : Int)) ∧ (((7 : Int) * (7 : Int)) = (49 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_covenant"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

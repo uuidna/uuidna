@@ -1,0 +1,12 @@
+{
+  "handle": "2da52278",
+  "address": "2da52278-1bc8-85bc-b56b-6f9c27a3e023",
+  "kind": "chunk",
+  "keys": [
+    "fam_psychometrics"
+  ],
+  "statement": "((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((((fmax (0 : Int) ((130 : Int) - (100 : Int))) * (100 : Int)) / (15 : Int)) = (200 : Int)) ∧ ((((fmax (0 : Int) ((90 : Int) - (100 : Int))) * (100 : Int)) / (15 : Int)) = (0 : Int)) ∧ ((((84 : Int) * (100 : Int)) / (100 : Int)) = (84 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (80 : Int)) = (75 : Int)) ∧ ((((fmax (0 : Int) ((18 : Int) - (6 : Int))) * (100 : Int)) / (20 : Int)) = (60 : Int)) ∧ (((((10 : Int) * (fmax (0 : Int) ((100 : Int) - (20 : Int)))) * (100 : Int)) / ((fmax (1 : Int) ((10 : Int) - (1 : Int))) * (100 : Int))) = (88 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (50 : Int)) = (80 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

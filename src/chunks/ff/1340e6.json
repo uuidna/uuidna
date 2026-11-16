@@ -1,0 +1,12 @@
+{
+  "handle": "ff1340e6",
+  "address": "ff1340e6-d68f-83a4-855b-785ead0c21ee",
+  "statement": "(((2 : Int) ^ (10 : Nat)) = (1024 : Int)) ∧ (((20 : Int) + (5 : Int)) = (25 : Int)) ∧ (((5 : Int) * (70 : Int)) = (350 : Int)) ∧ (((7000 : Int) / (324 : Int)) = (21 : Int)) ∧ (((1000 : Int) * (100 : Int)) = (100000 : Int)) ∧ (((50 : Int) * (8 : Int)) = (400 : Int)) ∧ (((160 : Int) / (8 : Int)) = (20 : Int)) ∧ ((((100 : Int) * (10 : Int)) * (5 : Int)) = (5000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_bio"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

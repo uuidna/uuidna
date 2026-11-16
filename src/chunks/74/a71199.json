@@ -1,0 +1,12 @@
+{
+  "handle": "74a71199",
+  "address": "74a71199-59fd-8bf7-9f62-066580abe431",
+  "statement": "((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ (((120 : Int) / (2 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((55 : Int) - (30 : Int))) = (25 : Int)) ∧ (((200 : Int) / (4 : Int)) = (50 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (85 : Int))) = (15 : Int)) ∧ (((100 : Int) / (50 : Int)) = (2 : Int)) ∧ (((1 : Int) + (3 : Int)) = (4 : Int)) ∧ (((70 : Int) + (15 : Int)) = (85 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_actionpotential"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

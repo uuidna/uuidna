@@ -1,0 +1,12 @@
+{
+  "handle": "4bb0048a",
+  "address": "4bb0048a-23b5-8a2e-b7ea-c27afbfcd643",
+  "kind": "chunk",
+  "keys": [
+    "fam_crystal"
+  ],
+  "statement": "((((4 : Int) * (4 : Int)) * (4 : Int)) = (64 : Int)) ∧ (((8 : Int) * (1 : Int)) = (8 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((500 : Int) / (10 : Int)) = (50 : Int)) ∧ (((6 : Int) + (1 : Int)) = (7 : Int)) ∧ (((1000 : Int) / (100 : Int)) = (10 : Int)) ∧ (((6 : Int) + (8 : Int)) = (14 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (7 : Int)) (Int.toNat (2 : Int)))) = (21 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

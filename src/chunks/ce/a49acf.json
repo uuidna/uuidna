@@ -1,0 +1,12 @@
+{
+  "handle": "cea49acf",
+  "address": "cea49acf-c1fb-8973-beab-35bfc409d319",
+  "statement": "((((600 : Int) * (100 : Int)) / (1200 : Int)) = (50 : Int)) ∧ (((10000 : Int) * (3 : Int)) = (30000 : Int)) ∧ (((22 : Int) + (5 : Int)) = (27 : Int)) ∧ ((((22 : Int) * (100 : Int)) / (5 : Int)) = (440 : Int)) ∧ ((((2550 : Int) * (100 : Int)) / (1000 : Int)) = (255 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (12 : Int))) = (18 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (15 : Int))) = (0 : Int)) ∧ (((192 : Int) * (3 : Int)) = (576 : Int)) ∧ ((fmax (0 : Int) ((144 : Int) - (100 : Int))) = (44 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (144 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_typology"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

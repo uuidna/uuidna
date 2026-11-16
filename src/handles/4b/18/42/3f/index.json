@@ -1,0 +1,12 @@
+{
+  "handle": "4b18423f",
+  "address": "4b18423f-71d8-86e5-8467-0701c32ba25d",
+  "kind": "chunk",
+  "keys": [
+    "fam_monopoly"
+  ],
+  "statement": "((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((500 : Int) / (10 : Int)) = (50 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (600 : Int))) = (400 : Int)) ∧ ((fmax (0 : Int) ((150 : Int) - (100 : Int))) = (50 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((10000 : Int) / (2 : Int)) = (5000 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

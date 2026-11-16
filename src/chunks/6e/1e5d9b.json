@@ -1,0 +1,12 @@
+{
+  "handle": "6e1e5d9b",
+  "address": "6e1e5d9b-15e1-8438-8ad7-15da483cbca8",
+  "statement": "(((5 : Int) * (70 : Int)) = (350 : Int)) ∧ (((10 : Int) * (50 : Int)) = (500 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((50 : Int) / (0 : Int)) = (0 : Int)) ∧ (((600 : Int) / (15 : Int)) = (40 : Int)) ∧ ((((693 : Int) * (10000 : Int)) / ((1000 : Int) * (14 : Int))) = (495 : Int)) ∧ (((25 : Int) * (8 : Int)) = (200 : Int)) ∧ (((5000 : Int) / (25 : Int)) = (200 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_toxicology"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

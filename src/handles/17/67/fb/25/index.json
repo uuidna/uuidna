@@ -1,0 +1,12 @@
+{
+  "handle": "1767fb25",
+  "address": "1767fb25-1f1d-8b72-8730-dcc65baf5e74",
+  "kind": "chunk",
+  "keys": [
+    "fam_spirometry"
+  ],
+  "statement": "((((4000 : Int) * (100 : Int)) / (5000 : Int)) = (80 : Int)) ∧ ((((3000 : Int) + (500 : Int)) + (1000 : Int)) = (4500 : Int)) ∧ ((((5000 : Int) * (80 : Int)) / (100 : Int)) = (4000 : Int)) ∧ (((6000 : Int) / (10 : Int)) = (600 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (500 : Int))) = (4500 : Int)) ∧ (((6000 : Int) / (12 : Int)) = (500 : Int)) ∧ ((fmax (0 : Int) ((6000 : Int) - (4500 : Int))) = (1500 : Int)) ∧ (((4500 : Int) + (1500 : Int)) = (6000 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (5000 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8edbf9b6",
+  "address": "8edbf9b6-f626-8bce-a82e-f9a51d7f90c9",
+  "kind": "chunk",
+  "keys": [
+    "fam_driver"
+  ],
+  "statement": "(((4096 : Int) / (16 : Int)) = (256 : Int)) ∧ (((4096 : Int) / (0 : Int)) = (0 : Int)) ∧ ((-((-(5000 : Int)) / (4096 : Int))) = (2 : Int)) ∧ ((fmax (0 : Int) ((1500 : Int) - (42 : Int))) = (1458 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (42 : Int))) = (0 : Int)) ∧ (((1000000 : Int) / (1000 : Int)) = (1000 : Int)) ∧ (((8 : Int) * (2 : Int)) = (16 : Int)) ∧ (((256 : Int) / (4 : Int)) = (64 : Int)) ∧ (((4 : Int) * (4096 : Int)) = (16384 : Int)) ∧ (((256 : Int) * (16 : Int)) = (4096 : Int)) ∧ (((1000 : Int) * (1458 : Int)) = (1458000 : Int)) ∧ ((50 : Int) = (50 : Int)) ∧ (((256 : Int) * (16 : Int)) = (4096 : Int)) ∧ ((-((-(100 : Int)) / (8 : Int))) = (13 : Int)) ∧ (((16 : Int) * (1000 : Int)) = (16000 : Int)) ∧ (((256 : Int) - (100 : Int)) = (156 : Int)) ∧ (((8 : Int) * (4 : Int)) = (32 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

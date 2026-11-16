@@ -1,0 +1,12 @@
+{
+  "handle": "9f58049a",
+  "address": "9f58049a-126e-8c49-b2ec-c91b359595c1",
+  "kind": "chunk",
+  "keys": [
+    "fam_marination"
+  ],
+  "statement": "(((20 : Int) / (4 : Int)) = (5 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((4 : Int) * (60 : Int)) = (240 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((60 : Int) - (45 : Int))) = (15 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (100 : Int)) = (8 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

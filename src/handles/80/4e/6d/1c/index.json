@@ -1,0 +1,12 @@
+{
+  "handle": "804e6d1c",
+  "address": "804e6d1c-edb7-8f8f-b95b-ef74aebf6a3a",
+  "kind": "chunk",
+  "keys": [
+    "fam_timbre"
+  ],
+  "statement": "((((441 : Int) * (1000 : Int)) / (44100 : Int)) = (10 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ (((2400 : Int) / (80 : Int)) = (30 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ ((((fmax (0 : Int) ((515 : Int) - (500 : Int))) * (1000 : Int)) / (500 : Int)) = (30 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (200 : Int)) = (150 : Int)) ∧ ((((850 : Int) * (100 : Int)) / (1000 : Int)) = (85 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

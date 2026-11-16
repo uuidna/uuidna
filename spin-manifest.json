@@ -1,20 +1,20 @@
 {
   "coins": {
-    "src/theorems/generated.ts": "b12769c6e59e8b23",
-    "lean/PRINCIPLE.md": "391fb16f630c8077",
-    "CHANGELOG.md": "94137309cccb875b",
-    "lean/axioms.json": "5426086162d28f55",
-    "docs/mcp.md": "11cbc5ad30448969",
-    "audit-citations.json": "1cd4db45afff819c",
-    "support-audit.json": "b8a7bd3f12cf87f5",
-    "research-leads.json": "3cda2b7c0aa88858",
-    ".zenodo.json": "2a14704029e681bc",
-    "reports.json": "69b0bdf6ea04890b",
-    "lean/statement-index.json": "3cdbcae57d1c8325",
-    "README.md": "39c156235b38816e",
-    "llm.txt": "c233f39d96e48576",
-    "src/chunks": "3de53628a0a8873a",
-    "lean": "5e974cf4f6ed82a3"
+    "src/theorems/generated.ts": "cb69ed04d3b0864b",
+    "lean/PRINCIPLE.md": "dee8fb96d61283cd",
+    "CHANGELOG.md": "dbe33a1504f880f7",
+    "lean/axioms.json": "05f6f9d973038948",
+    "docs/mcp.md": "d25fa6934a5f83a0",
+    "audit-citations.json": "cd9c5d1b4cff8382",
+    "support-audit.json": "5885c6d5bc868cdf",
+    "research-leads.json": "91658073a42f87e5",
+    ".zenodo.json": "ff484681160887d5",
+    "reports.json": "a133a5ff3b9a8a19",
+    "lean/statement-index.json": "9ca8aa6bd2aa8c0b",
+    "README.md": "e5fc2534674c88e2",
+    "llm.txt": "0c41e9b040c2861c",
+    "src/chunks": "3f3ff99e28358589",
+    "lean": "ae3dcfd0017c8cbc"
   },
-  "receipt": "b14f9a0e-0604-8588-88c7-e0caad579ce7"
+  "receipt": "8aa36725-8ffc-83fe-92a2-e486a8afd2b8"
 }

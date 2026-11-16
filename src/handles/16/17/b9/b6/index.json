@@ -1,0 +1,12 @@
+{
+  "handle": "1617b9b6",
+  "address": "1617b9b6-b209-8fe2-8b96-f99ce99b183a",
+  "kind": "chunk",
+  "keys": [
+    "fam_polyphony"
+  ],
+  "statement": "(((4 : Int) * (3 : Int)) = (12 : Int)) ∧ ((fmax (8 : Int) (16 : Int)) = (16 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (5 : Int))) = (7 : Int)) ∧ (((24 : Int) / (4 : Int)) = (6 : Int)) ∧ ((fmax (0 : Int) ((16 : Int) - (4 : Int))) = (12 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fc24278c",
+  "address": "fc24278c-33d8-80ee-a346-dc4b59214d3e",
+  "statement": "((((999 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (999 : Int))) = (1 : Int)) ∧ ((((999 : Int) * (1000 : Int)) / (1000 : Int)) = (999 : Int)) ∧ ((((1000 : Int) * ((100 : Int) - (99 : Int))) / (100 : Int)) = (10 : Int)) ∧ (((120 : Int) / (4 : Int)) = (30 : Int)) ∧ (((8000 : Int) / (4 : Int)) = (2000 : Int)) ∧ ((((99 : Int) * (100 : Int)) / ((99 : Int) + (1 : Int))) = (99 : Int)) ∧ (((30 : Int) * (500 : Int)) = (15000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_availability"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

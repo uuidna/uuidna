@@ -1,0 +1,12 @@
+{
+  "handle": "47038b77",
+  "address": "47038b77-eb37-8f59-9e06-5d7b6e93f5b4",
+  "kind": "chunk",
+  "keys": [
+    "fam_spinning"
+  ],
+  "statement": "(((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((600 : Int) / (30 : Int)) = (20 : Int)) ∧ ((((5 : Int) * (9000 : Int)) / (450 : Int)) = (100 : Int)) ∧ (((900 : Int) / (100 : Int)) = (9 : Int)) ∧ (((800 : Int) / (100 : Int)) = (8 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (((12 : Int) * (100 : Int)) / (100 : Int)))) = (88 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (((200 : Int) * (100 : Int)) / (100 : Int)))) = (0 : Int)) ∧ ((((40 : Int) * (1000 : Int)) / (1000 : Int)) = (40 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

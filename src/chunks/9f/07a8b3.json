@@ -1,0 +1,12 @@
+{
+  "handle": "9f07a8b3",
+  "address": "9f07a8b3-d43e-8149-bb5e-da6fc0f5c588",
+  "statement": "((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((1000000 : Int) / (100 : Int)) = (10000 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((200 : Int) * (100 : Int)) / (1000 : Int)) = (20 : Int)) ∧ ((((5000 : Int) * (100 : Int)) / (100 : Int)) = (5000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_indexing"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3628a5dd",
+  "address": "3628a5dd-95eb-8165-bba9-8560df8c5f22",
+  "statement": "((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (((fmax (0 : Int) ((5500 : Int) - (4500 : Int))) * (100 : Int)) / ((5500 : Int) + (4500 : Int))))) = (90 : Int)) ∧ ((((fmax (0 : Int) ((1100 : Int) - (1000 : Int))) * (100 : Int)) / (1000 : Int)) = (10 : Int)) ∧ (((10000 : Int) / (1000 : Int)) = (10 : Int)) ∧ ((((fmax (0 : Int) ((3000 : Int) - (1000 : Int))) * (100 : Int)) / (10000 : Int)) = (20 : Int)) ∧ ((((1200 : Int) * (100 : Int)) / (1000 : Int)) = (120 : Int)) ∧ (((10 : Int) * (1000 : Int)) = (10000 : Int)) ∧ (((50000 : Int) / (10 : Int)) = (5000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_redistricting"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

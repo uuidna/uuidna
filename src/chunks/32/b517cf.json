@@ -1,0 +1,12 @@
+{
+  "handle": "32b517cf",
+  "address": "32b517cf-100a-8397-aacb-6788deb5a3a6",
+  "statement": "((-((-(10 : Int)) / (3 : Int))) = (4 : Int)) ∧ ((-((-(10 : Int)) / (4 : Int))) = (3 : Int)) ∧ ((Int.ofNat (fclog 2 (Int.toNat (8 : Int)))) = (3 : Int)) ∧ ((Int.ofNat (fclog 2 (Int.toNat (1 : Int)))) = (0 : Int)) ∧ (((2 : Int) * ((4 : Int) - (1 : Int))) = (6 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_job"
+  ],
+  "files": [
+    "FamiliesJ.lean"
+  ]
+}

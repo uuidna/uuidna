@@ -1,0 +1,12 @@
+{
+  "handle": "efc96c32",
+  "address": "efc96c32-9223-8152-b4c9-2deed66e6f4c",
+  "kind": "chunk",
+  "keys": [
+    "fam_hashing"
+  ],
+  "statement": "(((12345 : Int) % (1000 : Int)) = (345 : Int)) ∧ ((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((1500 : Int) - (1000 : Int))) = (500 : Int)) ∧ ((((998 : Int) + (5 : Int)) % (1000 : Int)) = (3 : Int)) ∧ ((((30 : Int) * ((30 : Int) - (1 : Int))) / (2 : Int)) = (435 : Int)) ∧ (((100 : Int) % (7 : Int)) = (2 : Int)) ∧ (((1024 : Int) * (2 : Int)) = (2048 : Int)) ∧ (((5000 : Int) / (1000 : Int)) = (5 : Int))",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

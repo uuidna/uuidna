@@ -1,0 +1,12 @@
+{
+  "handle": "d5f3cd23",
+  "address": "d5f3cd23-be91-8c2d-9d83-b1ed2427e9c6",
+  "kind": "chunk",
+  "keys": [
+    "fam_philosophy"
+  ],
+  "statement": "((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ (((7 : Int) * (100 : Int)) = (700 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((fmin (8 : Int) (5 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (10 : Int))) = (0 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

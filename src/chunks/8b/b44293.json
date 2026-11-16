@@ -1,0 +1,12 @@
+{
+  "handle": "8bb44293",
+  "address": "8bb44293-502e-8b52-b6c7-a04bddc7f17e",
+  "statement": "((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (40 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (1200 : Int))) = (3800 : Int)) ∧ ((fmax (0 : Int) ((1200 : Int) - (5000 : Int))) = (0 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (8 : Int)) = (25 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (8 : Int)) = (75 : Int)) ∧ (((40 : Int) * (7 : Int)) = (280 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_locale"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

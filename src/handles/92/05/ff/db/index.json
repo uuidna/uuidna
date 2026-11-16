@@ -1,0 +1,12 @@
+{
+  "handle": "9205ffdb",
+  "address": "9205ffdb-1d2f-88aa-9dd6-5d468ad8864d",
+  "kind": "chunk",
+  "keys": [
+    "fam_retirement"
+  ],
+  "statement": "(((50000 : Int) * (30 : Int)) = (1500000 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (10000 : Int)) = (4 : Int)) ∧ ((((40000 : Int) * (100 : Int)) / (50000 : Int)) = (80 : Int)) ∧ ((((500 : Int) * (12 : Int)) * (30 : Int)) = (180000 : Int)) ∧ (((60000 : Int) / (2000 : Int)) = (30 : Int)) ∧ ((((6000 : Int) * (50 : Int)) / (100 : Int)) = (3000 : Int)) ∧ ((fmax (0 : Int) ((50000 : Int) - (2000 : Int))) = (48000 : Int)) ∧ ((fmax (0 : Int) ((60000 : Int) - (45000 : Int))) = (15000 : Int)) ∧ ((fmax (0 : Int) ((45000 : Int) - (60000 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

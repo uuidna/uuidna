@@ -1,0 +1,12 @@
+{
+  "handle": "48be07f0",
+  "address": "48be07f0-136d-8c3b-ba9f-387eb2c3bccd",
+  "statement": "(776 + 72242 + 76 + 5 = 73099) ∧ (81 > 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_leaf_is_not_one_uuid_but_a_folder"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "362b3088",
+  "address": "362b3088-a559-8ab6-9ac8-965429df3a38",
+  "statement": "((((30 : Int) * (100 : Int)) / (30 : Int)) = (100 : Int)) ∧ ((((24 : Int) * (100 : Int)) / (30 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (26 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (30 : Int))) = (0 : Int)) ∧ ((if (if (31 : Int) ≥ (30 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (28 : Int) ≥ (30 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (30 : Int)) = (100 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (12 : Int)) = (100 : Int)) ∧ ((((16 : Int) * (100 : Int)) / (12 : Int)) = (133 : Int)) ∧ ((((21 : Int) * (100 : Int)) / (21 : Int)) = (100 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_website"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

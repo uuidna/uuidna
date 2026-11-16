@@ -1,0 +1,12 @@
+{
+  "handle": "3414d2dd",
+  "address": "3414d2dd-b098-8339-9945-b74fc2d34320",
+  "kind": "chunk",
+  "keys": [
+    "fam_backlog"
+  ],
+  "statement": "((fmax (0 : Int) ((130 : Int) - (100 : Int))) = (30 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (130 : Int))) = (0 : Int)) ∧ ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ (((1000 : Int) / (40 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (40 : Int)) = (75 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ (((60 : Int) / (5 : Int)) = (12 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

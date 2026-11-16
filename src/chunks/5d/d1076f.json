@@ -1,0 +1,12 @@
+{
+  "handle": "5dd1076f",
+  "address": "5dd1076f-3a1e-836d-9775-0807e19ad25f",
+  "statement": "(((100 : Int) * (20 : Int)) = (2000 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (700 : Int))) = (300 : Int)) ∧ ((fmax (0 : Int) ((700 : Int) - (1000 : Int))) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((50 : Int) * (12 : Int)) = (600 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ (((1000 : Int) * (64 : Int)) = (64000 : Int)) ∧ (((3 : Int) + (4 : Int)) = (7 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_opendata"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

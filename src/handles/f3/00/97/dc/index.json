@@ -1,0 +1,12 @@
+{
+  "handle": "f30097dc",
+  "address": "f30097dc-5770-82b2-bfaa-625162da4bbd",
+  "kind": "chunk",
+  "keys": [
+    "fam_loadplanning"
+  ],
+  "statement": "((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((48 : Int) * (100 : Int)) / (60 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((20000 : Int) - (18000 : Int))) = (2000 : Int)) ∧ (((240 : Int) / (40 : Int)) = (6 : Int)) ∧ (((52 : Int) / (2 : Int)) = (26 : Int)) ∧ (((36000 : Int) / (3 : Int)) = (12000 : Int)) ∧ ((fmax (0 : Int) ((60 : Int) - (48 : Int))) = (12 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (50 : Int)) = (100 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

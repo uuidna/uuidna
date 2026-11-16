@@ -1,0 +1,12 @@
+{
+  "handle": "80b0136f",
+  "address": "80b0136f-93a2-8e4c-9be5-c9163069b218",
+  "statement": "((((400 : Int) * (100 : Int)) / (1000 : Int)) = (40 : Int)) ∧ (((((450 : Int) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (90 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ (((30 : Int) * (2 : Int)) = (60 : Int)) ∧ ((((10 : Int) * (4 : Int)) / (2 : Int)) = (20 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((100 : Int) * (90 : Int)) / (90 : Int)) = (100 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_sailing"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

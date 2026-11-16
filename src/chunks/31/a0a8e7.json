@@ -1,0 +1,12 @@
+{
+  "handle": "31a0a8e7",
+  "address": "31a0a8e7-07c7-8617-8524-b7f1d4902ec9",
+  "statement": "((((300 : Int) * (1000 : Int)) / (10000 : Int)) = (30 : Int)) ∧ (((50 : Int) * (80 : Int)) = (4000 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (100 : Int)) = (12 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (100 : Int)) = (400 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((1200 : Int) / (30 : Int)) = (40 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((250 : Int) = (250 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_geothermal"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

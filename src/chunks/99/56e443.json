@@ -1,0 +1,12 @@
+{
+  "handle": "9956e443",
+  "address": "9956e443-6a77-8d1b-851f-90e64e232206",
+  "statement": "((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((240 : Int) / (60 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((2400 : Int) - (400 : Int))) = (2000 : Int)) ∧ ((fmax (0 : Int) ((400 : Int) - (2400 : Int))) = (0 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (100 : Int)) = (150 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_geomorphology"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

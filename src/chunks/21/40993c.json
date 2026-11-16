@@ -1,0 +1,12 @@
+{
+  "handle": "2140993c",
+  "address": "2140993c-82ff-8fe1-865c-711732ab2667",
+  "statement": "((if (if (5 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (3 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((fmax (0 : Int) ((4600 : Int) - (1000 : Int))) = (3600 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((12 : Int) * (4 : Int)) = (48 : Int)) ∧ ((fmin (10 : Int) (3 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((4600 : Int) - (1000 : Int))) = (3600 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_auth"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

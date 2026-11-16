@@ -1,0 +1,12 @@
+{
+  "handle": "43c963a2",
+  "address": "43c963a2-c07b-803c-92c5-59284c6e2689",
+  "kind": "chunk",
+  "keys": [
+    "fam_protozoology"
+  ],
+  "statement": "(((1000 : Int) * (10 : Int)) = (10000 : Int)) ∧ (((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ (((5000 : Int) / (50 : Int)) = (100 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((1440 : Int) / (8 : Int)) = (180 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

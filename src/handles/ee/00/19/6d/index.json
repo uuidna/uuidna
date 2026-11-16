@@ -1,0 +1,12 @@
+{
+  "handle": "ee00196d",
+  "address": "ee00196d-aef8-8b8b-a508-23b194c2314f",
+  "kind": "chunk",
+  "keys": [
+    "fam_syllogism"
+  ],
+  "statement": "(((4 : Int) * (4 : Int)) = (16 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((256 : Int) - (232 : Int))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (16 : Int)) (Int.toNat (2 : Int)))) = (120 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (3 : Int)))) = (6 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (4 : Int)))) / (Int.ofNat (ffact (Int.toNat ((4 : Int) - (2 : Int)))))) = (12 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (256 : Int)) = (5 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

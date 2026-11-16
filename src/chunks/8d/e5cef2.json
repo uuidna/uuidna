@@ -1,0 +1,12 @@
+{
+  "handle": "8de5cef2",
+  "address": "8de5cef2-0af4-88d1-891a-4236d2be2ca2",
+  "statement": "(((12 : Int) * (12 : Int)) = (144 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (16 : Int)) (Int.toNat (2 : Int)))) = (120 : Int)) ∧ (((100 : Int) * (4 : Int)) = (400 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ (((20 : Int) * (20 : Int)) = (400 : Int)) ∧ (((4 : Int) + (2 : Int)) = (6 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_quilting"
+  ],
+  "files": [
+    "FamiliesQ.lean"
+  ]
+}

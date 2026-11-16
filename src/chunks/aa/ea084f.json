@@ -1,0 +1,12 @@
+{
+  "handle": "aaea084f",
+  "address": "aaea084f-5bd9-80d1-be04-2f13ca357601",
+  "statement": "((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ (((1000 : Int) / (40 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_zoology"
+  ],
+  "files": [
+    "FamiliesZ.lean"
+  ]
+}

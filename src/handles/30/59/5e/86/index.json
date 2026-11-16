@@ -1,0 +1,12 @@
+{
+  "handle": "30595e86",
+  "address": "30595e86-f8a8-8249-972b-b434b4f80751",
+  "kind": "chunk",
+  "keys": [
+    "fam_idealism"
+  ],
+  "statement": "(((12 : Int) + (0 : Int)) = (12 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (3 : Int)))) = (6 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((4 : Int) * (3 : Int)) = (12 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (5 : Int)))) / (Int.ofNat (ffact (Int.toNat ((5 : Int) - (2 : Int)))))) = (20 : Int))",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

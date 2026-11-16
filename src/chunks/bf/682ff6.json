@@ -1,0 +1,12 @@
+{
+  "handle": "bf682ff6",
+  "address": "bf682ff6-fac0-84e5-951d-53097717acc4",
+  "statement": "(((1000 : Int) * (2 : Int)) = (2000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (6 : Int)))) / (Int.ofNat (ffact (Int.toNat ((6 : Int) - (2 : Int)))))) = (30 : Int)) ∧ (((1000 : Int) * (24 : Int)) = (24000 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (20 : Int))) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_smartgrid"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

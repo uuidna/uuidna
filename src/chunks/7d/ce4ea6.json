@@ -1,0 +1,12 @@
+{
+  "handle": "7dce4ea6",
+  "address": "7dce4ea6-3407-8ff9-8eac-5e29e2b0ccc4",
+  "statement": "((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (10 : Int))) = (0 : Int)) ∧ ((if (if (10 : Int) ≥ (4 : Int) then (1 : Int) else 0) ≠ 0 then ((10 : Int) - (4 : Int)) else ((10 : Int) / (5 : Int))) = (6 : Int)) ∧ ((if (if (20 : Int) ≥ (100 : Int) then (1 : Int) else 0) ≠ 0 then ((20 : Int) - (100 : Int)) else ((20 : Int) / (4 : Int))) = (5 : Int)) ∧ ((if (if (7 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (3 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (25 : Int) ≥ (100 : Int) then (1 : Int) else 0) ≠ 0 then (100 : Int) else (((25 : Int) * (100 : Int)) / (100 : Int))) = (25 : Int)) ∧ ((if (if (200 : Int) ≥ (100 : Int) then (1 : Int) else 0) ≠ 0 then (100 : Int) else (((200 : Int) * (100 : Int)) / (100 : Int))) = (100 : Int)) ∧ ((fmin (120 : Int) (100 : Int)) = (100 : Int)) ∧ ((fmin (50 : Int) (100 : Int)) = (50 : Int)) ∧ ((if (if (8 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (8 : Int) else (0 : Int)) = (8 : Int)) ∧ ((if (if (3 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (3 : Int) else (0 : Int)) = (0 : Int)) ∧ ((fmin (fmax (150 : Int) (10 : Int)) (100 : Int)) = (100 : Int)) ∧ ((fmin (fmax (5 : Int) (10 : Int)) (100 : Int)) = (10 : Int)) ∧ ((if (if (30 : Int) > (10 : Int) then (1 : Int) else 0) ≠ 0 then (30 : Int) else (0 : Int)) = (30 : Int)) ∧ ((if (if (5 : Int) > (10 : Int) then (1 : Int) else 0) ≠ 0 then (5 : Int) else (0 : Int)) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_activation"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

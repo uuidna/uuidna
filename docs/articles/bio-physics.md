@@ -53,28 +53,28 @@ The ledger holds this as [octave_doubling](/theorem/octave_doubling) — proven 
 [48, 96, 192, 384] = [48, 48*2, 96*2, 192*2]
 ```
 
-### electron shells hold 2n² each — [2,8,18,32] for n=1..4 (2 spin states × n² orbitals); the shape of the periodic table is a count
+### electron shells hold 2n² each — [2,8,18,32] for n=1..4 (2 spin states × n² orbitals); the shape of the periodic table is a count Source: DOI 10.1080/14786442408634535; DOI 10.1007/BF02980631.
 The ledger holds this as [electron_shells_2n2](/theorem/electron_shells_2n2) — proven `by decide`, sorry-free:
 
 ```lean
 (List.range' 1 4).map (fun n => 2 * n * n) = [2, 8, 18, 32]
 ```
 
-### the subshells s,p,d,f hold 4l+2 = [2,6,10,14] for l=0..3 — (2l+1) orbitals × 2 spins
+### the subshells s,p,d,f hold 4l+2 = [2,6,10,14] for l=0..3 — (2l+1) orbitals × 2 spins Source: DOI 10.1080/14786442408634535; DOI 10.1007/BF02980631.
 The ledger holds this as [subshell_capacities_4l2](/theorem/subshell_capacities_4l2) — proven `by decide`, sorry-free:
 
 ```lean
 (List.range 4).map (fun l => 4 * l + 2) = [2, 6, 10, 14]
 ```
 
-### the circle of fifths: stacking fifths (+7 mod 12) visits ALL twelve pitch classes — 7 is coprime to 12, so ×7 permutes ℤ/12
+### the circle of fifths: stacking fifths (+7 mod 12) visits ALL twelve pitch classes — 7 is coprime to 12, so ×7 permutes ℤ/12 Source: DOI 10.2307/3679467.
 The ledger holds this as [circle_of_fifths](/theorem/circle_of_fifths) — proven `by decide`, sorry-free:
 
 ```lean
 (List.range 12).all (fun t => (List.range 12).any (fun k => (7 * k) % 12 == t))
 ```
 
-### the tritone (+6 mod 12) is a fixed-point-free involution — the octave splits exactly in half, each note its own tritone-of-tritone
+### the tritone (+6 mod 12) is a fixed-point-free involution — the octave splits exactly in half, each note its own tritone-of-tritone Source: DOI 10.2307/3679467.
 The ledger holds this as [tritone_involution](/theorem/tritone_involution) — proven `by decide`, sorry-free:
 
 ```lean
@@ -135,9 +135,12 @@ The ledger holds this as [reflection_is_total_by_the_key](/theorem/reflection_is
 
 The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
 
+1. Pauli, W. (1925). Über den Zusammenhang des Abschlusses der Elektronengruppen im Atom mit der Komplexstruktur der Spektren. Zeitschrift für Physik. [https://doi.org/10.1007/BF02980631](https://doi.org/10.1007/BF02980631)
 1. WATSON, J. D.; CRICK, F. H. C. (1953). Molecular Structure of Nucleic Acids: A Structure for Deoxyribose Nucleic Acid. Nature. [https://doi.org/10.1038/171737a0](https://doi.org/10.1038/171737a0)
 1. Yamamoto, Fumi-ichiro; Clausen, Henrik; White, Thayer; et al. (1990). Molecular genetic basis of the histo-blood group ABO system. Nature. [https://doi.org/10.1038/345229a0](https://doi.org/10.1038/345229a0)
 1. Nirenberg, Marshall W.; Matthaei, J. Heinrich. (1961). The dependence of cell-free protein synthesis in E. coli upon naturally occurring or synthetic polyribonucleotides. Proceedings of the National Academy of Sciences. [https://doi.org/10.1073/pnas.47.10.1588](https://doi.org/10.1073/pnas.47.10.1588)
+1. Stoner, Edmund C. (1924). LXXIII. The distribution of electrons among atomic levels. The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science. [https://doi.org/10.1080/14786442408634535](https://doi.org/10.1080/14786442408634535)
+1. Balzano, Gerald J. (1980). The Group-Theoretic Description of 12-Fold and Microtonal Pitch Systems. Computer Music Journal. [https://doi.org/10.2307/3679467](https://doi.org/10.2307/3679467)
 1. Landsteiner, K.; Wiener, A. S. (1940). An Agglutinable Factor in Human Blood Recognized by Immune Sera for Rhesus Blood. Experimental Biology and Medicine. [https://doi.org/10.3181/00379727-43-11151](https://doi.org/10.3181/00379727-43-11151)
 
 ::: warning 

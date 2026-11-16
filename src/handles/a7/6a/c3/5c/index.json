@@ -1,0 +1,12 @@
+{
+  "handle": "a76ac35c",
+  "address": "a76ac35c-7e87-829c-b059-4c522665cd73",
+  "kind": "chunk",
+  "keys": [
+    "fam_powerfactor"
+  ],
+  "statement": "((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((100 : Int) * (8 : Int)) = (800 : Int)) ∧ (((100 : Int) * (10 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (800 : Int))) = (200 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (80 : Int))) = (20 : Int)) ∧ (((900 : Int) / (10 : Int)) = (90 : Int)) ∧ (((600 : Int) / (10 : Int)) = (60 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

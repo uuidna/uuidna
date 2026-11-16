@@ -1,0 +1,12 @@
+{
+  "handle": "97e3c591",
+  "address": "97e3c591-741e-8273-bcfb-66c052db4efe",
+  "statement": "((((30 : Int) ^ (2 : Nat)) / ((2 : Int) * (3 : Int))) = (150 : Int)) ∧ (((8 : Int) * (60 : Int)) = (480 : Int)) ∧ ((45 : Int) = (45 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((3600 : Int) / (12 : Int)) = (300 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (480 : Int)) = (83 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((240 : Int) / (12 : Int)) = (20 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_railway"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

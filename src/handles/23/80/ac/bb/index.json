@@ -1,0 +1,12 @@
+{
+  "handle": "2380acbb",
+  "address": "2380acbb-45ee-8a28-b43b-cf4ea3d05b2c",
+  "kind": "chunk",
+  "keys": [
+    "fam_urbanism"
+  ],
+  "statement": "(((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((1200 : Int) * (100 : Int)) / (1000 : Int)) = (120 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ (((100 : Int) * (80 : Int)) = (8000 : Int)) ∧ (((200 : Int) / (10 : Int)) = (20 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (100 : Int)) = (250 : Int)) ∧ (((50000 : Int) / (25 : Int)) = (2000 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int))",
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

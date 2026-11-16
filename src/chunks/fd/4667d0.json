@@ -1,0 +1,12 @@
+{
+  "handle": "fd4667d0",
+  "address": "fd4667d0-6248-828c-b47b-ec70376ae798",
+  "statement": "((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((-((-(100 : Int)) / (8 : Int))) = (13 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((3600 : Int) / (300 : Int)) = (12 : Int)) ∧ ((((480 : Int) * (100 : Int)) / (500 : Int)) = (96 : Int)) ∧ ((((180 : Int) * (100 : Int)) / (200 : Int)) = (90 : Int)) ∧ (((50 : Int) * (12 : Int)) = (600 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_zerotrust"
+  ],
+  "files": [
+    "FamiliesZ.lean"
+  ]
+}

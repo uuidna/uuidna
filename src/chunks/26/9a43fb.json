@@ -1,0 +1,12 @@
+{
+  "handle": "269a43fb",
+  "address": "269a43fb-8fff-8504-bb11-9b924486d683",
+  "statement": "(((((1075 : Int) - (1000 : Int)) * (1000 : Int)) / (75 : Int)) = (1000 : Int)) ∧ (((((100 : Int) - (20 : Int)) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((5 : Int) * (100 : Int)) = (500 : Int)) ∧ (((400 : Int) / (10 : Int)) = (40 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((((50 : Int) * (1000 : Int)) / (10 : Int)) = (5000 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((((500 : Int) * (100 : Int)) / (1000 : Int)) = (50 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_brewing"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

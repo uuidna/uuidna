@@ -1,0 +1,12 @@
+{
+  "handle": "bd4efa79",
+  "address": "bd4efa79-9cd4-86a1-b0ab-d03f38c3cb99",
+  "statement": "(((50 : Int) * (4 : Int)) = (200 : Int)) ∧ (((500 : Int) / (10 : Int)) = (50 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((20 : Int) * (3 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (45 : Int))) = (45 : Int)) ∧ (((30 : Int) * (2 : Int)) = (60 : Int)) ∧ (((45 : Int) + (45 : Int)) = (90 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_projectile"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

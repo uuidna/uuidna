@@ -1,0 +1,12 @@
+{
+  "handle": "1f268e77",
+  "address": "1f268e77-324f-88fa-8e3e-9381ae5450e8",
+  "statement": "(((6 : Int) + (0 : Int)) = (6 : Int)) ∧ (((6 : Int) * (9 : Int)) = (54 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (8 : Int)))) = (40320 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ (((20 : Int) + (0 : Int)) = (20 : Int)) ∧ (((26 : Int) + (0 : Int)) = (26 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (100 : Int)) = (100 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_rubik"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

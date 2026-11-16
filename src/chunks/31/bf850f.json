@@ -1,0 +1,12 @@
+{
+  "handle": "31bf850f",
+  "address": "31bf850f-297d-832e-bdae-c156ef41896e",
+  "statement": "(((120 : Int) / (6 : Int)) = (20 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (100 : Int)) = (150 : Int)) ∧ ((fmax (0 : Int) (((206 : Int) - (20 : Int)) - (((846 : Int) * (150 : Int)) / (1000 : Int)))) = (60 : Int)) ∧ ((fmax (0 : Int) (((((39 : Int) * (20 : Int)) / (100 : Int)) + (((118 : Int) * (150 : Int)) / (1000 : Int))) - (16 : Int))) = (8 : Int)) ∧ ((fmax (0 : Int) (((((588 : Int) * (500 : Int)) / (10000 : Int)) - (((296 : Int) * (5 : Int)) / (1000 : Int))) - (16 : Int))) = (12 : Int)) ∧ ((fmax (0 : Int) (((((471 : Int) * (500 : Int)) / ((100 : Int) * (100 : Int))) + ((100 : Int) / ((2 : Int) * (5 : Int)))) - (21 : Int))) = (12 : Int)) ∧ ((fmax (0 : Int) (((((100 : Int) / (5 : Int)) + (((100 : Int) * (10 : Int)) / (100 : Int))) * (2 : Int)) / (5 : Int))) = (12 : Int)) ∧ (((Int.ofNat (fsqrt (Int.toNat (((30 : Int) * (30 : Int)) / (30 : Int))))) + (3 : Int)) = (8 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_readability"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

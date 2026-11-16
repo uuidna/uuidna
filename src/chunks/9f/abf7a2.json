@@ -1,0 +1,12 @@
+{
+  "handle": "9fabf7a2",
+  "address": "9fabf7a2-58f9-85cf-8e5f-056898d56e4a",
+  "statement": "(((((100 : Int) * (50 : Int)) * (981 : Int)) / (1000 : Int)) = (4905 : Int)) ∧ (((2000 : Int) / (1000 : Int)) = (2 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((10000 : Int) / (500 : Int)) = (20 : Int)) ∧ (((60 : Int) * (50 : Int)) = (3000 : Int)) ∧ ((((200 : Int) * (100 : Int)) / (1000 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((800 : Int) - (300 : Int))) = (500 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (800 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_hydro"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

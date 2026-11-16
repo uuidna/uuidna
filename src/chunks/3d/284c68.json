@@ -1,0 +1,12 @@
+{
+  "handle": "3d284c68",
+  "address": "3d284c68-2be5-8a7d-be82-e168e1bd6a14",
+  "statement": "(((1024 : Int) * (3 : Int)) = (3072 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((9000 : Int) * (100 : Int)) / (100 : Int)) = (9000 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_steganography"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

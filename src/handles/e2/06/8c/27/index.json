@@ -1,0 +1,12 @@
+{
+  "handle": "e2068c27",
+  "address": "e2068c27-35d7-8b79-bad5-8e2a8f0701a3",
+  "kind": "chunk",
+  "keys": [
+    "fam_telescope"
+  ],
+  "statement": "(((200 : Int) * (1 : Int)) = (200 : Int)) ∧ (((2000 : Int) / (25 : Int)) = (80 : Int)) ∧ (((2000 : Int) / (200 : Int)) = (10 : Int)) ∧ (((116 : Int) / (1 : Int)) = (116 : Int)) ∧ (((200 : Int) * (200 : Int)) = (40000 : Int)) ∧ (((2 : Int) + (0 : Int)) = (2 : Int)) ∧ (((60 : Int) / (1 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

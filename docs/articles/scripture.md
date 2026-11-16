@@ -11,7 +11,7 @@ description: "Computed from lean/Scripture.lean — 6 sealed theorems, every cla
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FScripture.lean)** — nothing to install. The editor fetches `lean/Scripture.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
-### THE NUMBER DOES NOT PICK OUT ITS NAME. Revelation 13:18 gives 666 and the oldest papyrus, P115, gives 616. Spelled in Hebrew letters, "Nero Caesar" sums to 666 from the Greek Neron and 616 from the Latin Nero; the word for "beast" itself, thērion, sums to 666 and, in its genitive form, 616. Every letter value is derived from the letters by the rank rule (alphabetic_three_ranks), and Lean decides the four sums. So both numbers fit both readings, which is the refutation that 616 confirms Nero alone (Williams 2007, Tyndale Bulletin 58.1); gematria_forces_collisions says the same in general. Which reading the author meant is not decided here.
+### THE NUMBER DOES NOT PICK OUT ITS NAME. Revelation 13:18 gives 666 and the oldest papyrus, P115, gives 616. Spelled in Hebrew letters, "Nero Caesar" sums to 666 from the Greek Neron and 616 from the Latin Nero; the word for "beast" itself, thērion, sums to 666 and, in its genitive form, 616. Every letter value is derived from the letters by the rank rule (alphabetic_three_ranks), and Lean decides the four sums. So both numbers fit both readings, which is the refutation that 616 confirms Nero alone (Williams 2007, Tyndale Bulletin 58.1); gematria_forces_collisions says the same in general. Which reading the author meant is not decided here. Source: DOI 10.53751/001c.29233.
 The ledger holds this as [beast_number_fits_two_readings](/theorem/beast_number_fits_two_readings) — proven `by decide`, sorry-free:
 
 ```lean
@@ -53,6 +53,12 @@ The ledger holds this as [baudhayana_sqrt2_is_pell](/theorem/baudhayana_sqrt2_is
 408 + 136 + 34 - 1 = 577 ∧ 577 * 577 = 2 * 408 * 408 + 1
 ```
 
+
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. Williams, P. J. (2007). P115 and the Number of the Beast. Tyndale Bulletin. [https://doi.org/10.53751/001c.29233](https://doi.org/10.53751/001c.29233)
 
 ::: warning 
 SCRIPTURE — the arithmetic of sacred texts and the refutations of their numerology, decidable, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [beast_number_fits_two_readings](/theorem/beast_number_fits_two_readings) — never merely denied.

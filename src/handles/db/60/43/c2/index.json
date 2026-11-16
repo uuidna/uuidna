@@ -1,0 +1,12 @@
+{
+  "handle": "db6043c2",
+  "address": "db6043c2-3d04-8d0e-a564-0b464d1fc0cf",
+  "kind": "chunk",
+  "keys": [
+    "fam_evapotranspiration"
+  ],
+  "statement": "((((25 : Int) * (200 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((50 : Int) * (80 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (25 : Int))) = (15 : Int)) ∧ ((-((-((15 : Int) * (100 : Int))) / (75 : Int))) = (20 : Int)) ∧ (((20 : Int) * (12 : Int)) = (240 : Int)) ∧ (((40 : Int) * (30 : Int)) = (1200 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (60 : Int))) = (40 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (25 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

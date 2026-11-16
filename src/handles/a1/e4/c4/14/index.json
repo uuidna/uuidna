@@ -1,0 +1,12 @@
+{
+  "handle": "a1e4c414",
+  "address": "a1e4c414-cb42-8bc9-8c34-284e876ec9c1",
+  "kind": "chunk",
+  "keys": [
+    "fam_collide"
+  ],
+  "statement": "((((19 : Int) * (2 : Int)) + (0 : Int)) = (38 : Int)) ∧ (((14 : Int) + (13 : Int)) = (27 : Int)) ∧ (((7 : Int) * (6 : Int)) = (42 : Int)) ∧ ((((3 : Int) ^ (2 : Nat)) + ((4 : Int) ^ (2 : Nat))) = (25 : Int)) ∧ ((if (if (14 : Int) ≥ (13 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (12 : Int) ≥ (13 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((20 : Int) - (14 : Int)) = (6 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

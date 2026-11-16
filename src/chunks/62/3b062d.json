@@ -1,0 +1,12 @@
+{
+  "handle": "623b062d",
+  "address": "623b062d-6634-8c9a-be07-a8e129a0df3c",
+  "statement": "(((44100 : Int) * (2 : Int)) = (88200 : Int)) ∧ ((((44100 : Int) * (2 : Int)) * (2 : Int)) = (176400 : Int)) ∧ (((44100 : Int) * (16 : Int)) = (705600 : Int)) ∧ (((44100 : Int) / (1024 : Int)) = (43 : Int)) ∧ (((2 : Int) + (0 : Int)) = (2 : Int)) ∧ (((88200 : Int) / (44100 : Int)) = (2 : Int)) ∧ (((16 : Int) * (1 : Int)) = (16 : Int)) ∧ ((-((-(44100 : Int)) / (1152 : Int))) = (39 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_audio"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

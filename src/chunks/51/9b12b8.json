@@ -1,0 +1,12 @@
+{
+  "handle": "519b12b8",
+  "address": "519b12b8-2f3d-819b-ad63-2c646840a6e3",
+  "statement": "((fmax (0 : Int) ((31 : Int) - (7 : Int))) = (24 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ ((if (if (8 : Int) ≥ (4 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2 : Int) ≥ (4 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((68 : Int) * (300 : Int)) = (20400 : Int)) ∧ ((((12 : Int) + (18 : Int)) + (15 : Int)) = (45 : Int)) ∧ (((2 : Int) * (5 : Int)) = (10 : Int)) ∧ ((fmax (0 : Int) ((24 : Int) - (9 : Int))) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_gps"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

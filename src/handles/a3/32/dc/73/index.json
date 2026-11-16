@@ -1,0 +1,12 @@
+{
+  "handle": "a332dc73",
+  "address": "a332dc73-2717-8ea9-b471-e26a4b610937",
+  "kind": "chunk",
+  "keys": [
+    "fam_forensic"
+  ],
+  "statement": "((((1000 : Int) * (1000 : Int)) / (1 : Int)) = (1000000 : Int)) ∧ ((if (if (12 : Int) ≥ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (8 : Int) ≥ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((8000000000 : Int) / (1000000 : Int)) = (8000 : Int))",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

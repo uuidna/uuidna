@@ -1,0 +1,12 @@
+{
+  "handle": "dd958acf",
+  "address": "dd958acf-c3cf-8058-8d1a-ca227bac2f78",
+  "statement": "(((10000 : Int) * (5 : Int)) = (50000 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((12 : Int) * (4 : Int)) = (48 : Int)) ∧ (((40 : Int) + (20 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (2 : Int)))) = (190 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_myrmecology"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

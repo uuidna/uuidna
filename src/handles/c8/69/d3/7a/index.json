@@ -1,0 +1,12 @@
+{
+  "handle": "c869d37a",
+  "address": "c869d37a-4fc0-8c1c-ba52-f26f9c190d71",
+  "kind": "chunk",
+  "keys": [
+    "fam_planet"
+  ],
+  "statement": "(((365 : Int) * (1 : Int)) = (365 : Int)) ∧ (((2 : Int) + (0 : Int)) = (2 : Int)) ∧ (((6371 : Int) * (1 : Int)) = (6371 : Int)) ∧ (((98 : Int) / (10 : Int)) = (9 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (23 : Int))) = (67 : Int)) ∧ (((24 : Int) / (1 : Int)) = (24 : Int)) ∧ (((0 : Int) + (1 : Int)) = (1 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

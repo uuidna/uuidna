@@ -1,0 +1,12 @@
+{
+  "handle": "ecd2c1ed",
+  "address": "ecd2c1ed-d035-8019-ae50-b857b619fa99",
+  "statement": "(((20 : Int) * (50 : Int)) = (1000 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((4000 : Int) / ((2 : Int) * (2 : Int))) = (1000 : Int)) ∧ ((((49 : Int) * (100 : Int)) / (100 : Int)) = (49 : Int)) ∧ ((((0 : Int) * (100 : Int)) / (100 : Int)) = (0 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (6 : Int)) = (200 : Int)) ∧ (((20 : Int) * (100 : Int)) = (2000 : Int)) ∧ ((((1000 : Int) * (100 : Int)) / (2 : Int)) = (50000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_piezoelectric"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

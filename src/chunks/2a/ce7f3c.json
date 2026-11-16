@@ -1,0 +1,12 @@
+{
+  "handle": "2ace7f3c",
+  "address": "2ace7f3c-ae55-816f-b756-3e894838bde1",
+  "statement": "((((1540 : Int) * (100 : Int)) / (2 : Int)) = (77000 : Int)) ∧ (((15360 : Int) / (512 : Int)) = (30 : Int)) ∧ (((15400 : Int) / (((2 : Int) * (11 : Int)) * (70 : Int))) = (10 : Int)) ∧ ((((1 : Int) * (5 : Int)) * (10 : Int)) = (50 : Int)) ∧ (((1000 : Int) * (1540 : Int)) = (1540000 : Int)) ∧ (((((2 : Int) * (5000 : Int)) * (77 : Int)) / (1540 : Int)) = (500 : Int)) ∧ ((((500 : Int) * (4 : Int)) / (2 : Int)) = (1000 : Int)) ∧ (((60000 : Int) / (5 : Int)) = (12000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_sonography"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

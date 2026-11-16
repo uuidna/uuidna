@@ -1,0 +1,12 @@
+{
+  "handle": "df970b7f",
+  "address": "df970b7f-4ba0-83c5-998c-e0675ff73254",
+  "statement": "(((600 : Int) / (8 : Int)) = (75 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((fmax (0 : Int) ((160 : Int) - (100 : Int))) = (60 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (8 : Int))) = (32 : Int)) ∧ ((((90 : Int) * (80 : Int)) / (100 : Int)) = (72 : Int)) ∧ (((10000 : Int) / (500 : Int)) = (20 : Int)) ∧ ((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_automation"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

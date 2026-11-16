@@ -1,0 +1,12 @@
+{
+  "handle": "f78d142d",
+  "address": "f78d142d-a32a-849a-8dac-9cb05e2f4f93",
+  "statement": "((((600 : Int) * (100 : Int)) / (100 : Int)) = (600 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((1200 : Int) * (100 : Int)) / (1000 : Int)) = (120 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (100 : Int)) = (3 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((100 : Int) / (40 : Int)) = (2 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((fmax (0 : Int) ((450 : Int) - (120 : Int))) = (330 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (150 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_livestock"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

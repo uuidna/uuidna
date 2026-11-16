@@ -1,0 +1,12 @@
+{
+  "handle": "c321b97c",
+  "address": "c321b97c-dc96-8417-9cdc-ca0fc4a40bea",
+  "statement": "(((500 : Int) * (2 : Int)) = (1000 : Int)) ∧ (((1440 : Int) / (60 : Int)) = (24 : Int)) ∧ (((100 : Int) * (3 : Int)) = (300 : Int)) ∧ (((5000 : Int) * (1 : Int)) = (5000 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((2 : Int) + (0 : Int)) = (2 : Int)) ∧ (((300 : Int) * (2 : Int)) = (600 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_adhesive"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

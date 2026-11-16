@@ -1,0 +1,12 @@
+{
+  "handle": "0f1877d5",
+  "address": "0f1877d5-2507-80d8-969d-9610ddeff23b",
+  "statement": "((8 : Int) = (8 : Int)) ∧ ((32 : Int) = (32 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((32 : Int) = (32 : Int)) ∧ (((2 : Int) ^ (32 : Nat)) = (4294967296 : Int)) ∧ (((16 : Int) * (16 : Int)) = (256 : Int)) ∧ ((((2 : Int) * (3 : Int)) * (4 : Int)) = (24 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((7 : Int) = (7 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_handle"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

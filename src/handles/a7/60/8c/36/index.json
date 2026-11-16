@@ -1,0 +1,12 @@
+{
+  "handle": "a7608c36",
+  "address": "a7608c36-6821-83ae-b5c1-5427a5ca27e3",
+  "kind": "chunk",
+  "keys": [
+    "fam_anthropology"
+  ],
+  "statement": "(((120 : Int) / (4 : Int)) = (30 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ (((900 : Int) / (3 : Int)) = (300 : Int)) ∧ (((500 : Int) / (10 : Int)) = (50 : Int)) ∧ (((240 : Int) / (8 : Int)) = (30 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (200 : Int)) = (30 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (12 : Int)) = (75 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f8738b56",
+  "address": "f8738b56-9b85-8c78-8e1b-31b438ac45e5",
+  "statement": "(((3 : Int) * (2000 : Int)) = (6000 : Int)) ∧ ((((2000 : Int) * (15 : Int)) / (100 : Int)) = (300 : Int)) ∧ (((5 : Int) * (400 : Int)) = (2000 : Int)) ∧ (((((100 : Int) - (60 : Int)) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((50000 : Int) / (250 : Int)) = (200 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((2000 : Int) * (100 : Int)) / (100 : Int)) = (2000 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (320 : Int))) = (180 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_ecommerce"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

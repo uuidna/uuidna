@@ -1,0 +1,12 @@
+{
+  "handle": "b1109079",
+  "address": "b1109079-9b80-892e-aac5-ec1903949cd6",
+  "statement": "(((300 : Int) / (20 : Int)) = (15 : Int)) ∧ (((72 : Int) + (3 : Int)) = (75 : Int)) ∧ (((12 : Int) * (15 : Int)) = (180 : Int)) ∧ (((60 : Int) / (6 : Int)) = (10 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (72 : Int))) = (8 : Int)) ∧ (((45 : Int) / (10 : Int)) = (4 : Int)) ∧ (((500 : Int) * (8 : Int)) = (4000 : Int)) ∧ ((fmax (0 : Int) ((75 : Int) - (4 : Int))) = (71 : Int)) ∧ ((fmax (0 : Int) ((4 : Int) - (75 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_pasteurization"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

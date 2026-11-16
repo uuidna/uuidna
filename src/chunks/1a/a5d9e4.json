@@ -1,0 +1,12 @@
+{
+  "handle": "1aa5d9e4",
+  "address": "1aa5d9e4-57ed-8cb4-9902-8b98aad24a99",
+  "statement": "(((300 : Int) * (1 : Int)) = (300 : Int)) ∧ (((300 : Int) * (110 : Int)) = (33000 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((299 : Int) * (1 : Int)) = (299 : Int)) ∧ (((8 : Int) + (4 : Int)) = (12 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_protein"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

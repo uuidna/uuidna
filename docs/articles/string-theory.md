@@ -11,14 +11,14 @@ description: "Computed from lean/StringTheory.lean — 6 sealed theorems, every 
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FStringTheory.lean)** — nothing to install. The editor fetches `lean/StringTheory.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
-### CLAIMED: the Planck energy is 897713235294117 times the LHC's collision energy, exactly — 13600 GeV divides 1.220890 x 10^19 GeV 897713235294117 times with 8800 GeV left over. String theory's characteristic scale is fifteen orders of magnitude past the most energetic instrument ever built.
+### CLAIMED: the Planck energy is 897713235294117 times the LHC's collision energy, exactly — 13600 GeV divides 1.220890 x 10^19 GeV 897713235294117 times with 8800 GeV left over. String theory's characteristic scale is fifteen orders of magnitude past the most energetic instrument ever built. Source: DOI 10.1103/RevModPhys.97.025002.
 The ledger holds this as [collider_energy_is_below_the_planck_scale](/theorem/collider_energy_is_below_the_planck_scale) — proven `by decide`, sorry-free:
 
 ```lean
 (13600 * 897713235294117 + 8800 = 12208900000000000000) ∧ (8800 < 13600)
 ```
 
-### CLAIMED: the shortest separation at which the 1/r^2 law has been tested is 3217314099569684239182554733009 Planck lengths, exactly — 52 micrometres over 1.616255 x 10^-35 m, with a remainder of 538705 in units of 10^-41 m. Extra dimensions are excluded above that separation and untouched below it.
+### CLAIMED: the shortest separation at which the 1/r^2 law has been tested is 3217314099569684239182554733009 Planck lengths, exactly — 52 micrometres over 1.616255 x 10^-35 m, with a remainder of 538705 in units of 10^-41 m. Extra dimensions are excluded above that separation and untouched below it. Source: DOI 10.1103/RevModPhys.97.025002.
 The ledger holds this as [newtonian_gravity_is_verified_far_above_the_planck_length](/theorem/newtonian_gravity_is_verified_far_above_the_planck_length) — proven `by decide`, sorry-free:
 
 ```lean
@@ -63,6 +63,7 @@ The external work this wing stands on. These are not sealed theorems and this le
 1. Takenaka, A.; Abe, K.; Bronner, C.; et al. (2020). Search for proton decay via p → e + π 0 and p → μ + π 0 with an enlarged fiducial volume in Super-Kamiokande I-IV. Physical Review D. [https://doi.org/10.1103/PhysRevD.102.112011](https://doi.org/10.1103/PhysRevD.102.112011)
 1. Lee, J. G.; Adelberger, E. G.; Cook, T. S.; et al. (2020). New Test of the Gravitational 1 / r 2 Law at Separations down to 52 μ m. Physical Review Letters. [https://doi.org/10.1103/PhysRevLett.124.101101](https://doi.org/10.1103/PhysRevLett.124.101101)
 1. Touboul, Pierre; Métris, Gilles; Rodrigues, Manuel; et al. (2022). M I C R O S C O P E Mission: Final Results of the Test of the Equivalence Principle. Physical Review Letters. [https://doi.org/10.1103/PhysRevLett.129.121102](https://doi.org/10.1103/PhysRevLett.129.121102)
+1. Mohr, Peter J.; Newell, David B.; Taylor, Barry N.; Tiesinga, Eite. (2025). CODATA recommended values of the fundamental physical constants: 2022. Reviews of Modern Physics. [https://doi.org/10.1103/RevModPhys.97.025002](https://doi.org/10.1103/RevModPhys.97.025002)
 
 ::: warning 
 STRING THEORY'S EXPERIMENTAL RECORD AS DECIDABLE ARITHMETIC — six searches, their published bounds, and the exact distance each still stands from the scale it would have to reach. The boundary is confirmed by the wing's own sealed theorems — e.g. [collider_energy_is_below_the_planck_scale](/theorem/collider_energy_is_below_the_planck_scale) — never merely denied.

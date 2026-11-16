@@ -1,0 +1,12 @@
+{
+  "handle": "955fcee5",
+  "address": "955fcee5-0456-87c3-b578-cf0454d38400",
+  "statement": "(((2 : Int) + (2 : Int)) = (4 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (4 : Int))) = (6 : Int)) ∧ ((if (if (7 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (13 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((8 : Int) / (4 : Int)) = (2 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (7 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((24 : Int) - (12 : Int))) = (12 : Int)) ∧ (((8 : Int) / (2 : Int)) = (4 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_counterpoint"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

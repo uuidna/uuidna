@@ -1,0 +1,12 @@
+{
+  "handle": "77029253",
+  "address": "77029253-58aa-896f-8d03-4a60b0962cef",
+  "statement": "((fmax (0 : Int) ((500 : Int) - (450 : Int))) = (50 : Int)) ∧ (((10 : Int) + ((2 : Int) * (7 : Int))) = (24 : Int)) ∧ (((3 : Int) * (20 : Int)) = (60 : Int)) ∧ ((((1000 : Int) * ((100 : Int) - (15 : Int))) / (100 : Int)) = (850 : Int)) ∧ ((((2000 : Int) * (5 : Int)) / (100 : Int)) = (100 : Int)) ∧ ((((24 : Int) * (100 : Int)) / (25 : Int)) = (96 : Int)) ∧ ((-((-(100 : Int)) / (12 : Int))) = (9 : Int)) ∧ ((if (if (121 : Int) ≥ (116 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (100 : Int) ≥ (116 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_canning"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

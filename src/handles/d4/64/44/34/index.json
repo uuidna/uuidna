@@ -1,0 +1,12 @@
+{
+  "handle": "d4644434",
+  "address": "d4644434-35dd-8db1-8bb0-d4983ee5827a",
+  "kind": "chunk",
+  "keys": [
+    "fam_socialnetwork"
+  ],
+  "statement": "((((5 : Int) * (100 : Int)) / ((11 : Int) - (1 : Int))) = (50 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (60 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (50 : Int)) = (60 : Int)) ∧ (((420 : Int) / (100 : Int)) = (4 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (48 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (7 : Int))) = (3 : Int)) ∧ ((((35 : Int) * (100 : Int)) / (50 : Int)) = (70 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

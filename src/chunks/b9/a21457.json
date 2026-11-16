@@ -1,0 +1,12 @@
+{
+  "handle": "b9a21457",
+  "address": "b9a21457-8127-8b63-8365-6793f467db62",
+  "statement": "((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_welfare"
+  ],
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "18b711f3",
+  "address": "18b711f3-1684-8151-8b03-7084cbfc665c",
+  "kind": "chunk",
+  "keys": [
+    "fam_dance"
+  ],
+  "statement": "(((480 : Int) / (4 : Int)) = (120 : Int)) ∧ (((8 : Int) * (8 : Int)) = (64 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ (((5 : Int) * (4 : Int)) = (20 : Int)) ∧ (((64 : Int) / (8 : Int)) = (8 : Int)) ∧ (((120 : Int) / (4 : Int)) = (30 : Int)) ∧ (((((450 : Int) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (90 : Int)) ∧ (((((-90 : Int) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (270 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (60 : Int)) = (500 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

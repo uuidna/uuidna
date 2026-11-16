@@ -1,0 +1,12 @@
+{
+  "handle": "7b9cb90a",
+  "address": "7b9cb90a-3e32-8197-801e-71ab0523c6c3",
+  "kind": "chunk",
+  "keys": [
+    "fam_memory"
+  ],
+  "statement": "((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

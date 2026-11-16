@@ -1,0 +1,12 @@
+{
+  "handle": "9b1a5fb4",
+  "address": "9b1a5fb4-332f-8800-8d0e-3a3bdc5532b4",
+  "statement": "(((40000 : Int) / (20 : Int)) = (2000 : Int)) ∧ (((200 : Int) * (1 : Int)) = (200 : Int)) ∧ (((10 : Int) * (3 : Int)) = (30 : Int)) ∧ (((6000 : Int) / (200 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (50 : Int))) = (450 : Int)) ∧ (((30 : Int) * (100 : Int)) = (3000 : Int)) ∧ (((8 : Int) * (1000 : Int)) = (8000 : Int)) ∧ (((3600 : Int) / (60 : Int)) = (60 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_tsunami"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

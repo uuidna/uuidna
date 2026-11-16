@@ -1,0 +1,12 @@
+{
+  "handle": "fefbea11",
+  "address": "fefbea11-1a73-8a78-a7af-0a9f469ce340",
+  "kind": "chunk",
+  "keys": [
+    "fam_soilscience"
+  ],
+  "statement": "(((((265 : Int) - (130 : Int)) * (100 : Int)) / (265 : Int)) = (50 : Int)) ∧ (((2600 : Int) / (2 : Int)) = (1300 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (12 : Int))) = (18 : Int)) ∧ (((15 : Int) * (2 : Int)) = (30 : Int)) ∧ ((((20 : Int) * (1724 : Int)) / (1000 : Int)) = (34 : Int)) ∧ (((120 : Int) / (4 : Int)) = (30 : Int)) ∧ (((4 : Int) * (640 : Int)) = (2560 : Int)) ∧ ((fmax (0 : Int) (((100 : Int) - (40 : Int)) - (40 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) (((100 : Int) - (60 : Int)) - (60 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

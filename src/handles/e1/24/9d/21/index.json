@@ -1,0 +1,12 @@
+{
+  "handle": "e1249d21",
+  "address": "e1249d21-1f19-89c7-8baf-01d3ff56318b",
+  "kind": "chunk",
+  "keys": [
+    "fam_buffer"
+  ],
+  "statement": "(((2 : Int) ^ (12 : Nat)) = (4096 : Int)) ∧ (((4096 : Int) / (64 : Int)) = (64 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (4096 : Int))) = (904 : Int)) ∧ (((4096 : Int) / (16 : Int)) = (256 : Int)) ∧ ((-((-(10000 : Int)) / (4096 : Int))) = (3 : Int)) ∧ (((100000 : Int) / (4096 : Int)) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

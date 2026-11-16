@@ -17,7 +17,7 @@ closes it. Figures record what the tree holds, not that it is true
 | Name | `@uuidna/uuidna` |
 | Version | 0.3.1 |
 | Variant | npm package, ESM, 0 runtime dependencies, 16 export paths |
-| Date | 2026-11-15 |
+| Date | 2026-11-16 |
 | Licence | CC-BY-NC-ND-4.0 |
 
 ## Work task (5.1.3.4)
@@ -26,7 +26,7 @@ Content-addressed identity, honest by construction — mint + mind, holographic 
 
 ## Functions and their evidence (5.1.2.4, 5.1.5.1)
 
-Measured beside them: 256 MCP tools; 80808 sealed theorems, 80808 of 80808 audited axiom-free; exact
+Measured beside them: 257 MCP tools; 72409 sealed theorems, 72409 of 72409 audited axiom-free; exact
 simulation served locally up to 16 qubits.
 
 ### UUID quantum programs
@@ -59,7 +59,7 @@ simulation served locally up to 16 qubits.
 
 ## Limits and known limitations (5.1.5.4)
 
-260 open lead(s) ship as known limitations, each closing when a UUID program decides it (`run.program`) or a
+262 open lead(s) ship as known limitations, each closing when a UUID program decides it (`run.program`) or a
 verdict settles it:
 
 | Source | Open leads |
@@ -68,7 +68,7 @@ verdict settles it:
 | refusals | 35 |
 | api-github-audit | 35 |
 | api-search-feed | 7 |
-| expose | 1 |
+| expose | 3 |
 | api-school-queue | 1 |
 
 ## Support and maintenance (5.1.3.6, 5.1.3.7)

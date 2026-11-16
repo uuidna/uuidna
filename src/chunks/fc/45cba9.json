@@ -1,0 +1,12 @@
+{
+  "handle": "fc45cba9",
+  "address": "fc45cba9-49f2-8684-83b6-81d4fca5530c",
+  "statement": "(((500 : Int) * (40 : Int)) = (20000 : Int)) ∧ ((((5 : Int) * (60 : Int)) / (15 : Int)) = (20 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ ((((920 : Int) * (100 : Int)) / (1000 : Int)) = (92 : Int)) ∧ (((240 : Int) / (12 : Int)) = (20 : Int)) ∧ ((((3000 : Int) * (100 : Int)) / (5000 : Int)) = (60 : Int)) ∧ (((300 : Int) / (20 : Int)) = (15 : Int)) ∧ ((fmax (0 : Int) ((23 : Int) - (5 : Int))) = (18 : Int)) ∧ ((fmax (0 : Int) ((5 : Int) - (23 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_transit"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

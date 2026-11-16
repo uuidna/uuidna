@@ -1,0 +1,12 @@
+{
+  "handle": "4e414861",
+  "address": "4e414861-5e36-879b-8b49-78a26260eaa4",
+  "statement": "((((980 : Int) * (100 : Int)) / (1000 : Int)) = (98 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (1000 : Int)) = (2 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (600 : Int)) = (25 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((fmin (1200 : Int) (500 : Int)) = (500 : Int)) ∧ ((fmin (300 : Int) (500 : Int)) = (300 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_email"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

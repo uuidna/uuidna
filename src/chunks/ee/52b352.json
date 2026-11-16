@@ -1,0 +1,12 @@
+{
+  "handle": "ee52b352",
+  "address": "ee52b352-61f7-85ef-a6d8-79aae93a9430",
+  "statement": "(((3600 : Int) / (60 : Int)) = (60 : Int)) ∧ (((1500 : Int) * (3 : Int)) = (4500 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (12 : Int)) = (250 : Int)) ∧ ((((10 : Int) ^ (2 : Nat)) * (100 : Int)) = (10000 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (20 : Int))) = (30 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (50 : Int))) = (0 : Int)) ∧ ((45 : Int) = (45 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_gaming"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

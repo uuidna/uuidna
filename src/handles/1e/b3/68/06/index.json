@@ -1,0 +1,12 @@
+{
+  "handle": "1eb36806",
+  "address": "1eb36806-49a1-8d5a-9b43-064a538bd0c2",
+  "kind": "chunk",
+  "keys": [
+    "fam_unemployment"
+  ],
+  "statement": "((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((1000 : Int) * (100 : Int)) = (100000 : Int)) ∧ (((100000 : Int) / (20 : Int)) = (5000 : Int)) ∧ ((((63 : Int) * (100 : Int)) / (100 : Int)) = (63 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (100 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((5 : Int) - (4 : Int))) = (1 : Int)) ∧ (((5000 : Int) * (1 : Int)) = (5000 : Int)) ∧ (((20 : Int) + (6 : Int)) = (26 : Int))",
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

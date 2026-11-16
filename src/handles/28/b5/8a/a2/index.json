@@ -1,0 +1,12 @@
+{
+  "handle": "28b58aa2",
+  "address": "28b58aa2-4f74-84fe-bf12-03c47d8a6647",
+  "kind": "chunk",
+  "keys": [
+    "fam_tracing"
+  ],
+  "statement": "(((50 : Int) * (12 : Int)) = (600 : Int)) ∧ ((fmax (0 : Int) ((800 : Int) - (300 : Int))) = (500 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (1000 : Int)) = (10 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (650 : Int))) = (350 : Int)) ∧ (((8 : Int) * (25 : Int)) = (200 : Int)) ∧ ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ ((((10000 : Int) * (90 : Int)) / (1000 : Int)) = (900 : Int)) ∧ ((if (if (500 : Int) ≥ (300 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (100 : Int) ≥ (300 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

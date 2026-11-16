@@ -1,0 +1,12 @@
+{
+  "handle": "5a31baf1",
+  "address": "5a31baf1-a367-81f4-9140-8b7a6a6190c4",
+  "kind": "chunk",
+  "keys": [
+    "fam_graphtheory"
+  ],
+  "statement": "((((10 : Int) * ((10 : Int) - (1 : Int))) / (2 : Int)) = (45 : Int)) ∧ (((((2 : Int) * (45 : Int)) * (100 : Int)) / ((10 : Int) * ((10 : Int) - (1 : Int)))) = (100 : Int)) ∧ ((((2 : Int) * (45 : Int)) / (10 : Int)) = (9 : Int)) ∧ (((2 : Int) * (45 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (1 : Int))) = (9 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (7 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) (((3 : Int) * (10 : Int)) - (6 : Int))) = (24 : Int)) ∧ ((fmax (0 : Int) (((15 : Int) - (10 : Int)) + (1 : Int))) = (6 : Int)) ∧ (((((2 : Int) * (45 : Int)) * (100 : Int)) / ((1 : Int) * ((1 : Int) - (1 : Int)))) = (0 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

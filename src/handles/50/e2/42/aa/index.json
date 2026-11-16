@@ -1,0 +1,12 @@
+{
+  "handle": "50e242aa",
+  "address": "50e242aa-0f4f-86a0-ae0d-3c9d0232487c",
+  "kind": "chunk",
+  "keys": [
+    "fam_biochemistry"
+  ],
+  "statement": "(((6 : Int) - (1 : Int)) = (5 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((200 : Int) * (100 : Int)) / (100 : Int)) = (200 : Int)) ∧ ((((100 : Int) * (50 : Int)) / ((50 : Int) + (50 : Int))) = (50 : Int)) ∧ (((180 : Int) / (18 : Int)) = (10 : Int)) ∧ (((70 : Int) / (10 : Int)) = (7 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

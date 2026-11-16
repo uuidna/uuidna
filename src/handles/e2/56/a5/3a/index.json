@@ -1,0 +1,12 @@
+{
+  "handle": "e256a53a",
+  "address": "e256a53a-a88d-8574-974f-1746c803071d",
+  "kind": "chunk",
+  "keys": [
+    "fam_neuroscience"
+  ],
+  "statement": "(((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((50 : Int) - (70 : Int)) = (-20 : Int)) ∧ (((90 : Int) - (20 : Int)) = (70 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ (((1200 : Int) / (10 : Int)) = (120 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((2 : Int) = (2 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((55 : Int) = (55 : Int))",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

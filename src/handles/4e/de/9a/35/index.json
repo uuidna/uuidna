@@ -1,0 +1,12 @@
+{
+  "handle": "4ede9a35",
+  "address": "4ede9a35-f397-8ed5-8088-7d9999fb55ce",
+  "kind": "chunk",
+  "keys": [
+    "fam_tanning"
+  ],
+  "statement": "((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ ((fmax (0 : Int) ((15 : Int) - (3 : Int))) = (12 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (15 : Int))) = (0 : Int)) ∧ ((((200 : Int) * (100 : Int)) / (100 : Int)) = (200 : Int)) ∧ ((((99 : Int) * (100 : Int)) / ((100 : Int) * (3 : Int))) = (33 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int)) ∧ (((30 : Int) / (3 : Int)) = (10 : Int)) ∧ (((200 : Int) * (150 : Int)) = (30000 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

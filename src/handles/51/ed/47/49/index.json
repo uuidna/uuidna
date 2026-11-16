@@ -1,0 +1,12 @@
+{
+  "handle": "51ed4749",
+  "address": "51ed4749-4abf-8281-b8b1-5ea647a5a67d",
+  "kind": "chunk",
+  "keys": [
+    "fam_entropy"
+  ],
+  "statement": "((Int.ofNat (flog 2 64 (Int.toNat (1000 : Int)))) = (9 : Int)) ∧ ((Int.ofNat (fclog 2 (Int.toNat (1000 : Int)))) = (10 : Int)) ∧ (((Int.ofNat (flog 2 64 (Int.toNat (1000 : Int)))) + (Int.ofNat (flog 2 64 (Int.toNat (1000 : Int))))) = (18 : Int)) ∧ ((fmax (0 : Int) ((18 : Int) - (9 : Int))) = (9 : Int)) ∧ ((fmax (0 : Int) (((10 : Int) + (8 : Int)) - (15 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((Int.ofNat (flog 2 64 (Int.toNat (2000 : Int)))) - (Int.ofNat (flog 2 64 (Int.toNat (500 : Int)))))) = (2 : Int)) ∧ ((fmax (0 : Int) ((16 : Int) - (10 : Int))) = (6 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

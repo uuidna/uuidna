@@ -1,0 +1,12 @@
+{
+  "handle": "1e1de72f",
+  "address": "1e1de72f-b08e-8fc2-b38a-8d49748f260a",
+  "kind": "chunk",
+  "keys": [
+    "fam_parallax"
+  ],
+  "statement": "(((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((2 : Int) * (3600 : Int)) = (7200 : Int)) ∧ (((500 : Int) * (2 : Int)) = (1000 : Int)) ∧ (((1000000 : Int) / (10 : Int)) = (100000 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((326 : Int) * (100 : Int)) / (326 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((((10 : Int) * (100 : Int)) * (474 : Int)) / (100 : Int)) = (4740 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

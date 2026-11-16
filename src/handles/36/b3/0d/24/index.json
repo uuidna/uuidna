@@ -1,0 +1,12 @@
+{
+  "handle": "36b30d24",
+  "address": "36b30d24-86ab-89fd-b121-d6c2707193ce",
+  "kind": "chunk",
+  "keys": [
+    "fam_nanotechnology"
+  ],
+  "statement": "((((1000 : Int) * (100 : Int)) / (10 : Int)) = (10000 : Int)) ∧ (((500 : Int) / (5 : Int)) = (100 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((1000 : Int) / (5 : Int)) = (200 : Int)) ∧ (((600 : Int) / (3 : Int)) = (200 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (100 : Int)) = (600 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

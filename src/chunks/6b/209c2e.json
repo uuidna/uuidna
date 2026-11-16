@@ -1,0 +1,12 @@
+{
+  "handle": "6b209c2e",
+  "address": "6b209c2e-7be3-819d-a71b-0640aef1883d",
+  "statement": "((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (1000 : Int)) = (12 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (300 : Int)) = (15 : Int)) ∧ (((6000 : Int) / (100 : Int)) = (60 : Int)) ∧ ((((880 : Int) * (100 : Int)) / (1000 : Int)) = (88 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (500 : Int)) = (8 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_forms"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

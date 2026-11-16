@@ -1,0 +1,12 @@
+{
+  "handle": "69b2e6fa",
+  "address": "69b2e6fa-b8b6-8ca3-a16e-368911a6e6fa",
+  "statement": "(((3 : Int) * (500 : Int)) = (1500 : Int)) ∧ (((10000 : Int) / (500 : Int)) = (20 : Int)) ∧ (((2 : Int) * (600 : Int)) = (1200 : Int)) ∧ ((((500 : Int) * (2000 : Int)) / (100 : Int)) = (10000 : Int)) ∧ ((((2 : Int) * (600 : Int)) / ((2 : Int) * (300 : Int))) = (2 : Int)) ∧ (((10000 : Int) / (500 : Int)) = (20 : Int)) ∧ ((((122 : Int) * (500 : Int)) / (1000 : Int)) = (61 : Int)) ∧ (((300 : Int) * (4 : Int)) = (1200 : Int)) ∧ (((10000 : Int) / (0 : Int)) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_diffraction"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

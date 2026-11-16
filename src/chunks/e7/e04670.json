@@ -1,0 +1,12 @@
+{
+  "handle": "e7e04670",
+  "address": "e7e04670-9777-8d05-9bce-333d1e17311d",
+  "statement": "(((68 : Int) - (72 : Int)) = (-4 : Int)) ∧ (((75 : Int) - (72 : Int)) = (3 : Int)) ∧ (((108 : Int) / (20 : Int)) = (5 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (14 : Int)) = (71 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (18 : Int)) = (66 : Int)) ∧ (((30 : Int) / (18 : Int)) = (1 : Int)) ∧ (((2700 : Int) / (10 : Int)) = (270 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (6 : Int)) = (66 : Int)) ∧ (((15 : Int) / (5 : Int)) = (3 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_golf"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

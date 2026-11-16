@@ -1,0 +1,12 @@
+{
+  "handle": "4f409260",
+  "address": "4f409260-6346-8648-90ad-399c91847f12",
+  "statement": "((((100 : Int) * (1000 : Int)) / (100 : Int)) = (1000 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((((3 : Int) ^ (2 : Nat)) + ((4 : Int) ^ (2 : Nat))) = (25 : Int)) ∧ ((((180 : Int) * (175 : Int)) / (10000 : Int)) = (3 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((10 : Int) - (2 : Int)) / (2 : Int)) = (4 : Int)) ∧ ((((90 : Int) * (360 : Int)) / (360 : Int)) = (90 : Int)) ∧ ((((5 : Int) * (360 : Int)) / (0 : Int)) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_trigonometry"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

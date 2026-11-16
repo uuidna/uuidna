@@ -1,0 +1,12 @@
+{
+  "handle": "d8c7d1d8",
+  "address": "d8c7d1d8-a2e6-83fc-ab0b-1ec16c211c37",
+  "kind": "chunk",
+  "keys": [
+    "fam_inequality"
+  ],
+  "statement": "(((40 : Int) / (1 : Int)) = (40 : Int)) ∧ (((800 : Int) / (100 : Int)) = (8 : Int)) ∧ (((200 : Int) / (100 : Int)) = (2 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (40 : Int))) = (10 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((10 : Int) + (0 : Int)) = (10 : Int)) ∧ (((350 : Int) / (100 : Int)) = (3 : Int))",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

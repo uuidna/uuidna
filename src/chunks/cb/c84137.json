@@ -1,0 +1,12 @@
+{
+  "handle": "cbc84137",
+  "address": "cbc84137-4b90-8821-b08c-fb3681451f51",
+  "statement": "((((250 : Int) * (1000 : Int)) / (1000 : Int)) = (250 : Int)) ∧ (((50000 : Int) / (100 : Int)) = (500 : Int)) ∧ ((((60000 : Int) * (100 : Int)) / (100000 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((10000 : Int) - (4000 : Int))) = (6000 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (500 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (500 : Int))) = (4500 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (500 : Int))) = (0 : Int)) ∧ ((fmin (5000 : Int) (500 : Int)) = (500 : Int)) ∧ ((fmin (8000 : Int) (5000 : Int)) = (5000 : Int)) ∧ (((4000 : Int) + (6000 : Int)) = (10000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_claims"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

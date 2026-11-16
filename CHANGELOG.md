@@ -16,7 +16,7 @@ because npm resolves ranges by number; Sequence is printed beside the tick, neve
 Each release is a gated wave: proofs + prose + the changelog self-audit. A milestone is reached by delivering
 theorems, not by moving a slogan. uuidnaOS is recomputable universality (`the_os_is_bootable_quantum`) — not a
 world-government OS claim.
-<!-- LEDGER:TODAY -->Today: **75450 distinct** (80808 keys, 5358 deliberate re-namings), across 293 principles.<!-- /LEDGER:TODAY -->
+<!-- LEDGER:TODAY -->Today: **72323 distinct** (72409 keys, 86 deliberate re-namings), across 293 principles.<!-- /LEDGER:TODAY -->
 
 **Reversible until published.** npm-publish is the one *irreversible* gate — a published version is immutable forever.
 Everything before it is not: git is a DAG, not a line. Publishing is the involution's fixed point: after it, a version
@@ -384,7 +384,7 @@ pipeline's own gates version what they archive — the Zenodo deposit job names 
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-<!-- LEDGER:CURRENT -->Ledger: **75450 distinct propositions** under **80808 keys** (5358 re-namings — a statement sealed in two wings is one theorem with two names) across **293 principles**, folded to receipt `64e2b890-0260-8680-a842-fcc3c55d6719`<!-- /LEDGER:CURRENT -->
+<!-- LEDGER:CURRENT -->Ledger: **72323 distinct propositions** under **72409 keys** (86 re-namings — a statement sealed in two wings is one theorem with two names) across **293 principles**, folded to receipt `6b8584b2-185d-8be1-a6e4-a699b26e8e2d`<!-- /LEDGER:CURRENT -->
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added

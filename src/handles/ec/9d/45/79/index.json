@@ -1,0 +1,12 @@
+{
+  "handle": "ec9d4579",
+  "address": "ec9d4579-4221-88bb-a5b0-9a8e4584131b",
+  "kind": "chunk",
+  "keys": [
+    "fam_torsion"
+  ],
+  "statement": "(((100 : Int) * (5 : Int)) = (500 : Int)) ∧ (((180 : Int) / (4 : Int)) = (45 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((80 : Int) * (1 : Int)) = (80 : Int)) ∧ (((10 : Int) * (1 : Int)) = (10 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (30 : Int))) = (60 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

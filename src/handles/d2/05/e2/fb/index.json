@@ -1,0 +1,12 @@
+{
+  "handle": "d205e2fb",
+  "address": "d205e2fb-bb65-8011-b33e-b3aae7290525",
+  "kind": "chunk",
+  "keys": [
+    "fam_mixology"
+  ],
+  "statement": "((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((20 : Int) * (100 : Int)) / ((60 : Int) + (20 : Int))) = (25 : Int)) ∧ (((60 : Int) / (20 : Int)) = (3 : Int)) ∧ ((((200 : Int) * (50 : Int)) / (100 : Int)) = (100 : Int)) ∧ (((750 : Int) / (50 : Int)) = (15 : Int)) ∧ (((3 : Int) * (30 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (12 : Int))) = (8 : Int)) ∧ ((((40 : Int) * (90 : Int)) / (100 : Int)) = (36 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

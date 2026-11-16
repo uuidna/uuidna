@@ -1,0 +1,12 @@
+{
+  "handle": "d22268da",
+  "address": "d22268da-2fca-8378-a159-4e8c84ffdc93",
+  "kind": "chunk",
+  "keys": [
+    "fam_robotics"
+  ],
+  "statement": "((6 : Int) = (6 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ (((4 : Int) * (25 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (100 : Int))) = (0 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((10000 : Int) / (250 : Int)) = (40 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

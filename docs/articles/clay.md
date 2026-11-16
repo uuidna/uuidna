@@ -18,21 +18,21 @@ The ledger holds this as [two_bit_conjunctions_are_four_of_sixteen](/theorem/two
 ((List.range 16).filter (fun t => ((List.range 4).filter (fun i => (t / (2^i)) % 2 == 1)).length == 1)).length = 4 ∧ (2^(2^2) = 16)
 ```
 
-### Riemann, through Mertens: M(n) = Σ μ(k), and |M(n)| ≤ √n — stated squared to stay in exact integers — holds for every n through 20. It was conjectured for ALL n and is FALSE (Odlyzko–te Riele, 1985), which is why the key names the window and not the conjecture: a predicate can hold on every element of a window and fail at the next.
+### Riemann, through Mertens: M(n) = Σ μ(k), and |M(n)| ≤ √n — stated squared to stay in exact integers — holds for every n through 20. It was conjectured for ALL n and is FALSE (Odlyzko–te Riele, 1985), which is why the key names the window and not the conjecture: a predicate can hold on every element of a window and fail at the next. Source: DOI 10.1515/crll.1985.357.138.
 The ledger holds this as [mertens_squared_under_n_on_the_first_twenty](/theorem/mertens_squared_under_n_on_the_first_twenty) — proven `by decide`, sorry-free:
 
 ```lean
 (([(1,1),(0,2),(1,3),(1,4),(4,5),(1,6),(4,7),(4,8),(4,9),(1,10),(4,11),(4,12),(9,13),(4,14),(1,15),(1,16),(4,17),(4,18),(9,19),(9,20)] : List (Nat × Nat)).all (fun q => q.1 ≤ q.2)) = true
 ```
 
-### Birch–Swinnerton-Dyer, through point counting: #E(F_p) on y² = x³ + 1, counted exhaustively at p = 5, 7, 11, 13, and Hasse's bound (p + 1 − N)² ≤ 4p at each. Hasse's theorem is proven mathematics; the counts here are decided, and the rank the conjecture is about is not touched.
+### Birch–Swinnerton-Dyer, through point counting: #E(F_p) on y² = x³ + 1, counted exhaustively at p = 5, 7, 11, 13, and Hasse's bound (p + 1 − N)² ≤ 4p at each. Hasse's theorem is proven mathematics; the counts here are decided, and the rank the conjecture is about is not touched. Source: DOI 10.1515/crll.1936.175.193.
 The ledger holds this as [hasse_bound_holds_at_four_primes](/theorem/hasse_bound_holds_at_four_primes) — proven `by decide`, sorry-free:
 
 ```lean
 (([(0,5),(16,7),(0,11),(4,13)] : List (Nat × Nat)).all (fun q => q.1 ≤ 4 * q.2)) = true
 ```
 
-### Poincaré, as combinatorics: the boundary of the 4-simplex triangulates the 3-sphere with 5 vertices, 10 edges, 10 faces and 5 cells, so χ = 5 − 10 + 10 − 5 = 0 — the Euler characteristic every closed odd-dimensional manifold has. The conjecture (proved by Perelman, 2003) is not this; this is the arithmetic of one triangulation.
+### Poincaré, as combinatorics: the boundary of the 4-simplex triangulates the 3-sphere with 5 vertices, 10 edges, 10 faces and 5 cells, so χ = 5 − 10 + 10 − 5 = 0 — the Euler characteristic every closed odd-dimensional manifold has. The conjecture (proved by Perelman, 2003) is not this; this is the arithmetic of one triangulation. Source: DOI 10.48550/arXiv.math/0211159.
 The ledger holds this as [four_simplex_boundary_euler_is_zero](/theorem/four_simplex_boundary_euler_is_zero) — proven `by decide`, sorry-free:
 
 ```lean
@@ -72,6 +72,9 @@ The ledger holds this as [clay_gravity_equals_rosette](/theorem/clay_gravity_equ
 
 The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
 
+1. Hasse, Helmut. (1936). Zur Theorie der abstrakten elliptischen Funktionenkörper III. Die Struktur des Meromorphismenrings. Die Riemannsche Vermutung. crll. [https://doi.org/10.1515/crll.1936.175.193](https://doi.org/10.1515/crll.1936.175.193)
+1. (1985). Disproof of the Mertens conjecture. Journal für die reine und angewandte Mathematik (Crelles Journal). [https://doi.org/10.1515/crll.1985.357.138](https://doi.org/10.1515/crll.1985.357.138)
+1. Perelman, Grisha. (2002). The entropy formula for the Ricci flow and its geometric applications. arXiv. [https://doi.org/10.48550/arXiv.math/0211159](https://doi.org/10.48550/arXiv.math/0211159)
 1. Rouschev, Tsvetan. (2026). All Seven Clay Millennium Problems Sealed via Universal σ-Involution. Zenodo. [https://doi.org/10.5281/zenodo.21781602](https://doi.org/10.5281/zenodo.21781602)
 1. Rouschev, Tsvetan. (2026). All Seven Clay Millennium Problems Sealed via Universal σ-Involution. Zenodo. [https://doi.org/10.5281/zenodo.21781603](https://doi.org/10.5281/zenodo.21781603)
 

@@ -1,0 +1,12 @@
+{
+  "handle": "22ab96f2",
+  "address": "22ab96f2-1f79-87a0-a2e4-9c93ff112088",
+  "kind": "chunk",
+  "keys": [
+    "fam_composting"
+  ],
+  "statement": "(((300 : Int) / (10 : Int)) = (30 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((20 : Int) + (45 : Int)) = (65 : Int)) ∧ ((if (if (90 : Int) ≥ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (30 : Int) ≥ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((3 : Int) * (2 : Int)) * (1 : Int)) = (6 : Int)) ∧ ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ (((500 : Int) / (100 : Int)) = (5 : Int)) ∧ ((((fmax (0 : Int) ((1000 : Int) - (400 : Int))) * (100 : Int)) / (1000 : Int)) = (60 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f9fa3bfd",
+  "address": "f9fa3bfd-a1cf-8d01-a504-7879dbc2d117",
+  "statement": "(((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((1000 : Int) / (250 : Int)) = (4 : Int)) ∧ (((256 : Int) + (50000 : Int)) = (50256 : Int)) ∧ ((((130 : Int) * (100 : Int)) / (100 : Int)) = (130 : Int)) ∧ ((((1000 : Int) * (100 : Int)) / (250 : Int)) = (400 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((1200 : Int) / (300 : Int)) = (4 : Int)) ∧ ((((130 : Int) * (100 : Int)) / (100 : Int)) = (130 : Int)) ∧ (((1000 : Int) / (0 : Int)) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_tokenization"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

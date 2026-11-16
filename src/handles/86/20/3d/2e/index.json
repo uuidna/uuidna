@@ -1,0 +1,12 @@
+{
+  "handle": "86203d2e",
+  "address": "86203d2e-d51b-80c6-b9fa-a163a1f290bd",
+  "kind": "chunk",
+  "keys": [
+    "fam_pentomino"
+  ],
+  "statement": "(((12 : Int) + (0 : Int)) = (12 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ (((12 : Int) * (8 : Int)) = (96 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ (((6 : Int) * (10 : Int)) = (60 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (100 : Int)) = (100 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

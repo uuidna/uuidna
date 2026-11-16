@@ -1,0 +1,12 @@
+{
+  "handle": "d993eef1",
+  "address": "d993eef1-01a0-8964-904e-3a609c5d92d0",
+  "kind": "chunk",
+  "keys": [
+    "fam_gematria"
+  ],
+  "statement": "(((22 : Int) * (1 : Int)) = (22 : Int)) ∧ ((((10 : Int) + (20 : Int)) + (30 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (22 : Int)) (Int.toNat (2 : Int)))) = (231 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((22 : Int) + (0 : Int)) = (22 : Int)) ∧ (((400 : Int) * (1 : Int)) = (400 : Int)) ∧ (((60 : Int) % (9 : Int)) = (6 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

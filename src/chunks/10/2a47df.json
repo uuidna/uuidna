@@ -1,0 +1,12 @@
+{
+  "handle": "102a47df",
+  "address": "102a47df-ce22-85c5-beff-602c09c30661",
+  "statement": "(((100000 : Int) - (60000 : Int)) = (40000 : Int)) ∧ (((60000 : Int) - (100000 : Int)) = (-40000 : Int)) ∧ (((200000 : Int) - (150000 : Int)) = (50000 : Int)) ∧ ((((50000 : Int) - (5000 : Int)) / (9 : Int)) = (5000 : Int)) ∧ ((((50000 : Int) * (100 : Int)) / (200000 : Int)) = (25 : Int)) ∧ ((((150000 : Int) * (100 : Int)) / (100000 : Int)) = (150 : Int)) ∧ (((((10000 : Int) * (8 : Int)) * (365 : Int)) / (36500 : Int)) = (800 : Int)) ∧ ((((50000 : Int) * (20 : Int)) / (100 : Int)) = (10000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_accounting"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

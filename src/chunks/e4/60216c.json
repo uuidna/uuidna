@@ -1,0 +1,12 @@
+{
+  "handle": "e460216c",
+  "address": "e460216c-d78c-8466-aef4-b4e72281a528",
+  "statement": "(((6 : Int) * (60 : Int)) = (360 : Int)) ∧ ((fmax (107 : Int) (110 : Int)) = (110 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((8 : Int) * (10 : Int)) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_smoking"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

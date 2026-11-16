@@ -1,0 +1,12 @@
+{
+  "handle": "e35474da",
+  "address": "e35474da-1b39-8271-8a33-95f868d3c38b",
+  "kind": "chunk",
+  "keys": [
+    "fam_cartography"
+  ],
+  "statement": "(((40 : Int) * (25 : Int)) = (1000 : Int)) ∧ (((((450 : Int) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (90 : Int)) ∧ (((((-90 : Int) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (270 : Int)) ∧ (((1050 : Int) / (100 : Int)) = (10 : Int)) ∧ (((50 : Int) * (1000 : Int)) = (50000 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ (((50000 : Int) / (25 : Int)) = (2000 : Int)) ∧ (((1 : Int) * ((4 : Int) ^ (2 : Nat))) = (16 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

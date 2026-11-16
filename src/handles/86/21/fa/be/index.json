@@ -1,0 +1,12 @@
+{
+  "handle": "8621fabe",
+  "address": "8621fabe-016c-816e-97aa-bf23f1d888e3",
+  "kind": "chunk",
+  "keys": [
+    "fam_aquaponics"
+  ],
+  "statement": "(((50 : Int) / (1 : Int)) = (50 : Int)) ∧ (((4 : Int) * (2 : Int)) = (8 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ (((1000 : Int) * (4 : Int)) = (4000 : Int)) ∧ (((2 : Int) + (1 : Int)) = (3 : Int)) ∧ (((68 : Int) / (10 : Int)) = (6 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

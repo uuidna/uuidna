@@ -1,0 +1,12 @@
+{
+  "handle": "2971a5c5",
+  "address": "2971a5c5-6b6c-8e18-be7d-47efe2f32f4f",
+  "statement": "(((3 : Int) + (1 : Int)) = (4 : Int)) ∧ (((8 : Int) * (3 : Int)) = (24 : Int)) ∧ (((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ (((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ (((2 : Int) * (3 : Int)) = (6 : Int)) ∧ (((16 : Int) + (0 : Int)) = (16 : Int)) ∧ ((fmax (0 : Int) ((255 : Int) - (16 : Int))) = (239 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_color"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

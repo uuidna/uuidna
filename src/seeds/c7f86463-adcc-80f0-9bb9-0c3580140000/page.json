@@ -1,0 +1,213 @@
+{
+  "file": "FamiliesZ.lean",
+  "slug": "familiesz",
+  "status": "usable",
+  "address": "ec3721de-ad59-8375-955e-2e12879fe50e",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "FamiliesZ.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"FamiliesZ.lean\",\n \"url\": \"https://uuidna.com/lean/FamiliesZ.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 5,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_zeroshot",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "zeroshot: embeddings(10, 64) = 640; attributes(10, 5) = 50; transferPairs(8, 2) = 16; comparisons(100, 10) = 1000; seenClasses(10, 3) = 7; seenClasses(3, 5) = 0; prompts(8, 10) = 80; signatures(4) = 16; partitions(10, 5) = 2; partitions(10, 0) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((10 : Int) * (64 : Int)) = (640 : Int)) ∧ (((10 : Int) * (5 : Int)) = (50 : Int)) ∧ (((8 : Int) * (2 : Int)) = (16 : Int)) ∧ (((100 : Int) * (10 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (5 : Int))) = (0 : Int)) ∧ (((8 : Int) * (10 : Int)) = (80 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((10 : Int) / (5 : Int)) = (2 : Int)) ∧ (((10 : Int) / (0 : Int)) = (0 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_zeroshot : (((10 : Int) * (64 : Int)) = (640 : Int)) ∧ (((10 : Int) * (5 : Int)) = (50 : Int)) ∧ (((8 : Int) * (2 : Int)) = (16 : Int)) ∧ (((100 : Int) * (10 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (5 : Int))) = (0 : Int)) ∧ (((8 : Int) * (10 : Int)) = (80 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((10 : Int) / (5 : Int)) = (2 : Int)) ∧ (((10 : Int) / (0 : Int)) = (0 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_zerotrust",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "zerotrust: trustscore(90, 100) = 90; microsegments(100, 8) = 13; verificationrate(950, 1000) = 95; blastradius(1000, 20) = 50; continuousauth(3600, 300) = 12; deviceposture(480, 500) = 96; policycoverage(180, 200) = 90; attacksurface(50, 12) = 600"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((-((-(100 : Int)) / (8 : Int))) = (13 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((3600 : Int) / (300 : Int)) = (12 : Int)) ∧ ((((480 : Int) * (100 : Int)) / (500 : Int)) = (96 : Int)) ∧ ((((180 : Int) * (100 : Int)) / (200 : Int)) = (90 : Int)) ∧ (((50 : Int) * (12 : Int)) = (600 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_zerotrust : ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((-((-(100 : Int)) / (8 : Int))) = (13 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((3600 : Int) / (300 : Int)) = (12 : Int)) ∧ ((((480 : Int) * (100 : Int)) / (500 : Int)) = (96 : Int)) ∧ ((((180 : Int) * (100 : Int)) / (200 : Int)) = (90 : Int)) ∧ (((50 : Int) * (12 : Int)) = (600 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_zoning",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "zoning: far(15000, 10000) = 150; coverage(4000, 10000) = 40; setback(100, 20, 15) = 65; density(120, 4) = 30; height(60, 12) = 5; parking(50, 2) = 100; openspace(10000, 4000) = 6000; lotsize(50000, 5000) = 10"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((((15000 : Int) * (100 : Int)) / (10000 : Int)) = (150 : Int)) ∧ ((((4000 : Int) * (100 : Int)) / (10000 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) (((100 : Int) - (20 : Int)) - (15 : Int))) = (65 : Int)) ∧ (((120 : Int) / (4 : Int)) = (30 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((50 : Int) * (2 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((10000 : Int) - (4000 : Int))) = (6000 : Int)) ∧ (((50000 : Int) / (5000 : Int)) = (10 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_zoning : ((((15000 : Int) * (100 : Int)) / (10000 : Int)) = (150 : Int)) ∧ ((((4000 : Int) * (100 : Int)) / (10000 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) (((100 : Int) - (20 : Int)) - (15 : Int))) = (65 : Int)) ∧ (((120 : Int) / (4 : Int)) = (30 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((50 : Int) * (2 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((10000 : Int) - (4000 : Int))) = (6000 : Int)) ∧ (((50000 : Int) / (5000 : Int)) = (10 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_zoology",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "zoology: population(100, 30) = 70; density(100, 4) = 25; metabolism(50, 3) = 150; lifespan(12) = 12; fecundity(1000, 40) = 25; predation(30, 100) = 30; migration(6000, 60) = 100; survival(950, 1000) = 95"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ (((1000 : Int) / (40 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_zoology : ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ (((1000 : Int) / (40 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fam_zoroastrianism",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "zoroastrianism: principles(3, 0) = 3; amesha(7, 0) = 7; dualitypairs(2, 2) = 1; hymncount(17, 1) = 17; fireranks(3, 0) = 3; prayerorderings(5) = 120; gathasubsets(5) = 32; cosmiccycles(3, 1000) = 3000"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((7 : Int) + (0 : Int)) = (7 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (2 : Int)) (Int.toNat (2 : Int)))) = (1 : Int)) ∧ (((17 : Int) * (1 : Int)) = (17 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((3 : Int) * (1000 : Int)) = (3000 : Int))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fam_zoroastrianism : (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((7 : Int) + (0 : Int)) = (7 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (2 : Int)) (Int.toNat (2 : Int)))) = (1 : Int)) ∧ (((17 : Int) * (1 : Int)) = (17 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((3 : Int) * (1000 : Int)) = (3000 : Int)) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

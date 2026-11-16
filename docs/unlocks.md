@@ -7,9 +7,9 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 > Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
 
-**Board (computed).** 75,450 distinct theorems · 80,808 keys · 133 skills · 293 Lean files.
+**Board (computed).** 72,323 distinct theorems · 72,409 keys · 133 skills · 293 Lean files.
 
-Receipt `e9e311c3-924e-8f44-97fb-fee6088b85d2` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
+Receipt `28c29971-a5f0-86c9-8df0-b433cc213751` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
 
 ## Illustrations (presence-checked, not a closed set)
 
@@ -56,8 +56,8 @@ Receipt `e9e311c3-924e-8f44-97fb-fee6088b85d2` · structured form <a href="/lean
 | Skill | Keys |
 | --- | ---: |
 | `wave` | 67208 |
-| `families` | 9524 |
 | `fermat` | 2096 |
+| `families` | 1124 |
 | `z9-ring` | 305 |
 | `z7-rosette` | 150 |
 | `nim` | 93 |
@@ -68,7 +68,7 @@ Receipt `e9e311c3-924e-8f44-97fb-fee6088b85d2` · structured form <a href="/lean
 | `audit` | 33 |
 | `clay` | 33 |
 | `neuro` | 32 |
-| `asked` | 30 |
+| `asked` | 31 |
 | `reasoning` | 29 |
 | `sequence` | 29 |
 | `coins` | 27 |
@@ -97,9 +97,9 @@ Receipt `e9e311c3-924e-8f44-97fb-fee6088b85d2` · structured form <a href="/lean
 | <a href="/lean/HexSpan8.lean">`HexSpan8.lean`</a> | 4096 |
 | <a href="/lean/HexSpan9.lean">`HexSpan9.lean`</a> | 4096 |
 | <a href="/lean/Wave.lean">`Wave.lean`</a> | 1088 |
-| <a href="/lean/FamiliesC.lean">`FamiliesC.lean`</a> | 1086 |
-| <a href="/lean/FamiliesP.lean">`FamiliesP.lean`</a> | 997 |
-| <a href="/lean/FamiliesS.lean">`FamiliesS.lean`</a> | 962 |
+| <a href="/lean/FixedPower.lean">`FixedPower.lean`</a> | 567 |
+| <a href="/lean/Laws.lean">`Laws.lean`</a> | 353 |
+| <a href="/lean/Ring.lean">`Ring.lean`</a> | 234 |
 
 ## World solutions = waves of automation
 

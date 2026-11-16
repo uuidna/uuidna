@@ -1,0 +1,12 @@
+{
+  "handle": "82a4a967",
+  "address": "82a4a967-918c-8a8b-b457-1a9615b5f776",
+  "statement": "(((12 : Int) + (8 : Int)) = (20 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((5 : Int) * (3 : Int)) = (15 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((3 : Int) + (2 : Int)) = (5 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_iconography"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

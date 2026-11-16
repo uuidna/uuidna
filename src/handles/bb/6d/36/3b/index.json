@@ -1,0 +1,12 @@
+{
+  "handle": "bb6d363b",
+  "address": "bb6d363b-c62f-825e-ba0e-f9f8a70768fe",
+  "kind": "chunk",
+  "keys": [
+    "fam_hvac"
+  ],
+  "statement": "(((600 : Int) * (25 : Int)) = (15000 : Int)) ∧ (((3 : Int) * (400 : Int)) = (1200 : Int)) ∧ (((36000 : Int) / (12000 : Int)) = (3 : Int)) ∧ ((-((-(1200 : Int)) / (800 : Int))) = (2 : Int)) ∧ (((20 : Int) * (15 : Int)) = (300 : Int)) ∧ (((1000 : Int) * (20 : Int)) = (20000 : Int)) ∧ ((((1000 : Int) * (50 : Int)) / (2 : Int)) = (25000 : Int)) ∧ ((if (if (72 : Int) ≤ (75 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (78 : Int) ≤ (75 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

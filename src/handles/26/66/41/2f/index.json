@@ -1,0 +1,12 @@
+{
+  "handle": "2666412f",
+  "address": "2666412f-4c3e-8d15-9f12-ec8b44f03e99",
+  "kind": "chunk",
+  "keys": [
+    "fam_budget"
+  ],
+  "statement": "(((10000 : Int) * (12 : Int)) = (120000 : Int)) ∧ ((fmax (0 : Int) ((120000 : Int) - (90000 : Int))) = (30000 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (85 : Int))) = (15 : Int)) ∧ (((8 : Int) + (0 : Int)) = (8 : Int)) ∧ ((fmax (0 : Int) ((120000 : Int) - (110000 : Int))) = (10000 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

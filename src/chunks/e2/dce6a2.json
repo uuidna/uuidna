@@ -1,0 +1,12 @@
+{
+  "handle": "e2dce6a2",
+  "address": "e2dce6a2-36cb-8dd2-af7f-7e0abf6c6ccb",
+  "statement": "(((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((600 : Int) / (4 : Int)) = (150 : Int)) ∧ (((240 : Int) / (5 : Int)) = (48 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((340 : Int) = (340 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ ((16 : Int) = (16 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (40 : Int))) = (80 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (120 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_equine"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

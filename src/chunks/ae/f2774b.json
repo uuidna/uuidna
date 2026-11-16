@@ -1,0 +1,12 @@
+{
+  "handle": "aef2774b",
+  "address": "aef2774b-4c23-8b0c-b0c1-91e08a832c79",
+  "statement": "(((62800 : Int) / (8 : Int)) = (7850 : Int)) ∧ ((((500 : Int) + (300 : Int)) / (2 : Int)) = (400 : Int)) ∧ (((((500 : Int) - (300 : Int)) * (1000 : Int)) / ((500 : Int) + (300 : Int))) = (250 : Int)) ∧ ((((400 : Int) * ((1000 : Int) + (250 : Int))) / (1000 : Int)) = (500 : Int)) ∧ ((((400 : Int) * ((1000 : Int) - (250 : Int))) / (1000 : Int)) = (300 : Int)) ∧ (((60000 : Int) / (60 : Int)) = (1000 : Int)) ∧ ((((30 : Int) * (90 : Int)) / (60 : Int)) = (45 : Int)) ∧ ((((10 : Int) * (45 : Int)) % (360 : Int)) = (90 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_orbit"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

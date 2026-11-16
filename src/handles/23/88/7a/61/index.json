@@ -1,0 +1,12 @@
+{
+  "handle": "23887a61",
+  "address": "23887a61-f800-834d-a005-517bbbda30ea",
+  "kind": "chunk",
+  "keys": [
+    "fam_hydraulics"
+  ],
+  "statement": "(((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((20 : Int) * (3 : Int)) = (60 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ (((60 : Int) / (20 : Int)) = (3 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((60 : Int) * (100 : Int)) = (6000 : Int)) ∧ (((3 : Int) * (50 : Int)) = (150 : Int)) ∧ (((100 : Int) * (8 : Int)) = (800 : Int))",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

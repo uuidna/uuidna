@@ -1,0 +1,12 @@
+{
+  "handle": "d324bbb9",
+  "address": "d324bbb9-34c7-8a59-a863-bbbba9341429",
+  "statement": "((((50000 : Int) * (20 : Int)) / (100 : Int)) = (10000 : Int)) ∧ ((((1000 : Int) * (20 : Int)) / (100 : Int)) = (200 : Int)) ∧ ((fmax (0 : Int) ((60000 : Int) - (50000 : Int))) = (10000 : Int)) ∧ ((fmax (0 : Int) ((40000 : Int) - (50000 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((50000 : Int) - (12000 : Int))) = (38000 : Int)) ∧ ((((10000 : Int) * (100 : Int)) / (50000 : Int)) = (20 : Int)) ∧ (((52000 : Int) / (12 : Int)) = (4333 : Int)) ∧ ((fmax (0 : Int) ((15000 : Int) - (10000 : Int))) = (5000 : Int)) ∧ ((((38000 : Int) * (25 : Int)) / (100 : Int)) = (9500 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_taxation"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

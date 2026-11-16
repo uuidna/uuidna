@@ -1,0 +1,12 @@
+{
+  "handle": "d1662a92",
+  "address": "d1662a92-0cee-8480-b641-c0e6c4eab7a9",
+  "kind": "chunk",
+  "keys": [
+    "fam_thermocouple"
+  ],
+  "statement": "(((41 : Int) * (100 : Int)) = (4100 : Int)) ∧ (((4100 : Int) / (41 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((250 : Int) - (25 : Int))) = (225 : Int)) ∧ (((4100 : Int) / (100 : Int)) = (41 : Int)) ∧ ((((41 : Int) * (100 : Int)) + (5 : Int)) = (4105 : Int)) ∧ (((4096 : Int) / (16 : Int)) = (256 : Int)) ∧ ((fmax (0 : Int) ((4100 : Int) - (50 : Int))) = (4050 : Int)) ∧ ((fmax (0 : Int) ((1370 : Int) - (0 : Int))) = (1370 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

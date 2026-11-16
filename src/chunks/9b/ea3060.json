@@ -1,0 +1,12 @@
+{
+  "handle": "9bea3060",
+  "address": "9bea3060-2bd2-87fa-8b73-b590bc1d4ada",
+  "statement": "(((400 : Int) / (8 : Int)) = (50 : Int)) ∧ (((20 : Int) * (3 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (40 : Int))) = (80 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (120 : Int))) = (0 : Int)) ∧ (((50 : Int) + ((10 : Int) * (4 : Int))) = (90 : Int)) ∧ (((16 : Int) + ((fmax (0 : Int) ((48 : Int) - (16 : Int))) / (16 : Int))) = (18 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_jitter"
+  ],
+  "files": [
+    "FamiliesJ.lean"
+  ]
+}

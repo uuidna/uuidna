@@ -1,0 +1,12 @@
+{
+  "handle": "7d80d977",
+  "address": "7d80d977-62b1-8c8f-bb74-280b801bbd9c",
+  "statement": "((((5000 : Int) * (693 : Int)) / ((100 : Int) * (1000 : Int))) = (34 : Int)) ∧ (((1000 : Int) / (40 : Int)) = (25 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((10 : Int) * (50 : Int)) = (500 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((70 : Int) * (5 : Int)) = (350 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((((100 : Int) - (25 : Int)) * (100 : Int)) / (100 : Int)) = (75 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_pharmacology"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

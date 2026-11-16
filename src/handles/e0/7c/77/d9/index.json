@@ -1,0 +1,12 @@
+{
+  "handle": "e07c77d9",
+  "address": "e07c77d9-1998-8ef5-abb8-74b55375dc54",
+  "kind": "chunk",
+  "keys": [
+    "fam_waveform"
+  ],
+  "statement": "(((1000000 : Int) / (1000 : Int)) = (1000 : Int)) ∧ (((fmax (0 : Int) ((100 : Int) - (20 : Int))) / (2 : Int)) = (40 : Int)) ∧ ((((1000 : Int) * (707 : Int)) / (1000 : Int)) = (707 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ ((((1000 : Int) * (1000 : Int)) / (707 : Int)) = (1414 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ (((1000000 : Int) / (1000 : Int)) = (1000 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int))",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

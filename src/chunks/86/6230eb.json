@@ -1,0 +1,12 @@
+{
+  "handle": "866230eb",
+  "address": "866230eb-b3ae-849b-8f64-152209bf36c7",
+  "statement": "((((1000 : Int) * (35 : Int)) / (1000 : Int)) = (35 : Int)) ∧ (((35 : Int) + (1 : Int)) = (36 : Int)) ∧ ((fmax (0 : Int) (((1000 : Int) + (35 : Int)) - (10 : Int))) = (1025 : Int)) ∧ ((fmax (0 : Int) (((1000 : Int) + (10 : Int)) - (2000 : Int))) = (0 : Int)) ∧ (((35 : Int) * (10 : Int)) = (350 : Int)) ∧ ((((35 : Int) * (554 : Int)) / (1000 : Int)) = (19 : Int)) ∧ (((1025 : Int) / (35 : Int)) = (29 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ (((35 : Int) * (54 : Int)) = (1890 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_salinity"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

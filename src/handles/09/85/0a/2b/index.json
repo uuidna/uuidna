@@ -1,0 +1,12 @@
+{
+  "handle": "09850a2b",
+  "address": "09850a2b-c95d-8eb1-882d-db48b89d5dab",
+  "kind": "chunk",
+  "keys": [
+    "fam_gastroenterology"
+  ],
+  "statement": "(((240 : Int) / (24 : Int)) = (10 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((140 : Int) * (100 : Int)) / (100 : Int)) = (140 : Int)) ∧ (((120 : Int) / (60 : Int)) = (2 : Int)) ∧ ((((70 : Int) * (10000 : Int)) / ((175 : Int) * (175 : Int))) = (22 : Int)) ∧ ((((500 : Int) * (100 : Int)) / (5000 : Int)) = (10 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

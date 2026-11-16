@@ -1,0 +1,12 @@
+{
+  "handle": "c2202d79",
+  "address": "c2202d79-e4b9-8aa3-a228-8066277ab1ef",
+  "statement": "(((1000 : Int) * (5 : Int)) = (5000 : Int)) ∧ (((1000 : Int) * (5 : Int)) = (5000 : Int)) ∧ ((fmax (0 : Int) ((10000 : Int) - (4000 : Int))) = (6000 : Int)) ∧ (((500 : Int) + (0 : Int)) = (500 : Int)) ∧ (((1000 : Int) * (2 : Int)) = (2000 : Int)) ∧ (((12 : Int) + (0 : Int)) = (12 : Int)) ∧ ((((98 : Int) * (100 : Int)) / (100 : Int)) = (98 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_ledger"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

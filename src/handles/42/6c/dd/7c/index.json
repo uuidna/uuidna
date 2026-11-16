@@ -1,0 +1,12 @@
+{
+  "handle": "426cdd7c",
+  "address": "426cdd7c-95cd-808c-b59b-ae44c874c8c7",
+  "kind": "chunk",
+  "keys": [
+    "fam_tides"
+  ],
+  "statement": "(((264 : Int) / (2 : Int)) = (132 : Int)) ∧ (((12000 : Int) / (6 : Int)) = (2000 : Int)) ∧ (((50 : Int) * (4 : Int)) = (200 : Int)) ∧ ((((312 : Int) + (48 : Int)) / (2 : Int)) = (180 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (40 : Int))) = (50 : Int)) ∧ (((24 : Int) / (2 : Int)) = (12 : Int)) ∧ ((fmax (0 : Int) ((312 : Int) - (48 : Int))) = (264 : Int)) ∧ (((40 : Int) + (90 : Int)) = (130 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (90 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "345e8339",
+  "address": "345e8339-cc4b-87db-8b18-b5af8f5eb9c4",
+  "statement": "(((15000 : Int) / (120 : Int)) = (125 : Int)) ∧ ((fmax (0 : Int) ((10850 : Int) - (10800 : Int))) = (50 : Int)) ∧ ((fmax (0 : Int) ((11000 : Int) - (10900 : Int))) = (100 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (100 : Int)) = (8 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ (((120 : Int) / (20 : Int)) = (6 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_exchangerate"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

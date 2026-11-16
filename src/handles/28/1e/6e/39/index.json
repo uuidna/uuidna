@@ -1,0 +1,12 @@
+{
+  "handle": "281e6e39",
+  "address": "281e6e39-6175-8d4a-ba52-c5c16bcb1bf9",
+  "kind": "chunk",
+  "keys": [
+    "fam_vet"
+  ],
+  "statement": "(((20 : Int) * (5 : Int)) = (100 : Int)) ∧ (((3 : Int) * (7 : Int)) = (21 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ (((100 : Int) + (63 : Int)) = (163 : Int)) ∧ ((((40 : Int) * (3 : Int)) / (100 : Int)) = (1 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((10 : Int) * (60 : Int)) = (600 : Int))",
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cfe5c752",
+  "address": "cfe5c752-abc3-8ebe-a227-4a8ad5166e6a",
+  "kind": "chunk",
+  "keys": [
+    "fam_advertising"
+  ],
+  "statement": "((((50 : Int) * (10000 : Int)) / (10000 : Int)) = (50 : Int)) ∧ ((((2000 : Int) * (1000 : Int)) / (10000 : Int)) = (200 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (50 : Int)) = (20 : Int)) ∧ ((((5000 : Int) * (100 : Int)) / (1000 : Int)) = (500 : Int)) ∧ (((10000 : Int) / (4 : Int)) = (2500 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

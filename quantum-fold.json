@@ -2,14 +2,14 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "1d6d6e88b2558b48",
-      "principles": "cbe9d0aaece155e7",
-      "monographs": "fc25e4f4f1bbbab9"
+      "theorems": "99962cfaecf365f6",
+      "principles": "7dbd8788e0cec5b7",
+      "monographs": "dd44742ffb22a56d"
     },
     "served": {
       "packages": "068aa5b6c7f3b962",
       "exports": "8ff8e334497362de",
-      "mcp": "824df0d981f24082"
+      "mcp": "ba4f6c4590c73e72"
     },
     "proven": {
       "tests": "c9527d4896a07019",
@@ -28,34 +28,34 @@
     }
   },
   "trinity_folds": {
-    "sealed": "a4d05b8260e2824371339d1fc86d5eaf",
-    "served": "8520988997e7a79937204d583ba6211f",
+    "sealed": "6c57aa1f4cbcb8c6d6c7a015e6bd70c9",
+    "served": "2b2c04536d5130c43e564d1356d8cc56",
     "proven": "65b94142221a0948f87ca3002d3d9f06",
     "record": "a9ab5d11cfb8fa43a25710cd7fdfd7dd",
     "walks": "5e5af267509ad21acac44d5442736e2c"
   },
-  "unified_fold": "213a41a1324ff34a",
-  "receipt": "19c0b31b6008dbea",
+  "unified_fold": "139f0c878b7f2eae",
+  "receipt": "63ff8abf53e87d9a",
   "rosette_receipt": {
     "rays": [
-      "cbecb0b06101833c",
+      "b11aab282e58e86d",
       "bf0a979de9af126f",
-      "fc3b6db7fcaade1b",
+      "5121ab2fcf2f5796",
       "a20454282e566346",
-      "dcc76dc21f483733",
+      "b82268bc23a30156",
       "a761502744407dcd",
-      "9acdcf04fa94b425"
+      "d30b9876b16ab69e"
     ],
-    "concurrence": "8dba000d78c312a8c3e624545d5d2f3f"
+    "concurrence": "f1aa58d53df02f795d19cb6721568e33"
   },
   "aura": {
-    "rgb": "#bf41d2",
-    "hsl": "hsl(292, 62%, 54%)",
+    "rgb": "#e44e87",
+    "hsl": "hsl(23, 74%, 60%)",
     "alphabet": "4c12110e5c171d38",
-    "movie": "8d8b3bd19b9ec4ad",
-    "lessons": "b33e7136632b30af",
+    "movie": "f5fe53151c50915b",
+    "lessons": "9b3f8cd35199c41f",
     "report": "940001b6ff9bd2fc",
-    "session": "230f66f30daf61af",
+    "session": "66193fed60a69b59",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 8,
-      "ray": 0,
-      "wave": 4,
-      "hue": 292,
-      "sat": 62,
-      "light": 54,
-      "period": 12,
+      "residue": 2,
+      "ray": 6,
+      "wave": 5,
+      "hue": 23,
+      "sat": 74,
+      "light": 60,
+      "period": 24,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

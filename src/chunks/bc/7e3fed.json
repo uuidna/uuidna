@@ -1,0 +1,12 @@
+{
+  "handle": "bc7e3fed",
+  "address": "bc7e3fed-454b-8d06-9aa8-37835ede98e2",
+  "statement": "(((4 : Int) * (25 : Int)) = (100 : Int)) ∧ ((((7 : Int) * (2 : Int)) * (100 : Int)) = (1400 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ ((fmax (0 : Int) ((122 : Int) - (80 : Int))) = (42 : Int)) ∧ ((((1000 : Int) * (60 : Int)) / (100 : Int)) = (600 : Int)) ∧ ((((21 : Int) * (100 : Int)) / (100 : Int)) = (21 : Int)) ∧ (((50 : Int) * (1000 : Int)) = (50000 : Int)) ∧ ((fmax (0 : Int) ((122 : Int) - (200 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_astrobiology"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

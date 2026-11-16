@@ -1,0 +1,12 @@
+{
+  "handle": "01fb3c13",
+  "address": "01fb3c13-7dcb-84e4-8aa8-c1c5db0a17f5",
+  "kind": "chunk",
+  "keys": [
+    "fam_receipts"
+  ],
+  "statement": "(((100 : Int) * (12 : Int)) = (1200 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((1200 : Int) - (100 : Int))) = (1100 : Int)) ∧ (((8 : Int) + (4 : Int)) = (12 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ (((30 : Int) * (1 : Int)) = (30 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

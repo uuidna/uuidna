@@ -1,0 +1,12 @@
+{
+  "handle": "e995f6d7",
+  "address": "e995f6d7-d84c-8406-8b58-31d165d98a9c",
+  "statement": "(((500 : Int) * (10 : Int)) = (5000 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((200 : Int) * (300 : Int)) = (60000 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (15 : Int)) (Int.toNat (2 : Int)))) = (105 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_biogeography"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

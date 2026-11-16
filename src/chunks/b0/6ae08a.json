@@ -1,0 +1,12 @@
+{
+  "handle": "b06ae08a",
+  "address": "b06ae08a-793d-8355-9191-677384541907",
+  "statement": "((((3 : Int) * (100 : Int)) / (32 : Int)) = (9 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (160 : Int)) = (25 : Int)) ∧ (((70 : Int) * (2 : Int)) = (140 : Int)) ∧ ((fmax (0 : Int) ((6 : Int) - (2 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((2 : Int) - (6 : Int))) = (0 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((if (if (700 : Int) ≤ (1500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2000 : Int) ≤ (1500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (32 : Int)) = (3 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_dentistry"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

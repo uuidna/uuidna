@@ -1,0 +1,12 @@
+{
+  "handle": "e4a62639",
+  "address": "e4a62639-38d3-83c6-9e45-f6ec4c360dfa",
+  "statement": "(((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((40 : Int) * (1 : Int)) = (40 : Int)) ∧ (((120 : Int) / (120 : Int)) = (1 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (15 : Int)) (Int.toNat (3 : Int)))) = (455 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (6 : Int)))) / (Int.ofNat (ffact (Int.toNat ((6 : Int) - (2 : Int)))))) = (30 : Int)) ∧ (((8 : Int) + (4 : Int)) = (12 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_screenwriting"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

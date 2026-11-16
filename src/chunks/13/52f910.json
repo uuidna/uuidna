@@ -1,0 +1,12 @@
+{
+  "handle": "1352f910",
+  "address": "1352f910-91f1-8963-85ea-8564a9095b57",
+  "statement": "((((1000 : Int) * (100 : Int)) / (250 : Int)) = (400 : Int)) ∧ (((((1000 : Int) - (250 : Int)) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((64000 : Int) / (8 : Int)) = (8000 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ (((10000 : Int) / (20 : Int)) = (500 : Int)) ∧ ((4096 : Int) = (4096 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_compression"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

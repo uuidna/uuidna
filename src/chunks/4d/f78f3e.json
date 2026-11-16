@@ -1,0 +1,12 @@
+{
+  "handle": "4df78f3e",
+  "address": "4df78f3e-d988-8d6d-a0c3-9f8a469cf4d3",
+  "statement": "(((1000 : Int) * (1 : Int)) = (1000 : Int)) ∧ ((((50 : Int) * (20 : Int)) * (20 : Int)) = (20000 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((100 : Int) * (1 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((10000 : Int) - (8000 : Int))) = (2000 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ (((200 : Int) * (1 : Int)) = (200 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (20 : Int))) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_airship"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

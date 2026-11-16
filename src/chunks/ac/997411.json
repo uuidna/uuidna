@@ -1,0 +1,12 @@
+{
+  "handle": "ac997411",
+  "address": "ac997411-8161-8741-948b-d17a76ccc5d7",
+  "statement": "((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (5 : Int)) (Int.toNat (2 : Int)))) = (10 : Int)) ∧ (((6 : Int) + (1 : Int)) = (7 : Int)) ∧ (((2 : Int) ^ (7 : Nat)) = (128 : Int)) ∧ (((2 : Int) * (4 : Int)) = (8 : Int)) ∧ (((4 : Int) * (1000 : Int)) = (4000 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_cosmogony"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

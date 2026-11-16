@@ -1,0 +1,12 @@
+{
+  "handle": "4b3562b8",
+  "address": "4b3562b8-378e-80c1-8bb1-40041c5a0cbb",
+  "statement": "(((3 : Int) * (7 : Int)) = (21 : Int)) ∧ (((2 : Int) * ((5 : Int) ^ (2 : Nat))) = (50 : Int)) ∧ ((((2 : Int) ^ (2 : Nat)) - ((4 : Int) * (1 : Int))) = (0 : Int)) ∧ ((((1 : Int) ^ (2 : Nat)) - ((4 : Int) * (1 : Int))) = (-3 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (4 : Int)) = (250 : Int)) ∧ ((((2 : Int) ^ (2 : Nat)) - ((4 : Int) * (3 : Int))) = (-8 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_algebra"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

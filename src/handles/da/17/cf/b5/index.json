@@ -1,0 +1,12 @@
+{
+  "handle": "da17cfb5",
+  "address": "da17cfb5-0412-8839-b096-34be5e1eaa00",
+  "kind": "chunk",
+  "keys": [
+    "fam_cogeneration"
+  ],
+  "statement": "((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (600 : Int)) = (66 : Int)) ∧ (((500 : Int) * (1 : Int)) = (500 : Int)) ∧ (((700 : Int) * (1 : Int)) = (700 : Int)) ∧ (((500 : Int) + (700 : Int)) = (1200 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

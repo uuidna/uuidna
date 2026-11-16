@@ -1,0 +1,12 @@
+{
+  "handle": "699adf06",
+  "address": "699adf06-7c82-87f9-995a-78c677b475e1",
+  "statement": "(((100 : Int) / (25 : Int)) = (4 : Int)) ∧ (((1000 : Int) / ((2 : Int) ^ (3 : Nat))) = (125 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - ((1000 : Int) / ((2 : Int) ^ (3 : Nat))))) = (875 : Int)) ∧ ((((1000 : Int) * (693 : Int)) / ((10 : Int) * (1000 : Int))) = (69 : Int)) ∧ ((((1000 : Int) * (1443 : Int)) / (1000 : Int)) = (1443 : Int)) ∧ ((((1000 : Int) * (69 : Int)) / (1000 : Int)) = (69 : Int)) ∧ (((100 : Int) / ((2 : Int) ^ (2 : Nat))) = (25 : Int)) ∧ (((10 : Int) * ((2 : Int) ^ (3 : Nat))) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_halflife"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

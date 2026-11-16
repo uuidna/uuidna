@@ -1,0 +1,12 @@
+{
+  "handle": "7f09f099",
+  "address": "7f09f099-79a3-8bea-b6a2-0b294e93faec",
+  "kind": "chunk",
+  "keys": [
+    "fam_literacy"
+  ],
+  "statement": "((((300 : Int) * (60 : Int)) / (60 : Int)) = (300 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((((300 : Int) * (80 : Int)) / (100 : Int)) = (240 : Int)) ∧ (((120 : Int) / (8 : Int)) = (15 : Int)) ∧ ((((4500 : Int) * (100 : Int)) / (5000 : Int)) = (90 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (850 : Int))) = (150 : Int)) ∧ ((fmax (0 : Int) ((800 : Int) - (850 : Int))) = (0 : Int)) ∧ ((((((100 : Int) / (5 : Int)) + (((10 : Int) * (100 : Int)) / (100 : Int))) * (2 : Int)) / (5 : Int)) = (12 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

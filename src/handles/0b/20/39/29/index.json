@@ -1,0 +1,12 @@
+{
+  "handle": "0b203929",
+  "address": "0b203929-1894-844b-a0b4-5aa6f5ef0bb7",
+  "kind": "chunk",
+  "keys": [
+    "fam_paleontology"
+  ],
+  "statement": "(((2 : Int) * (5730 : Int)) = (11460 : Int)) ∧ (((1000 : Int) / ((2 : Int) ^ (3 : Nat))) = (125 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (200 : Int)) = (30 : Int)) ∧ (((120 : Int) / (40 : Int)) = (3 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ (((12 : Int) * (100 : Int)) = (1200 : Int)) ∧ (((600 : Int) / (20 : Int)) = (30 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

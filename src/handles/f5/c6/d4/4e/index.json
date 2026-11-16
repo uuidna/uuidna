@@ -1,0 +1,12 @@
+{
+  "handle": "f5c6d44e",
+  "address": "f5c6d44e-6d23-87b6-b304-e6f1dcc09166",
+  "kind": "chunk",
+  "keys": [
+    "fam_helicopter"
+  ],
+  "statement": "(((16 : Int) * (1 : Int)) = (16 : Int)) ∧ (((4000 : Int) * (2 : Int)) = (8000 : Int)) ∧ (((250 : Int) * (1 : Int)) = (250 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ (((5000 : Int) * (1 : Int)) = (5000 : Int)) ∧ (((600 : Int) / (10 : Int)) = (60 : Int)) ∧ (((1000 : Int) * (1 : Int)) = (1000 : Int))",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8cd9b45a",
+  "address": "8cd9b45a-7f80-8c76-94e8-6c8b2ae8541b",
+  "statement": "((((4 : Int) * (6 : Int)) / (Int.ofNat (fgcd 100 (Int.toNat (4 : Int)) (Int.toNat (6 : Int))))) = (12 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_numbertheory"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

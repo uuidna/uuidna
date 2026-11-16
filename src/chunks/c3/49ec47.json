@@ -1,0 +1,12 @@
+{
+  "handle": "c349ec47",
+  "address": "c349ec47-1e65-84f0-87d9-e4dffcc8a90b",
+  "statement": "((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((((200 : Int) * (100 : Int)) / (100 : Int)) = (200 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (100 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (100 : Int))) = (0 : Int)) ∧ (((1000 : Int) / (400 : Int)) = (2 : Int)) ∧ (((180 : Int) / (60 : Int)) = (3 : Int)) ∧ (((((212 : Int) - (32 : Int)) * (5 : Int)) / (9 : Int)) = (100 : Int)) ∧ (((500 : Int) * (3 : Int)) = (1500 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_baking"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

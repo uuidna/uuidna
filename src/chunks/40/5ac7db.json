@@ -1,0 +1,12 @@
+{
+  "handle": "405ac7db",
+  "address": "405ac7db-73fd-832f-b6bf-23b994029158",
+  "statement": "(((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ (((1000 : Int) / (0 : Int)) = (0 : Int)) ∧ (((6 : Int) * (16 : Int)) = (96 : Int)) ∧ ((Int.ofNat (flog 2 64 (Int.toNat (1024 : Int)))) = (10 : Int)) ∧ ((((2 : Int) ^ (8 : Nat)) - (1 : Int)) = (255 : Int)) ∧ (((125 : Int) / (2 : Int)) = (62 : Int)) ∧ (((16 : Int) * (1000 : Int)) = (16000 : Int)) ∧ (((2560 : Int) / ((2 : Int) ^ (8 : Nat))) = (10 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_quantization"
+  ],
+  "files": [
+    "FamiliesQ.lean"
+  ]
+}

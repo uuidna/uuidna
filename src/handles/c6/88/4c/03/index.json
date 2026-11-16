@@ -1,0 +1,12 @@
+{
+  "handle": "c6884c03",
+  "address": "c6884c03-013a-85b3-9a26-3c8144c9782c",
+  "kind": "chunk",
+  "keys": [
+    "fam_liquidity"
+  ],
+  "statement": "((((300 : Int) * (100 : Int)) / (150 : Int)) = (200 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (100 : Int)) = (250 : Int)) ∧ (((800 : Int) / (100 : Int)) = (8 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (300 : Int))) = (200 : Int)) ∧ ((((1200 : Int) * (100 : Int)) / (1000 : Int)) = (120 : Int)) ∧ ((((1100 : Int) * (100 : Int)) / (1000 : Int)) = (110 : Int)) ∧ (((1200 : Int) / (12 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (500 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0af00c8b",
+  "address": "0af00c8b-f198-8149-b032-1d12e96c3c88",
+  "kind": "chunk",
+  "keys": [
+    "fam_tourism"
+  ],
+  "statement": "((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((9000 : Int) / (100 : Int)) = (90 : Int)) ∧ (((9000 : Int) / (80 : Int)) = (112 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ (((100 : Int) * (2 : Int)) = (200 : Int)) ∧ (((1000 : Int) * (250 : Int)) = (250000 : Int)) ∧ (((150 : Int) / (50 : Int)) = (3 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ec4cc309",
+  "address": "ec4cc309-fc2e-82a3-bfe8-c7c1124b8bbd",
+  "kind": "chunk",
+  "keys": [
+    "fam_scholasticism"
+  ],
+  "statement": "(((500 : Int) + (131 : Int)) = (631 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ (((16 : Int) * (4 : Int)) = (64 : Int)) ∧ (((4 : Int) + (3 : Int)) = (7 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

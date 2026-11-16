@@ -1,0 +1,12 @@
+{
+  "handle": "56968373",
+  "address": "56968373-4859-8a2d-ba21-44cf87227a10",
+  "kind": "chunk",
+  "keys": [
+    "fam_radar"
+  ],
+  "statement": "(((100 : Int) * (1 : Int)) = (100 : Int)) ∧ (((1000 : Int) * (1 : Int)) = (1000 : Int)) ∧ (((300 : Int) / (2 : Int)) = (150 : Int)) ∧ (((12 : Int) + (0 : Int)) = (12 : Int)) ∧ (((50 : Int) * (2 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

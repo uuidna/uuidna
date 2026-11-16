@@ -1,0 +1,12 @@
+{
+  "handle": "00c258d8",
+  "address": "00c258d8-1d46-8994-add7-1e6aada89e12",
+  "kind": "chunk",
+  "keys": [
+    "fam_triangulation"
+  ],
+  "statement": "((fmax (0 : Int) (((180 : Int) - (60 : Int)) - (70 : Int))) = (50 : Int)) ∧ ((fmax (0 : Int) (((180 : Int) - (100 : Int)) - (100 : Int))) = (0 : Int)) ∧ ((((20 : Int) * (10 : Int)) / (2 : Int)) = (100 : Int)) ∧ ((((3 : Int) ^ (2 : Nat)) + ((4 : Int) ^ (2 : Nat))) = (25 : Int)) ∧ ((((200 : Int) + (200 : Int)) % (360 : Int)) = (40 : Int)) ∧ ((((10 : Int) + (30 : Int)) / (2 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (8 : Int))) = (4 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ ((((100 : Int) + (120 : Int)) + (140 : Int)) = (360 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bb7667f0",
+  "address": "bb7667f0-ccf5-84fd-8a8a-505c6afc230e",
+  "kind": "chunk",
+  "keys": [
+    "fam_galactic"
+  ],
+  "statement": "(((60000 : Int) / (300 : Int)) = (200 : Int)) ∧ (((200 : Int) * (300 : Int)) = (60000 : Int)) ∧ (((10000 : Int) / (4 : Int)) = (2500 : Int)) ∧ (((50 : Int) * (1000 : Int)) = (50000 : Int)) ∧ ((((10 : Int) ^ (2 : Nat)) * (500 : Int)) = (50000 : Int)) ∧ ((((2 : Int) * (60000 : Int)) / (300 : Int)) = (400 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "5469e46e",
+  "address": "5469e46e-fb14-896a-8c46-fccdbee7b117",
+  "statement": "(((1000 : Int) / (250 : Int)) = (4 : Int)) ∧ ((((50000 : Int) * (365 : Int)) / (365000 : Int)) = (50 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (600 : Int))) = (400 : Int)) ∧ ((((10000 : Int) * (3 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (750 : Int))) = (250 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (800 : Int))) = (0 : Int)) ∧ ((((5000 : Int) * (80 : Int)) / (100 : Int)) = (4000 : Int)) ∧ ((((2000 : Int) * (2 : Int)) / (100 : Int)) = (40 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_receivables"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

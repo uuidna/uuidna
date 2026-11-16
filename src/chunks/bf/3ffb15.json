@@ -1,0 +1,12 @@
+{
+  "handle": "bf3ffb15",
+  "address": "bf3ffb15-bf43-8edb-aae6-a66a0deae03b",
+  "statement": "(((1500 : Int) * (1 : Int)) = (1500 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (100 : Int))) = (400 : Int)) ∧ (((3000 : Int) / (60 : Int)) = (50 : Int)) ∧ (((50000 : Int) / (1000 : Int)) = (50 : Int)) ∧ (((12 : Int) + (8 : Int)) = (20 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ (((200 : Int) / (4 : Int)) = (50 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_hydrography"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

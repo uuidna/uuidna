@@ -1,0 +1,12 @@
+{
+  "handle": "2784a8a6",
+  "address": "2784a8a6-5331-8a09-8c2d-5c6d7697fc31",
+  "kind": "chunk",
+  "keys": [
+    "fam_coaching"
+  ],
+  "statement": "(((52 : Int) / (4 : Int)) = (13 : Int)) ∧ ((((1000 : Int) * ((100 : Int) - (40 : Int))) / (100 : Int)) = (600 : Int)) ∧ (((100 : Int) + (((100 : Int) * (10 : Int)) / (100 : Int))) = (110 : Int)) ∧ (((40 : Int) / (20 : Int)) = (2 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (250 : Int)) = (120 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (30 : Int))) = (50 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (80 : Int))) = (0 : Int)) ∧ ((((1000 : Int) * (50 : Int)) / (100 : Int)) = (500 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

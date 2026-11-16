@@ -1,0 +1,12 @@
+{
+  "handle": "46011940",
+  "address": "46011940-cbad-8df1-a7f9-16948b93b8db",
+  "kind": "chunk",
+  "keys": [
+    "fam_walkability"
+  ],
+  "statement": "((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (24 : Int)) = (75 : Int)) ∧ ((((360 : Int) * (100 : Int)) / (400 : Int)) = (90 : Int)) ∧ ((((12 : Int) * (1000 : Int)) / (2000 : Int)) = (6 : Int)) ∧ (((80 : Int) * (15 : Int)) = (1200 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (((5 : Int) * (100 : Int)) / (100 : Int)))) = (95 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (((200 : Int) * (100 : Int)) / (800 : Int)))) = (75 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (100 : Int)) = (8 : Int))",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

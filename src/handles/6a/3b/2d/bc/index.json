@@ -1,0 +1,12 @@
+{
+  "handle": "6a3b2dbc",
+  "address": "6a3b2dbc-f6bb-8734-be63-bd988a0d3c6d",
+  "kind": "chunk",
+  "keys": [
+    "fam_glomerular"
+  ],
+  "statement": "(((100 : Int) * (2 : Int)) = (200 : Int)) ∧ (((200 : Int) / (2 : Int)) = (100 : Int)) ∧ ((((100 : Int) * (2 : Int)) / (2 : Int)) = (100 : Int)) ∧ ((((120 : Int) * (1 : Int)) / (1 : Int)) = (120 : Int)) ∧ ((((125 : Int) * (100 : Int)) / (625 : Int)) = (20 : Int)) ∧ (((100 : Int) * (5 : Int)) = (500 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (100 : Int))) = (400 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (500 : Int))) = (0 : Int)) ∧ ((((1000 : Int) * ((100 : Int) - (45 : Int))) / (100 : Int)) = (550 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

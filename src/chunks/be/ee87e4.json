@@ -1,0 +1,12 @@
+{
+  "handle": "beee87e4",
+  "address": "beee87e4-c999-8b1d-b58c-7e6df8312415",
+  "statement": "((((500 : Int) + (700 : Int)) / (2 : Int)) = (600 : Int)) ∧ ((fmax (0 : Int) ((700 : Int) - (500 : Int))) = (200 : Int)) ∧ ((((1500 : Int) * (100 : Int)) / (500 : Int)) = (300 : Int)) ∧ (((200 : Int) * (300 : Int)) = (60000 : Int)) ∧ (((3000 : Int) / ((4 : Int) - (1 : Int))) = (1000 : Int)) ∧ (((600 : Int) / (200 : Int)) = (3 : Int)) ∧ ((((3500 : Int) - (500 : Int)) / ((4 : Int) - (1 : Int))) = (1000 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_formant"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

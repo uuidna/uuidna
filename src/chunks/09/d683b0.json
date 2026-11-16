@@ -1,0 +1,12 @@
+{
+  "handle": "09d683b0",
+  "address": "09d683b0-3645-81f7-ae2a-71fc325e0c02",
+  "statement": "(((1000 : Int) * (9 : Int)) = (9000 : Int)) ∧ ((((120 : Int) * (500 : Int)) / (100 : Int)) = (600 : Int)) ∧ (((8000 : Int) / (20 : Int)) = (400 : Int)) ∧ ((((680 : Int) * (100 : Int)) / (340 : Int)) = (200 : Int)) ∧ ((((100 : Int) ^ (3 : Nat)) / (500 : Int)) = (2000 : Int)) ∧ (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (3200 : Int))) = (1800 : Int)) ∧ ((fmax (0 : Int) ((3000 : Int) - (4000 : Int))) = (0 : Int)) ∧ (((60000 : Int) / (300 : Int)) = (200 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_aerospace"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d5e4768e",
+  "address": "d5e4768e-c9b7-85c6-a2af-02e6b735da71",
+  "kind": "chunk",
+  "keys": [
+    "fam_basketball"
+  ],
+  "statement": "((((9 : Int) * (100 : Int)) / (20 : Int)) = (45 : Int)) ∧ ((((17 : Int) * (100 : Int)) / (20 : Int)) = (85 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (20 : Int)) = (150 : Int)) ∧ (((220 : Int) / (20 : Int)) = (11 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (20 : Int)) = (400 : Int)) ∧ (((100 : Int) / (48 : Int)) = (2 : Int)) ∧ ((((28 : Int) * (100 : Int)) / (25 : Int)) = (112 : Int)) ∧ (((110 : Int) - (100 : Int)) = (10 : Int)) ∧ (((100 : Int) - (110 : Int)) = (-10 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

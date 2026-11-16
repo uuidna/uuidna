@@ -1,0 +1,12 @@
+{
+  "handle": "2d8c5e7e",
+  "address": "2d8c5e7e-6a1e-8f83-ac20-2d93cacb39fd",
+  "kind": "chunk",
+  "keys": [
+    "fam_mysticism"
+  ],
+  "statement": "(((3 : Int) + (4 : Int)) = (7 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (7 : Int)))) = (5040 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (7 : Int)) (Int.toNat (3 : Int)))) = (35 : Int)) ∧ (((3 : Int) * (3 : Int)) = (9 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (10 : Int)))) / (Int.ofNat (ffact (Int.toNat ((10 : Int) - (3 : Int)))))) = (720 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

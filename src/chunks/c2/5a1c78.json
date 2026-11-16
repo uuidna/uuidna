@@ -1,0 +1,12 @@
+{
+  "handle": "c25a1c78",
+  "address": "c25a1c78-b532-89e7-b0df-62c149401c18",
+  "statement": "((fmax (4 : Int) (5 : Int)) = (5 : Int)) ∧ (((150 : Int) * (1 : Int)) = (150 : Int)) ∧ ((fmax (0 : Int) ((1013 : Int) - (950 : Int))) = (63 : Int)) ∧ (((50 : Int) * (2 : Int)) = (100 : Int)) ∧ (((600 : Int) / (100 : Int)) = (6 : Int)) ∧ (((300 : Int) * (1 : Int)) = (300 : Int)) ∧ (((60 : Int) / (2 : Int)) = (30 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_cyclone"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

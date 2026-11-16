@@ -1,0 +1,12 @@
+{
+  "handle": "7cd1ba26",
+  "address": "7cd1ba26-a626-81be-b6f0-6ec3bf0a7a23",
+  "statement": "((((100 : Int) * (100 : Int)) / (500 : Int)) = (20 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (100 : Int)) = (600 : Int)) ∧ (((40 : Int) + ((200 : Int) * (1 : Int))) = (240 : Int)) ∧ ((fmax (0 : Int) (((100 : Int) + (30 : Int)) - (10 : Int))) = (120 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (100 : Int)) = (3 : Int)) ∧ ((((0 : Int) * (100 : Int)) / (100 : Int)) = (0 : Int)) ∧ (((6 : Int) * (5 : Int)) = (30 : Int)) ∧ (((100 : Int) * (50 : Int)) = (5000 : Int)) ∧ (((1000 : Int) / (40 : Int)) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_husbandry"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

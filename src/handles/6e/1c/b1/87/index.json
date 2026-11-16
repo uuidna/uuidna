@@ -1,0 +1,12 @@
+{
+  "handle": "6e1cb187",
+  "address": "6e1cb187-398e-8cc8-b17a-f05a2d0aa1fc",
+  "kind": "chunk",
+  "keys": [
+    "fam_lever"
+  ],
+  "statement": "(((200 : Int) / (50 : Int)) = (4 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((250 : Int) * (4 : Int)) = (1000 : Int)) ∧ (((100 : Int) * (2 : Int)) = (200 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ (((400 : Int) / (100 : Int)) = (4 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

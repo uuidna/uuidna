@@ -1,0 +1,12 @@
+{
+  "handle": "82b5b560",
+  "address": "82b5b560-76c9-861f-a31b-1627cf928ea8",
+  "statement": "((Int.ofNat (fchoose (Int.toNat (5 : Int)) (Int.toNat (3 : Int)))) = (10 : Int)) ∧ ((Int.ofNat (fclog 2 (Int.toNat (8 : Int)))) = (3 : Int)) ∧ ((Int.ofNat (fclog 2 (Int.toNat (9 : Int)))) = (4 : Int)) ∧ (((5 : Int) - (1 : Int)) = (4 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_chat"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

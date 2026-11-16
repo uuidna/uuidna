@@ -1,0 +1,12 @@
+{
+  "handle": "a2e9f38a",
+  "address": "a2e9f38a-c4fc-880b-90b0-6e72c06ff227",
+  "statement": "((-((-(10 : Int)) / (3 : Int))) = (4 : Int)) ∧ (((fmax (0 : Int) ((4 : Int) - (1 : Int))) * (16 : Int)) = (48 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (4 : Int)) = (50 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ (((1000 : Int) / (250 : Int)) = (4 : Int)) ∧ ((((16 : Int) * (100 : Int)) / (9 : Int)) = (177 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (16 : Int)) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_grid"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "88a67535",
+  "address": "88a67535-763a-8630-a74f-7ab817b78391",
+  "kind": "chunk",
+  "keys": [
+    "fam_oceanography"
+  ],
+  "statement": "(((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((35 : Int) * (1000 : Int)) / (1000 : Int)) = (35 : Int)) ∧ (((1025 : Int) / (1 : Int)) = (1025 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (2 : Int))) = (6 : Int)) ∧ ((fmax (0 : Int) ((2 : Int) - (8 : Int))) = (0 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((25 : Int) - (4 : Int))) = (21 : Int)) ∧ ((fmax (0 : Int) ((4 : Int) - (25 : Int))) = (0 : Int)) ∧ ((((3 : Int) * (8 : Int)) / (2 : Int)) = (12 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int))",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

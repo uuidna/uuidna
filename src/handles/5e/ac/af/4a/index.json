@@ -1,0 +1,12 @@
+{
+  "handle": "5eacaf4a",
+  "address": "5eacaf4a-fcb3-8cba-a2f4-0565168a532b",
+  "kind": "chunk",
+  "keys": [
+    "fam_grazing"
+  ],
+  "statement": "(((100 : Int) / (20 : Int)) = (5 : Int)) ∧ (((5000 : Int) / (25 : Int)) = (200 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (5 : Int))) = (35 : Int)) ∧ ((((50 : Int) * (1200 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((3000 : Int) / (30 : Int)) = (100 : Int)) ∧ ((((1200 : Int) * (3 : Int)) / (100 : Int)) = (36 : Int)) ∧ (((10 : Int) * (4 : Int)) = (40 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

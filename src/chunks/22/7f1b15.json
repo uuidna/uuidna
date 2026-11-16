@@ -1,0 +1,12 @@
+{
+  "handle": "227f1b15",
+  "address": "227f1b15-4758-8fec-bb70-f38dd94e1499",
+  "statement": "(((3 : Int) * (7 : Int)) = (21 : Int)) ∧ (((4 : Int) * (3 : Int)) = (12 : Int)) ∧ (((2000 : Int) * (1 : Int)) = (2000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (2 : Int)))) = (190 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((30 : Int) * (7 : Int)) = (210 : Int)) ∧ (((100 : Int) / (21 : Int)) = (4 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_mealplanning"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

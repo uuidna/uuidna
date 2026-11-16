@@ -1,0 +1,12 @@
+{
+  "handle": "51fe3f3b",
+  "address": "51fe3f3b-8e63-82e2-8393-b4aa4c8932da",
+  "statement": "(((700 : Int) * (1 : Int)) = (700 : Int)) ∧ (((100 : Int) + (0 : Int)) = (100 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ (((24 : Int) + (0 : Int)) = (24 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((80 : Int) + (20 : Int)) = (100 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_hieroglyphs"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

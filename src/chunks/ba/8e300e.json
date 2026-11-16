@@ -1,0 +1,12 @@
+{
+  "handle": "ba8e300e",
+  "address": "ba8e300e-b505-8b03-beb6-207cc33ca3a6",
+  "statement": "(((16 : Int) - (1 : Int)) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_rule"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

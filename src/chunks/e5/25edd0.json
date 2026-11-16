@@ -1,0 +1,12 @@
+{
+  "handle": "e525edd0",
+  "address": "e525edd0-0371-8ada-b82b-c0906ff12eab",
+  "statement": "((fmax (0 : Int) ((90 : Int) - (30 : Int))) = (60 : Int)) ∧ (((60 : Int) + (40 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (25 : Int))) = (55 : Int)) ∧ (((85 : Int) * (8 : Int)) = (680 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (35 : Int))) = (65 : Int)) ∧ ((((80 : Int) * (50 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((600 : Int) / (12 : Int)) = (50 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (20 : Int))) = (100 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (90 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_noise"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

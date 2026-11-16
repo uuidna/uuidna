@@ -1,0 +1,12 @@
+{
+  "handle": "31080b99",
+  "address": "31080b99-a914-8860-9994-a5aa80ed65cb",
+  "statement": "(((1000 : Int) * (12 : Int)) = (12000 : Int)) ∧ (((31000 : Int) / (1189 : Int)) = (26 : Int)) ∧ (((1189 : Int) / (66 : Int)) = (18 : Int)) ∧ (((12000 : Int) / (3 : Int)) = (4000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (2 : Int)))) = (190 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((340 : Int) * (10 : Int)) = (3400 : Int)) ∧ (((1189 : Int) / (365 : Int)) = (3 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_scripture"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

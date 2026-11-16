@@ -1,0 +1,12 @@
+{
+  "handle": "366e037b",
+  "address": "366e037b-f984-8e18-a50d-abcc7f69a6ad",
+  "kind": "chunk",
+  "keys": [
+    "fam_partitioning"
+  ],
+  "statement": "((-((-(1000 : Int)) / (30 : Int))) = (34 : Int)) ∧ (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ ((((fmax (0 : Int) ((150 : Int) - (100 : Int))) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((1000 : Int) * (fmax (0 : Int) ((5 : Int) - (3 : Int)))) / (5 : Int)) = (400 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((-((-(100 : Int)) / (4 : Int))) = (25 : Int)) ∧ (((10 : Int) * (5 : Int)) = (50 : Int)) ∧ ((((fmax (0 : Int) ((80 : Int) - (100 : Int))) * (100 : Int)) / (100 : Int)) = (0 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

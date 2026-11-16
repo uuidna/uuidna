@@ -1,0 +1,12 @@
+{
+  "handle": "c6b07c14",
+  "address": "c6b07c14-6611-81df-be66-461e9cefbd86",
+  "statement": "(((-((-(1 : Int)) / (4 : Int))) * (4 : Int)) = (4 : Int)) ∧ (((-((-(8 : Int)) / (4 : Int))) * (4 : Int)) = (8 : Int)) ∧ ((((-((-(1 : Int)) / (8 : Int))) * (8 : Int)) - (1 : Int)) = (7 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_port"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

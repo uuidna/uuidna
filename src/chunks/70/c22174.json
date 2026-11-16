@@ -1,0 +1,12 @@
+{
+  "handle": "70c22174",
+  "address": "70c22174-4c3a-8cbf-8530-bdc1815251ec",
+  "statement": "((fmax (0 : Int) ((120 : Int) - (40 : Int))) = (80 : Int)) ∧ (((10 : Int) * (20 : Int)) = (200 : Int)) ∧ ((((750 : Int) * (1000 : Int)) / (1000 : Int)) = (750 : Int)) ∧ (((80 : Int) + (80 : Int)) = (160 : Int)) ∧ ((((500 : Int) + (80 : Int)) + (80 : Int)) = (660 : Int)) ∧ (((fmax (0 : Int) ((5 : Int) - (1 : Int))) * (250 : Int)) = (1000 : Int)) ∧ (((3 : Int) * (1000 : Int)) = (3000 : Int)) ∧ ((((72 : Int) * (950 : Int)) / (1000 : Int)) = (68 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_kerning"
+  ],
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

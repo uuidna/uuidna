@@ -1,0 +1,12 @@
+{
+  "handle": "5fdf686a",
+  "address": "5fdf686a-4025-893d-9a9c-e99474e49236",
+  "statement": "((fmax (0 : Int) ((150 : Int) - (20 : Int))) = (130 : Int)) ∧ (((30 : Int) + (60 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (30 : Int))) = (60 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (400 : Int)) = (75 : Int)) ∧ (((360 : Int) / (4 : Int)) = (90 : Int)) ∧ (((50 : Int) * (12 : Int)) = (600 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int)) ∧ ((if (if (5 : Int) ≤ (10 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (15 : Int) ≤ (10 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_kinesiology"
+  ],
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

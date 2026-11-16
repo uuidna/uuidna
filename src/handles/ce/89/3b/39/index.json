@@ -1,0 +1,12 @@
+{
+  "handle": "ce893b39",
+  "address": "ce893b39-d53a-845e-b634-7501eb57db53",
+  "kind": "chunk",
+  "keys": [
+    "fam_logic"
+  ],
+  "statement": "(((2 : Int) ^ (3 : Nat)) = (8 : Int)) ∧ ((fmin (1 : Int) (0 : Int)) = (0 : Int)) ∧ ((fmax (1 : Int) (0 : Int)) = (1 : Int)) ∧ ((if (if (0 : Int) ≤ (1 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (1 : Int) ≤ (0 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (8 : Int)) = (37 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (4 : Int)) = (25 : Int)) ∧ (((10 : Int) / (2 : Int)) = (5 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

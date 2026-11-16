@@ -1,0 +1,12 @@
+{
+  "handle": "9b4a79ce",
+  "address": "9b4a79ce-0dd1-8efe-be1b-ba124c52bc9c",
+  "kind": "chunk",
+  "keys": [
+    "fam_psychology"
+  ],
+  "statement": "((((12 : Int) * (100 : Int)) / (10 : Int)) = (120 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((5000 : Int) / (20 : Int)) = (250 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (30 : Int))) = (50 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (30 : Int))) = (0 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (8 : Int)) = (75 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0f460ff9",
+  "address": "0f460ff9-6db1-85bf-941f-5c51ff3f38ce",
+  "kind": "chunk",
+  "keys": [
+    "fam_macroeconomics"
+  ],
+  "statement": "(((1000 : Int) + (500 : Int)) = (1500 : Int)) ∧ (((((110 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((((110 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((((100 : Int) * (100 : Int)) / ((100 : Int) - (80 : Int))) = (500 : Int)) ∧ (((2000 : Int) / (100 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (700 : Int))) = (300 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

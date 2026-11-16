@@ -1,0 +1,12 @@
+{
+  "handle": "390ef736",
+  "address": "390ef736-9bca-8f1c-8514-de69d9c70e2f",
+  "statement": "(((50 : Int) * (4 : Int)) = (200 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((-((-(100 : Int)) / (8 : Int))) = (13 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((10 : Int) * (40 : Int)) = (400 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (40 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (40 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (80 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (100 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_staffing"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

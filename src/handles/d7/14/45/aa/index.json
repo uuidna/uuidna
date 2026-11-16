@@ -1,0 +1,12 @@
+{
+  "handle": "d71445aa",
+  "address": "d71445aa-21b3-8d81-89db-e8582e901279",
+  "kind": "chunk",
+  "keys": [
+    "fam_payload"
+  ],
+  "statement": "((((8 : Int) * (100 : Int)) / (11 : Int)) = (72 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

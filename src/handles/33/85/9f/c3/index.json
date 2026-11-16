@@ -1,0 +1,12 @@
+{
+  "handle": "33859fc3",
+  "address": "33859fc3-a537-8e80-ab35-52e121ed5f5e",
+  "kind": "chunk",
+  "keys": [
+    "fam_karst"
+  ],
+  "statement": "(((2000 : Int) * (3 : Int)) = (6000 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((500 : Int) / (50 : Int)) = (10 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (50 : Int))) = (250 : Int))",
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

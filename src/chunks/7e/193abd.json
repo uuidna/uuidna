@@ -1,0 +1,12 @@
+{
+  "handle": "7e193abd",
+  "address": "7e193abd-5bc1-8ad6-986e-26d2e0695ad1",
+  "statement": "((fmax (3 : Int) (4 : Int)) = (4 : Int)) ∧ (((12 : Int) + (6 : Int)) = (18 : Int)) ∧ ((fmax (0 : Int) ((800 : Int) - (300 : Int))) = (500 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (4 : Int))) = (4 : Int)) ∧ (((100 : Int) * (50 : Int)) = (5000 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (600 : Int))) = (400 : Int)) ∧ (((6 : Int) + (3 : Int)) = (9 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_drought"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

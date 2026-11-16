@@ -1,0 +1,12 @@
+{
+  "handle": "535270f8",
+  "address": "535270f8-dcbb-8847-900c-eb6e26d1706d",
+  "kind": "chunk",
+  "keys": [
+    "fam_distilling"
+  ],
+  "statement": "((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ ((fmax (78 : Int) (100 : Int)) = (100 : Int)) ∧ (((50 : Int) / (10 : Int)) = (5 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((3 : Int) * (1 : Int)) = (3 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

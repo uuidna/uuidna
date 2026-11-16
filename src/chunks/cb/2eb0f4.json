@@ -1,0 +1,12 @@
+{
+  "handle": "cb2eb0f4",
+  "address": "cb2eb0f4-69bd-8413-8ecb-0d3ae13d5bd0",
+  "statement": "(((1000 : Int) * (50 : Int)) = (50000 : Int)) ∧ ((if (if (500 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (1500 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((999 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((fmin (100 : Int) (60 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((17 : Int) - (10 : Int))) = (7 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (17 : Int))) = (0 : Int)) ∧ (((12000 : Int) / (1000 : Int)) = (12 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((if (if (5 : Int) ≤ (10 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (20 : Int) ≤ (10 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_enterprise"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -278,6 +278,14 @@ The ledger holds this as [byte_xor_hexbit_involution](/theorem/byte_xor_hexbit_i
 ```
 
 
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. Leach, P.; Mealling, M.; Salz, R. (2005). A Universally Unique IDentifier (UUID) URN Namespace. [https://doi.org/10.17487/RFC4122](https://doi.org/10.17487/RFC4122)
+1. Nir, Y.; Langley, A. (2018). ChaCha20 and Poly1305 for IETF Protocols. [https://doi.org/10.17487/RFC8439](https://doi.org/10.17487/RFC8439)
+1. National Institute of Standards and Technology (US). (2015). Secure hash standard. [https://doi.org/10.6028/NIST.FIPS.180-4](https://doi.org/10.6028/NIST.FIPS.180-4)
+
 ::: warning 
 CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity. The boundary is confirmed by the wing's own sealed theorems — e.g. [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) — never merely denied.
 :::

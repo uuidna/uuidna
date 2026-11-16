@@ -1,0 +1,12 @@
+{
+  "handle": "a6f10f4d",
+  "address": "a6f10f4d-eeb9-8308-b03e-af0f973f47f1",
+  "statement": "(((48 : Int) * (2 : Int)) = (96 : Int)) ∧ ((fmax (0 : Int) ((180 : Int) - (120 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((56 : Int) - (40 : Int))) = (16 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((4800 : Int) / (48 : Int)) = (100 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int)) ∧ ((fmax (0 : Int) ((3000 : Int) - (2500 : Int))) = (500 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_recovery"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

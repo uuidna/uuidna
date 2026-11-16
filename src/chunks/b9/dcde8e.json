@@ -1,0 +1,12 @@
+{
+  "handle": "b9dcde8e",
+  "address": "b9dcde8e-1750-8f09-8364-c6401b36e794",
+  "statement": "((((720 : Int) * (100 : Int)) / (1000 : Int)) = (72 : Int)) ∧ ((((1000 : Int) * (75 : Int)) / (100 : Int)) = (750 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (250 : Int))) = (750 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (750 : Int))) = (250 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((14 : Int) * (100 : Int)) / (100 : Int)) = (14 : Int)) ∧ ((((600 : Int) + (300 : Int)) + (100 : Int)) = (1000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_milling"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

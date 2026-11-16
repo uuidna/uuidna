@@ -1,0 +1,12 @@
+{
+  "handle": "784df75b",
+  "address": "784df75b-8e93-8f89-bfcf-4504a2e33768",
+  "statement": "(((200 : Int) + (100 : Int)) = (300 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (20 : Int)) (Int.toNat (3 : Int)))) = (1140 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (8 : Int)))) / (Int.ofNat (ffact (Int.toNat ((8 : Int) - (3 : Int)))))) = (336 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((300 : Int) + (200 : Int)) = (500 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_folklore"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

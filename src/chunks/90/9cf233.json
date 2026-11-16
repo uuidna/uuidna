@@ -1,0 +1,12 @@
+{
+  "handle": "909cf233",
+  "address": "909cf233-505a-8de6-a96b-7773319694f3",
+  "statement": "((((6 : Int) * (1000 : Int)) / (6 : Int)) = (1000 : Int)) ∧ (((500 : Int) + (100 : Int)) = (600 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (100 : Int))) = (400 : Int)) ∧ ((((100 : Int) * (1000 : Int)) / (500 : Int)) = (200 : Int)) ∧ ((((600 : Int) + (400 : Int)) / (2 : Int)) = (500 : Int)) ∧ (((6000 : Int) / (6 : Int)) = (1000 : Int)) ∧ ((((50 : Int) * (90 : Int)) / (100 : Int)) = (45 : Int)) ∧ (((3000 : Int) + (2000 : Int)) = (5000 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (500 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_orbital"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

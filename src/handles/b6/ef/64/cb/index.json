@@ -1,0 +1,12 @@
+{
+  "handle": "b6ef64cb",
+  "address": "b6ef64cb-92d2-8283-853d-a02abde0bb9f",
+  "kind": "chunk",
+  "keys": [
+    "fam_avionics"
+  ],
+  "statement": "(((4500 : Int) / (9 : Int)) = (500 : Int)) ∧ (((15000 : Int) / (1000 : Int)) = (15 : Int)) ∧ (((600 : Int) * (3 : Int)) = (1800 : Int)) ∧ (((3000 : Int) / (2 : Int)) = (1500 : Int)) ∧ ((if (if (2 : Int) ≤ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (9 : Int) ≤ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

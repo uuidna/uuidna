@@ -1,0 +1,12 @@
+{
+  "handle": "37a262e5",
+  "address": "37a262e5-56b1-84bc-9dfd-96e2f4c2400c",
+  "kind": "chunk",
+  "keys": [
+    "fam_sessionmgmt"
+  ],
+  "statement": "((((15 : Int) * (60 : Int)) + (30 : Int)) = (930 : Int)) ∧ (((8 : Int) * (3600 : Int)) = (28800 : Int)) ∧ (((100 : Int) * (5 : Int)) = (500 : Int)) ∧ (((1000 : Int) + (3600 : Int)) = (4600 : Int)) ∧ (((3600 : Int) / (4 : Int)) = (900 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (120 : Int))) = (380 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (400 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((3600 : Int) - (1200 : Int))) = (2400 : Int)) ∧ ((-((-(1000 : Int)) / (30 : Int))) = (34 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

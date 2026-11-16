@@ -1,0 +1,12 @@
+{
+  "handle": "0129901a",
+  "address": "0129901a-713e-8465-969d-ecd265cdde7e",
+  "kind": "chunk",
+  "keys": [
+    "fam_windpower"
+  ],
+  "statement": "(((2 : Int) * (1000 : Int)) = (2000 : Int)) ∧ (((50 : Int) * (50 : Int)) = (2500 : Int)) ∧ ((((35 : Int) * (100 : Int)) / (100 : Int)) = (35 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((3 : Int) * (1000 : Int)) = (3000 : Int)) ∧ (((70 : Int) / (10 : Int)) = (7 : Int)) ∧ (((20 : Int) * (2000 : Int)) = (40000 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int))",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

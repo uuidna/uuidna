@@ -1,0 +1,12 @@
+{
+  "handle": "889c779b",
+  "address": "889c779b-0359-80d1-8c0a-02343da538c5",
+  "statement": "(((90 : Int) * (2 : Int)) = (180 : Int)) ∧ ((((2 : Int) * (1000 : Int)) / (1000 : Int)) = (2 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (60 : Int)) = (50 : Int)) ∧ ((((450 : Int) * (100 : Int)) / (1000 : Int)) = (45 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (50 : Int)) = (18 : Int)) ∧ ((-((-(1000 : Int)) / (150 : Int))) = (7 : Int)) ∧ ((-((-(900 : Int)) / (150 : Int))) = (6 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (50 : Int)) = (10 : Int)) ∧ ((((1000 : Int) * (10 : Int)) / (100 : Int)) = (100 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_cheese"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

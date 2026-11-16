@@ -1,0 +1,12 @@
+{
+  "handle": "713d3156",
+  "address": "713d3156-d942-89ec-bf1c-365593ec770a",
+  "kind": "chunk",
+  "keys": [
+    "fam_desalination"
+  ],
+  "statement": "((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ (((35000 : Int) / (1000 : Int)) = (35 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (550 : Int))) = (450 : Int)) ∧ (((((35000 : Int) - (350 : Int)) * (100 : Int)) / (35000 : Int)) = (99 : Int)) ∧ (((1200 : Int) / (60 : Int)) = (20 : Int)) ∧ (((35 : Int) * (300 : Int)) = (10500 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (450 : Int))) = (550 : Int)) ∧ ((fmax (0 : Int) ((400 : Int) - (1000 : Int))) = (0 : Int)) ∧ (((1500 : Int) / (500 : Int)) = (3 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

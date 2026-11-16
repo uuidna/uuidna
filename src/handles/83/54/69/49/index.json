@@ -1,0 +1,12 @@
+{
+  "handle": "83546949",
+  "address": "83546949-cdfa-86c7-88e3-b6eec7f53955",
+  "kind": "chunk",
+  "keys": [
+    "fam_creditscore"
+  ],
+  "statement": "(((700 : Int) + (50 : Int)) = (750 : Int)) ∧ ((((35 : Int) * (100 : Int)) / (100 : Int)) = (35 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((5 : Int) + (0 : Int)) = (5 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (5 : Int)) (Int.toNat (2 : Int)))) = (10 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int)) ∧ (((750 : Int) / (100 : Int)) = (7 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((((10 : Int) * (50 : Int)) * (1000 : Int)) / (10000 : Int)) = (50 : Int)) ∧ (((100 : Int) + (((200 : Int) * (50 : Int)) / (100 : Int))) = (200 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (10 : Int)) = (20 : Int)) ∧ ((((1000 : Int) * ((100 : Int) - (40 : Int))) / (100 : Int)) = (600 : Int)) ∧ (((720 : Int) / (100 : Int)) = (7 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

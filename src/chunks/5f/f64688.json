@@ -1,0 +1,12 @@
+{
+  "handle": "5ff64688",
+  "address": "5ff64688-518b-8e7e-878b-a7875bc3c494",
+  "statement": "(((40 : Int) * (10 : Int)) = (400 : Int)) ∧ (((500 : Int) / ((2 : Int) * (2 : Int))) = (125 : Int)) ∧ (((500 : Int) / ((2 : Int) * (0 : Int))) = (0 : Int)) ∧ (((1 : Int) * (55 : Int)) = (55 : Int)) ∧ ((((20 : Int) * (1000 : Int)) / (40 : Int)) = (500 : Int)) ∧ (((500 : Int) / ((5 : Int) * (5 : Int))) = (20 : Int)) ∧ ((((40 : Int) * (10 : Int)) * (2 : Int)) = (800 : Int)) ∧ (((300 : Int) / (2 : Int)) = (150 : Int)) ∧ (((36000 : Int) / (6000 : Int)) = (6 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_microscopy"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e7d32257",
+  "address": "e7d32257-8f7f-8488-8aa5-7090ea0155fc",
+  "kind": "chunk",
+  "keys": [
+    "fam_weaving"
+  ],
+  "statement": "(((80 : Int) + (60 : Int)) = (140 : Int)) ∧ (((800 : Int) / (10 : Int)) = (80 : Int)) ∧ (((600 : Int) / (10 : Int)) = (60 : Int)) ∧ (((80 : Int) * (60 : Int)) = (4800 : Int)) ∧ ((((28 : Int) * (100 : Int)) / (56 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((800 : Int) / (80 : Int)) = (10 : Int)) ∧ ((((50 : Int) * (10000 : Int)) / (2500 : Int)) = (200 : Int))",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

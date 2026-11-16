@@ -1,0 +1,12 @@
+{
+  "handle": "4e21478d",
+  "address": "4e21478d-d521-8fa7-9a21-6b66b09d9156",
+  "kind": "chunk",
+  "keys": [
+    "fam_materials"
+  ],
+  "statement": "(((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((200 : Int) / (2 : Int)) = (100 : Int)) ∧ (((500 : Int) / (5 : Int)) = (100 : Int)) ∧ ((if (if (100 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2000 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((10 : Int) * (12 : Int)) = (120 : Int)) ∧ ((if (if (50 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (150 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2fc3353e",
+  "address": "2fc3353e-dc5b-882d-b1a2-739a6734f481",
+  "kind": "chunk",
+  "keys": [
+    "fam_passwords"
+  ],
+  "statement": "((fmax (0 : Int) ((96 : Int) - (32 : Int))) = (64 : Int)) ∧ ((fmax (0 : Int) ((32 : Int) - (96 : Int))) = (0 : Int)) ∧ ((-((-(100 : Int)) / (10 : Int))) = (10 : Int)) ∧ (((90 : Int) / (3 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((16 : Int) - (8 : Int))) = (8 : Int)) ∧ (((12 : Int) * (50 : Int)) = (600 : Int)) ∧ (((3 : Int) * (20 : Int)) = (60 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0d766326",
+  "address": "0d766326-623c-88e4-9ca9-dbe37eac4baf",
+  "kind": "chunk",
+  "keys": [
+    "fam_cloudphysics"
+  ],
+  "statement": "(((1000 : Int) * (100 : Int)) = (100000 : Int)) ∧ (((125 : Int) * (1 : Int)) = (125 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((900 : Int) / (100 : Int)) = (9 : Int)) ∧ (((2 : Int) ^ (3 : Nat)) = (8 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

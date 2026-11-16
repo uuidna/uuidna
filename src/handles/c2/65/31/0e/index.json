@@ -1,0 +1,12 @@
+{
+  "handle": "c265310e",
+  "address": "c265310e-8250-832a-b8d1-26e75d2f332b",
+  "kind": "chunk",
+  "keys": [
+    "fam_interference"
+  ],
+  "statement": "((fmax (0 : Int) ((440 : Int) - (435 : Int))) = (5 : Int)) ∧ (((3 : Int) + (4 : Int)) = (7 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (2 : Int))) = (5 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ (((2 : Int) * (500 : Int)) = (1000 : Int)) ∧ ((((250 : Int) * (360 : Int)) / (500 : Int)) = (180 : Int)) ∧ ((((2 : Int) * (2 : Int)) * (150 : Int)) = (600 : Int)) ∧ (((((80 : Int) - (20 : Int)) * (100 : Int)) / ((80 : Int) + (20 : Int))) = (60 : Int))",
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "352373b2",
+  "address": "352373b2-641c-854a-93bc-a6b1627fda41",
+  "statement": "((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ (((600 : Int) / (5 : Int)) = (120 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((120 : Int) / (4 : Int)) = (30 : Int)) ∧ (((200 : Int) * (15 : Int)) = (3000 : Int)) ∧ (((12 : Int) * (8 : Int)) = (96 : Int)) ∧ (((15 : Int) * (40 : Int)) = (600 : Int)) ∧ ((((1000 : Int) * (75 : Int)) / (100 : Int)) = (750 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_pollination"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

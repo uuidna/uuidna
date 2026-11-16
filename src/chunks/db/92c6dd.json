@@ -1,0 +1,12 @@
+{
+  "handle": "db92c6dd",
+  "address": "db92c6dd-3036-882f-91c3-8ad5300cb0ac",
+  "statement": "((((999 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ (((600 : Int) / (5 : Int)) = (120 : Int)) ∧ (((8760 : Int) / (12 : Int)) = (730 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (80 : Int)) = (25 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_monitoring"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

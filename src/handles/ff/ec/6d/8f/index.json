@@ -1,0 +1,12 @@
+{
+  "handle": "ffec6d8f",
+  "address": "ffec6d8f-e0f0-88ef-8bcc-237d9ea75b56",
+  "kind": "chunk",
+  "keys": [
+    "fam_cryptanalysis"
+  ],
+  "statement": "(((26 : Int) * (8 : Int)) = (208 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ ((((5 : Int) * (10000 : Int)) / (100 : Int)) = (500 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((2 : Int) * (1000000 : Int)) / (1000 : Int)) = (2000 : Int)) ∧ ((128 : Int) = (128 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

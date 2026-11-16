@@ -1,0 +1,12 @@
+{
+  "handle": "77bc654d",
+  "address": "77bc654d-7572-826e-b27d-d560669aaf4a",
+  "statement": "(((10 : Int) ^ (3 : Nat)) = (1000 : Int)) ∧ ((((2 : Int) * (3 : Int)) * (4 : Int)) = (24 : Int)) ∧ (((6 : Int) * (10 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (10 : Int)) / (3 : Int)) = (100 : Int)) ∧ (((6 : Int) * ((10 : Int) ^ (2 : Nat))) = (600 : Int)) ∧ (((2 : Int) * ((((2 : Int) * (3 : Int)) + ((3 : Int) * (4 : Int))) + ((2 : Int) * (4 : Int)))) = (52 : Int)) ∧ (((((4 : Int) * (314 : Int)) * ((3 : Int) ^ (3 : Nat))) / (300 : Int)) = (113 : Int)) ∧ (((((314 : Int) * ((5 : Int) ^ (2 : Nat))) * (10 : Int)) / (100 : Int)) = (785 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_solid"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

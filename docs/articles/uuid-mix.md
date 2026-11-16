@@ -26,6 +26,12 @@ The ledger holds this as [the_mix_space_is_its_own_mirror](/theorem/the_mix_spac
 ```
 
 
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. Davis, K.; Peabody, B.; Leach, P. (2024). Universally Unique IDentifiers (UUIDs). [https://doi.org/10.17487/RFC9562](https://doi.org/10.17487/RFC9562)
+
 ::: warning 
 THE UUID MIX SPACE — the census of mixing the ten RFC 9562 uuid types (nil, v1…v8, max), folded to ONE quantum seal: the directed census doubles the pairs (10·9 = 2·45, because merge(a,b) ≠ merge(b,a)), the self-mixes complete the square (90 + 10 = 10²), and Pascal's row 10 folds to the 1024 lattice — the 10-qubit basis, whose dimension is already sealed as optimisation_space_is_qubit_dimension and is cited here, never re-sealed. The boundary is confirmed by the wing's own sealed theorems — e.g. [uuid_mix_census_is_quantum](/theorem/uuid_mix_census_is_quantum) — never merely denied.
 :::

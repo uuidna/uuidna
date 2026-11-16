@@ -1,0 +1,12 @@
+{
+  "handle": "89030f19",
+  "address": "89030f19-1666-8c46-938c-00a736912387",
+  "statement": "(((20 : Int) + (4 : Int)) = (24 : Int)) ∧ (((24 : Int) * (8 : Int)) = (192 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (6 : Int)))) = (720 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (24 : Int)) (Int.toNat (2 : Int)))) = (276 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (5 : Int)) (Int.toNat (2 : Int)))) = (10 : Int)) ∧ (((4 : Int) + (3 : Int)) = (7 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_codicology"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

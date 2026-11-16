@@ -1,0 +1,12 @@
+{
+  "handle": "aa9f61f4",
+  "address": "aa9f61f4-062c-8b13-86ae-05ab500e3191",
+  "statement": "(((3 : Int) * (4 : Int)) = (12 : Int)) ∧ (((500 : Int) / (10 : Int)) = (50 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((5 : Int) * (3 : Int)) = (15 : Int)) ∧ (((3 : Int) * (1 : Int)) = (3 : Int)) ∧ ((((3 : Int) * (4 : Int)) * (1 : Int)) = (12 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (20 : Int))) = (80 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) ∧ ((fmin (3 : Int) (5 : Int)) = (3 : Int)) ∧ ((((1 : Int) * (3 : Int)) + ((2 : Int) * (4 : Int))) = (11 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_vector"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

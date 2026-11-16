@@ -1,0 +1,12 @@
+{
+  "handle": "1fecaa58",
+  "address": "1fecaa58-2475-80f5-b727-536d9d7ec81c",
+  "statement": "(((1000 : Int) * (1000 : Int)) = (1000000 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((1000 : Int) * (2 : Int)) = (2000 : Int)) ∧ (((8 : Int) * (20 : Int)) = (160 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (900 : Int))) = (100 : Int)) ∧ (((9400 : Int) / (10 : Int)) = (940 : Int)) ∧ (((4 : Int) * (25 : Int)) = (100 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_bandwidth"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7877153e",
+  "address": "7877153e-0903-81de-8d53-ce97150c3594",
+  "statement": "((((500 : Int) * (100 : Int)) / (1000 : Int)) = (50 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((5000 : Int) / (50 : Int)) = (100 : Int)) ∧ (((600 : Int) / (200 : Int)) = (3 : Int)) ∧ (((((100 : Int) - (30 : Int)) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((((200 : Int) * (80 : Int)) / (100 : Int)) = (160 : Int)) ∧ ((fmax (0 : Int) ((160 : Int) - (60 : Int))) = (100 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (80 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_bioavailability"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

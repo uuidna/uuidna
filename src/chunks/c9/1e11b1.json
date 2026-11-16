@@ -1,0 +1,12 @@
+{
+  "handle": "c91e11b1",
+  "address": "c91e11b1-9ae8-8f94-909e-212f3e029f9b",
+  "statement": "(((150 : Int) / (10 : Int)) = (15 : Int)) ∧ ((((fmax (0 : Int) ((120 : Int) - (100 : Int))) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((300 : Int) + (1800 : Int)) = (2100 : Int)) ∧ (((5 : Int) * (40 : Int)) = (200 : Int)) ∧ (((8 : Int) + ((18 : Int) / (4 : Int))) = (12 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ (((100 : Int) * (3 : Int)) = (300 : Int)) ∧ (((4000 : Int) / (100 : Int)) = (40 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_combustion"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

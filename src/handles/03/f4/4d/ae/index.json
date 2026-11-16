@@ -1,0 +1,12 @@
+{
+  "handle": "03f44dae",
+  "address": "03f44dae-a655-8160-b62f-56bd8b3f7a08",
+  "kind": "chunk",
+  "keys": [
+    "fam_etl"
+  ],
+  "statement": "(((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((-((-(1000 : Int)) / (250 : Int))) = (4 : Int)) ∧ (((1000 : Int) * (5 : Int)) = (5000 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (900 : Int))) = (100 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (100 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

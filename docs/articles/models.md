@@ -61,6 +61,13 @@ The ledger holds this as [a_handle_is_eight_pairs_paid_it_is_sixteen](/theorem/a
 ```
 
 
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. Leach, P.; Mealling, M.; Salz, R. (2005). A Universally Unique IDentifier (UUID) URN Namespace. [https://doi.org/10.17487/RFC4122](https://doi.org/10.17487/RFC4122)
+1. Davis, K.; Peabody, B.; Leach, P. (2024). Universally Unique IDentifiers (UUIDs). [https://doi.org/10.17487/RFC9562](https://doi.org/10.17487/RFC9562)
+
 ::: warning 
 THE MODEL COMPARISON OVER ALL PUBLIC LIVE DATA — the decidable core of the served page /models: the declared token≈4-byte approximation's exact widths, all 467 of the public feed's reported context windows as transient hexbit capacity, the 288-bit cost of speaking a 128-bit address in text (identical for every model), the cipher's fixed widths against a sampler's none, every window finite against 2¹²⁸, THE FOLD LAW (any model's output folds to exactly 32 on-lattice states = 16 pairs), and the handle's eight pairs doubling to sixteen when the captain coins are paid (64 = 8², typography unlocked). The boundary is confirmed by the wing's own sealed theorems — e.g. [a_token_approximates_eight_hexbits](/theorem/a_token_approximates_eight_hexbits) — never merely denied.
 :::

@@ -1,0 +1,12 @@
+{
+  "handle": "0829caed",
+  "address": "0829caed-0cfb-8ac1-a725-726ba9526834",
+  "kind": "chunk",
+  "keys": [
+    "fam_genome"
+  ],
+  "statement": "(((3000 : Int) * (1000 : Int)) = (3000000 : Int)) ∧ (((20000 : Int) * (1 : Int)) = (20000 : Int)) ∧ (((3000 : Int) / (3 : Int)) = (1000 : Int)) ∧ (((23 : Int) + (0 : Int)) = (23 : Int)) ∧ ((((41 : Int) * (100 : Int)) / (100 : Int)) = (41 : Int)) ∧ (((1000 : Int) / (100 : Int)) = (10 : Int)) ∧ (((1000 : Int) * (150 : Int)) = (150000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

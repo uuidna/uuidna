@@ -1,0 +1,12 @@
+{
+  "handle": "fc399173",
+  "address": "fc399173-9554-801c-ae65-9b3fb2ed7461",
+  "statement": "((2197 : Int) = (2197 : Int)) ∧ (((12 : Int) * (50 : Int)) = (600 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (200 : Int)) = (15 : Int)) ∧ ((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (300 : Int)) = (15 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((42 : Int) = (42 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_speleology"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

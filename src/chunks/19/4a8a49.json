@@ -1,0 +1,12 @@
+{
+  "handle": "194a8a49",
+  "address": "194a8a49-a280-87bc-be12-d40c5051fcd8",
+  "statement": "(((100 : Int) * (5 : Int)) = (500 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (300 : Int))) = (700 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (1000 : Int))) = (0 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((10 : Int) * (25 : Int)) = (250 : Int)) ∧ ((((1000 : Int) * (90 : Int)) / (100 : Int)) = (900 : Int)) ∧ (((8 : Int) * (28 : Int)) = (224 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (600 : Int))) = (400 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_carbon"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

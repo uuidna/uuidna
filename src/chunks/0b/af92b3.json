@@ -1,0 +1,12 @@
+{
+  "handle": "0baf92b3",
+  "address": "0baf92b3-fd53-8749-b708-f46ad0447565",
+  "statement": "(((5 : Int) + (0 : Int)) = (5 : Int)) ∧ (((8 : Int) * (4 : Int)) = (32 : Int)) ∧ (((1440 : Int) / (360 : Int)) = (4 : Int)) ∧ (((100 : Int) / (2 : Int)) = (50 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ (((120 : Int) * (1 : Int)) = (120 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (20 : Int))) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_ballet"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

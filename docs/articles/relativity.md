@@ -11,56 +11,56 @@ description: "Computed from lean/Relativity.lean — 11 sealed theorems, every c
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FRelativity.lean)** — nothing to install. The editor fetches `lean/Relativity.lean` from the repository and re-decides all 11 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
-### Light travels on the null cone: with c = 1, a flash covering x = 5 in t = 5 has spacetime interval (ct)² − x² = 5² − 5² = 0. Photons trace the zero-interval boundary between cause and no-cause.
+### Light travels on the null cone: with c = 1, a flash covering x = 5 in t = 5 has spacetime interval (ct)² − x² = 5² − 5² = 0. Photons trace the zero-interval boundary between cause and no-cause. Source: DOI 10.1002/andp.19053221004.
 The ledger holds this as [light_on_null_cone](/theorem/light_on_null_cone) — proven `by decide`, sorry-free:
 
 ```lean
 ((5*5 - 5*5 : Int) = 0) ∧ ((5*5 - 4*4 : Int) ≠ 0) ∧ ((5*5 - 6*6 : Int) ≠ 0)
 ```
 
-### The invariant interval classifies events: a timelike separation (ct = 5, x = 4) gives s² = 25 − 16 = 9 > 0 — inside the light cone, reachable below light speed, so cause can reach effect. All observers agree on this interval.
+### The invariant interval classifies events: a timelike separation (ct = 5, x = 4) gives s² = 25 − 16 = 9 > 0 — inside the light cone, reachable below light speed, so cause can reach effect. All observers agree on this interval. Source: DOI 10.1002/andp.19053221004.
 The ledger holds this as [interval_timelike_causal](/theorem/interval_timelike_causal) — proven `by decide`, sorry-free:
 
 ```lean
 ((5*5 - 4*4 : Int) = 9) ∧ ((9:Int) > 0)
 ```
 
-### The Lorentz factor rides a right triangle: β² + (1/γ)² = 1, so at β = 5/13 the reciprocal factor is 12/13 and γ = 13/12 — 5² + 12² = 13². The faster you go, the taller the triangle.
+### The Lorentz factor rides a right triangle: β² + (1/γ)² = 1, so at β = 5/13 the reciprocal factor is 12/13 and γ = 13/12 — 5² + 12² = 13². The faster you go, the taller the triangle. Source: DOI 10.1002/andp.19053221004.
 The ledger holds this as [lorentz_gamma_triangle](/theorem/lorentz_gamma_triangle) — proven `by decide`, sorry-free:
 
 ```lean
 5^2 + 12^2 = 13^2
 ```
 
-### Mass is energy: E = mc², so (with c² = 9 in these units) masses [1,2,3] carry rest energies [9,18,27] — linear in mass. Even at rest, matter holds mc² of energy.
+### Mass is energy: E = mc², so (with c² = 9 in these units) masses [1,2,3] carry rest energies [9,18,27] — linear in mass. Even at rest, matter holds mc² of energy. Source: DOI 10.1002/andp.19053231314.
 The ledger holds this as [rest_energy_mc2](/theorem/rest_energy_mc2) — proven `by decide`, sorry-free:
 
 ```lean
 (([1,2,3] : List Nat).map (fun m => m * 9)) = [9,18,27]
 ```
 
-### Causality forbids faster-than-light links: a spacelike separation (ct = 3, x = 5) has s² = 9 − 25 = −16 < 0 — outside the light cone, so no signal can connect the events without exceeding c. What is spacelike cannot be a cause.
+### Causality forbids faster-than-light links: a spacelike separation (ct = 3, x = 5) has s² = 9 − 25 = −16 < 0 — outside the light cone, so no signal can connect the events without exceeding c. What is spacelike cannot be a cause. Source: DOI 10.1002/andp.19053221004.
 The ledger holds this as [causality_forbids_ftl](/theorem/causality_forbids_ftl) — proven `by decide`, sorry-free:
 
 ```lean
 (3*3 - 5*5 : Int) < 0
 ```
 
-### THE SPEED OF LIGHT IS NOT MEASURED HERE — IT IS THE DEFINITION DOING ARITHMETIC. Since 1983 the metre is DEFINED as the distance light travels in 1/299792458 of a second, so c = 299792458 m/s exactly: an integer, no error bar, and not a reading anyone can improve on with a better instrument. Every longer light-distance is then multiplication and nothing else — a light-minute is 17987547480 metres and a light-hour is 1079252848800 — and the two agree through the factor sixty that relates a minute to an hour, which is what makes this a CONSISTENCY check across the definition rather than three separate claims. This complements the five facts above, which work in units where c = 1: those seal the geometry of the interval, this seals the one constant the geometry is usually written with. HONEST, and the distinction carries the whole wing: this is arithmetic on the SI's own definition. Nothing was observed to seal it, and it does not claim the definition is physically apt — only that the integers compose.
+### THE SPEED OF LIGHT IS NOT MEASURED HERE — IT IS THE DEFINITION DOING ARITHMETIC. Since 1983 the metre is DEFINED as the distance light travels in 1/299792458 of a second, so c = 299792458 m/s exactly: an integer, no error bar, and not a reading anyone can improve on with a better instrument. Every longer light-distance is then multiplication and nothing else — a light-minute is 17987547480 metres and a light-hour is 1079252848800 — and the two agree through the factor sixty that relates a minute to an hour, which is what makes this a CONSISTENCY check across the definition rather than three separate claims. This complements the five facts above, which work in units where c = 1: those seal the geometry of the interval, this seals the one constant the geometry is usually written with. HONEST, and the distinction carries the whole wing: this is arithmetic on the SI's own definition. Nothing was observed to seal it, and it does not claim the definition is physically apt — only that the integers compose. Source: DOI 10.1088/0026-1394/19/4/004.
 The ledger holds this as [the_metre_is_defined_by_the_second](/theorem/the_metre_is_defined_by_the_second) — proven `by decide`, sorry-free:
 
 ```lean
 (299792458 * 60 = 17987547480) ∧ (299792458 * 3600 = 1079252848800) ∧ (17987547480 * 60 = 1079252848800)
 ```
 
-### THE 2019 SI MADE THE CONSTANTS EXACT, WHICH IS THE ONLY REASON THEY CAN BE SEALED. The kilogram stopped being a cylinder in a vault and the mole stopped being a count of a sample: the Planck constant, the elementary charge, the Boltzmann constant and the Avogadro number were FIXED at exact decimals and the units rebuilt around them. Each therefore has a finite integer mantissa — h = 662607015e-42 J·s, e = 1602176634e-28 C, k = 1380649e-29 J/K, N_A = 602214076e15 per mole — so arithmetic on them is exact and not approximate. Twice the charge mantissa is 3204353268, the numerator of the Josephson constant 2e/h, and that is an integer identity rather than a rounded product. AND THE RESIDUES ARE STATED WITH THEIR MEANING DRAINED: modulo 9 the five constants give c ≡ 1, h ≡ 6, e ≡ 0, k ≡ 4, N_A ≡ 1. A residue modulo 9 is a property of a DECIMAL NUMERAL — fixed by which digits the SI chose — and carries no physical content whatsoever. It is sealed because it is checkable, and it is said flatly here because an unsealed numerical coincidence in a physics wing is an invitation for someone to mean something by it.
+### THE 2019 SI MADE THE CONSTANTS EXACT, WHICH IS THE ONLY REASON THEY CAN BE SEALED. The kilogram stopped being a cylinder in a vault and the mole stopped being a count of a sample: the Planck constant, the elementary charge, the Boltzmann constant and the Avogadro number were FIXED at exact decimals and the units rebuilt around them. Each therefore has a finite integer mantissa — h = 662607015e-42 J·s, e = 1602176634e-28 C, k = 1380649e-29 J/K, N_A = 602214076e15 per mole — so arithmetic on them is exact and not approximate. Twice the charge mantissa is 3204353268, the numerator of the Josephson constant 2e/h, and that is an integer identity rather than a rounded product. AND THE RESIDUES ARE STATED WITH THEIR MEANING DRAINED: modulo 9 the five constants give c ≡ 1, h ≡ 6, e ≡ 0, k ≡ 4, N_A ≡ 1. A residue modulo 9 is a property of a DECIMAL NUMERAL — fixed by which digits the SI chose — and carries no physical content whatsoever. It is sealed because it is checkable, and it is said flatly here because an unsealed numerical coincidence in a physics wing is an invitation for someone to mean something by it. Source: DOI 10.1088/1681-7575/aa950a; DOI 10.1088/1681-7575/ab0013.
 The ledger holds this as [the_defining_constants_are_exact_integers](/theorem/the_defining_constants_are_exact_integers) — proven `by decide`, sorry-free:
 
 ```lean
 (2 * 1602176634 = 3204353268) ∧ (299792458 % 9 = 1) ∧ (662607015 % 9 = 6) ∧ (1602176634 % 9 = 0) ∧ (1380649 % 9 = 4) ∧ (602214076 % 9 = 1)
 ```
 
-### CHOOSING THE PAIRING CHOOSES WHICH CONSTANT SURVIVES, AND THAT CHOICE IS INTEGER ARITHMETIC. A Planck quantity is a point in the exponent lattice over (h-bar, G, c); doubled so the halves become integers, length is (1,1,-3), mass is (1,-1,1) and time is (1,1,-5). Combining two quantities ADDS their exponent vectors, so which constant survives is decided by whether a coordinate reaches zero — and here the zeros are COMPUTED by the zip rather than asserted beside it. Length plus mass gives (2,0,-2): the G coordinate is zero, so the product is h-bar over c. Length minus mass gives (0,2,-4): the h-bar coordinate is zero, so the quotient is G over c squared. Length minus time gives (0,0,2): both are zero and only c remains. WHY THAT IS WORTH SEALING. Since the 2019 SI redefinition h and c are exact BY DEFINITION (the_defining_constants_are_exact_integers seals their integer mantissas) and G is not — its relative uncertainty is the entire uncertainty of every Planck quantity. So a zero in the G coordinate is not tidiness: it is the difference between a quantity computable to arbitrary precision and one that cannot be known better than G is measured. A length alone always carries G; a length TIMES a mass never does. AND THE LATTICE RIDES THE EXACT PAIRING: under the Bekenstein area law a horizon holding N bits has mass m_P·k and radius 2·l_P·k with k squared equal to N·ln2/4pi, so the product r·m is 2·(l_P·m_P)·k squared and is LINEAR in N while each factor goes as the root of N. The bit counts this ledger addresses by are 32 for a handle and 128 for a uuid, so the product ratio is the bit ratio itself, 128 = 4·32, where the mass ratio is its square root, the same 2 two_coins_in_kilograms already seals as the two coins. SCOPE, FLATLY: what is decided is the exponent arithmetic and those two integer ratios and nothing else. That l_P, m_P and t_P carry these exponents is the DEFINITION of Planck units; the Bekenstein area law is physics that rides outside this tree (Bekenstein 1973, Hawking 1975, as two_coins_in_kilograms names its authorities); the kernel has never confirmed a measurement and confirms none here. No metre, kilogram or second is claimed.
+### CHOOSING THE PAIRING CHOOSES WHICH CONSTANT SURVIVES, AND THAT CHOICE IS INTEGER ARITHMETIC. A Planck quantity is a point in the exponent lattice over (h-bar, G, c); doubled so the halves become integers, length is (1,1,-3), mass is (1,-1,1) and time is (1,1,-5). Combining two quantities ADDS their exponent vectors, so which constant survives is decided by whether a coordinate reaches zero — and here the zeros are COMPUTED by the zip rather than asserted beside it. Length plus mass gives (2,0,-2): the G coordinate is zero, so the product is h-bar over c. Length minus mass gives (0,2,-4): the h-bar coordinate is zero, so the quotient is G over c squared. Length minus time gives (0,0,2): both are zero and only c remains. WHY THAT IS WORTH SEALING. Since the 2019 SI redefinition h and c are exact BY DEFINITION (the_defining_constants_are_exact_integers seals their integer mantissas) and G is not — its relative uncertainty is the entire uncertainty of every Planck quantity. So a zero in the G coordinate is not tidiness: it is the difference between a quantity computable to arbitrary precision and one that cannot be known better than G is measured. A length alone always carries G; a length TIMES a mass never does. AND THE LATTICE RIDES THE EXACT PAIRING: under the Bekenstein area law a horizon holding N bits has mass m_P·k and radius 2·l_P·k with k squared equal to N·ln2/4pi, so the product r·m is 2·(l_P·m_P)·k squared and is LINEAR in N while each factor goes as the root of N. The bit counts this ledger addresses by are 32 for a handle and 128 for a uuid, so the product ratio is the bit ratio itself, 128 = 4·32, where the mass ratio is its square root, the same 2 two_coins_in_kilograms already seals as the two coins. SCOPE, FLATLY: what is decided is the exponent arithmetic and those two integer ratios and nothing else. That l_P, m_P and t_P carry these exponents is the DEFINITION of Planck units; the Bekenstein area law is physics that rides outside this tree (Bekenstein 1973, Hawking 1975, as two_coins_in_kilograms names its authorities); the kernel has never confirmed a measurement and confirms none here. No metre, kilogram or second is claimed. Source: DOI 10.1103/PhysRevD.7.2333; DOI 10.1007/BF02345020.
 The ledger holds this as [the_pairing_cancels_the_constant](/theorem/the_pairing_cancels_the_constant) — proven `by decide`, sorry-free:
 
 ```lean
@@ -88,6 +88,18 @@ The ledger holds this as [the_null_cone_carries_integer_events_in_three_dimensio
 (1*1 + 2*2 + 2*2 = 3*3) ∧ (2*2 + 3*3 + 6*6 = 7*7) ∧ (1*1 + 4*4 + 8*8 = 9*9) ∧ (4*4 + 4*4 + 7*7 = 9*9)
 ```
 
+
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. Einstein, A. (1905). Zur Elektrodynamik bewegter Körper. Annalen der Physik. [https://doi.org/10.1002/andp.19053221004](https://doi.org/10.1002/andp.19053221004)
+1. Einstein, A. (1905). Ist die Trägheit eines Körpers von seinem Energieinhalt abhängig? Annalen der Physik. [https://doi.org/10.1002/andp.19053231314](https://doi.org/10.1002/andp.19053231314)
+1. Hawking, S. W. (1975). Particle creation by black holes. Communications In Mathematical Physics. [https://doi.org/10.1007/BF02345020](https://doi.org/10.1007/BF02345020)
+1. (1984). Documents Concerning the New Definition of the Metre. Metrologia. [https://doi.org/10.1088/0026-1394/19/4/004](https://doi.org/10.1088/0026-1394/19/4/004)
+1. Newell, D B; Cabiati, F; Fischer, J; et al. (2018). The CODATA 2017 values ofh,e,k, andNAfor the revision of the SI. Metrologia. [https://doi.org/10.1088/1681-7575/aa950a](https://doi.org/10.1088/1681-7575/aa950a)
+1. Stock, Michael; Davis, Richard; de Mirandés, Estefanía; Milton, Martin J T. (2019). The revision of the SI—the result of three decades of progress in metrology. Metrologia. [https://doi.org/10.1088/1681-7575/ab0013](https://doi.org/10.1088/1681-7575/ab0013)
+1. Bekenstein, Jacob D. (1973). Black Holes and Entropy. Physical Review D. [https://doi.org/10.1103/PhysRevD.7.2333](https://doi.org/10.1103/PhysRevD.7.2333)
 
 ::: warning 
 RELATIVITY — the spacetime domain, as decidable arithmetic, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [light_on_null_cone](/theorem/light_on_null_cone) — never merely denied.

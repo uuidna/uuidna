@@ -1,0 +1,12 @@
+{
+  "handle": "dba93138",
+  "address": "dba93138-0655-841f-a9c5-c84d757b1689",
+  "kind": "chunk",
+  "keys": [
+    "fam_turbine"
+  ],
+  "statement": "(((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ ((((50 : Int) * (120 : Int)) / (4 : Int)) = (1500 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((((10 : Int) * (10 : Int)) * (314 : Int)) / (100 : Int)) = (314 : Int)) ∧ (((((1500 : Int) * (10 : Int)) * (628 : Int)) / (6000 : Int)) = (1570 : Int)) ∧ (((((1000 : Int) * (24 : Int)) * (90 : Int)) / (100 : Int)) = (21600 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

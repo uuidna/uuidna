@@ -1,0 +1,12 @@
+{
+  "handle": "86036758",
+  "address": "86036758-b0a3-8725-a78e-c5b152aba8a8",
+  "statement": "((((10 : Int) * (5 : Int)) * (20 : Int)) = (1000 : Int)) ∧ (((1000 : Int) / (5 : Int)) = (200 : Int)) ∧ ((((100 : Int) * (2 : Int)) / (4 : Int)) = (50 : Int)) ∧ (((700 : Int) / (100 : Int)) = (7 : Int)) ∧ ((((10 : Int) * (20 : Int)) * (3 : Int)) = (600 : Int)) ∧ (((600 : Int) * (7 : Int)) = (4200 : Int)) ∧ ((((100 : Int) + (20 : Int)) / (2 : Int)) = (60 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (50 : Int)) = (10 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_convection"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

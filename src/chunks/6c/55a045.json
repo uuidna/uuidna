@@ -1,0 +1,12 @@
+{
+  "handle": "6c55a045",
+  "address": "6c55a045-a304-8547-a300-df49864a1326",
+  "statement": "(((3 : Int) + (4 : Int)) = (7 : Int)) ∧ ((fmax (3 : Int) (4 : Int)) = (4 : Int)) ∧ (((30 : Int) * (40 : Int)) = (1200 : Int)) ∧ (((275 : Int) / (100 : Int)) = (2 : Int)) ∧ ((if (if (80 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (120 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((300 : Int) / (4 : Int)) = (75 : Int)) ∧ (((300 : Int) / (75 : Int)) = (4 : Int)) ∧ (((2560 : Int) / (256 : Int)) = (10 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_location"
+  ],
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

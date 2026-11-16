@@ -1,0 +1,12 @@
+{
+  "handle": "3690aad7",
+  "address": "3690aad7-b952-84e9-9dc8-2e5e4a92970b",
+  "statement": "(((1000 : Int) / (5 : Int)) = (200 : Int)) ∧ (((1200 : Int) / (60 : Int)) = (20 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((75 : Int) - (30 : Int))) = (45 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (75 : Int))) = (0 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((600 : Int) / (60 : Int)) = (10 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_catalysis"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e5fa7c23",
+  "address": "e5fa7c23-86b7-8e2d-b6b8-b0e77ed44fe2",
+  "statement": "(((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((50 : Int) * (2 : Int)) = (100 : Int)) ∧ (((100 : Int) * (3 : Int)) = (300 : Int)) ∧ ((fmax (0 : Int) ((800 : Int) - (300 : Int))) = (500 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_corrosion"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b97dcc36",
+  "address": "b97dcc36-45b4-8dab-b6b2-2292552355e7",
+  "kind": "chunk",
+  "keys": [
+    "fam_kinematics"
+  ],
+  "statement": "(((100 : Int) / (20 : Int)) = (5 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((5 : Int) * (20 : Int)) = (100 : Int)) ∧ (((10 : Int) * (5 : Int)) = (50 : Int)) ∧ ((((10 : Int) * ((4 : Int) ^ (2 : Nat))) / (2 : Int)) = (80 : Int)) ∧ ((((10 : Int) ^ (2 : Nat)) / (10 : Int)) = (10 : Int)) ∧ ((((10 : Int) * ((3 : Int) ^ (2 : Nat))) / (2 : Int)) = (45 : Int)) ∧ (((20 : Int) * (5 : Int)) = (100 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((10 : Int) ^ (2 : Nat)) / (0 : Int)) = (0 : Int))",
+  "files": [
+    "FamiliesK.lean"
+  ]
+}

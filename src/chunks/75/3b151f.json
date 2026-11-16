@@ -1,0 +1,12 @@
+{
+  "handle": "753b151f",
+  "address": "753b151f-4ea1-8cf5-9eeb-8e39e87f6de0",
+  "statement": "(((300 : Int) / (20 : Int)) = (15 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (200 : Int)) = (20 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((18 : Int) - (14 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((18 : Int) - (20 : Int))) = (0 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((12 : Int) * (80 : Int)) = (960 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (300 : Int)) = (1 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_journalism"
+  ],
+  "files": [
+    "FamiliesJ.lean"
+  ]
+}

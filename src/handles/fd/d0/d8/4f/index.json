@@ -1,0 +1,12 @@
+{
+  "handle": "fdd0d84f",
+  "address": "fdd0d84f-9cc0-8f17-a25c-ac2d98b671bc",
+  "kind": "chunk",
+  "keys": [
+    "fam_chocolate"
+  ],
+  "statement": "((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((((1000 : Int) * (54 : Int)) / (100 : Int)) = (540 : Int)) ∧ (((72 : Int) * (5 : Int)) = (360 : Int)) ∧ ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ (((28 : Int) + (7 : Int)) = (35 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((if (if (31 : Int) ≥ (29 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (27 : Int) ≥ (29 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((600 : Int) / (5 : Int)) = (120 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

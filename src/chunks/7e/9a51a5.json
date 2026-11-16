@@ -1,0 +1,12 @@
+{
+  "handle": "7e9a51a5",
+  "address": "7e9a51a5-acfd-8b8e-9064-0ca9c18b4fee",
+  "statement": "(((240 : Int) / (4 : Int)) = (60 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (24 : Int)) = (75 : Int)) ∧ (((30 : Int) + (20 : Int)) = (50 : Int)) ∧ (((480 : Int) / (60 : Int)) = (8 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (60 : Int))) = (30 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (24 : Int)) = (83 : Int)) ∧ (((480 : Int) / (60 : Int)) = (8 : Int)) ∧ ((fmax (0 : Int) ((60 : Int) - (45 : Int))) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_turnaround"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "253fb6f8",
+  "address": "253fb6f8-c947-8209-9b2f-919acafd354f",
+  "statement": "(((70 : Int) * (35 : Int)) = (2450 : Int)) ∧ (((2 : Int) * (60 : Int)) = (120 : Int)) ∧ ((((1500 : Int) * (100 : Int)) / (2000 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((2500 : Int) - (2000 : Int))) = (500 : Int)) ∧ (((2000 : Int) / (10 : Int)) = (200 : Int)) ∧ (((1500 : Int) / (24 : Int)) = (62 : Int)) ∧ ((fmax (0 : Int) ((2500 : Int) - (2000 : Int))) = (500 : Int)) ∧ (((600 : Int) / (2 : Int)) = (300 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_hydration"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

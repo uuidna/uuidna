@@ -1,0 +1,12 @@
+{
+  "handle": "5e375468",
+  "address": "5e375468-01e4-8de3-b097-acc023a370bc",
+  "statement": "(((10 : Int) * (5 : Int)) = (50 : Int)) ∧ (((10 : Int) * (20 : Int)) = (200 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ (((150 : Int) / (3 : Int)) = (50 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((3 : Int) + (3 : Int)) = (6 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_physics"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

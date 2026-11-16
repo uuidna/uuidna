@@ -1,0 +1,12 @@
+{
+  "handle": "47ab0f2f",
+  "address": "47ab0f2f-e69d-8e59-ac96-eeb64e570989",
+  "statement": "((fmax (0 : Int) ((7 : Int) - (0 : Int))) = (7 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ ((fmax (0 : Int) ((16 : Int) - (0 : Int))) = (16 : Int)) ∧ (((4 : Int) * (4 : Int)) = (16 : Int)) ∧ (((8 : Int) / (4 : Int)) = (2 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (11 : Int))) = (1 : Int)) ∧ ((if (if (5 : Int) ≥ (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2 : Int) ≥ (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_cadence"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3f972d03",
+  "address": "3f972d03-35f1-8867-b606-6c8a5be707c4",
+  "statement": "((((150 : Int) * (100 : Int)) / (100 : Int)) = (150 : Int)) ∧ (((90 : Int) / (30 : Int)) = (3 : Int)) ∧ ((((1200 : Int) * (100 : Int)) / (1000 : Int)) = (120 : Int)) ∧ ((((1000 : Int) * (10 : Int)) / (100 : Int)) = (100 : Int)) ∧ ((((1000 : Int) * (25 : Int)) / (100 : Int)) = (250 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (300 : Int))) = (200 : Int)) ∧ ((fmax (0 : Int) ((800 : Int) - (500 : Int))) = (300 : Int)) ∧ ((fmax (0 : Int) ((400 : Int) - (500 : Int))) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_auction"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

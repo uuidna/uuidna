@@ -1,0 +1,12 @@
+{
+  "handle": "0f12fc1e",
+  "address": "0f12fc1e-3ccc-8025-aab2-c54e60a12fc7",
+  "statement": "((fmax (0 : Int) ((1000 : Int) - (250 : Int))) = (750 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (250 : Int))) = (0 : Int)) ∧ ((((999 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)) ∧ (((5000 : Int) / (50 : Int)) = (100 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (100 : Int)) = (900 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_observability"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

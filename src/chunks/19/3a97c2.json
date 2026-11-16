@@ -1,0 +1,12 @@
+{
+  "handle": "193a97c2",
+  "address": "193a97c2-9888-8c3f-b215-fef2d2f74b91",
+  "statement": "(((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((500 : Int) * (200 : Int)) = (100000 : Int)) ∧ ((((50000 : Int) * (3 : Int)) / (100 : Int)) = (1500 : Int)) ∧ ((((50000 : Int) * (5 : Int)) / (1000 : Int)) = (250 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((500 : Int) * (100 : Int)) / (1000 : Int)) = (50 : Int)) ∧ (((20 : Int) * (6 : Int)) = (120 : Int)) ∧ ((((500 : Int) - (50 : Int)) / (90 : Int)) = (5 : Int)) ∧ (((900 : Int) * (250 : Int)) = (225000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_aquafarming"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

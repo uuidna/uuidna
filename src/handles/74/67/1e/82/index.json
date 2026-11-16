@@ -1,0 +1,12 @@
+{
+  "handle": "74671e82",
+  "address": "74671e82-3594-8bb3-b563-9fa3520eb412",
+  "kind": "chunk",
+  "keys": [
+    "fam_payables"
+  ],
+  "statement": "(((900 : Int) / (100 : Int)) = (9 : Int)) ∧ ((((1000 : Int) * (365 : Int)) / (2000 : Int)) = (182 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (600 : Int))) = (400 : Int)) ∧ ((((10000 : Int) * (2 : Int)) / (100 : Int)) = (200 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (1500 : Int))) = (3500 : Int)) ∧ (((50 : Int) * (30 : Int)) = (1500 : Int)) ∧ ((-((-(1000 : Int)) / (12 : Int))) = (84 : Int)) ∧ ((fmax (0 : Int) ((30 : Int) - (10 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (30 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

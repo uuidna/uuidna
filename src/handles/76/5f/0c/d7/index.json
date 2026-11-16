@@ -1,0 +1,12 @@
+{
+  "handle": "765f0cd7",
+  "address": "765f0cd7-a0b9-8666-a037-8b9677caff1a",
+  "kind": "chunk",
+  "keys": [
+    "fam_humidity"
+  ],
+  "statement": "((((15 : Int) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ (((600 : Int) / (30 : Int)) = (20 : Int)) ∧ ((((20 : Int) * (1000 : Int)) / (1000 : Int)) = (20 : Int)) ∧ ((((622 : Int) * (20 : Int)) / ((1020 : Int) - (20 : Int))) = (12 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (75 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (15 : Int))) = (5 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (20 : Int))) = (0 : Int)) ∧ (((30 : Int) + ((50 : Int) / (5 : Int))) = (40 : Int)) ∧ ((((16 : Int) * (1000 : Int)) / (1000 : Int)) = (16 : Int))",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

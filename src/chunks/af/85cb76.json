@@ -1,0 +1,12 @@
+{
+  "handle": "af85cb76",
+  "address": "af85cb76-7f07-801b-9da9-0c6630ffe442",
+  "statement": "(((1000 : Int) / (40 : Int)) = (25 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((800 : Int) / (100 : Int)) = (8 : Int)) ∧ ((((65 : Int) * (100 : Int)) / (100 : Int)) = (65 : Int)) ∧ (((14 : Int) * (90 : Int)) = (1260 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (24 : Int)) = (75 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_horticulture"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

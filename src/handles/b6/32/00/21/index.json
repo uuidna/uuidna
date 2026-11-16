@@ -1,0 +1,12 @@
+{
+  "handle": "b6320021",
+  "address": "b6320021-d1a2-820d-ae23-de6d62b87687",
+  "kind": "chunk",
+  "keys": [
+    "fam_dialectic"
+  ],
+  "statement": "(((1 : Int) + (1 : Int)) = (2 : Int)) ∧ (((3 : Int) * (3 : Int)) = (9 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (14 : Int))) = (6 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (6 : Int)))) / (Int.ofNat (ffact (Int.toNat ((6 : Int) - (3 : Int)))))) = (120 : Int)) ∧ (((3 : Int) + (2 : Int)) = (5 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

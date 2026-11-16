@@ -1,0 +1,12 @@
+{
+  "handle": "df9e9ebf",
+  "address": "df9e9ebf-ea83-8d46-bee2-f1442e59501f",
+  "kind": "chunk",
+  "keys": [
+    "fam_cooling"
+  ],
+  "statement": "(((60 : Int) / (2 : Int)) = (30 : Int)) ∧ (((100 : Int) * (1 : Int)) = (100 : Int)) ∧ (((6 : Int) * (80 : Int)) = (480 : Int)) ∧ (((6 : Int) * (5 : Int)) = (30 : Int)) ∧ (((100 : Int) - (72 : Int)) = (28 : Int)) ∧ (((200 : Int) * (3 : Int)) = (600 : Int)) ∧ ((((1800 : Int) * (100 : Int)) / (3000 : Int)) = (60 : Int)) ∧ (((2 : Int) * (60 : Int)) = (120 : Int)) ∧ ((((100 : Int) - (25 : Int)) - (40 : Int)) = (35 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

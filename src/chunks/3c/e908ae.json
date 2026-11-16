@@ -1,0 +1,12 @@
+{
+  "handle": "3ce908ae",
+  "address": "3ce908ae-046f-8103-99ec-fea4b9ceb9bc",
+  "statement": "((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((0 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ ((((49 : Int) * (100 : Int)) / (50 : Int)) = (98 : Int)) ∧ ((((997 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((if (if (80 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (50 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_identity"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

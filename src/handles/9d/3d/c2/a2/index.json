@@ -1,0 +1,12 @@
+{
+  "handle": "9d3dc2a2",
+  "address": "9d3dc2a2-b12b-8763-8f14-6cc7715455ee",
+  "kind": "chunk",
+  "keys": [
+    "fam_lodging"
+  ],
+  "statement": "((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ (((9000 : Int) / (60 : Int)) = (150 : Int)) ∧ (((120 : Int) / (40 : Int)) = (3 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ ((fmax (0 : Int) ((45 : Int) - (10 : Int))) = (35 : Int)) ∧ ((fmax (0 : Int) ((45 : Int) - (50 : Int))) = (0 : Int)) ∧ (((480 : Int) / (100 : Int)) = (4 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (24 : Int)) = (75 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

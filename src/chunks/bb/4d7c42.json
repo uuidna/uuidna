@@ -1,0 +1,12 @@
+{
+  "handle": "bb4d7c42",
+  "address": "bb4d7c42-2c2d-8778-b77c-070a910e46e5",
+  "statement": "(((100 : Int) * (2 : Int)) = (200 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (100 : Int))) = (0 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((1024 : Int) / (10 : Int)) = (102 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_determinism"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

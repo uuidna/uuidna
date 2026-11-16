@@ -1,0 +1,12 @@
+{
+  "handle": "aca2c9ce",
+  "address": "aca2c9ce-ba47-8e6a-8d0a-4fcf4dc1c18f",
+  "statement": "(((240 : Int) / (80 : Int)) = (3 : Int)) ∧ (((4000 : Int) / (80 : Int)) = (50 : Int)) ∧ (((3 : Int) * (80 : Int)) = (240 : Int)) ∧ ((((180 : Int) * (100 : Int)) / (240 : Int)) = (75 : Int)) ∧ (((80 : Int) / (10 : Int)) = (8 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (240 : Int)) = (25 : Int)) ∧ (((240 : Int) / (80 : Int)) = (3 : Int)) ∧ (((((100 : Int) - (40 : Int)) * (100 : Int)) / (100 : Int)) = (60 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_catering"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

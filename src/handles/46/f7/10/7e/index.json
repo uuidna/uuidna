@@ -1,0 +1,12 @@
+{
+  "handle": "46f7107e",
+  "address": "46f7107e-c801-81a1-93db-596e45ce39dd",
+  "kind": "chunk",
+  "keys": [
+    "fam_shamanism"
+  ],
+  "statement": "(((3 : Int) + (2 : Int)) = (5 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ (((120 : Int) * (1 : Int)) = (120 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ (((5 : Int) + (0 : Int)) = (5 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

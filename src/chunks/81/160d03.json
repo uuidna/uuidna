@@ -1,0 +1,12 @@
+{
+  "handle": "81160d03",
+  "address": "81160d03-f6ca-86b7-9aea-3c91fd035cc5",
+  "statement": "(((1000 : Int) * (2 : Int)) = (2000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (50 : Int)) (Int.toNat (2 : Int)))) = (1225 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((20 : Int) * (3 : Int)) = (60 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_onomastics"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

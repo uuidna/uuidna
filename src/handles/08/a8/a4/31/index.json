@@ -1,0 +1,12 @@
+{
+  "handle": "08a8a431",
+  "address": "08a8a431-92ff-868a-a31e-7354ca95e068",
+  "kind": "chunk",
+  "keys": [
+    "fam_coverage"
+  ],
+  "statement": "((((850 : Int) * (100 : Int)) / (1000 : Int)) = (85 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (850 : Int))) = (150 : Int)) ∧ (((200 : Int) * (1 : Int)) = (200 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

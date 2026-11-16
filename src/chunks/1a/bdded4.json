@@ -1,0 +1,12 @@
+{
+  "handle": "1abdded4",
+  "address": "1abdded4-bae7-8b43-93c8-382d5ec759fb",
+  "statement": "(((60 : Int) + (40 : Int)) = (100 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((230 : Int) * (60 : Int)) / (100 : Int)) = (138 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((1600 : Int) / (1000 : Int)) = (1 : Int)) ∧ (((16 : Int) * (2 : Int)) = (32 : Int)) ∧ ((((230 : Int) * (100 : Int)) / (10 : Int)) = (2300 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_composites"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

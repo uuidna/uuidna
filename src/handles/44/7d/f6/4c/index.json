@@ -1,0 +1,12 @@
+{
+  "handle": "447df64c",
+  "address": "447df64c-4912-87f7-85ca-fa7db8f48f05",
+  "kind": "chunk",
+  "keys": [
+    "fam_personality"
+  ],
+  "statement": "((((40 : Int) * (20 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((70 : Int) - (30 : Int))) = (40 : Int)) ∧ ((((45 : Int) * (20 : Int)) / (10 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((60 : Int) - (25 : Int))) = (35 : Int)) ∧ ((((80 : Int) + (90 : Int)) + (40 : Int)) = (210 : Int)) ∧ (((48 : Int) / (12 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (50 : Int))) = (30 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (50 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

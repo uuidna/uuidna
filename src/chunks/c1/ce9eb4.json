@@ -1,0 +1,12 @@
+{
+  "handle": "c1ce9eb4",
+  "address": "c1ce9eb4-0362-83fb-a027-9ea0e455a427",
+  "statement": "((if (if (7 : Int) > (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (3 : Int) > (7 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (3 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (7 : Int))) = (0 : Int)) ∧ ((if (if (8 : Int) > (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (3 : Int) > (8 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (0 : Int) > (0 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (1 : Int) > (0 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_evidence"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

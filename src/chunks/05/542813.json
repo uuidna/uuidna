@@ -1,0 +1,12 @@
+{
+  "handle": "05542813",
+  "address": "05542813-6b7a-8cde-be5e-d6cb3f234333",
+  "statement": "(((40 : Int) + (20 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((150 : Int) - (120 : Int))) = (30 : Int)) ∧ (((280 : Int) * (1 : Int)) = (280 : Int)) ∧ (((41 : Int) * (1000 : Int)) = (41000 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ (((5 : Int) + (0 : Int)) = (5 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_paleoclimate"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

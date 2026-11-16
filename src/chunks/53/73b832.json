@@ -1,0 +1,12 @@
+{
+  "handle": "5373b832",
+  "address": "5373b832-7b1e-8e6a-b4c4-875423d0e6e8",
+  "statement": "((((1000 : Int) * (8 : Int)) / (8 : Int)) = (1000 : Int)) ∧ (((3000 : Int) / (200 : Int)) = (15 : Int)) ∧ ((((3600 : Int) * (180 : Int)) / (3600 : Int)) = (180 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ (((90 : Int) - (30 : Int)) = (60 : Int)) ∧ (((20 : Int) - (30 : Int)) = (-10 : Int)) ∧ ((((980 : Int) * (100 : Int)) / (1000 : Int)) = (98 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (12 : Int))) = (38 : Int)) ∧ (((1000 : Int) / (40 : Int)) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_telecom"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

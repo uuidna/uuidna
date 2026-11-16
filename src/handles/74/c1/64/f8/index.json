@@ -1,0 +1,12 @@
+{
+  "handle": "74c164f8",
+  "address": "74c164f8-dad0-86f8-aebf-8a9450625971",
+  "kind": "chunk",
+  "keys": [
+    "fam_storyboarding"
+  ],
+  "statement": "(((40 : Int) * (6 : Int)) = (240 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((16 : Int) * (9 : Int)) = (144 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((((178 : Int) * (100 : Int)) / (100 : Int)) = (178 : Int)) ∧ (((3 : Int) * (3 : Int)) = (9 : Int)) ∧ (((5 : Int) + (3 : Int)) = (8 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

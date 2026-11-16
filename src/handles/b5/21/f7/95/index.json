@@ -1,0 +1,12 @@
+{
+  "handle": "b521f795",
+  "address": "b521f795-4913-8fff-a1f1-37845f034909",
+  "kind": "chunk",
+  "keys": [
+    "fam_solvency"
+  ],
+  "statement": "((((1500 : Int) * (100 : Int)) / (1000 : Int)) = (150 : Int)) ∧ ((fmax (0 : Int) ((1500 : Int) - (1000 : Int))) = (500 : Int)) ∧ ((((fmax (0 : Int) ((1500 : Int) - (1000 : Int))) * (100 : Int)) / (1500 : Int)) = (33 : Int)) ∧ ((((1200 : Int) * (100 : Int)) / (800 : Int)) = (150 : Int)) ∧ ((-((-((1000 : Int) * (45 : Int))) / (100 : Int))) = (450 : Int)) ∧ ((((450 : Int) * (25 : Int)) / (100 : Int)) = (112 : Int)) ∧ ((fmax (0 : Int) ((1200 : Int) - (800 : Int))) = (400 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (800 : Int))) = (0 : Int)) ∧ ((((2000 : Int) * (100 : Int)) / (1000 : Int)) = (200 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

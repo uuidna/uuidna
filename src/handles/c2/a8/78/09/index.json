@@ -1,0 +1,12 @@
+{
+  "handle": "c2a87809",
+  "address": "c2a87809-cb7e-8f8a-be81-e8b07cee781d",
+  "kind": "chunk",
+  "keys": [
+    "fam_atmospheric"
+  ],
+  "statement": "((fmax (0 : Int) ((1013 : Int) - (300 : Int))) = (713 : Int)) ∧ (((60 : Int) / (10 : Int)) = (6 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ ((300 : Int) = (300 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (20 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((25 : Int) - (15 : Int))) = (10 : Int)) ∧ ((((100 : Int) * (45 : Int)) / (90 : Int)) = (50 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

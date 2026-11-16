@@ -1,0 +1,12 @@
+{
+  "handle": "7fe98a8e",
+  "address": "7fe98a8e-6d61-8705-98db-3a8b55816347",
+  "kind": "chunk",
+  "keys": [
+    "fam_cardiology"
+  ],
+  "statement": "((((60 : Int) * (100 : Int)) / (120 : Int)) = (50 : Int)) ∧ (((70 : Int) * (72 : Int)) = (5040 : Int)) ∧ ((((120 : Int) + ((2 : Int) * (80 : Int))) / (3 : Int)) = (93 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (800 : Int)) = (50 : Int)) ∧ ((fmax (0 : Int) ((220 : Int) - (40 : Int))) = (180 : Int)) ∧ ((((70 : Int) * (10000 : Int)) / ((175 : Int) ^ (2 : Nat))) = (22 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((30 : Int) * (60 : Int)) / (15 : Int)) = (120 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

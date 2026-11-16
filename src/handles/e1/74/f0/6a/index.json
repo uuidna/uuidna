@@ -1,0 +1,12 @@
+{
+  "handle": "e174f06a",
+  "address": "e174f06a-cac0-8a98-8a8b-1eefd7a0e77d",
+  "kind": "chunk",
+  "keys": [
+    "fam_modulation"
+  ],
+  "statement": "((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ (((2 : Int) * ((75 : Int) + (15 : Int))) = (180 : Int)) ∧ ((((2 : Int) * (3 : Int)) + (1 : Int)) = (7 : Int)) ∧ (((5 : Int) * (15 : Int)) = (75 : Int)) ∧ ((((100 : Int) ^ (2 : Nat)) / (50 : Int)) = (200 : Int)) ∧ (((9600 : Int) / (4 : Int)) = (2400 : Int)) ∧ (((2400 : Int) * (4 : Int)) = (9600 : Int)) ∧ ((((9600 : Int) * (100 : Int)) / (2400 : Int)) = (400 : Int)) ∧ ((((9600 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

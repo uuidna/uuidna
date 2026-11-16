@@ -1,0 +1,12 @@
+{
+  "handle": "6b9158a1",
+  "address": "6b9158a1-adf2-8929-9fd0-26e002451f3e",
+  "statement": "(((5 : Int) * (12 : Int)) = (60 : Int)) ∧ ((((48 : Int) * (1000 : Int)) / (24 : Int)) = (2000 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ (((24 : Int) * (30 : Int)) = (720 : Int)) ∧ ((-((-(100 : Int)) / (12 : Int))) = (9 : Int)) ∧ ((((2 : Int) + (2 : Int)) + (1 : Int)) = (5 : Int)) ∧ (((720 : Int) / (24 : Int)) = (30 : Int)) ∧ (((fmax (0 : Int) ((100 : Int) - (0 : Int))) / (5 : Int)) = (20 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_animation"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

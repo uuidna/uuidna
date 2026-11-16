@@ -1,0 +1,12 @@
+{
+  "handle": "29b69b6e",
+  "address": "29b69b6e-9fe1-8853-becb-5c2ff21e9ab8",
+  "kind": "chunk",
+  "keys": [
+    "fam_huffman"
+  ],
+  "statement": "(((100 : Int) / (25 : Int)) = (4 : Int)) ∧ (((10 : Int) * (3 : Int)) = (30 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (200 : Int)) = (400 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((15 : Int) + (1 : Int)) / (2 : Int)) = (8 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (300 : Int))) = (700 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (1000 : Int))) = (0 : Int)) ∧ ((((2 : Int) * (8 : Int)) - (1 : Int)) = (15 : Int)) ∧ (((12 : Int) * (4 : Int)) = (48 : Int))",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

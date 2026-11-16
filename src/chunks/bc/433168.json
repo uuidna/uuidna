@@ -1,0 +1,12 @@
+{
+  "handle": "bc433168",
+  "address": "bc433168-4c5b-811b-bd26-474d88cfb2b2",
+  "statement": "(((3 : Int) * (4 : Int)) = (12 : Int)) ∧ (((12 : Int) / ((3 : Int) + (1 : Int))) = (3 : Int)) ∧ (((10 : Int) / (2 : Int)) = (5 : Int)) ∧ (((6 : Int) * (7 : Int)) = (42 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((8 : Int) * (3 : Int)) = (24 : Int)) ∧ (((5 : Int) * (6 : Int)) = (30 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_calculus"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

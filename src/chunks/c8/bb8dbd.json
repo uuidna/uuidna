@@ -1,0 +1,12 @@
+{
+  "handle": "c8bb8dbd",
+  "address": "c8bb8dbd-b627-8457-8129-0a1607ee862a",
+  "statement": "(((100 : Int) * (5 : Int)) = (500 : Int)) ∧ (((3 : Int) + (2 : Int)) = (5 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (6 : Int)))) / (Int.ofNat (ffact (Int.toNat ((6 : Int) - (2 : Int)))))) = (30 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_empiricism"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

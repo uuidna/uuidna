@@ -1,0 +1,12 @@
+{
+  "handle": "0f190f33",
+  "address": "0f190f33-244b-815d-8e9b-5abcc6583e42",
+  "kind": "chunk",
+  "keys": [
+    "fam_linehaul"
+  ],
+  "statement": "(((1200 : Int) / (60 : Int)) = (20 : Int)) ∧ (((1000 : Int) * (2 : Int)) = (2000 : Int)) ∧ (((1200 : Int) / (20 : Int)) = (60 : Int)) ∧ (((1200 : Int) / (6 : Int)) = (200 : Int)) ∧ (((20000 : Int) * (1200 : Int)) = (24000000 : Int)) ∧ (((600 : Int) / (60 : Int)) = (10 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (24 : Int)) = (83 : Int)) ∧ ((fmax (0 : Int) ((3000 : Int) - (2000 : Int))) = (1000 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "115fc54f",
+  "address": "115fc54f-c355-80c2-b3a9-638061d94d7a",
+  "statement": "(((343 : Int) / (7 : Int)) = (49 : Int)) ∧ (((343 : Int) / (7 : Int)) = (49 : Int)) ∧ (((10 : Int) * (Int.ofNat (flog 10 64 (Int.toNat ((1000 : Int) / (1 : Int)))))) = (30 : Int)) ∧ (((440 : Int) + (10 : Int)) = (450 : Int)) ∧ ((((1000 : Int) * (161 : Int)) / ((1 : Int) * (1000 : Int))) = (161 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ (((1000 : Int) * (343 : Int)) = (343000 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_acoustics"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "424d4809",
+  "address": "424d4809-8d8a-8c8f-8658-3f58422c91a3",
+  "statement": "(((((450 : Int) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (90 : Int)) ∧ (((60 : Int) * (3 : Int)) = (180 : Int)) ∧ (((180 : Int) / (60 : Int)) = (3 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((((350 : Int) + (20 : Int)) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (10 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_navigation"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

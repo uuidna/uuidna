@@ -1,0 +1,12 @@
+{
+  "handle": "600cd726",
+  "address": "600cd726-bb21-8a62-9be1-4a273463616e",
+  "kind": "chunk",
+  "keys": [
+    "fam_slider"
+  ],
+  "statement": "((5 : Int) = (5 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (4 : Int)) = (25 : Int)) ∧ (((3000 : Int) * (5 : Int)) = (15000 : Int)) ∧ (((7 : Int) % (5 : Int)) = (2 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ (((fmax (0 : Int) ((5 : Int) - (1 : Int))) * (16 : Int)) = (64 : Int)) ∧ ((300 : Int) = (300 : Int)) ∧ ((-((-(10 : Int)) / (3 : Int))) = (4 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

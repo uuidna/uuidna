@@ -1,0 +1,12 @@
+{
+  "handle": "c44f150e",
+  "address": "c44f150e-604a-825d-b6e1-38614cffa658",
+  "statement": "((((60 : Int) * (100 : Int)) / (90 : Int)) = (66 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (500 : Int)) = (80 : Int)) ∧ ((((10 : Int) * (35 : Int)) / (100 : Int)) = (3 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (38 : Int)) = (31 : Int)) ∧ (((30 : Int) - (20 : Int)) = (10 : Int)) ∧ (((20 : Int) - (30 : Int)) = (-10 : Int)) ∧ (((10500 : Int) / (90 : Int)) = (116 : Int)) ∧ ((((10 : Int) * (3 : Int)) + (5 : Int)) = (35 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_soccer"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

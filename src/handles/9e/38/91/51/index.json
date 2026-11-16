@@ -1,0 +1,12 @@
+{
+  "handle": "9e389151",
+  "address": "9e389151-39a4-89c8-940d-1bad07583fbb",
+  "kind": "chunk",
+  "keys": [
+    "fam_datacenter"
+  ],
+  "statement": "((((1500 : Int) * (100 : Int)) / (1000 : Int)) = (150 : Int)) ∧ ((-((-(1000 : Int)) / (42 : Int))) = (24 : Int)) ∧ (((10000 : Int) * (24 : Int)) = (240000 : Int)) ∧ ((((1000 : Int) * ((150 : Int) - (100 : Int))) / (100 : Int)) = (500 : Int)) ∧ (((5 : Int) - (4 : Int)) = (1 : Int)) ∧ (((24 : Int) * (42 : Int)) = (1008 : Int)) ∧ (((24 : Int) * (10 : Int)) = (240 : Int)) ∧ ((((525000 : Int) * (100 : Int)) / (525600 : Int)) = (99 : Int)) ∧ (((1000 : Int) * (400 : Int)) = (400000 : Int)) ∧ (((1000 : Int) * (2 : Int)) = (2000 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

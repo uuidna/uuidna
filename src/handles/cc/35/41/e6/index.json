@@ -1,0 +1,12 @@
+{
+  "handle": "cc3541e6",
+  "address": "cc3541e6-76c9-8b41-aec7-950785021e23",
+  "kind": "chunk",
+  "keys": [
+    "fam_piston"
+  ],
+  "statement": "(((500 : Int) * (4 : Int)) = (2000 : Int)) ∧ (((80 : Int) * (1 : Int)) = (80 : Int)) ∧ (((86 : Int) * (1 : Int)) = (86 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((1000 : Int) * (5 : Int)) = (5000 : Int)) ∧ (((1000 : Int) * (2 : Int)) = (2000 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d4cc4c7c",
+  "address": "d4cc4c7c-c7b5-80a2-b29b-5998893be5c3",
+  "kind": "chunk",
+  "keys": [
+    "fam_swine"
+  ],
+  "statement": "(((110 : Int) / (10 : Int)) = (11 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ (((900 : Int) / (90 : Int)) = (10 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((58 : Int) * (100 : Int)) / (100 : Int)) = (58 : Int)) ∧ ((((220 : Int) * (100 : Int)) / (100 : Int)) = (220 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((120 : Int) = (120 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

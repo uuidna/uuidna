@@ -1,0 +1,12 @@
+{
+  "handle": "21e63f50",
+  "address": "21e63f50-9004-82c1-b229-9b6225b3a815",
+  "kind": "chunk",
+  "keys": [
+    "fam_enrollment"
+  ],
+  "statement": "((((500 : Int) * (100 : Int)) / (2000 : Int)) = (25 : Int)) ∧ ((((850 : Int) * (100 : Int)) / (1000 : Int)) = (85 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (850 : Int))) = (150 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1500 : Int)) = (40 : Int)) ∧ (((300 : Int) / (20 : Int)) = (15 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (450 : Int))) = (50 : Int)) ∧ ((fmax (0 : Int) ((2000 : Int) - (1500 : Int))) = (500 : Int)) ∧ (((100 : Int) + ((30 : Int) / (3 : Int))) = (110 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

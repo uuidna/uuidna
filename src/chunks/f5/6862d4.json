@@ -1,0 +1,12 @@
+{
+  "handle": "f56862d4",
+  "address": "f56862d4-61b4-89a3-ad6b-290eb23c9a66",
+  "statement": "(((8000 : Int) / (60 : Int)) = (133 : Int)) ∧ (((600 : Int) / (10 : Int)) = (60 : Int)) ∧ (((200 : Int) * (6 : Int)) = (1200 : Int)) ∧ (((12 : Int) + (8 : Int)) = (20 : Int)) ∧ (((3600 : Int) / (133 : Int)) = (27 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (100 : Int)) = (6 : Int)) ∧ (((1200 : Int) * (10 : Int)) = (12000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_monorail"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8b707658",
+  "address": "8b707658-ec82-86ef-8173-9fbe90dc4c8b",
+  "kind": "chunk",
+  "keys": [
+    "fam_dice"
+  ],
+  "statement": "(((6 : Int) ^ (2 : Nat)) = (36 : Int)) ∧ ((((2 : Int) * ((6 : Int) + (1 : Int))) / (2 : Int)) = (7 : Int)) ∧ (((100 : Int) / (6 : Int)) = (16 : Int)) ∧ (((2 : Int) * ((6 : Int) - (1 : Int))) = (10 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) ∧ (((((6 : Int) ^ (2 : Nat)) - (1 : Int)) / (12 : Int)) = (2 : Int)) ∧ (((3 : Int) + (((3 : Int) * ((6 : Int) - (1 : Int))) / (2 : Int))) = (10 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

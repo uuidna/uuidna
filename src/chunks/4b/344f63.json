@@ -1,0 +1,12 @@
+{
+  "handle": "4b344f63",
+  "address": "4b344f63-28ce-8a33-93c2-d9491e80ac93",
+  "statement": "(((240 : Int) / (24 : Int)) = (10 : Int)) ∧ ((((240 : Int) * (1 : Int)) / (10 : Int)) = (24 : Int)) ∧ ((((24 : Int) * (10 : Int)) / (1 : Int)) = (240 : Int)) ∧ (((240 : Int) * (5 : Int)) = (1200 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((240 : Int) / (6 : Int)) = (40 : Int)) ∧ ((((fmax (0 : Int) ((250 : Int) - (240 : Int))) * (100 : Int)) / (240 : Int)) = (4 : Int)) ∧ ((((fmax (0 : Int) ((240 : Int) - (240 : Int))) * (100 : Int)) / (240 : Int)) = (0 : Int)) ∧ (((240 : Int) / (2 : Int)) = (120 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_transformer"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

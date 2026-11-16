@@ -1,0 +1,12 @@
+{
+  "handle": "3656f94d",
+  "address": "3656f94d-48eb-814d-9348-890551871c99",
+  "kind": "chunk",
+  "keys": [
+    "fam_lottery"
+  ],
+  "statement": "((Int.ofNat (fchoose (Int.toNat (49 : Int)) (Int.toNat (6 : Int)))) = (13983816 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((50000 : Int) / (10000 : Int)) = (5 : Int)) ∧ (((((1000 : Int) - (500 : Int)) * (100 : Int)) / (1000 : Int)) = (50 : Int)) ∧ (((60000 : Int) / (4 : Int)) = (15000 : Int)) ∧ (((Int.ofNat (fchoose (Int.toNat (69 : Int)) (Int.toNat (5 : Int)))) * (26 : Int)) = (292201338 : Int)) ∧ (((50000 : Int) + (15000 : Int)) = (65000 : Int)) ∧ (((1000 : Int) * (2 : Int)) = (2000 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

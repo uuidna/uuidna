@@ -1,0 +1,12 @@
+{
+  "handle": "7e59b749",
+  "address": "7e59b749-6425-8263-a1fd-e61dc8375a43",
+  "statement": "((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (950 : Int)) = (31 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((4000 : Int) / (1000 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (700 : Int))) = (300 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((100000 : Int) * (50 : Int)) / (1000 : Int)) = (5000 : Int)) ∧ ((fmin (10 : Int) (3 : Int)) = (3 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_messaging"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

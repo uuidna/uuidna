@@ -1,0 +1,12 @@
+{
+  "handle": "c2ff78e5",
+  "address": "c2ff78e5-5bee-8898-8ab3-eb24819f76dc",
+  "statement": "(((600 : Int) / (3 : Int)) = (200 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (100 : Int)) = (18 : Int)) ∧ (((5000 : Int) / (25 : Int)) = (200 : Int)) ∧ (((((120 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ (((400 : Int) / (2 : Int)) = (200 : Int)) ∧ (((1000000 : Int) / (500 : Int)) = (2000 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_metallurgy"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

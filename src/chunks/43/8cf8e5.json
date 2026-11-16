@@ -1,0 +1,12 @@
+{
+  "handle": "438cf8e5",
+  "address": "438cf8e5-fb0d-872f-a8d3-05c7684bbebe",
+  "statement": "(((4 : Int) * (8 : Int)) = (32 : Int)) ∧ (((32 : Int) * (2 : Int)) = (64 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ (((4 : Int) * (3000 : Int)) = (12000 : Int)) ∧ ((((5 : Int) + (10 : Int)) - (1 : Int)) = (14 : Int)) ∧ ((-((-(100 : Int)) / (64 : Int))) = (2 : Int)) ∧ (((8 : Int) * (15 : Int)) = (120 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((3000 : Int) + (500 : Int)) = (3500 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_cpu"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

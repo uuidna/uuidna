@@ -1,0 +1,12 @@
+{
+  "handle": "0238a48f",
+  "address": "0238a48f-db2f-85e6-911b-f2e8656776b2",
+  "kind": "chunk",
+  "keys": [
+    "fam_endocrinology"
+  ],
+  "statement": "((((90 : Int) * (10 : Int)) / (405 : Int)) = (2 : Int)) ∧ ((((5400 : Int) + (4600 : Int)) / (1000 : Int)) = (10 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (4 : Int)) = (50 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (50 : Int)) = (300 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (10 : Int)) = (800 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((10 : Int) * (693 : Int)) / ((5 : Int) * (1000 : Int))) = (1 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (30 : Int)) = (300 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "828c1f46",
+  "address": "828c1f46-796c-8c40-b071-fb8ea7d1e3fd",
+  "statement": "(((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (10 : Int))) = (30 : Int)) ∧ ((fmax (0 : Int) ((15 : Int) - (3 : Int))) = (12 : Int)) ∧ (((360 : Int) / (24 : Int)) = (15 : Int)) ∧ (((600 : Int) / (10 : Int)) = (60 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (100 : Int)) = (8 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (300 : Int)) = (83 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_steering"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

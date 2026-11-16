@@ -1,0 +1,12 @@
+{
+  "handle": "91f0c6a6",
+  "address": "91f0c6a6-7913-8f17-971f-b78c86238aaa",
+  "statement": "(((40 : Int) + (20 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (40 : Int)) (Int.toNat (2 : Int)))) = (780 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (6 : Int)))) = (720 : Int)) ∧ (((600 : Int) / (30 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (100 : Int))) = (200 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((3 : Int) * (2 : Int)) = (6 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_papyrology"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

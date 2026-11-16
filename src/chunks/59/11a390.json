@@ -1,0 +1,12 @@
+{
+  "handle": "5911a390",
+  "address": "5911a390-9ef6-84da-8c12-f1aeb461f791",
+  "statement": "((((400 : Int) * (100 : Int)) / (1000 : Int)) = (40 : Int)) ∧ (((350 : Int) / (50 : Int)) = (7 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (50 : Int)) = (50 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ (((50 : Int) * (200 : Int)) = (10000 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (15 : Int))) = (25 : Int)) ∧ ((fmax (0 : Int) ((15 : Int) - (40 : Int))) = (0 : Int)) ∧ ((((12 : Int) + (8 : Int)) + (5 : Int)) = (25 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (40 : Int)) = (30 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_bioindicator"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

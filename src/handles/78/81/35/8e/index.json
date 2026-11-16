@@ -1,0 +1,12 @@
+{
+  "handle": "7881358e",
+  "address": "7881358e-106d-8209-99f4-7623d821c32f",
+  "kind": "chunk",
+  "keys": [
+    "fam_econ"
+  ],
+  "statement": "(((1000 : Int) / (((1 : Int) + ((0 : Int) / (10000 : Int))) ^ (5 : Nat))) = (1000 : Int)) ∧ ((fmax (0 : Int) ((67 : Int) - (30 : Int))) = (37 : Int)) ∧ ((fmax (0 : Int) ((67 : Int) - (70 : Int))) = (0 : Int)) ∧ (((50000 : Int) * (37 : Int)) = (1850000 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

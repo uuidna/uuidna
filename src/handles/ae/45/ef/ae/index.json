@@ -1,0 +1,12 @@
+{
+  "handle": "ae45efae",
+  "address": "ae45efae-f2e6-8480-a846-ecf095e6427f",
+  "kind": "chunk",
+  "keys": [
+    "fam_apiology"
+  ],
+  "statement": "(((50000 : Int) * (1 : Int)) = (50000 : Int)) ∧ (((6000 : Int) * (8 : Int)) = (48000 : Int)) ∧ (((5 : Int) * (1000 : Int)) = (5000 : Int)) ∧ (((60000 : Int) / (100 : Int)) = (600 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (8 : Int)))) / (Int.ofNat (ffact (Int.toNat ((8 : Int) - (2 : Int)))))) = (56 : Int)) ∧ (((30 : Int) * (1 : Int)) = (30 : Int)) ∧ (((16 : Int) + (5 : Int)) = (21 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

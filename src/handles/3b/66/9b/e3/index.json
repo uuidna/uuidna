@@ -1,0 +1,12 @@
+{
+  "handle": "3b669be3",
+  "address": "3b669be3-6869-883d-975e-98cf00c8af0d",
+  "kind": "chunk",
+  "keys": [
+    "fam_mosaic"
+  ],
+  "statement": "(((40 : Int) * (30 : Int)) = (1200 : Int)) ∧ (((360 : Int) / (6 : Int)) = (60 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ (((50 : Int) * (50 : Int)) = (2500 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

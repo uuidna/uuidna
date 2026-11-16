@@ -1,0 +1,12 @@
+{
+  "handle": "b08afe19",
+  "address": "b08afe19-4a93-8470-9805-9c6ab7792091",
+  "kind": "chunk",
+  "keys": [
+    "fam_logging"
+  ],
+  "statement": "(((60000 : Int) / (60 : Int)) = (1000 : Int)) ∧ (((500 : Int) * (30 : Int)) = (15000 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ (((1000 : Int) * (5 : Int)) = (5000 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((1000 : Int) * (50 : Int)) = (50000 : Int)) ∧ ((-((-(1000 : Int)) / (300 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (400 : Int))) = (600 : Int)) ∧ ((fmax (0 : Int) ((400 : Int) - (1000 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

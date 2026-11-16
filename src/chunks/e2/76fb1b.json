@@ -1,0 +1,12 @@
+{
+  "handle": "e276fb1b",
+  "address": "e276fb1b-4465-8267-888f-e1966fdac028",
+  "statement": "(0 < 288) ∧ (0 < 4) ∧ (72337 = 72337 + 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_audit_total"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

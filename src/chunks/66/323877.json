@@ -1,0 +1,12 @@
+{
+  "handle": "66323877",
+  "address": "66323877-e9f6-8396-ade3-416c19c3ae00",
+  "statement": "(((400 : Int) * (1 : Int)) = (400 : Int)) ∧ (((5400 : Int) / (60 : Int)) = (90 : Int)) ∧ (((7 : Int) * (1000 : Int)) = (7000 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (51 : Int))) = (39 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((24 : Int) * (3 : Int)) = (72 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_satellite"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

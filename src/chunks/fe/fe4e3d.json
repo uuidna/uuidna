@@ -1,0 +1,12 @@
+{
+  "handle": "fefe4e3d",
+  "address": "fefe4e3d-b9bc-832f-9302-fffc8a079ac6",
+  "statement": "((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((2 : Int) * (3 : Int)) * (100 : Int)) = (600 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((10000 : Int) * (90 : Int)) / (100 : Int)) = (9000 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (400 : Int))) = (600 : Int)) ∧ ((fmax (0 : Int) ((400 : Int) - (1000 : Int))) = (0 : Int)) ∧ (((500 : Int) * (4 : Int)) = (2000 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_photochemistry"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d2946038",
+  "address": "d2946038-964d-8c26-a111-260bf98aa54a",
+  "kind": "chunk",
+  "keys": [
+    "fam_geology"
+  ],
+  "statement": "((7 : Int) = (7 : Int)) ∧ (((10 : Int) * (25 : Int)) = (250 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ (((5730 : Int) * (3 : Int)) = (17190 : Int)) ∧ (((2700 : Int) / (1 : Int)) = (2700 : Int)) ∧ ((14 : Int) = (14 : Int)) ∧ (((500 : Int) / (100 : Int)) = (5 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (200 : Int)) = (7 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

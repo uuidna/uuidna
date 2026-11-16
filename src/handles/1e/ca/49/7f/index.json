@@ -1,0 +1,12 @@
+{
+  "handle": "1eca497f",
+  "address": "1eca497f-21a2-81fe-9ed6-04e168100776",
+  "kind": "chunk",
+  "keys": [
+    "fam_budgeting"
+  ],
+  "statement": "(((((1100 : Int) - (1000 : Int)) * (100 : Int)) / (1000 : Int)) = (10 : Int)) ∧ ((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (3000 : Int))) = (2000 : Int)) ∧ (((100 : Int) * (12 : Int)) = (1200 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((12000 : Int) / (6 : Int)) = (2000 : Int)) ∧ (((24000 : Int) / (2000 : Int)) = (12 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (700 : Int))) = (300 : Int)) ∧ ((fmax (0 : Int) ((3000 : Int) - (5000 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

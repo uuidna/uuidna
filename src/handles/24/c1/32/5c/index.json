@@ -1,0 +1,12 @@
+{
+  "handle": "24c1325c",
+  "address": "24c1325c-9cfd-8a9c-9f14-71957e14e394",
+  "kind": "chunk",
+  "keys": [
+    "fam_podcasting"
+  ],
+  "statement": "(((50 : Int) * (2000 : Int)) = (100000 : Int)) ∧ ((((27 : Int) * (100 : Int)) / (30 : Int)) = (90 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((52 : Int) / (52 : Int)) = (1 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (60 : Int)) = (150 : Int)) ∧ (((9600000 : Int) / (60 : Int)) = (160000 : Int)) ∧ (((50000 : Int) / (10000 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((1200 : Int) - (1000 : Int))) = (200 : Int)) ∧ ((fmax (0 : Int) ((900 : Int) - (1000 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

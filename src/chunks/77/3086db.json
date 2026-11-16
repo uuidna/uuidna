@@ -1,0 +1,12 @@
+{
+  "handle": "773086db",
+  "address": "773086db-5e8c-8316-bb55-4f74dd4df64a",
+  "statement": "((((1000 : Int) * (25 : Int)) / (100 : Int)) = (250 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (1000 : Int)) = (15 : Int)) ∧ ((((fmax (0 : Int) ((1500 : Int) - (1000 : Int))) * (100 : Int)) / (1000 : Int)) = (50 : Int)) ∧ (((5 : Int) * (2000 : Int)) = (10000 : Int)) ∧ ((fmax (0 : Int) ((1200 : Int) - (999 : Int))) = (201 : Int)) ∧ (((((80 : Int) - (60 : Int)) * (100 : Int)) / (80 : Int)) = (25 : Int)) ∧ (((40 : Int) * (25 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (320 : Int))) = (180 : Int)) ∧ ((fmax (0 : Int) ((900 : Int) - (1200 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_promotion"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

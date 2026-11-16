@@ -1,0 +1,12 @@
+{
+  "handle": "8b70fd70",
+  "address": "8b70fd70-8bc5-8430-81e7-c569d7ee3994",
+  "statement": "((fmax (0 : Int) ((1000 : Int) - (700 : Int))) = (300 : Int)) ∧ ((((700 : Int) * (100 : Int)) / (1000 : Int)) = (70 : Int)) ∧ (((700 : Int) * (2 : Int)) = (1400 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ (((300 : Int) * (2 : Int)) = (600 : Int)) ∧ ((((18000 : Int) * (100 : Int)) / (20000 : Int)) = (90 : Int)) ∧ (((700 : Int) + (300 : Int)) = (1000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_backhaul"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

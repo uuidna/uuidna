@@ -1,0 +1,12 @@
+{
+  "handle": "caf30f57",
+  "address": "caf30f57-4f7d-8f61-b7b5-feddbe8b63c5",
+  "kind": "chunk",
+  "keys": [
+    "fam_stemming"
+  ],
+  "statement": "(((12 : Int) + (18 : Int)) = (30 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (640 : Int))) = (360 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (200 : Int)) = (2 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (3 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (5 : Int))) = (7 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (300 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (7 : Int))) = (0 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

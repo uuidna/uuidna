@@ -1,0 +1,12 @@
+{
+  "handle": "123bb52b",
+  "address": "123bb52b-bb40-8d92-9149-afdbbe5726d6",
+  "statement": "((((10000 : Int) * (5 : Int)) / (100 : Int)) = (500 : Int)) ∧ (((2 : Int) * (25 : Int)) = (50 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((-((-(1000 : Int)) / (7 : Int))) = (143 : Int)) ∧ (((1000 : Int) / (40 : Int)) = (25 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((5000 : Int) * (1000 : Int)) / (250 : Int)) = (20000 : Int)) ∧ (((((1000 : Int) - (100 : Int)) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((((1000 : Int) - (1000 : Int)) * (100 : Int)) / (1000 : Int)) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_sampling"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

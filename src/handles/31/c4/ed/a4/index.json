@@ -1,0 +1,12 @@
+{
+  "handle": "31c4eda4",
+  "address": "31c4eda4-c8f7-8a02-a8b5-6edd2519434a",
+  "kind": "chunk",
+  "keys": [
+    "fam_grouptheory"
+  ],
+  "statement": "(((6 : Int) * (4 : Int)) = (24 : Int)) ∧ (((24 : Int) / (6 : Int)) = (4 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((6 : Int) / (Int.ofNat (fgcd 100 (Int.toNat (4 : Int)) (Int.toNat (6 : Int))))) = (3 : Int)) ∧ (((6 : Int) / (Int.ofNat (fgcd 100 (Int.toNat (5 : Int)) (Int.toNat (6 : Int))))) = (6 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

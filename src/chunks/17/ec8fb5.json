@@ -1,0 +1,12 @@
+{
+  "handle": "17ec8fb5",
+  "address": "17ec8fb5-081b-8f77-892d-9705f0070513",
+  "statement": "(((1400 : Int) / (2 : Int)) = (700 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (6 : Int))) = (1 : Int)) ∧ ((fmax (0 : Int) ((6 : Int) - (7 : Int))) = (0 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (200 : Int)) = (75 : Int)) ∧ (((600 : Int) / (60 : Int)) = (10 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((50 : Int) * (4 : Int)) = (200 : Int)) ∧ (((100 : Int) * (2 : Int)) = (200 : Int)) ∧ (((8 : Int) * (20 : Int)) = (160 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_hydroponics"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

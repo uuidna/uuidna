@@ -1,0 +1,12 @@
+{
+  "handle": "d2bd62d1",
+  "address": "d2bd62d1-d5de-839b-bf0f-6ab61f664262",
+  "kind": "chunk",
+  "keys": [
+    "fam_winemaking"
+  ],
+  "statement": "(((((24 : Int) - (6 : Int)) * (55 : Int)) / (100 : Int)) = (9 : Int)) ∧ ((((240 : Int) * (100 : Int)) / (1000 : Int)) = (24 : Int)) ∧ ((((7 : Int) * (1000 : Int)) / (1000 : Int)) = (7 : Int)) ∧ (((200 : Int) * (50 : Int)) = (10000 : Int)) ∧ ((((5000 : Int) * (650 : Int)) / (1000 : Int)) = (3250 : Int)) ∧ ((((1000 : Int) * (70 : Int)) / (100 : Int)) = (700 : Int)) ∧ ((((24 : Int) - (0 : Int)) / (12 : Int)) = (2 : Int)) ∧ ((((60 : Int) + (30 : Int)) + (10 : Int)) = (100 : Int))",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

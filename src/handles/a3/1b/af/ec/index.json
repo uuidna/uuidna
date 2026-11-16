@@ -1,0 +1,12 @@
+{
+  "handle": "a31bafec",
+  "address": "a31bafec-22c2-83c8-ad19-cc42636fcd5a",
+  "kind": "chunk",
+  "keys": [
+    "fam_aviation"
+  ],
+  "statement": "(((1000 : Int) * (22 : Int)) = (22000 : Int)) ∧ ((fmax (0 : Int) ((780 : Int) - (600 : Int))) = (180 : Int)) ∧ (((24000 : Int) / (3 : Int)) = (8000 : Int)) ∧ ((fmax (0 : Int) ((80000 : Int) - (45000 : Int))) = (35000 : Int)) ∧ ((if (if (12 : Int) ≤ (13 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (14 : Int) ≤ (13 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (1000 : Int) ≥ (500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((fmax (0 : Int) ((95 : Int) - (85 : Int))) = (10 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

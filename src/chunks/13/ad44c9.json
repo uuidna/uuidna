@@ -1,0 +1,12 @@
+{
+  "handle": "13ad44c9",
+  "address": "13ad44c9-67d7-87d3-81a5-0c09b735a3c5",
+  "statement": "(((44100 : Int) / (441 : Int)) = (100 : Int)) ∧ (((1024 : Int) * (10 : Int)) = (10240 : Int)) ∧ (((48000 : Int) / (240 : Int)) = (200 : Int)) ∧ (((44100 : Int) / (100 : Int)) = (441 : Int)) ∧ (((440 : Int) * (5 : Int)) = (2200 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (850 : Int))) = (150 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (200 : Int))) = (0 : Int)) ∧ (((44100 : Int) / (2 : Int)) = (22050 : Int)) ∧ ((((3 : Int) * (3 : Int)) + ((4 : Int) * (4 : Int))) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_fourier"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

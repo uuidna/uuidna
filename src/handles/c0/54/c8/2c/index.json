@@ -1,0 +1,12 @@
+{
+  "handle": "c054c82c",
+  "address": "c054c82c-b5f7-8c1a-8aa3-630b8fb5c3df",
+  "kind": "chunk",
+  "keys": [
+    "fam_barometry"
+  ],
+  "statement": "(((1000 : Int) + ((80 : Int) / (8 : Int))) = (1010 : Int)) ∧ ((fmax (0 : Int) ((1015 : Int) - (1012 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((1012 : Int) - (1015 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((1013 : Int) - ((800 : Int) / (8 : Int)))) = (913 : Int)) ∧ (((101 : Int) * (10 : Int)) = (1010 : Int)) ∧ (((60 : Int) / (5 : Int)) = (12 : Int)) ∧ ((fmax (0 : Int) ((1013 : Int) - (13 : Int))) = (1000 : Int)) ∧ (((4048 : Int) / (4 : Int)) = (1012 : Int)) ∧ ((((1013 : Int) * (1000 : Int)) / (3386 : Int)) = (299 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

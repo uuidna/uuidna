@@ -1,0 +1,12 @@
+{
+  "handle": "4814e8f3",
+  "address": "4814e8f3-df1c-8bab-bbcb-6e87e69797a1",
+  "statement": "(((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ (((3 : Int) * (111 : Int)) = (333 : Int)) ∧ (((40 : Int) * (25 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((8848 : Int) - (5300 : Int))) = (3548 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (200 : Int))) = (0 : Int)) ∧ (((9000 : Int) / (30 : Int)) = (300 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (40 : Int)) = (300 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_geography"
+  ],
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

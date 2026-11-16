@@ -1,0 +1,12 @@
+{
+  "handle": "16376a4f",
+  "address": "16376a4f-92bc-8e61-8241-41b525440532",
+  "kind": "chunk",
+  "keys": [
+    "fam_eschatology"
+  ],
+  "statement": "((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (3 : Int)))) = (56 : Int)) ∧ (((7 : Int) * (3 : Int)) = (21 : Int)) ∧ (((7 : Int) * (70 : Int)) = (490 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (700 : Int))) = (300 : Int)) ∧ (((3 : Int) + (4 : Int)) = (7 : Int)) ∧ ((((6 : Int) + (6 : Int)) + (6 : Int)) = (18 : Int))",
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

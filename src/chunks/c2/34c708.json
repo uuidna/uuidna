@@ -1,0 +1,12 @@
+{
+  "handle": "c234c708",
+  "address": "c234c708-8731-8490-9ee1-f794460baffb",
+  "statement": "((((500 : Int) * (100000 : Int)) / (100000 : Int)) = (500 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((250 : Int) * (100000 : Int)) / (100000 : Int)) = (250 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_criminology"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cdc269cb",
+  "address": "cdc269cb-6485-8b04-8e30-3f884dc922bf",
+  "statement": "(((20 : Int) * (1 : Int)) = (20 : Int)) ∧ (((10 : Int) + (5 : Int)) = (15 : Int)) ∧ (((30 : Int) * (2 : Int)) = (60 : Int)) ∧ (((900 : Int) / (10 : Int)) = (90 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ ((fmax (3 : Int) (5 : Int)) = (5 : Int)) ∧ (((600 : Int) / (60 : Int)) = (10 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_hail"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

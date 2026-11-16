@@ -1,0 +1,12 @@
+{
+  "handle": "66eda6be",
+  "address": "66eda6be-05cc-8a8f-b722-4fd6be51d1c3",
+  "statement": "(((100 : Int) * (3 : Int)) = (300 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (100 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (40 : Int))) = (960 : Int)) ∧ (((100 : Int) + (8 : Int)) = (108 : Int)) ∧ ((((96 : Int) * (100 : Int)) / (100 : Int)) = (96 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ (((80 : Int) * (1 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (96 : Int))) = (4 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_inflation"
+  ],
+  "files": [
+    "FamiliesI.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "582266e9",
+  "address": "582266e9-670b-8203-b8f3-1f7f1a3548ee",
+  "statement": "(((5 : Int) * (12000 : Int)) = (60000 : Int)) ∧ (((10 : Int) * (fmax (0 : Int) ((400 : Int) - (150 : Int)))) = (2500 : Int)) ∧ (((1200 : Int) / (400 : Int)) = (3 : Int)) ∧ (((1200 : Int) / (0 : Int)) = (0 : Int)) ∧ (((1440 : Int) / (360 : Int)) = (4 : Int)) ∧ ((((10 : Int) * (4 : Int)) * (20 : Int)) = (800 : Int)) ∧ ((-((-(1000 : Int)) / (250 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (33 : Int))) = (7 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (42 : Int))) = (8 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_refrigeration"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

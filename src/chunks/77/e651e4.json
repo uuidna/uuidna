@@ -1,0 +1,12 @@
+{
+  "handle": "77e651e4",
+  "address": "77e651e4-4cc3-8be5-a541-94d402e28fe8",
+  "statement": "(((2 : Int) * (38 : Int)) = (76 : Int)) ∧ (((5 : Int) * (50 : Int)) = (250 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ (((500 : Int) * (12 : Int)) = (6000 : Int)) ∧ (((6000 : Int) / (12 : Int)) = (500 : Int)) ∧ ((fmax (0 : Int) ((150 : Int) - (100 : Int))) = (50 : Int)) ∧ (((250 : Int) * (5 : Int)) = (1250 : Int)) ∧ (((3 : Int) * (6 : Int)) = (18 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (150 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_respiration"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

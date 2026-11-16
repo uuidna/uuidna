@@ -1,0 +1,12 @@
+{
+  "handle": "2625abc8",
+  "address": "2625abc8-65c3-8472-b3b0-b88d1c802d4c",
+  "statement": "((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((1200 : Int) - (1000 : Int))) = (200 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (900 : Int))) = (100 : Int)) ∧ ((((2000 : Int) * (1000 : Int)) / (800 : Int)) = (2500 : Int)) ∧ ((fmax (0 : Int) ((2000 : Int) - (800 : Int))) = (1200 : Int)) ∧ ((((fmax (0 : Int) ((2000 : Int) - (800 : Int))) * (100 : Int)) / (fmax (0 : Int) ((2000 : Int) - (1000 : Int)))) = (120 : Int)) ∧ ((fmax (0 : Int) ((2000 : Int) - (1800 : Int))) = (200 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_earnedvalue"
+  ],
+  "files": [
+    "FamiliesE.lean"
+  ]
+}

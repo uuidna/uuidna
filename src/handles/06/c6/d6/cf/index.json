@@ -1,0 +1,12 @@
+{
+  "handle": "06c6d6cf",
+  "address": "06c6d6cf-f571-88fe-8e89-bd0da8eb62f8",
+  "kind": "chunk",
+  "keys": [
+    "fam_platonic"
+  ],
+  "statement": "((((8 : Int) - (12 : Int)) + (6 : Int)) = (2 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

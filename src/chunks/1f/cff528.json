@@ -1,0 +1,12 @@
+{
+  "handle": "1fcff528",
+  "address": "1fcff528-45c8-8e5c-8844-29680c243990",
+  "statement": "((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ (((1200 : Int) / (100 : Int)) = (12 : Int)) ∧ (((1000000 : Int) / (1000 : Int)) = (1000 : Int)) ∧ (((256 : Int) * (1 : Int)) = (256 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((1000000 : Int) / (1000 : Int)) = (1000 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_pwm"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

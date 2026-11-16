@@ -1,0 +1,12 @@
+{
+  "handle": "200ab66f",
+  "address": "200ab66f-0858-8059-8eb1-49785c813fb9",
+  "kind": "chunk",
+  "keys": [
+    "fam_apocrypha"
+  ],
+  "statement": "(((15 : Int) + (7 : Int)) = (22 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (6 : Int)))) = (720 : Int)) ∧ (((2 : Int) ^ (15 : Nat)) = (32768 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (22 : Int)) (Int.toNat (2 : Int)))) = (231 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (22 : Int)) = (31 : Int)) ∧ (((183 : Int) * (10 : Int)) = (1830 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (8 : Int)))) / (Int.ofNat (ffact (Int.toNat ((8 : Int) - (3 : Int)))))) = (336 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

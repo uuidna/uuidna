@@ -1,0 +1,12 @@
+{
+  "handle": "0f8e2d26",
+  "address": "0f8e2d26-f0d7-844e-b470-a83230d17aa5",
+  "statement": "(((1 : Int) * (700 : Int)) = (700 : Int)) ∧ (((100 : Int) * (700 : Int)) = (70000 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((1000 : Int) / (1 : Int)) = (1000 : Int)) ∧ (((700 : Int) * (1 : Int)) = (700 : Int)) ∧ (((100 : Int) * (1 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (2 : Int)) = (500 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_fuelcell"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

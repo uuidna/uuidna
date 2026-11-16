@@ -1,0 +1,12 @@
+{
+  "handle": "dc30bc4d",
+  "address": "dc30bc4d-486a-8f32-87ef-ee1afb1ea34d",
+  "statement": "(((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ (((600 : Int) / (50 : Int)) = (12 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (6 : Int)) = (50 : Int)) ∧ (((250 : Int) * (8 : Int)) = (2000 : Int)) ∧ ((1024 : Int) = (1024 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (8 : Int)) = (50 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_blockchain"
+  ],
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

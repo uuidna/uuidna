@@ -1,0 +1,12 @@
+{
+  "handle": "ae1543cf",
+  "address": "ae1543cf-12dd-8dea-abc8-70205ab0cec0",
+  "statement": "((7 : Int) = (7 : Int)) ∧ (((300 : Int) / (100 : Int)) = (3 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((544 : Int) * (1000 : Int)) / (1 : Int)) = (544000 : Int)) ∧ ((((25 : Int) * (100 : Int)) / ((25 : Int) + (75 : Int))) = (25 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((2650 : Int) * (1000 : Int)) / (1000 : Int)) = (2650 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_mineralogy"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

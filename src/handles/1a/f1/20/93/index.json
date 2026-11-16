@@ -1,0 +1,12 @@
+{
+  "handle": "1af12093",
+  "address": "1af12093-be32-8d09-ba97-46b9d1ba0211",
+  "kind": "chunk",
+  "keys": [
+    "fam_vaccine"
+  ],
+  "statement": "(((2 : Int) + (1 : Int)) = (3 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ (((4 : Int) * (1 : Int)) = (4 : Int)) ∧ (((1 : Int) + (0 : Int)) = (1 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (2 : Int))) = (6 : Int)) ∧ (((100 : Int) * (1000 : Int)) = (100000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))",
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

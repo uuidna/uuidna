@@ -1,0 +1,12 @@
+{
+  "handle": "20e27b21",
+  "address": "20e27b21-dd83-8489-b49d-87033a389db5",
+  "kind": "chunk",
+  "keys": [
+    "fam_stainedglass"
+  ],
+  "statement": "(((12 : Int) * (8 : Int)) = (96 : Int)) ∧ (((40 : Int) + (20 : Int)) = (60 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)) ∧ (((100 : Int) * (3 : Int)) = (300 : Int)) ∧ (((1520 : Int) / (1000 : Int)) = (1 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

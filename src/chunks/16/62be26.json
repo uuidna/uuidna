@@ -1,0 +1,12 @@
+{
+  "handle": "1662be26",
+  "address": "1662be26-793a-8936-889a-f7f9dbdea33a",
+  "statement": "(((100 : Int) + (0 : Int)) = (100 : Int)) ∧ (((26 : Int) * (1 : Int)) = (26 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (7 : Int)) (Int.toNat (2 : Int)))) = (21 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (7 : Int)))) = (5040 : Int)) ∧ (((15 : Int) * (15 : Int)) = (225 : Int)) ∧ (((50 : Int) + (0 : Int)) = (50 : Int)) ∧ (((2 : Int) + (0 : Int)) = (2 : Int)) ∧ (((3 : Int) * (3 : Int)) = (9 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_scrabble"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}
