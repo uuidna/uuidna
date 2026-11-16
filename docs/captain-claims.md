@@ -7,7 +7,7 @@
 **Discovery claimed:** 71976 — the other 433 restate a fact a named source found first
 
 *The 433 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 348 of 382 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 28/51 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `4116c2f0-41fd-8949-9d26-6bf8e2310858`
+**Claim receipt:** `6aafecd1-b473-8857-ba63-259e3d6dd501`
 
 ### Facts the captain does not claim to have discovered
 
@@ -515,7 +515,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `267dee77-bb90-894f-8f23-2ec104cd1a59`
+- **Sample lineAddress:** `11e626c3-a361-80d3-98db-7b19e5eb31a4`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2414,7 +2414,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
 
 - **Theorems:** 5
-- **Sample lineAddress:** `3c859a7e-0ef8-8416-bda6-02784589a931`
+- **Sample lineAddress:** `69f640ab-008b-89ae-8c41-829455d29e52`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 

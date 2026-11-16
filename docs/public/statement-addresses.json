@@ -11733,14 +11733,14 @@
   },
   {
    "key": "the_store_footprint_is_its_folders",
-   "statement": "(73096 + 256 + 44022 + 72933 + 73096 + 1 = 263404) ∧ (263404 > 3 * 73096)",
-   "normalised": "(73096+256+44022+72933+73096+1=263404)∧(263404>3*73096)",
+   "statement": "(73096 + 256 + 44024 + 72933 + 73096 + 1 = 263406) ∧ (263406 > 3 * 73096)",
+   "normalised": "(73096+256+44024+72933+73096+1=263406)∧(263406>3*73096)",
    "rawLength": 73,
    "normalisedLength": 55,
    "rawBytes": 75,
    "normalisedBytes": 57,
-   "address": "09ebb895-969b-8b74-a9d8-dbe87b7d7548",
-   "sha256": "2933372edd948db5abbaaab9951e5aba6a2c326a2584003eada18ad47061f503"
+   "address": "9349bf05-4321-8890-81c4-eab9e45bdb94",
+   "sha256": "c0262c426fe77f1f4e681836ca85a768640adba42542ea43d9dbb7e147fd2659"
   },
   {
    "key": "the_third_level_already_shares",
@@ -62784,14 +62784,14 @@
   },
   {
    "key": "the_generated_closure_partitions_into_three_kinds",
-   "statement": "(2775944 + 498 + 767196 = 3543638) ∧ ((2775944 > 3 * 767196) ∧ (2775944 < 4 * 767196))",
-   "normalised": "(2775944+498+767196=3543638)∧((2775944>3*767196)∧(2775944<4*767196))",
+   "statement": "(2775983 + 498 + 767208 = 3543689) ∧ ((2775983 > 3 * 767208) ∧ (2775983 < 4 * 767208))",
+   "normalised": "(2775983+498+767208=3543689)∧((2775983>3*767208)∧(2775983<4*767208))",
    "rawLength": 86,
    "normalisedLength": 68,
    "rawBytes": 90,
    "normalisedBytes": 72,
-   "address": "0a4ad4c6-9363-8b73-9fe7-27ec1faea677",
-   "sha256": "23ba0658a5f907d87abb3cd427c8aeb79b46b398a419ada6a815bcf15d9ba50a"
+   "address": "142ff033-3a90-8988-b716-f93e310a26ff",
+   "sha256": "2e2d244d59f266e804e76f8b0908d411184382ff5577992e6a2f8cae259bcd71"
   },
   {
    "key": "the_arithmetic_alphabet_partitions_by_its_own_algebra",
@@ -62806,25 +62806,25 @@
   },
   {
    "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-   "statement": "((143733 * 5 < 767196) ∧ (143733 * 6 > 767196)) ∧ (143733 < 767196)",
-   "normalised": "((143733*5<767196)∧(143733*6>767196))∧(143733<767196)",
+   "statement": "((143746 * 5 < 767208) ∧ (143746 * 6 > 767208)) ∧ (143746 < 767208)",
+   "normalised": "((143746*5<767208)∧(143746*6>767208))∧(143746<767208)",
    "rawLength": 67,
    "normalisedLength": 53,
    "rawBytes": 71,
    "normalisedBytes": 57,
-   "address": "d93370c4-fa46-82b4-be16-10b8f0954500",
-   "sha256": "e7a702d02fec68441ab45da839c4e536ec67e78207efb8907d68cdecebd2746a"
+   "address": "3cd7a65c-bed9-842a-a513-24d0db0372f0",
+   "sha256": "eb5e478fcc0a6da3f3dc54fdf61a323a0f122e4a7644c451e7d859deea2ca2f4"
   },
   {
    "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-   "statement": "((498 * 100 < 767196) ∧ (1729 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674))",
-   "normalised": "((498*100<767196)∧(1729>114))∧((114*14≤1674)∧(114*15>1674))",
+   "statement": "((498 * 100 < 767208) ∧ (1729 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674))",
+   "normalised": "((498*100<767208)∧(1729>114))∧((114*14≤1674)∧(114*15>1674))",
    "rawLength": 79,
    "normalisedLength": 59,
    "rawBytes": 87,
    "normalisedBytes": 67,
-   "address": "7a6003e5-5709-88ea-b379-e5d38fce95e0",
-   "sha256": "fd61263297eb2381f95c15982500ce508d8aeddba11efa340a1e38609f7b66b7"
+   "address": "9315fb92-9bbb-88e1-9ed4-a557f93d40ab",
+   "sha256": "74586edebf63de41dfd04eabf11fc28ff35b3b9eb4a51fa6222b927eedacae02"
   },
   {
    "key": "the_same_arithmetic_answers_more_than_one_domain",

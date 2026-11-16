@@ -513,15 +513,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4.1-flash-1017",
    "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000003",
-   "completionPrice": "0.0000012"
+   "promptPrice": "0.00000015",
+   "completionPrice": "0.0000006"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash-1017:batch",
    "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000043",
-   "completionPrice": "0.000000384"
+   "promptPrice": "0.000000037",
+   "completionPrice": "0.00000033"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash:batch",
@@ -2158,8 +2158,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "openai/gpt-oss-20b",
    "name": "OpenAI: gpt-oss-20b",
    "contextTokens": 131072,
-   "promptPrice": "0.000000075",
-   "completionPrice": "0.0000003"
+   "promptPrice": "0.000000018",
+   "completionPrice": "0.00000009"
   },
   {
    "id": "openai/gpt-oss-20b:batch",
@@ -2494,8 +2494,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-9b",
    "name": "Qwen: Qwen3.5-9B",
    "contextTokens": 262144,
-   "promptPrice": "0.000000047",
-   "completionPrice": "0.00000007"
+   "promptPrice": "0.000000165",
+   "completionPrice": "0.000000242"
   },
   {
    "id": "qwen/qwen3.5-flash-02-23",
