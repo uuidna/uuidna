@@ -1,0 +1,12 @@
+{
+  "handle": "cfb3505c",
+  "address": "cfb3505c-5dc4-8c86-8aba-4b027baeb837",
+  "kind": "chunk",
+  "keys": [
+    "fam_highlights"
+  ],
+  "statement": "((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (8 : Int)) = (25 : Int)) ∧ ((((50 : Int) * (200 : Int)) / (100 : Int)) = (100 : Int))",
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

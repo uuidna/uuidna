@@ -1,0 +1,12 @@
+{
+  "handle": "88ccf76a",
+  "address": "88ccf76a-b23b-87b8-891b-11d8733f5de7",
+  "kind": "chunk",
+  "keys": [
+    "fam_compression"
+  ],
+  "statement": "((((1000 : Int) * (100 : Int)) / (250 : Int)) = (400 : Int)) ∧ (((((1000 : Int) - (250 : Int)) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((64000 : Int) / (8 : Int)) = (8000 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ (((10000 : Int) / (20 : Int)) = (500 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

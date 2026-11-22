@@ -1,0 +1,12 @@
+{
+  "handle": "25147153",
+  "address": "25147153-e372-8c10-bb86-240452e7c4b5",
+  "statement": "((((100 : Int) * (90 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((10 : Int) * (125000000 : Int)) / (1500 : Int)) = (833333 : Int)) ∧ (((1518 : Int) - (1500 : Int)) = (18 : Int)) ∧ (((100 : Int) * (2 : Int)) = (200 : Int)) ∧ (((8 : Int) * (4 : Int)) = (32 : Int)) ∧ ((-((-(1000 : Int)) / (64 : Int))) = (16 : Int)) ∧ (((16 : Int) * (32 : Int)) = (512 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_nic"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

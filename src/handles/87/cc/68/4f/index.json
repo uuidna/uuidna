@@ -1,0 +1,12 @@
+{
+  "handle": "87cc684f",
+  "address": "87cc684f-d124-8915-aeab-d0a49ddcef8d",
+  "kind": "chunk",
+  "keys": [
+    "fam_mammalogy"
+  ],
+  "statement": "(((70 : Int) * (3 : Int)) = (210 : Int)) ∧ (((70 : Int) * (4 : Int)) = (280 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((37 : Int) - (20 : Int))) = (17 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (37 : Int))) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

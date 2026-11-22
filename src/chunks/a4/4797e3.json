@@ -1,0 +1,12 @@
+{
+  "handle": "a44797e3",
+  "address": "a44797e3-0e31-84d9-aa5f-05f59acdb86c",
+  "statement": "(((12 : Int) * (50 : Int)) = (600 : Int)) ∧ ((((540 : Int) * (100 : Int)) / (600 : Int)) = (90 : Int)) ∧ (((850 : Int) - (600 : Int)) = (250 : Int)) ∧ (((4 : Int) * (20 : Int)) = (80 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (850 : Int)) = (70 : Int)) ∧ (((600 : Int) - (540 : Int)) = (60 : Int)) ∧ (((600 : Int) / (12 : Int)) = (50 : Int)) ∧ (((3 : Int) - (2 : Int)) = (1 : Int)) ∧ (((600 : Int) * (2 : Int)) = (1200 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_psu"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

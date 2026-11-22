@@ -1,0 +1,12 @@
+{
+  "handle": "85cfe35a",
+  "address": "85cfe35a-da90-89ba-b0ce-289f996bded4",
+  "kind": "chunk",
+  "keys": [
+    "fam_download"
+  ],
+  "statement": "(((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((-((-(1000 : Int)) / (100 : Int))) = (10 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((-((-(1000 : Int)) / (256 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (300 : Int))) = (700 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)) ∧ (((10 : Int) * (5000 : Int)) = (50000 : Int))",
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

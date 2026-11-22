@@ -1,0 +1,12 @@
+{
+  "handle": "7fe93d99",
+  "address": "7fe93d99-b7cb-8440-82cc-c3f95fe47d73",
+  "kind": "chunk",
+  "keys": [
+    "fam_orthography"
+  ],
+  "statement": "((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((130 : Int) * (100 : Int)) / (100 : Int)) = (130 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((5000 : Int) / (1000 : Int)) = (5 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (100 : Int)) = (3 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (200 : Int)) = (20 : Int)) ∧ ((((980 : Int) * (100 : Int)) / (1000 : Int)) = (98 : Int))",
+  "files": [
+    "FamiliesO.lean"
+  ]
+}

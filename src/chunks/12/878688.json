@@ -1,0 +1,12 @@
+{
+  "handle": "12878688",
+  "address": "12878688-72bc-81ae-8a8c-93017bc2f8b9",
+  "statement": "((fmax (0 : Int) ((1000 : Int) - (200 : Int))) = (800 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (1000 : Int))) = (0 : Int)) ∧ (((240 : Int) / (4 : Int)) = (60 : Int)) ∧ (((70 : Int) * (100 : Int)) = (7000 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (50 : Int)) = (200 : Int)) ∧ ((((140 : Int) * (100 : Int)) / (70 : Int)) = (200 : Int)) ∧ (((60 : Int) / (3 : Int)) = (20 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_climbing"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

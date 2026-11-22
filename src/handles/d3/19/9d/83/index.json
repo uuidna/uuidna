@@ -1,0 +1,12 @@
+{
+  "handle": "d3199d83",
+  "address": "d3199d83-82a7-8dfa-9e3c-84836a000266",
+  "kind": "chunk",
+  "keys": [
+    "fam_genomics"
+  ],
+  "statement": "(((3000 : Int) / (100 : Int)) = (30 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((10 : Int) * (1000000 : Int)) / (1000000 : Int)) = (10 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

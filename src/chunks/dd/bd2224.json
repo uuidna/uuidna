@@ -1,0 +1,12 @@
+{
+  "handle": "ddbd2224",
+  "address": "ddbd2224-bf12-8da5-9a9a-73f495d2542b",
+  "statement": "((((1600 : Int) * (100 : Int)) / (900 : Int)) = (177 : Int)) ∧ ((-((-(10 : Int)) / (3 : Int))) = (4 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (10 : Int)) = (60 : Int)) ∧ ((if (if (80 : Int) ≤ (120 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (200 : Int) ≤ (120 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ (((10000 : Int) / (500 : Int)) = (20 : Int)) ∧ ((if (if (1600 : Int) ≥ (900 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (900 : Int) ≥ (1600 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_media"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

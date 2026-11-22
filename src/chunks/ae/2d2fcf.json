@@ -1,0 +1,12 @@
+{
+  "handle": "ae2d2fcf",
+  "address": "ae2d2fcf-cfb4-8246-9d9b-dd7864c52483",
+  "statement": "(((4 : Int) * (4 : Int)) = (16 : Int)) ∧ ((((4 : Int) * (4 : Int)) * (4 : Int)) = (64 : Int)) ∧ (((16 : Int) * (3 : Int)) = (48 : Int)) ∧ (((10 : Int) + (6 : Int)) = (16 : Int)) ∧ ((fmin (4 : Int) (3 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ (((4 : Int) * (4 : Int)) = (16 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (4 : Int)) (Int.toNat (2 : Int)))) = (6 : Int)) ∧ (((2 : Int) + (3 : Int)) = (5 : Int)) ∧ (((4 : Int) - (1 : Int)) = (3 : Int)) ∧ ((((4 : Int) * ((4 : Int) + (1 : Int))) / (2 : Int)) = (10 : Int)) ∧ (((4 : Int) * ((4 : Int) - (1 : Int))) = (12 : Int)) ∧ (((4 : Int) ^ (2 : Nat)) = (16 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_matrix"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

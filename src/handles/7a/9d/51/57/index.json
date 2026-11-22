@@ -1,0 +1,12 @@
+{
+  "handle": "7a9d5157",
+  "address": "7a9d5157-2db3-8a28-a712-9254c251a871",
+  "kind": "chunk",
+  "keys": [
+    "fam_neurology"
+  ],
+  "statement": "((((4 : Int) + (5 : Int)) + (6 : Int)) = (15 : Int)) ∧ (((60 : Int) / (2 : Int)) = (30 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (30 : Int)) = (10 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (40 : Int)) = (20 : Int)) ∧ (((900 : Int) / (18 : Int)) = (50 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int))",
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

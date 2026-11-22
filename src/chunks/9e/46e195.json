@@ -1,0 +1,12 @@
+{
+  "handle": "9e46e195",
+  "address": "9e46e195-0cd7-8348-94ff-3331419c0e8a",
+  "statement": "((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((2500 : Int) / (100 : Int)) = (25 : Int)) ∧ (((110 : Int) - (95 : Int)) = (15 : Int)) ∧ (((95 : Int) - (110 : Int)) = (-15 : Int)) ∧ ((((55 : Int) * (100 : Int)) / (90 : Int)) = (61 : Int)) ∧ ((((450 : Int) * (100 : Int)) / (1000 : Int)) = (45 : Int)) ∧ (((50 : Int) - (32 : Int)) = (18 : Int)) ∧ (((32 : Int) - (50 : Int)) = (-18 : Int)) ∧ (((2400 : Int) / (10 : Int)) = (240 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_sports"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

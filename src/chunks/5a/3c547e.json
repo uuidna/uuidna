@@ -1,0 +1,12 @@
+{
+  "handle": "5a3c547e",
+  "address": "5a3c547e-1efd-81b8-b071-541e4359d43e",
+  "statement": "(((2000 : Int) / (500 : Int)) = (4 : Int)) ∧ (((700 : Int) / (100 : Int)) = (7 : Int)) ∧ ((((40000 : Int) * (100 : Int)) / (45000 : Int)) = (88 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (500 : Int)) = (20 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (800 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((11 : Int) - (8 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((11 : Int) - (14 : Int))) = (0 : Int)) ∧ ((((30000 : Int) * (100 : Int)) / (80000 : Int)) = (37 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_trucking"
+  ],
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

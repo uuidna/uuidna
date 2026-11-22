@@ -1,0 +1,12 @@
+{
+  "handle": "509ba2d1",
+  "address": "509ba2d1-a804-8537-85fb-f041e0d8ebff",
+  "statement": "((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((if (if (1 : Int) ≤ (1 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (3 : Int) ≤ (1 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ (((10 : Int) / (3 : Int)) = (3 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (40 : Int)) = (20 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_routing"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

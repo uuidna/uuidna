@@ -1,0 +1,12 @@
+{
+  "handle": "4ddc9f86",
+  "address": "4ddc9f86-6496-8516-ab47-29c659cc6120",
+  "kind": "chunk",
+  "keys": [
+    "fam_surgery"
+  ],
+  "statement": "((fmax (0 : Int) ((180 : Int) - (60 : Int))) = (120 : Int)) ∧ ((fmax (0 : Int) ((60 : Int) - (180 : Int))) = (0 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (200 : Int)) = (7 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ (((12 : Int) / (8 : Int)) = (1 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

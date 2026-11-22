@@ -1,0 +1,12 @@
+{
+  "handle": "b0895ea6",
+  "address": "b0895ea6-9178-851f-afac-619884f092a1",
+  "statement": "((((7 : Int) * (100 : Int)) / (4 : Int)) = (175 : Int)) ∧ (((5000 : Int) / (20 : Int)) = (250 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (7 : Int)) = (85 : Int)) ∧ (((60 : Int) / (2 : Int)) = (30 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_cognition"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

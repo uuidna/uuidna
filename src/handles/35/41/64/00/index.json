@@ -1,0 +1,12 @@
+{
+  "handle": "35416400",
+  "address": "35416400-eb35-8d2e-9462-1dd62060a9a6",
+  "kind": "chunk",
+  "keys": [
+    "fam_weather"
+  ],
+  "statement": "(((30 : Int) + ((80 : Int) / (10 : Int))) = (38 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - ((50 : Int) / (10 : Int)))) = (5 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - ((90 : Int) / (10 : Int)))) = (0 : Int)) ∧ (((25 : Int) - (((100 : Int) - (50 : Int)) / (5 : Int))) = (15 : Int)) ∧ ((fmax (0 : Int) ((1013 : Int) - ((800 : Int) / (8 : Int)))) = (913 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - ((8000 : Int) / (8 : Int)))) = (0 : Int)) ∧ (((60 : Int) / (4 : Int)) = (15 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (50 : Int)) = (80 : Int))",
+  "files": [
+    "FamiliesW.lean"
+  ]
+}

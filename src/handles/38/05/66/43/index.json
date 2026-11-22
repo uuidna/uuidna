@@ -1,0 +1,12 @@
+{
+  "handle": "38056643",
+  "address": "38056643-c350-841d-b7b6-37d466067cb5",
+  "kind": "chunk",
+  "keys": [
+    "fam_blockchain"
+  ],
+  "statement": "(((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ (((600 : Int) / (50 : Int)) = (12 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (6 : Int)) = (50 : Int)) ∧ (((250 : Int) * (8 : Int)) = (2000 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (8 : Int)) = (50 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

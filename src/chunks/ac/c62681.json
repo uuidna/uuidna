@@ -1,0 +1,12 @@
+{
+  "handle": "acc62681",
+  "address": "acc62681-bd0e-8d2f-bbf4-ed9359ce1720",
+  "statement": "((((5 : Int) - (2 : Int)) * (180 : Int)) = (540 : Int)) ∧ ((((6 : Int) * ((6 : Int) - (3 : Int))) / (2 : Int)) = (9 : Int)) ∧ (((360 : Int) / (8 : Int)) = (45 : Int)) ∧ (((((6 : Int) - (2 : Int)) * (180 : Int)) / (6 : Int)) = (120 : Int)) ∧ (((5 : Int) - (2 : Int)) = (3 : Int)) ∧ (((4 : Int) * (5 : Int)) = (20 : Int)) ∧ ((((10 : Int) * (4 : Int)) / (2 : Int)) = (20 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_polygon"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

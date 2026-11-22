@@ -1,0 +1,12 @@
+{
+  "handle": "fd0a960c",
+  "address": "fd0a960c-9d4a-819e-ba7a-36f85b6dd95e",
+  "kind": "chunk",
+  "keys": [
+    "fam_atmospheric"
+  ],
+  "statement": "((fmax (0 : Int) ((1013 : Int) - (300 : Int))) = (713 : Int)) ∧ (((60 : Int) / (10 : Int)) = (6 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (20 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((25 : Int) - (15 : Int))) = (10 : Int)) ∧ ((((100 : Int) * (45 : Int)) / (90 : Int)) = (50 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int))",
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ff294103",
+  "address": "ff294103-abab-8dae-b9e4-4b6d45636d59",
+  "statement": "73098 * 2 ^ 15 < 2 ^ 32",
+  "tactic": "decide",
+  "keys": [
+    "forged_handle_odds_are_small"
+  ],
+  "files": [
+    "Forensics.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e40c3cb5",
+  "address": "e40c3cb5-a39a-85cf-9891-d1016d426b2f",
+  "kind": "chunk",
+  "keys": [
+    "fam_state"
+  ],
+  "statement": "(((600 : Int) / (60 : Int)) = (10 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (8 : Int)) = (12 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int))",
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

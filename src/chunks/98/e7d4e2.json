@@ -1,0 +1,12 @@
+{
+  "handle": "98e7d4e2",
+  "address": "98e7d4e2-e6ce-8c9c-a0d5-1c3e46f75ecc",
+  "statement": "(((modelContextRows.map (fun r => r.length)).sum) = 476) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+  "tactic": "decide",
+  "keys": [
+    "context_windows_are_transient_hexbits"
+  ],
+  "files": [
+    "Models.lean"
+  ]
+}

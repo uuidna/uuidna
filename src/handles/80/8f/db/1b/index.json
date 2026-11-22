@@ -1,0 +1,12 @@
+{
+  "handle": "808fdb1b",
+  "address": "808fdb1b-a4d1-8c28-ae13-746ab1b5035b",
+  "kind": "chunk",
+  "keys": [
+    "fam_mineralogy"
+  ],
+  "statement": "(((300 : Int) / (100 : Int)) = (3 : Int)) ∧ ((((544 : Int) * (1000 : Int)) / (1 : Int)) = (544000 : Int)) ∧ ((((25 : Int) * (100 : Int)) / ((25 : Int) + (75 : Int))) = (25 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((2650 : Int) * (1000 : Int)) / (1000 : Int)) = (2650 : Int))",
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

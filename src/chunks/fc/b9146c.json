@@ -1,0 +1,12 @@
+{
+  "handle": "fcb9146c",
+  "address": "fcb9146c-27f6-84a0-9973-e93ebaba1c98",
+  "statement": "(((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((240 : Int) / (4 : Int)) = (60 : Int)) ∧ (((4 : Int) * (4 : Int)) = (16 : Int)) ∧ ((((440 : Int) * ((1000 : Int) + ((12 : Int) * (59 : Int)))) / (1000 : Int)) = (751 : Int)) ∧ (((60 : Int) + (7 : Int)) = (67 : Int)) ∧ (((16 : Int) / (4 : Int)) = (4 : Int)) ∧ (((60000 : Int) / (500 : Int)) = (120 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_music"
+  ],
+  "files": [
+    "FamiliesM.lean"
+  ]
+}

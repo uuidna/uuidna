@@ -1,0 +1,12 @@
+{
+  "handle": "ca52a45b",
+  "address": "ca52a45b-158c-895e-9697-09fe6754088a",
+  "kind": "chunk",
+  "keys": [
+    "fam_limnology"
+  ],
+  "statement": "((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((22 : Int) - (7 : Int))) = (15 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (22 : Int))) = (0 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int))",
+  "files": [
+    "FamiliesL.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "652fcff4",
+  "address": "652fcff4-fa21-8d5c-b952-886d988c0bdf",
+  "kind": "chunk",
+  "keys": [
+    "fam_firewall"
+  ],
+  "statement": "((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((60000 : Int) / (60 : Int)) = (1000 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (250 : Int)) = (1 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((48 : Int) * (100 : Int)) / (64 : Int)) = (75 : Int))",
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

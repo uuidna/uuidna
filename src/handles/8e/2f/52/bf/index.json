@@ -1,0 +1,12 @@
+{
+  "handle": "8e2f52bf",
+  "address": "8e2f52bf-f4d5-8f05-93ea-bca90c585808",
+  "kind": "chunk",
+  "keys": [
+    "fam_chord"
+  ],
+  "statement": "(((3 : Int) + (4 : Int)) = (7 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (0 : Int))) = (12 : Int)) ∧ (((4 : Int) + (3 : Int)) = (7 : Int)) ∧ ((((3 : Int) * (2 : Int)) + (1 : Int)) = (7 : Int)) ∧ (((24 : Int) / (3 : Int)) = (8 : Int)) ∧ ((fmax (0 : Int) ((4 : Int) - (1 : Int))) = (3 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

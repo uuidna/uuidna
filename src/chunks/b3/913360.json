@@ -1,0 +1,12 @@
+{
+  "handle": "b3913360",
+  "address": "b3913360-ba46-83ba-a83f-ecb35ac2bd75",
+  "statement": "((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (10 : Int)) = (40 : Int)) ∧ (((600 : Int) / (6 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_content"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

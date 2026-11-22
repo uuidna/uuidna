@@ -1,0 +1,12 @@
+{
+  "handle": "fa1af6c8",
+  "address": "fa1af6c8-daf6-834f-986e-b07073958e44",
+  "statement": "(((3 : Int) + (3 : Int)) = (6 : Int)) ∧ (((2 : Int) ^ (10 : Nat)) = (1024 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (((3 : Int) + (3 : Int)) - (2 : Int))) (Int.toNat ((3 : Int) - (1 : Int))))) = (6 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (((3 : Int) + (4 : Int)) - (2 : Int))) (Int.toNat ((3 : Int) - (1 : Int))))) = (10 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (30 : Int)) (Int.toNat (15 : Int)))) = (155117520 : Int)) ∧ ((-((-(10 : Int)) / (3 : Int))) = (4 : Int)) ∧ (((10 : Int) / (3 : Int)) = (3 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_ramsey"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

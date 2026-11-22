@@ -1,0 +1,12 @@
+{
+  "handle": "c2ab9954",
+  "address": "c2ab9954-cef1-83e0-9238-4afba51246a2",
+  "statement": "(((7 : Int) * (3 : Int)) = (21 : Int)) ∧ (((7 : Int) * (3 : Int)) = (21 : Int)) ∧ ((((7 : Int) * (3 : Int)) / (3 : Int)) = (7 : Int)) ∧ ((((7 : Int) * (3 : Int)) / (7 : Int)) = (3 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_designtheory"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

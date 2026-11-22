@@ -1,0 +1,12 @@
+{
+  "handle": "b1d71ba4",
+  "address": "b1d71ba4-8421-8662-91b0-c91b839a57c5",
+  "kind": "chunk",
+  "keys": [
+    "fam_geothermal"
+  ],
+  "statement": "((((300 : Int) * (1000 : Int)) / (10000 : Int)) = (30 : Int)) ∧ (((50 : Int) * (80 : Int)) = (4000 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (100 : Int)) = (12 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (100 : Int)) = (400 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((1200 : Int) / (30 : Int)) = (40 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "97a1805c",
+  "address": "97a1805c-a535-8e15-9fac-24bbd5566516",
+  "statement": "((((20 : Int) * (20 : Int)) / (40 : Int)) = (10 : Int)) ∧ ((((20 : Int) * (20 : Int)) / (0 : Int)) = (0 : Int)) ∧ (((1000000 : Int) / (50 : Int)) = (20000 : Int)) ∧ (((1000000 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (45 : Int)) = (200 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((fmax (0 : Int) ((250 : Int) - (25 : Int))) = (225 : Int)) ∧ ((fmax (0 : Int) ((25 : Int) - (250 : Int))) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((((1500 : Int) * (1000 : Int)) / (1000 : Int)) = (1500 : Int)) ∧ ((((1500 : Int) * (1000 : Int)) / (0 : Int)) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_optometry"
+  ],
+  "files": [
+    "FamiliesO.lean"
+  ]
+}
