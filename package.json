@@ -149,7 +149,7 @@
   ],
   "sideEffects": false,
   "engines": {
-    "node": ">=22"
+    "node": ">=26"
   },
   "scripts": {
     "build": "node --stack-size=65536 ./node_modules/typescript/lib/tsc.js -p tsconfig.json",
