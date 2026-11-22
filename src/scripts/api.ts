@@ -707,7 +707,6 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-reports': ['reports.json'],
   'gen-lines': ['lean/statement-index.json'],
   'gen-configuration': ['docs/configuration.md'],
-  'gen-legacy-manifest': ['legacy/manifest.json'],
   'gen-product': ['docs/product.md'],
   'gen-matrix-css': ['docs/.vitepress/theme/computed.css'],
   'gen-handle-chunks': ['src/chunks'],
