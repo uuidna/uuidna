@@ -8,7 +8,7 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { PayloadRedirects } from '@/components/PayloadRedirects'
 import React, { Suspense } from 'react'
 import { Button } from '@/components/ui/button'
 import { ChevronLeftIcon } from 'lucide-react'
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { slug } = await params
   const product = await queryProductBySlug({ slug })
 
-  if (!product) return notFound()
+  if (!product) return {}
 
   const gallery = product.gallery?.filter((item) => typeof item.image === 'object') || []
 
@@ -61,9 +61,10 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
 
 export default async function ProductPage({ params }: Args) {
   const { slug } = await params
+  const url = '/products/' + slug
   const product = await queryProductBySlug({ slug })
 
-  if (!product) return notFound()
+  if (!product) return <PayloadRedirects url={url} />
 
   const gallery =
     product.gallery

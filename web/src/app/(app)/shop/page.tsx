@@ -2,7 +2,6 @@ import { Grid } from '@/components/Grid'
 import { ProductGridItem } from '@/components/ProductGridItem'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
-import React from 'react'
 
 export const metadata = {
   description: 'Search for products in the store.',
@@ -18,6 +17,21 @@ type Props = {
 export default async function ShopPage({ searchParams }: Props) {
   const { q: searchValue, sort, category } = await searchParams
   const payload = await getPayload({ config: configPromise })
+
+  // the search plugin's collection holds what was synced from the products: a search reads it, and the shop shows the
+  // products it names
+  const found = searchValue
+    ? (
+        await payload.find({
+          collection: 'search',
+          depth: 0,
+          overrideAccess: false,
+          pagination: false,
+          select: { doc: true },
+          where: { and: [{ title: { like: searchValue } }, { 'doc.relationTo': { equals: 'products' } }] },
+        })
+      ).docs.map((result) => (typeof result.doc.value === 'object' ? result.doc.value.id : result.doc.value))
+    : []
 
   const products = await payload.find({
     collection: 'products',
@@ -43,18 +57,9 @@ export default async function ShopPage({ searchParams }: Props) {
               ...(searchValue
                 ? [
                     {
-                      or: [
-                        {
-                          title: {
-                            like: searchValue,
-                          },
-                        },
-                        {
-                          description: {
-                            like: searchValue,
-                          },
-                        },
-                      ],
+                      id: {
+                        in: found,
+                      },
                     },
                   ]
                 : []),

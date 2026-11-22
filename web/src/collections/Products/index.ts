@@ -19,8 +19,6 @@ import {
 } from '@payloadcms/richtext-lexical'
 import { DefaultDocumentIDType, Where } from 'payload'
 
-import { leadField, leadProduct, leadVariants } from '@/hooks/trialLead'
-
 export const ProductsCollection: CollectionOverride = ({ defaultCollection }) => ({
   ...defaultCollection,
   admin: {
@@ -213,11 +211,5 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
       type: 'slug',
       useAsSlug: 'title',
     },
-    leadField,
   ],
-  hooks: {
-    ...defaultCollection?.hooks,
-    beforeChange: [...(defaultCollection?.hooks?.beforeChange ?? []), leadProduct],
-    afterChange: [...(defaultCollection?.hooks?.afterChange ?? []), leadVariants],
-  },
 })

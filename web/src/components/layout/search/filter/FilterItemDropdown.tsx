@@ -2,7 +2,7 @@
 
 import { ChevronDownIcon } from 'lucide-react'
 import { usePathname, useSearchParams } from 'next/navigation'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import type { ListItem } from '.'
 

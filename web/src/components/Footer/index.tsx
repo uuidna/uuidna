@@ -4,7 +4,7 @@ import { FooterMenu } from '@/components/Footer/menu'
 import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import Link from 'next/link'
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import { LogoIcon } from '@/components/icons/logo'
 
 const { COMPANY_NAME, SITE_NAME } = process.env

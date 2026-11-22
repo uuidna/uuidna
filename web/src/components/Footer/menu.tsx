@@ -1,7 +1,6 @@
 import type { Footer } from '@/payload-types'
 
 import { CMSLink } from '@/components/Link'
-import React from 'react'
 
 interface Props {
   menu: Footer['navItems']

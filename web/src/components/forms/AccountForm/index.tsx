@@ -2,7 +2,6 @@
 
 import { FormError } from '@/components/forms/FormError'
 import { FormItem } from '@/components/forms/FormItem'
-import { Message } from '@/components/Message'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -51,7 +50,7 @@ export const AccountForm: React.FC = () => {
         })
 
         if (response.ok) {
-          const json = (await response.json()) as { doc: User }
+          const json = await response.json()
           setUser(json.doc)
           toast.success('Successfully updated account.')
           setChangePassword(false)

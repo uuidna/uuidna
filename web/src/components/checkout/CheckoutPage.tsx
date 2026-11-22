@@ -380,7 +380,7 @@ export const CheckoutPage: React.FC = () => {
                       ? item.variantOption.id
                       : item.variantOption
 
-                  const hasMatch = variant?.options?.some((option: number | VariantOption) => {
+                  const hasMatch = variant?.options?.some((option: string | VariantOption) => {
                     if (typeof option === 'object') return option.id === variantOptionID
                     else return option === variantOptionID
                   })
@@ -408,7 +408,7 @@ export const CheckoutPage: React.FC = () => {
                       {variant && typeof variant === 'object' && (
                         <p className="text-sm font-mono text-primary/50 tracking-widest">
                           {variant.options
-                            ?.map((option: number | VariantOption) => {
+                            ?.map((option: string | VariantOption) => {
                               if (typeof option === 'object') return option.label
                               return null
                             })

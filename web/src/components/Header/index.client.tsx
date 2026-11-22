@@ -3,7 +3,7 @@ import { CMSLink } from '@/components/Link'
 import { Cart } from '@/components/Cart'
 import { OpenCartButton } from '@/components/Cart/OpenCart'
 import Link from 'next/link'
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 
 import { MobileMenu } from './MobileMenu'
 import type { Header } from '@/payload-types'

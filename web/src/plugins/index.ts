@@ -4,14 +4,6 @@ import { Plugin } from 'payload'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { FixedToolbarFeature, HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { ecommercePlugin } from '@payloadcms/plugin-ecommerce'
-import { importExportPlugin } from '@payloadcms/plugin-import-export'
-import { mcpPlugin } from '@payloadcms/plugin-mcp'
-import { multiTenantPlugin } from '@payloadcms/plugin-multi-tenant'
-import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
-import { redirectsPlugin } from '@payloadcms/plugin-redirects'
-import { searchPlugin } from '@payloadcms/plugin-search'
-import { sentryPlugin } from '@payloadcms/plugin-sentry'
-import { stripePlugin } from '@payloadcms/plugin-stripe'
 
 import { stripeAdapter } from '@payloadcms/plugin-ecommerce/payments/stripe'
 
@@ -23,7 +15,6 @@ import { adminOnlyFieldAccess } from '@/access/adminOnlyFieldAccess'
 import { customerOnlyFieldAccess } from '@/access/customerOnlyFieldAccess'
 import { isAdmin } from '@/access/isAdmin'
 import { isDocumentOwner } from '@/access/isDocumentOwner'
-import { checkRole } from '@/access/utilities'
 
 const generateTitle: GenerateTitle<Product | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | Payload Ecommerce Template` : 'Payload Ecommerce Template'
@@ -137,42 +128,4 @@ export const plugins: Plugin[] = [
       productsCollectionOverride: ProductsCollection,
     },
   }),
-  redirectsPlugin({
-    collections: ['pages', 'products'],
-  }),
-  // the old tree's directories nest as categories, as the official website template nests its categories
-  nestedDocsPlugin({
-    collections: ['categories'],
-    generateLabel: (_, doc) => String(doc.title ?? ''),
-    generateURL: (docs) => docs.reduce((url, doc) => `${url}/${String(doc.slug ?? '')}`, ''),
-  }),
-  searchPlugin({
-    collections: ['products', 'pages'],
-  }),
-  multiTenantPlugin({
-    collections: {
-      pages: {},
-      products: {},
-    },
-    userHasAccessToAllTenants: (user) => checkRole(['admin'], user as Parameters<typeof checkRole>[1]),
-  }),
-  importExportPlugin({
-    collections: [{ slug: 'pages' }, { slug: 'products' }, { slug: 'orders', import: false }],
-  }),
-  // Sentry waits on the owner: a DSN and @sentry/nextjs set up as payloadcms.com/docs/plugins/sentry documents.
-  sentryPlugin({
-    enabled: false,
-  }),
-  // plugin-stripe syncs and proxies Stripe beside the ecommerce plugin's Stripe adapter; it mounts once the key is set.
-  ...(process.env.STRIPE_SECRET_KEY
-    ? [
-        stripePlugin({
-          isTestKey: process.env.STRIPE_SECRET_KEY.startsWith('sk_test_'),
-          stripeSecretKey: process.env.STRIPE_SECRET_KEY,
-          stripeWebhooksEndpointSecret: process.env.STRIPE_WEBHOOKS_SIGNING_SECRET,
-        }),
-      ]
-    : []),
-  // plugin-mcp v4 exposes every collection at /api/mcp with access running: the catalog is what MCP clients read.
-  mcpPlugin({}),
 ]

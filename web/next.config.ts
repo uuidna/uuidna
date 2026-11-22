@@ -31,7 +31,12 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   // Packages with Cloudflare Workers (workerd) specific code
   // Read more: https://opennext.js.org/cloudflare/howtos/workerd
-  serverExternalPackages: ['jose', 'pg-cloudflare'],
+  // `@modelcontextprotocol/server` ships a `workerd` export condition (`./_shims`) that swaps its
+  // default JSON-schema validator from the eval-based Ajv one to `CfWorkerJsonSchemaValidator`, which
+  // the Workers runtime requires (code generation from strings is disallowed). Next's own build resolves
+  // with Node conditions and bakes the Ajv validator into `.next/server`, before OpenNext's workerd pass
+  // can re-resolve it. Keeping the package external lets OpenNext bundle it under the `workerd` condition.
+  serverExternalPackages: ['jose', 'pg-cloudflare', '@modelcontextprotocol/server'],
   redirects,
   webpack: (webpackConfig) => {
     webpackConfig.resolve.extensionAlias = {

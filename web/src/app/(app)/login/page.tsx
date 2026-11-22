@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 
 import { RenderParams } from '@/components/RenderParams'
 import Link from 'next/link'
-import React from 'react'
 
 import { headers as getHeaders } from 'next/headers'
 import configPromise from '@payload-config'

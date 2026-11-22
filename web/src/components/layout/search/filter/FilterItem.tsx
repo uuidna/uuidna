@@ -6,7 +6,6 @@ import { createUrl } from '@/utilities/createUrl'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import React from 'react'
 
 import type { ListItem } from '.'
 import type { PathFilterItem as PathFilterItemType } from '.'

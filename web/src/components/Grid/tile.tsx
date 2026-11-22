@@ -14,7 +14,7 @@ type Props = {
     title: string
   }
   /** Arrives as an ID when the query depth did not reach the product's `meta.image`. */
-  media?: (number | string | null) | MediaType
+  media?: (string | null) | MediaType
 }
 
 export const GridTileImage: React.FC<Props> = ({

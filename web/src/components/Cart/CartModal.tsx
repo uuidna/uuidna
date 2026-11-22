@@ -92,7 +92,7 @@ export function CartModal() {
                           ? item.variantOption.id
                           : item.variantOption
 
-                      const hasMatch = variant?.options?.some((option: number | VariantOption) => {
+                      const hasMatch = variant?.options?.some((option: string | VariantOption) => {
                         if (typeof option === 'object') return option.id === variantOptionID
                         else return option === variantOptionID
                       })
@@ -132,7 +132,7 @@ export function CartModal() {
                             {isVariant && variant ? (
                               <p className="text-sm text-neutral-500 dark:text-neutral-400 capitalize">
                                 {variant.options
-                                  ?.map((option: number | VariantOption) => {
+                                  ?.map((option: string | VariantOption) => {
                                     if (typeof option === 'object') return option.label
                                     return null
                                   })

@@ -30,12 +30,11 @@ export const Tenants: CollectionConfig = {
     },
     {
       name: 'slug',
-      type: 'text',
+      type: 'slug',
+      useAsSlug: 'name',
       admin: {
         description: 'Used for url paths, example: /tenant-slug/page-slug',
       },
-      index: true,
-      required: true,
     },
     {
       name: 'allowPublicRead',

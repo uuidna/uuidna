@@ -25,8 +25,6 @@ export const Users: CollectionConfig = {
   },
   auth: {
     tokenExpiration: 1209600,
-    // plugin-mcp v4 authenticates MCP clients with user API keys: `Authorization: users API-Key <key>`
-    useAPIKey: true,
   },
   fields: [
     {
