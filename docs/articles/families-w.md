@@ -7,7 +7,7 @@ description: "Computed from lean/FamiliesW.lean — 21 sealed theorems, every cl
 
 > THE FAMILIES, W — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. — held by [fam_walkability](/theorem/fam_walkability) and its 20 siblings below.
 
-**21 theorems** and **7,867 decided cases**, from [fam_walkability](/theorem/fam_walkability) onward, each proven `by decide` in <a href="/lean/FamiliesW.lean">lean/FamiliesW.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**21 theorems** and **7,703 decided cases**, from [fam_walkability](/theorem/fam_walkability) onward, each proven `by decide` in <a href="/lean/FamiliesW.lean">lean/FamiliesW.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FFamiliesW.lean)** — nothing to install. The editor fetches `lean/FamiliesW.lean` from the repository and re-decides all 21 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -74,11 +74,11 @@ The ledger holds this as [fam_waypoint](/theorem/fam_waypoint) — proven `by de
 ((((30 : Int) ^ (2 : Nat)) + ((40 : Int) ^ (2 : Nat))) = (2500 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) (((50 : Int) ^ (2 : Nat)) - ((30 : Int) ^ (2 : Nat)))) = (1600 : Int)) ∧ (((5 : Int) * (120 : Int)) = (600 : Int)) ∧ ((((((10 : Int) - (350 : Int)) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (20 : Int)) ∧ ((((1000 : Int) * (25 : Int)) / (100 : Int)) = (250 : Int)) ∧ (((900 : Int) / (15 : Int)) = (60 : Int)) ∧ ((((200 : Int) ^ (2 : Nat)) / (10 : Int)) = (4000 : Int))
 ```
 
-### weather: heatindex(30, 80) = 38; windchill(10, 50) = 5; windchill(3, 90) = 0; dewpoint(25, 50) = 15; pressure(1013, 800) = 913; pressure(50, 8000) = 0; precipitation(60, 4) = 15; humidity(40, 50) = 80; visibility(12) = 12; uv(7) = 7
+### weather: heatindex(30, 80) = 38; windchill(10, 50) = 5; windchill(3, 90) = 0; dewpoint(25, 50) = 15; pressure(1013, 800) = 913; pressure(50, 8000) = 0; precipitation(60, 4) = 15; humidity(40, 50) = 80
 The ledger holds this as [fam_weather](/theorem/fam_weather) — proven `by decide`, sorry-free:
 
 ```lean
-(((30 : Int) + ((80 : Int) / (10 : Int))) = (38 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - ((50 : Int) / (10 : Int)))) = (5 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - ((90 : Int) / (10 : Int)))) = (0 : Int)) ∧ (((25 : Int) - (((100 : Int) - (50 : Int)) / (5 : Int))) = (15 : Int)) ∧ ((fmax (0 : Int) ((1013 : Int) - ((800 : Int) / (8 : Int)))) = (913 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - ((8000 : Int) / (8 : Int)))) = (0 : Int)) ∧ (((60 : Int) / (4 : Int)) = (15 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (50 : Int)) = (80 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ ((7 : Int) = (7 : Int))
+(((30 : Int) + ((80 : Int) / (10 : Int))) = (38 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - ((50 : Int) / (10 : Int)))) = (5 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - ((90 : Int) / (10 : Int)))) = (0 : Int)) ∧ (((25 : Int) - (((100 : Int) - (50 : Int)) / (5 : Int))) = (15 : Int)) ∧ ((fmax (0 : Int) ((1013 : Int) - ((800 : Int) / (8 : Int)))) = (913 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - ((8000 : Int) / (8 : Int)))) = (0 : Int)) ∧ (((60 : Int) / (4 : Int)) = (15 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (50 : Int)) = (80 : Int))
 ```
 
 ### weaving: threadcount(80, 60) = 140; warp(800, 10) = 80; weft(600, 10) = 60; density(80, 60) = 4800; cover(28, 56) = 50; pickrate(6000, 60) = 100; width(800, 80) = 10; gsm(50, 2500) = 200
@@ -137,18 +137,18 @@ The ledger holds this as [fam_winemaking](/theorem/fam_winemaking) — proven `b
 (((((24 : Int) - (6 : Int)) * (55 : Int)) / (100 : Int)) = (9 : Int)) ∧ ((((240 : Int) * (100 : Int)) / (1000 : Int)) = (24 : Int)) ∧ ((((7 : Int) * (1000 : Int)) / (1000 : Int)) = (7 : Int)) ∧ (((200 : Int) * (50 : Int)) = (10000 : Int)) ∧ ((((5000 : Int) * (650 : Int)) / (1000 : Int)) = (3250 : Int)) ∧ ((((1000 : Int) * (70 : Int)) / (100 : Int)) = (700 : Int)) ∧ ((((24 : Int) - (0 : Int)) / (12 : Int)) = (2 : Int)) ∧ ((((60 : Int) + (30 : Int)) + (10 : Int)) = (100 : Int))
 ```
 
-### wireframe: grid(960, 12) = 80; gutter(240, 12) = 20; density(50, 1000) = 5; hierarchy(4) = 4; whitespace(40, 100) = 40; alignment(9, 10) = 90; fold(3, 10) = 30; fidelity(2, 10) = 20
+### wireframe: grid(960, 12) = 80; gutter(240, 12) = 20; density(50, 1000) = 5; whitespace(40, 100) = 40; alignment(9, 10) = 90; fold(3, 10) = 30; fidelity(2, 10) = 20
 The ledger holds this as [fam_wireframe](/theorem/fam_wireframe) — proven `by decide`, sorry-free:
 
 ```lean
-(((960 : Int) / (12 : Int)) = (80 : Int)) ∧ (((240 : Int) / (12 : Int)) = (20 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (10 : Int)) = (20 : Int))
+(((960 : Int) / (12 : Int)) = (80 : Int)) ∧ (((240 : Int) / (12 : Int)) = (20 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (10 : Int)) = (20 : Int))
 ```
 
-### woodworking: boardfeet(96, 12) = 8; expansion(100, 5) = 50; hardness(1290) = 1290; jointstrength(12, 250) = 3000; kerf(10, 3) = 30; moisture(120, 100) = 20; usage(80, 100) = 80; waste(20, 100) = 20
+### woodworking: boardfeet(96, 12) = 8; expansion(100, 5) = 50; jointstrength(12, 250) = 3000; kerf(10, 3) = 30; moisture(120, 100) = 20; usage(80, 100) = 80; waste(20, 100) = 20
 The ledger holds this as [fam_woodworking](/theorem/fam_woodworking) — proven `by decide`, sorry-free:
 
 ```lean
-((((96 : Int) * (12 : Int)) / (144 : Int)) = (8 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((1290 : Int) = (1290 : Int)) ∧ (((12 : Int) * (250 : Int)) = (3000 : Int)) ∧ (((10 : Int) * (3 : Int)) = (30 : Int)) ∧ (((((120 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int))
+((((96 : Int) * (12 : Int)) / (144 : Int)) = (8 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (100 : Int)) = (50 : Int)) ∧ (((12 : Int) * (250 : Int)) = (3000 : Int)) ∧ (((10 : Int) * (3 : Int)) = (30 : Int)) ∧ (((((120 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int))
 ```
 
 ### workspace: volume(10, 10, 10) = 1000; reachradius(100, 20) = 80; area(40, 30) = 1200; dexterityindex(80, 100) = 80; singularitymargin(90, 15) = 75; jointrange(180, 30) = 150; coveragepct(850, 1000) = 85; envelopeheight(200, 2) = 100

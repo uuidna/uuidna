@@ -187,8 +187,8 @@ export const INSTALLS_MIRROR: InstallsMirror = {
   },
   {
    "name": "libcrypto3",
-   "version": "3.5.9-r0",
-   "checksum": "Q1HA3ulzTPIvyXzdGBkTu9cQ5t+wg=",
+   "version": "3.5.9-r1",
+   "checksum": "Q1I05gx2S9sTHg77/A+WuZaCWiHJo=",
    "desc": "Crypto library from openssl",
    "deps": [
     "musl"
@@ -196,8 +196,8 @@ export const INSTALLS_MIRROR: InstallsMirror = {
   },
   {
    "name": "libssl3",
-   "version": "3.5.9-r0",
-   "checksum": "Q1IMTJDqnSCp3ToE3q3yxsT2QjNkM=",
+   "version": "3.5.9-r1",
+   "checksum": "Q1liSMx7iQMBbzF6s3hvx1ksKDoFw=",
    "desc": "SSL shared libraries",
    "deps": [
     "libcrypto3",

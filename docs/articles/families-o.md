@@ -7,7 +7,7 @@ description: "Computed from lean/FamiliesO.lean — 26 sealed theorems, every cl
 
 > THE FAMILIES, O — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. — held by [fam_obs](/theorem/fam_obs) and its 25 siblings below.
 
-**26 theorems** and **9,926 decided cases**, from [fam_obs](/theorem/fam_obs) onward, each proven `by decide` in <a href="/lean/FamiliesO.lean">lean/FamiliesO.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**26 theorems** and **9,762 decided cases**, from [fam_obs](/theorem/fam_obs) onward, each proven `by decide` in <a href="/lean/FamiliesO.lean">lean/FamiliesO.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FFamiliesO.lean)** — nothing to install. The editor fetches `lean/FamiliesO.lean` from the repository and re-decides all 26 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -53,11 +53,11 @@ The ledger holds this as [fam_onboarding](/theorem/fam_onboarding) — proven `b
 (((30 : Int) * (2 : Int)) = (60 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((-((-(10 : Int)) / (4 : Int))) = (3 : Int)) ∧ ((((10000 : Int) * (90 : Int)) / (1000 : Int)) = (900 : Int)) ∧ (((300 : Int) / (10 : Int)) = (30 : Int)) ∧ (((60 : Int) / (6 : Int)) = (10 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ ((if (if (90 : Int) ≥ (80 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (70 : Int) ≥ (80 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int))
 ```
 
-### oncology: staging(3, 2, 1) = 6; grade(3) = 3; survival(80, 100) = 80; doubling(200, 50) = 150; response(1000, 250) = 75; burden(10000, 5) = 2000; remission(60, 100) = 60; dose(30, 2) = 60
+### oncology: staging(3, 2, 1) = 6; survival(80, 100) = 80; doubling(200, 50) = 150; response(1000, 250) = 75; burden(10000, 5) = 2000; remission(60, 100) = 60; dose(30, 2) = 60
 The ledger holds this as [fam_oncology](/theorem/fam_oncology) — proven `by decide`, sorry-free:
 
 ```lean
-((((3 : Int) + (2 : Int)) + (1 : Int)) = (6 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (50 : Int))) = (150 : Int)) ∧ (((((1000 : Int) - (250 : Int)) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ (((10000 : Int) / (5 : Int)) = (2000 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((30 : Int) * (2 : Int)) = (60 : Int))
+((((3 : Int) + (2 : Int)) + (1 : Int)) = (6 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (50 : Int))) = (150 : Int)) ∧ (((((1000 : Int) - (250 : Int)) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ (((10000 : Int) / (5 : Int)) = (2000 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((30 : Int) * (2 : Int)) = (60 : Int))
 ```
 
 ### onomastics: namecount(1000, 2) = 2000; surnamepairs(50, 2) = 1225; orderingchoices(5) = 120; frequencyrank(1000, 10) = 100; patronymiclayers(3, 1) = 4; etymsubsets(5) = 32; variantspellings(20, 3) = 60; distributionratio(40, 100) = 40
@@ -109,11 +109,11 @@ The ledger holds this as [fam_option](/theorem/fam_option) — proven `by decide
 (((100 : Int) * (1 : Int)) = (100 : Int)) ∧ (((5 : Int) * (100 : Int)) = (500 : Int)) ∧ (((10 : Int) * (100 : Int)) = (1000 : Int)) ∧ (((30 : Int) + (0 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (100 : Int))) = (20 : Int)) ∧ (((100 : Int) + (5 : Int)) = (105 : Int)) ∧ (((5 : Int) + (0 : Int)) = (5 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))
 ```
 
-### optometry: acuity(20, 40) = 10; acuity(20, 0) = 0; diopter(50) = 20000; diopter(0) = 0; astigmatism(90, 45) = 200; astigmatism(90, 0) = 0; accommodation(250, 25) = 225; accommodation(25, 250) = 0; pupil(5) = 5; contrast(80, 100) = 80; contrast(1, 0) = 0; refraction(1500, 1000) = 1500; refraction(1500, 0) = 0; field(120) = 120
+### optometry: acuity(20, 40) = 10; acuity(20, 0) = 0; diopter(50) = 20000; diopter(0) = 0; astigmatism(90, 45) = 200; astigmatism(90, 0) = 0; accommodation(250, 25) = 225; accommodation(25, 250) = 0; contrast(80, 100) = 80; contrast(1, 0) = 0; refraction(1500, 1000) = 1500; refraction(1500, 0) = 0
 The ledger holds this as [fam_optometry](/theorem/fam_optometry) — proven `by decide`, sorry-free:
 
 ```lean
-((((20 : Int) * (20 : Int)) / (40 : Int)) = (10 : Int)) ∧ ((((20 : Int) * (20 : Int)) / (0 : Int)) = (0 : Int)) ∧ (((1000000 : Int) / (50 : Int)) = (20000 : Int)) ∧ (((1000000 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (45 : Int)) = (200 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((fmax (0 : Int) ((250 : Int) - (25 : Int))) = (225 : Int)) ∧ ((fmax (0 : Int) ((25 : Int) - (250 : Int))) = (0 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((((1500 : Int) * (1000 : Int)) / (1000 : Int)) = (1500 : Int)) ∧ ((((1500 : Int) * (1000 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((120 : Int) = (120 : Int))
+((((20 : Int) * (20 : Int)) / (40 : Int)) = (10 : Int)) ∧ ((((20 : Int) * (20 : Int)) / (0 : Int)) = (0 : Int)) ∧ (((1000000 : Int) / (50 : Int)) = (20000 : Int)) ∧ (((1000000 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (45 : Int)) = (200 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((fmax (0 : Int) ((250 : Int) - (25 : Int))) = (225 : Int)) ∧ ((fmax (0 : Int) ((25 : Int) - (250 : Int))) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((((1500 : Int) * (1000 : Int)) / (1000 : Int)) = (1500 : Int)) ∧ ((((1500 : Int) * (1000 : Int)) / (0 : Int)) = (0 : Int))
 ```
 
 ### orbit: period(62800, 8) = 7850; semimajoraxis(500, 300) = 400; eccentricity(500, 300) = 250; apoapsis(400, 250) = 500; periapsis(400, 250) = 300; velocity(60000, 60) = 1000; inclination(30, 60) = 45; meananomaly(10, 45) = 90
@@ -144,11 +144,11 @@ The ledger holds this as [fam_ornithology](/theorem/fam_ornithology) — proven 
 (((1200 : Int) / (40 : Int)) = (30 : Int)) ∧ (((48 : Int) / (12 : Int)) = (4 : Int)) ∧ (((8000 : Int) / (40 : Int)) = (200 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (50 : Int)) = (1200 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((240 : Int) / (60 : Int)) = (4 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int))
 ```
 
-### orthography: transparency(900, 1000) = 90; graphemes(130, 100) = 130; errors(5, 100) = 5; density(5000, 1000) = 5; capitals(3, 100) = 3; diacritics(40, 200) = 20; legibility(980, 1000) = 98; syllables(4) = 4
+### orthography: transparency(900, 1000) = 90; graphemes(130, 100) = 130; errors(5, 100) = 5; density(5000, 1000) = 5; capitals(3, 100) = 3; diacritics(40, 200) = 20; legibility(980, 1000) = 98
 The ledger holds this as [fam_orthography](/theorem/fam_orthography) — proven `by decide`, sorry-free:
 
 ```lean
-((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((130 : Int) * (100 : Int)) / (100 : Int)) = (130 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((5000 : Int) / (1000 : Int)) = (5 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (100 : Int)) = (3 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (200 : Int)) = (20 : Int)) ∧ ((((980 : Int) * (100 : Int)) / (1000 : Int)) = (98 : Int)) ∧ ((4 : Int) = (4 : Int))
+((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((130 : Int) * (100 : Int)) / (100 : Int)) = (130 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((5000 : Int) / (1000 : Int)) = (5 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (100 : Int)) = (3 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (200 : Int)) = (20 : Int)) ∧ ((((980 : Int) * (100 : Int)) / (1000 : Int)) = (98 : Int))
 ```
 
 ### orthopedics: rangeofmotion(120, 150) = 80; bonedensity(80, 100) = 80; fractureload(50, 80) = 4000; legdiscrepancy(920, 905) = 15; cobbangle(22, 18) = 40; gait(100, 60) = 100; alignment(185, 180) = 5; implantsize(96, 5) = 20

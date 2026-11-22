@@ -1,13 +1,13 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-11-16
+**Generated:** 2026-11-22
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 72409/72409 theorems — every one, by construction
-**Discovery claimed:** 71976 — the other 433 restate a fact a named source found first
+**Formalisation claimed:** 72408/72408 theorems — every one, by construction
+**Discovery claimed:** 71975 — the other 433 restate a fact a named source found first
 
 *The 433 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 348 of 382 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 28/51 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `6aafecd1-b473-8857-ba63-259e3d6dd501`
+**Claim receipt:** `10de8f98-84c9-8d7e-9b17-4c54c2289286`
 
 ### Facts the captain does not claim to have discovered
 
@@ -515,7 +515,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `11e626c3-a361-80d3-98db-7b19e5eb31a4`
+- **Sample lineAddress:** `7922a347-bcbb-8fb3-99dc-6e5beefbd28d`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -524,7 +524,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `7d13693e-ca95-835d-b320-a4d7c5526d5a`
+- **Sample lineAddress:** `27a912b0-78a3-840a-819f-b63628b838d8`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2036,7 +2036,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The involution of lead b13fd37a
 
 - **Theorems:** 2
-- **Sample lineAddress:** `15607cd5-b790-811b-bf93-8b9dc5adb557`
+- **Sample lineAddress:** `bb5512be-18dc-8767-9fbf-fde622d28ade`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2414,7 +2414,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
 
 - **Theorems:** 5
-- **Sample lineAddress:** `69f640ab-008b-89ae-8c41-829455d29e52`
+- **Sample lineAddress:** `4eacba46-2e85-86c5-8015-077f2d5b0234`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2441,7 +2441,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE DOOR SURFACE
 
 - **Theorems:** 3
-- **Sample lineAddress:** `06acfe2c-b492-899d-8912-77c0b4d6fc4e`
+- **Sample lineAddress:** `24f3544d-6e33-8f90-b20c-e93473650821`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2476,12 +2476,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### THE FAMILIES, D
 
-- **Theorems:** 47
-- **Sample lineAddress:** `65dbb7c6-ba02-8428-8a7b-dc820816ec20`
+- **Theorems:** 46
+- **Sample lineAddress:** `ea024365-ab72-85eb-8ef7-30eb9272a471`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[fam_dairy](/theorem/fam_dairy) · [fam_dance](/theorem/fam_dance) · [fam_datacenter](/theorem/fam_datacenter) · [fam_dataquality](/theorem/fam_dataquality) · [fam_db](/theorem/fam_db) · [fam_deadreckoning](/theorem/fam_deadreckoning) · [fam_dedup](/theorem/fam_dedup) · [fam_delivery](/theorem/fam_delivery) · [fam_demographics](/theorem/fam_demographics) · [fam_demography](/theorem/fam_demography) · [fam_dentistry](/theorem/fam_dentistry) · [fam_deontology](/theorem/fam_deontology) · [fam_deployment](/theorem/fam_deployment) · [fam_depreciation](/theorem/fam_depreciation) · [fam_derivative](/theorem/fam_derivative) · [fam_derivatives](/theorem/fam_derivatives) · [fam_dermatology](/theorem/fam_dermatology) · [fam_desalination](/theorem/fam_desalination) · [fam_designtheory](/theorem/fam_designtheory) · [fam_determinism](/theorem/fam_determinism) · [fam_devtools](/theorem/fam_devtools) · [fam_dewpoint](/theorem/fam_dewpoint) · [fam_dialectic](/theorem/fam_dialectic) · [fam_dice](/theorem/fam_dice) · [fam_dietetics](/theorem/fam_dietetics) · [fam_diffraction](/theorem/fam_diffraction) · [fam_diffusion](/theorem/fam_diffusion) · [fam_diplomacy](/theorem/fam_diplomacy) · [fam_discourse](/theorem/fam_discourse) · [fam_dispatch](/theorem/fam_dispatch) · [fam_distillation](/theorem/fam_distillation) · [fam_distilling](/theorem/fam_distilling) · [fam_distribution](/theorem/fam_distribution) · [fam_dividend](/theorem/fam_dividend) · [fam_dns](/theorem/fam_dns) · [fam_dominoes](/theorem/fam_dominoes) · [fam_dosage](/theorem/fam_dosage) · [fam_dosimetry](/theorem/fam_dosimetry) · [fam_download](/theorem/fam_download) · [fam_drag](/theorem/fam_drag) · [fam_drayage](/theorem/fam_drayage) · [fam_drilling](/theorem/fam_drilling) · [fam_driver](/theorem/fam_driver) · [fam_drone](/theorem/fam_drone) · [fam_drought](/theorem/fam_drought) · [fam_dyeing](/theorem/fam_dyeing) · [fam_dynamics](/theorem/fam_dynamics)
+[fam_dairy](/theorem/fam_dairy) · [fam_dance](/theorem/fam_dance) · [fam_datacenter](/theorem/fam_datacenter) · [fam_dataquality](/theorem/fam_dataquality) · [fam_deadreckoning](/theorem/fam_deadreckoning) · [fam_dedup](/theorem/fam_dedup) · [fam_delivery](/theorem/fam_delivery) · [fam_demographics](/theorem/fam_demographics) · [fam_demography](/theorem/fam_demography) · [fam_dentistry](/theorem/fam_dentistry) · [fam_deontology](/theorem/fam_deontology) · [fam_deployment](/theorem/fam_deployment) · [fam_depreciation](/theorem/fam_depreciation) · [fam_derivative](/theorem/fam_derivative) · [fam_derivatives](/theorem/fam_derivatives) · [fam_dermatology](/theorem/fam_dermatology) · [fam_desalination](/theorem/fam_desalination) · [fam_designtheory](/theorem/fam_designtheory) · [fam_determinism](/theorem/fam_determinism) · [fam_devtools](/theorem/fam_devtools) · [fam_dewpoint](/theorem/fam_dewpoint) · [fam_dialectic](/theorem/fam_dialectic) · [fam_dice](/theorem/fam_dice) · [fam_dietetics](/theorem/fam_dietetics) · [fam_diffraction](/theorem/fam_diffraction) · [fam_diffusion](/theorem/fam_diffusion) · [fam_diplomacy](/theorem/fam_diplomacy) · [fam_discourse](/theorem/fam_discourse) · [fam_dispatch](/theorem/fam_dispatch) · [fam_distillation](/theorem/fam_distillation) · [fam_distilling](/theorem/fam_distilling) · [fam_distribution](/theorem/fam_distribution) · [fam_dividend](/theorem/fam_dividend) · [fam_dns](/theorem/fam_dns) · [fam_dominoes](/theorem/fam_dominoes) · [fam_dosage](/theorem/fam_dosage) · [fam_dosimetry](/theorem/fam_dosimetry) · [fam_download](/theorem/fam_download) · [fam_drag](/theorem/fam_drag) · [fam_drayage](/theorem/fam_drayage) · [fam_drilling](/theorem/fam_drilling) · [fam_driver](/theorem/fam_driver) · [fam_drone](/theorem/fam_drone) · [fam_drought](/theorem/fam_drought) · [fam_dyeing](/theorem/fam_dyeing) · [fam_dynamics](/theorem/fam_dynamics)
 
 ### THE FAMILIES, E
 
@@ -2522,7 +2522,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE FAMILIES, I
 
 - **Theorems:** 27
-- **Sample lineAddress:** `fd7c3d62-b208-8941-b55b-99f23c444f0d`
+- **Sample lineAddress:** `61a5de36-7909-87d4-942f-a9be8fdcd255`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2558,7 +2558,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE FAMILIES, M
 
 - **Theorems:** 67
-- **Sample lineAddress:** `6a2b5701-2ebb-8a4b-a190-d1a77445e189`
+- **Sample lineAddress:** `656ade3a-eca0-8c0c-802c-c11c3769770c`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2727,7 +2727,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 72323 (72409 entries, 86 re-namings — a theorem is its Lean |
+| sealed propositions | 72322 (72408 entries, 86 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 36068 — 7625 usable, 28443 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2745,7 +2745,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 72409 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 72408 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -2757,7 +2757,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 72409; he claims discovery of 71976 and credits the other 433 facts to their named sources
+- ✓ The captain formalised all 72408; he claims discovery of 71975 and credits the other 433 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2773,7 +2773,7 @@ everything may be brought, nothing is decided by ownership.
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 72409; of these I claim discovery of 71976, and the remaining 433 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 72408; of these I claim discovery of 71975, and the remaining 433 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

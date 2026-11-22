@@ -7,7 +7,7 @@ description: "Computed from lean/FamiliesE.lean — 62 sealed theorems, every cl
 
 > THE FAMILIES, E — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. — held by [fam_earnedvalue](/theorem/fam_earnedvalue) and its 61 siblings below.
 
-**62 theorems** and **23,136 decided cases**, from [fam_earnedvalue](/theorem/fam_earnedvalue) onward, each proven `by decide` in <a href="/lean/FamiliesE.lean">lean/FamiliesE.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**62 theorems** and **22,767 decided cases**, from [fam_earnedvalue](/theorem/fam_earnedvalue) onward, each proven `by decide` in <a href="/lean/FamiliesE.lean">lean/FamiliesE.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FFamiliesE.lean)** — nothing to install. The editor fetches `lean/FamiliesE.lean` from the repository and re-decides all 62 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -158,11 +158,11 @@ The ledger holds this as [fam_embroidery](/theorem/fam_embroidery) — proven `b
 (((1000 : Int) * (5 : Int)) = (5000 : Int)) ∧ (((12 : Int) + (6 : Int)) = (18 : Int)) ∧ (((8 : Int) + (0 : Int)) = (8 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int))
 ```
 
-### embryology: gestation(280) = 280; cleavage(8, 4) = 2; viability(8, 10) = 80; implantation(2, 4) = 50; blastocyst(5, 10) = 50; fragmentation(2, 10) = 20; morphology(5) = 5; differentiation(50, 100) = 50
+### embryology: cleavage(8, 4) = 2; viability(8, 10) = 80; implantation(2, 4) = 50; blastocyst(5, 10) = 50; fragmentation(2, 10) = 20; differentiation(50, 100) = 50
 The ledger holds this as [fam_embryology](/theorem/fam_embryology) — proven `by decide`, sorry-free:
 
 ```lean
-((280 : Int) = (280 : Int)) ∧ (((8 : Int) / (4 : Int)) = (2 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (4 : Int)) = (50 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (10 : Int)) = (50 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (10 : Int)) = (20 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int))
+(((8 : Int) / (4 : Int)) = (2 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (4 : Int)) = (50 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (10 : Int)) = (50 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (10 : Int)) = (20 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int))
 ```
 
 ### emissions: intensity(1000, 40) = 25; percapita(8000, 1000) = 8; reduction(1000, 750) = 25; scope(300, 1000) = 30; equivalent(50, 25) = 1250; tax(1000, 15) = 150; allowance(1200, 1000) = 200; allowance(800, 1000) = 0; sequestration(250, 1000) = 25
@@ -207,11 +207,11 @@ The ledger holds this as [fam_endocrinology](/theorem/fam_endocrinology) — pro
 ((((90 : Int) * (10 : Int)) / (405 : Int)) = (2 : Int)) ∧ ((((5400 : Int) + (4600 : Int)) / (1000 : Int)) = (10 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (4 : Int)) = (50 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (50 : Int)) = (300 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (10 : Int)) = (800 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((10 : Int) * (693 : Int)) / ((5 : Int) * (1000 : Int))) = (1 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (30 : Int)) = (300 : Int))
 ```
 
-### endpoint: latency(5000, 100) = 50; rate(6000, 60) = 100; status(990, 1000) = 99; methods(4) = 4; auth(3, 10) = 30; payload(20, 8) = 160; depth(5) = 5; error(5, 1000) = 0; error(50, 1000) = 5
+### endpoint: latency(5000, 100) = 50; rate(6000, 60) = 100; status(990, 1000) = 99; auth(3, 10) = 30; payload(20, 8) = 160; error(5, 1000) = 0; error(50, 1000) = 5
 The ledger holds this as [fam_endpoint](/theorem/fam_endpoint) — proven `by decide`, sorry-free:
 
 ```lean
-(((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ (((20 : Int) * (8 : Int)) = (160 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int))
+(((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ (((20 : Int) * (8 : Int)) = (160 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int))
 ```
 
 ### endurance: vo2proxy(3500, 70) = 50; timetoexhaustion(6000, 20) = 300; aerobicratio(80, 100) = 80; lactatethreshold(85, 100) = 85; heartratereserve(190, 60) = 130; trainingload(120, 5) = 600; distancecapacity(10, 42) = 420; fatigueindex(30, 300) = 10
@@ -256,11 +256,11 @@ The ledger holds this as [fam_entertainment](/theorem/fam_entertainment) — pro
 ((((4200 : Int) * (10 : Int)) / (500 : Int)) = (84 : Int)) ∧ (((10 : Int) * (48 : Int)) = (480 : Int)) ∧ (((200000 : Int) * (12 : Int)) = (2400000 : Int)) ∧ ((((1000000 : Int) * (12 : Int)) / (100 : Int)) = (120000 : Int)) ∧ ((((5000000 : Int) * (30 : Int)) / (100 : Int)) = (1500000 : Int)) ∧ ((((900 : Int) * (8 : Int)) / (60 : Int)) = (120 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((42 : Int) * (100 : Int)) / (48 : Int)) = (87 : Int))
 ```
 
-### entomology: colony(50000, 1) = 50001; metamorphosis(4) = 4; swarm(12000, 3) = 4000; foraging(600, 20) = 30; infestation(30, 120) = 25; pollination(90, 200) = 45; lifecycle(1000, 950) = 95; wingbeat(12000, 60) = 200
+### entomology: colony(50000, 1) = 50001; swarm(12000, 3) = 4000; foraging(600, 20) = 30; infestation(30, 120) = 25; pollination(90, 200) = 45; lifecycle(1000, 950) = 95; wingbeat(12000, 60) = 200
 The ledger holds this as [fam_entomology](/theorem/fam_entomology) — proven `by decide`, sorry-free:
 
 ```lean
-(((50000 : Int) + (1 : Int)) = (50001 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ (((12000 : Int) / (3 : Int)) = (4000 : Int)) ∧ (((600 : Int) / (20 : Int)) = (30 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (200 : Int)) = (45 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((12000 : Int) / (60 : Int)) = (200 : Int))
+(((50000 : Int) + (1 : Int)) = (50001 : Int)) ∧ (((12000 : Int) / (3 : Int)) = (4000 : Int)) ∧ (((600 : Int) / (20 : Int)) = (30 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (200 : Int)) = (45 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((12000 : Int) / (60 : Int)) = (200 : Int))
 ```
 
 ### entropy: shannon(1000) = 9; maxentropy(1000) = 10; jointentropy(1000, 1000) = 18; conditionalentropy(18, 9) = 9; mutualinformation(10, 8, 15) = 3; relativeentropy(2000, 500) = 2; informationgain(16, 10) = 6; perplexity(5) = 32
@@ -319,11 +319,11 @@ The ledger holds this as [fam_epistemology](/theorem/fam_epistemology) — prove
 (((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((3 : Int) + (2 : Int)) = (5 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (5 : Int)) (Int.toNat (2 : Int)))) = (10 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int))
 ```
 
-### equine: speed(100, 10) = 10; stride(600, 4) = 150; heartrate(240, 5) = 48; bodycondition(5) = 5; gestation(340) = 340; feedratio(15, 20) = 75; height(16) = 16; recovery(40, 120) = 80; recovery(120, 40) = 0
+### equine: speed(100, 10) = 10; stride(600, 4) = 150; heartrate(240, 5) = 48; feedratio(15, 20) = 75; recovery(40, 120) = 80; recovery(120, 40) = 0
 The ledger holds this as [fam_equine](/theorem/fam_equine) — proven `by decide`, sorry-free:
 
 ```lean
-(((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((600 : Int) / (4 : Int)) = (150 : Int)) ∧ (((240 : Int) / (5 : Int)) = (48 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((340 : Int) = (340 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ ((16 : Int) = (16 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (40 : Int))) = (80 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (120 : Int))) = (0 : Int))
+(((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((600 : Int) / (4 : Int)) = (150 : Int)) ∧ (((240 : Int) / (5 : Int)) = (48 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (40 : Int))) = (80 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (120 : Int))) = (0 : Int))
 ```
 
 ### equity: shares(1000, 1000) = 1000000; eps(5000, 1000) = 5; pe(200, 10) = 20; marketcap(1000, 50) = 50000; dividendyield(3, 100) = 3; float(85, 100) = 85; classes(2, 0) = 2; combos(6, 2) = 15
@@ -340,11 +340,11 @@ The ledger holds this as [fam_ergometry](/theorem/fam_ergometry) — proven `by 
 (((200 : Int) * (5 : Int)) = (1000 : Int)) ∧ (((500 : Int) * (60 : Int)) = (30000 : Int)) ∧ (((120 : Int) / (2 : Int)) = (60 : Int)) ∧ (((600 : Int) / (10 : Int)) = (60 : Int)) ∧ (((3000 : Int) / (60 : Int)) = (50 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((5 : Int) * (500 : Int)) = (2500 : Int)) ∧ (((3600 : Int) / (60 : Int)) = (60 : Int))
 ```
 
-### ergonomics: lift(20, 6) = 120; reach(45, 60) = 75; posture(30, 90) = 33; repetition(120, 60) = 2; fatigue(480, 60) = 800; illumination(10000, 20) = 500; noise(85) = 85; strain(60, 100) = 60
+### ergonomics: lift(20, 6) = 120; reach(45, 60) = 75; posture(30, 90) = 33; repetition(120, 60) = 2; fatigue(480, 60) = 800; illumination(10000, 20) = 500; strain(60, 100) = 60
 The ledger holds this as [fam_ergonomics](/theorem/fam_ergonomics) — proven `by decide`, sorry-free:
 
 ```lean
-(((20 : Int) * (6 : Int)) = (120 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (90 : Int)) = (33 : Int)) ∧ (((120 : Int) / (60 : Int)) = (2 : Int)) ∧ ((((480 : Int) * (100 : Int)) / (60 : Int)) = (800 : Int)) ∧ (((10000 : Int) / (20 : Int)) = (500 : Int)) ∧ ((85 : Int) = (85 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int))
+(((20 : Int) * (6 : Int)) = (120 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (90 : Int)) = (33 : Int)) ∧ (((120 : Int) / (60 : Int)) = (2 : Int)) ∧ ((((480 : Int) * (100 : Int)) / (60 : Int)) = (800 : Int)) ∧ (((10000 : Int) / (20 : Int)) = (500 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int))
 ```
 
 ### eschatology: stageorderings(5) = 120; scenariocombos(8, 3) = 56; symbolcount(7, 3) = 21; cyclelength(7, 70) = 490; outcomechoices(6) = 64; intervalspan(1000, 700) = 300; tribulationphases(3, 4) = 7; numbersum(6, 6, 6) = 18
