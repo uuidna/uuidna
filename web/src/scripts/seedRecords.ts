@@ -4,7 +4,7 @@ import config from '@payload-config'
 import { getPayload } from 'payload'
 import { linkSeedParents, seedsSynced, syncSeeds } from '@uuidna/qpu/payload-api'
 import { seoFrom } from '@uuidna/qpu/website-client'
-import { allSeedWaves } from '@uuidna/qpu/seed-waves'
+import { allSeedWaves } from './seedWaves.ts'
 
 /** The public site reads published pages, and beforeValidate rewrites meta from the page text. */
 const live = <T extends { meta: { title: string; description: string } }>(page: T) => {
