@@ -41,9 +41,9 @@ theorem fam_verification : (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ ((Int.of
     70; scheduled(100, 160) = 60; scheduled(200, 160) = 0; restore(12, 20) = 8; churn(100, 20) = 5 -/
 theorem fam_version : ((fmin (50 : Int) (20 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (20 : Int))) = (30 : Int)) ∧ (((60 : Int) / (5 : Int)) = (12 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ ((fmax (0 : Int) ((160 : Int) - (100 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((160 : Int) - (200 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (12 : Int))) = (8 : Int)) ∧ (((100 : Int) / (20 : Int)) = (5 : Int)) := by decide
 
-/-- vet: dose(20, 5) = 100; age(3, 7) = 21; bodyscore(5) = 5; herd(3, 12) = 25; gestation(100, 63) = 163;
-    feed(40, 3) = 1; vaccination(80, 100) = 80; fluids(10, 60) = 600 -/
-theorem fam_vet : (((20 : Int) * (5 : Int)) = (100 : Int)) ∧ (((3 : Int) * (7 : Int)) = (21 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ (((100 : Int) + (63 : Int)) = (163 : Int)) ∧ ((((40 : Int) * (3 : Int)) / (100 : Int)) = (1 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((10 : Int) * (60 : Int)) = (600 : Int)) := by decide
+/-- vet: dose(20, 5) = 100; age(3, 7) = 21; herd(3, 12) = 25; gestation(100, 63) = 163; feed(40, 3) = 1;
+    vaccination(80, 100) = 80; fluids(10, 60) = 600 -/
+theorem fam_vet : (((20 : Int) * (5 : Int)) = (100 : Int)) ∧ (((3 : Int) * (7 : Int)) = (21 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ (((100 : Int) + (63 : Int)) = (163 : Int)) ∧ ((((40 : Int) * (3 : Int)) / (100 : Int)) = (1 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((10 : Int) * (60 : Int)) = (600 : Int)) := by decide
 
 /-- veterinary: dose(10, 5) = 50; caloricrequirement(20, 30) = 600; bcs(55, 50) = 110; fluidtherapy(1000, 250) =
     4; heartrate(240, 2) = 120; medicationinterval(24, 3) = 8; bodyweightgain(10, 15) = 5; bodyweightgain(15,
@@ -55,13 +55,13 @@ theorem fam_veterinary : (((10 : Int) * (5 : Int)) = (50 : Int)) ∧ (((20 : Int
     transmissibility(300, 200) = 150; modeshape(3, 100) = 300 -/
 theorem fam_vibration : (((5000 : Int) / (10 : Int)) = (500 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((60 : Int) * (3 : Int)) = (180 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((20 : Int) * (25 : Int)) = (500 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (200 : Int)) = (150 : Int)) ∧ (((3 : Int) * (100 : Int)) = (300 : Int)) := by decide
 
-/-- virality: coefficient(200, 15) = 30; cycletime(7) = 7; shares(250, 1000) = 25; amplification(600, 50) = 12;
-    reach(10000, 100) = 100; engagement(300, 1000) = 30; saturation(2500, 10000) = 25; halflife(48) = 48 -/
-theorem fam_virality : ((((200 : Int) * (15 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((600 : Int) / (50 : Int)) = (12 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((2500 : Int) * (100 : Int)) / (10000 : Int)) = (25 : Int)) ∧ ((48 : Int) = (48 : Int)) := by decide
+/-- virality: coefficient(200, 15) = 30; shares(250, 1000) = 25; amplification(600, 50) = 12; reach(10000, 100)
+    = 100; engagement(300, 1000) = 30; saturation(2500, 10000) = 25 -/
+theorem fam_virality : ((((200 : Int) * (15 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((600 : Int) / (50 : Int)) = (12 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((2500 : Int) * (100 : Int)) / (10000 : Int)) = (25 : Int)) := by decide
 
 /-- virology: titer(50, 100) = 5000; load(1000000, 5) = 200000; replication(5000, 100) = 50; infectivity(80,
-    100) = 80; mutation(3, 30000) = 100; latency(14) = 14; clearance(90, 100) = 90; neutralization(75, 100) = 75 -/
-theorem fam_virology : (((50 : Int) * (100 : Int)) = (5000 : Int)) ∧ (((1000000 : Int) / (5 : Int)) = (200000 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((3 : Int) * (1000000 : Int)) / (30000 : Int)) = (100 : Int)) ∧ ((14 : Int) = (14 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) := by decide
+    100) = 80; mutation(3, 30000) = 100; clearance(90, 100) = 90; neutralization(75, 100) = 75 -/
+theorem fam_virology : (((50 : Int) * (100 : Int)) = (5000 : Int)) ∧ (((1000000 : Int) / (5 : Int)) = (200000 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((3 : Int) * (1000000 : Int)) / (30000 : Int)) = (100 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) := by decide
 
 /-- virtualization: overcommit(32, 8) = 400; density(65536, 2048) = 32; consolidation(100, 8) = 13;
     ballooning(4096, 1024) = 3072; vcpu(2, 8, 2) = 32; allocation(16, 2048) = 32768; overhead(512, 2048) = 25;
@@ -83,9 +83,9 @@ theorem fam_viticulture : ((((6 : Int) * (1000 : Int)) / (1000 : Int)) = (6 : In
     4) = 5; excessreturn(8, 3) = 5; beta2(10, 4) = 2; beta(150, 0) = 0 -/
 theorem fam_volatility : ((fmax (0 : Int) ((150 : Int) - (90 : Int))) = (60 : Int)) ∧ (((2 : Int) * (16 : Int)) = (32 : Int)) ∧ ((((2 : Int) * (5 : Int)) * (2 : Int)) = (20 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (100 : Int)) = (150 : Int)) ∧ (((500 : Int) / (5 : Int)) = (100 : Int)) ∧ ((((200 : Int) * (25 : Int)) / (100 : Int)) = (50 : Int)) ∧ (((fmax (0 : Int) ((120 : Int) - (100 : Int))) / (10 : Int)) = (2 : Int)) ∧ ((((fmax (0 : Int) ((200 : Int) - (150 : Int))) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((9 : Int) - (4 : Int))) = (5 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int)) ∧ ((((1000 : Int) * (5 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((3 : Int) ^ (2 : Nat)) + ((4 : Int) ^ (2 : Nat))) = (25 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (3 : Int))) = (5 : Int)) ∧ (((10 : Int) / (4 : Int)) = (2 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) := by decide
 
-/-- volcanology: vei(7) = 7; effusion(1000, 10) = 100; viscosity(50, 1000) = 50; ash(1000, 4) = 250; magma(6000,
-    60) = 100; pyroclastic(30, 4) = 120; gas(900, 500) = 400; gas(300, 500) = 0; repose(42) = 42 -/
-theorem fam_volcanology : ((7 : Int) = (7 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((50 : Int) * (1000 : Int)) / (1000 : Int)) = (50 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((30 : Int) * (4 : Int)) = (120 : Int)) ∧ ((fmax (0 : Int) ((900 : Int) - (500 : Int))) = (400 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (500 : Int))) = (0 : Int)) ∧ ((42 : Int) = (42 : Int)) := by decide
+/-- volcanology: effusion(1000, 10) = 100; viscosity(50, 1000) = 50; ash(1000, 4) = 250; magma(6000, 60) = 100;
+    pyroclastic(30, 4) = 120; gas(900, 500) = 400; gas(300, 500) = 0 -/
+theorem fam_volcanology : (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((50 : Int) * (1000 : Int)) / (1000 : Int)) = (50 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((30 : Int) * (4 : Int)) = (120 : Int)) ∧ ((fmax (0 : Int) ((900 : Int) - (500 : Int))) = (400 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (500 : Int))) = (0 : Int)) := by decide
 
 /-- vulcanology: vei(4, 5) = 5; ejectavolume(1000, 3) = 3000; explosivity(5000, 1000) = 5; lavaflowrate(6000,
     60) = 100; ashheight(12, 1000) = 12000; repose(1000, 200) = 800; magmaviscosity(100, 4) = 400;

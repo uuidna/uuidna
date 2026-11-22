@@ -43,8 +43,8 @@ theorem fam_feedback : (((1000 : Int) / ((1 : Int) + (9 : Int))) = (100 : Int)) 
 theorem fam_feedlot : (((500 : Int) * (8 : Int)) = (4000 : Int)) ∧ (((360 : Int) / (180 : Int)) = (2 : Int)) ∧ ((-((-(fmax (0 : Int) ((1200 : Int) - (600 : Int)))) / (3 : Int))) = (200 : Int)) ∧ (((2400 : Int) / (120 : Int)) = (20 : Int)) ∧ (((1200 : Int) / (200 : Int)) = (6 : Int)) ∧ (((6000 : Int) / (100 : Int)) = (60 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (300 : Int)) = (15 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1200 : Int)) = (75 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int)) := by decide
 
 /-- fermentation: biomass(10000, 100) = 100; conversion(80, 100) = 80; ethanol(45, 50) = 90; inoculation(5, 100)
-    = 5; output(60, 100) = 60; ph(30, 100) = 30; rate(1200, 48) = 25; temperature(37) = 37 -/
-theorem fam_fermentation : (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((1200 : Int) / (48 : Int)) = (25 : Int)) ∧ ((37 : Int) = (37 : Int)) := by decide
+    = 5; output(60, 100) = 60; ph(30, 100) = 30; rate(1200, 48) = 25 -/
+theorem fam_fermentation : (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((1200 : Int) / (48 : Int)) = (25 : Int)) := by decide
 
 /-- ferry: capacity(200, 2) = 400; crossingtime(60, 1) = 60; vehicledecks(2, 1) = 3; dailycrossings(1440, 90) =
     16; loadfactor(75, 100) = 75; turnaroundmin(60, 2) = 30; routepairs(8, 2) = 28; throughput(400, 16) = 6400 -/
@@ -55,9 +55,9 @@ theorem fam_ferry : (((200 : Int) * (2 : Int)) = (400 : Int)) ∧ (((60 : Int) /
     3) = 60; efficiency(120, 200) = 60; efficiency(50, 0) = 0 -/
 theorem fam_fertilization : ((fmax (0 : Int) ((200 : Int) - (50 : Int))) = (150 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (40 : Int)) = (25 : Int)) ∧ (((50 : Int) * (120 : Int)) = (6000 : Int)) ∧ (((8 : Int) * (25 : Int)) = (200 : Int)) ∧ ((((200 : Int) * (15 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (40 : Int)) = (150 : Int)) ∧ (((180 : Int) / (3 : Int)) = (60 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (200 : Int)) = (60 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) := by decide
 
-/-- field: depth(3) = 3; group(100, 4) = 25; indexed(3, 12) = 25; length(40, 100) = 1; length(140, 100) = 0;
-    localized(6, 12) = 50; options(5) = 5; required(9, 12) = 75 -/
-theorem fam_field : ((3 : Int) = (3 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((if (if (40 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (140 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (12 : Int)) = (50 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (12 : Int)) = (75 : Int)) := by decide
+/-- field: group(100, 4) = 25; indexed(3, 12) = 25; length(40, 100) = 1; length(140, 100) = 0; localized(6, 12)
+    = 50; required(9, 12) = 75 -/
+theorem fam_field : (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((if (if (40 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (140 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (12 : Int)) = (50 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (12 : Int)) = (75 : Int)) := by decide
 
 /-- filtering: cutoff(48000, 4) = 12000; passband(3000, 1000) = 2000; stopband(4000, 500) = 4500; rolloff(4) =
     24; order(96, 24) = 4; groupdelay(101) = 50; attenuation(4, 3) = 72; bandwidth(12000, 4) = 3000;
@@ -73,9 +73,9 @@ theorem fam_filters : ((((10 : Int) ^ (6 : Nat)) / ((1000 : Int) * (10 : Int))) 
     runway(300000, 30000) = 10; compound(1000, 10, 3) = 1331 -/
 theorem fam_financial : ((-((-(100000 : Int)) / (40 : Int))) = (2500 : Int)) ∧ ((-((-(50000 : Int)) / (12000 : Int))) = (5 : Int)) ∧ (((((15000 : Int) - (10000 : Int)) * (100 : Int)) / (10000 : Int)) = (50 : Int)) ∧ (((((200000 : Int) - (120000 : Int)) * (100 : Int)) / (200000 : Int)) = (40 : Int)) ∧ (((300000 : Int) / (100000 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((80000 : Int) - (50000 : Int))) = (30000 : Int)) ∧ ((fmax (0 : Int) ((50000 : Int) - (80000 : Int))) = (0 : Int)) ∧ (((300000 : Int) / (30000 : Int)) = (10 : Int)) ∧ ((((1000 : Int) * (((100 : Int) + (10 : Int)) ^ (3 : Nat))) / ((100 : Int) ^ (3 : Nat))) = (1331 : Int)) := by decide
 
-/-- firewall: blockrate(250, 1000) = 25; throughput(60000, 60) = 1000; rules(512) = 512; latency(45) = 45;
-    falseblock(3, 250) = 1; connections(800, 1000) = 80; inspection(900, 1000) = 90; coverage(48, 64) = 75 -/
-theorem fam_firewall : ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((60000 : Int) / (60 : Int)) = (1000 : Int)) ∧ ((512 : Int) = (512 : Int)) ∧ ((45 : Int) = (45 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (250 : Int)) = (1 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((48 : Int) * (100 : Int)) / (64 : Int)) = (75 : Int)) := by decide
+/-- firewall: blockrate(250, 1000) = 25; throughput(60000, 60) = 1000; falseblock(3, 250) = 1; connections(800,
+    1000) = 80; inspection(900, 1000) = 90; coverage(48, 64) = 75 -/
+theorem fam_firewall : ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((60000 : Int) / (60 : Int)) = (1000 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (250 : Int)) = (1 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((48 : Int) * (100 : Int)) / (64 : Int)) = (75 : Int)) := by decide
 
 /-- firmware: sectors(1024, 512) = 2; sectors(1024, 0) = 0; words(16) = 4; pages(1000, 256) = 3;
     checksumWords(16) = 8; bootBlocks(8192, 4096) = 2; slots(1048576, 524288) = 2; otaDelta(5000, 4000) = 1000;

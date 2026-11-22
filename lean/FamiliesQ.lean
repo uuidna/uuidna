@@ -29,9 +29,9 @@ theorem fam_quantization : (((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ (((1000 :
     superposition(4) = 16; circuitdepth(10, 5) = 15; shots(1024, 1) = 1024; fidelity(99, 100) = 99 -/
 theorem fam_quantum : (((5 : Int) + (0 : Int)) = (5 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((20 : Int) * (3 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((10 : Int) + (5 : Int)) = (15 : Int)) ∧ (((1024 : Int) * (1 : Int)) = (1024 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)) := by decide
 
-/-- query: pages(100, 10) = 10; skip(3, 10) = 20; depth(2) = 2; where(4) = 4; population(5, 2) = 10; sort(3) =
-    3; limit(500, 100) = 100; hit(45, 100) = 45 -/
-theorem fam_query : ((-((-(100 : Int)) / (10 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) (((3 : Int) - (1 : Int)) * (10 : Int))) = (20 : Int)) ∧ ((2 : Int) = (2 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ (((5 : Int) * (2 : Int)) = (10 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((fmin (500 : Int) (100 : Int)) = (100 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) := by decide
+/-- query: pages(100, 10) = 10; skip(3, 10) = 20; population(5, 2) = 10; limit(500, 100) = 100; hit(45, 100) =
+    45 -/
+theorem fam_query : ((-((-(100 : Int)) / (10 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) (((3 : Int) - (1 : Int)) * (10 : Int))) = (20 : Int)) ∧ (((5 : Int) * (2 : Int)) = (10 : Int)) ∧ ((fmin (500 : Int) (100 : Int)) = (100 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) := by decide
 
 /-- queue: throughput(6000, 60) = 100; latency(1000, 100) = 10; depth(64, 0) = 64; waittime(120, 4) = 30;
     slots(6) = 64; arrivals(10, 60) = 600; service(1000, 10) = 100; combos(8, 2) = 28 -/

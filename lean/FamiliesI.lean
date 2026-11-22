@@ -11,8 +11,8 @@ def fchoose (n : Nat) : Nat → Nat
 
 /-- ichthyology: condition(1000, 10) = 100000; fecundity(50000, 1000) = 50; schooling(6000, 60) = 100;
     growth(200, 150) = 50; growth(100, 150) = 0; buoyancy(5, 100) = 5; gillrate(900, 15) = 60; mortality(10,
-    100) = 10; trophic(4) = 4 -/
-theorem fam_ichthyology : ((((1000 : Int) * (100000 : Int)) / ((10 : Int) ^ (3 : Nat))) = (100000 : Int)) ∧ (((50000 : Int) / (1000 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (150 : Int))) = (50 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (150 : Int))) = (0 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((900 : Int) / (15 : Int)) = (60 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((4 : Int) = (4 : Int)) := by decide
+    100) = 10 -/
+theorem fam_ichthyology : ((((1000 : Int) * (100000 : Int)) / ((10 : Int) ^ (3 : Nat))) = (100000 : Int)) ∧ (((50000 : Int) / (1000 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (150 : Int))) = (50 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (150 : Int))) = (0 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((900 : Int) / (15 : Int)) = (60 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) := by decide
 
 /-- iconography: symbolcount(12, 8) = 20; attributepairs(12, 2) = 66; gesturetypes(5, 3) = 15; colorsubsets(6) =
     64; compositionorderings(5) = 120; haloforms(3, 2) = 5; motifcombos(10, 3) = 120; canonratio(80, 100) = 80 -/
@@ -89,9 +89,9 @@ theorem fam_inspection : ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int
     solvencymargin(100, 70) = 30 -/
 theorem fam_insurance : ((((100000 : Int) * (2 : Int)) / (100 : Int)) = (2000 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (500 : Int))) = (4500 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (500 : Int))) = (0 : Int)) ∧ ((((10000 : Int) * (60 : Int)) / (100 : Int)) = (6000 : Int)) ∧ ((fmin (8000 : Int) (5000 : Int)) = (5000 : Int)) ∧ ((((70000 : Int) * (100 : Int)) / (100000 : Int)) = (70 : Int)) ∧ ((fmax (0 : Int) ((50000 : Int) - (30000 : Int))) = (20000 : Int)) ∧ ((fmin (8000 : Int) (10000 : Int)) = (8000 : Int)) ∧ ((((4000 : Int) * (20 : Int)) / (100 : Int)) = (800 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ ((((100 : Int) * (80 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int)) := by decide
 
-/-- interaction: fitts(500, 10) = 5000; responsetime(200) = 200; clicks(10, 2) = 5; gestures(7) = 7;
-    feedback(300, 100) = 200; affordance(8, 10) = 80; flow(90, 10) = 90; targetsize(44) = 44 -/
-theorem fam_interaction : ((((500 : Int) * (100 : Int)) / (10 : Int)) = (5000 : Int)) ∧ ((200 : Int) = (200 : Int)) ∧ (((10 : Int) / (2 : Int)) = (5 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (100 : Int))) = (200 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((((90 : Int) * (100 : Int)) / ((90 : Int) + (10 : Int))) = (90 : Int)) ∧ ((44 : Int) = (44 : Int)) := by decide
+/-- interaction: fitts(500, 10) = 5000; clicks(10, 2) = 5; feedback(300, 100) = 200; affordance(8, 10) = 80;
+    flow(90, 10) = 90 -/
+theorem fam_interaction : ((((500 : Int) * (100 : Int)) / (10 : Int)) = (5000 : Int)) ∧ (((10 : Int) / (2 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (100 : Int))) = (200 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((((90 : Int) * (100 : Int)) / ((90 : Int) + (10 : Int))) = (90 : Int)) := by decide
 
 /-- interconnect: lanes(4, 16) = 64; bandwidth(16, 32) = 512; throughput(130, 128, 130) = 128; latency(5, 100) =
     500; width(16, 1) = 16; topology(8, 3) = 12; duplex(512) = 1024; transfers(32, 16) = 512; overhead(130, 128)

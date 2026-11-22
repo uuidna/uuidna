@@ -9,9 +9,9 @@ def fchoose (n : Nat) : Nat → Nat
   | 0 => 1
   | k + 1 => fchoose n k * (n - k) / (k + 1)
 
-/-- dairy: output(30000, 100) = 300; butterfat(40, 1000) = 4; somatic(200000, 1000) = 200; lactation(305) = 305;
-    protein(33, 1000) = 3; conception(45, 100) = 45; feedefficiency(1500, 1000) = 150; persistency(80, 100) = 80 -/
-theorem fam_dairy : (((30000 : Int) / (100 : Int)) = (300 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (1000 : Int)) = (4 : Int)) ∧ (((200000 : Int) / (1000 : Int)) = (200 : Int)) ∧ ((305 : Int) = (305 : Int)) ∧ ((((33 : Int) * (100 : Int)) / (1000 : Int)) = (3 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((((1500 : Int) * (100 : Int)) / (1000 : Int)) = (150 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) := by decide
+/-- dairy: output(30000, 100) = 300; butterfat(40, 1000) = 4; somatic(200000, 1000) = 200; protein(33, 1000) =
+    3; conception(45, 100) = 45; feedefficiency(1500, 1000) = 150; persistency(80, 100) = 80 -/
+theorem fam_dairy : (((30000 : Int) / (100 : Int)) = (300 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (1000 : Int)) = (4 : Int)) ∧ (((200000 : Int) / (1000 : Int)) = (200 : Int)) ∧ ((((33 : Int) * (100 : Int)) / (1000 : Int)) = (3 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((((1500 : Int) * (100 : Int)) / (1000 : Int)) = (150 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) := by decide
 
 /-- dance: tempo(480, 4) = 120; counts(8, 8) = 64; synchrony(9, 10) = 90; steps(5, 4) = 20; phrase(64, 8) = 8;
     elevation(120, 4) = 30; rotation(450) = 90; rotation(-90) = 270; stamina(300, 60) = 500 -/
@@ -27,16 +27,13 @@ theorem fam_datacenter : ((((1500 : Int) * (100 : Int)) / (1000 : Int)) = (150 :
     validity(970, 1000) = 97 -/
 theorem fam_dataquality : ((((fmax (0 : Int) ((1000 : Int) - (20 : Int))) * (100 : Int)) / (1000 : Int)) = (98 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((880 : Int) * (100 : Int)) / (1000 : Int)) = (88 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (1000 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (450 : Int))) = (50 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((970 : Int) * (100 : Int)) / (1000 : Int)) = (97 : Int)) := by decide
 
-/-- db: experiments(1000000) = 1000000 -/
-theorem fam_db : ((1000000 : Int) = (1000000 : Int)) := by decide
-
 /-- deadreckoning: distance(12, 3) = 36; driftangle(10, 60) = 10; elapsedtime(360, 12) = 30; elapsedtime(360, 0)
     = 0; speedmadegood(360, 30) = 12; setandrift(3, 4) = 12; estimatedposition(100, 36) = 136 -/
 theorem fam_deadreckoning : (((12 : Int) * (3 : Int)) = (36 : Int)) ∧ ((((10 : Int) * (60 : Int)) / (60 : Int)) = (10 : Int)) ∧ (((360 : Int) / (12 : Int)) = (30 : Int)) ∧ (((360 : Int) / (0 : Int)) = (0 : Int)) ∧ (((360 : Int) / (30 : Int)) = (12 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ (((100 : Int) + (36 : Int)) = (136 : Int)) := by decide
 
 /-- dedup: hit(9) = 8; saved(9, 100) = 800; logical(9, 100) = 900; physical(1, 100) = 100; ratio(900, 100) =
-    900; chunk(10000, 4096) = 3; refcount(3) = 3; incref(3) = 4; decref(1) = 0; decref(0) = 0; pinned(2) = 1 -/
-theorem fam_dedup : (((9 : Int) - (1 : Int)) = (8 : Int)) ∧ ((((9 : Int) - (1 : Int)) * (100 : Int)) = (800 : Int)) ∧ (((9 : Int) * (100 : Int)) = (900 : Int)) ∧ (((1 : Int) * (100 : Int)) = (100 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (100 : Int)) = (900 : Int)) ∧ ((-((-(10000 : Int)) / (4096 : Int))) = (3 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((1 : Int) - (1 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((0 : Int) - (1 : Int))) = (0 : Int)) ∧ ((if (if (2 : Int) > (0 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) := by decide
+    900; chunk(10000, 4096) = 3; incref(3) = 4; decref(1) = 0; decref(0) = 0; pinned(2) = 1 -/
+theorem fam_dedup : (((9 : Int) - (1 : Int)) = (8 : Int)) ∧ ((((9 : Int) - (1 : Int)) * (100 : Int)) = (800 : Int)) ∧ (((9 : Int) * (100 : Int)) = (900 : Int)) ∧ (((1 : Int) * (100 : Int)) = (100 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (100 : Int)) = (900 : Int)) ∧ ((-((-(10000 : Int)) / (4096 : Int))) = (3 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((1 : Int) - (1 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((0 : Int) - (1 : Int))) = (0 : Int)) ∧ ((if (if (2 : Int) > (0 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) := by decide
 
 /-- delivery: ontime(950, 1000) = 95; density(120, 8) = 15; firstattempt(880, 1000) = 88; lastmile(4500, 900) =
     5; window(270, 300) = 90; returns(30, 1000) = 3; eta(600, 50) = 12; productivity(96, 8) = 12 -/
@@ -53,9 +50,8 @@ theorem fam_demographics : ((((12000 : Int) * (1000 : Int)) / (1000000 : Int)) =
 theorem fam_demography : ((((600 : Int) * (1000 : Int)) / (50000 : Int)) = (12 : Int)) ∧ ((((400 : Int) * (1000 : Int)) / (50000 : Int)) = (8 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((70 : Int) / (2 : Int)) = (35 : Int)) ∧ (((60000 : Int) / (800 : Int)) = (75 : Int)) ∧ (((40000 : Int) / (1000 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((600 : Int) - (400 : Int))) = (200 : Int)) ∧ ((fmax (0 : Int) ((400 : Int) - (600 : Int))) = (0 : Int)) ∧ ((((5100 : Int) * (100 : Int)) / (5000 : Int)) = (102 : Int)) := by decide
 
 /-- dentistry: decay(3, 32) = 9; plaque(40, 160) = 25; anesthetic(70, 2) = 140; recall(6, 2) = 4; recall(2, 6) =
-    0; restoration(8, 10) = 80; pocket(4) = 4; fluoride(700, 1500) = 1; fluoride(2000, 1500) = 0; extraction(1,
-    32) = 3 -/
-theorem fam_dentistry : ((((3 : Int) * (100 : Int)) / (32 : Int)) = (9 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (160 : Int)) = (25 : Int)) ∧ (((70 : Int) * (2 : Int)) = (140 : Int)) ∧ ((fmax (0 : Int) ((6 : Int) - (2 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((2 : Int) - (6 : Int))) = (0 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((if (if (700 : Int) ≤ (1500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2000 : Int) ≤ (1500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (32 : Int)) = (3 : Int)) := by decide
+    0; restoration(8, 10) = 80; fluoride(700, 1500) = 1; fluoride(2000, 1500) = 0; extraction(1, 32) = 3 -/
+theorem fam_dentistry : ((((3 : Int) * (100 : Int)) / (32 : Int)) = (9 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (160 : Int)) = (25 : Int)) ∧ (((70 : Int) * (2 : Int)) = (140 : Int)) ∧ ((fmax (0 : Int) ((6 : Int) - (2 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((2 : Int) - (6 : Int))) = (0 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((if (if (700 : Int) ≤ (1500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2000 : Int) ≤ (1500 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (32 : Int)) = (3 : Int)) := by decide
 
 /-- deontology: duties(7, 3) = 10; maximorderings(4) = 24; dutypairs(10, 2) = 45; universalizability(80, 100) =
     80; imperativesubsets(4) = 16; obligationchains(5, 2) = 20; rightsduties(5, 2) = 10; conflictcount(12, 8) =
@@ -63,8 +59,8 @@ theorem fam_dentistry : ((((3 : Int) * (100 : Int)) / (32 : Int)) = (9 : Int)) �
 theorem fam_deontology : (((7 : Int) + (3 : Int)) = (10 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (5 : Int)))) / (Int.ofNat (ffact (Int.toNat ((5 : Int) - (2 : Int)))))) = (20 : Int)) ∧ (((5 : Int) * (2 : Int)) = (10 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (8 : Int))) = (4 : Int)) := by decide
 
 /-- deployment: frequency(30, 30) = 1; leadtime(100, 160) = 60; leadtime(160, 100) = 0; failrate(5, 100) = 5;
-    mttr(600, 5) = 120; rollback(2, 100) = 2; availability(999, 1000) = 99; canary(9, 10) = 90; replicas(7) = 7 -/
-theorem fam_deployment : (((30 : Int) / (30 : Int)) = (1 : Int)) ∧ ((fmax (0 : Int) ((160 : Int) - (100 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (160 : Int))) = (0 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((600 : Int) / (5 : Int)) = (120 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ ((((999 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ ((7 : Int) = (7 : Int)) := by decide
+    mttr(600, 5) = 120; rollback(2, 100) = 2; availability(999, 1000) = 99; canary(9, 10) = 90 -/
+theorem fam_deployment : (((30 : Int) / (30 : Int)) = (1 : Int)) ∧ ((fmax (0 : Int) ((160 : Int) - (100 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (160 : Int))) = (0 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((600 : Int) / (5 : Int)) = (120 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ ((((999 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) := by decide
 
 /-- depreciation: straightline(10000, 1000, 5) = 1800; decliningbalance(10000, 20) = 2000;
     unitsofproduction(45000, 9000, 90000) = 4500; bookvalue(10000, 3600) = 6400; accumulated(1800, 3) = 5400;
@@ -90,9 +86,8 @@ theorem fam_dermatology : (((9 : Int) * (2 : Int)) = (18 : Int)) ∧ (((3 : Int)
     brine(400, 1000) = 0; energy(1500, 500) = 3 -/
 theorem fam_desalination : ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ (((35000 : Int) / (1000 : Int)) = (35 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (550 : Int))) = (450 : Int)) ∧ (((((35000 : Int) - (350 : Int)) * (100 : Int)) / (35000 : Int)) = (99 : Int)) ∧ (((1200 : Int) / (60 : Int)) = (20 : Int)) ∧ (((35 : Int) * (300 : Int)) = (10500 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (450 : Int))) = (550 : Int)) ∧ ((fmax (0 : Int) ((400 : Int) - (1000 : Int))) = (0 : Int)) ∧ (((1500 : Int) / (500 : Int)) = (3 : Int)) := by decide
 
-/-- designtheory: incidences(7, 3) = 21; blocksizes(7, 3) = 21; blocks(7, 3, 3) = 7; points(7) = 7;
-    replications(7, 3, 7) = 3 -/
-theorem fam_designtheory : (((7 : Int) * (3 : Int)) = (21 : Int)) ∧ (((7 : Int) * (3 : Int)) = (21 : Int)) ∧ ((((7 : Int) * (3 : Int)) / (3 : Int)) = (7 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((7 : Int) * (3 : Int)) / (7 : Int)) = (3 : Int)) := by decide
+/-- designtheory: incidences(7, 3) = 21; blocksizes(7, 3) = 21; blocks(7, 3, 3) = 7; replications(7, 3, 7) = 3 -/
+theorem fam_designtheory : (((7 : Int) * (3 : Int)) = (21 : Int)) ∧ (((7 : Int) * (3 : Int)) = (21 : Int)) ∧ ((((7 : Int) * (3 : Int)) / (3 : Int)) = (7 : Int)) ∧ ((((7 : Int) * (3 : Int)) / (7 : Int)) = (3 : Int)) := by decide
 
 /-- determinism: causallinks(100, 2) = 200; statechains(5) = 120; eventpairs(12, 2) = 66; freedomdegrees(100,
     100) = 0; predictabilityratio(90, 100) = 90; causalsubsets(5) = 32; branchingfactor(1024, 10) = 102;
@@ -143,8 +138,8 @@ theorem fam_discourse : ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)
 theorem fam_dispatch : (((600 : Int) / (20 : Int)) = (30 : Int)) ∧ (((120 : Int) / (4 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((480 : Int) - (420 : Int))) = (60 : Int)) ∧ (((600 : Int) / (12 : Int)) = (50 : Int)) ∧ (((8 : Int) * (6 : Int)) = (48 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (480 : Int)) = (12 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (42 : Int))) = (8 : Int)) := by decide
 
 /-- distillation: purity(95, 100) = 95; reflux(80, 20) = 400; plates(300, 25) = 12; volatility(240, 100) = 240;
-    recovery(85, 100) = 85; cut(5, 100) = 5; temperature(78) = 78; azeotrope(96, 4) = 96 -/
-theorem fam_distillation : ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (20 : Int)) = (400 : Int)) ∧ (((300 : Int) / (25 : Int)) = (12 : Int)) ∧ ((((240 : Int) * (100 : Int)) / (100 : Int)) = (240 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((78 : Int) = (78 : Int)) ∧ ((((96 : Int) * (100 : Int)) / ((96 : Int) + (4 : Int))) = (96 : Int)) := by decide
+    recovery(85, 100) = 85; cut(5, 100) = 5; azeotrope(96, 4) = 96 -/
+theorem fam_distillation : ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (20 : Int)) = (400 : Int)) ∧ (((300 : Int) / (25 : Int)) = (12 : Int)) ∧ ((((240 : Int) * (100 : Int)) / (100 : Int)) = (240 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((96 : Int) * (100 : Int)) / ((96 : Int) + (4 : Int))) = (96 : Int)) := by decide
 
 /-- distilling: abv(40, 100) = 40; cuts(3, 1) = 4; boilingpoint(78, 100) = 100; refluxratio(50, 10) = 5;
     yieldliters(1000, 10) = 100; platecombos(12, 2) = 66; distillationruns(3, 1) = 3; puritypct(95, 100) = 95 -/
@@ -178,8 +173,8 @@ theorem fam_dosage : (((70 : Int) * (5 : Int)) = (350 : Int)) ∧ (((2 : Int) * 
 theorem fam_dosimetry : (((600 : Int) / (12 : Int)) = (50 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ ((((1000 : Int) * (12 : Int)) / (100 : Int)) = (120 : Int)) ∧ (((1000 : Int) / (20 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (30 : Int)) = (200 : Int)) ∧ (((200 : Int) * (30 : Int)) = (6000 : Int)) ∧ ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ ((-((-(500 : Int)) / (50 : Int))) = (10 : Int)) := by decide
 
 /-- download: rate(1000, 10) = 100; eta(1000, 100) = 10; progress(250, 1000) = 25; chunks(1000, 256) = 4;
-    resume(300, 1000) = 700; formats(3) = 3; checksum(99, 100) = 99; size(10, 5000) = 50000 -/
-theorem fam_download : (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((-((-(1000 : Int)) / (100 : Int))) = (10 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((-((-(1000 : Int)) / (256 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (300 : Int))) = (700 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)) ∧ (((10 : Int) * (5000 : Int)) = (50000 : Int)) := by decide
+    resume(300, 1000) = 700; checksum(99, 100) = 99; size(10, 5000) = 50000 -/
+theorem fam_download : (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((-((-(1000 : Int)) / (100 : Int))) = (10 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((-((-(1000 : Int)) / (256 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (300 : Int))) = (700 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)) ∧ (((10 : Int) * (5000 : Int)) = (50000 : Int)) := by decide
 
 /-- drag: force(1000, 2, 5) = 10; coefficient(50, 100) = 500; induced(30, 6) = 150; parasitic(20, 15) = 35;
     dynamicpressure(2, 10) = 100; terminalvelocity(1000, 25) = 40; frontalarea(12, 5) = 60; reynolds(100, 3, 2)
@@ -198,9 +193,9 @@ theorem fam_drilling : (((1200 : Int) / (10 : Int)) = (120 : Int)) ∧ (((5200 :
 
 /-- driver: ring(4096, 16) = 256; ring(4096, 0) = 0; dmaPages(5000) = 2; payload(1500, 42) = 1458; payload(20,
     42) = 0; pps(1000000, 1000) = 1000; queues(8) = 16; irq(256) = 64; mmio(4) = 16384; descBytes(256, 16) =
-    4096; throughput(1000, 1458) = 1458000; latency(50) = 50; buffers(256, 16) = 4096; coalesce(100, 8) = 13;
-    bandwidth(16, 1000) = 16000; completion(256, 100) = 156; doorbell(8, 4) = 32 -/
-theorem fam_driver : (((4096 : Int) / (16 : Int)) = (256 : Int)) ∧ (((4096 : Int) / (0 : Int)) = (0 : Int)) ∧ ((-((-(5000 : Int)) / (4096 : Int))) = (2 : Int)) ∧ ((fmax (0 : Int) ((1500 : Int) - (42 : Int))) = (1458 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (42 : Int))) = (0 : Int)) ∧ (((1000000 : Int) / (1000 : Int)) = (1000 : Int)) ∧ (((8 : Int) * (2 : Int)) = (16 : Int)) ∧ (((256 : Int) / (4 : Int)) = (64 : Int)) ∧ (((4 : Int) * (4096 : Int)) = (16384 : Int)) ∧ (((256 : Int) * (16 : Int)) = (4096 : Int)) ∧ (((1000 : Int) * (1458 : Int)) = (1458000 : Int)) ∧ ((50 : Int) = (50 : Int)) ∧ (((256 : Int) * (16 : Int)) = (4096 : Int)) ∧ ((-((-(100 : Int)) / (8 : Int))) = (13 : Int)) ∧ (((16 : Int) * (1000 : Int)) = (16000 : Int)) ∧ (((256 : Int) - (100 : Int)) = (156 : Int)) ∧ (((8 : Int) * (4 : Int)) = (32 : Int)) := by decide
+    4096; throughput(1000, 1458) = 1458000; buffers(256, 16) = 4096; coalesce(100, 8) = 13; bandwidth(16, 1000)
+    = 16000; completion(256, 100) = 156; doorbell(8, 4) = 32 -/
+theorem fam_driver : (((4096 : Int) / (16 : Int)) = (256 : Int)) ∧ (((4096 : Int) / (0 : Int)) = (0 : Int)) ∧ ((-((-(5000 : Int)) / (4096 : Int))) = (2 : Int)) ∧ ((fmax (0 : Int) ((1500 : Int) - (42 : Int))) = (1458 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (42 : Int))) = (0 : Int)) ∧ (((1000000 : Int) / (1000 : Int)) = (1000 : Int)) ∧ (((8 : Int) * (2 : Int)) = (16 : Int)) ∧ (((256 : Int) / (4 : Int)) = (64 : Int)) ∧ (((4 : Int) * (4096 : Int)) = (16384 : Int)) ∧ (((256 : Int) * (16 : Int)) = (4096 : Int)) ∧ (((1000 : Int) * (1458 : Int)) = (1458000 : Int)) ∧ (((256 : Int) * (16 : Int)) = (4096 : Int)) ∧ ((-((-(100 : Int)) / (8 : Int))) = (13 : Int)) ∧ (((16 : Int) * (1000 : Int)) = (16000 : Int)) ∧ (((256 : Int) - (100 : Int)) = (156 : Int)) ∧ (((8 : Int) * (4 : Int)) = (32 : Int)) := by decide
 
 /-- drone: flighttime(5000, 100) = 50; payload(2, 1000) = 2000; rotorcount(4, 0) = 4; range(10, 1000) = 10000;
     thrust(4, 500) = 2000; batterykwh(100, 1) = 100; maxaltitude(120, 1) = 120; stabilitymargin(90, 100) = 90 -/

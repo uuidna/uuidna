@@ -66,18 +66,18 @@ theorem fam_parasitology : ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 :
     = 99; overhead(3, 4) = 75; correctable(3) = 1 -/
 theorem fam_parity : (((7 : Int) % (2 : Int)) = (1 : Int)) ∧ (((6 : Int) % (2 : Int)) = (0 : Int)) ∧ ((-((-(64 : Int)) / (8 : Int))) = (8 : Int)) ∧ (((4 : Int) + (3 : Int)) = (7 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ (((fmax (0 : Int) ((3 : Int) - (1 : Int))) / (2 : Int)) = (1 : Int)) := by decide
 
-/-- partition: durfee(10) = 3; durfeecells(3) = 9; ferrers(3, 4) = 12; conjugatecells(12) = 12; atmosttwo(10) =
-    6; hook(3, 4) = 6; rank(9, 4) = 5; oddavailable(10) = 5 -/
-theorem fam_partition : ((Int.ofNat (fsqrt (Int.toNat (10 : Int)))) = (3 : Int)) ∧ (((3 : Int) ^ (2 : Nat)) = (9 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ ((((10 : Int) / (2 : Int)) + (1 : Int)) = (6 : Int)) ∧ ((((3 : Int) + (4 : Int)) - (1 : Int)) = (6 : Int)) ∧ (((9 : Int) - (4 : Int)) = (5 : Int)) ∧ ((-((-(10 : Int)) / (2 : Int))) = (5 : Int)) := by decide
+/-- partition: durfee(10) = 3; durfeecells(3) = 9; ferrers(3, 4) = 12; atmosttwo(10) = 6; hook(3, 4) = 6;
+    rank(9, 4) = 5; oddavailable(10) = 5 -/
+theorem fam_partition : ((Int.ofNat (fsqrt (Int.toNat (10 : Int)))) = (3 : Int)) ∧ (((3 : Int) ^ (2 : Nat)) = (9 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ ((((10 : Int) / (2 : Int)) + (1 : Int)) = (6 : Int)) ∧ ((((3 : Int) + (4 : Int)) - (1 : Int)) = (6 : Int)) ∧ (((9 : Int) - (4 : Int)) = (5 : Int)) ∧ ((-((-(10 : Int)) / (2 : Int))) = (5 : Int)) := by decide
 
 /-- partitioning: partitions(1000, 30) = 34; keyspacesplit(1000, 8) = 125; skew(150, 100) = 50; rebalance(1000,
     3, 5) = 400; hotpartition(250, 1000) = 25; rangewidth(6000, 60) = 100; coalesce(100, 4) = 25; fanout(10, 5)
     = 50; skew(80, 100) = 0 -/
 theorem fam_partitioning : ((-((-(1000 : Int)) / (30 : Int))) = (34 : Int)) ∧ (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ ((((fmax (0 : Int) ((150 : Int) - (100 : Int))) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((1000 : Int) * (fmax (0 : Int) ((5 : Int) - (3 : Int)))) / (5 : Int)) = (400 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((-((-(100 : Int)) / (4 : Int))) = (25 : Int)) ∧ (((10 : Int) * (5 : Int)) = (50 : Int)) ∧ ((((fmax (0 : Int) ((80 : Int) - (100 : Int))) * (100 : Int)) / (100 : Int)) = (0 : Int)) := by decide
 
-/-- partner: directory(250) = 250; filter(45, 100) = 45; tier(100, 4) = 25; commission(10000, 15) = 1500;
-    leads(30, 120) = 25; rating(94, 20) = 47; regions(240, 6) = 40; listing(80, 200) = 40 -/
-theorem fam_partner : ((250 : Int) = (250 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((10000 : Int) * (15 : Int)) / (100 : Int)) = (1500 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((94 : Int) * (10 : Int)) / (20 : Int)) = (47 : Int)) ∧ (((240 : Int) / (6 : Int)) = (40 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (200 : Int)) = (40 : Int)) := by decide
+/-- partner: filter(45, 100) = 45; tier(100, 4) = 25; commission(10000, 15) = 1500; leads(30, 120) = 25;
+    rating(94, 20) = 47; regions(240, 6) = 40; listing(80, 200) = 40 -/
+theorem fam_partner : ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((10000 : Int) * (15 : Int)) / (100 : Int)) = (1500 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((94 : Int) * (10 : Int)) / (20 : Int)) = (47 : Int)) ∧ (((240 : Int) / (6 : Int)) = (40 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (200 : Int)) = (40 : Int)) := by decide
 
 /-- passwords: keyspacebits(96, 32) = 64; keyspacebits(32, 96) = 0; lockoutwindow(100, 10) = 10;
     rotationdays(90, 3) = 30; minlengthscore(16, 8) = 8; hashcost(12, 50) = 600; mfabonus(3, 20) = 60;
@@ -152,8 +152,8 @@ theorem fam_pendulum : (((200 : Int) / (10 : Int)) = (20 : Int)) ∧ (((100 : In
 theorem fam_pentomino : (((12 : Int) + (0 : Int)) = (12 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ (((12 : Int) * (8 : Int)) = (96 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ (((6 : Int) * (10 : Int)) = (60 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (100 : Int)) = (100 : Int)) := by decide
 
 /-- perception: threshold(45, 100) = 45; weber(2, 100) = 2; acuity(600, 10) = 60; contrast(800, 100) = 800;
-    adaptation(100, 30) = 70; sensitivity(90, 100) = 90; illusion(120, 100) = 120; latency(250) = 250 -/
-theorem fam_perception : ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ (((600 : Int) / (10 : Int)) = (60 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (100 : Int)) = (800 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int)) ∧ ((250 : Int) = (250 : Int)) := by decide
+    adaptation(100, 30) = 70; sensitivity(90, 100) = 90; illusion(120, 100) = 120 -/
+theorem fam_perception : ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ (((600 : Int) / (10 : Int)) = (60 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (100 : Int)) = (800 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int)) := by decide
 
 /-- performance: rating(450, 5) = 90; productivity(1000, 40) = 25; goal(80, 100) = 80; appraisal(80, 90) = 85;
     improvement(120, 100) = 20; improvement(90, 100) = 0; utilization(32, 40) = 80; throughput(100, 20) = 5;
@@ -165,9 +165,9 @@ theorem fam_performance : (((450 : Int) / (5 : Int)) = (90 : Int)) ∧ (((1000 :
     throughput(600, 30) = 20 -/
 theorem fam_permitting : ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (320 : Int))) = (180 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (200 : Int))) = (0 : Int)) ∧ (((3600 : Int) / (120 : Int)) = (30 : Int)) ∧ (((100 : Int) + (365 : Int)) = (465 : Int)) ∧ (((200 : Int) * (75 : Int)) = (15000 : Int)) ∧ (((150 : Int) * (3 : Int)) = (450 : Int)) ∧ ((-((-(100 : Int)) / (8 : Int))) = (13 : Int)) ∧ (((600 : Int) / (30 : Int)) = (20 : Int)) := by decide
 
-/-- permutation: ascents(5) = 4; choose(5, 2) = 10; cycles(5) = 5; descents(5) = 4; excedances(5) = 4;
-    inversions(5) = 10; majorindex(5) = 10; ncycles(5) = 24; permutations(5, 2) = 20; transpositions(5) = 4 -/
-theorem fam_permutation : (((5 : Int) - (1 : Int)) = (4 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (5 : Int)))) / ((Int.ofNat (ffact (Int.toNat (2 : Int)))) * (Int.ofNat (ffact (Int.toNat ((5 : Int) - (2 : Int))))))) = (10 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ (((5 : Int) - (1 : Int)) = (4 : Int)) ∧ (((5 : Int) - (1 : Int)) = (4 : Int)) ∧ ((((5 : Int) * ((5 : Int) - (1 : Int))) / (2 : Int)) = (10 : Int)) ∧ ((((5 : Int) * ((5 : Int) - (1 : Int))) / (2 : Int)) = (10 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat ((5 : Int) - (1 : Int))))) = (24 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (5 : Int)))) / (Int.ofNat (ffact (Int.toNat ((5 : Int) - (2 : Int)))))) = (20 : Int)) ∧ (((5 : Int) - (1 : Int)) = (4 : Int)) := by decide
+/-- permutation: ascents(5) = 4; choose(5, 2) = 10; descents(5) = 4; excedances(5) = 4; inversions(5) = 10;
+    majorindex(5) = 10; ncycles(5) = 24; permutations(5, 2) = 20; transpositions(5) = 4 -/
+theorem fam_permutation : (((5 : Int) - (1 : Int)) = (4 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (5 : Int)))) / ((Int.ofNat (ffact (Int.toNat (2 : Int)))) * (Int.ofNat (ffact (Int.toNat ((5 : Int) - (2 : Int))))))) = (10 : Int)) ∧ (((5 : Int) - (1 : Int)) = (4 : Int)) ∧ (((5 : Int) - (1 : Int)) = (4 : Int)) ∧ ((((5 : Int) * ((5 : Int) - (1 : Int))) / (2 : Int)) = (10 : Int)) ∧ ((((5 : Int) * ((5 : Int) - (1 : Int))) / (2 : Int)) = (10 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat ((5 : Int) - (1 : Int))))) = (24 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (5 : Int)))) / (Int.ofNat (ffact (Int.toNat ((5 : Int) - (2 : Int)))))) = (20 : Int)) ∧ (((5 : Int) - (1 : Int)) = (4 : Int)) := by decide
 
 /-- personality: openness(40, 10) = 80; conscientiousness(90, 100) = 90; extraversion(70, 30) = 40;
     agreeableness(45, 10) = 90; neuroticism(60, 25) = 35; composite(80, 90, 40) = 210; trait(48, 12) = 4;
@@ -180,8 +180,8 @@ theorem fam_personality : ((((40 : Int) * (20 : Int)) / (10 : Int)) = (80 : Int)
 theorem fam_pest : (((500 : Int) / (20 : Int)) = (25 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (300 : Int)) = (15 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((150 : Int) * (3 : Int)) = (450 : Int)) ∧ (((1000 : Int) + (((1000 : Int) * (25 : Int)) / (100 : Int))) = (1250 : Int)) ∧ (((40 : Int) * (15 : Int)) = (600 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((-((-(1000 : Int)) / (40 : Int))) = (25 : Int)) := by decide
 
 /-- petroleum: api(1000) = 10; recovery(30, 100) = 30; porosity(20, 100) = 20; permeability(1000, 50) = 20;
-    refined(45, 100) = 45; depth(3500) = 3500; flow(500, 24) = 12000; saturation(70, 100) = 70 -/
-theorem fam_petroleum : ((((141500 : Int) / (1000 : Int)) - (131 : Int)) = (10 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((3500 : Int) = (3500 : Int)) ∧ (((500 : Int) * (24 : Int)) = (12000 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) := by decide
+    refined(45, 100) = 45; flow(500, 24) = 12000; saturation(70, 100) = 70 -/
+theorem fam_petroleum : ((((141500 : Int) / (1000 : Int)) - (131 : Int)) = (10 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ (((500 : Int) * (24 : Int)) = (12000 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) := by decide
 
 /-- petrology: colorindex(15, 100) = 15; silicacontent(720, 1000) = 72; porosity(30, 200) = 15;
     graindensity(5300, 2) = 2650; differentiation(30, 55, 5) = 90; crystallization(40, 50) = 80;
@@ -206,13 +206,13 @@ theorem fam_pharmacology : ((((5000 : Int) * (693 : Int)) / ((100 : Int) * (1000
     70 -/
 theorem fam_phenomenology : (((5 : Int) + (3 : Int)) = (8 : Int)) ∧ (((3 : Int) * (1 : Int)) = (3 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((2 : Int) * (3 : Int)) = (6 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ (((6 : Int) + (0 : Int)) = (6 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) := by decide
 
-/-- philosophy: validity(3, 4) = 75; premises(5) = 5; consistency(9, 10) = 90; utility(7, 100) = 700;
-    consensus(3, 4) = 75; syllogism(8, 5) = 5; virtue(10, 3) = 7; virtue(3, 10) = 0; entailment(20, 4) = 5 -/
-theorem fam_philosophy : ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ (((7 : Int) * (100 : Int)) = (700 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((fmin (8 : Int) (5 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (10 : Int))) = (0 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int)) := by decide
+/-- philosophy: validity(3, 4) = 75; consistency(9, 10) = 90; utility(7, 100) = 700; consensus(3, 4) = 75;
+    syllogism(8, 5) = 5; virtue(10, 3) = 7; virtue(3, 10) = 0; entailment(20, 4) = 5 -/
+theorem fam_philosophy : ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ (((7 : Int) * (100 : Int)) = (700 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((fmin (8 : Int) (5 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (10 : Int))) = (0 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int)) := by decide
 
 /-- phonetics: formant(2400, 3) = 800; pitch(2200, 10) = 220; rate(15, 3) = 5; voicing(6, 10) = 60;
-    duration(120) = 120; intensity(70, 100) = 70; sonority(7) = 7; vowels(4, 10) = 40 -/
-theorem fam_phonetics : (((2400 : Int) / (3 : Int)) = (800 : Int)) ∧ (((2200 : Int) / (10 : Int)) = (220 : Int)) ∧ (((15 : Int) / (3 : Int)) = (5 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (10 : Int)) = (60 : Int)) ∧ ((120 : Int) = (120 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (10 : Int)) = (40 : Int)) := by decide
+    intensity(70, 100) = 70; vowels(4, 10) = 40 -/
+theorem fam_phonetics : (((2400 : Int) / (3 : Int)) = (800 : Int)) ∧ (((2200 : Int) / (10 : Int)) = (220 : Int)) ∧ (((15 : Int) / (3 : Int)) = (5 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (10 : Int)) = (60 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (10 : Int)) = (40 : Int)) := by decide
 
 /-- photochemistry: quantumyield(90, 100) = 90; absorbance(2, 3, 100) = 600; photonflux(6000, 60) = 100;
     actinometry(10000, 90) = 9000; bleaching(1000, 400) = 600; bleaching(400, 1000) = 0; excitation(500, 4) =
@@ -229,9 +229,9 @@ theorem fam_photodiode : (((1000 : Int) / (2 : Int)) = (500 : Int)) ∧ (((500 :
     = 200 -/
 theorem fam_photogrammetry : ((((50 : Int) * (1000000 : Int)) / (10000 : Int)) = (5000 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((5 : Int) * (10000 : Int)) / (1000 : Int)) = (50 : Int)) ∧ ((((10000 : Int) * ((100 : Int) - (80 : Int))) / (100 : Int)) = (2000 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((((2 : Int) * (10000 : Int)) / (10000 : Int)) = (2 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int)) := by decide
 
-/-- photography: exposure(8, 125) = 1000; fstop(50, 25) = 20; depthoffield(4, 100) = 25; iso(400) = 400;
-    megapixels(4000, 3000) = 12; crop(24, 36) = 150; dynamicrange(3) = 8; composition(2, 3) = 66 -/
-theorem fam_photography : (((8 : Int) * (125 : Int)) = (1000 : Int)) ∧ ((((50 : Int) * (10 : Int)) / (25 : Int)) = (20 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((400 : Int) = (400 : Int)) ∧ ((((4000 : Int) * (3000 : Int)) / (1000000 : Int)) = (12 : Int)) ∧ ((((36 : Int) * (100 : Int)) / (24 : Int)) = (150 : Int)) ∧ (((2 : Int) ^ (3 : Nat)) = (8 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (3 : Int)) = (66 : Int)) := by decide
+/-- photography: exposure(8, 125) = 1000; fstop(50, 25) = 20; depthoffield(4, 100) = 25; megapixels(4000, 3000)
+    = 12; crop(24, 36) = 150; dynamicrange(3) = 8; composition(2, 3) = 66 -/
+theorem fam_photography : (((8 : Int) * (125 : Int)) = (1000 : Int)) ∧ ((((50 : Int) * (10 : Int)) / (25 : Int)) = (20 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((4000 : Int) * (3000 : Int)) / (1000000 : Int)) = (12 : Int)) ∧ ((((36 : Int) * (100 : Int)) / (24 : Int)) = (150 : Int)) ∧ (((2 : Int) ^ (3 : Nat)) = (8 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (3 : Int)) = (66 : Int)) := by decide
 
 /-- photometry: magnitude(25, 10) = 15; flux(10000, 5, 100) = 20; colorindex(15, 12) = 3; colorindex(12, 15) =
     0; absolutemagnitude(20, 15) = 5; distancemodulus(20, 5) = 15; apparentmagnitude(5, 15) = 20; extinction(3,
@@ -284,10 +284,9 @@ theorem fam_piezoelectric : (((20 : Int) * (50 : Int)) = (1000 : Int)) ∧ (((10
     600; daysrequired(600, 20) = 30; waypointsubsets(5) = 32; groupsize(40, 1) = 40; restpoints(600, 50) = 12 -/
 theorem fam_pilgrimage : (((12 : Int) + (2 : Int)) = (14 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (6 : Int)))) = (720 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (14 : Int)) (Int.toNat (2 : Int)))) = (91 : Int)) ∧ (((20 : Int) * (30 : Int)) = (600 : Int)) ∧ (((600 : Int) / (20 : Int)) = (30 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((40 : Int) * (1 : Int)) = (40 : Int)) ∧ (((600 : Int) / (50 : Int)) = (12 : Int)) := by decide
 
-/-- pipeline: stages(5) = 5; duration(100, 340) = 240; duration(340, 100) = 0; bottleneck(60, 240) = 25;
-    parallelism(20, 4) = 5; successrate(95, 100) = 95; queue(30, 4) = 7; cachehit(80, 100) = 80; throughput(120,
-    8) = 15 -/
-theorem fam_pipeline : ((5 : Int) = (5 : Int)) ∧ ((fmax (0 : Int) ((340 : Int) - (100 : Int))) = (240 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (340 : Int))) = (0 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (240 : Int)) = (25 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((30 : Int) / (4 : Int)) = (7 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((120 : Int) / (8 : Int)) = (15 : Int)) := by decide
+/-- pipeline: duration(100, 340) = 240; duration(340, 100) = 0; bottleneck(60, 240) = 25; parallelism(20, 4) =
+    5; successrate(95, 100) = 95; queue(30, 4) = 7; cachehit(80, 100) = 80; throughput(120, 8) = 15 -/
+theorem fam_pipeline : ((fmax (0 : Int) ((340 : Int) - (100 : Int))) = (240 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (340 : Int))) = (0 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (240 : Int)) = (25 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((30 : Int) / (4 : Int)) = (7 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((120 : Int) / (8 : Int)) = (15 : Int)) := by decide
 
 /-- piston: displacement(500, 4) = 2000; stroke(80, 1) = 80; bore(86, 1) = 86; compression(100, 10) = 10;
     force(1000, 5) = 5000; cycles(1000, 2) = 2000; rings(3, 0) = 3; combos(6, 2) = 15 -/
@@ -315,9 +314,9 @@ theorem fam_platonic : ((((8 : Int) - (12 : Int)) + (6 : Int)) = (2 : Int)) := b
     200; growth(900, 1000) = 0 -/
 theorem fam_podcasting : (((50 : Int) * (2000 : Int)) = (100000 : Int)) ∧ ((((27 : Int) * (100 : Int)) / (30 : Int)) = (90 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((52 : Int) / (52 : Int)) = (1 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (60 : Int)) = (150 : Int)) ∧ (((9600000 : Int) / (60 : Int)) = (160000 : Int)) ∧ (((50000 : Int) / (10000 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((1200 : Int) - (1000 : Int))) = (200 : Int)) ∧ ((fmax (0 : Int) ((900 : Int) - (1000 : Int))) = (0 : Int)) := by decide
 
-/-- podiatry: arch(24, 100) = 24; pressure(600, 30) = 20; gait(120, 2) = 60; pronation(7) = 7; healing(75, 100)
-    = 75; balance(18, 20) = 90; stride(1500, 1000) = 1; callus(3) = 3 -/
-theorem fam_podiatry : ((((24 : Int) * (100 : Int)) / (100 : Int)) = (24 : Int)) ∧ (((600 : Int) / (30 : Int)) = (20 : Int)) ∧ (((120 : Int) / (2 : Int)) = (60 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ (((1500 : Int) / (1000 : Int)) = (1 : Int)) ∧ ((3 : Int) = (3 : Int)) := by decide
+/-- podiatry: arch(24, 100) = 24; pressure(600, 30) = 20; gait(120, 2) = 60; healing(75, 100) = 75; balance(18,
+    20) = 90; stride(1500, 1000) = 1 -/
+theorem fam_podiatry : ((((24 : Int) * (100 : Int)) / (100 : Int)) = (24 : Int)) ∧ (((600 : Int) / (30 : Int)) = (20 : Int)) ∧ (((120 : Int) / (2 : Int)) = (60 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ (((1500 : Int) / (1000 : Int)) = (1 : Int)) := by decide
 
 /-- poker: potodds(90, 10) = 10; outs(9, 2) = 7; equity(9, 2) = 36; expectedvalue(50, 200, 100) = 50;
     impliedodds(90, 10, 100) = 5; fold(1, 4) = 75; stackratio(1000, 100) = 10; rake(200, 5) = 10 -/
@@ -334,12 +333,12 @@ theorem fam_policy : ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int))
 theorem fam_pollination : ((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ (((600 : Int) / (5 : Int)) = (120 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((120 : Int) / (4 : Int)) = (30 : Int)) ∧ (((200 : Int) * (15 : Int)) = (3000 : Int)) ∧ (((12 : Int) * (8 : Int)) = (96 : Int)) ∧ (((15 : Int) * (40 : Int)) = (600 : Int)) ∧ ((((1000 : Int) * (75 : Int)) / (100 : Int)) = (750 : Int)) := by decide
 
 /-- polygon: interioranglesum(5) = 540; diagonals(6) = 9; exteriorangle(8) = 45; interiorangle(6) = 120;
-    triangles(5) = 3; perimeter(4, 5) = 20; sides(7) = 7; area(10, 4) = 20 -/
-theorem fam_polygon : ((((5 : Int) - (2 : Int)) * (180 : Int)) = (540 : Int)) ∧ ((((6 : Int) * ((6 : Int) - (3 : Int))) / (2 : Int)) = (9 : Int)) ∧ (((360 : Int) / (8 : Int)) = (45 : Int)) ∧ (((((6 : Int) - (2 : Int)) * (180 : Int)) / (6 : Int)) = (120 : Int)) ∧ (((5 : Int) - (2 : Int)) = (3 : Int)) ∧ (((4 : Int) * (5 : Int)) = (20 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((10 : Int) * (4 : Int)) / (2 : Int)) = (20 : Int)) := by decide
+    triangles(5) = 3; perimeter(4, 5) = 20; area(10, 4) = 20 -/
+theorem fam_polygon : ((((5 : Int) - (2 : Int)) * (180 : Int)) = (540 : Int)) ∧ ((((6 : Int) * ((6 : Int) - (3 : Int))) / (2 : Int)) = (9 : Int)) ∧ (((360 : Int) / (8 : Int)) = (45 : Int)) ∧ (((((6 : Int) - (2 : Int)) * (180 : Int)) / (6 : Int)) = (120 : Int)) ∧ (((5 : Int) - (2 : Int)) = (3 : Int)) ∧ (((4 : Int) * (5 : Int)) = (20 : Int)) ∧ ((((10 : Int) * (4 : Int)) / (2 : Int)) = (20 : Int)) := by decide
 
 /-- polyhedron: eulercharacteristic(8, 12, 6) = 2; edges(6, 4) = 12; vertices(12, 6) = 8; faces(8, 12) = 6;
-    facesatvertex(12, 8) = 3; surfacearea(6, 4) = 24; volume(2, 3, 4) = 24; dihedralcount(12) = 12 -/
-theorem fam_polyhedron : ((fmax (0 : Int) (((8 : Int) - (12 : Int)) + (6 : Int))) = (2 : Int)) ∧ ((((6 : Int) * (4 : Int)) / (2 : Int)) = (12 : Int)) ∧ ((fmax (0 : Int) (((12 : Int) - (6 : Int)) + (2 : Int))) = (8 : Int)) ∧ ((fmax (0 : Int) (((12 : Int) - (8 : Int)) + (2 : Int))) = (6 : Int)) ∧ ((((2 : Int) * (12 : Int)) / (8 : Int)) = (3 : Int)) ∧ (((6 : Int) * (4 : Int)) = (24 : Int)) ∧ ((((2 : Int) * (3 : Int)) * (4 : Int)) = (24 : Int)) ∧ ((12 : Int) = (12 : Int)) := by decide
+    facesatvertex(12, 8) = 3; surfacearea(6, 4) = 24; volume(2, 3, 4) = 24 -/
+theorem fam_polyhedron : ((fmax (0 : Int) (((8 : Int) - (12 : Int)) + (6 : Int))) = (2 : Int)) ∧ ((((6 : Int) * (4 : Int)) / (2 : Int)) = (12 : Int)) ∧ ((fmax (0 : Int) (((12 : Int) - (6 : Int)) + (2 : Int))) = (8 : Int)) ∧ ((fmax (0 : Int) (((12 : Int) - (8 : Int)) + (2 : Int))) = (6 : Int)) ∧ ((((2 : Int) * (12 : Int)) / (8 : Int)) = (3 : Int)) ∧ (((6 : Int) * (4 : Int)) = (24 : Int)) ∧ ((((2 : Int) * (3 : Int)) * (4 : Int)) = (24 : Int)) := by decide
 
 /-- polymer: chains(1000, 100) = 100000; molweight(100, 50) = 5000; monomers(500, 2) = 1000; crosslinks(1000,
     10) = 100; tg(200, 100) = 100; degree(10000, 100) = 100; branches(4, 0) = 4; combos(6, 2) = 15 -/
@@ -407,8 +406,8 @@ theorem fam_prevalence : ((((150 : Int) * (100 : Int)) / (120 : Int)) = (125 : I
 theorem fam_pricing : (((50 : Int) * (12 : Int)) = (600 : Int)) ∧ (((1000 : Int) * (12 : Int)) = (12000 : Int)) ∧ ((((200 : Int) * (15 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((100 : Int) * (50 : Int)) = (5000 : Int)) ∧ ((fmax (0 : Int) (((50 : Int) * (12 : Int)) - (500 : Int))) = (100 : Int)) ∧ ((fmax (0 : Int) (((40 : Int) * (12 : Int)) - (600 : Int))) = (0 : Int)) ∧ (((10 : Int) * (25 : Int)) = (250 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((90 : Int) - (50 : Int))) = (40 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (90 : Int))) = (0 : Int)) := by decide
 
 /-- primatology: encephalization(1200, 60) = 20000; troop(100, 8) = 12; grooming(500, 20) = 25; dominance(7, 10)
-    = 70; foraging(2000, 8) = 250; maturity(12) = 12; kinship(5, 20) = 25; tooluse(15, 30) = 50 -/
-theorem fam_primatology : ((((1200 : Int) * (1000 : Int)) / (60 : Int)) = (20000 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ (((500 : Int) / (20 : Int)) = (25 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ (((2000 : Int) / (8 : Int)) = (250 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (20 : Int)) = (25 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (30 : Int)) = (50 : Int)) := by decide
+    = 70; foraging(2000, 8) = 250; kinship(5, 20) = 25; tooluse(15, 30) = 50 -/
+theorem fam_primatology : ((((1200 : Int) * (1000 : Int)) / (60 : Int)) = (20000 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ (((500 : Int) / (20 : Int)) = (25 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ (((2000 : Int) / (8 : Int)) = (250 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (20 : Int)) = (25 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (30 : Int)) = (50 : Int)) := by decide
 
 /-- prime: gaps(13, 11) = 2; count(100, 4) = 25; product(7, 13) = 91; totient(91, 20) = 71; factors(2, 0) = 2;
     sieve(100, 2) = 50; twins(100, 10) = 10; combos(6, 2) = 15 -/
@@ -420,8 +419,8 @@ theorem fam_prime : ((fmax (0 : Int) ((13 : Int) - (11 : Int))) = (2 : Int)) ∧
 theorem fam_printmaking : (((50 : Int) * (1 : Int)) = (50 : Int)) ∧ (((4 : Int) + (2 : Int)) = (6 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) := by decide
 
 /-- probability: odds(1, 4) = 25; conditional(30, 60) = 50; expected(200, 25) = 50; bayes(40, 50) = 20;
-    combinations(5, 2) = 10; variance(400, 10) = 40; entropy(8) = 8; independence(30, 60) = 50 -/
-theorem fam_probability : ((((1 : Int) * (100 : Int)) / (4 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (60 : Int)) = (50 : Int)) ∧ ((((200 : Int) * (25 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((40 : Int) * (50 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((5 : Int) * (2 : Int)) = (10 : Int)) ∧ (((400 : Int) / (10 : Int)) = (40 : Int)) ∧ ((8 : Int) = (8 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (60 : Int)) = (50 : Int)) := by decide
+    combinations(5, 2) = 10; variance(400, 10) = 40; independence(30, 60) = 50 -/
+theorem fam_probability : ((((1 : Int) * (100 : Int)) / (4 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (60 : Int)) = (50 : Int)) ∧ ((((200 : Int) * (25 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((40 : Int) * (50 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((5 : Int) * (2 : Int)) = (10 : Int)) ∧ (((400 : Int) / (10 : Int)) = (40 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (60 : Int)) = (50 : Int)) := by decide
 
 /-- procurement: savings(100, 70) = 30; savings(70, 100) = 0; spend(100, 5) = 500; compliance(90, 100) = 90;
     leadtime(3, 10) = 7; eoq(1000, 50) = 20; supplier(95, 100) = 95; discount(1000, 10) = 100; quality(990,
@@ -465,8 +464,8 @@ theorem fam_property : ((((80000 : Int) * (100 : Int)) / (100000 : Int)) = (80 :
 theorem fam_prophecy : ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ (((7 : Int) * (3 : Int)) = (21 : Int)) ∧ (((7 : Int) * (70 : Int)) = (490 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)) ∧ ((((12 : Int) + (12 : Int)) + (12 : Int)) = (36 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (6 : Int)))) / (Int.ofNat (ffact (Int.toNat ((6 : Int) - (2 : Int)))))) = (30 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((fmax (0 : Int) ((490 : Int) - (70 : Int))) = (420 : Int)) := by decide
 
 /-- propulsion: thrust(300, 20) = 6000; efficiency(80, 100) = 80; specificfuel(5, 1000) = 5; bypass(900, 100) =
-    900; compression(4000, 100) = 4000; power(500, 20) = 10000; exhaust(850) = 850; massflow(12, 300) = 3600 -/
-theorem fam_propulsion : (((300 : Int) * (20 : Int)) = (6000 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (100 : Int)) = (900 : Int)) ∧ ((((4000 : Int) * (100 : Int)) / (100 : Int)) = (4000 : Int)) ∧ (((500 : Int) * (20 : Int)) = (10000 : Int)) ∧ ((850 : Int) = (850 : Int)) ∧ (((12 : Int) * (300 : Int)) = (3600 : Int)) := by decide
+    900; compression(4000, 100) = 4000; power(500, 20) = 10000; massflow(12, 300) = 3600 -/
+theorem fam_propulsion : (((300 : Int) * (20 : Int)) = (6000 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (100 : Int)) = (900 : Int)) ∧ ((((4000 : Int) * (100 : Int)) / (100 : Int)) = (4000 : Int)) ∧ (((500 : Int) * (20 : Int)) = (10000 : Int)) ∧ (((12 : Int) * (300 : Int)) = (3600 : Int)) := by decide
 
 /-- prosody: syllablecount(100, 2) = 200; stressratio(3, 4) = 75; speechrate(900, 6) = 150; pausecount(100, 7) =
     15; pitchrange(300, 120) = 180; pitchrange(100, 150) = 0; meterfeet(10, 2) = 5; rhythmindex(30, 60) = 50;
@@ -478,8 +477,8 @@ theorem fam_prosody : (((100 : Int) * (2 : Int)) = (200 : Int)) ∧ ((((3 : Int)
 theorem fam_protein : (((300 : Int) * (1 : Int)) = (300 : Int)) ∧ (((300 : Int) * (110 : Int)) = (33000 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((299 : Int) * (1 : Int)) = (299 : Int)) ∧ (((8 : Int) + (4 : Int)) = (12 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) := by decide
 
 /-- proteomics: abundance(25, 100) = 25; massspec(2400, 3) = 800; coverage(60, 200) = 30; foldchange(300, 100) =
-    300; isoelectric(7) = 7; digestion(18, 20) = 90; interaction(120, 40) = 3; expression(50000, 1000) = 50 -/
-theorem fam_proteomics : ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ (((2400 : Int) / (3 : Int)) = (800 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (200 : Int)) = (30 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ (((120 : Int) / (40 : Int)) = (3 : Int)) ∧ (((50000 : Int) / (1000 : Int)) = (50 : Int)) := by decide
+    300; digestion(18, 20) = 90; interaction(120, 40) = 3; expression(50000, 1000) = 50 -/
+theorem fam_proteomics : ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ (((2400 : Int) / (3 : Int)) = (800 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (200 : Int)) = (30 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ (((120 : Int) / (40 : Int)) = (3 : Int)) ∧ (((50000 : Int) / (1000 : Int)) = (50 : Int)) := by decide
 
 /-- protocol: layers(7, 0) = 7; states(4, 3) = 12; headers(20, 8) = 160; versions(3, 0) = 3; messages(16, 1) =
     16; handshakes(3, 0) = 3; opcodes(4) = 16; combos(7, 2) = 21 -/
@@ -501,16 +500,16 @@ theorem fam_psalmody : (((100 : Int) + (50 : Int)) = (150 : Int)) ∧ (((150 : I
 
 /-- psu: watts(12, 50) = 600; efficiency(540, 600) = 90; headroom(850, 600) = 250; rails(4, 20) = 80;
     loadpercent(600, 850) = 70; dissipation(600, 540) = 60; current(600, 12) = 50; redundancy(3, 2) = 1;
-    ripple(50) = 50; peak(600, 2) = 1200 -/
-theorem fam_psu : (((12 : Int) * (50 : Int)) = (600 : Int)) ∧ ((((540 : Int) * (100 : Int)) / (600 : Int)) = (90 : Int)) ∧ (((850 : Int) - (600 : Int)) = (250 : Int)) ∧ (((4 : Int) * (20 : Int)) = (80 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (850 : Int)) = (70 : Int)) ∧ (((600 : Int) - (540 : Int)) = (60 : Int)) ∧ (((600 : Int) / (12 : Int)) = (50 : Int)) ∧ (((3 : Int) - (2 : Int)) = (1 : Int)) ∧ ((50 : Int) = (50 : Int)) ∧ (((600 : Int) * (2 : Int)) = (1200 : Int)) := by decide
+    peak(600, 2) = 1200 -/
+theorem fam_psu : (((12 : Int) * (50 : Int)) = (600 : Int)) ∧ ((((540 : Int) * (100 : Int)) / (600 : Int)) = (90 : Int)) ∧ (((850 : Int) - (600 : Int)) = (250 : Int)) ∧ (((4 : Int) * (20 : Int)) = (80 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (850 : Int)) = (70 : Int)) ∧ (((600 : Int) - (540 : Int)) = (60 : Int)) ∧ (((600 : Int) / (12 : Int)) = (50 : Int)) ∧ (((3 : Int) - (2 : Int)) = (1 : Int)) ∧ (((600 : Int) * (2 : Int)) = (1200 : Int)) := by decide
 
 /-- psych: competency(18, 15) = 1; competency(10, 15) = 0; risk(6, 4) = 10; insanity(3, 2, 4) = 1; insanity(1,
     1, 4) = 0; malingering(5, 3) = 1; restoration(8, 6) = 1; recidivism(4, 3) = 12; dangerousness(5, 4) = 20 -/
 theorem fam_psych : ((if (if (18 : Int) ≥ (15 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (10 : Int) ≥ (15 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((6 : Int) + (4 : Int)) = (10 : Int)) ∧ ((if (if ((3 : Int) + (2 : Int)) ≥ (4 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if ((1 : Int) + (1 : Int)) ≥ (4 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (5 : Int) ≥ (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (8 : Int) ≥ (6 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ (((4 : Int) * (3 : Int)) = (12 : Int)) ∧ (((5 : Int) * (4 : Int)) = (20 : Int)) := by decide
 
-/-- psychiatry: phq(21) = 21; severity(45, 100) = 45; remission(60, 200) = 30; relapse(20, 100) = 20;
-    adherence(27, 30) = 90; response(20, 5) = 75; risk(3, 12) = 25; wellbeing(8, 3) = 5; wellbeing(3, 8) = 0 -/
-theorem fam_psychiatry : ((21 : Int) = (21 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (200 : Int)) = (30 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((((27 : Int) * (100 : Int)) / (30 : Int)) = (90 : Int)) ∧ (((((20 : Int) - (5 : Int)) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (3 : Int))) = (5 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (8 : Int))) = (0 : Int)) := by decide
+/-- psychiatry: severity(45, 100) = 45; remission(60, 200) = 30; relapse(20, 100) = 20; adherence(27, 30) = 90;
+    response(20, 5) = 75; risk(3, 12) = 25; wellbeing(8, 3) = 5; wellbeing(3, 8) = 0 -/
+theorem fam_psychiatry : ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (200 : Int)) = (30 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((((27 : Int) * (100 : Int)) / (30 : Int)) = (90 : Int)) ∧ (((((20 : Int) - (5 : Int)) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (3 : Int))) = (5 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (8 : Int))) = (0 : Int)) := by decide
 
 /-- psychology: iq(12, 10) = 120; correlation(80, 100) = 80; reliability(90, 100) = 90; reaction(5000, 20) =
     250; conditioning(45, 50) = 90; recall(7, 10) = 70; arousal(80, 30) = 50; arousal(20, 30) = 0; conformity(6,
@@ -536,8 +535,8 @@ theorem fam_publishing : ((((10000 : Int) * (12 : Int)) / (100 : Int)) = (1200 :
 theorem fam_pulley : (((400 : Int) / (100 : Int)) = (4 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ (((250 : Int) * (4 : Int)) = (1000 : Int)) ∧ (((4 : Int) * (1 : Int)) = (4 : Int)) ∧ (((400 : Int) / (100 : Int)) = (4 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) := by decide
 
 /-- pulmonology: fev1(80, 100) = 80; tidal(500, 12) = 6000; saturation(98, 100) = 98; compliance(500, 5) = 100;
-    deadspace(150, 500) = 30; peakflow(600) = 600; resistance(20, 4) = 5; diffusion(250, 10) = 25 -/
-theorem fam_pulmonology : ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((500 : Int) * (12 : Int)) = (6000 : Int)) ∧ ((((98 : Int) * (100 : Int)) / (100 : Int)) = (98 : Int)) ∧ (((500 : Int) / (5 : Int)) = (100 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (500 : Int)) = (30 : Int)) ∧ ((600 : Int) = (600 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int)) ∧ (((250 : Int) / (10 : Int)) = (25 : Int)) := by decide
+    deadspace(150, 500) = 30; resistance(20, 4) = 5; diffusion(250, 10) = 25 -/
+theorem fam_pulmonology : ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((500 : Int) * (12 : Int)) = (6000 : Int)) ∧ ((((98 : Int) * (100 : Int)) / (100 : Int)) = (98 : Int)) ∧ (((500 : Int) / (5 : Int)) = (100 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (500 : Int)) = (30 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int)) ∧ (((250 : Int) / (10 : Int)) = (25 : Int)) := by decide
 
 /-- pulsar: spinfrequency(1800, 60) = 30; perioddderivative(1000, 50) = 20; characteristicage(1000, 5) = 100;
     magneticfield(50, 2) = 10; spindownluminosity(2, 30, 3) = 180; dispersionmeasure(30, 100) = 3000;

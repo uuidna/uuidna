@@ -49,9 +49,8 @@ theorem fam_wavelet : (((1024 : Int) / (128 : Int)) = (8 : Int)) ∧ (((3 : Int)
 theorem fam_waypoint : ((((30 : Int) ^ (2 : Nat)) + ((40 : Int) ^ (2 : Nat))) = (2500 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) (((50 : Int) ^ (2 : Nat)) - ((30 : Int) ^ (2 : Nat)))) = (1600 : Int)) ∧ (((5 : Int) * (120 : Int)) = (600 : Int)) ∧ ((((((10 : Int) - (350 : Int)) % (360 : Int)) + (360 : Int)) % (360 : Int)) = (20 : Int)) ∧ ((((1000 : Int) * (25 : Int)) / (100 : Int)) = (250 : Int)) ∧ (((900 : Int) / (15 : Int)) = (60 : Int)) ∧ ((((200 : Int) ^ (2 : Nat)) / (10 : Int)) = (4000 : Int)) := by decide
 
 /-- weather: heatindex(30, 80) = 38; windchill(10, 50) = 5; windchill(3, 90) = 0; dewpoint(25, 50) = 15;
-    pressure(1013, 800) = 913; pressure(50, 8000) = 0; precipitation(60, 4) = 15; humidity(40, 50) = 80;
-    visibility(12) = 12; uv(7) = 7 -/
-theorem fam_weather : (((30 : Int) + ((80 : Int) / (10 : Int))) = (38 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - ((50 : Int) / (10 : Int)))) = (5 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - ((90 : Int) / (10 : Int)))) = (0 : Int)) ∧ (((25 : Int) - (((100 : Int) - (50 : Int)) / (5 : Int))) = (15 : Int)) ∧ ((fmax (0 : Int) ((1013 : Int) - ((800 : Int) / (8 : Int)))) = (913 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - ((8000 : Int) / (8 : Int)))) = (0 : Int)) ∧ (((60 : Int) / (4 : Int)) = (15 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (50 : Int)) = (80 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ ((7 : Int) = (7 : Int)) := by decide
+    pressure(1013, 800) = 913; pressure(50, 8000) = 0; precipitation(60, 4) = 15; humidity(40, 50) = 80 -/
+theorem fam_weather : (((30 : Int) + ((80 : Int) / (10 : Int))) = (38 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - ((50 : Int) / (10 : Int)))) = (5 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - ((90 : Int) / (10 : Int)))) = (0 : Int)) ∧ (((25 : Int) - (((100 : Int) - (50 : Int)) / (5 : Int))) = (15 : Int)) ∧ ((fmax (0 : Int) ((1013 : Int) - ((800 : Int) / (8 : Int)))) = (913 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - ((8000 : Int) / (8 : Int)))) = (0 : Int)) ∧ (((60 : Int) / (4 : Int)) = (15 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (50 : Int)) = (80 : Int)) := by decide
 
 /-- weaving: threadcount(80, 60) = 140; warp(800, 10) = 80; weft(600, 10) = 60; density(80, 60) = 4800;
     cover(28, 56) = 50; pickrate(6000, 60) = 100; width(800, 80) = 10; gsm(50, 2500) = 200 -/
@@ -88,13 +87,13 @@ theorem fam_windpower : (((2 : Int) * (1000 : Int)) = (2000 : Int)) ∧ (((50 : 
     yield(5000, 650) = 3250; extraction(1000, 70) = 700; fermentation(24, 0, 12) = 2; blend(60, 30, 10) = 100 -/
 theorem fam_winemaking : (((((24 : Int) - (6 : Int)) * (55 : Int)) / (100 : Int)) = (9 : Int)) ∧ ((((240 : Int) * (100 : Int)) / (1000 : Int)) = (24 : Int)) ∧ ((((7 : Int) * (1000 : Int)) / (1000 : Int)) = (7 : Int)) ∧ (((200 : Int) * (50 : Int)) = (10000 : Int)) ∧ ((((5000 : Int) * (650 : Int)) / (1000 : Int)) = (3250 : Int)) ∧ ((((1000 : Int) * (70 : Int)) / (100 : Int)) = (700 : Int)) ∧ ((((24 : Int) - (0 : Int)) / (12 : Int)) = (2 : Int)) ∧ ((((60 : Int) + (30 : Int)) + (10 : Int)) = (100 : Int)) := by decide
 
-/-- wireframe: grid(960, 12) = 80; gutter(240, 12) = 20; density(50, 1000) = 5; hierarchy(4) = 4; whitespace(40,
-    100) = 40; alignment(9, 10) = 90; fold(3, 10) = 30; fidelity(2, 10) = 20 -/
-theorem fam_wireframe : (((960 : Int) / (12 : Int)) = (80 : Int)) ∧ (((240 : Int) / (12 : Int)) = (20 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (10 : Int)) = (20 : Int)) := by decide
+/-- wireframe: grid(960, 12) = 80; gutter(240, 12) = 20; density(50, 1000) = 5; whitespace(40, 100) = 40;
+    alignment(9, 10) = 90; fold(3, 10) = 30; fidelity(2, 10) = 20 -/
+theorem fam_wireframe : (((960 : Int) / (12 : Int)) = (80 : Int)) ∧ (((240 : Int) / (12 : Int)) = (20 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (10 : Int)) = (20 : Int)) := by decide
 
-/-- woodworking: boardfeet(96, 12) = 8; expansion(100, 5) = 50; hardness(1290) = 1290; jointstrength(12, 250) =
-    3000; kerf(10, 3) = 30; moisture(120, 100) = 20; usage(80, 100) = 80; waste(20, 100) = 20 -/
-theorem fam_woodworking : ((((96 : Int) * (12 : Int)) / (144 : Int)) = (8 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((1290 : Int) = (1290 : Int)) ∧ (((12 : Int) * (250 : Int)) = (3000 : Int)) ∧ (((10 : Int) * (3 : Int)) = (30 : Int)) ∧ (((((120 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) := by decide
+/-- woodworking: boardfeet(96, 12) = 8; expansion(100, 5) = 50; jointstrength(12, 250) = 3000; kerf(10, 3) = 30;
+    moisture(120, 100) = 20; usage(80, 100) = 80; waste(20, 100) = 20 -/
+theorem fam_woodworking : ((((96 : Int) * (12 : Int)) / (144 : Int)) = (8 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (100 : Int)) = (50 : Int)) ∧ (((12 : Int) * (250 : Int)) = (3000 : Int)) ∧ (((10 : Int) * (3 : Int)) = (30 : Int)) ∧ (((((120 : Int) - (100 : Int)) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) := by decide
 
 /-- workspace: volume(10, 10, 10) = 1000; reachradius(100, 20) = 80; area(40, 30) = 1200; dexterityindex(80,
     100) = 80; singularitymargin(90, 15) = 75; jointrange(180, 30) = 150; coveragepct(850, 1000) = 85;
