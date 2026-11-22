@@ -271,7 +271,7 @@ export function schoolQueueLeads(json: unknown | null): SourceReading {
  * an unread check is a lead too, because a question GitHub did not answer has told us nothing.
  */
 export function githubAuditLeads(json: unknown | null): SourceReading {
-  if (json === null) return unread('api-github-audit', 'lean/github-audit.json is absent — GitHub has not been asked (npm run audit:github)')
+  if (json === null) return unread('api-github-audit', 'lean/github-audit.json is absent — GitHub has not been asked (npm run x -- github-audit)')
   const a = json as { owner?: unknown; repos?: unknown }
   const repos = arr(a.repos)
   if (repos.length === 0) return unread('api-github-audit', 'the audit lists no repositories — an empty owner audits nothing, which is the vacuous case')

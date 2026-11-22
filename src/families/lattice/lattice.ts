@@ -18,6 +18,7 @@ import {
   ten,
   theorem,
 } from '../../quantum/processing/unit/index.js'
+import { HEXBIT_BITS } from '../../hexbit/index.js'
 
 /**
  * Binomial coefficient C(nn, k) by Pascal recursion, mirroring chooseOf in index.lean.
@@ -58,7 +59,7 @@ export function tenOf(k: number): number {
  */
 export const cubeOf = onceOf(() => {
   const vertices = mintOf(n)
-  const hexbit = mintOf(coins)
+  const hexbit = HEXBIT_BITS
   const bits = mintOf(n + coins)
   const holds = theorem.cube(bits, vertices, hexbit) && hexbit === n + seed
   return { n, vertices, hexbit, bits, holds }

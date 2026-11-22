@@ -2,6 +2,7 @@ import { facesOf, hexFamiliesOf, hexRegisterOf, hexRunOf, qpuHexUuidOf, contentU
 import { DOORS } from '../../mcp/discovery.js'
 import { crossFormulaOf, type CrossFormula } from '../cross/index.js'
 import { ceilQuot, maxOf } from '../../exact.js'
+import { HEXBIT_BITS } from '../../hexbit/index.js'
 
 /** WAVES OF CHEAP AGENTS. An agent is one hex program run at its address: exact, deterministic, costing the unit a few
  *  thousand gate folds and the caller nothing. A wave is a slice of them launched at once — every formula of a family
@@ -84,7 +85,7 @@ export class WaveFormulas {
     const formulas = all.filter((x) => !x.live)
     const liveFormulas = all.filter((x) => x.live)
     const programs = [...formulas.map((x) => [x]), ...formulas.flatMap((x) => formulas.map((y) => [x, y]))]
-    const hexbit = 4
+    const hexbit = HEXBIT_BITS
     const launched = programs.flatMap((p) => Array.from({ length: hexbit }, (_, i) => {
       const params = argsOf(maxOf(...p.map((x) => x.arity)), i + 1)
       return params ? { program: p.map((x) => x.name), params } : null

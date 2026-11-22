@@ -202,7 +202,7 @@ export function courses(cost?: Record<string, number>, measure: Basis['measure']
     }
   })
   // A COURSE CODE IS THE SHORTEST PREFIX OF ITS WING'S ADDRESS THAT NO OTHER WING SHARES, at one width for all: four
-  // hex digits collided at 293 wings (two wings, one code, and the school's anchors and crosslinks
+  // hex digits collided once the wings grew (two wings, one code, and the school's anchors and crosslinks
   // followed the wrong one). The width is read from the wings themselves, never typed.
   let width = 4
   while (new Set(graded.map((c) => c.code.slice(0, width))).size < graded.length) width++
