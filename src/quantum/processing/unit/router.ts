@@ -294,7 +294,7 @@ export const worker = {
         if (rpc) return jsonOf(rpc)
       }
       const program = path.slice('/hex/'.length)
-      // a GET is a read: it never persists (store: false), so an unauthenticated GET /hex/<uuid> cannot write a db/hex
+      // a GET is a read: it never persists (store: false, by construction), so an unauthenticated GET /hex/<uuid> cannot write a db/hex
       // row and bypass the storage write bearer (Wave XIII). The value is a deterministic function of the uuid, so a
       // re-read recomputes it; persistence belongs to the authorized write paths, not an anonymous read.
       if (program) return jsonOf(await hexRunOf(program, undefined, env, { store: false }))

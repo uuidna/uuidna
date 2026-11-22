@@ -30,7 +30,7 @@ const section = topics.map((t) => {
     const clean = (s: string): string => pageSafe(s.replace(/`/g, ''))
     const mag = p.involutions.length ? p.involutions.map((i) => `[\`${i.key}\`](/theorem/${i.key})`).join(' · ') : '_none yet — the first magnet is yours to seal_'
     const nb = p.neighbors.length ? p.neighbors.map((n) => `[\`${n.key}\`](/theorem/${n.key})`).join(' · ') : '_no sealed neighbor shares these words_'
-    return `- **${clean(p.claim.length > 220 ? p.claim.slice(0, 220) + '…' : p.claim)}**\n  <br><small>door: ${p.source}${p.receipt ? ` · receipt \`${p.receipt}\`` : ''}</small>\n  <br><small>involutions around: ${mag} </small>\n  <br><small>sealed neighbors: ${nb} </small>\n  <br><small>develop: ${clean(String(planLine).slice(0, 200))}</small>`
+    return `- **<q>${clean(p.claim.length > 220 ? p.claim.slice(0, 220) + '…' : p.claim)}</q>**\n  <br><small>door: ${p.source}${p.receipt ? ` · receipt \`${p.receipt}\`` : ''}</small>\n  <br><small>involutions around: ${mag} </small>\n  <br><small>sealed neighbors: ${nb} </small>\n  <br><small>develop: ${clean(String(planLine).slice(0, 200))}</small>`
   }).join('\n')
   return `## ${t.topic} — ${t.items.length} open\n\n${rows}`
 }).join('\n\n')

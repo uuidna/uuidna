@@ -115,7 +115,7 @@ export const ratchetOf = (
 // ── THE CLI IS GUARDED, because importing this file used to RUN it. The ratchet test imported it to exercise
 // ratchetOf and the module executed the whole finder and called process.exit, so ONE of five tests ran and the
 // runner reported a pass. That is the same entry-point defect as a finder with five callers and no main, seen from
-// the other side: a module that acts on import cannot be tested, and a test that cannot run is a check nobody has.
+// the other side: a module that acts on import cannot be tested, because importing it runs it, and a test that never runs is a check nobody has.
 if (process.argv[1]?.endsWith('audit-door-demand.js')) {
   const out = {
     why: 'The doors sessions asked for, ranked by how often they asked. Every refused ad-hoc command in this repository may'

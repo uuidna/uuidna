@@ -14,8 +14,8 @@
 // its own declaration, so the check runs on every audit with nothing central edited and no hand to remember it.
 //
 // WHAT IT REFUSES, and it is one law with two halves. domain → families is read from each theorem's file; family →
-// domains is that map inverted. They are inverses or the grouping is wrong, and a check walking one direction cannot
-// tell a dropped domain from a domain that was never there. Both halves are asserted, and either one failing refuses.
+// domains is that map inverted. They are inverses or the grouping is wrong, and a check walking one direction cannot tell,
+// because both read as absent, a dropped domain from a domain that was never there. Both halves are asserted, and either one failing refuses.
 //
 // WHAT IT REPORTS WITHOUT REFUSING. The cross density — 197 linked pairs of 13,366 possible, 1.5% — is a reading about
 // the ledger's shape, not a defect: dense would mean the families are not families, empty would mean the axis carries

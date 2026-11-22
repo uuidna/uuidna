@@ -60,12 +60,12 @@ const say = (text: string): string => text.replace(/</g, '&lt;').replace(/>/g, '
   .split(/(`[^`]*`)/).map((part, i) => (i % 2 ? part : part.replace(/[_*]/g, '\\$&'))).join('')
 
 const line = (l: Lead): string =>
-  `- **\`${handleOf(toUuid(l.lead))}\`** ${say(l.lead)}${bound(l.lead)}` +
+  `- **\`${handleOf(toUuid(l.lead))}\`** <q>${say(l.lead)}</q>${bound(l.lead)}` +
   (l.owes ? `\n  <br>_owes:_ ${say(l.owes)}` : '') +
   (l.killed_by ? `\n  <br>_killed by:_ ${say(l.killed_by)}` : '') +
   further(l)
 const reopenedLine = ({ l, s }: { l: Lead; s: Settlement | null }): string =>
-  `- **\`${handleOf(toUuid(l.lead))}\`** ${say(l.lead)}${bound(l.lead)}` +
+  `- **\`${handleOf(toUuid(l.lead))}\`** <q>${say(l.lead)}</q>${bound(l.lead)}` +
   // A REOPENED SETTLEMENT IS QUOTED, NEVER TAUGHT. Its words stay exactly as they were said — nobody withdraws a
   // settlement, they only prove what they meant — but a settlement whose evidence has since left the tree would
   // otherwise have this page teaching paths that no longer exist. <q> marks it as a claim on record, which is what

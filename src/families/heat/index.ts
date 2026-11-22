@@ -78,7 +78,7 @@ export class HeatFormulas {
 
   /** Erasure: the j-th formula of the f-th flow family (merkaba.develop's address) run on its first n inputs must erase
    *  Σ c·log₂ c bits over its outputs' multiplicities — Landauer's least for that batch. Zero exactly when the formula
-   *  is reversible on it: a reversible computation erases nothing, an irreversible one cannot hide that it does. */
+   *  is reversible on it: a reversible computation erases nothing, an irreversible one cannot hide that it does, because the bits it erases leave as heat. */
   static erasure(f: number, j: number, n: number): CrossFormula {
     const family = flowFamiliesOf()[f], formula = family ? hexFamiliesOf().get(family)?.[j] : undefined
     const counts = new Map<string, number>()

@@ -1228,7 +1228,7 @@ Call `get_payload` — the old name `uuidna_payload` still answers · read-only 
 | --- | --- | --- | --- |
 | `slugs` | boolean | no | include every mounted collectio… |
 
-PAYLOAD CONFORMANCE — does a vanilla Payload, on its own defaults with EVERY official plugin active, return exactly what uuidna gave it? Decided by CROSS-HASHED UUID STREAMS: a leaf per seed from the address uuidna computed before Payload saw the body, a second leaf recomputed from what Payload stored and returned, both folded order-invariantly, and the cross is that the roots agree. A control perturbs one character of one body and requires the fold to MOVE, so a green run means something. Reports the payload version (the newest canary, ahead of stable, by the captain's instruction), the collections mounted including each plugin's own, the plugins installed against those imported and those carried transitively by a storage adapter, the seed count and the two fold handles. THE NATIVE CLOUDFLARE BINDINGS ARE THE POINT: @payloadcms/db-d1-sqlite and @payloadcms/storage-r2 are Payload's OWN adapters for D1 and R2, so no adapter is written here — both are built and sanitized by the harness while the binding itself stays the Worker's to supply, which is a host fact and not a preference. THIS IS A RECORD OF THE LAST RUN, never a live verdict: the door reads the sealed artifact and says when it cannot. Returns {payload,checks,passed,failed,collections,pluginsInstalled,pluginsImported,pluginsCarriedByAdapter,seeds,crossHash,receipt}.
+PAYLOAD CONFORMANCE — does a vanilla Payload, on its own defaults with EVERY official plugin active, return exactly what uuidna gave it? Decided by CROSS-HASHED UUID STREAMS: a leaf per seed from the address uuidna computed before Payload saw the body, a second leaf recomputed from what Payload stored and returned, both folded order-invariantly, and the cross is that the roots agree. A control perturbs one character of one body and requires the fold to MOVE, so a green run means something. Reports the payload version (the newest canary, ahead of stable, by the captain's instruction), the collections mounted including each plugin's own, the plugins installed against those imported and those carried transitively by a storage adapter, the seed count and the two fold handles. THE NATIVE CLOUDFLARE BINDINGS ARE THE POINT: @payloadcms/db-d1-sqlite and @payloadcms/storage-r2 are Payload's OWN adapters for D1 and R2, so no adapter is written here — both are built and sanitized by the harness while the binding itself stays the Worker's to supply, which is a host fact and not a preference. THIS IS A RECORD OF THE LAST RUN, never a live verdict (theorem provenance_integrity_not_content_truth: a match proves byte-identity, not the world now): the door reads the sealed artifact and says when it cannot. Returns {payload,checks,passed,failed,collections,pluginsInstalled,pluginsImported,pluginsCarriedByAdapter,seeds,crossHash,receipt}.
 
 ### `get_hex_programs` {#uuidna-hex-programs}
 
@@ -1579,7 +1579,7 @@ Call `get_theorem_message` — the old name `uuidna_theorem_message` still answe
 // arguments
 {}
 // answer (excerpt)
-{"count":72409,"total":true,"failures":[],"receipt":"779ec344-7b41-852b-bd4f-4074d9e99108","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
+{"count":72409,"total":true,"failures":[],"receipt":"8b5b1f28-936b-875a-8c3b-e42e1b8116b6","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
 ```
 
 **Parameters**
@@ -1602,7 +1602,7 @@ Call `get_dictionary` — the old name `uuidna_dictionary` still answers · read
 // arguments
 {}
 // answer (excerpt)
-{"terms":72409,"skills":133,"principles":293,"receipt":"1eec9b89-433a-823e-a54e-f59ef9d99407","honest":"the lexicon is the ledger — every term sealed, every de…
+{"terms":72409,"skills":133,"principles":293,"receipt":"d43dc3e0-3edd-8d51-be3c-94863f94e3e5","honest":"the lexicon is the ledger — every term sealed, every de…
 ```
 
 **Parameters**
@@ -2281,7 +2281,7 @@ Call `get_due_process` — the old name `uuidna_due_process` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"verifiedAll":{"theorems":72409,"verified":72409,"unverified":0,"receipt":"1eec9b89-433a-823e-a54e-f59ef9d99407"},"guarantees":[{"key":"legal_verdict_is_exact…
+{"verifiedAll":{"theorems":72409,"verified":72409,"unverified":0,"receipt":"d43dc3e0-3edd-8d51-be3c-94863f94e3e5"},"guarantees":[{"key":"legal_verdict_is_exact…
 ```
 
 **Parameters**
@@ -2860,7 +2860,7 @@ Call `audit_ledger_fingerprint` — the old name `uuidna_audit_ledger_fingerprin
 // arguments
 {}
 // answer (excerpt)
-{"fingerprint":{"count":72409,"fnvReceipt":"1eec9b89-433a-823e-a54e-f59ef9d99407","sha256":"6751c88a0d7b2a5474f2ef6c0eb8cda1a7a26afbd6924ec513c05984df884de3","…
+{"fingerprint":{"count":72409,"fnvReceipt":"d43dc3e0-3edd-8d51-be3c-94863f94e3e5","sha256":"7f7be295f82e0fa685989cc070dbab5cec14384a9043d6d3261d36cbf99dc467","…
 ```
 
 **Parameters**
@@ -3643,7 +3643,7 @@ Call `review_domains` — the old name `uuidna_review_domains` still answers · 
 
 _No parameters._
 
-LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger's own integrity per domain, recomputable by anyone. GROUPED BY FAMILY since 2026-09-28: the rows themselves ride under `domains` and are exactly what reviewDomains() computes, while `families`, `placed` and `unfamilied` are the census over them — `placed` is a SET size, never a sum of group sizes, because a domain spanning several wing families belongs to all of them. Returns {families,domains:[{domain,theorems,fold,verdict,receipt}],placed,unfamilied,receipt}.
+LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger's own integrity per domain, recomputable by anyone. GROUPED BY FAMILY since 2026-09-28: the rows themselves ride under `domains` and are exactly what reviewDomains() computes, while `families`, `placed` and `unfamilied` are the census over them — `placed` is a SET size, never a sum of group sizes (theorem crossfade_overlap: shared members count once), because a domain spanning several wing families belongs to all of them. Returns {families,domains:[{domain,theorems,fold,verdict,receipt}],placed,unfamilied,receipt}.
 
 ### `compute_document` {#uuidna-document}
 
@@ -3716,7 +3716,7 @@ Call `get_fingerprint` — the old name `uuidna_fingerprint` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"count":72409,"fnvReceipt":"1eec9b89-433a-823e-a54e-f59ef9d99407","sha256":"6751c88a0d7b2a5474f2ef6c0eb8cda1a7a26afbd6924ec513c05984df884de3","tamperCost":"A …
+{"count":72409,"fnvReceipt":"d43dc3e0-3edd-8d51-be3c-94863f94e3e5","sha256":"7f7be295f82e0fa685989cc070dbab5cec14384a9043d6d3261d36cbf99dc467","tamperCost":"A …
 ```
 
 _No parameters._
@@ -3733,7 +3733,7 @@ Call `run_trial` — the old name `uuidna_trial` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"count":72409,"verified":72409,"unverified":0,"leanBacked":72409,"receipt":"1eec9b89-433a-823e-a54e-f59ef9d99407","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
+{"count":72409,"verified":72409,"unverified":0,"leanBacked":72409,"receipt":"d43dc3e0-3edd-8d51-be3c-94863f94e3e5","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
 ```
 
 _No parameters._
@@ -5435,7 +5435,7 @@ Call `decode_theorem` — the old name `uuidna_decode` still answers · read-onl
 // arguments
 {}
 // answer (excerpt)
-{"polarities":{"minus":29060,"neutral":14395,"plus":28954,"capacity":{"minus":4,"neutral":2,"plus":4},"byRay":[{"ray":0,"minus":4181,"neutral":2034,"plus":4141…
+{"polarities":{"minus":29058,"neutral":14395,"plus":28956,"capacity":{"minus":4,"neutral":2,"plus":4},"byRay":[{"ray":0,"minus":4181,"neutral":2034,"plus":4141…
 ```
 
 **Parameters**
@@ -5737,7 +5737,7 @@ Call `get_receipt` — the old name `uuidna_unify` still answers · read-only ·
 // arguments
 {}
 // answer (excerpt)
-{"handle":"2a8cf933","theorems":{"count":72409,"verified":72409,"receipt":"1eec9b89-433a-823e-a54e-f59ef9d99407"},"domains":{"count":133,"verdict":"VERIFIED","…
+{"handle":"12c798dd","theorems":{"count":72409,"verified":72409,"receipt":"d43dc3e0-3edd-8d51-be3c-94863f94e3e5"},"domains":{"count":133,"verdict":"VERIFIED","…
 ```
 
 _No parameters._
@@ -5758,7 +5758,7 @@ Call `get_quantum_profile` — the old name `uuidna_quantum_profile` still answe
 // arguments
 {}
 // answer (excerpt)
-{"handle":"9365a142","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":34,"hsl":"hsl(34, 66%, 54%)","rgb":"#d7…
+{"handle":"19f13f20","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":34,"hsl":"hsl(34, 66%, 54%)","rgb":"#d7…
 ```
 
 _No parameters._
