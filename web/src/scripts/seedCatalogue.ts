@@ -5,7 +5,7 @@
 // the modules to seed, comma separated; without it the whole catalogue is seeded. Documents that do not depend on one
 // another are written together, SEED_TOGETHER at a time (COIN_QUBIT_SPACE when unset): a page waits only for its parent.
 import { COIN_QUBIT_SPACE } from '@uuidna/qpu/config'
-import { headedText, planCatalogue, richText } from '@uuidna/qpu/catalogue-seed'
+import { headedText, planCatalogue, richText } from '@/lib/qpu/catalogue'
 import { holdDocument, holdFirstUser, signSeed, type Agree, type Doc, type FirstUser, type Held, type HoldItem } from '../utilities/seedHold.ts'
 
 const check = process.env.SEED_CHECK === '1'

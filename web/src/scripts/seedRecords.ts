@@ -2,8 +2,8 @@
 // A check reads only. Deploy is allowed when every current record agrees with its seed.
 import config from '@payload-config'
 import { getPayload } from 'payload'
-import { linkSeedParents, seedsSynced, syncSeeds } from '@uuidna/qpu/payload-api'
-import { seoFrom } from '@uuidna/qpu/website-client'
+import { linkSeedParents, seedsSynced, syncSeeds } from '@/lib/qpu/pages'
+import { seoFrom } from '@/lib/qpu/seo'
 import { allSeedWaves } from './seedWaves.ts'
 
 /** The public site reads published pages, and beforeValidate rewrites meta from the page text. */

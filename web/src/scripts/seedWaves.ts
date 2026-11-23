@@ -1,7 +1,8 @@
 // The seed waves, once: the games, the ISO waves and the MCP pages, composed from @uuidna/qpu; Payload writes them
 // (seedRecords.ts).
 import { seeds } from '@uuidna/qpu/engine'
-import { mcpPages, seedWaves } from '@uuidna/qpu/payload-api'
+import { seedWaves } from '@uuidna/qpu/waves'
+import { mcpPages } from '@/lib/qpu/mcp-pages'
 import { mcpHostList } from '@uuidna/qpu/discovery'
 import { TOOLBOXES } from '@uuidna/qpu/mcp'
 
