@@ -1,3 +1,4 @@
+import { maxOf } from '../../../exact.js'
 import { monitorFaultsOf, test, type QpuMonitorReading } from './receipted.js'
 import assert from 'node:assert/strict'
 import worker, { quantumOf, shorOf } from './index.js'
@@ -337,7 +338,7 @@ test('live reach: qpu.uuidna.com is climbed under a time budget, and the run at 
     // bounds. Doubling the width at least doubles the state's digits, so the predictor floors at ×2 and the whole
     // climb, not one step, is held under the budget.
     const total = steps.reduce((sum, s) => sum + s.ms, 0)
-    const growth = prev && prev.ms > 0 ? Math.max(ms / prev.ms, 2) : 2
+    const growth = prev && prev.ms > 0 ? maxOf(ms / prev.ms, 2) : 2
     if (prev && (ms * growth > budgetMs || total + ms * growth > budgetMs)) {
       stoppedBy = `measured growth ×${growth.toFixed(2)} predicts the next step past the budget (${total.toFixed(0)} ms spent of ${budgetMs})`
       break

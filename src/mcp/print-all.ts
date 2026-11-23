@@ -5,6 +5,7 @@
  *   tools/call papers { print: true }
  *   tools/call connector { print: true }
  */
+import { ceilOf, maxOf, minOf } from '../exact.js'
 import { existsSync, readFileSync, statSync } from 'node:fs'
 import path from 'node:path'
 import { ROOT } from '../boundary.js'
@@ -55,8 +56,8 @@ const hexOf = (family: string, formula: string, params: number[]): string | null
 }
 
 const pagesOf = (bytes: number): number => {
-  const p = PublishingFormulas.pages(Math.max(bytes, 1), 500)
-  return Math.max(1, p.value)
+  const p = PublishingFormulas.pages(maxOf(bytes, 1), 500)
+  return maxOf(1, p.value)
 }
 
 const filePrintableOf = (id: string, kind: Printable['kind'], rel: string, holds: boolean): Printable => {
@@ -67,13 +68,13 @@ const filePrintableOf = (id: string, kind: Printable['kind'], rel: string, holds
 
 /** Tree-named printers — each probe takes printable size/count args. */
 const printersOnOf = (p: Printable): PrinterProbe[] => {
-  const copies = Math.max(1, p.pages)
+  const copies = maxOf(1, p.pages)
   const signatures = 1
-  const bytes = Math.max(1, p.bytes)
-  const inches = Math.max(1, Math.ceil(bytes / 10_000))
-  const pixels = Math.max(bytes, copies * 72)
+  const bytes = maxOf(1, p.bytes)
+  const inches = maxOf(1, ceilOf(bytes / 10_000))
+  const pixels = maxOf(bytes, copies * 72)
   const good = p.holds ? copies : 0
-  const total = Math.max(1, copies)
+  const total = maxOf(1, copies)
 
   const run = (family: string, formula: string, params: number[], row: { value: number; holds: boolean }): PrinterProbe => ({
     address: `${family}.${formula}`,
@@ -89,7 +90,7 @@ const printersOnOf = (p: Printable): PrinterProbe[] => {
     run('printmaking', 'editionsize', [copies, signatures], PrintmakingFormulas.editionsize(copies, signatures)),
     run('printmaking', 'platepasses', [copies, signatures], PrintmakingFormulas.platepasses(copies, signatures)),
     run('printmaking', 'yieldratio', [good, total], PrintmakingFormulas.yieldratio(good, total)),
-    run('printmaking', 'pressuresetting', [bytes, Math.max(1, copies)], PrintmakingFormulas.pressuresetting(bytes, Math.max(1, copies))),
+    run('printmaking', 'pressuresetting', [bytes, maxOf(1, copies)], PrintmakingFormulas.pressuresetting(bytes, maxOf(1, copies))),
     run('optics', 'dpi', [pixels, inches], OpticsFormulas.dpi(pixels, inches)),
     run('raster', 'dpi', [pixels, inches], RasterFormulas.dpi(pixels, inches)),
     run('driver', 'dmaPages', [bytes], DriverFormulas.dmaPages(bytes)),
@@ -131,7 +132,7 @@ export const printAllOf = async (): Promise<{
     kind: 'mcp-blueprint',
     path: null,
     bytes: chips.generators.blueprints,
-    pages: Math.max(1, chips.generators.blueprints),
+    pages: maxOf(1, chips.generators.blueprints),
     holds: chips.generators.blueprints > 0,
   })
   printables.push({
@@ -139,7 +140,7 @@ export const printAllOf = async (): Promise<{
     kind: 'mcp-whitepaper',
     path: null,
     bytes: chips.generators.pages * 500,
-    pages: Math.max(1, chips.generators.pages),
+    pages: maxOf(1, chips.generators.pages),
     holds: chips.generators.whitepapers > 0,
   })
 
@@ -177,7 +178,7 @@ export const printAllOf = async (): Promise<{
 
   const nP = printables.length
   const nR = printerNames.length
-  const combo = CombinatoricsFormulas.combinations(nP, Math.min(nP, 1))
+  const combo = CombinatoricsFormulas.combinations(nP, minOf(nP, 1))
   const product = CombinatoricsFormulas.combinations(nP + nR, 2)
 
   const pass = matrix.filter((c) => c.pass).length

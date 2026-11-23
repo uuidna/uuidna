@@ -9,6 +9,7 @@
  * Connector: tools/call connector { goal: true } | { goal: true, k, width, passes, mode, who }.
  * Hex: combinatorics.combinations / binomial. Court-tried each case. Unix x when execute.
  */
+import { floorOf, maxOf } from '../exact.js'
 import { CombinatoricsFormulas } from '../families/combinatorics/index.js'
 import { CLAY_SEALS, claySealDomainCoverageOf } from '../families/clay/index.js'
 import { facesOf, qpuHexUuidOf, mcpToolsListOf } from '../quantum/processing/unit/index.js'
@@ -154,7 +155,7 @@ export const goalOf = (input: GoalInput = {}): GoalReading => {
     rawNext: 'absent',
     definition: `goal measure = Σ combo legs; C(faces,k)+C(seals,1)+binomial(3)+width·passes+C(domain,1)`,
   }
-  const confidence = legsHold ? 100 : Math.floor((holding.length * 100) / Math.max(1, combinations.length))
+  const confidence = legsHold ? 100 : floorOf((holding.length * 100) / maxOf(1, combinations.length))
   const court = gateCourtTrialOf({
     case: 'goal.combinations',
     gate,

@@ -1,3 +1,4 @@
+import { minOf } from '../../../exact.js'
 import '../../../mcp/families.js'
 import { test } from './receipted.js'
 import assert from 'node:assert/strict'
@@ -13,7 +14,7 @@ const chainedOf = (first: 'nibbles', second: 'free' | 'compositions', i: number)
  *  itself — the formulas it serves in all, the ordered triples of the first n flow families that flow — is read from it. */
 const formulasOf = (): string => String([...hexFamiliesOf().values()].reduce((sum, fs) => sum + fs.length, 0))
 const flowsOf = (n: number): string => {
-  const m = Math.min(n, flowFamiliesOf().length)
+  const m = minOf(n, flowFamiliesOf().length)
   let count = 0
   for (let a = 0; a < m; a++) for (let b = 0; b < m; b++) for (let c = 0; c < m; c++) if (a !== b && b !== c && a !== c && MerkabaFormulas.trinity(a, b, c).holds) count++
   return String(count)

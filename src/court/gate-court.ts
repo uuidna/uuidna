@@ -12,6 +12,7 @@
  *
  * Connector: { court: true } | { trial: true } | { court|trial, case, flags?, digest?, mode? }.
  */
+import { floorOf, maxOf, minOf } from '../exact.js'
 import { AccessFormulas } from '../families/access/index.js'
 import { CloudFormulas } from '../families/cloud/index.js'
 import { CombinatoricsFormulas } from '../families/combinatorics/index.js'
@@ -118,13 +119,13 @@ export const gateCourtTrialOf = (input: {
 }): GateCourtCase => {
   const confidence =
     typeof input.confidence === 'number' && Number.isSafeInteger(input.confidence)
-      ? Math.max(0, Math.min(100, input.confidence))
+      ? maxOf(0, minOf(100, input.confidence))
       : input.gate.holds
         ? 100
         : 0
   const required =
     typeof input.required === 'number' && Number.isSafeInteger(input.required)
-      ? Math.max(0, Math.min(100, input.required))
+      ? maxOf(0, minOf(100, input.required))
       : BALANCE
   const trial = CourtFormulas.standard(confidence, required)
   const again = CourtFormulas.standard(confidence, required)
@@ -140,8 +141,8 @@ export const gateCourtTrialOf = (input: {
   // safety floor, upheld against the author too; law.violation(against) is work against the order; law.redirected is
   // the measure the order lost to the required bar; law.remedy is what a lead is owed. Nothing is refused: a floor or
   // framework failure routes the matter to a LEAD in its forum, with its remedy owed — the court handles it, legally.
-  const harm = typeof input.harm === 'number' && Number.isSafeInteger(input.harm) ? Math.max(0, input.harm) : 0
-  const against = typeof input.against === 'number' && Number.isSafeInteger(input.against) ? Math.max(0, input.against) : 0
+  const harm = typeof input.harm === 'number' && Number.isSafeInteger(input.harm) ? maxOf(0, input.harm) : 0
+  const against = typeof input.against === 'number' && Number.isSafeInteger(input.against) ? maxOf(0, input.against) : 0
   const lawful = LawFormulas.lawful(harm)
   const violation = LawFormulas.violation(against)
   const redirected = LawFormulas.redirected(required, confidence)
@@ -199,10 +200,10 @@ export const connectBillGateOf = (): GateCourtCase => {
   const doors = tools.length
   const qpuPrefixed = tools.filter((t) => t.name.startsWith('qpu_')).length
   const billHolds = doors <= 16 && listBytes < 16384 && qpuPrefixed === 0
-  const measure = CloudFormulas.storage(doors, Math.max(1, listBytes))
+  const measure = CloudFormulas.storage(doors, maxOf(1, listBytes))
   const gate = callOf(
     'cloud.storage',
-    [doors, Math.max(1, listBytes)],
+    [doors, maxOf(1, listBytes)],
     { ...measure, holds: billHolds && measure.holds === true },
     'cloud',
   )
@@ -227,19 +228,19 @@ export const discoverCapacityGateOf = (): GateCourtCase & {
 } => {
   const faces = facesOf().faces
   const families = hexFamiliesOf().size
-  const scale = CloudFormulas.scale(families, Math.max(1, faces))
+  const scale = CloudFormulas.scale(families, maxOf(1, faces))
   const nodes = Number(scale.value)
   // THE CLAIM THIS CASE DECIDES IS THE SEAL-WAVE PATH: the registry is covered by ⌈families/faces⌉ passes of one faces
   // window each. The earlier full-registry claim (all families in ONE window, nodes <= 1) was false: 1171 families over
   // 14 faces need 84 windows, and a Lean theorem in the deposit decides that. It is retired here, not made to pass.
-  const covers = nodes * Math.max(1, faces) >= families && scale.holds === true
-  const gate = callOf('cloud.scale', [families, Math.max(1, faces)], { ...scale, holds: covers }, 'cloud')
+  const covers = nodes * maxOf(1, faces) >= families && scale.holds === true
+  const gate = callOf('cloud.scale', [families, maxOf(1, faces)], { ...scale, holds: covers }, 'cloud')
   const trial = gateCourtTrialOf({
     case: 'discover.capacity',
     gate,
     confidence: covers ? 100 : 0,
     note: covers
-      ? `seal-wave covers the registry: ${nodes} passes of ${Math.max(1, faces)} faces hold ${families} families; the single-window claim is retired`
+      ? `seal-wave covers the registry: ${nodes} passes of ${maxOf(1, faces)} faces hold ${families} families; the single-window claim is retired`
       : 'seal-wave does not cover the registry: passes times faces is below the family count',
   })
   return {
@@ -255,7 +256,7 @@ export const accessScreenGateOf = (flags: number): GateCourtCase => {
   const screen = AccessFormulas.screen(flags)
   const gate = callOf('access.screen', [flags], screen, 'access')
   const passed = Number(screen.value)
-  const confidence = screen.holds ? 100 : Math.floor((passed * 100) / 5)
+  const confidence = screen.holds ? 100 : floorOf((passed * 100) / 5)
   return gateCourtTrialOf({
     case: 'access.screen',
     gate,
@@ -317,10 +318,10 @@ export const priceRelationGateOf = (input: {
   measure: number | null
 }): GateCourtCase => {
   const confidence = input.legsHold && input.bareCount === 0 ? 100 : input.legsHold ? 75 : 0
-  const measure = CloudFormulas.cost(1, Math.max(0, input.measure ?? 0))
+  const measure = CloudFormulas.cost(1, maxOf(0, input.measure ?? 0))
   const gate = callOf(
     'cloud.cost',
-    [1, Math.max(0, input.measure ?? 0)],
+    [1, maxOf(0, input.measure ?? 0)],
     { ...measure, holds: input.legsHold },
     'cloud',
   )
@@ -384,8 +385,8 @@ export const gateCourtOf = (args: GateCourtArgs = {}) => {
     : cases
   const held = selected.filter((c) => c.holds)
   const n = selected.length
-  const comb = CombinatoricsFormulas.combinations(Math.max(1, n), 1)
-  const bin = CombinatoricsFormulas.binomial(Math.min(4, Math.max(1, n)))
+  const comb = CombinatoricsFormulas.combinations(maxOf(1, n), 1)
+  const bin = CombinatoricsFormulas.binomial(minOf(4, maxOf(1, n)))
   const stable = selected.every((c) => c.fidelity.holds === true && c.fidelity.value === 1 && c.standing.holds === true)
   return {
     kind: 'gate-court' as const,

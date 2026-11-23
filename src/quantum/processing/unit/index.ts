@@ -6,6 +6,7 @@
 /** COMPUTATIONAL RECEIPTS. Every gate primitive and measurement appends the fold of the amplitude vector it produced, so a
  * test that computed quantum state carries a receipt and a test that computed none carries none. FNV-1a 64 over the
  * decimal amplitudes; BigInt only. Never Math. The reporter reads this ledger per test (isolation none). */
+import { floorOf, maxOf, minOf, roundOf, truncOf } from '../../../exact.js'
 import { leanSource, leanToolchain } from './lean.js'
 import { packageVersion } from './version.js'
 import { sealedStandards } from './standards.js'
@@ -1710,10 +1711,10 @@ const measureOf = (amps: bigint[], optional = quantumModeOf(), shots = mintOf(n)
   // the shots are tallied deterministically: each outcome takes its share of the shots, and the shares left over go to the
   // largest remainders (ties by index), so the tally always sums to the shots asked
   const exact = counts.map((row) => (weight > 0 ? (shots * row.w) / weight : 0))
-  const tally = counts.map((row, k) => ({ i: row.i, n: Math.floor(exact[k]!) }))
+  const tally = counts.map((row, k) => ({ i: row.i, n: floorOf(exact[k]!) }))
   const left = shots - tally.reduce((sum, row) => sum + row.n, n - n)
   counts
-    .map((row, k) => ({ k, rest: exact[k]! - Math.floor(exact[k]!), i: row.i }))
+    .map((row, k) => ({ k, rest: exact[k]! - floorOf(exact[k]!), i: row.i }))
     .sort((a, b) => b.rest - a.rest || a.i - b.i)
     .slice(n - n, left)
     .forEach((row) => { tally[row.k]!.n += 1 })
@@ -4287,7 +4288,7 @@ export const messageOf = (send?: { lane?: unknown; body?: unknown }) => {
   if (jsonBytesOf(stored) > found * lanes) {
     return { ...catalog, accepted: false as const, denied: 'heap' as const, lane, hop, holds: false as const }
   }
-  if (isBinary && amplitudeCount > Math.pow(2, 33)) {
+  if (isBinary && amplitudeCount > 2 ** 33) {
     // Binary limit: theorem quantum bounds the amplitude count by mintOf(bits + seed) = 2^(32+1) = 2^33
     return { ...catalog, accepted: false as const, denied: 'amplitude' as const, lane, hop, holds: false as const }
   }
@@ -7088,7 +7089,7 @@ export const teachingPairsOf = (teachings: readonly QpuTeaching[] = QPU_TEACHING
         swap,
         /** Which direction is missing, named, because "not entangled" is not something a reader can act on. */
         owes: swap === 'application' ? (fromPractice.length > n - n ? 'theory to practice' : 'practice to theory') : undefined,
-        earliest: years.length > n - n ? Math.min(...years) : undefined,
+        earliest: years.length > n - n ? minOf(...years) : undefined,
         fromPractice,
         fromTheory,
         cited: rows.length,
@@ -7331,7 +7332,7 @@ export const callOfUuid = (uuid: string) => {
   if (surface === undefined) {
     return { kind: 'combinatorial-call' as const, uuid: String(uuid), hex, door: null, index, left: null, right: null, verified: false }
   }
-  const left = surface.lefts[Math.floor(index / surface.rights.length)] ?? null
+  const left = surface.lefts[floorOf(index / surface.rights.length)] ?? null
   const right = surface.rights[index % surface.rights.length] ?? null
   const verified = left !== null && right !== null && callUuidOf(surface.door, left, right) === String(uuid).toLowerCase()
   return { kind: 'combinatorial-call' as const, uuid: String(uuid), hex, door: surface.door, index, left, right, verified }
@@ -7676,7 +7677,7 @@ export const citationsLiveOf = async (from = n - n, read = citationsOf()) => {
     unreached: rows.filter((row) => !row.live && row.doi !== undefined).length,
     /* The reading is sound when every row is accounted for — NOT when every citation resolved. A refusal by
      * Crossref must not read as a corpus full of bad identifiers. */
-    holds: rows.length === Math.min(faces.faces, Math.max(none, read.citations.length - from)) && reached.every((row) => row.status !== lost),
+    holds: rows.length === minOf(faces.faces, maxOf(none, read.citations.length - from)) && reached.every((row) => row.status !== lost),
   }
 }
 
@@ -7845,7 +7846,7 @@ export const natureOf = (teaching = teachingPairsOf(), mixed = mixedOf()) => {
     supported: undecided === none && oneWay === none && entangled === all.length,
     openToIt: oneWay === none,
     /** Of the pairs anyone has cited at all, the share that teach both ways — thousandths, so it is an integer. */
-    whereEvidenced: evidenced > none ? Math.round((entangled * ten * ten * ten) / evidenced) : none,
+    whereEvidenced: evidenced > none ? roundOf((entangled * ten * ten * ten) / evidenced) : none,
     counters: all.filter((row) => row.swap === 'application').map((row) => `${row.left} and ${row.right}`),
     holds: entangled + oneWay + undecided === all.length && all.length === teaching.pairs.length + mixed.pairs.length,
   }
@@ -10827,7 +10828,7 @@ export const hexRunOf = async (uuid: string, referrer?: string, env?: QpuEnv, op
   try {
     for (const name of d.program) {
       const f = formulas.find((x) => x.name === name)!
-      const args = [typeof acc === 'bigint' ? acc : BigInt(Math.max(n - n, Math.trunc(Number(acc)) || n - n)), ...params.slice(seed)]
+      const args = [typeof acc === 'bigint' ? acc : BigInt(maxOf(n - n, truncOf(Number(acc)) || n - n)), ...params.slice(seed)]
       const out = await f.run(args)
       const value = out && typeof out === 'object' && 'value' in (out as object) ? (out as { value: unknown }).value : out
       if (out && typeof out === 'object' && 'holds' in (out as object)) holds = holds && (out as { holds: unknown }).holds === true
@@ -10850,7 +10851,7 @@ export const hexRunOf = async (uuid: string, referrer?: string, env?: QpuEnv, op
         }
         if (named !== undefined) reading.next = named
       }
-      steps.push({ formula: name, args: args.slice(n - n, Math.max(seed, f.arity)).map(String), value: typeof value === 'bigint' ? value.toString() : value, ...(reading ? { reading } : {}) })
+      steps.push({ formula: name, args: args.slice(n - n, maxOf(seed, f.arity)).map(String), value: typeof value === 'bigint' ? value.toString() : value, ...(reading ? { reading } : {}) })
       acc = typeof value === 'bigint' ? value : value
     }
     const value = typeof acc === 'bigint' ? acc.toString() : acc

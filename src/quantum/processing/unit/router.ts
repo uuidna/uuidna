@@ -118,7 +118,7 @@ export const worker = {
       return new Response(row.body, { status: found, headers: { ...headers, ...routeHeaders, etag: row.etag, ...revalidated } })
     }
     // THE SELF-PROOF IS A BUILD/BOOT INVARIANT, NOT A PER-REQUEST COST. integrityOf runs quantumOf (the Shor
-    // state-vector simulation) and leanOf (all 204 theorem holds) — together ~5.6s on a cold isolate. Running them in
+    // state-vector simulation) and leanOf (every theorem hold) — together ~5.6s on a cold isolate. Running them in
     // this gate on every isolate's FIRST request blew the Worker's CPU budget before any route resolved: 1102 on every
     // door (even static /qpu.css), the response never completed, nothing cached, so every isolate stayed cold — a death
     // spiral. The unit still proves itself end to end — at /, /prove, /ready, /lean, and in CI (boot --prove gates the

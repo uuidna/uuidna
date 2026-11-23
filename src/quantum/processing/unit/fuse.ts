@@ -1,4 +1,5 @@
 // Cooled out of index.ts by the heat family (scripts/cool.mjs): schemaMethodsOf, fuseOf, graphStateOf, qpuComposeOf, composeLiveOf, probeableOf, probeLiveOf, apisLiveOf, crossOf.
+import { ceilOf, maxOf, minOf } from '../../../exact.js'
 import {
   QPU_EXPERIMENTS,
   coins,
@@ -111,7 +112,7 @@ export const graphStateOf = (qubits: number, edges: ReadonlyArray<{ i: number; j
   const right = [...Array(qubits).keys()].filter((v) => !cut(v))
   const col = new Map(right.map((v, k) => [v, k]))
   const row = new Map(left.map((v, k) => [v, k]))
-  const words = Math.ceil(right.length / 32) || 1
+  const words = ceilOf(right.length / 32) || 1
   const rows = left.map(() => new Uint32Array(words))
   for (const { i, j } of edges) {
     const [a, b] = row.has(i) && col.has(j) ? [i, j] : row.has(j) && col.has(i) ? [j, i] : [-1, -1]
@@ -131,7 +132,7 @@ export const graphStateOf = (qubits: number, edges: ReadonlyArray<{ i: number; j
   }
   const degree = new Array<number>(qubits).fill(0)
   for (const { i, j } of edges) { degree[i]!++; degree[j]!++ }
-  return { kind: 'graph-state' as const, qubits, edges: edges.length, stabilizers: qubits, isolated: degree.filter((d) => d === 0).length, cut: { left: left.length, right: right.length }, ebits: rank, bound: Math.min(left.length, right.length) }
+  return { kind: 'graph-state' as const, qubits, edges: edges.length, stabilizers: qubits, isolated: degree.filter((d) => d === 0).length, cut: { left: left.length, right: right.length }, ebits: rank, bound: minOf(left.length, right.length) }
 }
 
 /**
@@ -261,7 +262,7 @@ export const apisLiveOf = async (from = n - n, howMany = facesOf().faces) => {
   const names = Object.keys(catalogue).sort()
   /* A CALLER MAY ASK FOR FEWER. A door that also reads CERN has already spent seventeen of its fifty
    * subrequests before it gets here, so the door asks for `rays` and a direct caller may ask for `faces`. */
-  const window = names.slice(from, from + Math.min(howMany, faces.faces))
+  const window = names.slice(from, from + minOf(howMany, faces.faces))
   const rows: { api: string; spec: string; live: boolean; methods: number }[] = []
   const methods: QpuMethod[] = []
   for (const api of window) {
@@ -290,7 +291,7 @@ export const apisLiveOf = async (from = n - n, howMany = facesOf().faces) => {
     reached: rows.filter((row) => row.live).length,
     /* Sound when every sampled name was accounted for — NOT when every schema was reached. A registry entry
      * whose spec is gone is a fact about that entry. */
-    holds: rows.length === Math.min(Math.min(howMany, faces.faces), Math.max(none, names.length - from)) && schemaMethodsHolds(methods),
+    holds: rows.length === minOf(minOf(howMany, faces.faces), maxOf(none, names.length - from)) && schemaMethodsHolds(methods),
   }
 }
 
@@ -331,7 +332,7 @@ export const crossOf = (rows: readonly QpuCrossRow[], within = false, vocabulary
       uuid: addressable ? callUuidOf('mixed', left, right) : undefined,
       swap,
       owes: swap === 'application' ? (forward.length > none ? 'backward' : 'forward') : undefined,
-      earliest: years.length > none ? Math.min(...years) : undefined,
+      earliest: years.length > none ? minOf(...years) : undefined,
       forward,
       backward,
       cited: held.length,

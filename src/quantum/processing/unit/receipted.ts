@@ -9,6 +9,7 @@ import { appendFileSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
 import { join } from 'node:path'
 import { test as nodeTest, type TestContext, type TestOptions } from 'node:test'
+import { ilog2 } from '../../../exact.js'
 import { foreignReadsOf, qpuMintReceiptOf, mintScopeOpenOf, qpuReceiptFoldOf, receiptLedgerOf, servedLedgerOf } from './index.js'
 
 /** One receipts file PER RUN, named by the run: a test worker's parent is the `node --test` process the reporter runs in,
@@ -173,7 +174,7 @@ const receipted = (name: string, fn: Fn) => async (t: TestContext): Promise<void
     let qubits = 0
     let dim = '0'
     for (const r of slice) {
-      const q = r.qubits ?? Math.log2(r.dim)
+      const q = r.qubits ?? ilog2(r.dim)
       const key = Number.isSafeInteger(r.dim) ? String(r.dim) : `2^${q}`
       dims[key] = (dims[key] ?? 0) + 1
       if (q > qubits) {

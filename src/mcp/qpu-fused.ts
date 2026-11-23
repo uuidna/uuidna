@@ -1,3 +1,4 @@
+import { ceilOf, floorOf, maxOf, minOf } from '../exact.js'
 import './involute.js'
 import './shadcn.js'
 import './job.js'
@@ -174,12 +175,12 @@ const nibbleWeightOf = (fold: string): number => {
 }
 const hammingOf = (left: string, right: string): number => {
   let d = 0
-  const span = Math.min(left.length, right.length)
+  const span = minOf(left.length, right.length)
   for (let i = 0; i < span; i++) d += NIBBLE_WEIGHT[(parseInt(left[i]!, 16) ^ parseInt(right[i]!, 16)) & 15] ?? 0
   return d
 }
 /** plasma.hue(distance, 64): degrees on the wheel. Distance 0 sits at hue 0. */
-const hueOf = (distance: number): number => (distance >= 0 && distance <= HUE_BITS ? Math.floor((distance * 360) / HUE_BITS) : 0)
+const hueOf = (distance: number): number => (distance >= 0 && distance <= HUE_BITS ? floorOf((distance * 360) / HUE_BITS) : 0)
 const collectionAskedOf = (asked: Set<string>): (typeof PAYLOAD_MCP_COLLECTIONS)[number] | undefined =>
   PAYLOAD_MCP_COLLECTIONS.find((slug) => slug.split('-').every((word) => asked.has(word)))
 /** Integers only. A name, an email, an address and a Referer are strings and do not enter the fold. */
@@ -538,7 +539,7 @@ const reading = async (source: string, a: Args, env?: QpuEnv, auth?: string | nu
     const reads: Awaited<ReturnType<typeof apiCallOf>>[] = []
     let cursor = from
     // take: read at most that many APIs from the cursor, so a small job is one slice; the reply names the next cursor
-    const stop = typeof a.take === 'number' && a.take > 0 ? Math.min(named.length, from + Math.floor(a.take)) : named.length
+    const stop = typeof a.take === 'number' && a.take > 0 ? minOf(named.length, from + floorOf(a.take)) : named.length
     while (cursor < stop) {
       const slice = named.slice(cursor, cursor + faces)
       const loaded = await Promise.all(slice.map(async (name) => apiOf(name)))
@@ -639,7 +640,7 @@ const reading = async (source: string, a: Args, env?: QpuEnv, auth?: string | nu
     const fold = foldOf(`${formula}=${value}`)
     const named = collectionAskedOf(asked)
     const content = named ? await payloadContentFoldOf(env, auth, named) : undefined
-    const distance = content ? Math.min(hammingOf(fold, content), HUE_BITS) : Math.min(nibbleWeightOf(fold), HUE_BITS)
+    const distance = content ? minOf(hammingOf(fold, content), HUE_BITS) : minOf(nibbleWeightOf(fold), HUE_BITS)
     const live = { formula, value, fold, hue: hueOf(distance), hex, holds: r.holds === true }
     return { source, url: `${(qpuCiteOf() as { href: string }).href}/${hex}`, reading: live, expected: { holds: true }, agrees: r.holds === true }
   }
@@ -653,7 +654,7 @@ const reading = async (source: string, a: Args, env?: QpuEnv, auth?: string | nu
     const body = (await get(url).then((x) => x.json()).catch(() => null)) as { hits?: { total?: { value?: number } | number; hits?: { id?: number; metadata?: { title?: string; distribution?: { number_events?: number; number_files?: number } } }[] } } | null
     const hits = body?.hits?.hits ?? []
     const total = typeof body?.hits?.total === 'object' ? body?.hits?.total?.value : body?.hits?.total
-    const leads = hits.map((h) => { const ev = h.metadata?.distribution?.number_events, fi = h.metadata?.distribution?.number_files; const rel = ev && fi && fi > 0 ? { q: Math.floor(ev / fi), r: ev % fi, check: `${fi} · ${Math.floor(ev / fi)} + ${ev % fi} = ${ev}` } : undefined; return { id: h.id, title: (h.metadata?.title ?? '').slice(0, 80), events: ev, files: fi, ...(rel ? { relation: rel } : {}) } })
+    const leads = hits.map((h) => { const ev = h.metadata?.distribution?.number_events, fi = h.metadata?.distribution?.number_files; const rel = ev && fi && fi > 0 ? { q: floorOf(ev / fi), r: ev % fi, check: `${fi} · ${floorOf(ev / fi)} + ${ev % fi} = ${ev}` } : undefined; return { id: h.id, title: (h.metadata?.title ?? '').slice(0, 80), events: ev, files: fi, ...(rel ? { relation: rel } : {}) } })
     const withCounts = leads.filter((l) => l.relation)
     const live = { total, page, ...(page * facesOf().faces < (total ?? 0) ? { next: page + 1 } : {}), read: leads.length, withCounts: withCounts.length, leads }
     return { source, url: 'https://opendata.cern.ch', reading: live, expected: { records: '>= 1' }, agrees: leads.length > 0 }
@@ -778,7 +779,7 @@ const reading = async (source: string, a: Args, env?: QpuEnv, auth?: string | nu
     })
     const frontier = [...new Set(leads.flatMap((l) => l.subjects))]
     const live = {
-      ...(ranging ? { family, from, next: (from + 1) % Math.max(fams.length, 1), families: fams.length } : { query: q }),
+      ...(ranging ? { family, from, next: (from + 1) % maxOf(fams.length, 1), families: fams.length } : { query: q }),
       count: leads.length,
       subjects: frontier.slice(0, faces * 2),
       numbers: [...new Set(leads.flatMap((l) => l.numbers))].slice(0, faces),
@@ -1026,7 +1027,7 @@ const reading = async (source: string, a: Args, env?: QpuEnv, auth?: string | nu
     }
     // the formula's direct read of one section — no feed cursor, holds on pages found
     if (typeof a.category === 'number') return vocabularyOf(a.category, a.category, -1)
-    const from = typeof a.from === 'number' && a.from >= 0 ? Math.floor(a.from) : 0
+    const from = typeof a.from === 'number' && a.from >= 0 ? floorOf(a.from) : 0
     if (from === 0) {
       const [sections, templates, examples] = await Promise.all([dirsOf('docs'), dirsOf('templates'), dirsOf('examples')])
       const reading = { part: 0, of: 'map', repo, docs: sections.length, sections, templates, examples, next: 1, feed: 'next payload config: the map — docs sections, starter templates and examples' }
@@ -1082,7 +1083,7 @@ const reading = async (source: string, a: Args, env?: QpuEnv, auth?: string | nu
       return (Array.isArray(x) ? x : []).filter((r) => r && !r.archived).slice(0, facesOf().faces * L.tenOf(L.seed))
     }
     const classOf = (s: string) => (/template|starter|example/.test(s) ? 'template' : /sdk|^wrangler$|workers-sdk/.test(s) ? 'sdk' : /agent/.test(s) ? 'agent' : /(^|-)ai(-|$)|workers-ai|vectorize|rag|vector/.test(s) ? 'ai' : /doc/.test(s) ? 'docs' : /next|pages|vite|remix|nuxt|astro|svelte|react|vue/.test(s) ? 'framework' : 'repo')
-    const from = typeof a.from === 'number' && a.from >= 0 ? Math.floor(a.from) : 0
+    const from = typeof a.from === 'number' && a.from >= 0 ? floorOf(a.from) : 0
     if (from === 0) {
       // no family cross here — crossing every repo against 1134 families is the walk's job, one repo at a time, so the
       // map stays within a fast budget; the map is the repos, their kind and the leads
@@ -1324,7 +1325,7 @@ export class DataFormulas {
     const slice = k === 0 ? (await dataSourcesOf()).slice(f * faces, (f + 1) * faces) : []
     const datasets = (await Promise.all(slice.map((s) => dataOf(s.source, s.args).catch(() => null)))).filter((x) => x !== null).length
     const read = (r.reading?.read ?? 0) + datasets
-    return dataFormula('data-deep', 'deep', k ? [f, k] : [f], `deep(${f}, ${k}) = |APIs of ${family} read in slice ${k}| + |datasets of slice ${f} read|`, read, read > 0 || (r.reading?.matched ?? 0) === 0, 'https://apis.guru and every dataset', { family, matched: r.reading?.matched ?? 0, apisRead: r.reading?.read ?? 0, datasets, of: slice.length, ...(typeof r.reading?.next === 'number' ? { next: Math.ceil(r.reading.next / faces) } : {}) })
+    return dataFormula('data-deep', 'deep', k ? [f, k] : [f], `deep(${f}, ${k}) = |APIs of ${family} read in slice ${k}| + |datasets of slice ${f} read|`, read, read > 0 || (r.reading?.matched ?? 0) === 0, 'https://apis.guru and every dataset', { family, matched: r.reading?.matched ?? 0, apisRead: r.reading?.read ?? 0, datasets, of: slice.length, ...(typeof r.reading?.next === 'number' ? { next: ceilOf(r.reading.next / faces) } : {}) })
   }
   /** The CERN Open Data catalogue walked as leads: value how many records read, holds when one was. Each record's
    *  events = files · q + r is a candidate relation like the proven record 38; the slice's numbers feed the discovery. */
@@ -1423,7 +1424,7 @@ export class DataFormulas {
     // of each relation; gate.leads counts every way of the same discovery, so a later way is not an open lead.
     const total = [...hexFamiliesOf()].length
     const s = slice ?? { from: 0, count: facesOf().faces }
-    const from = Math.max(0, s.from ?? 0)
+    const from = maxOf(0, s.from ?? 0)
     const count = s.count ?? total
     const next = from + count < total ? from + count : undefined
     // the live inputs are every reading the doors made in this window (data.read, research, the site…): reading the

@@ -3,6 +3,7 @@
  * Ed25519 (RFC 8032) in TypeScript, from their formulas. Field and curve arithmetic is BigInt and not constant-time.
  */
 
+import { absOf, ceilOf, floorOf, minOf } from '../exact.js'
 export type Bytes = Uint8Array
 
 const enc = new TextEncoder()
@@ -30,7 +31,7 @@ export const randomBytes = (n: number): Bytes => {
   const web = globalThis.crypto
   if (typeof web?.getRandomValues !== 'function') throw new Error('randomBytes: no platform CSPRNG (Web Crypto getRandomValues) is available')
   const out = new Uint8Array(n)
-  for (let off = 0; off < n; off += 65536) web.getRandomValues(out.subarray(off, Math.min(n, off + 65536)))
+  for (let off = 0; off < n; off += 65536) web.getRandomValues(out.subarray(off, minOf(n, off + 65536)))
   return out
 }
 /** A deterministic generator with an explicit seed: the ChaCha20 stream with fast key erasure. The same seed gives the same
@@ -102,7 +103,7 @@ export const sha256 = (input: Bytes | string): Bytes => {
   blocks.set(data)
   blocks[data.length] = 0x80
   const view = new DataView(blocks.buffer)
-  view.setUint32(blocks.length - 8, Math.floor((data.length * 8) / 2 ** 32))
+  view.setUint32(blocks.length - 8, floorOf((data.length * 8) / 2 ** 32))
   view.setUint32(blocks.length - 4, (data.length * 8) >>> 0)
   const H = H256.slice()
   const W = new Uint32Array(64)
@@ -164,7 +165,7 @@ export const sha256Hex = (input: Bytes | string): string => hexOf(sha256(input))
 // MD5 (RFC 1321): identifiers only, collisions are practical
 // ---------------------------------------------------------------------------
 
-const MD5_K = Uint32Array.from({ length: 64 }, (_, i) => Math.floor(Math.abs(Math.sin(i + 1)) * 2 ** 32))
+const MD5_K = Uint32Array.from({ length: 64 }, (_, i) => floorOf(absOf(Math.sin(i + 1)) * 2 ** 32))
 const MD5_S = [7, 12, 17, 22, 5, 9, 14, 20, 4, 11, 16, 23, 6, 10, 15, 21]
 
 export const md5 = (input: Bytes | string): Bytes => {
@@ -174,7 +175,7 @@ export const md5 = (input: Bytes | string): Bytes => {
   blocks[data.length] = 0x80
   const view = new DataView(blocks.buffer)
   view.setUint32(blocks.length - 8, (data.length * 8) >>> 0, true)
-  view.setUint32(blocks.length - 4, Math.floor((data.length * 8) / 2 ** 32), true)
+  view.setUint32(blocks.length - 4, floorOf((data.length * 8) / 2 ** 32), true)
   const H = Uint32Array.of(0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476)
   for (let off = 0; off < blocks.length; off += 64) {
     let [a, b, c, d] = H as unknown as number[]
@@ -220,7 +221,7 @@ export const hkdf = (hash: HashName, ikm: Bytes, salt: Bytes, info: Bytes | stri
   let t = new Uint8Array()
   for (let i = 1, at = 0; at < length; i++, at += size) {
     t = hmac(hash, prk, concat(t, bytesOf(info), Uint8Array.of(i))) as Uint8Array<ArrayBuffer>
-    out.set(t.subarray(0, Math.min(size, length - at)), at)
+    out.set(t.subarray(0, minOf(size, length - at)), at)
   }
   return out
 }
@@ -323,7 +324,7 @@ const chachaBlock = (key: Uint32Array, counter: number, nonce: Uint32Array): Byt
 
 export const chacha20 = (key: Bytes, nonce: Bytes, counter: number, data: Bytes): Bytes => {
   if (key.length !== 32 || nonce.length !== 12) throw new Error('chacha20: key 32 bytes, nonce 12 bytes')
-  if (counter + Math.ceil(data.length / 64) > 2 ** 32) throw new Error('chacha20: block counter would wrap')
+  if (counter + ceilOf(data.length / 64) > 2 ** 32) throw new Error('chacha20: block counter would wrap')
   const k = words(key), n = words(nonce)
   const out = new Uint8Array(data.length)
   for (let at = 0, c = counter; at < data.length; at += 64, c++) {
@@ -519,7 +520,7 @@ export const pbkdf2Sha512 = (password: Bytes | string, salt: Bytes | string, ite
       u = hmac('sha512', password, u)
       for (let i = 0; i < 64; i++) t[i]! ^= u[i]!
     }
-    out.set(t.subarray(0, Math.min(64, length - at)), at)
+    out.set(t.subarray(0, minOf(64, length - at)), at)
   }
   return out
 }
@@ -529,7 +530,7 @@ export const randomInt = (min: number, max: number): number => {
   if (!Number.isSafeInteger(min) || !Number.isSafeInteger(max) || max <= min) throw new Error('randomInt: need safe integers with max > min')
   const span = BigInt(max - min)
   const bits = span.toString(2).length
-  const bytes = Math.ceil(bits / 8)
+  const bytes = ceilOf(bits / 8)
   for (;;) {
     const r = leToBig(randomBytes(bytes))
     const v = r % (1n << BigInt(bytes * 8))
@@ -581,7 +582,7 @@ export const generatePrime = (bits: number): bigint => {
   const top = 1n << BigInt(bits - 1)
   const mask = (1n << BigInt(bits)) - 1n
   for (;;) {
-    const n = ((leToBig(randomBytes(Math.ceil(bits / 8))) & mask) | top) | 1n
+    const n = ((leToBig(randomBytes(ceilOf(bits / 8))) & mask) | top) | 1n
     if (checkPrime(n)) return n
   }
 }

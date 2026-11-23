@@ -3,6 +3,7 @@
  * backed by access.* hex formulas + combinatorics.binomial(3)=8 mode states.
  * Not an ACL engine: one mode enum decides read/write/call, like chmod.
  */
+import { maxOf, minOf } from '../exact.js'
 import { AccessFormulas } from '../families/access/index.js'
 import { CombinatoricsFormulas } from '../families/combinatorics/index.js'
 import { CryptFormulas } from '../families/crypt/index.js'
@@ -73,8 +74,8 @@ export const modeAccessOf = (args: {
   const triad = typeof args.mode === 'number' && Number.isSafeInteger(args.mode) ? args.mode & 7 : 5 // default r-x (public read+call)
   const bits = modeBitsOf(triad)
   const whoIndex =
-    typeof args.who === 'number' ? Math.max(0, Math.min(3, args.who))
-    : typeof args.who === 'string' ? Math.max(0, UGO.indexOf(args.who as (typeof UGO)[number]))
+    typeof args.who === 'number' ? maxOf(0, minOf(3, args.who))
+    : typeof args.who === 'string' ? maxOf(0, UGO.indexOf(args.who as (typeof UGO)[number]))
     : 0
   const who = UGO[whoIndex]!
   // Map ugo → access role lattice: other→anon(0), user→user(1), group→admin(2) tenant admin, owner→super(3)

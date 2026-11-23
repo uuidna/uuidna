@@ -1,3 +1,4 @@
+import { floorOf, minOf } from '../../../exact.js'
 import { test } from './receipted.js'
 import assert from 'node:assert/strict'
 import worker, { foldOf, mcpToolsListOf } from './index.js'
@@ -5,7 +6,7 @@ import '../../../mcp/families.js'
 import { dataOf } from '../../../mcp/qpu-fused.js'
 
 const NIBBLE = [0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4]
-const hueOf = (distance: number) => Math.floor((distance * 360) / 64)
+const hueOf = (distance: number) => floorOf((distance * 360) / 64)
 
 /** Chat calls the plugin already mounted at /api/mcp. The public reading is the formula, the integer, the fold and the hue. */
 test('chat: ask calls Payload MCP findDocuments and exposes formula, integer, fold, hue', async () => {
@@ -45,7 +46,7 @@ test('chat: ask calls Payload MCP findDocuments and exposes formula, integer, fo
   assert.equal(reading.formula, 'plasma.hue')
   assert.equal(reading.value, '16')
   assert.equal(reading.fold, fold)
-  assert.equal(reading.hue, hueOf(Math.min(distance, 64)))
+  assert.equal(reading.hue, hueOf(minOf(distance, 64)))
   assert.equal(typeof reading.hue, 'number')
   const shown = JSON.stringify(reply)
   assert.equal(shown.includes('ada@example.com'), false)

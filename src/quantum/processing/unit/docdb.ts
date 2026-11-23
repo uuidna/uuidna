@@ -13,6 +13,7 @@
  * Not covered, and refused rather than guessed: aggregation pipelines, geo and text operators, transactions.
  */
 
+import { minOf } from '../../../exact.js'
 export type DocId = string
 export type Doc = { _id: DocId } & Record<string, unknown>
 export type Filter = Record<string, unknown>
@@ -110,7 +111,7 @@ export const compareValues = (a: unknown, b: unknown): number => {
   if (ra === 5) {
     const x = a as unknown[]
     const y = b as unknown[]
-    for (let i = 0; i < Math.min(x.length, y.length); i++) {
+    for (let i = 0; i < minOf(x.length, y.length); i++) {
       const c = compareValues(x[i], y[i])
       if (c !== 0) return c
     }

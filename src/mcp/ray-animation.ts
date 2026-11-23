@@ -5,6 +5,7 @@
  *  stable Open Graph image and a UI glyph, computed from the address, never a prefix on it and never drawn by hand. The
  *  ray and merkaba families are the geometry this renders; it adds no fact, it only shows the one the UUID already is. */
 
+import { roundOf } from '../exact.js'
 const NIBBLES = 32
 const TURN = 360
 const W = 1200 // the Open Graph image is 1.91:1 — a card every crawler and client reads
@@ -17,7 +18,7 @@ const nibblesOf = (uuid: string): number[] => {
   return [...hex].map((c) => parseInt(c, 16))
 }
 const esc = (s: unknown) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] ?? c)
-const q = (x: number) => Math.round(x * 100) / 100 // a short, deterministic decimal — no drift between runs
+const q = (x: number) => roundOf(x * 100) / 100 // a short, deterministic decimal — no drift between runs
 
 /** The UUID's animation as a standalone SVG string. Deterministic in (uuid, meta): a representation of running the
  *  program at `uuid`, selected by content type, never a separate address. */

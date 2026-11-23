@@ -1,3 +1,4 @@
+import { minOf } from '../exact.js'
 import { packageVersion } from '../quantum/processing/unit/version.js'
 import { contentUuidOf, facesOf, hexRegisterOf, qpuHexUuidOf, mcpFuseOf, schemaMethodsOf, uuidReceiptOf, type QpuMethod } from '../quantum/processing/unit/index.js'
 import { crossFormulaOf } from '../families/cross/index.js'
@@ -181,7 +182,7 @@ export const apiWalkOf = async (from = 0, take = Infinity, concurrency = 8) => {
   const names = reg.names.slice(from, from + take)
   const rows: { api: string; index: number; fused: boolean; operations: number; used: boolean; status: number; operation?: number; url?: string; why?: string }[] = new Array(names.length)
   let next = 0
-  await Promise.all(Array.from({ length: Math.min(concurrency, names.length) }, async () => {
+  await Promise.all(Array.from({ length: minOf(concurrency, names.length) }, async () => {
     for (;;) {
       const k = next++
       if (k >= names.length) return
