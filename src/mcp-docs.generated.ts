@@ -15842,7 +15842,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"route\":\"/\",\"kind\":\"page\",\"canonical\":\"https://uuidna.com/\",\"address\":\"94c962bf-9ef7-871b-b555-225d14f1a1a2\",\"title\":\"uuidna\",\"description\":\"uuidna — part of …"
+   "excerpt": "{\"route\":\"/\",\"kind\":\"page\",\"canonical\":\"https://uuidna.com/\",\"address\":\"94c962bf-9ef7-871b-b555-225d14f1a1a2\",\"title\":\"uuidna\",\"description\":\"uuidna: content-a…"
   }
  },
  "uuidna_hero_animation": {
@@ -18961,7 +18961,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
      "--help"
     ]
    },
-   "excerpt": "gen-mcp-docs sandbox: spawnSync refused while documenting (/opt/homebrew/Cellar/node/26.0.0/bin/node)"
+   "excerpt": "gen-mcp-docs sandbox: spawnSync refused while documenting (/Users/ceci/.local/share/node-v26.13.1-darwin-arm64/bin/node)"
   }
  },
  "uuidna_trial": {
@@ -19619,7 +19619,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "input": "2 + 2 = 4"
    },
-   "excerpt": "gen-mcp-docs sandbox: writeFileSync refused while documenting (/Users/ceci/github/uuidna/uuidna/.claude/worktrees/youthful-bose-81187e/lean/ask)"
+   "excerpt": "gen-mcp-docs sandbox: writeFileSync refused while documenting (/Users/ceci/github/uuidna/uuidna/lean/asked.json)"
   }
  },
  "uuidna_optimise": {
