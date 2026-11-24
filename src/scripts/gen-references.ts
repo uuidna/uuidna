@@ -61,17 +61,36 @@ const citeOf = (r: Partial<Reference>): string => {
     .filter(Boolean).map(dot).join(' ')
 }
 
+// THREE ANSWERS, NOT TWO. A registry that says 404 has answered: it does not know the DOI. A registry that times out,
+// rate-limits or errors has not answered, and writing that silence down as "unresolved" let one dropped request move
+// the committed record: on 2026-11-24 two consecutive runs each failed a DIFFERENT, long-registered DOI
+// (10.17487/RFC6962, then 10.1037/0003-066X.46.8.819), and each failed a landing on a record that had not changed.
+// So a DOI is unresolved only when every registry asked answered and none knew it; where one did not answer, the
+// committed record for that DOI stands and the run says so.
+const committed = ((): Map<string, Reference> => {
+  try {
+    const prior = JSON.parse(readFileSync(join(ROOT, 'lean', 'references.json'), 'utf8')) as { references?: Reference[] }
+    return new Map((prior.references ?? []).map((r) => [r.doi, r]))
+  } catch { return new Map() }
+})()
+const unanswered: string[] = []
+
 const resolve = async (doi: string): Promise<Reference> => {
+  let silent = false
   try {
     const r = await fetch('https://api.crossref.org/works/' + encodeURIComponent(doi), { headers: UA })
     if (r.ok) { const j = await r.json() as { message: Record<string, unknown> }
       const p = fromCrossref(j.message); return { doi, ...p, cite: citeOf(p), resolved: true } }
-  } catch { /* fall through to DataCite — a Crossref miss is not an answer */ }
+    if (r.status !== 404) silent = true
+  } catch { silent = true }
   try {
     const r = await fetch('https://api.datacite.org/dois/' + encodeURIComponent(doi), { headers: UA })
     if (r.ok) { const j = await r.json() as { data: { attributes: Record<string, unknown> } }
       const p = fromDataCite(j.data.attributes); return { doi, ...p, cite: citeOf(p), resolved: true } }
-  } catch { /* unresolved — reported, never invented */ }
+    if (r.status !== 404) silent = true
+  } catch { silent = true }
+  const prior = committed.get(doi)
+  if (silent && prior?.resolved) { unanswered.push(doi); return prior }
   return { doi, resolved: false }
 }
 
@@ -116,5 +135,6 @@ writeFileSync(join(ROOT, 'src', 'references-resolved.ts'), ts)
 
 const gaps = resolved.filter((r) => !r.resolved)
 console.log(`\n${gaps.length === 0 ? '✓' : '✗'} gen-references — ${resolved.length - gaps.length}/${resolved.length} resolved from the registry of record; receipt ${handleOf(toUuid(body))}`)
+if (unanswered.length) console.log(`  · ${unanswered.length} registry lookup(s) went unanswered; the committed record stands for: ${unanswered.join(', ')}`)
 if (gaps.length) { console.log('  UNRESOLVED (a DOI in prose that no registry knows — fix the prose, never the cache):')
   for (const g of gaps) console.log('    ' + g.doi); process.exitCode = 1 }
