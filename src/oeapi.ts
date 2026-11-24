@@ -25,12 +25,13 @@
 // and it carries NO personal data: no persons, groups, offerings, associations or results, because uuidna enrols
 // nobody and grades nobody — the kernel grades the PROOF, and a claim is tried at /trials. Every
 // absence is listed by name with the pointer to what stands in its place. Recomputable by anyone; integrity.
+import { SITE } from './site/index.js'
 import { theorems, skillGroups } from './theorems/index.js'
 import { publications } from './publish.js'
 import { courses as schoolCourses } from './school.js'
 import { toUuid, merkleFold } from './address.js'
 
-const HOST = 'https://uuidna.com'
+const HOST = SITE.origin
 /** the exact spec this projection's field names are vetted against (src/tests/oeapi.test.ts is the finder) */
 export const OEAPI_SPEC = 'https://github.com/open-education-api/specification/blob/main/oeapi.json'
 export const OEAPI_VERSION = '6.0'

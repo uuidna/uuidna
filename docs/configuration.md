@@ -30,7 +30,7 @@ the ISO paywall; the claim rests on the published previews and is stated as such
 
 | Worker | Config | Entry | Routes | Bindings |
 |---|---|---|---|---|
-| `uuidna` | `wrangler.toml` | `worker.js` | none declared | Service QPU → qpu<br>Email EMAIL<br>Assets ASSETS |
+| `uuidna` | `wrangler.toml` | `worker.js` | none declared | KV SCHOOL → fffcda5a880849abb39ea17dddfb9211<br>Service QPU → qpu<br>Email EMAIL<br>Assets ASSETS |
 | `uuidna-site` | `web/wrangler.jsonc` | `.open-next/worker.js` | none declared | D1 D1 → uuidna-site (26009cdf-da4d-4a71-94b9-1b9949f4966a)<br>R2 R2 → uuidna-site<br>Assets ASSETS |
 
 ### Shared storage

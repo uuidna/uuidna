@@ -1,0 +1,12 @@
+{
+<<<<<<<< HEAD:src/handles/81/d5/f4/78/index.json
+  "handle": "81d5f478",
+  "address": "81d5f478-ee34-8ee3-94d3-252a6a03742a",
+========
+  "handle": "f984a355",
+  "address": "f984a355-48d4-8a0b-96a9-2f082db83037",
+>>>>>>>> origin/main:src/handles/f9/84/a3/55/index.json
+  "kind": "publication",
+  "route": "/publications/forensics",
+  "identity": "forensics"
+}

@@ -1,0 +1,12 @@
+{
+<<<<<<<< HEAD:src/handles/76/22/0d/7e/index.json
+  "handle": "76220d7e",
+  "address": "76220d7e-ba94-80b2-ba09-29f6c5f95840",
+========
+  "handle": "590d2489",
+  "address": "590d2489-0cbf-89a3-97ec-5a0f390e8c2e",
+>>>>>>>> origin/main:src/handles/59/0d/24/89/index.json
+  "kind": "publication",
+  "route": "/publications/handle-store",
+  "identity": "handle-store"
+}

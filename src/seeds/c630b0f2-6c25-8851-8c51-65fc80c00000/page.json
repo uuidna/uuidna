@@ -2,7 +2,7 @@
   "file": "HandleStore.lean",
   "slug": "handlestore",
   "status": "usable",
-  "address": "95d31b0c-8ade-8776-aec4-af33d50a81ce",
+  "address": "6fa4d0c8-4c67-8e8b-9fb7-b5f22118c772",
   "page": {
     "root": {
       "type": "root",
@@ -37,7 +37,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "THE FOLDERS ARE THE NAME, NOT A ROUTE TO IT. Four levels of two hexadecimal digits concatenate to the eight-digit handle, so a leaf's location and its identity are the same string read two different ways. There is no lookup between them and nothing to fall out of step: 4 × 2 = 8. Measured over the store as it stands, the path spells the handle in 73,099 of 73,099 leaves."
+                  "text": "THE FOLDERS ARE THE NAME, NOT A ROUTE TO IT. Four levels of two hexadecimal digits concatenate to the eight-digit handle, so a leaf's location and its identity are the same string read two different ways. There is no lookup between them and nothing to fall out of step: 4 × 2 = 8. Measured over the store as it stands, the path spells the handle in 73,100 of 73,100 leaves."
                 }
               ]
             },
@@ -217,7 +217,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "AND THE CAPACITY IS NOT A CLAIM ABOUT WHAT IS WRITTEN. The store carries 73,099 leaves against 4,294,967,296 the addressing admits — decided here so the two numbers can never be quoted as one. A capacity describes what the scheme permits; an occupancy describes what exists; a ledger that let those drift together would be overstating itself by a factor of about 58,755."
+                  "text": "AND THE CAPACITY IS NOT A CLAIM ABOUT WHAT IS WRITTEN. The store carries 73,100 leaves against 4,294,967,296 the addressing admits — decided here so the two numbers can never be quoted as one. A capacity describes what the scheme permits; an occupancy describes what exists; a ledger that let those drift together would be overstating itself by a factor of about 58,754."
                 }
               ]
             },
@@ -227,7 +227,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "73099 < 2 ^ 32"
+                  "text": "73100 < 2 ^ 32"
                 }
               ]
             },
@@ -237,7 +237,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "theorem the_store_holds_far_less_than_it_admits : 73099 < 2 ^ 32 := by decide"
+                  "text": "theorem the_store_holds_far_less_than_it_admits : 73100 < 2 ^ 32 := by decide"
                 }
               ]
             }

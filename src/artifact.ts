@@ -46,12 +46,16 @@ function leavesOf(value: unknown, path = '', out: string[] = []): string[] {
     out.push(path + SEP + String(value))
     return out
   }
+  // THE LEAVES ARE THOSE OF THE BYTES WRITTEN, not of the value in memory. JSON drops a key whose value is undefined and
+  // writes null for an undefined array slot, so a leaf folded for either would seal a file that can never fold back to
+  // its own receipt: lean/quantum-advantage.json carried a proof.device set to undefined and read STALE on every audit for it.
   if (Array.isArray(value)) {
-    for (let i = 0; i < value.length; i++) leavesOf(value[i], path + '[' + i + ']', out)
+    for (let i = 0; i < value.length; i++) leavesOf(value[i] === undefined ? null : value[i], path + '[' + i + ']', out)
     return out
   }
   for (const key of Object.keys(value as Record<string, unknown>).sort()) {
     if (path === '' && (key === 'receipt' || key === 'crossed')) continue
+    if ((value as Record<string, unknown>)[key] === undefined) continue
     leavesOf((value as Record<string, unknown>)[key], path === '' ? key : path + '.' + key, out)
   }
   return out

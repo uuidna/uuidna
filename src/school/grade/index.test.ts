@@ -141,7 +141,8 @@ test('the workflow keeps untrusted code and the signing permission in different 
   assert.match(kernel, /persist-credentials: false/)
   assert.match(kernel, /actions\/cache\/restore@v4/)
   assert.doesNotMatch(kernel, /actions\/cache@/, 'the kernel job never saves a cache other workflows restore')
-  assert.match(kernel, /node dist\/scripts\/school-grade\.js school-verdicts\.json/)
+  // the kernel job reaches school-grade through the one door (2c581177ce, CI is a thin MCP client), not node directly
+  assert.match(kernel, /uuidna_ci '\{"step":"school-grade","args":"school-verdicts\.json"\}'/)
   assert.match(kernel, /actions\/upload-artifact@v7/)
   assert.match(postJob, /\n    needs: kernel\n/)
   assert.match(postJob, /\n    permissions:\n      id-token: write\n      contents: read\n    steps:/)

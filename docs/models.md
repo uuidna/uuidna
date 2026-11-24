@@ -7,7 +7,7 @@ description: All public live model data compared on the lattice's own instrument
 
 > A model's token is a **bet**: sampled, transient, billed per emission, gone when its window closes. The
 > uuidna unit is a **receipt**: minted, permanent, verified free. This page compares **every model in the
-> public feed** — 468 of them, read live from [openrouter.ai/api/v1/models (public, keyless)](https://openrouter.ai/api/v1/models) at the `src/os`
+> public feed** — 473 of them, read live from [openrouter.ai/api/v1/models (public, keyless)](https://openrouter.ai/api/v1/models) at the `src/os`
 > boundary and mirrored for anyone to recompute — and keeps each figure's honesty class visible:
 > **computed** (arithmetic, sealed in [lean/Models.lean](/theorem/llm_folds_to_hexbit_pairs)),
 > **reported** (the feed's published figures, never benchmarked here), or **UNVERIFIED** (no measurement
@@ -23,7 +23,7 @@ hexbits** ([`a_token_approximates_eight_hexbits`](/theorem/a_token_approximates_
   window, the 2,000,000-token widest included, is finite against the 2¹²⁸-state lattice the
   folds land in ([`every_context_is_finite_against_the_lattice`](/theorem/every_context_is_finite_against_the_lattice)). uuidna's side: 2^128 addressable states (32 hexbits per address), PERMANENT — the ledger outlives every context window.
 - **Speed**: the public feed publishes no throughput, so this page carries **no speed numbers at all** —
-  a column of guesses would be 468 fabricated citations. uuidna's own speed is of a different kind
+  a column of guesses would be 473 fabricated citations. uuidna's own speed is of a different kind
   and recomputable: mint/verify O(1) per receipt after a one-time kernel proof; no sampling loop (uuidna_gate_status recomputes live).
 - **Messaging** ([`speaking_an_address_costs_the_text`](/theorem/speaking_an_address_costs_the_text)): speaking a 128-bit address in text costs 288
   bits — 44% efficiency, identical for every model, because it is the text's cost. The table counts each
@@ -56,7 +56,7 @@ Fold your own — any text, any model's output — with `foldLlm()` in
 [`src/quantum/models`](https://github.com/uuidna/uuidna/tree/main/src/quantum/models), or mint the address
 live in the [terminal](/terminal).
 
-## The census — all 468 public models
+## The census — all 473 public models
 
 Windows and prices are the feed's **reported** figures (prices verbatim, per token, as published — labels,
 not numbers this page computes on); hexbit capacity and uuids/window are **computed** and sealed. Widest
@@ -111,23 +111,28 @@ window first.
 | `openai/gpt-6.1-terra-pro` | 1,050,000 | 8,400,000 | 116,666 | 0.000001 / 0.000005 |
 | `openai/gpt-6.1-terra-pro:batch` | 1,050,000 | 8,400,000 | 116,666 | 0.0000005 / 0.0000025 |
 | `openai/gpt-6.1-terra:batch` | 1,050,000 | 8,400,000 | 116,666 | 0.0000005 / 0.0000025 |
-| `xiaomi/mimo-v2.6-flash` | 1,050,000 | 8,400,000 | 116,666 | 0.00000014 / 0.00000028 |
-| `xiaomi/mimo-v2.6-pro` | 1,050,000 | 8,400,000 | 116,666 | 0.000000435 / 0.00000087 |
-| `~openai/gpt-astra-latest` | 1,050,000 | 8,400,000 | 116,666 | 0.00001 / 0.00005 |
+| `openai/gpt-6.2-astra` | 1,050,000 | 8,400,000 | 116,666 | 0.000008 / 0.00004 |
+| `openai/gpt-6.2-astra-pro` | 1,050,000 | 8,400,000 | 116,666 | 0.000008 / 0.00004 |
+| `openai/gpt-6.2-astra-pro:batch` | 1,050,000 | 8,400,000 | 116,666 | 0.000004 / 0.00002 |
+| `openai/gpt-6.2-astra:batch` | 1,050,000 | 8,400,000 | 116,666 | 0.000004 / 0.00002 |
+| `openai/gpt-6.2-sol` | 1,050,000 | 8,400,000 | 116,666 | 0.000002 / 0.00001 |
+| `openai/gpt-6.2-sol-pro` | 1,050,000 | 8,400,000 | 116,666 | 0.000002 / 0.00001 |
+| `openai/gpt-6.2-sol-pro:batch` | 1,050,000 | 8,400,000 | 116,666 | 0.000001 / 0.000005 |
+| `openai/gpt-6.2-sol:batch` | 1,050,000 | 8,400,000 | 116,666 | 0.000001 / 0.000005 |
+| `~openai/gpt-astra-latest` | 1,050,000 | 8,400,000 | 116,666 | 0.000008 / 0.00004 |
 | `~openai/gpt-luna-latest` | 1,050,000 | 8,400,000 | 116,666 | 0.0000001 / 0.0000005 |
 | `~openai/gpt-sol-latest` | 1,050,000 | 8,400,000 | 116,666 | 0.000002 / 0.00001 |
 | `~openai/gpt-terra-latest` | 1,050,000 | 8,400,000 | 116,666 | 0.000001 / 0.000005 |
-| `meituan/longcat-2.0` | 1,048,756 | 8,390,048 | 116,528 | 0.0000003 / 0.0000012 |
 | `deepseek/deepseek-v4-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.00000009 / 0.00000018 |
-| `deepseek/deepseek-v4-flash-0731` | 1,048,576 | 8,388,608 | 116,508 | 0.00000006 / 0.00000018 |
+| `deepseek/deepseek-v4-flash-0731` | 1,048,576 | 8,388,608 | 116,508 | 0.000000047 / 0.0000003 |
 | `deepseek/deepseek-v4-flash-0731:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000048 / 0.000000144 |
-| `deepseek/deepseek-v4-flash-vision-exp` | 1,048,576 | 8,388,608 | 116,508 | 0.00000044 / 0.00000132 |
-| `deepseek/deepseek-v4-pro` | 1,048,576 | 8,388,608 | 116,508 | 0.0000009 / 0.0000015 |
+| `deepseek/deepseek-v4-flash-vision-exp` | 1,048,576 | 8,388,608 | 116,508 | 0.0000002156 / 0.0000006468 |
+| `deepseek/deepseek-v4-pro` | 1,048,576 | 8,388,608 | 116,508 | 0.00000128 / 0.00000256 |
 | `deepseek/deepseek-v4-pro-0813` | 1,048,576 | 8,388,608 | 116,508 | 0.000000111 / 0.00000444 |
 | `deepseek/deepseek-v4.1-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.00000014 / 0.00000042 |
-| `deepseek/deepseek-v4.1-flash-1017` | 1,048,576 | 8,388,608 | 116,508 | 0.00000015 / 0.0000006 |
-| `deepseek/deepseek-v4.1-flash-1017:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000037 / 0.00000033 |
-| `deepseek/deepseek-v4.1-flash:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000112 / 0.000000336 |
+| `deepseek/deepseek-v4.1-flash-1017` | 1,048,576 | 8,388,608 | 116,508 | 0.00000003 / 0.0000002 |
+| `deepseek/deepseek-v4.1-flash-1017:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000035 / 0.000000149 |
+| `deepseek/deepseek-v4.1-flash:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.00000005 / 0.00000015 |
 | `fireworks/ember-1` | 1,048,576 | 8,388,608 | 116,508 | 0.000003 / 0.000015 |
 | `google/gemini-2.5-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.0000003 / 0.0000025 |
 | `google/gemini-2.5-flash-lite` | 1,048,576 | 8,388,608 | 116,508 | 0.0000001 / 0.0000004 |
@@ -157,8 +162,11 @@ window first.
 | `google/gemini-4-carbon:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000001 / 0.000005 |
 | `google/gemini-4-hydrogen` | 1,048,576 | 8,388,608 | 116,508 | 0.0000015 / 0.0000075 |
 | `google/gemini-4-hydrogen:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.00000075 / 0.00000375 |
+| `google/gemini-4-neon` | 1,048,576 | 8,388,608 | 116,508 | 0.000003 / 0.000015 |
+| `google/gemini-4-neon:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.0000015 / 0.0000075 |
 | `google/lyria-3-clip-preview` | 1,048,576 | 8,388,608 | 116,508 | 0 / 0 |
 | `google/lyria-3-pro-preview` | 1,048,576 | 8,388,608 | 116,508 | 0 / 0 |
+| `inclusionai/ling-3.1-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.000000075 / 0.000000225 |
 | `inclusionai/ling-3.2-flash:free` | 1,048,576 | 8,388,608 | 116,508 | 0 / 0 |
 | `meta/muse-ember` | 1,048,576 | 8,388,608 | 116,508 | 0.0000001 / 0.0000005 |
 | `meta/muse-spark-1.1` | 1,048,576 | 8,388,608 | 116,508 | 0.00000125 / 0.00000425 |
@@ -173,36 +181,42 @@ window first.
 | `mistralai/mistral-large-4-0` | 1,048,576 | 8,388,608 | 116,508 | 0.0000007 / 0.0000021 |
 | `moonshotai/kimi-k3` | 1,048,576 | 8,388,608 | 116,508 | 0.000000192 / 0.000016 |
 | `moonshotai/kimi-k3.1-pro` | 1,048,576 | 8,388,608 | 116,508 | 0.0000002403 / 0.0000084023 |
-| `moonshotai/kimi-k3.1-pro:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.0000007 / 0.000006 |
+| `moonshotai/kimi-k3.1-pro:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000372 / 0.000005583 |
 | `moonshotai/kimi-k3:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.00000228 / 0.0000114 |
-| `nvidia/nemotron-3.5-super-vl` | 1,048,576 | 8,388,608 | 116,508 | 0.00000015 / 0.0000005 |
-| `particle-ai/particle-1` | 1,048,576 | 8,388,608 | 116,508 | 0.00000006 / 0.0000005 |
+| `nvidia/nemotron-3.5-lightning` | 1,048,576 | 8,388,608 | 116,508 | 0.00000005 / 0.0000002 |
+| `nvidia/nemotron-3.5-super-vl` | 1,048,576 | 8,388,608 | 116,508 | 0.00000015 / 0.00000047 |
+| `particle-ai/particle-1` | 1,048,576 | 8,388,608 | 116,508 | 0.00000007 / 0.0000005 |
 | `particle-ai/particle-1:free` | 1,048,576 | 8,388,608 | 116,508 | 0 / 0 |
 | `qwen/qwen3.8-2.4t-a95b` | 1,048,576 | 8,388,608 | 116,508 | 0.000002 / 0.000006 |
-| `reflection/beam-1.0-501b-a23b` | 1,048,576 | 8,388,608 | 116,508 | 0.0000003 / 0.000001 |
+| `reflection/beam-1.0-501b-a23b` | 1,048,576 | 8,388,608 | 116,508 | 0.00000025 / 0.000001 |
 | `ricursiveai/ripple-65b-preview` | 1,048,576 | 8,388,608 | 116,508 | 0.0000001 / 0.0000003 |
 | `tencent/hy4` | 1,048,576 | 8,388,608 | 116,508 | 0.000000417 / 0.0000012505 |
+| `tencent/hy4-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.000000035 / 0.0000001405 |
 | `tencent/hy4-preview` | 1,048,576 | 8,388,608 | 116,508 | 0.000000834 / 0.000002501 |
+| `thinkingmachines/inkling` | 1,048,576 | 8,388,608 | 116,508 | 0.000001 / 0.00000405 |
+| `thinkingmachines/inkling-2-mini` | 1,048,576 | 8,388,608 | 116,508 | 0.000000075 / 0.0000003 |
 | `thinkingmachines/inkling-2-small` | 1,048,576 | 8,388,608 | 116,508 | 0.0000003 / 0.000001 |
-| `thinkingmachines/inkling-2-small:free` | 1,048,576 | 8,388,608 | 116,508 | 0 / 0 |
 | `unbiased/pareto-26.10` | 1,048,576 | 8,388,608 | 116,508 | 0.0000008 / 0.0000032 |
 | `unbiased/pareto-26.10-preview` | 1,048,576 | 8,388,608 | 116,508 | 0.0000008 / 0.0000032 |
+| `xiaomi/mimo-v2.6-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.00000014 / 0.00000028 |
+| `xiaomi/mimo-v2.6-pro` | 1,048,576 | 8,388,608 | 116,508 | 0.000000435 / 0.00000087 |
 | `xiaomi/mimo-v2.6-pro-ultraspeed` | 1,048,576 | 8,388,608 | 116,508 | 0.00000435 / 0.0000087 |
-| `z-ai/glm-5.2` | 1,048,576 | 8,388,608 | 116,508 | 0.000000007 / 0.0000068 |
+| `z-ai/glm-5.2` | 1,048,576 | 8,388,608 | 116,508 | 0.00000062 / 0.00000242 |
+| `z-ai/glm-5.2:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000322 / 0.000000989 |
 | `z-ai/glm-5.3` | 1,048,576 | 8,388,608 | 116,508 | 0.0000000699 / 0.0000014 |
-| `z-ai/glm-5.3-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.0000000399 / 0.0000000784 |
-| `z-ai/glm-5.3-flash:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.00000005 / 0.00000018 |
+| `z-ai/glm-5.3-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.00000012 / 0.00000038 |
+| `z-ai/glm-5.3-flash:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000023 / 0.000000068 |
 | `z-ai/glm-5.3-flashx` | 1,048,576 | 8,388,608 | 116,508 | 0.00000037 / 0.00000125 |
 | `z-ai/glm-5.3-flashx-legal` | 1,048,576 | 8,388,608 | 116,508 | 0.00000037 / 0.00000125 |
-| `z-ai/glm-5.3:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.00000045 / 0.000002 |
-| `~deepseek/deepseek-flash-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.000000036 / 0.0000005 |
-| `~deepseek/deepseek-pro-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.0000000999 / 0.000008 |
-| `~deepseek/deepseek-v4-flash-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.0000000434 / 0.0000003 |
+| `z-ai/glm-5.3:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.00000028 / 0.000001249 |
+| `~deepseek/deepseek-flash-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.00000003 / 0.0000002 |
+| `~deepseek/deepseek-pro-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.0000000999 / 0.000005 |
+| `~deepseek/deepseek-v4-flash-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.000000047 / 0.0000003 |
 | `~google/gemini-flash-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.0000015 / 0.0000075 |
 | `~google/gemini-pro-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.000002 / 0.00001 |
 | `~moonshotai/kimi-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.0000001824 / 0.0000110055 |
 | `~unbiased/pareto-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.0000008 / 0.0000032 |
-| `~z-ai/glm-flash-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.0000000399 / 0.0000000784 |
+| `~z-ai/glm-flash-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.0000000356 / 0.0000000815 |
 | `~z-ai/glm-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.0000000699 / 0.0000014 |
 | `openai/gpt-4.1` | 1,047,576 | 8,380,608 | 116,397 | 0.000002 / 0.000008 |
 | `openai/gpt-4.1-mini` | 1,047,576 | 8,380,608 | 116,397 | 0.0000004 / 0.0000016 |
@@ -213,9 +227,8 @@ window first.
 | `writer/palmyra-x5` | 1,040,000 | 8,320,000 | 115,555 | 0.0000006 / 0.000006 |
 | `baidu/ernie-5.5-flash-preview:free` | 1,024,000 | 8,192,000 | 113,777 | 0 / 0 |
 | `baidu/ernie-light-dt-1.0-intl` | 1,024,000 | 8,192,000 | 113,777 | 0.00000113 / 0.00000394 |
-| `qwen/qwen3.8-27b` | 1,024,000 | 8,192,000 | 113,777 | 0.00000015 / 0.000001875 |
+| `qwen/qwen3.8-27b` | 1,024,000 | 8,192,000 | 113,777 | 0.000000035 / 0.0000015 |
 | `thedrummer/unslopnemo-12b` | 1,024,000 | 8,192,000 | 113,777 | 0.0000004 / 0.0000004 |
-| `xiaomi/mimo-v2.5-pro` | 1,024,000 | 8,192,000 | 113,777 | 0.000000435 / 0.00000087 |
 | `amazon/nova-2-lite-v1` | 1,000,000 | 8,000,000 | 111,111 | 0.0000003 / 0.0000025 |
 | `amazon/nova-premier-v1` | 1,000,000 | 8,000,000 | 111,111 | 0.0000025 / 0.0000125 |
 | `anthropic/claude-fable-5` | 1,000,000 | 8,000,000 | 111,111 | 0.00001 / 0.00005 |
@@ -244,7 +257,6 @@ window first.
 | `anthropic/claude-sonnet-5.5` | 1,000,000 | 8,000,000 | 111,111 | 0.000002 / 0.00001 |
 | `anthropic/claude-sonnet-5.5:batch` | 1,000,000 | 8,000,000 | 111,111 | 0.000001 / 0.000005 |
 | `anthropic/claude-sonnet-5:batch` | 1,000,000 | 8,000,000 | 111,111 | 0.000001 / 0.000005 |
-| `inclusionai/ling-3.1-flash` | 1,000,000 | 8,000,000 | 111,111 | 0.000000045 / 0.000000135 |
 | `nvidia/nemotron-3-ultra-550b-a55b:free` | 1,000,000 | 8,000,000 | 111,111 | 0 / 0 |
 | `nvidia/nemotron-3.5-lightning:free` | 1,000,000 | 8,000,000 | 111,111 | 0 / 0 |
 | `nvidia/nemotron-3.5-super-vl:free` | 1,000,000 | 8,000,000 | 111,111 | 0 / 0 |
@@ -264,7 +276,7 @@ window first.
 | `qwen/qwen3.8-max-0902` | 1,000,000 | 8,000,000 | 111,111 | 0.000002 / 0.000006 |
 | `qwen/qwen3.8-max-prime` | 1,000,000 | 8,000,000 | 111,111 | 0.000004 / 0.000012 |
 | `qwen/qwen3.8-omni-flash` | 1,000,000 | 8,000,000 | 111,111 | 0.00000015 / 0.00000047 |
-| `qwen/qwen4-max` | 1,000,000 | 8,000,000 | 111,111 | 0.0000015 / 0.0000045 |
+| `qwen/qwen4-max` | 1,000,000 | 8,000,000 | 111,111 | 0.000001425 / 0.000004275 |
 | `sakana/fugu-max` | 1,000,000 | 8,000,000 | 111,111 | 0.000002 / 0.000006 |
 | `sakana/fugu-ultra` | 1,000,000 | 8,000,000 | 111,111 | 0.000005 / 0.00003 |
 | `sakana/fugu-ultra-v2` | 1,000,000 | 8,000,000 | 111,111 | 0.000005 / 0.00003 |
@@ -275,14 +287,13 @@ window first.
 | `x-ai/grok-4.3` | 1,000,000 | 8,000,000 | 111,111 | 0.00000125 / 0.0000025 |
 | `x-ai/grok-4.3:batch` | 1,000,000 | 8,000,000 | 111,111 | 0.000001 / 0.000002 |
 | `xiaomi/mimo-v2.5` | 1,000,000 | 8,000,000 | 111,111 | 0.0000004 / 0.000002 |
-| `z-ai/glm-5.3-prime` | 1,000,000 | 8,000,000 | 111,111 | 0.0000028 / 0.0000088 |
+| `z-ai/glm-5.3-prime` | 1,000,000 | 8,000,000 | 111,111 | 0.00000168 / 0.00000528 |
 | `~anthropic/claude-fable-latest` | 1,000,000 | 8,000,000 | 111,111 | 0.000008 / 0.00004 |
 | `~anthropic/claude-haiku-latest` | 1,000,000 | 8,000,000 | 111,111 | 0.0000001 / 0.0000005 |
 | `~anthropic/claude-opus-latest` | 1,000,000 | 8,000,000 | 111,111 | 0.000004 / 0.00002 |
 | `~anthropic/claude-sonnet-latest` | 1,000,000 | 8,000,000 | 111,111 | 0.000002 / 0.00001 |
 | `meta-llama/llama-4-maverick` | 524,288 | 4,194,304 | 58,254 | 0.00000035 / 0.000001 |
 | `minimax/minimax-m3:batch` | 524,288 | 4,194,304 | 58,254 | 0.000000224 / 0.00000088 |
-| `thinkingmachines/inkling` | 524,288 | 4,194,304 | 58,254 | 0.000001 / 0.00000405 |
 | `thinkingmachines/inkling-small` | 524,288 | 4,194,304 | 58,254 | 0.00000045 / 0.0000012 |
 | `thinkingmachines/inkling-small:batch` | 524,288 | 4,194,304 | 58,254 | 0.00000036 / 0.00000096 |
 | `upstage/solar-mini4` | 524,288 | 4,194,304 | 58,254 | 0.00000005 / 0.0000002 |
@@ -345,11 +356,9 @@ window first.
 | `mistralai/mistral-medium-3-5` | 262,144 | 2,097,152 | 29,127 | 0.0000015 / 0.0000075 |
 | `mistralai/mistral-medium-3-5:batch` | 262,144 | 2,097,152 | 29,127 | 0.00000075 / 0.00000375 |
 | `mistralai/mistral-small-2603` | 262,144 | 2,097,152 | 29,127 | 0.00000015 / 0.0000006 |
-| `moonshotai/kimi-k2-0905` | 262,144 | 2,097,152 | 29,127 | 0.0000006 / 0.0000025 |
-| `moonshotai/kimi-k2-thinking` | 262,144 | 2,097,152 | 29,127 | 0.0000006 / 0.0000025 |
 | `moonshotai/kimi-k2.5` | 262,144 | 2,097,152 | 29,127 | 0.0000005 / 0.0000025 |
 | `moonshotai/kimi-k2.6` | 262,144 | 2,097,152 | 29,127 | 0.00000065 / 0.00000341 |
-| `moonshotai/kimi-k2.7-code` | 262,144 | 2,097,152 | 29,127 | 0.0000006 / 0.0000035 |
+| `moonshotai/kimi-k2.7-code` | 262,144 | 2,097,152 | 29,127 | 0.0000006 / 0.000003 |
 | `morph/morph-v3-fast` | 262,144 | 2,097,152 | 29,127 | 0.0000008 / 0.0000012 |
 | `morph/morph-v3-large` | 262,144 | 2,097,152 | 29,127 | 0.0000009 / 0.0000019 |
 | `morph/morph-v3-large:batch` | 262,144 | 2,097,152 | 29,127 | 0.00000045 / 0.00000095 |
@@ -359,16 +368,15 @@ window first.
 | `nex-agi/nex-n2.6` | 262,144 | 2,097,152 | 29,127 | 0.00000012 / 0.0000004 |
 | `nvidia/nemotron-3-nano-30b-a3b` | 262,144 | 2,097,152 | 29,127 | 0.00000006 / 0.00000024 |
 | `nvidia/nemotron-3-super-120b-a12b` | 262,144 | 2,097,152 | 29,127 | 0.000000075 / 0.0000004 |
-| `nvidia/nemotron-3-ultra-550b-a55b` | 262,144 | 2,097,152 | 29,127 | 0.0000006 / 0.0000024 |
-| `nvidia/nemotron-3.5-lightning` | 262,144 | 2,097,152 | 29,127 | 0.00000007 / 0.0000002 |
+| `nvidia/nemotron-3-ultra-550b-a55b` | 262,144 | 2,097,152 | 29,127 | 0.0000005 / 0.0000022 |
 | `prism-ml/ternary-bonsai-2-27b` | 262,144 | 2,097,152 | 29,127 | 0.000000075 / 0.0000005 |
 | `prism-ml/ternary-bonsai-2-9b` | 262,144 | 2,097,152 | 29,127 | 0.00000008 / 0.00000013 |
 | `qwen/qwen3-235b-a22b-2507` | 262,144 | 2,097,152 | 29,127 | 0.00000014 / 0.0000008 |
 | `qwen/qwen3-30b-a3b-instruct-2507` | 262,144 | 2,097,152 | 29,127 | 0.0000001 / 0.0000003 |
 | `qwen/qwen3-coder` | 262,144 | 2,097,152 | 29,127 | 0.0000003 / 0.000001 |
-| `qwen/qwen3-coder-30b-a3b-instruct` | 262,144 | 2,097,152 | 29,127 | 0.00000015 / 0.0000006 |
+| `qwen/qwen3-coder-30b-a3b-instruct` | 262,144 | 2,097,152 | 29,127 | 0.00000007 / 0.00000028 |
 | `qwen/qwen3-coder-next` | 262,144 | 2,097,152 | 29,127 | 0.00000012 / 0.0000008 |
-| `qwen/qwen3-next-80b-a3b-instruct` | 262,144 | 2,097,152 | 29,127 | 0.00000009 / 0.0000011 |
+| `qwen/qwen3-next-80b-a3b-instruct` | 262,144 | 2,097,152 | 29,127 | 0.0000001 / 0.0000011 |
 | `qwen/qwen3-vl-235b-a22b-instruct` | 262,144 | 2,097,152 | 29,127 | 0.00000021 / 0.0000019 |
 | `qwen/qwen3-vl-30b-a3b-instruct` | 262,144 | 2,097,152 | 29,127 | 0.00000015 / 0.0000006 |
 | `qwen/qwen3-vl-8b-instruct` | 262,144 | 2,097,152 | 29,127 | 0.00000025 / 0.00000075 |
@@ -376,29 +384,27 @@ window first.
 | `qwen/qwen3.5-27b` | 262,144 | 2,097,152 | 29,127 | 0.00000026 / 0.0000026 |
 | `qwen/qwen3.5-35b-a3b` | 262,144 | 2,097,152 | 29,127 | 0.00000014 / 0.000001 |
 | `qwen/qwen3.5-397b-a17b` | 262,144 | 2,097,152 | 29,127 | 0.00000045 / 0.000003 |
-| `qwen/qwen3.5-9b` | 262,144 | 2,097,152 | 29,127 | 0.000000165 / 0.000000242 |
+| `qwen/qwen3.5-9b` | 262,144 | 2,097,152 | 29,127 | 0.00000017 / 0.00000025 |
 | `qwen/qwen3.6-27b` | 262,144 | 2,097,152 | 29,127 | 0.00000032 / 0.0000032 |
-| `qwen/qwen3.6-35b-a3b` | 262,144 | 2,097,152 | 29,127 | 0.0000001 / 0.0000009 |
+| `qwen/qwen3.6-35b-a3b` | 262,144 | 2,097,152 | 29,127 | 0.00000005 / 0.0000007 |
 | `qwen/qwen3.7-plus:batch` | 262,144 | 2,097,152 | 29,127 | 0.00000023 / 0.00000092 |
 | `qwen/qwen3.8-27b:batch` | 262,144 | 2,097,152 | 29,127 | 0.00000016 / 0.000002 |
 | `qwen/qwen3.8-max-0902:batch` | 262,144 | 2,097,152 | 29,127 | 0.00000115 / 0.00000345 |
+| `radixark/daisyrose-27b` | 262,144 | 2,097,152 | 29,127 | 0.00000015 / 0.000001875 |
 | `recursive/flint-v1.0:free` | 262,144 | 2,097,152 | 29,127 | 0 / 0 |
 | `sakana/sakana-namazu` | 262,144 | 2,097,152 | 29,127 | 0.00000095 / 0.000004 |
-| `stepfun/step-3.7-flash` | 262,144 | 2,097,152 | 29,127 | 0.0000002 / 0.00000115 |
 | `tencent/hy3` | 262,144 | 2,097,152 | 29,127 | 0.000000132 / 0.000000528 |
-| `tencent/hy3-preview` | 262,144 | 2,097,152 | 29,127 | 0.00000018 / 0.0000006 |
 | `unbiased/pareto-26.9` | 262,144 | 2,097,152 | 29,127 | 0.0000025 / 0.0000075 |
 | `kt/midm-k-3.0-pro` | 261,795 | 2,094,360 | 29,088 | 0.0000002 / 0.0000008 |
 | `cohere/command-a` | 256,000 | 2,048,000 | 28,444 | 0.0000025 / 0.00001 |
-| `cohere/north-mini-code:free` | 256,000 | 2,048,000 | 28,444 | 0 / 0 |
 | `mistralai/codestral-2508` | 256,000 | 2,048,000 | 28,444 | 0.0000003 / 0.0000009 |
-| `mistralai/mistral-small-3.2-24b-instruct` | 256,000 | 2,048,000 | 28,444 | 0.0000001 / 0.0000003 |
+| `mistralai/mistral-small-3.2-24b-instruct` | 256,000 | 2,048,000 | 28,444 | 0.000000075 / 0.0000002 |
 | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | 256,000 | 2,048,000 | 28,444 | 0 / 0 |
 | `relace/relace-apply-3` | 256,000 | 2,048,000 | 28,444 | 0.00000085 / 0.00000125 |
 | `relace/relace-search` | 256,000 | 2,048,000 | 28,444 | 0.000001 / 0.000003 |
-| `x-ai/grok-build-0.1` | 256,000 | 2,048,000 | 28,444 | 0.000001 / 0.000002 |
+| `stepfun/step-3.7-flash` | 256,000 | 2,048,000 | 28,444 | 0.0000002 / 0.00000115 |
 | `z-ai/glm-4.6` | 204,800 | 1,638,400 | 22,755 | 0.0000005 / 0.000002 |
-| `z-ai/glm-4.7` | 204,800 | 1,638,400 | 22,755 | 0.0000004 / 0.00000175 |
+| `z-ai/glm-4.7` | 204,800 | 1,638,400 | 22,755 | 0.0000006 / 0.0000022 |
 | `z-ai/glm-5` | 204,800 | 1,638,400 | 22,755 | 0.000001 / 0.0000032 |
 | `z-ai/glm-5.1` | 204,800 | 1,638,400 | 22,755 | 0.0000014 / 0.0000044 |
 | `z-ai/glm-5-turbo` | 202,752 | 1,622,016 | 22,528 | 0.0000012 / 0.000004 |
@@ -418,13 +424,13 @@ window first.
 | `perplexity/sonar-pro` | 200,000 | 1,600,000 | 22,222 | 0.000003 / 0.000015 |
 | `perplexity/sonar-pro-search` | 200,000 | 1,600,000 | 22,222 | 0.000003 / 0.000015 |
 | `z-ai/glm-4.7-flash` | 200,000 | 1,600,000 | 22,222 | 0.0000000605 / 0.0000004 |
-| `minimax/minimax-m2.5` | 198,000 | 1,584,000 | 22,000 | 0.000000295 / 0.0000012 |
-| `minimax/minimax-m2.7` | 196,608 | 1,572,864 | 21,845 | 0.00000021 / 0.00000084 |
+| `minimax/minimax-m2.5` | 198,000 | 1,584,000 | 22,000 | 0.00000027 / 0.00000095 |
+| `minimax/minimax-m2.7` | 196,608 | 1,572,864 | 21,845 | 0.0000006 / 0.0000018 |
 | `cohere/command-a-plus` | 192,000 | 1,536,000 | 21,333 | 0.0000003 / 0.0000015 |
 | `deepseek/deepseek-chat` | 163,840 | 1,310,720 | 18,204 | 0.0000002574 / 0.0000010287 |
-| `deepseek/deepseek-chat-v3-0324` | 163,840 | 1,310,720 | 18,204 | 0.00000029 / 0.00000114 |
+| `deepseek/deepseek-chat-v3-0324` | 163,840 | 1,310,720 | 18,204 | 0.00000025 / 0.000001 |
 | `deepseek/deepseek-chat-v3.1` | 163,840 | 1,310,720 | 18,204 | 0.00000025 / 0.00000095 |
-| `deepseek/deepseek-r1-0528` | 163,840 | 1,310,720 | 18,204 | 0.0000005 / 0.00000215 |
+| `deepseek/deepseek-r1-0528` | 163,840 | 1,310,720 | 18,204 | 0.000000571 / 0.000002286 |
 | `deepseek/deepseek-v3.1-terminus` | 163,840 | 1,310,720 | 18,204 | 0.00000027 / 0.000001 |
 | `deepseek/deepseek-v3.2` | 163,840 | 1,310,720 | 18,204 | 0.00000026 / 0.00000038 |
 | `deepseek/deepseek-v3.2-exp` | 163,840 | 1,310,720 | 18,204 | 0.00000027 / 0.00000041 |
@@ -437,27 +443,26 @@ window first.
 | `google/gemini-omni-1.1-flash` | 131,072 | 1,048,576 | 14,563 | 0.0000015 / 0.000009 |
 | `google/gemini-omni-1.2-flash` | 131,072 | 1,048,576 | 14,563 | 0.0000015 / 0.000009 |
 | `google/gemma-3-12b-it` | 131,072 | 1,048,576 | 14,563 | 0.00000005 / 0.00000015 |
-| `google/gemma-3-27b-it` | 131,072 | 1,048,576 | 14,563 | 0.00000008 / 0.00000035 |
-| `google/gemma-3-4b-it` | 131,072 | 1,048,576 | 14,563 | 0.00000005 / 0.0000001 |
+| `google/gemma-3-27b-it` | 131,072 | 1,048,576 | 14,563 | 0.00000008 / 0.00000016 |
+| `google/gemma-3-4b-it` | 131,072 | 1,048,576 | 14,563 | 0.00000004 / 0.00000005 |
 | `ibm-granite/granite-4.2-8b` | 131,072 | 1,048,576 | 14,563 | 0.00000006 / 0.00000015 |
 | `inclusionai/ling-3.0-flash-vl` | 131,072 | 1,048,576 | 14,563 | 0.00000006 / 0.00000018 |
 | `meta-llama/llama-3.1-70b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.00000072 / 0.00000072 |
-| `meta-llama/llama-3.1-8b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.00000002 / 0.00000004 |
-| `meta-llama/llama-3.2-3b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.0000000509 / 0.000000335 |
+| `meta-llama/llama-3.1-8b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.00000005 / 0.00000008 |
+| `meta-llama/llama-3.2-3b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.00000005 / 0.00000033 |
 | `meta-llama/llama-3.3-70b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.00000071 / 0.00000071 |
-| `meta/muse-glimmer-30b` | 131,072 | 1,048,576 | 14,563 | 0.0000003 / 0.0000012 |
+| `meta/muse-glimmer-30b` | 131,072 | 1,048,576 | 14,563 | 0.00000035 / 0.0000015 |
 | `meta/muse-glimmer-30b:batch` | 131,072 | 1,048,576 | 14,563 | 0.00000024 / 0.00000096 |
 | `mistralai/ministral-3b-2512` | 131,072 | 1,048,576 | 14,563 | 0.0000001 / 0.0000001 |
 | `mistralai/mistral-large-2407` | 131,072 | 1,048,576 | 14,563 | 0.000002 / 0.000006 |
-| `mistralai/mistral-medium-3` | 131,072 | 1,048,576 | 14,563 | 0.0000004 / 0.000002 |
-| `mistralai/mistral-medium-3.1` | 131,072 | 1,048,576 | 14,563 | 0.0000004 / 0.000002 |
+| `mistralai/mistral-medium-3` | 131,072 | 1,048,576 | 14,563 | 0.00000044 / 0.0000022 |
+| `mistralai/mistral-medium-3.1` | 131,072 | 1,048,576 | 14,563 | 0.00000044 / 0.0000022 |
 | `mistralai/mistral-nemo` | 131,072 | 1,048,576 | 14,563 | 0.000000029 / 0.00000003 |
-| `moonshotai/kimi-k2` | 131,072 | 1,048,576 | 14,563 | 0.00000057 / 0.0000023 |
 | `nousresearch/hermes-4-405b` | 131,072 | 1,048,576 | 14,563 | 0.000001 / 0.000003 |
 | `nvidia/nemotron-3.5-content-safety` | 131,072 | 1,048,576 | 14,563 | 0.0000002 / 0.0000002 |
-| `openai/gpt-oss-120b` | 131,072 | 1,048,576 | 14,563 | 0.00000015 / 0.0000006 |
+| `openai/gpt-oss-120b` | 131,072 | 1,048,576 | 14,563 | 0.00000005 / 0.00000025 |
 | `openai/gpt-oss-120b:batch` | 131,072 | 1,048,576 | 14,563 | 0.0000000296 / 0.000000136 |
-| `openai/gpt-oss-20b` | 131,072 | 1,048,576 | 14,563 | 0.000000018 / 0.00000009 |
+| `openai/gpt-oss-20b` | 131,072 | 1,048,576 | 14,563 | 0.00000003 / 0.00000013 |
 | `openai/gpt-oss-20b:batch` | 131,072 | 1,048,576 | 14,563 | 0.000000024 / 0.000000112 |
 | `openai/gpt-oss-safeguard-20b` | 131,072 | 1,048,576 | 14,563 | 0.000000075 / 0.0000003 |
 | `qwen/qwen3-32b` | 131,072 | 1,048,576 | 14,563 | 0.00000008 / 0.00000028 |
@@ -477,6 +482,7 @@ window first.
 | `liquid/lfm-2.5-24b-a2b` | 128,000 | 1,024,000 | 14,222 | 0.00000005 / 0.0000007 |
 | `mistralai/mistral-large` | 128,000 | 1,024,000 | 14,222 | 0.000002 / 0.000006 |
 | `mistralai/mistral-small-3.1-24b-instruct` | 128,000 | 1,024,000 | 14,222 | 0.000000351 / 0.000000555 |
+| `mistralai/pixtral-large-2502` | 128,000 | 1,024,000 | 14,222 | 0.000002 / 0.000006 |
 | `openai/gpt-4-turbo:batch` | 128,000 | 1,024,000 | 14,222 | 0.000005 / 0.000015 |
 | `openai/gpt-4o` | 128,000 | 1,024,000 | 14,222 | 0.0000025 / 0.00001 |
 | `openai/gpt-4o-2024-05-13` | 128,000 | 1,024,000 | 14,222 | 0.000005 / 0.000015 |
@@ -503,7 +509,6 @@ window first.
 | `mistralai/mixtral-8x22b-instruct` | 65,536 | 524,288 | 7,281 | 0.000002 / 0.000006 |
 | `rekaai/reka-flash-3` | 65,536 | 524,288 | 7,281 | 0.0000001 / 0.0000002 |
 | `z-ai/glm-4.5v` | 65,536 | 524,288 | 7,281 | 0.0000006 / 0.0000018 |
-| `meta-llama/llama-3.2-1b-instruct` | 60,000 | 480,000 | 6,666 | 0.000000027 / 0.000000201 |
 | `qwen/qwen3-14b` | 40,960 | 327,680 | 4,551 | 0.00000012 / 0.00000024 |
 | `qwen/qwen3-30b-a3b` | 40,960 | 327,680 | 4,551 | 0.00000012 / 0.0000005 |
 | `perceptron/perceptron-mk1.5` | 36,864 | 294,912 | 4,096 | 0.00000015 / 0.0000015 |
@@ -523,7 +528,7 @@ window first.
 | `microsoft/phi-4` | 16,384 | 131,072 | 1,820 | 0.00000007 / 0.00000014 |
 | `rekaai/reka-edge` | 16,384 | 131,072 | 1,820 | 0.0000001 / 0.0000001 |
 | `google/gemma-2-27b-it` | 8,192 | 65,536 | 910 | 0.00000065 / 0.00000065 |
-| `gryphe/mythomax-l2-13b` | 8,192 | 65,536 | 910 | 0.00000008 / 0.00000011 |
+| `gryphe/mythomax-l2-13b` | 8,192 | 65,536 | 910 | 0.0000003 / 0.0000005 |
 | `sao10k/l3-lunaris-8b` | 8,192 | 65,536 | 910 | 0.00000004 / 0.00000005 |
 | `tencent/hy-mt2-1.8b` | 8,192 | 65,536 | 910 | 0.000000044 / 0.000000177 |
 | `tencent/hy-mt2-30b-a3b` | 8,192 | 65,536 | 910 | 0.000000074 / 0.000000295 |
@@ -533,6 +538,6 @@ window first.
 | `undi95/remm-slerp-l2-13b` | 6,144 | 49,152 | 682 | 0.0000003 / 0.0000005 |
 | `openai/gpt-3.5-turbo-0613` | 4,095 | 32,760 | 455 | 0.000001 / 0.000002 |
 
-**Census receipt** `84aed80c-e89e-83f4-b0a5-77171516fd9a` — as hexbits `[8, 4, 10, 14, 13, 8, 0, 12, 14, 8, 9, 14, 8, 3, 15, 4, 11, 0, 10, 5, 7, 7, 1, 7, 1, 5, 1, 6, 15, 13, 9, 10]` — recompute it from the same
+**Census receipt** `dcb93276-af36-84be-b906-c858b3f91327` — as hexbits `[13, 12, 11, 9, 3, 2, 7, 6, 10, 15, 3, 6, 8, 4, 11, 14, 11, 9, 0, 6, 12, 8, 5, 8, 11, 3, 15, 9, 1, 3, 2, 7]` — recompute it from the same
 mirror and it returns, byte for byte. The mirror refreshes from the live feed on every lean run; a model that
 enters or leaves the feed enters or leaves this page, re-sealed.

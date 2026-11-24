@@ -7,6 +7,7 @@
 // receipt: the same social card for every observer. integrity— a recomputable public card,
 // its bio BACKED by the ledger count; the aura is ART (an address→hue arithmetic). It shares nothing but
 // what is already public and sealed.
+import { SITE } from './site/index.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { runTrial } from './trial-run.js'
@@ -14,7 +15,7 @@ import { quantumAura } from './aura.js'
 import { creditsSummary } from './captain/credits/index.js'
 import { captainRights } from './captain/rights/index.js'
 
-const HOST = 'https://uuidna.com'
+const HOST = SITE.origin
 
 export interface SocialProfile {
   handle: string                 // '@uuidna' — the shareable handle

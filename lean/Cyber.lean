@@ -1,17 +1,17 @@
--- lean/Cyber.lean — GENERATED. CYBER — the resource surface the repository presents to the machine that builds it, measured. Counted without this wing's own 3 records, so serving it cannot move what it states, the handle store's 73,095 leaves occupy 263,386 inodes (256 / 44,008 / 72,931 / 73,095 folders per level plus the root), more than three per record; the deepest level is one folder per leaf by construction; the third level already shares, the control. Derived from the handle records, never from the host, so the ledger is identical on every machine. NOT CLAIMED: any host's limit, which is the host's own fact (on 2026-09-13 the build host's table held 263,168 entries and filled). Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Cyber.lean — GENERATED. CYBER — the resource surface the repository presents to the machine that builds it, measured. Counted without this wing's own 3 records, so serving it cannot move what it states, the handle store's 73,097 leaves occupy 263,407 inodes (256 / 44,022 / 72,934 / 73,097 folders per level plus the root), more than three per record; the deepest level is one folder per leaf by construction; the third level already shares, the control. Derived from the handle records, never from the host, so the ledger is identical on every machine. NOT CLAIMED: any host's limit, which is the host's own fact (on 2026-09-13 the build host's table held 263,168 entries and filled). Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
-/-- A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. Leaving out this wing's own 3 records, 73,095
-    leaves sit under 256 + 44,008 + 72,931 + 73,095 folders across the 4 levels, so with the root the store
-    occupies 263,386 inodes — more than three for every record it holds. The floor is two by construction: the
+/-- A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. Leaving out this wing's own 3 records, 73,097
+    leaves sit under 256 + 44,022 + 72,934 + 73,097 folders across the 4 levels, so with the root the store
+    occupies 263,407 inodes — more than three for every record it holds. The floor is two by construction: the
     deepest folder is named by the whole handle and no two records share one, so that level holds exactly one
-    folder per leaf (73,095 for 73,095), and every record costs its file and its own folder before any level
+    folder per leaf (73,097 for 73,097), and every record costs its file and its own folder before any level
     above is counted. On 2026-09-13 that footprint filled the build host's vnode table and panicked the machine
     twice; a resource the host must hold per inode is the surface, and it is sealed here so the next growth is
     measured before it is felt. -/
-theorem the_store_footprint_is_its_folders : (73095 + 256 + 44008 + 72931 + 73095 + 1 = 263386) ∧ (263386 > 3 * 73095) := by decide
+theorem the_store_footprint_is_its_folders : (73097 + 256 + 44022 + 72934 + 73097 + 1 = 263407) ∧ (263407 > 3 * 73097) := by decide
 
 /-- THE CONTROL: SHARING DOES OCCUR ABOVE THE LEAF. Handles 00bc4bbe and 00bc4bc1 are two records of this store
-    with one third-level folder, 00bc4b, and at that level 72,931 folders hold 73,095 leaves — which shows the
+    with one third-level folder, 00bc4b, and at that level 72,934 folders hold 73,097 leaves — which shows the
     footprint is a measurement of this store and not a constant two-per-record identity that would pass whatever
     the store held. -/
-theorem the_third_level_already_shares : ([0,0,11,12,4,11,11,14].take 6 = [0,0,11,12,4,11,12,1].take 6) ∧ ([0,0,11,12,4,11,11,14] ≠ ([0,0,11,12,4,11,12,1] : List Nat)) ∧ (72931 < 73095) := by decide
+theorem the_third_level_already_shares : ([0,0,11,12,4,11,11,14].take 6 = [0,0,11,12,4,11,12,1].take 6) ∧ ([0,0,11,12,4,11,11,14] ≠ ([0,0,11,12,4,11,12,1] : List Nat)) ∧ (72934 < 73097) := by decide

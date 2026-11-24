@@ -14,11 +14,12 @@
 // EXACT INTEGERS, ALWAYS. Widths are counted by dividing and halving, never by a logarithm: no Math.*, no
 // rounding, no float can enter. The harmonic scan refuses those anywhere in this tree, and a unit that needed
 // one would be a unit this ledger could not seal.
+import { SITE } from '../site/index.js'
 import { handleOf, laneOf } from '../handle.js'
 import { merkleGravity } from '../gravity/index.js'
 import { toUuid, BASE } from '../address.js'
 
-const HEXBIT_DOOR_HOST = 'https://uuidna.com'
+const HEXBIT_DOOR_HOST = SITE.origin
 
 /** 4 bits, 16 states — the qubit-tile the ledger computes in. */
 export const HEXBIT_BITS = 4

@@ -1,0 +1,12 @@
+{
+<<<<<<<< HEAD:src/handles/59/9d/a5/7e/index.json
+  "handle": "599da57e",
+  "address": "599da57e-b25e-872c-aea9-5931440d2471",
+========
+  "handle": "1b166cd9",
+  "address": "1b166cd9-68f7-8e84-bd7c-b4d15df97dfe",
+>>>>>>>> origin/main:src/handles/1b/16/6c/d9/index.json
+  "kind": "publication",
+  "route": "/publications/crosslink",
+  "identity": "crosslink"
+}

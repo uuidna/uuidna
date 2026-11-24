@@ -1,0 +1,18 @@
+{
+<<<<<<<< HEAD:src/chunks/d7/e5911c.json
+  "handle": "d7e5911c",
+  "address": "d7e5911c-c265-820c-a7a5-fc611052e312",
+  "statement": "73098 < 2 ^ 32",
+========
+  "handle": "bd95ee47",
+  "address": "bd95ee47-077a-8ff5-a77f-0f0e32492982",
+  "statement": "73100 < 2 ^ 32",
+>>>>>>>> origin/main:src/chunks/bd/95ee47.json
+  "tactic": "decide",
+  "keys": [
+    "the_store_holds_far_less_than_it_admits"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}

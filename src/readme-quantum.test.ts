@@ -10,6 +10,7 @@
 // AND IT GUARDS THE BOUNDARY. The README cites the keys whose statements it restates, and carries neither a
 // claim no sealed theorem decides (quantum hardware, a measured quantum advantage) nor a prose denial of one.
 // "superconducting" stays allowed only because the capacity table labels it as a platform's reported type.
+// What the section does state is the classical bound the ledger seals, n_qubit_dimension.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
@@ -48,6 +49,7 @@ test('the capacity section cites its keys and carries neither undecided claims n
     /TypeScript is the quantum computer/i, /quantum by architecture/i, /measured (usable[- ]capacity |usable-column |quantum )advantage/i,
     /the fridge/i, /running circuit/i, /theorem quantum\b/i, /out-addressing every quantum computer/i,
   ]
+  // each line below is refused wording; what the README states instead is the sealed bound, n_qubit_dimension
   const denials = [
     /not a superconducting QPU/i, /classical silicon/i, /QPU (seat|lane) is `?empty/i,
     /no physics quantum advantage is claimed/i, /never a quantum computer/i,

@@ -29,14 +29,14 @@ export const raySvgOf = (uuid: string, meta: { title?: string; holds?: boolean }
   const spin = 30 + (sum % 30) // one turn of the star, deterministic in the address: 30..59 seconds
   const accent = meta.holds === false ? '#7a7f8c' : '#9cff57' // a theorem that holds is lit; a lead is dim
   const ray = (v: number, i: number): string => {
-    const ang = (i / n) * 2 * Math.PI - Math.PI / 2 // the i-th of n rays, ray.angle, clockwise from the top
     const len = 40 + v * 16 // ray.magnitude 0..15 → 40..280 px
-    const x2 = CX + len * Math.cos(ang)
-    const y2 = CY + len * Math.sin(ang)
+    const turn = q((i * 360) / n) // the i-th of n rays, ray.angle in degrees clockwise from the top: the renderer turns the ray, no host sine is read
+    const x2 = CX
+    const y2 = CY - len
     const hue = v * 24 // the nibble colours its ray, 0..360
     const beat = q(3 + (v % 6) * 0.5) // 3..5.5 s, the ray's own pulse, keyed to the nibble
     const begin = q((i % n) * (spin / n)) // staggered around the turn
-    return `<line x1="${CX}" y1="${CY}" x2="${q(x2)}" y2="${q(y2)}" stroke="hsl(${hue} 85% 62%)" stroke-width="${3 + (v % 4)}" stroke-linecap="round"><animate attributeName="stroke-opacity" values="0.35;1;0.35" dur="${beat}s" begin="${begin}s" repeatCount="indefinite"/></line>`
+    return `<line x1="${CX}" y1="${CY}" x2="${q(x2)}" y2="${q(y2)}" transform="rotate(${turn} ${CX} ${CY})" stroke="hsl(${hue} 85% 62%)" stroke-width="${3 + (v % 4)}" stroke-linecap="round"><animate attributeName="stroke-opacity" values="0.35;1;0.35" dur="${beat}s" begin="${begin}s" repeatCount="indefinite"/></line>`
   }
   const star = nibbles.map(ray).join('')
   const title = esc((meta.title || 'UUIDNA QPU').slice(0, 64))

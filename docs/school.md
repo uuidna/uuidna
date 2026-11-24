@@ -1451,15 +1451,15 @@ same way, lives on [the leads page](/leads).
 ## The port — 27 domains, 9 of them carrying an API
 
 Alpine publishes; uuidna counts and, where it has something of its own to offer, answers. 27 domains
-are censused from the committed mirror and 9 carry one API each — 3500 packages behind those seven doors.
+are censused from the committed mirror and 9 carry one API each — 3501 packages behind those seven doors.
 Membership is a PATTERN over Alpine's own name and description: a measurement with known failures, not a verdict.
 The arithmetic over the counts is sealed `by decide`; the classification underneath it never is, and no sum promotes
 a match into a fact.
 
 | Domain | Packages | Origins | One API of uuidna's own |
 | --- | ---: | ---: | --- |
-| `language` | 7503 | 4432 | — census only |
-| `shell` | 1281 | 682 | one exec door over uuidnaOS applets |
+| `language` | 7505 | 4436 | — census only |
+| `shell` | 1282 | 683 | one exec door over uuidnaOS applets |
 | `driver` | 631 | 461 | the machine and the published bundle behind one door |
 | `database` | 438 | 325 | one query door where the address is the key |
 | `network` | 332 | 237 | fetch-and-address, so a read becomes citable |
@@ -1486,7 +1486,7 @@ a match into a fact.
 | `chemistry` | 3 | 1 | — census only |
 | `bio` | 2 | 1 | — census only |
 
-Ported API receipt `e1026f70-80ed-8151-8de8-b5ee56cf61ff`. Package counts are per domain and the domains OVERLAP — a chat bridge is
+Ported API receipt `83a5f6c7-9ee7-8ffb-8f00-f5bee5902b08`. Package counts are per domain and the domains OVERLAP — a chat bridge is
 also network, a font is also media — so the column does not sum to the catalogue and is not meant to.
 <!-- /port -->
 
@@ -1500,9 +1500,9 @@ spends to learn what the tree already knows. Each row prices one opening questio
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
 | how many theorems are sealed? | 6,146,816 | 6 | 1,024,469× | `theorems().length` |
-| what does the tree hold right now? | 6,174,659 | 225 | 27,442× | `npm run state` |
-| which Alpine domains are ported? | 1,824,438 | 350 | 5,212× | `portsCensus()` |
-| is the tree green to release? | 1,223,817 | 65 | 18,827× | `leads-gate + gate-receipt --verify` |
+| what does the tree hold right now? | 6,174,621 | 225 | 27,442× | `npm run state` |
+| which Alpine domains are ported? | 1,824,564 | 350 | 5,213× | `portsCensus()` |
+| is the tree green to release? | 1,223,859 | 65 | 18,828× | `leads-gate + gate-receipt --verify` |
 
 Median ratio **27,442×**. Tokens are estimated at four bytes each — an approximation, and
 applied identically to both sides, so the RATIO survives it even where the absolute figure would not.
@@ -1517,7 +1517,7 @@ fetched only if someone actually wants it.
 
 | The message is about | Payload (bytes) | Address (bytes) | Not sent |
 | --- | ---: | ---: | ---: |
-| the whole Alpine catalogue | 7,297,754 | 16 | 456,109× |
+| the whole Alpine catalogue | 7,298,258 | 16 | 456,141× |
 | the sealed ledger | 24,587,267 | 16 | 1,536,704× |
 | the leads record | 98,670 | 16 | 6,166× |
 

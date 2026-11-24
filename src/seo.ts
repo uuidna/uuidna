@@ -18,7 +18,7 @@ import { toUuid, merkleFold } from './address.js'
 import { handleOf } from './handle.js'
 import { SITE, OG_IMAGE, OG_IMAGE_SIZE } from './site/index.js'
 
-const HOST = 'https://uuidna.com'
+const HOST = SITE.origin
 
 /** A head tuple in VitePress frontmatter form: [tag, attrs] or [tag, attrs, innerHTML]. Reusable by the front. */
 export type HeadTuple = [string, Record<string, string>] | [string, Record<string, string>, string]

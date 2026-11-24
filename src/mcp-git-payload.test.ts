@@ -50,7 +50,8 @@ test('uuidna_git refuses commit with an empty pathspec, and HEAD does not move',
   assert.equal(r.refused, true, 'an empty pathspec is refused')
   assert.match(String(r.why), /pathspec/, 'the refusal says what was missing')
   // THE CONTROL: asked of git on both sides, because a door that refuses in its ANSWER and commits anyway would pass
-  // every assertion above. It is the one thing here that cannot be checked by reading the return value, because a commit lands in git.
+  // every assertion above. It is the one thing here that cannot be checked by reading the return value, because the
+  // return value is the answer such a door would falsify.
   assert.equal(head(), before, 'a refused commit must leave HEAD exactly where it was')
 })
 

@@ -1,11 +1,20 @@
 {
+<<<<<<<< HEAD:src/handles/d7/e5/91/1c/index.json
   "handle": "d7e5911c",
   "address": "d7e5911c-c265-820c-a7a5-fc611052e312",
+========
+  "handle": "bd95ee47",
+  "address": "bd95ee47-077a-8ff5-a77f-0f0e32492982",
+>>>>>>>> origin/main:src/handles/bd/95/ee/47/index.json
   "kind": "chunk",
   "keys": [
     "the_store_holds_far_less_than_it_admits"
   ],
+<<<<<<<< HEAD:src/handles/d7/e5/91/1c/index.json
   "statement": "73098 < 2 ^ 32",
+========
+  "statement": "73100 < 2 ^ 32",
+>>>>>>>> origin/main:src/handles/bd/95/ee/47/index.json
   "files": [
     "HandleStore.lean"
   ]

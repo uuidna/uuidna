@@ -13,10 +13,10 @@
 // the regex — and this session is the evidence, because the word `declared boundary` was missing from one such list
 // and the finder refused a cure its own printed message had recommended.
 //
-// THE GUARD ALREADY KNOWS THIS, and what follows is a QUOTATION of its own ADVISORY tier, the ground for the limit it
-// states: "Every entry here decided something OTHER than a Lean violation ... None of them can refuse a proof, and a
-// gate that cannot refuse a proof is custom logic over spelling, counting or presentation" (a named decision of this project).
-// Those finders were demoted and then removed. This reads the rest of
+// THE GUARD ALREADY KNOWS THIS, and what follows is a QUOTATION of its own ADVISORY tier, which is the ground for the
+// limit it states: "Every entry here decided something OTHER than a Lean violation ... None of them can refuse a
+// proof, and a gate that cannot refuse a proof is custom logic over spelling, counting or presentation." The tier is
+// a named decision of this project, and the quoted limit is that decision's own wording. Those finders were demoted and then removed. This reads the rest of
 // the gate by the same standard, and it reads it FROM SOURCE rather than from a list, so a finder added tomorrow is
 // classified the day it lands.
 //

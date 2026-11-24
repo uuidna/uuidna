@@ -1,5 +1,5 @@
 {
- "examined": 67225,
+ "examined": 68369,
  "findings": [
   {
    "key": "decibel_is_logarithmic",
@@ -94,37 +94,37 @@
   {
    "key": "prose_audit_total",
    "file": "Audit.lean",
-   "conjunct": "(0 < 258)",
+   "conjunct": "(0 < 288)",
    "of": 3
   },
   {
    "key": "prose_audit_total",
    "file": "Audit.lean",
-   "conjunct": "(0 < 3)",
+   "conjunct": "(0 < 4)",
    "of": 3
   },
   {
    "key": "prose_audit_total",
    "file": "Audit.lean",
-   "conjunct": "(71034 = 71034 + 0)",
+   "conjunct": "(72337 = 72337 + 0)",
    "of": 3
   },
   {
    "key": "prose_beats_restatement",
    "file": "Audit.lean",
-   "conjunct": "(0 < 71034)",
+   "conjunct": "(0 < 72337)",
    "of": 2
   },
   {
    "key": "prose_beats_restatement",
    "file": "Audit.lean",
-   "conjunct": "(0 + 71034 = 71034)",
+   "conjunct": "(0 + 72337 = 72337)",
    "of": 2
   },
   {
    "key": "prose_folds_receipt",
    "file": "Audit.lean",
-   "conjunct": "(7 < 9)",
+   "conjunct": "(0 < 9)",
    "of": 3
   },
   {
@@ -496,7 +496,7 @@
   {
    "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
    "file": "CrossFormulas.lean",
-   "conjunct": "(89768 < 431173)",
+   "conjunct": "(143713 < 767179)",
    "of": 2
   },
   {
@@ -520,7 +520,7 @@
   {
    "key": "the_leaf_is_not_one_uuid_but_a_folder",
    "file": "Crosslink.lean",
-   "conjunct": "(80 > 0)",
+   "conjunct": "(81 > 0)",
    "of": 2
   },
   {
@@ -550,7 +550,7 @@
   {
    "key": "the_third_level_already_shares",
    "file": "Cyber.lean",
-   "conjunct": "(71556 < 71711)",
+   "conjunct": "(72934 < 73097)",
    "of": 3
   },
   {
@@ -640,19 +640,19 @@
   {
    "key": "the_key_index_fits_where_the_rows_do_not",
    "file": "DoorSurface.lean",
-   "conjunct": "(1602530 * 84 > 134217728)",
+   "conjunct": "(1622869 * 83 > 134217728)",
    "of": 2
   },
   {
    "key": "the_keys_are_a_small_fraction_of_the_rows",
    "file": "DoorSurface.lean",
-   "conjunct": "(1602530 * 27 > 41943040)",
+   "conjunct": "(1622869 * 26 > 41943040)",
    "of": 3
   },
   {
    "key": "the_keys_are_a_small_fraction_of_the_rows",
    "file": "DoorSurface.lean",
-   "conjunct": "(26 > 1)",
+   "conjunct": "(25 > 1)",
    "of": 3
   },
   {
@@ -780,6 +780,4026 @@
    "file": "Exploits.lean",
    "conjunct": "(4 % 9 = 4)",
    "of": 3
+  },
+  {
+   "key": "fam_absorption",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((1 : Int) * (340 : Int)) = (340 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_actuarial",
+   "file": "FamiliesA.lean",
+   "conjunct": "((80 : Int) = (80 : Int))",
+   "of": 15
+  },
+  {
+   "key": "fam_adhesive",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((5000 : Int) * (1 : Int)) = (5000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_adhesive",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_airship",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((1000 : Int) * (1 : Int)) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_airship",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_airship",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((200 : Int) * (1 : Int)) = (200 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_alloy",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((200 : Int) * (1 : Int)) = (200 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_alloy",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((8000 : Int) / (1 : Int)) = (8000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_animism",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((4 : Int) * (1 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_animism",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_antenna",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((8 : Int) + (0 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_antenna",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((2400 : Int) * (1 : Int)) = (2400 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_antibody",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_antibody",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((6 : Int) * (1 : Int)) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_antibody",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((21 : Int) * (1 : Int)) = (21 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_apiology",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((50000 : Int) * (1 : Int)) = (50000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_apiology",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((30 : Int) * (1 : Int)) = (30 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_aquaponics",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((50 : Int) / (1 : Int)) = (50 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_aquaponics",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_arachnology",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((8 : Int) + (0 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_arachnology",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((6 : Int) * (1 : Int)) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_assay",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((1000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_assembly",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((480 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_asteroid",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((500 : Int) * (1 : Int)) = (500 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_asteroid",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((1 : Int) + (0 : Int)) = (1 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_asteroid",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_asteroid",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((1 : Int) * (1000 : Int)) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_atmospheric",
+   "file": "FamiliesA.lean",
+   "conjunct": "((300 : Int) = (300 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_attention",
+   "file": "FamiliesA.lean",
+   "conjunct": "((25 : Int) = (25 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_audio",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_audio",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((16 : Int) * (1 : Int)) = (16 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_audiology",
+   "file": "FamiliesA.lean",
+   "conjunct": "((40 : Int) = (40 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_authentication",
+   "file": "FamiliesA.lean",
+   "conjunct": "((3600 : Int) = (3600 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_authentication",
+   "file": "FamiliesA.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_automotive",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((400 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 14
+  },
+  {
+   "key": "fam_automotive",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 14
+  },
+  {
+   "key": "fam_automotive",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((1000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 14
+  },
+  {
+   "key": "fam_automotive",
+   "file": "FamiliesA.lean",
+   "conjunct": "(((600 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 14
+  },
+  {
+   "key": "fam_backgammon",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((24 : Int) + (0 : Int)) = (24 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_backgammon",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((167 : Int) * (1 : Int)) = (167 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_backgammon",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((15 : Int) + (0 : Int)) = (15 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_backlash",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((1 : Int) * (3 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ballet",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ballet",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((120 : Int) * (1 : Int)) = (120 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_battery",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((500 : Int) * (1 : Int)) = (500 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_beam",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((6 : Int) * (1 : Int)) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_beam",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_biodiversity",
+   "file": "FamiliesB.lean",
+   "conjunct": "((42 : Int) = (42 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_bioenergetics",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((1 : Int) * (38 : Int)) = (38 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_biometrics",
+   "file": "FamiliesB.lean",
+   "conjunct": "((2048 : Int) = (2048 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_blackhole",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((1000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_blockchain",
+   "file": "FamiliesB.lean",
+   "conjunct": "((1024 : Int) = (1024 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_blog",
+   "file": "FamiliesB.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_bond",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((1000 : Int) * (1 : Int)) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_bond",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((10 : Int) + (0 : Int)) = (10 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_broadcasting",
+   "file": "FamiliesB.lean",
+   "conjunct": "((40 : Int) = (40 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_buddhism",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_buddhism",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((8 : Int) + (0 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_buddhism",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((10000 : Int) * (1 : Int)) = (10000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_buddhism",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_buddhism",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((6 : Int) + (0 : Int)) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_budget",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((8 : Int) + (0 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_budget",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_bundle",
+   "file": "FamiliesB.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_buoyancy",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((1000 : Int) / (1 : Int)) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_butchery",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((8 : Int) + (0 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_butchery",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((300 : Int) * (1 : Int)) = (300 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_butchery",
+   "file": "FamiliesB.lean",
+   "conjunct": "(((21 : Int) * (1 : Int)) = (21 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cache",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_caching",
+   "file": "FamiliesC.lean",
+   "conjunct": "((3600 : Int) = (3600 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_canon",
+   "file": "FamiliesC.lean",
+   "conjunct": "((114 : Int) = (114 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_canon",
+   "file": "FamiliesC.lean",
+   "conjunct": "((150 : Int) = (150 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_canon",
+   "file": "FamiliesC.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_canon",
+   "file": "FamiliesC.lean",
+   "conjunct": "((2 : Int) = (2 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_capacitor",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((25 : Int) * (1 : Int)) = (25 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ceramic",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((9 : Int) * (1 : Int)) = (9 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ceramic",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((3900 : Int) / (1 : Int)) = (3900 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ceramics",
+   "file": "FamiliesC.lean",
+   "conjunct": "((1280 : Int) = (1280 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ceramics",
+   "file": "FamiliesC.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cern",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((25 : Int) / (1 : Int)) = (25 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_checkers",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cheesemaking",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((60 : Int) * (1 : Int)) = (60 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_chemistry",
+   "file": "FamiliesC.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_chord",
+   "file": "FamiliesC.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 7
+  },
+  {
+   "key": "fam_churn",
+   "file": "FamiliesC.lean",
+   "conjunct": "((18 : Int) = (18 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_civil",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((1000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_climbing",
+   "file": "FamiliesC.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_cloudflare",
+   "file": "FamiliesC.lean",
+   "conjunct": "((1000 : Int) = (1000 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_cloudphysics",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((125 : Int) * (1 : Int)) = (125 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_code",
+   "file": "FamiliesC.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_codec",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cogeneration",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((500 : Int) * (1 : Int)) = (500 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cogeneration",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((700 : Int) * (1 : Int)) = (700 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cognition",
+   "file": "FamiliesC.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cohort",
+   "file": "FamiliesC.lean",
+   "conjunct": "((1000 : Int) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_color",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((16 : Int) + (0 : Int)) = (16 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_comet",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((76 : Int) * (1 : Int)) = (76 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_comet",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((10 : Int) * (1 : Int)) = (10 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_comet",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((1 : Int) + (0 : Int)) = (1 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_comet",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((35 : Int) * (1 : Int)) = (35 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_comparison",
+   "file": "FamiliesC.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_comparison",
+   "file": "FamiliesC.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_compensation",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((1000000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_composite",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((8 : Int) + (0 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_composite",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((70 : Int) * (1 : Int)) = (70 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_compression",
+   "file": "FamiliesC.lean",
+   "conjunct": "((4096 : Int) = (4096 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_concrete",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((28 : Int) * (1 : Int)) = (28 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_concurrency",
+   "file": "FamiliesC.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_confectionery",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_content",
+   "file": "FamiliesC.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_content",
+   "file": "FamiliesC.lean",
+   "conjunct": "((6 : Int) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_content",
+   "file": "FamiliesC.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_content",
+   "file": "FamiliesC.lean",
+   "conjunct": "((8 : Int) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_contract",
+   "file": "FamiliesC.lean",
+   "conjunct": "((2500 : Int) = (2500 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_cooling",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_corrosion",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_covenant",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_coverage",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((200 : Int) * (1 : Int)) = (200 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_creditscore",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 15
+  },
+  {
+   "key": "fam_cricket",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((500 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_cryptanalysis",
+   "file": "FamiliesC.lean",
+   "conjunct": "((128 : Int) = (128 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_crystal",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((8 : Int) * (1 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_crystal",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_crystallography",
+   "file": "FamiliesC.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_crystallography",
+   "file": "FamiliesC.lean",
+   "conjunct": "((48 : Int) = (48 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cuneiform",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((600 : Int) * (1 : Int)) = (600 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cuneiform",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((100 : Int) + (0 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_curing",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((150 : Int) / (1 : Int)) = (150 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cybernetics",
+   "file": "FamiliesC.lean",
+   "conjunct": "((16 : Int) = (16 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cyclone",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((150 : Int) * (1 : Int)) = (150 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cyclone",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((300 : Int) * (1 : Int)) = (300 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cytogenetics",
+   "file": "FamiliesC.lean",
+   "conjunct": "(((400 : Int) * (1 : Int)) = (400 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cytology",
+   "file": "FamiliesC.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_cytology",
+   "file": "FamiliesC.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_dairy",
+   "file": "FamiliesD.lean",
+   "conjunct": "((305 : Int) = (305 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_deadreckoning",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((360 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 7
+  },
+  {
+   "key": "fam_dedup",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((1 : Int) * (100 : Int)) = (100 : Int))",
+   "of": 11
+  },
+  {
+   "key": "fam_dedup",
+   "file": "FamiliesD.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 11
+  },
+  {
+   "key": "fam_dentistry",
+   "file": "FamiliesD.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_deployment",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((30 : Int) / (30 : Int)) = (1 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_deployment",
+   "file": "FamiliesD.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_designtheory",
+   "file": "FamiliesD.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 5
+  },
+  {
+   "key": "fam_dietetics",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((2000 : Int) * (1 : Int)) = (2000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_dietetics",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((70 : Int) * (1 : Int)) = (70 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_diffraction",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((10000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_distillation",
+   "file": "FamiliesD.lean",
+   "conjunct": "((78 : Int) = (78 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_distilling",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((3 : Int) * (1 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_dividend",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((2 : Int) * (1 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_dividend",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_dividend",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_dns",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((3600 : Int) * (1 : Int)) = (3600 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_dns",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((12 : Int) + (0 : Int)) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_dominoes",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((7 : Int) + (0 : Int)) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_dominoes",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((6 : Int) + (0 : Int)) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_download",
+   "file": "FamiliesD.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_driver",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((4096 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 17
+  },
+  {
+   "key": "fam_driver",
+   "file": "FamiliesD.lean",
+   "conjunct": "((50 : Int) = (50 : Int))",
+   "of": 17
+  },
+  {
+   "key": "fam_drone",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_drone",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((100 : Int) / (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_drone",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((120 : Int) * (1 : Int)) = (120 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_dynamics",
+   "file": "FamiliesD.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_eclipse",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((18 : Int) + (0 : Int)) = (18 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_eclipse",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_eclipse",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_eclipse",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((18 : Int) / (1 : Int)) = (18 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_eclipse",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_electrolyte",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((2 : Int) * (1 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_electrolyte",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((6 : Int) + (0 : Int)) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_electrostatics",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_elevator",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((40 : Int) + (0 : Int)) = (40 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_embroidery",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((8 : Int) + (0 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_embryology",
+   "file": "FamiliesE.lean",
+   "conjunct": "((280 : Int) = (280 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_embryology",
+   "file": "FamiliesE.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_endpoint",
+   "file": "FamiliesE.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_endpoint",
+   "file": "FamiliesE.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_engine",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((200 : Int) * (1 : Int)) = (200 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_engine",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((6000 : Int) / (1 : Int)) = (6000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_entomology",
+   "file": "FamiliesE.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_enzyme",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_enzyme",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((4 : Int) * (1 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_equine",
+   "file": "FamiliesE.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_equine",
+   "file": "FamiliesE.lean",
+   "conjunct": "((340 : Int) = (340 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_equine",
+   "file": "FamiliesE.lean",
+   "conjunct": "((16 : Int) = (16 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_equity",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ergonomics",
+   "file": "FamiliesE.lean",
+   "conjunct": "((85 : Int) = (85 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_exoplanet",
+   "file": "FamiliesE.lean",
+   "conjunct": "(((1000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_federated",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((1000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 11
+  },
+  {
+   "key": "fam_feedlot",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_fermentation",
+   "file": "FamiliesF.lean",
+   "conjunct": "((37 : Int) = (37 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ferry",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((60 : Int) / (1 : Int)) = (60 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_field",
+   "file": "FamiliesF.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_field",
+   "file": "FamiliesF.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_firewall",
+   "file": "FamiliesF.lean",
+   "conjunct": "((512 : Int) = (512 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_firewall",
+   "file": "FamiliesF.lean",
+   "conjunct": "((45 : Int) = (45 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_firmware",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((1024 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 16
+  },
+  {
+   "key": "fam_flightdynamics",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((300 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_fluid",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((78 : Int) * (1 : Int)) = (78 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_foodsafety",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((7 : Int) + (0 : Int)) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_fractal",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_friction",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_friction",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_frontogenesis",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_fuelcell",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((1 : Int) * (700 : Int)) = (700 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_fuelcell",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((1000 : Int) / (1 : Int)) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_fuelcell",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((700 : Int) * (1 : Int)) = (700 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_fuelcell",
+   "file": "FamiliesF.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_galaxy",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_galaxy",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_galaxy",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((1 : Int) + (0 : Int)) = (1 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_gaming",
+   "file": "FamiliesG.lean",
+   "conjunct": "((45 : Int) = (45 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_gematria",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((22 : Int) * (1 : Int)) = (22 : Int))",
+   "of": 7
+  },
+  {
+   "key": "fam_gematria",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((22 : Int) + (0 : Int)) = (22 : Int))",
+   "of": 7
+  },
+  {
+   "key": "fam_gematria",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((400 : Int) * (1 : Int)) = (400 : Int))",
+   "of": 7
+  },
+  {
+   "key": "fam_genome",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((20000 : Int) * (1 : Int)) = (20000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_genome",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((23 : Int) + (0 : Int)) = (23 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_genomics",
+   "file": "FamiliesG.lean",
+   "conjunct": "((5000 : Int) = (5000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_geodesy",
+   "file": "FamiliesG.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_geology",
+   "file": "FamiliesG.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_geology",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((2700 : Int) / (1 : Int)) = (2700 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_geology",
+   "file": "FamiliesG.lean",
+   "conjunct": "((14 : Int) = (14 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_geometry",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((720 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_geophysics",
+   "file": "FamiliesG.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_geothermal",
+   "file": "FamiliesG.lean",
+   "conjunct": "((250 : Int) = (250 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_glider",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((100 : Int) / (100 : Int)) = (1 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_glider",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((15 : Int) * (1 : Int)) = (15 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_glider",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((60 : Int) * (1 : Int)) = (60 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_global",
+   "file": "FamiliesG.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_global",
+   "file": "FamiliesG.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_glyphs",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((1000 : Int) * (1 : Int)) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_glyphs",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((17 : Int) + (0 : Int)) = (17 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_gpu",
+   "file": "FamiliesG.lean",
+   "conjunct": "((32 : Int) = (32 : Int))",
+   "of": 17
+  },
+  {
+   "key": "fam_grammar",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((8 : Int) + (0 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_grammar",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_graph",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_gravimetry",
+   "file": "FamiliesG.lean",
+   "conjunct": "(((1 : Int) * (110 : Int)) = (110 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_grouptheory",
+   "file": "FamiliesG.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hail",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((20 : Int) * (1 : Int)) = (20 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_handle",
+   "file": "FamiliesH.lean",
+   "conjunct": "((8 : Int) = (8 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_handle",
+   "file": "FamiliesH.lean",
+   "conjunct": "((32 : Int) = (32 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_handle",
+   "file": "FamiliesH.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_handle",
+   "file": "FamiliesH.lean",
+   "conjunct": "((32 : Int) = (32 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_handle",
+   "file": "FamiliesH.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_handle",
+   "file": "FamiliesH.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_hanoi",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((10 : Int) + (0 : Int)) = (10 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hanoi",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hanoi",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((10 : Int) + (0 : Int)) = (10 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hanoi",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((1024 : Int) * (1 : Int)) = (1024 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hardware",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((70000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_helicopter",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((16 : Int) * (1 : Int)) = (16 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_helicopter",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((250 : Int) * (1 : Int)) = (250 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_helicopter",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_helicopter",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((5000 : Int) * (1 : Int)) = (5000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_helicopter",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((1000 : Int) * (1 : Int)) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_heliophysics",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((1361 : Int) / (1 : Int)) = (1361 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hematology",
+   "file": "FamiliesH.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_heraldry",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((9 : Int) + (0 : Int)) = (9 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_herpetology",
+   "file": "FamiliesH.lean",
+   "conjunct": "((60 : Int) = (60 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_hieroglyphs",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((700 : Int) * (1 : Int)) = (700 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hieroglyphs",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((100 : Int) + (0 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hieroglyphs",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((24 : Int) + (0 : Int)) = (24 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_highlights",
+   "file": "FamiliesH.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_highlights",
+   "file": "FamiliesH.lean",
+   "conjunct": "((80 : Int) = (80 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_highlights",
+   "file": "FamiliesH.lean",
+   "conjunct": "((400 : Int) = (400 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_highlights",
+   "file": "FamiliesH.lean",
+   "conjunct": "((50 : Int) = (50 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hinduism",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hinduism",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hinduism",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((108 : Int) * (1 : Int)) = (108 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hinduism",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((7 : Int) + (0 : Int)) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hinduism",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((700 : Int) * (1 : Int)) = (700 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_histology",
+   "file": "FamiliesH.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_histology",
+   "file": "FamiliesH.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hook",
+   "file": "FamiliesH.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_hover",
+   "file": "FamiliesH.lean",
+   "conjunct": "((300 : Int) = (300 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hover",
+   "file": "FamiliesH.lean",
+   "conjunct": "((250 : Int) = (250 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hover",
+   "file": "FamiliesH.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hover",
+   "file": "FamiliesH.lean",
+   "conjunct": "((8 : Int) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hovercraft",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((40 : Int) * (1 : Int)) = (40 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hovercraft",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((2000 : Int) * (1 : Int)) = (2000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hovercraft",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((60 : Int) * (1 : Int)) = (60 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hovercraft",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((300 : Int) / (1 : Int)) = (300 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_hydrography",
+   "file": "FamiliesH.lean",
+   "conjunct": "(((1500 : Int) * (1 : Int)) = (1500 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ichthyology",
+   "file": "FamiliesI.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_idealism",
+   "file": "FamiliesI.lean",
+   "conjunct": "(((12 : Int) + (0 : Int)) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_idealism",
+   "file": "FamiliesI.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_inductor",
+   "file": "FamiliesI.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_inequality",
+   "file": "FamiliesI.lean",
+   "conjunct": "(((40 : Int) / (1 : Int)) = (40 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_inequality",
+   "file": "FamiliesI.lean",
+   "conjunct": "(((10 : Int) + (0 : Int)) = (10 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_inflation",
+   "file": "FamiliesI.lean",
+   "conjunct": "(((80 : Int) * (1 : Int)) = (80 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_interaction",
+   "file": "FamiliesI.lean",
+   "conjunct": "((200 : Int) = (200 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_interaction",
+   "file": "FamiliesI.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_interaction",
+   "file": "FamiliesI.lean",
+   "conjunct": "((44 : Int) = (44 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_interconnect",
+   "file": "FamiliesI.lean",
+   "conjunct": "(((16 : Int) * (1 : Int)) = (16 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_interestrate",
+   "file": "FamiliesI.lean",
+   "conjunct": "(((12 : Int) * (1 : Int)) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_invoice",
+   "file": "FamiliesI.lean",
+   "conjunct": "(((8 : Int) + (0 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_invoice",
+   "file": "FamiliesI.lean",
+   "conjunct": "(((30 : Int) + (0 : Int)) = (30 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_jainism",
+   "file": "FamiliesJ.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_jainism",
+   "file": "FamiliesJ.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_jainism",
+   "file": "FamiliesJ.lean",
+   "conjunct": "(((24 : Int) + (0 : Int)) = (24 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_jainism",
+   "file": "FamiliesJ.lean",
+   "conjunct": "(((8 : Int) + (0 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_jainism",
+   "file": "FamiliesJ.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_jewelry",
+   "file": "FamiliesJ.lean",
+   "conjunct": "(((57 : Int) * (1 : Int)) = (57 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_kinematics",
+   "file": "FamiliesK.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_latinsquare",
+   "file": "FamiliesL.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 11
+  },
+  {
+   "key": "fam_latinsquare",
+   "file": "FamiliesL.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 11
+  },
+  {
+   "key": "fam_latinsquare",
+   "file": "FamiliesL.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 11
+  },
+  {
+   "key": "fam_latinsquare",
+   "file": "FamiliesL.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 11
+  },
+  {
+   "key": "fam_latinsquare",
+   "file": "FamiliesL.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 11
+  },
+  {
+   "key": "fam_lattice",
+   "file": "FamiliesL.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_law",
+   "file": "FamiliesL.lean",
+   "conjunct": "((0 : Int) = (0 : Int))",
+   "of": 17
+  },
+  {
+   "key": "fam_law",
+   "file": "FamiliesL.lean",
+   "conjunct": "((1 : Int) = (1 : Int))",
+   "of": 17
+  },
+  {
+   "key": "fam_layout",
+   "file": "FamiliesL.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_layout",
+   "file": "FamiliesL.lean",
+   "conjunct": "((50 : Int) = (50 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_ledger",
+   "file": "FamiliesL.lean",
+   "conjunct": "(((500 : Int) + (0 : Int)) = (500 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ledger",
+   "file": "FamiliesL.lean",
+   "conjunct": "(((12 : Int) + (0 : Int)) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_lever",
+   "file": "FamiliesL.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_lidar",
+   "file": "FamiliesL.lean",
+   "conjunct": "((25 : Int) = (25 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_limnology",
+   "file": "FamiliesL.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_linearalgebra",
+   "file": "FamiliesL.lean",
+   "conjunct": "((1 : Int) = (1 : Int))",
+   "of": 7
+  },
+  {
+   "key": "fam_linguistics",
+   "file": "FamiliesL.lean",
+   "conjunct": "((44 : Int) = (44 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_liturgy",
+   "file": "FamiliesL.lean",
+   "conjunct": "(((8 : Int) * (1 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_loan",
+   "file": "FamiliesL.lean",
+   "conjunct": "(((20000 : Int) * (1 : Int)) = (20000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_loan",
+   "file": "FamiliesL.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_locale",
+   "file": "FamiliesL.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_logogram",
+   "file": "FamiliesL.lean",
+   "conjunct": "(((2000 : Int) * (1 : Int)) = (2000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_logogram",
+   "file": "FamiliesL.lean",
+   "conjunct": "(((214 : Int) + (0 : Int)) = (214 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_machining",
+   "file": "FamiliesM.lean",
+   "conjunct": "((32 : Int) = (32 : Int))",
+   "of": 11
+  },
+  {
+   "key": "fam_machining",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((10000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 11
+  },
+  {
+   "key": "fam_magnetism",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((1000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 12
+  },
+  {
+   "key": "fam_magnetism",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((900 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 12
+  },
+  {
+   "key": "fam_magnetism",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 12
+  },
+  {
+   "key": "fam_magnetometry",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((50000 : Int) * (1 : Int)) = (50000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_malacology",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((30 : Int) + (0 : Int)) = (30 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_malware",
+   "file": "FamiliesM.lean",
+   "conjunct": "((50000 : Int) = (50000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_malware",
+   "file": "FamiliesM.lean",
+   "conjunct": "((21 : Int) = (21 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_mammalogy",
+   "file": "FamiliesM.lean",
+   "conjunct": "((280 : Int) = (280 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_manipulator",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_matrix",
+   "file": "FamiliesM.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 14
+  },
+  {
+   "key": "fam_mealplanning",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((2000 : Int) * (1 : Int)) = (2000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_media",
+   "file": "FamiliesM.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_melody",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((64 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_memory",
+   "file": "FamiliesM.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_merkle",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_metabolism",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((1500 : Int) * (1 : Int)) = (1500 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_metabolism",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((36 : Int) * (1 : Int)) = (36 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_metabolism",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((2000 : Int) * (1 : Int)) = (2000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_metabolism",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_metabolism",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((250 : Int) * (1 : Int)) = (250 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_metabolomics",
+   "file": "FamiliesM.lean",
+   "conjunct": "((42 : Int) = (42 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_microbiology",
+   "file": "FamiliesM.lean",
+   "conjunct": "((8 : Int) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_microbiology",
+   "file": "FamiliesM.lean",
+   "conjunct": "((18 : Int) = (18 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_microscopy",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((1 : Int) * (55 : Int)) = (55 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_mime",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((60 : Int) * (1 : Int)) = (60 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_mineralogy",
+   "file": "FamiliesM.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_mineralogy",
+   "file": "FamiliesM.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ml",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((50 : Int) * (1 : Int)) = (50 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_mobility",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((10 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_modular",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((7 : Int) + (0 : Int)) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_monasticism",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((73 : Int) * (1 : Int)) = (73 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_monsoon",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((800 : Int) * (1 : Int)) = (800 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_monsoon",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((120 : Int) + (0 : Int)) = (120 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_monsoon",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((12 : Int) * (1 : Int)) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_moon",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((27 : Int) + (0 : Int)) = (27 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_moon",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((3474 : Int) * (1 : Int)) = (3474 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_moon",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((2 : Int) * (1 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_motion",
+   "file": "FamiliesM.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 7
+  },
+  {
+   "key": "fam_music",
+   "file": "FamiliesM.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_mutation",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_mutation",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_myrmecology",
+   "file": "FamiliesM.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_nebula",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((10 : Int) * (1 : Int)) = (10 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_nebula",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_nebula",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_nebula",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((5 : Int) * (1 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_nebula",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_nephrology",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((140 : Int) / (1 : Int)) = (140 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_neurology",
+   "file": "FamiliesN.lean",
+   "conjunct": "((2 : Int) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_neurology",
+   "file": "FamiliesN.lean",
+   "conjunct": "((100 : Int) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_neuron",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((1000 : Int) + (0 : Int)) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_neuron",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_neuron",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((6 : Int) + (0 : Int)) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_neuroscience",
+   "file": "FamiliesN.lean",
+   "conjunct": "((2 : Int) = (2 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_neuroscience",
+   "file": "FamiliesN.lean",
+   "conjunct": "((55 : Int) = (55 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_nic",
+   "file": "FamiliesN.lean",
+   "conjunct": "((100 : Int) = (100 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_nic",
+   "file": "FamiliesN.lean",
+   "conjunct": "((9000 : Int) = (9000 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_nim",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_notice",
+   "file": "FamiliesN.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_notice",
+   "file": "FamiliesN.lean",
+   "conjunct": "((5000 : Int) = (5000 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_notice",
+   "file": "FamiliesN.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_notice",
+   "file": "FamiliesN.lean",
+   "conjunct": "((10 : Int) = (10 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_nuclearpower",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((45 : Int) * (1 : Int)) = (45 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_nuclearpower",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_nuclearpower",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_nursing",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((1000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 14
+  },
+  {
+   "key": "fam_nursing",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((24 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 14
+  },
+  {
+   "key": "fam_nursing",
+   "file": "FamiliesN.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 14
+  },
+  {
+   "key": "fam_nursing",
+   "file": "FamiliesN.lean",
+   "conjunct": "(((12 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 14
+  },
+  {
+   "key": "fam_oceanography",
+   "file": "FamiliesO.lean",
+   "conjunct": "(((1025 : Int) / (1 : Int)) = (1025 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_oligopoly",
+   "file": "FamiliesO.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_oncology",
+   "file": "FamiliesO.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ontology",
+   "file": "FamiliesO.lean",
+   "conjunct": "(((10 : Int) + (0 : Int)) = (10 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_opera",
+   "file": "FamiliesO.lean",
+   "conjunct": "(((6 : Int) + (0 : Int)) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_opera",
+   "file": "FamiliesO.lean",
+   "conjunct": "(((60 : Int) * (1 : Int)) = (60 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_option",
+   "file": "FamiliesO.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_option",
+   "file": "FamiliesO.lean",
+   "conjunct": "(((30 : Int) + (0 : Int)) = (30 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_option",
+   "file": "FamiliesO.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_optometry",
+   "file": "FamiliesO.lean",
+   "conjunct": "(((1000000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 14
+  },
+  {
+   "key": "fam_optometry",
+   "file": "FamiliesO.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 14
+  },
+  {
+   "key": "fam_optometry",
+   "file": "FamiliesO.lean",
+   "conjunct": "((120 : Int) = (120 : Int))",
+   "of": 14
+  },
+  {
+   "key": "fam_orthography",
+   "file": "FamiliesO.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_oscillators",
+   "file": "FamiliesO.lean",
+   "conjunct": "(((1000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_packet",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((1500 : Int) + (0 : Int)) = (1500 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_painting",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_painting",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((9 : Int) + (0 : Int)) = (9 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_paleoclimate",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((280 : Int) * (1 : Int)) = (280 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_paleoclimate",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_parable",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((1 : Int) * (3 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_parallax",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_partition",
+   "file": "FamiliesP.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_partner",
+   "file": "FamiliesP.lean",
+   "conjunct": "((250 : Int) = (250 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_pathogen",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_payroll",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_payroll",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((26 : Int) + (0 : Int)) = (26 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_pendulum",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((2 : Int) * (1 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_pendulum",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((5 : Int) * (1 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_pentomino",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((12 : Int) + (0 : Int)) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_perception",
+   "file": "FamiliesP.lean",
+   "conjunct": "((250 : Int) = (250 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_permutation",
+   "file": "FamiliesP.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_petroleum",
+   "file": "FamiliesP.lean",
+   "conjunct": "((3500 : Int) = (3500 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_phenomenology",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((3 : Int) * (1 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_phenomenology",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((6 : Int) + (0 : Int)) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_philosophy",
+   "file": "FamiliesP.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_phonetics",
+   "file": "FamiliesP.lean",
+   "conjunct": "((120 : Int) = (120 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_phonetics",
+   "file": "FamiliesP.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_photography",
+   "file": "FamiliesP.lean",
+   "conjunct": "((400 : Int) = (400 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_pilgrimage",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((40 : Int) * (1 : Int)) = (40 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_pipeline",
+   "file": "FamiliesP.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_piston",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((80 : Int) * (1 : Int)) = (80 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_piston",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((86 : Int) * (1 : Int)) = (86 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_piston",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_planet",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((365 : Int) * (1 : Int)) = (365 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_planet",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_planet",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((6371 : Int) * (1 : Int)) = (6371 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_planet",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((24 : Int) / (1 : Int)) = (24 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_planet",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((0 : Int) + (1 : Int)) = (1 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_podcasting",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((52 : Int) / (52 : Int)) = (1 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_podiatry",
+   "file": "FamiliesP.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_podiatry",
+   "file": "FamiliesP.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_polygon",
+   "file": "FamiliesP.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_polyhedron",
+   "file": "FamiliesP.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_polymer",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_primatology",
+   "file": "FamiliesP.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_prime",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_printmaking",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((50 : Int) * (1 : Int)) = (50 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_printmaking",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_probability",
+   "file": "FamiliesP.lean",
+   "conjunct": "((8 : Int) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_propulsion",
+   "file": "FamiliesP.lean",
+   "conjunct": "((850 : Int) = (850 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_protein",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((300 : Int) * (1 : Int)) = (300 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_protein",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_protein",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((299 : Int) * (1 : Int)) = (299 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_proteomics",
+   "file": "FamiliesP.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_protocol",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((7 : Int) + (0 : Int)) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_protocol",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_protocol",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((16 : Int) * (1 : Int)) = (16 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_protocol",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_psalmody",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((22 : Int) + (0 : Int)) = (22 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_psu",
+   "file": "FamiliesP.lean",
+   "conjunct": "((50 : Int) = (50 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_psychiatry",
+   "file": "FamiliesP.lean",
+   "conjunct": "((21 : Int) = (21 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_pulley",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_pulley",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((4 : Int) * (1 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_pulmonology",
+   "file": "FamiliesP.lean",
+   "conjunct": "((600 : Int) = (600 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_puppetry",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((9 : Int) + (0 : Int)) = (9 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_pwm",
+   "file": "FamiliesP.lean",
+   "conjunct": "(((256 : Int) * (1 : Int)) = (256 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_qsec",
+   "file": "FamiliesQ.lean",
+   "conjunct": "(((10000 : Int) * (1 : Int)) = (10000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_qsec",
+   "file": "FamiliesQ.lean",
+   "conjunct": "(((16 : Int) + (0 : Int)) = (16 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_quantization",
+   "file": "FamiliesQ.lean",
+   "conjunct": "(((1000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_quantum",
+   "file": "FamiliesQ.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_quantum",
+   "file": "FamiliesQ.lean",
+   "conjunct": "(((1024 : Int) * (1 : Int)) = (1024 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_query",
+   "file": "FamiliesQ.lean",
+   "conjunct": "((2 : Int) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_query",
+   "file": "FamiliesQ.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_query",
+   "file": "FamiliesQ.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_queue",
+   "file": "FamiliesQ.lean",
+   "conjunct": "(((64 : Int) + (0 : Int)) = (64 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_radar",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((100 : Int) * (1 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_radar",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((1000 : Int) * (1 : Int)) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_radar",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((12 : Int) + (0 : Int)) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_raid",
+   "file": "FamiliesR.lean",
+   "conjunct": "((1 : Int) = (1 : Int))",
+   "of": 11
+  },
+  {
+   "key": "fam_railway",
+   "file": "FamiliesR.lean",
+   "conjunct": "((45 : Int) = (45 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ram",
+   "file": "FamiliesR.lean",
+   "conjunct": "((8192 : Int) = (8192 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_ramsey",
+   "file": "FamiliesR.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 16
+  },
+  {
+   "key": "fam_ramsey",
+   "file": "FamiliesR.lean",
+   "conjunct": "((6 : Int) = (6 : Int))",
+   "of": 16
+  },
+  {
+   "key": "fam_ramsey",
+   "file": "FamiliesR.lean",
+   "conjunct": "((9 : Int) = (9 : Int))",
+   "of": 16
+  },
+  {
+   "key": "fam_ramsey",
+   "file": "FamiliesR.lean",
+   "conjunct": "((14 : Int) = (14 : Int))",
+   "of": 16
+  },
+  {
+   "key": "fam_ramsey",
+   "file": "FamiliesR.lean",
+   "conjunct": "((18 : Int) = (18 : Int))",
+   "of": 16
+  },
+  {
+   "key": "fam_ramsey",
+   "file": "FamiliesR.lean",
+   "conjunct": "((6 : Int) = (6 : Int))",
+   "of": 16
+  },
+  {
+   "key": "fam_ramsey",
+   "file": "FamiliesR.lean",
+   "conjunct": "((13 : Int) = (13 : Int))",
+   "of": 16
+  },
+  {
+   "key": "fam_ramsey",
+   "file": "FamiliesR.lean",
+   "conjunct": "((9 : Int) = (9 : Int))",
+   "of": 16
+  },
+  {
+   "key": "fam_rationalism",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ray",
+   "file": "FamiliesR.lean",
+   "conjunct": "((32 : Int) = (32 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_ray",
+   "file": "FamiliesR.lean",
+   "conjunct": "((128 : Int) = (128 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_ray",
+   "file": "FamiliesR.lean",
+   "conjunct": "((122 : Int) = (122 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_ray",
+   "file": "FamiliesR.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_readability",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_receipts",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((30 : Int) * (1 : Int)) = (30 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_rectifier",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_rectifier",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((180 : Int) / (1 : Int)) = (180 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_refrigeration",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((1200 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_relativity",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 12
+  },
+  {
+   "key": "fam_remotesensing",
+   "file": "FamiliesR.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_remotesensing",
+   "file": "FamiliesR.lean",
+   "conjunct": "((16 : Int) = (16 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_responsive",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((1280 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_rhetoric",
+   "file": "FamiliesR.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_roasting",
+   "file": "FamiliesR.lean",
+   "conjunct": "((205 : Int) = (205 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_roasting",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((640 : Int) / (1 : Int)) = (640 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_roasting",
+   "file": "FamiliesR.lean",
+   "conjunct": "((55 : Int) = (55 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_robotics",
+   "file": "FamiliesR.lean",
+   "conjunct": "((6 : Int) = (6 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_rocketry",
+   "file": "FamiliesR.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_rotation",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((12 : Int) + (0 : Int)) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_router",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((16 : Int) + (0 : Int)) = (16 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_router",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((48 : Int) + (0 : Int)) = (48 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_routing",
+   "file": "FamiliesR.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_routing",
+   "file": "FamiliesR.lean",
+   "conjunct": "((2 : Int) = (2 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_rubik",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((6 : Int) + (0 : Int)) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_rubik",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((20 : Int) + (0 : Int)) = (20 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_rubik",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((26 : Int) + (0 : Int)) = (26 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_runes",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((24 : Int) + (0 : Int)) = (24 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_runes",
+   "file": "FamiliesR.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_satellite",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((400 : Int) * (1 : Int)) = (400 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_satellite",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_scholasticism",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_science",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_scrabble",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((100 : Int) + (0 : Int)) = (100 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_scrabble",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((26 : Int) * (1 : Int)) = (26 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_scrabble",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((50 : Int) + (0 : Int)) = (50 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_scrabble",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_screenwriting",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_screenwriting",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((40 : Int) * (1 : Int)) = (40 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_screenwriting",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((120 : Int) / (120 : Int)) = (1 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_sedimentology",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((5 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_seismology",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((500 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 11
+  },
+  {
+   "key": "fam_semantics",
+   "file": "FamiliesS.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_semiconductor",
+   "file": "FamiliesS.lean",
+   "conjunct": "((1120 : Int) = (1120 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_semiconductor",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((5 : Int) / (1 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_semiconductor",
+   "file": "FamiliesS.lean",
+   "conjunct": "((700 : Int) = (700 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_semiotics",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_shamanism",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((120 : Int) * (1 : Int)) = (120 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_shamanism",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_shamanism",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_shinto",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((20 : Int) * (1 : Int)) = (20 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_shipping",
+   "file": "FamiliesS.lean",
+   "conjunct": "((72 : Int) = (72 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_shogi",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((6 : Int) + (0 : Int)) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_shogi",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((9 : Int) + (0 : Int)) = (9 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_shogi",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((80 : Int) + (0 : Int)) = (80 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_shorthand",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((120 : Int) * (1 : Int)) = (120 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_sikhism",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((10 : Int) + (0 : Int)) = (10 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_sikhism",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((1430 : Int) * (1 : Int)) = (1430 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_sikhism",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_sikhism",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_simulation",
+   "file": "FamiliesS.lean",
+   "conjunct": "((42 : Int) = (42 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_slider",
+   "file": "FamiliesS.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_slider",
+   "file": "FamiliesS.lean",
+   "conjunct": "((300 : Int) = (300 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_sociology",
+   "file": "FamiliesS.lean",
+   "conjunct": "((42 : Int) = (42 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_socket",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((128 : Int) + (0 : Int)) = (128 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_socket",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((11 : Int) + (0 : Int)) = (11 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_socket",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_solar",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((1000 : Int) * (1 : Int)) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_solarpower",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((1000 : Int) * (1 : Int)) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_solvent",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((36 : Int) * (1 : Int)) = (36 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_solvent",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_sort",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((8 : Int) + (0 : Int)) = (8 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_sounddesign",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((2000 : Int) / (1 : Int)) = (2000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_sounddesign",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((96 : Int) / (1 : Int)) = (96 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_sounddesign",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((40 : Int) * (1 : Int)) = (40 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_spaceflight",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((9400 : Int) * (1 : Int)) = (9400 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_spaceflight",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((400 : Int) * (1 : Int)) = (400 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_speleology",
+   "file": "FamiliesS.lean",
+   "conjunct": "((2197 : Int) = (2197 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_speleology",
+   "file": "FamiliesS.lean",
+   "conjunct": "((42 : Int) = (42 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_sports",
+   "file": "FamiliesS.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_spring",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((20 : Int) * (1 : Int)) = (20 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_ssd",
+   "file": "FamiliesS.lean",
+   "conjunct": "((32 : Int) = (32 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_star",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((2 : Int) * (1 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_star",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((7 : Int) + (0 : Int)) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_state",
+   "file": "FamiliesS.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_state",
+   "file": "FamiliesS.lean",
+   "conjunct": "((42 : Int) = (42 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_state",
+   "file": "FamiliesS.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_steps",
+   "file": "FamiliesS.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_steps",
+   "file": "FamiliesS.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_stoichiometry",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((5 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_stoicism",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_straingauge",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((2000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_stream",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_streaming",
+   "file": "FamiliesS.lean",
+   "conjunct": "((250 : Int) = (250 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_streaming",
+   "file": "FamiliesS.lean",
+   "conjunct": "((1200 : Int) = (1200 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_structural",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((1000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_submarine",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((300 : Int) * (1 : Int)) = (300 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_submarine",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((30 : Int) * (1 : Int)) = (30 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_submarine",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((8000 : Int) * (1 : Int)) = (8000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_submarine",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((10 : Int) + (0 : Int)) = (10 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_submarine",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((700 : Int) * (1 : Int)) = (700 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_sudoku",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((17 : Int) + (0 : Int)) = (17 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_surgery",
+   "file": "FamiliesS.lean",
+   "conjunct": "((450 : Int) = (450 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_survey",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((360 : Int) * (1 : Int)) = (360 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_surveying",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((5000 : Int) / (1 : Int)) = (5000 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_surveying",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((5000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_swine",
+   "file": "FamiliesS.lean",
+   "conjunct": "((120 : Int) = (120 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_syllabary",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((14 : Int) + (0 : Int)) = (14 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_syllabary",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((5 : Int) + (0 : Int)) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_syllogism",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_synapse",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((1000 : Int) * (1 : Int)) = (1000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_synapse",
+   "file": "FamiliesS.lean",
+   "conjunct": "(((6 : Int) + (0 : Int)) = (6 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_syntax",
+   "file": "FamiliesS.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_syntax",
+   "file": "FamiliesS.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_taoism",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_taoism",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_taoism",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((81 : Int) * (1 : Int)) = (81 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_tax",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((12000 : Int) + (0 : Int)) = (12000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_tax",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((7 : Int) + (0 : Int)) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_telemetry",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((30 : Int) * (1 : Int)) = (30 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_teleology",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_teleology",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((4 : Int) * (1 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_telescope",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((200 : Int) * (1 : Int)) = (200 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_telescope",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((116 : Int) / (1 : Int)) = (116 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_telescope",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_telescope",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((60 : Int) / (1 : Int)) = (60 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_tennis",
+   "file": "FamiliesT.lean",
+   "conjunct": "((200 : Int) = (200 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_testing",
+   "file": "FamiliesT.lean",
+   "conjunct": "((4200 : Int) = (4200 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_theatre",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((120 : Int) * (1 : Int)) = (120 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_thermocouple",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_tls",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((2 : Int) + (0 : Int)) = (2 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_tls",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_tokenization",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((1000 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_tomography",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((64 : Int) * (1 : Int)) = (64 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_topology",
+   "file": "FamiliesT.lean",
+   "conjunct": "((3 : Int) = (3 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_tornado",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((200 : Int) * (1 : Int)) = (200 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_tornado",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((20 : Int) * (1 : Int)) = (20 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_torsion",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((80 : Int) * (1 : Int)) = (80 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_torsion",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((10 : Int) * (1 : Int)) = (10 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_torsion",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_toxicology",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((50 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_treasury",
+   "file": "FamiliesT.lean",
+   "conjunct": "((90 : Int) = (90 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_tree",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((16 : Int) * (1 : Int)) = (16 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_tree",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((4 : Int) + (0 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_trigonometry",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((100 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_trucking",
+   "file": "FamiliesT.lean",
+   "conjunct": "((6 : Int) = (6 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_tsunami",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((200 : Int) * (1 : Int)) = (200 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_tune",
+   "file": "FamiliesT.lean",
+   "conjunct": "(((1 : Int) * (432 : Int)) = (432 : Int))",
+   "of": 5
+  },
+  {
+   "key": "fam_unemployment",
+   "file": "FamiliesU.lean",
+   "conjunct": "(((5000 : Int) * (1 : Int)) = (5000 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_urology",
+   "file": "FamiliesU.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_vaccine",
+   "file": "FamiliesV.lean",
+   "conjunct": "(((4 : Int) * (1 : Int)) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_vaccine",
+   "file": "FamiliesV.lean",
+   "conjunct": "(((1 : Int) + (0 : Int)) = (1 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_vector",
+   "file": "FamiliesV.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_vector",
+   "file": "FamiliesV.lean",
+   "conjunct": "(((3 : Int) * (1 : Int)) = (3 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_vet",
+   "file": "FamiliesV.lean",
+   "conjunct": "((5 : Int) = (5 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_virality",
+   "file": "FamiliesV.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_virality",
+   "file": "FamiliesV.lean",
+   "conjunct": "((48 : Int) = (48 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_virology",
+   "file": "FamiliesV.lean",
+   "conjunct": "((14 : Int) = (14 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_volcanology",
+   "file": "FamiliesV.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_volcanology",
+   "file": "FamiliesV.lean",
+   "conjunct": "((42 : Int) = (42 : Int))",
+   "of": 9
+  },
+  {
+   "key": "fam_weather",
+   "file": "FamiliesW.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_weather",
+   "file": "FamiliesW.lean",
+   "conjunct": "((7 : Int) = (7 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_wind",
+   "file": "FamiliesW.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_windpower",
+   "file": "FamiliesW.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_wireframe",
+   "file": "FamiliesW.lean",
+   "conjunct": "((4 : Int) = (4 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_woodworking",
+   "file": "FamiliesW.lean",
+   "conjunct": "((1290 : Int) = (1290 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_xai",
+   "file": "FamiliesX.lean",
+   "conjunct": "(((2 : Int) ^ (0 : Nat)) = (1 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_zeroshot",
+   "file": "FamiliesZ.lean",
+   "conjunct": "(((10 : Int) / (0 : Int)) = (0 : Int))",
+   "of": 10
+  },
+  {
+   "key": "fam_zoology",
+   "file": "FamiliesZ.lean",
+   "conjunct": "((12 : Int) = (12 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_zoroastrianism",
+   "file": "FamiliesZ.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_zoroastrianism",
+   "file": "FamiliesZ.lean",
+   "conjunct": "(((7 : Int) + (0 : Int)) = (7 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_zoroastrianism",
+   "file": "FamiliesZ.lean",
+   "conjunct": "(((17 : Int) * (1 : Int)) = (17 : Int))",
+   "of": 8
+  },
+  {
+   "key": "fam_zoroastrianism",
+   "file": "FamiliesZ.lean",
+   "conjunct": "(((3 : Int) + (0 : Int)) = (3 : Int))",
+   "of": 8
   },
   {
    "key": "fixed_power_law_is_not_vacuous",
@@ -2062,7 +6082,7 @@
   {
    "key": "cubes_partition_ledger",
    "file": "Software.lean",
-   "conjunct": "(261 < 71073)",
+   "conjunct": "(292 < 72393)",
    "of": 3
   },
   {
@@ -2552,6 +6572,12 @@
    "of": 2
   },
   {
+   "key": "alpine_domain_driver_origins_631",
+   "file": "Wave.lean",
+   "conjunct": "(461 <= 631)",
+   "of": 2
+  },
+  {
    "key": "alpine_domain_engineering_origins_30",
    "file": "Wave.lean",
    "conjunct": "(15 <= 30)",
@@ -2591,6 +6617,12 @@
    "key": "alpine_domain_language_origins_7488",
    "file": "Wave.lean",
    "conjunct": "(4422 <= 7488)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_language_origins_7503",
+   "file": "Wave.lean",
+   "conjunct": "(4432 <= 7503)",
    "of": 2
   },
   {
@@ -2642,6 +6674,12 @@
    "of": 2
   },
   {
+   "key": "alpine_domain_shell_origins_1281",
+   "file": "Wave.lean",
+   "conjunct": "(682 <= 1281)",
+   "of": 2
+  },
+  {
    "key": "alpine_domain_social_origins_303",
    "file": "Wave.lean",
    "conjunct": "(164 <= 303)",
@@ -2669,6 +6707,18 @@
    "key": "alpine_port_all_partition_28635",
    "file": "Wave.lean",
    "conjunct": "(11370 < 28635)",
+   "of": 3
+  },
+  {
+   "key": "alpine_port_all_partition_28664",
+   "file": "Wave.lean",
+   "conjunct": "(28664 = 28664)",
+   "of": 3
+  },
+  {
+   "key": "alpine_port_all_partition_28664",
+   "file": "Wave.lean",
+   "conjunct": "(11627 < 28664)",
    "of": 3
   },
   {
@@ -2954,10 +7004,10 @@
    "of": 4
   }
  ],
- "receipt": "a52ea76f-2d27-8f4e-acce-5cab1667f044",
+ "receipt": "3706ac3d-95cc-8e47-8b3f-2822a1bece5f",
  "crossed": {
-  "sorted": "a52ea76f-2d27-8f4e-acce-5cab1667f044",
-  "reversed": "a52ea76f-2d27-8f4e-acce-5cab1667f044",
+  "sorted": "3706ac3d-95cc-8e47-8b3f-2822a1bece5f",
+  "reversed": "3706ac3d-95cc-8e47-8b3f-2822a1bece5f",
   "agrees": true
  }
 }

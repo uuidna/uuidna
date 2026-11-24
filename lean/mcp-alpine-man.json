@@ -2,36 +2,36 @@
  "definition": "mcp·uuidna_exec·man→app→hexbit",
  "tool": "uuidna_exec",
  "wireDoors": 1,
- "naiveWireIfPerApp": 4761,
- "total": 4761,
- "witnessed": 4761,
- "exposed": 4761,
+ "naiveWireIfPerApp": 4762,
+ "total": 4762,
+ "witnessed": 4762,
+ "exposed": 4762,
  "missing": [],
  "gaps": [],
  "byVia": {
   "corpus": 2,
-  "origin": 4750,
+  "origin": 4751,
   "gtk-doc": 5,
   "libs": 0,
   "dev": 1,
   "provides": 1,
   "self": 2
  },
- "receipt": "bd0683a1-fbcb-8119-af77-e2d024e0ec05",
+ "receipt": "2966f132-7c81-88e2-8f22-a05b3ef1594b",
  "honest": "Every honest Alpine app (man-covered corpus) is reachable through ONE MCP tool — uuidna_exec — not one wire descriptor per package. man <doc> exercises man→app→hexbit; apk info <app> reaches the catalogued app. Orphans are named, never padded. Protects the MCP wire ceiling.",
  "pct": 100,
  "before": {
   "exposed": "sample-only",
-  "wireDoorsIfNaive": 4761
+  "wireDoorsIfNaive": 4762
  },
  "after": {
-  "exposed": 4761,
+  "exposed": 4762,
   "wireDoors": 1,
-  "catalogManDriven": "4761/4761"
+  "catalogManDriven": "4762/4762"
  },
  "crossed": {
-  "sorted": "bd0683a1-fbcb-8119-af77-e2d024e0ec05",
-  "reversed": "bd0683a1-fbcb-8119-af77-e2d024e0ec05",
+  "sorted": "2966f132-7c81-88e2-8f22-a05b3ef1594b",
+  "reversed": "2966f132-7c81-88e2-8f22-a05b3ef1594b",
   "agrees": true
  }
 }

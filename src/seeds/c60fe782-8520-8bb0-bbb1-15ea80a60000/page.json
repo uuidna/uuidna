@@ -2,7 +2,7 @@
   "file": "Forensics.lean",
   "slug": "forensics",
   "status": "usable",
-  "address": "75f4211c-8d35-83f6-b34e-be3091e2abd3",
+  "address": "74a77704-12a3-86b9-b020-5dd4afc0abbf",
   "page": {
     "root": {
       "type": "root",
@@ -73,7 +73,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "A GUESSED HANDLE RARELY LANDS EITHER. The handle store holds 73,099 leaves in a 32-bit handle space, so a guessed handle names an occupied leaf with odds below 2^-15: 73,099 × 2^15 < 2^32. The odds are far weaker than an address's, which is why a handle is only ever the PATH to a leaf and the leaf itself carries the full uuid that forensics() checks."
+                  "text": "A GUESSED HANDLE RARELY LANDS EITHER. The handle store holds 73,100 leaves in a 32-bit handle space, so a guessed handle names an occupied leaf with odds below 2^-15: 73,100 × 2^15 < 2^32. The odds are far weaker than an address's, which is why a handle is only ever the PATH to a leaf and the leaf itself carries the full uuid that forensics() checks."
                 }
               ]
             },
@@ -83,7 +83,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "73099 * 2 ^ 15 < 2 ^ 32"
+                  "text": "73100 * 2 ^ 15 < 2 ^ 32"
                 }
               ]
             },
@@ -93,7 +93,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "theorem forged_handle_odds_are_small : 73099 * 2 ^ 15 < 2 ^ 32 := by decide"
+                  "text": "theorem forged_handle_odds_are_small : 73100 * 2 ^ 15 < 2 ^ 32 := by decide"
                 }
               ]
             }
@@ -109,7 +109,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "THE CONTROL: THE BOUND CAN FAIL. With 16-bit handles the store's 73,099 leaves would outnumber the 65,536 handles available, so two leaves would be forced to share one — pigeonhole, not chance — and the store refuses any collision. The odds above are a property of the widths chosen, and a width too small is refuted by the same arithmetic; that is why a handle carries 32 bits."
+                  "text": "THE CONTROL: THE BOUND CAN FAIL. With 16-bit handles the store's 73,100 leaves would outnumber the 65,536 handles available, so two leaves would be forced to share one — pigeonhole, not chance — and the store refuses any collision. The odds above are a property of the widths chosen, and a width too small is refuted by the same arithmetic; that is why a handle carries 32 bits."
                 }
               ]
             },
@@ -119,7 +119,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "73099 > 2 ^ 16"
+                  "text": "73100 > 2 ^ 16"
                 }
               ]
             },
@@ -129,7 +129,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "theorem sixteen_bit_handles_would_collide : 73099 > 2 ^ 16 := by decide"
+                  "text": "theorem sixteen_bit_handles_would_collide : 73100 > 2 ^ 16 := by decide"
                 }
               ]
             }

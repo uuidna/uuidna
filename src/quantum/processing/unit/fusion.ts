@@ -91,9 +91,28 @@ export const shotAcceptsOf = (x: bigint, phase: Phase): boolean => {
   return theorem.fusion_accepts(e, x, den) === true
 }
 
+/** log₂ x for x > 0 by halving, doubling and squaring only: the whole part by scaling x into [1, 2), then one bit of
+ *  the fraction per squaring. Multiplication and comparison are fixed by IEEE 754, so every host computes the same
+ *  bits, which the host's own logarithm does not promise. */
+const log2Of = (x: number): number => {
+  if (!(x > 0) || x === Infinity) return NaN
+  let whole = 0
+  let y = x
+  while (y >= 2) { y /= 2; whole += 1 }
+  while (y < 1) { y *= 2; whole -= 1 }
+  let frac = 0
+  let bit = 0.5
+  for (let i = 0; i < 52; i += 1) {
+    y *= y
+    if (y >= 2) { y /= 2; frac += bit }
+    bit /= 2
+  }
+  return whole + frac
+}
+
 /** S = Q × C with C = Toffolis + (T + n_rot·(0.56·log₂(1/ε) + 5.3)) / 4, per shot. */
 export const cost = (c: { Q: number; toffoli: number; T: number; rotations: number; epsilon: number }) => {
-  const C = c.toffoli + (c.T + c.rotations * (0.56 * Math.log2(1 / c.epsilon) + 5.3)) / 4
+  const C = c.toffoli + (c.T + c.rotations * (0.56 * log2Of(1 / c.epsilon) + 5.3)) / 4
   return { C, S: c.Q * C }
 }
 

@@ -74,12 +74,12 @@ These numbers are read from the sealed ledger at build time, so the page says on
 **Hexbit-fast.** Push verifies sealed receipts (no full QA remeasure on the critical path). Stock VitePress chrome — links in cards, buttons, nav, sidebar only.
 
 <!-- ports:begin -->
-**Alpine ported into 9 APIs.** 3500 packages, each domain answering through one door —
+**Alpine ported into 9 APIs.** 3501 packages, each domain answering through one door —
 provenance from Alpine's own published metadata, and one API of uuidna's own beside it.
 
 | domain | packages | origins | the one API offers |
 | --- | ---: | ---: | --- |
-| `shell` | 1281 | 682 | one exec door over uuidnaOS applets |
+| `shell` | 1282 | 683 | one exec door over uuidnaOS applets |
 | `driver` | 631 | 461 | the machine and the published bundle behind one door |
 | `database` | 438 | 325 | one query door where the address is the key |
 | `network` | 332 | 237 | fetch-and-address, so a read becomes citable |
@@ -90,7 +90,7 @@ provenance from Alpine's own published metadata, and one API of uuidna's own bes
 | `blockchain` | 29 | 19 | inclusion without disclosure |
 
 Package counts are per domain and the domains overlap — a chat bridge is also network — so these totals
-over-count rather than partition. Computed from the committed mirror on every build; receipt `e1026f70-80ed-8151-8de8-b5ee56cf61ff`.
+over-count rather than partition. Computed from the committed mirror on every build; receipt `83a5f6c7-9ee7-8ffb-8f00-f5bee5902b08`.
 <!-- ports:end -->
 
 <!-- clay:begin -->

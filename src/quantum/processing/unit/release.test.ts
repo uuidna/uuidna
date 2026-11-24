@@ -1,3 +1,4 @@
+// @non-harmonic: the cold-start diagnostic times a live release against the wall clock.
 import { floorOf, minOf, roundOf } from '../../../exact.js'
 import { test as receiptedTest } from './receipted.js'
 import type { TestContext } from 'node:test'

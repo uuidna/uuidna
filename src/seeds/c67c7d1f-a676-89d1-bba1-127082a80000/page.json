@@ -2,7 +2,7 @@
   "file": "Crosslink.lean",
   "slug": "crosslink",
   "status": "usable",
-  "address": "293cb9d4-b03e-8b1c-8c50-c7b70ab99def",
+  "address": "f3e8b741-21d8-8ab6-b539-b8d1f03a44f2",
   "page": {
     "root": {
       "type": "root",
@@ -73,7 +73,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "THE STORE AS IT STANDS, WALKED RATHER THAN QUOTED. 73,099 leaves, 73,098 parent links, 2,671,695,351 pairs available — the tree uses one link for every 36,549 pairs its own leaves already permit. Stated as an inequality with a factor rather than a percentage, because a percentage rounds and this ledger decides: the available pairs exceed the tree's links by more than two thousand times."
+                  "text": "THE STORE AS IT STANDS, WALKED RATHER THAN QUOTED. 73,100 leaves, 73,099 parent links, 2,671,768,450 pairs available — the tree uses one link for every 36,550 pairs its own leaves already permit. Stated as an inequality with a factor rather than a percentage, because a percentage rounds and this ledger decides: the available pairs exceed the tree's links by more than two thousand times."
                 }
               ]
             },
@@ -83,7 +83,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "(2671695351 = (73099 * (73099 - 1)) / 2) ∧ (2671695351 > 2000 * 73098)"
+                  "text": "(2671768450 = (73100 * (73100 - 1)) / 2) ∧ (2671768450 > 2000 * 73099)"
                 }
               ]
             },
@@ -93,7 +93,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "theorem the_measured_store_uses_a_vanishing_share : (2671695351 = (73099 * (73099 - 1)) / 2) ∧ (2671695351 > 2000 * 73098) := by decide"
+                  "text": "theorem the_measured_store_uses_a_vanishing_share : (2671768450 = (73100 * (73100 - 1)) / 2) ∧ (2671768450 > 2000 * 73099) := by decide"
                 }
               ]
             }
@@ -181,7 +181,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "AND THE FILES INSIDE ARE PLURAL, MEASURED. Of 73,099 leaves, 776 carry no theorem key, 72,242 carry 1 key, 76 carry 2 keys, 5 carry 3 keys — 81 carry more than one, so a handle folder is a folder and not a synonym for a single uuid, and the counts sum to the leaf total exactly. A store where every leaf held exactly one thing would have no interior to crosslink; this one does."
+                  "text": "AND THE FILES INSIDE ARE PLURAL, MEASURED. Of 73,100 leaves, 777 carry no theorem key, 72,242 carry 1 key, 76 carry 2 keys, 5 carry 3 keys — 81 carry more than one, so a handle folder is a folder and not a synonym for a single uuid, and the counts sum to the leaf total exactly. A store where every leaf held exactly one thing would have no interior to crosslink; this one does."
                 }
               ]
             },
@@ -191,7 +191,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "(776 + 72242 + 76 + 5 = 73099) ∧ (81 > 0)"
+                  "text": "(777 + 72242 + 76 + 5 = 73100) ∧ (81 > 0)"
                 }
               ]
             },
@@ -201,7 +201,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "theorem the_leaf_is_not_one_uuid_but_a_folder : (776 + 72242 + 76 + 5 = 73099) ∧ (81 > 0) := by decide"
+                  "text": "theorem the_leaf_is_not_one_uuid_but_a_folder : (777 + 72242 + 76 + 5 = 73100) ∧ (81 > 0) := by decide"
                 }
               ]
             }
@@ -217,7 +217,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "THE FOLDERS ARE NOT ALL THE SAME THING EITHER: 72323 chunk, 483 page, 293 publication, summing to 73,099 exactly — no leaf counted twice and none left out. A crosslink graph over a store with kinds is a graph with typed nodes, which is a different and larger object than a graph over one kind; sealing the partition first is what makes that statement meaningful rather than decorative."
+                  "text": "THE FOLDERS ARE NOT ALL THE SAME THING EITHER: 72323 chunk, 484 page, 293 publication, summing to 73,100 exactly — no leaf counted twice and none left out. A crosslink graph over a store with kinds is a graph with typed nodes, which is a different and larger object than a graph over one kind; sealing the partition first is what makes that statement meaningful rather than decorative."
                 }
               ]
             },
@@ -227,7 +227,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "72323 + 483 + 293 = 73099"
+                  "text": "72323 + 484 + 293 = 73100"
                 }
               ]
             },
@@ -237,7 +237,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "theorem three_kinds_partition_the_store : 72323 + 483 + 293 = 73099 := by decide"
+                  "text": "theorem three_kinds_partition_the_store : 72323 + 484 + 293 = 73100 := by decide"
                 }
               ]
             }

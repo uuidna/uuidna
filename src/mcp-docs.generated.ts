@@ -15002,7 +15002,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"polarities\":{\"minus\":29058,\"neutral\":14395,\"plus\":28956,\"capacity\":{\"minus\":4,\"neutral\":2,\"plus\":4},\"byRay\":[{\"ray\":0,\"minus\":4181,\"neutral\":2034,\"plus\":4141…"
+   "excerpt": "{\"polarities\":{\"minus\":29060,\"neutral\":14393,\"plus\":28956,\"capacity\":{\"minus\":4,\"neutral\":2,\"plus\":4},\"byRay\":[{\"ray\":0,\"minus\":4182,\"neutral\":2036,\"plus\":4142…"
   }
  },
  "uuidna_treason": {
@@ -15488,7 +15488,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":72409,\"total\":true,\"failures\":[],\"receipt\":\"8b5b1f28-936b-875a-8c3b-e42e1b8116b6\",\"honest\":\"THE TOTALITY SEAL: secure messaging is a TOTAL function on…"
+   "excerpt": "{\"count\":72409,\"total\":true,\"failures\":[],\"receipt\":\"02dc8442-4bda-8d4e-bc05-b1d4a11c2d5a\",\"honest\":\"THE TOTALITY SEAL: secure messaging is a TOTAL function on…"
   }
  },
  "uuidna_dictionary": {
@@ -15530,7 +15530,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"terms\":72409,\"skills\":133,\"principles\":293,\"receipt\":\"d43dc3e0-3edd-8d51-be3c-94863f94e3e5\",\"honest\":\"the lexicon is the ledger — every term sealed, every de…"
+   "excerpt": "{\"terms\":72409,\"skills\":133,\"principles\":293,\"receipt\":\"a52749ac-7dbc-8717-b0fd-84f663eb5e73\",\"honest\":\"the lexicon is the ledger — every term sealed, every de…"
   }
  },
  "uuidna_quantum_voting": {
@@ -18370,7 +18370,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"verifiedAll\":{\"theorems\":72409,\"verified\":72409,\"unverified\":0,\"receipt\":\"d43dc3e0-3edd-8d51-be3c-94863f94e3e5\"},\"guarantees\":[{\"key\":\"legal_verdict_is_exact…"
+   "excerpt": "{\"verifiedAll\":{\"theorems\":72409,\"verified\":72409,\"unverified\":0,\"receipt\":\"a52749ac-7dbc-8717-b0fd-84f663eb5e73\"},\"guarantees\":[{\"key\":\"legal_verdict_is_exact…"
   }
  },
  "uuidna_cloudflare_audit": {
@@ -18691,7 +18691,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":72409,\"fnvReceipt\":\"d43dc3e0-3edd-8d51-be3c-94863f94e3e5\",\"sha256\":\"7f7be295f82e0fa685989cc070dbab5cec14384a9043d6d3261d36cbf99dc467\",\"tamperCost\":\"A …"
+   "excerpt": "{\"count\":72409,\"fnvReceipt\":\"a52749ac-7dbc-8717-b0fd-84f663eb5e73\",\"sha256\":\"506030082d374a2cb8ed2c57c8107539830c2d07a55540f9f9c5c65b678077fc\",\"tamperCost\":\"A …"
   }
  },
  "uuidna_forensics": {
@@ -19107,7 +19107,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":72409,\"verified\":72409,\"unverified\":0,\"leanBacked\":72409,\"receipt\":\"d43dc3e0-3edd-8d51-be3c-94863f94e3e5\",\"verdicts\":[{\"key\":\"mul9_1_1\",\"name\":\"1·1 ≡ …"
+   "excerpt": "{\"count\":72409,\"verified\":72409,\"unverified\":0,\"leanBacked\":72409,\"receipt\":\"a52749ac-7dbc-8717-b0fd-84f663eb5e73\",\"verdicts\":[{\"key\":\"mul9_1_1\",\"name\":\"1·1 ≡ …"
   }
  },
  "uuidna_css": {
@@ -20254,7 +20254,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"12c798dd\",\"theorems\":{\"count\":72409,\"verified\":72409,\"receipt\":\"d43dc3e0-3edd-8d51-be3c-94863f94e3e5\"},\"domains\":{\"count\":133,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"8c977f78\",\"theorems\":{\"count\":72409,\"verified\":72409,\"receipt\":\"a52749ac-7dbc-8717-b0fd-84f663eb5e73\"},\"domains\":{\"count\":133,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {
@@ -20369,7 +20369,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"19f13f20\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":34,\"hsl\":\"hsl(34, 66%, 54%)\",\"rgb\":\"#d7…"
+   "excerpt": "{\"handle\":\"316e7f42\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":34,\"hsl\":\"hsl(34, 66%, 54%)\",\"rgb\":\"#d7…"
   }
  },
  "uuidna_social_profile": {
@@ -21623,7 +21623,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"fingerprint\":{\"count\":72409,\"fnvReceipt\":\"d43dc3e0-3edd-8d51-be3c-94863f94e3e5\",\"sha256\":\"7f7be295f82e0fa685989cc070dbab5cec14384a9043d6d3261d36cbf99dc467\",\"…"
+   "excerpt": "{\"fingerprint\":{\"count\":72409,\"fnvReceipt\":\"a52749ac-7dbc-8717-b0fd-84f663eb5e73\",\"sha256\":\"506030082d374a2cb8ed2c57c8107539830c2d07a55540f9f9c5c65b678077fc\",\"…"
   }
  },
  "uuidna_audit_agent_statement": {
@@ -22599,7 +22599,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"definition\":\"alpine-ports·one-registry\",\"ports\":[{\"domain\":\"shell\",\"offers\":\"one exec door over uuidnaOS applets\",\"packages\":1281,\"origins\":682,\"api\":[\"shell…"
+   "excerpt": "{\"definition\":\"alpine-ports·one-registry\",\"ports\":[{\"domain\":\"shell\",\"offers\":\"one exec door over uuidnaOS applets\",\"packages\":1282,\"origins\":683,\"api\":[\"shell…"
   }
  },
  "uuidna_chat": {
@@ -22737,7 +22737,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"definition\":\"alpine-shell-port·one-exec-api\",\"ported\":{\"packages\":1281,\"origins\":682},\"applets\":[\"ls\",\"apk\",\"man\",\"driver\",\"device\",\"cat\",\"which\",\"stat\",\"pwd…"
+   "excerpt": "{\"definition\":\"alpine-shell-port·one-exec-api\",\"ported\":{\"packages\":1282,\"origins\":683},\"applets\":[\"ls\",\"apk\",\"man\",\"driver\",\"device\",\"cat\",\"which\",\"stat\",\"pwd…"
   }
  },
  "uuidna_fs_seal": {
@@ -24045,7 +24045,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"definition\":\"alpine-port-all·identity-and-classification\",\"packages\":28665,\"identities\":28665,\"classified\":11627,\"unclassified\":17038,\"domains\":27,\"remainder…"
+   "excerpt": "{\"definition\":\"alpine-port-all·identity-and-classification\",\"packages\":28668,\"identities\":28668,\"classified\":11629,\"unclassified\":17039,\"domains\":27,\"remainder…"
   }
  },
  "uuidna_interface": {
@@ -24163,7 +24163,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "of": "monitor"
    },
-   "excerpt": "{\"definition\":\"uuidnaos-monitor·vitepress\",\"present\":true,\"panels\":55,\"pages\":72,\"live\":21,\"static\":34,\"receipt\":\"0a2ad305-a241-8be5-8d01-c0d882f994f5\",\"honest…"
+   "excerpt": "{\"definition\":\"uuidnaos-monitor·vitepress\",\"present\":true,\"panels\":55,\"pages\":73,\"live\":21,\"static\":34,\"receipt\":\"22c47865-1082-81a6-a44f-7dd2b8b88d17\",\"honest…"
   }
  },
  "uuidna_list_tools": {

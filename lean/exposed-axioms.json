@@ -1,5 +1,11 @@
 {
  "why": "Assumptions the running code makes that NO sealed theorem states. Each is a lead: seal it, and axiom-hunt reports it proven on the next run. Written by src/scripts/axiom-hunt.ts on every run, empty included — an absent file and an empty set are different facts.",
  "exposed": 0,
- "held": []
+ "held": [],
+ "receipt": "b597ff7d-3079-8efc-8ce0-892b9c3fbe5b",
+ "crossed": {
+  "sorted": "b597ff7d-3079-8efc-8ce0-892b9c3fbe5b",
+  "reversed": "b597ff7d-3079-8efc-8ce0-892b9c3fbe5b",
+  "agrees": true
+ }
 }

@@ -1,13 +1,13 @@
 {
  "completeness": {
   "definition": "man→app→hexbit",
-  "total": 4761,
-  "witnessed": 4761,
+  "total": 4762,
+  "witnessed": 4762,
   "missing": [],
   "gaps": [],
   "byVia": {
    "corpus": 2,
-   "origin": 4750,
+   "origin": 4751,
    "gtk-doc": 5,
    "libs": 0,
    "dev": 1,
@@ -59,15 +59,15 @@
   "definition": "mcp·uuidna_exec·man→app→hexbit",
   "tool": "uuidna_exec",
   "wireDoors": 1,
-  "naiveWireIfPerApp": 4761,
-  "total": 4761,
-  "witnessed": 4761,
-  "exposed": 4761,
+  "naiveWireIfPerApp": 4762,
+  "total": 4762,
+  "witnessed": 4762,
+  "exposed": 4762,
   "missing": [],
   "gaps": [],
   "byVia": {
    "corpus": 2,
-   "origin": 4750,
+   "origin": 4751,
    "gtk-doc": 5,
    "libs": 0,
    "dev": 1,
@@ -75,39 +75,39 @@
    "self": 2
   },
   "pct": 100,
-  "receipt": "6658da3d-6d52-8f6c-bdd1-f7928cdcaa96",
+  "receipt": "c37405f1-447f-86ed-ac6c-644549bd61bc",
   "before": {
    "exposed": "sample-only",
-   "wireDoorsIfNaive": 4761
+   "wireDoorsIfNaive": 4762
   },
   "after": {
-   "exposed": 4761,
+   "exposed": 4762,
    "wireDoors": 1
   }
  },
  "community": {
   "repo": "community",
-  "total": 22700,
-  "ported": 22700,
+  "total": 22701,
+  "ported": 22701,
   "missing": []
  },
  "all": {
   "repo": "all",
-  "total": 28661,
-  "ported": 28661,
+  "total": 28664,
+  "ported": 28664,
   "missing": []
  },
  "man": {
   "all": {
    "repo": "all",
-   "total": 4761,
-   "ported": 4761,
+   "total": 4762,
+   "ported": 4762,
    "missing": []
   },
   "community": {
    "repo": "community",
-   "total": 3672,
-   "ported": 3672,
+   "total": 3673,
+   "ported": 3673,
    "missing": []
   },
   "main": {
@@ -119,8 +119,8 @@
  },
  "selfTest": {
   "definition": "package-self-test",
-  "total": 28665,
-  "passed": 28665,
+  "total": 28668,
+  "passed": 28668,
   "failed": 0,
   "upstreamGaps": 0,
   "missing": [],
@@ -143,11 +143,11 @@
   "usableAddressesPow2": 128,
   "seals": "handle_capacity_is_quantum_by_architecture"
  },
- "receipt": "f128e464-373f-8fde-bb46-1f2fa6f4fde8",
+ "receipt": "1756bfe8-9c06-88fe-94e0-b82326559d91",
  "honest": "Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide.",
  "crossed": {
-  "sorted": "f128e464-373f-8fde-bb46-1f2fa6f4fde8",
-  "reversed": "f128e464-373f-8fde-bb46-1f2fa6f4fde8",
+  "sorted": "1756bfe8-9c06-88fe-94e0-b82326559d91",
+  "reversed": "1756bfe8-9c06-88fe-94e0-b82326559d91",
   "agrees": true
  }
 }

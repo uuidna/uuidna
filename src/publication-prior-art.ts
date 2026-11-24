@@ -13,6 +13,7 @@
 //   · leanFiles → doiPriorArtForLeanFile (registry credit law)
 // Online corroboration (Crossref/Zenodo/OpenAlex) remains available via corroborateWithResearch for desk work;
 // the publish gate refuses network nondeterminism and seals from the offline research receipt alone.
+import { SITE } from './site/index.js'
 import { toUuid } from './address.js'
 import { doisIn } from './crossref.js'
 import { isUuidnaUrl } from './handle-permanence.js'
@@ -96,7 +97,7 @@ export interface PublicationPriorArtAudit {
   honest: string
 }
 
-const HANDLE_HOST = 'https://uuidna.com'
+const HANDLE_HOST = SITE.origin
 
 function isDoiResolverUrl(id: string): boolean {
   try {

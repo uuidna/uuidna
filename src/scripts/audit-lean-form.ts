@@ -29,7 +29,9 @@ const walk = (d: string): void => {
     if (SKIP_DIR.has(e.name)) continue
     const p = join(d, e.name)
     if (e.isDirectory()) walk(p)
-    else if (extname(e.name) === '.ts') files.push(p)
+    // a *.generated.ts file is a copy like the trees above: mcp-docs.generated.ts renders the tool NAME
+    // get_quantum_advantage as a title, and the citation lives on the tool's own description in src/mcp.ts, which IS read
+    else if (extname(e.name) === '.ts' && !e.name.endsWith('.generated.ts')) files.push(p)
   }
 }
 walk(join(ROOT, 'src'))

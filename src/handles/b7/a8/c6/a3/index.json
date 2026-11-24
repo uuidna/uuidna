@@ -1,6 +1,11 @@
 {
+<<<<<<<< HEAD:src/handles/b7/a8/c6/a3/index.json
   "handle": "b7a8c6a3",
   "address": "b7a8c6a3-1ead-8872-92a4-9eb4f5c6fc36",
+========
+  "handle": "e539c86b",
+  "address": "e539c86b-1bcf-882d-bad3-b3318b2d0ed9",
+>>>>>>>> origin/main:src/handles/e5/39/c8/6b/index.json
   "kind": "publication",
   "route": "/publications/site-build",
   "identity": "site-build"

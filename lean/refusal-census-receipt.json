@@ -1,8 +1,8 @@
 {
   "kind": "door-receipt",
-  "digest": "ffd8178f58924eb2a8dd570078c47a12",
+  "digest": "88f3daa278576e9285e5f0b42cfda418",
   "value": {
-    "sites": 1027,
+    "sites": 1125,
     "files": [
       {
         "file": "src/scripts/one-receipt.ts",
@@ -192,6 +192,14 @@
         "security": 0
       },
       {
+        "file": "src/scripts/gen-clay.ts",
+        "gates": 4,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
         "file": "src/scripts/ratchet-gaps.ts",
         "gates": 4,
         "checks": 0,
@@ -203,14 +211,6 @@
         "file": "src/research-ledger.ts",
         "gates": 3,
         "checks": 2,
-        "cites": [],
-        "grounded": false,
-        "security": 0
-      },
-      {
-        "file": "src/school-spaces.ts",
-        "gates": 3,
-        "checks": 0,
         "cites": [],
         "grounded": false,
         "security": 0
@@ -230,6 +230,14 @@
         "cites": [],
         "grounded": false,
         "security": 1
+      },
+      {
+        "file": "src/ci-thin.ts",
+        "gates": 2,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
       },
       {
         "file": "src/quantum/os/catalogue/index.ts",
@@ -328,7 +336,7 @@
       {
         "file": "src/scripts/guard.ts",
         "gates": 1,
-        "checks": 1,
+        "checks": 0,
         "cites": [],
         "grounded": false,
         "security": 0
@@ -438,6 +446,14 @@
         "security": 0
       },
       {
+        "file": "src/core/crypt.ts",
+        "gates": 0,
+        "checks": 11,
+        "cites": [],
+        "grounded": false,
+        "security": 4
+      },
+      {
         "file": "src/corroborate.ts",
         "gates": 0,
         "checks": 1,
@@ -448,7 +464,7 @@
       {
         "file": "src/crypt.ts",
         "gates": 0,
-        "checks": 6,
+        "checks": 7,
         "cites": [],
         "grounded": false,
         "security": 0
@@ -472,7 +488,7 @@
       {
         "file": "src/decide.ts",
         "gates": 0,
-        "checks": 7,
+        "checks": 11,
         "cites": [],
         "grounded": false,
         "security": 0
@@ -506,7 +522,7 @@
       {
         "file": "src/edge-ledger.ts",
         "gates": 0,
-        "checks": 10,
+        "checks": 16,
         "cites": [],
         "grounded": false,
         "security": 0
@@ -522,7 +538,47 @@
       {
         "file": "src/editorial.ts",
         "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/exact-real.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/families/chess/index.ts",
+        "gates": 0,
         "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/families/holo/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/families/merkaba/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/families/rule/index.ts",
+        "gates": 0,
+        "checks": 1,
         "cites": [],
         "grounded": false,
         "security": 0
@@ -604,7 +660,15 @@
       {
         "file": "src/involution/index.ts",
         "gates": 0,
-        "checks": 57,
+        "checks": 58,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/iso-prompts.ts",
+        "gates": 0,
+        "checks": 2,
         "cites": [],
         "grounded": false,
         "security": 0
@@ -627,6 +691,30 @@
       },
       {
         "file": "src/market.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/mcp/api-door.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/mcp/qpu-fused.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/mcp/whitepaper-generator.ts",
         "gates": 0,
         "checks": 1,
         "cites": [],
@@ -671,7 +759,7 @@
       {
         "file": "src/mcp.ts",
         "gates": 0,
-        "checks": 23,
+        "checks": 29,
         "cites": [
           "imprint_capacity_chain",
           "orbits_closed_involution",
@@ -708,7 +796,7 @@
           "verify_beats_recompute_by_magnitudes"
         ],
         "grounded": true,
-        "security": 0
+        "security": 1
       },
       {
         "file": "src/nobles/crystals.ts",
@@ -1224,6 +1312,46 @@
         "security": 0
       },
       {
+        "file": "src/quantum/processing/unit/docdb.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/processing/unit/fusion.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/processing/unit/index.ts",
+        "gates": 0,
+        "checks": 11,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/processing/unit/lean-eval.ts",
+        "gates": 0,
+        "checks": 8,
+        "cites": [],
+        "grounded": false,
+        "security": 1
+      },
+      {
+        "file": "src/quantum/stabilizer.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
         "file": "src/quantum/voting/index.ts",
         "gates": 0,
         "checks": 2,
@@ -1447,6 +1575,22 @@
         "security": 0
       },
       {
+        "file": "src/scripts/gen-missions.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-product.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
         "file": "src/scripts/gen-referrer-song.ts",
         "gates": 0,
         "checks": 1,
@@ -1489,11 +1633,19 @@
       {
         "file": "src/scripts/leads-gate.ts",
         "gates": 0,
-        "checks": 1,
+        "checks": 2,
         "cites": [
           "no_instrument_narrower_than_its_question"
         ],
         "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/lean-asked.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
         "security": 0
       },
       {
@@ -1528,6 +1680,14 @@
           "the_third_level_already_shares"
         ],
         "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/lean-families.ts",
+        "gates": 0,
+        "checks": 14,
+        "cites": [],
+        "grounded": false,
         "security": 0
       },
       {
@@ -1602,6 +1762,14 @@
           "the_lattice_is_closed_under_product_and_ratio"
         ],
         "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/ledger-deposit.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
         "security": 0
       },
       {
@@ -1793,9 +1961,27 @@
         "security": 0
       },
       {
+        "file": "src/theorems/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [
+          "division_by_zero"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
         "file": "src/theorems/ledger-edge.ts",
         "gates": 0,
         "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/transform.ts",
+        "gates": 0,
+        "checks": 1,
         "cites": [],
         "grounded": false,
         "security": 0

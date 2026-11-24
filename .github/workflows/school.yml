@@ -31,7 +31,7 @@ jobs:
         with: { fetch-depth: 0 }   # a wing reads a committed definition from history (lean-involutions, 7a54411e)
       - uses: actions/setup-node@v7
         with:
-          node-version: '26'
+          node-version-file: .node-version
       - name: Install deps
         run: npm install --no-audit --no-fund
       - name: 'KERNEL CACHE — the judge is heavy, carry it between bells'
@@ -111,7 +111,7 @@ jobs:
         with: { fetch-depth: 0 }   # a wing reads a committed definition from history (lean-involutions, 7a54411e)
       - uses: actions/setup-node@v7
         with:
-          node-version: '26'
+          node-version-file: .node-version
       - name: Install deps
         run: npm install --no-audit --no-fund
       - name: HOMEWORK — the prediction engine reads the ledger and files the school's assignments
@@ -150,7 +150,7 @@ jobs:
         with: { fetch-depth: 0 }   # a wing reads a committed definition from history (lean-involutions, 7a54411e)
       - uses: actions/setup-node@v7
         with:
-          node-version: '26'
+          node-version-file: .node-version
       - name: Install deps
         run: npm install --no-audit --no-fund
       - name: TEACH — the resident discovery pass (deterministic, oracle-free)

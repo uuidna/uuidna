@@ -1,0 +1,12 @@
+{
+  "handle": "ac20d2fb",
+  "address": "ac20d2fb-cb04-8ea7-90f7-f0cb99f73893",
+  "statement": "72323 + 484 + 293 = 73100",
+  "tactic": "decide",
+  "keys": [
+    "three_kinds_partition_the_store"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

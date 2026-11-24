@@ -195,7 +195,8 @@ export function renderCensus(c: LeadCensus, limit = 12): string[] {
 //   KERNEL    "concurrent width is 14 VE faces, against 24 sealed" — a relation among quantities the kernel holds.
 //   SOURCE    "decrypt skipped verifyEnvelope" — a shape in the TypeScript, which the kernel cannot read.
 //
-// WHY `source` CANNOT BE AUTOMATED INTO A THEOREM: to seal `involution_<h> : ¬ lead_<h>` over a source-shape claim, a
+// WHY `source` CANNOT BE AUTOMATED INTO A THEOREM: the kernel reads no TypeScript, only the literal written for it.
+// To seal `involution_<h> : ¬ lead_<h>` over a source-shape claim, a
 // generator must measure the source and write the reading in as a Lean literal — and `by decide` then checks a relation
 // over a number the generator chose. That is measure-then-seal furniture, and furniture that EXPIRES: the literal
 // records what the source said the day it ran, so the theorem stays green after the source changes back. A green that

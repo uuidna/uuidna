@@ -1,6 +1,11 @@
 {
+<<<<<<<< HEAD:src/handles/dc/4c/c2/aa/index.json
   "handle": "dc4cc2aa",
   "address": "dc4cc2aa-bd17-8ddf-b6d5-a68df5be4109",
+========
+  "handle": "e1afe453",
+  "address": "e1afe453-0cff-87f7-8742-84fe47966bf5",
+>>>>>>>> origin/main:src/handles/e1/af/e4/53/index.json
   "kind": "publication",
   "route": "/publications/cross-formulas",
   "identity": "cross-formulas"

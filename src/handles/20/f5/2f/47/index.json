@@ -1,0 +1,21 @@
+{
+<<<<<<<< HEAD:src/handles/f0/a5/9f/50/index.json
+  "handle": "f0a59f50",
+  "address": "f0a59f50-d069-8c9e-b9d6-460eb4a2ee38",
+========
+  "handle": "20f52f47",
+  "address": "20f52f47-e9e8-8b43-a4f9-e4d9a93fb579",
+>>>>>>>> origin/main:src/handles/20/f5/2f/47/index.json
+  "kind": "chunk",
+  "keys": [
+    "sixteen_bit_handles_would_collide"
+  ],
+<<<<<<<< HEAD:src/handles/f0/a5/9f/50/index.json
+  "statement": "73098 > 2 ^ 16",
+========
+  "statement": "73100 > 2 ^ 16",
+>>>>>>>> origin/main:src/handles/20/f5/2f/47/index.json
+  "files": [
+    "Forensics.lean"
+  ]
+}

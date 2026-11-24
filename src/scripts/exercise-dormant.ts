@@ -34,7 +34,7 @@
 // the roster and the finder agree by construction rather than by a second hand-maintained list.
 //
 //   node dist/scripts/exercise-dormant.js [--only <name>]
-import { execFileSync, execSync } from 'node:child_process'
+import { execFileSync, execSync, spawnSync } from 'node:child_process'
 import { existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { HERE, ROOT } from './api.js'
@@ -181,13 +181,19 @@ export function exercise(script: string, declared: readonly string[]): Exercise 
   const before = dirtySet()
   const snap = snapshot(declared)
   const started = Date.now()
+  // THE SCRIPT RUNS AS THE LEADER OF ITS OWN PROCESS GROUP, AND A TIMEOUT ENDS THE WHOLE GROUP. The timeout used to
+  // signal only the node it started, and close-all-open starts develop through a shell: on 2026-11-24 every timed-out
+  // exercise left develop → reconcile → generate orphaned under pid 1, rewriting the derived layer for half an hour
+  // after this function had restored the tree. The scripts that ran next were blamed for that orphan's writes
+  // (migrate-skills "wrote" quantum-fold.json; reserve measured a package that shrank between its two readings), and
+  // the release gate's spin and git diff saw a tree nobody had committed. perl's setpgrp makes the node it execs the
+  // group leader, so the group id is that pid, and one kill reaches everything the script started.
   let exit = 0
-  try {
-    execFileSync('node', [built], { cwd: ROOT, stdio: 'ignore', timeout: TIMEOUT_MS })
-  } catch (e) {
-    const err = e as { status?: number | null; signal?: string | null }
-    exit = typeof err.status === 'number' ? err.status : err.signal ? 124 : 1
-  }
+  const r = spawnSync('perl', ['-e', 'setpgrp(0, 0); exec @ARGV or die', 'node', built], { cwd: ROOT, stdio: 'ignore', timeout: TIMEOUT_MS })
+  if (r.error || r.signal) {
+    try { if (r.pid) process.kill(-r.pid, 'SIGKILL') } catch { /* the group already ended */ }
+    exit = 124
+  } else exit = r.status ?? 1
   const ms = Date.now() - started
 
   // undeclared writes can only be seen through the tree; declared ones are seen through their own bytes, which is

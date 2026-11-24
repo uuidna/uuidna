@@ -19,6 +19,7 @@
 // archived ledger, it is documented by its own page, it supplements the repository, and it is related to the kin
 // the sealed kinship rule derives. Those are DataCite relations that recompute, and they are what makes a
 // deposit citable rather than merely archived — the graph, which is exactly the Zenodo feature the captain named.
+import { SITE as SITE_IDENTITY } from './site/index.js'
 import { publications, type Publication } from './publish.js'
 import { graphNode, KIN } from './publication-graph.js'
 import { THEOREMS } from './theorems/index.js'
@@ -51,7 +52,7 @@ const licenceOnce = (): { spdx: string; zenodo: string; url: string } => ({
  *  declaring isPartOf that concept would hand any reader whichever work was deposited last, and a DOI is
  *  permanent. The version DOI is unambiguously this archive. */
 const archiveDoi = (): string => ZENODO_SEALS.find((s) => s.id === 'uuidna-software')?.standingDoi ?? ''
-const SITE = 'https://uuidna.com'
+const SITE = SITE_IDENTITY.origin
 const REPO = 'https://github.com/uuidna/uuidna'
 
 export interface DepositRelation {

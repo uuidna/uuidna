@@ -1228,7 +1228,7 @@ Call `get_payload` — the old name `uuidna_payload` still answers · read-only 
 | --- | --- | --- | --- |
 | `slugs` | boolean | no | include every mounted collectio… |
 
-PAYLOAD CONFORMANCE — does a vanilla Payload, on its own defaults with EVERY official plugin active, return exactly what uuidna gave it? Decided by CROSS-HASHED UUID STREAMS: a leaf per seed from the address uuidna computed before Payload saw the body, a second leaf recomputed from what Payload stored and returned, both folded order-invariantly, and the cross is that the roots agree. A control perturbs one character of one body and requires the fold to MOVE, so a green run means something. Reports the payload version (the newest canary, ahead of stable, by the captain's instruction), the collections mounted including each plugin's own, the plugins installed against those imported and those carried transitively by a storage adapter, the seed count and the two fold handles. THE NATIVE CLOUDFLARE BINDINGS ARE THE POINT: @payloadcms/db-d1-sqlite and @payloadcms/storage-r2 are Payload's OWN adapters for D1 and R2, so no adapter is written here — both are built and sanitized by the harness while the binding itself stays the Worker's to supply, which is a host fact and not a preference. THIS IS A RECORD OF THE LAST RUN, never a live verdict (theorem provenance_integrity_not_content_truth: a match proves byte-identity, not the world now): the door reads the sealed artifact and says when it cannot. Returns {payload,checks,passed,failed,collections,pluginsInstalled,pluginsImported,pluginsCarriedByAdapter,seeds,crossHash,receipt}.
+PAYLOAD CONFORMANCE — does a vanilla Payload, on its own defaults with EVERY official plugin active, return exactly what uuidna gave it? Decided by CROSS-HASHED UUID STREAMS: a leaf per seed from the address uuidna computed before Payload saw the body, a second leaf recomputed from what Payload stored and returned, both folded order-invariantly, and the cross is that the roots agree. A control perturbs one character of one body and requires the fold to MOVE, so a green run means something. Reports the payload version (the newest canary, ahead of stable, by the captain's instruction), the collections mounted including each plugin's own, the plugins installed against those imported and those carried transitively by a storage adapter, the seed count and the two fold handles. THE NATIVE CLOUDFLARE BINDINGS ARE THE POINT: @payloadcms/db-d1-sqlite and @payloadcms/storage-r2 are Payload's OWN adapters for D1 and R2, so no adapter is written here — both are built and sanitized by the harness while the binding itself stays the Worker's to supply, which is a host fact and not a preference. THIS IS A RECORD OF THE LAST RUN, never a live verdict: the door reads the sealed artifact and says when it cannot. Returns {payload,checks,passed,failed,collections,pluginsInstalled,pluginsImported,pluginsCarriedByAdapter,seeds,crossHash,receipt}.
 
 ### `get_hex_programs` {#uuidna-hex-programs}
 
@@ -1579,7 +1579,7 @@ Call `get_theorem_message` — the old name `uuidna_theorem_message` still answe
 // arguments
 {}
 // answer (excerpt)
-{"count":72409,"total":true,"failures":[],"receipt":"8b5b1f28-936b-875a-8c3b-e42e1b8116b6","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
+{"count":72409,"total":true,"failures":[],"receipt":"02dc8442-4bda-8d4e-bc05-b1d4a11c2d5a","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
 ```
 
 **Parameters**
@@ -1602,7 +1602,7 @@ Call `get_dictionary` — the old name `uuidna_dictionary` still answers · read
 // arguments
 {}
 // answer (excerpt)
-{"terms":72409,"skills":133,"principles":293,"receipt":"d43dc3e0-3edd-8d51-be3c-94863f94e3e5","honest":"the lexicon is the ledger — every term sealed, every de…
+{"terms":72409,"skills":133,"principles":293,"receipt":"a52749ac-7dbc-8717-b0fd-84f663eb5e73","honest":"the lexicon is the ledger — every term sealed, every de…
 ```
 
 **Parameters**
@@ -1692,7 +1692,7 @@ Call `get_seo` — the old name `uuidna_seo` still answers · read-only · idemp
 // arguments
 {}
 // answer (excerpt)
-{"route":"/","kind":"page","canonical":"https://uuidna.com/","address":"94c962bf-9ef7-871b-b555-225d14f1a1a2","title":"uuidna","description":"uuidna — part of …
+{"route":"/","kind":"page","canonical":"https://uuidna.com/","address":"94c962bf-9ef7-871b-b555-225d14f1a1a2","title":"uuidna","description":"uuidna: content-a…
 ```
 
 **Parameters**
@@ -2281,7 +2281,7 @@ Call `get_due_process` — the old name `uuidna_due_process` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"verifiedAll":{"theorems":72409,"verified":72409,"unverified":0,"receipt":"d43dc3e0-3edd-8d51-be3c-94863f94e3e5"},"guarantees":[{"key":"legal_verdict_is_exact…
+{"verifiedAll":{"theorems":72409,"verified":72409,"unverified":0,"receipt":"a52749ac-7dbc-8717-b0fd-84f663eb5e73"},"guarantees":[{"key":"legal_verdict_is_exact…
 ```
 
 **Parameters**
@@ -2388,7 +2388,7 @@ Call `run_ci` — the old name `uuidna_ci` still answers · changes state · rea
 // arguments
 {"step":"mcp-call","args":["--help"]}
 // answer
-gen-mcp-docs sandbox: spawnSync refused while documenting (/opt/homebrew/Cellar/node/26.0.0/bin/node)
+gen-mcp-docs sandbox: spawnSync refused while documenting (/Users/ceci/.local/share/node-v26.13.1-darwin-arm64/bin/node)
 ```
 
 **Parameters**
@@ -2613,7 +2613,7 @@ Call `record_ask` — the old name `uuidna_ask` still answers · changes state �
 // arguments
 {"input":"2 + 2 = 4"}
 // answer
-gen-mcp-docs sandbox: writeFileSync refused while documenting (/Users/ceci/github/uuidna/uuidna/.claude/worktrees/youthful-bose-81187e/lean/ask)
+gen-mcp-docs sandbox: writeFileSync refused while documenting (/Users/ceci/github/uuidna/uuidna/lean/asked.json)
 ```
 
 **Parameters**
@@ -2860,7 +2860,7 @@ Call `audit_ledger_fingerprint` — the old name `uuidna_audit_ledger_fingerprin
 // arguments
 {}
 // answer (excerpt)
-{"fingerprint":{"count":72409,"fnvReceipt":"d43dc3e0-3edd-8d51-be3c-94863f94e3e5","sha256":"7f7be295f82e0fa685989cc070dbab5cec14384a9043d6d3261d36cbf99dc467","…
+{"fingerprint":{"count":72409,"fnvReceipt":"a52749ac-7dbc-8717-b0fd-84f663eb5e73","sha256":"506030082d374a2cb8ed2c57c8107539830c2d07a55540f9f9c5c65b678077fc","…
 ```
 
 **Parameters**
@@ -2944,7 +2944,7 @@ Call `get_ports` — the old name `uuidna_ports` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"definition":"alpine-ports·one-registry","ports":[{"domain":"shell","offers":"one exec door over uuidnaOS applets","packages":1281,"origins":682,"api":["shell…
+{"definition":"alpine-ports·one-registry","ports":[{"domain":"shell","offers":"one exec door over uuidnaOS applets","packages":1282,"origins":683,"api":["shell…
 ```
 
 _No parameters._
@@ -2989,7 +2989,7 @@ Call `get_shell` — the old name `uuidna_shell` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"definition":"alpine-shell-port·one-exec-api","ported":{"packages":1281,"origins":682},"applets":["ls","apk","man","driver","device","cat","which","stat","pwd…
+{"definition":"alpine-shell-port·one-exec-api","ported":{"packages":1282,"origins":683},"applets":["ls","apk","man","driver","device","cat","which","stat","pwd…
 ```
 
 **Parameters**
@@ -3404,7 +3404,7 @@ Call `get_port_all` — the old name `uuidna_port_all` still answers · read-onl
 // arguments
 {}
 // answer (excerpt)
-{"definition":"alpine-port-all·identity-and-classification","packages":28665,"identities":28665,"classified":11627,"unclassified":17038,"domains":27,"remainder…
+{"definition":"alpine-port-all·identity-and-classification","packages":28668,"identities":28668,"classified":11629,"unclassified":17039,"domains":27,"remainder…
 ```
 
 _No parameters._
@@ -3442,7 +3442,7 @@ Call `compute_os_census` — the old name `uuidna_os_census` still answers · re
 // arguments
 {"of":"monitor"}
 // answer (excerpt)
-{"definition":"uuidnaos-monitor·vitepress","present":true,"panels":55,"pages":72,"live":21,"static":34,"receipt":"0a2ad305-a241-8be5-8d01-c0d882f994f5","honest…
+{"definition":"uuidnaos-monitor·vitepress","present":true,"panels":55,"pages":73,"live":21,"static":34,"receipt":"22c47865-1082-81a6-a44f-7dd2b8b88d17","honest…
 ```
 
 **Parameters**
@@ -3643,7 +3643,7 @@ Call `review_domains` — the old name `uuidna_review_domains` still answers · 
 
 _No parameters._
 
-LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger's own integrity per domain, recomputable by anyone. GROUPED BY FAMILY since 2026-09-28: the rows themselves ride under `domains` and are exactly what reviewDomains() computes, while `families`, `placed` and `unfamilied` are the census over them — `placed` is a SET size, never a sum of group sizes (theorem crossfade_overlap: shared members count once), because a domain spanning several wing families belongs to all of them. Returns {families,domains:[{domain,theorems,fold,verdict,receipt}],placed,unfamilied,receipt}.
+LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger's own integrity per domain, recomputable by anyone. GROUPED BY FAMILY since 2026-09-28: the rows themselves ride under `domains` and are exactly what reviewDomains() computes, while `families`, `placed` and `unfamilied` are the census over them — `placed` is a SET size, never a sum of group sizes, because a domain spanning several wing families belongs to all of them. Returns {families,domains:[{domain,theorems,fold,verdict,receipt}],placed,unfamilied,receipt}.
 
 ### `compute_document` {#uuidna-document}
 
@@ -3716,7 +3716,7 @@ Call `get_fingerprint` — the old name `uuidna_fingerprint` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"count":72409,"fnvReceipt":"d43dc3e0-3edd-8d51-be3c-94863f94e3e5","sha256":"7f7be295f82e0fa685989cc070dbab5cec14384a9043d6d3261d36cbf99dc467","tamperCost":"A …
+{"count":72409,"fnvReceipt":"a52749ac-7dbc-8717-b0fd-84f663eb5e73","sha256":"506030082d374a2cb8ed2c57c8107539830c2d07a55540f9f9c5c65b678077fc","tamperCost":"A …
 ```
 
 _No parameters._
@@ -3733,7 +3733,7 @@ Call `run_trial` — the old name `uuidna_trial` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"count":72409,"verified":72409,"unverified":0,"leanBacked":72409,"receipt":"d43dc3e0-3edd-8d51-be3c-94863f94e3e5","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
+{"count":72409,"verified":72409,"unverified":0,"leanBacked":72409,"receipt":"a52749ac-7dbc-8717-b0fd-84f663eb5e73","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
 ```
 
 _No parameters._
@@ -5435,7 +5435,7 @@ Call `decode_theorem` — the old name `uuidna_decode` still answers · read-onl
 // arguments
 {}
 // answer (excerpt)
-{"polarities":{"minus":29058,"neutral":14395,"plus":28956,"capacity":{"minus":4,"neutral":2,"plus":4},"byRay":[{"ray":0,"minus":4181,"neutral":2034,"plus":4141…
+{"polarities":{"minus":29060,"neutral":14393,"plus":28956,"capacity":{"minus":4,"neutral":2,"plus":4},"byRay":[{"ray":0,"minus":4182,"neutral":2036,"plus":4142…
 ```
 
 **Parameters**
@@ -5737,7 +5737,7 @@ Call `get_receipt` — the old name `uuidna_unify` still answers · read-only ·
 // arguments
 {}
 // answer (excerpt)
-{"handle":"12c798dd","theorems":{"count":72409,"verified":72409,"receipt":"d43dc3e0-3edd-8d51-be3c-94863f94e3e5"},"domains":{"count":133,"verdict":"VERIFIED","…
+{"handle":"8c977f78","theorems":{"count":72409,"verified":72409,"receipt":"a52749ac-7dbc-8717-b0fd-84f663eb5e73"},"domains":{"count":133,"verdict":"VERIFIED","…
 ```
 
 _No parameters._
@@ -5758,7 +5758,7 @@ Call `get_quantum_profile` — the old name `uuidna_quantum_profile` still answe
 // arguments
 {}
 // answer (excerpt)
-{"handle":"19f13f20","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":34,"hsl":"hsl(34, 66%, 54%)","rgb":"#d7…
+{"handle":"316e7f42","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":34,"hsl":"hsl(34, 66%, 54%)","rgb":"#d7…
 ```
 
 _No parameters._

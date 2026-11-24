@@ -1,289 +1,134 @@
 {
  "why": "The doors sessions asked for, ranked by how often they asked. Every refused ad-hoc command in this repository may proceed only by stating the gap it fills, and the hook appends that sentence to dist/evidence/mcp-gaps.jsonl, so this tree has been recording the list of doors it lacks in its own words. This reads that log. Each row is cross-formulated — what sessions ASK against what the catalogue SERVES, two surfaces that must agree — and each is DEMAND rather than absence, because a repeated ask can mean the asker missed a door that exists. Written by src/scripts/audit-door-demand.ts on every run, EMPTY INCLUDED: an absent file and an empty log are different facts.",
- "requests": 1458,
- "distinct": 1230,
- "served": 252,
+ "requests": 144,
+ "distinct": 111,
+ "served": 257,
  "families": [
   {
-   "verb": "wing",
-   "asks": 206
-  },
-  {
-   "verb": "theorem",
-   "asks": 79
-  },
-  {
    "verb": "commit",
-   "asks": 75
+   "asks": 32
   },
   {
    "verb": "ledger",
-   "asks": 46
-  },
-  {
-   "verb": "test",
-   "asks": 46
-  },
-  {
-   "verb": "doc",
-   "asks": 31
-  },
-  {
-   "verb": "kill",
-   "asks": 18
-  },
-  {
-   "verb": "land",
-   "asks": 15
-  },
-  {
-   "verb": "index",
-   "asks": 11
-  },
-  {
-   "verb": "time",
-   "asks": 10
-  },
-  {
-   "verb": "receipt",
-   "asks": 7
-  },
-  {
-   "verb": "reach",
-   "asks": 6
-  },
-  {
-   "verb": "diff",
-   "asks": 5
-  },
-  {
-   "verb": "status",
-   "asks": 5
-  },
-  {
-   "verb": "log",
    "asks": 4
   },
   {
-   "verb": "lesson",
-   "asks": 3
-  },
-  {
-   "verb": "endpoint",
-   "asks": 1
-  }
- ],
- "unclassified": 890,
- "held": [
-  {
    "verb": "wing",
-   "asks": 206,
-   "samples": [
-    "counting theorems in one lean wing while the hosted index door is down",
-    "running the bare lean kernel on a candidate wing before it enters the tree",
-    "surveying the calendar wing and any harmonic calendar"
-   ]
+   "asks": 4
   },
   {
    "verb": "theorem",
-   "asks": 79,
-   "samples": [
-    "locating the one source theorem the derived layer is missing",
-    "reading the sealed colour theorem the A432 change moved",
-    "checking the imports theorems/index needs"
-   ]
+   "asks": 3
   },
   {
+   "verb": "doc",
+   "asks": 2
+  },
+  {
+   "verb": "test",
+   "asks": 2
+  },
+  {
+   "verb": "index",
+   "asks": 1
+  },
+  {
+   "verb": "kill",
+   "asks": 1
+  },
+  {
+   "verb": "time",
+   "asks": 1
+  }
+ ],
+ "unclassified": 94,
+ "held": [
+  {
    "verb": "commit",
-   "asks": 75,
+   "asks": 32,
    "samples": [
-    "committing the qpu storage write repair in the sibling repository",
-    "committing the edge ledger and gate repairs",
-    "committing the A432 reconcile"
+    "no door counts commits by Trial-Receipt trailer over git history for a settlement measurement",
+    "no door recomputes the statement census at a past commit or from the raw lean files",
+    "no door lists commits around a lead's recording date"
    ]
   },
   {
    "verb": "ledger",
-   "asks": 46,
+   "asks": 4,
    "samples": [
-    "no door answers the git history of a source path (when the edge stopped bundling the ledger)",
-    "pre-flighting the ledger deposit piece sizes against qpu's heap bound",
-    "pre-flighting ledger piece sizes against qpu's heap bound"
+    "no door greps the tree for a constant name or the lead ledger for a handle",
+    "no door shows the raw shape of ledger entries for an independent census rule",
+    "no door recounts ledger keys against distinct statements by an independent rule"
    ]
   },
   {
-   "verb": "test",
-   "asks": 46,
+   "verb": "wing",
+   "asks": 4,
    "samples": [
-    "reading qpu's own tests and lean file to see what pins its storage address function",
-    "checking which Lean Nat conventions the test evaluator diverges on",
-    "testing x/0=x against the kernel's sealed statements"
+    "no door counts margin theorem declarations across lean wings against the rows of src/theorems/generated.ts",
+    "no door samples raw theorem lines from the wings",
+    "no door recounts ledger keys, distinct statements and wing theorems by an independent rule"
+   ]
+  },
+  {
+   "verb": "theorem",
+   "asks": 3,
+   "samples": [
+    "no door shows which lines of lean-ledger.ts print or count theorems",
+    "no door reads git history or sizes of the theorem ledger for a witness census",
+    "no door reads the shape of the theorem ledger source for a witness census"
    ]
   },
   {
    "verb": "doc",
-   "asks": 31,
+   "asks": 2,
    "samples": [
-    "no door replays a PREFIX of the catalogue in one process and reports another tool's answer size — needed to find inter-tool interference (uuidna_hero_animation ",
-    "checking whether these docs are generated before touching them",
-    "no door traces a dead path taught by a generated doc back to its source row"
+    "no door counts generic negation words in Lean doc comments against discharge in the statement",
+    "no door shows how the docs generator builds an entry"
    ]
   },
   {
-   "verb": "kill",
-   "asks": 18,
+   "verb": "test",
+   "asks": 2,
    "samples": [
-    "no door prints one lead row by handle with its lean, killed_by and kernel verdict",
-    "no door restates a lead row's lean from its own killed_by measurement",
-    "no door returns a single lean/leads.json row by its handleOf(toUuid(row.lead)) — witness rosetta faithfulness face needs the raw row text and killed_by"
-   ]
-  },
-  {
-   "verb": "land",
-   "asks": 15,
-   "samples": [
-    "no door reports a running landing's progress; reading the land log and push state",
-    "no door reports a landing's state; checking before changing the scheduler",
-    "no door reports a landing's state"
+    "no door shows which tests cover the changed modules",
+    "no door shows why the census example moves between generation and test"
    ]
   },
   {
    "verb": "index",
-   "asks": 11,
+   "asks": 1,
    "samples": [
-    "measuring the edge index memory after the typed-array repair",
-    "measuring what the edge rows cost resident, and what a compact index would cost",
-    "no door runs arbitrary Lean text against the bare kernel; a court investigator must check its own proposed involution before proposing it (qpu_lean only serves "
+    "no door runs the sibling qpu repository's index build that writes its archive record"
+   ]
+  },
+  {
+   "verb": "kill",
+   "asks": 1,
+   "samples": [
+    "no door exports the full refuted rows (lead, killed_by, replaced_by, lean, kernel) for the court's pending settlement orders"
    ]
   },
   {
    "verb": "time",
-   "asks": 10,
-   "samples": [
-    "no door lists WHICH theorems lack a rosetta leg — uuidna_rosetta_legs reports per-leg counts and one key at a time, but mint-gate refuses on the set and nothing",
-    "no door lists sealed theorems about lanes, time and space without returning the whole ledger",
-    "no door times a finder's cost"
-   ]
-  },
-  {
-   "verb": "receipt",
-   "asks": 7,
-   "samples": [
-    "no door reports whether a minted receipt is stale",
-    "no door records a wave result and mints its receipt",
-    "measure the union of buildTrialMerkaba input receipts and their mod-9 reductions"
-   ]
-  },
-  {
-   "verb": "reach",
-   "asks": 6,
-   "samples": [
-    "run the bare Lean kernel on a candidate involution in a scratch directory; qpu_lean is not reachable offline for a scratch file",
-    "checking whether basis is genuinely unreached or the reach walk misses it",
-    "verifying both new queues reach the survey and the MCP door that serves it"
-   ]
-  },
-  {
-   "verb": "diff",
-   "asks": 5,
-   "samples": [
-    "no door reads a diff",
-    "no door diffs a path",
-    "no door diffs the working tree against HEAD"
-   ]
-  },
-  {
-   "verb": "status",
-   "asks": 5,
-   "samples": [
-    "checking live site status codes",
-    "no door reports the working-tree status of a named pathspec",
-    "no door reports the seed corpus by status, wing and weight — the census that decides which seeds to split"
-   ]
-  },
-  {
-   "verb": "log",
-   "asks": 4,
-   "samples": [
-    "reading a qpu test failure log",
-    "recording the returned wave's verdicts in the evidence log",
-    "no door waits on a background kernel run or reads its log"
-   ]
-  },
-  {
-   "verb": "lesson",
-   "asks": 3,
-   "samples": [
-    "no door reads .claude/lessons.md — the lessons home is named in AGENTS.md as one of the three memories, and nothing serves it",
-    "no door reads .claude/lessons.md — AGENTS.md names it one of the three memories and nothing serves it",
-    "no door runs uuidna's finders over a SIBLING repository's files — cross-repo folding of a lesson has no door, and that is the gap this measurement names"
-   ]
-  },
-  {
-   "verb": "endpoint",
    "asks": 1,
    "samples": [
-    "no door probes zenodo endpoints or reads the publish workflow"
+    "no door times decide() per path in microseconds for a settlement measurement"
    ]
   }
  ],
- "open": 10,
+ "open": 1,
  "leads": [
   {
-   "lead": "206 recorded ask(s) for a door that wings, against 252 doors served — sessions stated this gap 206 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"counting theorems in one lean wing while the hosted index door is down\".",
-   "status": "open",
-   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
-  },
-  {
-   "lead": "79 recorded ask(s) for a door that theorems, against 252 doors served — sessions stated this gap 79 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"locating the one source theorem the derived layer is missing\".",
-   "status": "open",
-   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
-  },
-  {
-   "lead": "75 recorded ask(s) for a door that commits, against 252 doors served — sessions stated this gap 75 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"committing the qpu storage write repair in the sibling repository\".",
-   "status": "open",
-   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
-  },
-  {
-   "lead": "46 recorded ask(s) for a door that ledgers, against 252 doors served — sessions stated this gap 46 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door answers the git history of a source path (when the edge stopped bundling the ledger)\".",
-   "status": "open",
-   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
-  },
-  {
-   "lead": "46 recorded ask(s) for a door that tests, against 252 doors served — sessions stated this gap 46 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"reading qpu's own tests and lean file to see what pins its storage address function\".",
-   "status": "open",
-   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
-  },
-  {
-   "lead": "31 recorded ask(s) for a door that docs, against 252 doors served — sessions stated this gap 31 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door replays a PREFIX of the catalogue in one process and reports another tool's answer size — needed to find inter-tool interference (uuidna_hero_animation \".",
-   "status": "open",
-   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
-  },
-  {
-   "lead": "18 recorded ask(s) for a door that kills, against 252 doors served — sessions stated this gap 18 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door prints one lead row by handle with its lean, killed_by and kernel verdict\".",
-   "status": "open",
-   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
-  },
-  {
-   "lead": "15 recorded ask(s) for a door that lands, against 252 doors served — sessions stated this gap 15 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door reports a running landing's progress; reading the land log and push state\".",
-   "status": "open",
-   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
-  },
-  {
-   "lead": "11 recorded ask(s) for a door that indexs, against 252 doors served — sessions stated this gap 11 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"measuring the edge index memory after the typed-array repair\".",
-   "status": "open",
-   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
-  },
-  {
-   "lead": "10 recorded ask(s) for a door that times, against 252 doors served — sessions stated this gap 10 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door lists WHICH theorems lack a rosetta leg — uuidna_rosetta_legs reports per-leg counts and one key at a time, but mint-gate refuses on the set and nothing\".",
+   "lead": "32 recorded ask(s) for a door that commits, against 257 doors served — sessions stated this gap 32 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door counts commits by Trial-Receipt trailer over git history for a settlement measurement\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   }
  ],
- "receipt": "df0cc26f-5327-84cb-8b77-7466482afd88",
+ "receipt": "3beb6649-42db-8c3a-88e4-9e9fa06aa03b",
  "crossed": {
-  "sorted": "df0cc26f-5327-84cb-8b77-7466482afd88",
-  "reversed": "df0cc26f-5327-84cb-8b77-7466482afd88",
+  "sorted": "3beb6649-42db-8c3a-88e4-9e9fa06aa03b",
+  "reversed": "3beb6649-42db-8c3a-88e4-9e9fa06aa03b",
   "agrees": true
  }
 }
