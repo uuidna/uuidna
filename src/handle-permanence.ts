@@ -7,11 +7,12 @@
 // cited in the archive metadata and on the site surface. The handle URL is ALWAYS required (DOI may be absent).
 //
 // NO top-level node:fs: SiteFooter imports STANDING_DOI / doiUrl in the browser. The audit reads the disk lazily.
+import { SITE } from './site/index.js'
 import { handleOf, isHandle } from './handle.js'
 import { toUuid } from './address.js'
 import { rdRoot, existsRoot } from './boundary.js'
 
-export const HANDLE_HOST = 'https://uuidna.com'
+export const HANDLE_HOST = SITE.origin
 export const UUIDNA_HOSTNAME = 'uuidna.com'
 /** Standing archive DOI for the ledger deposit (workflow-minted) — THE ONE PLACE IT IS WRITTEN.
  *

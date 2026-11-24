@@ -1,3 +1,4 @@
+import { SITE } from './site/index.js'
 import { STANDING_DOI } from './handle-permanence.js'
 import { attributions } from './claim-attribution.js'
 import { gradeOf } from './external-fact.js'
@@ -17,7 +18,7 @@ import { allReferenceDois } from './references.js'
 // Credit law: leanFiles → DOI prior art first, captain next. Workflow-only deposits — never local curl.
 // LICENSE LAW: every seal inherits the canonical uuidna license (CC-BY-NC-ND-4.0) — no per-publication field.
 // (Do not import handle-permanence here — that module audits .zenodo.json and would circular-init with this registry.)
-const HANDLE_HOST = 'https://uuidna.com'
+const HANDLE_HOST = SITE.origin
 
 export type ZenodoSealRole = 'software-archive' | 'publication' | 'cite-only'
 

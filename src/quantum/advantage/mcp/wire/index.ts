@@ -2,7 +2,9 @@
 // quantum/advantage/mcp/wire — THE HOSTED DOOR. Fetch tools/call on uuidna.com/mcp (or same-origin /mcp
 // on a licensed host). No OS, no catalogue, no theorems: verify_beats_recompute_by_magnitudes is the axis.
 
-export const AGENT_ORIGIN = 'https://uuidna.com'
+import { SITE } from '../../../../site/index.js'
+
+export const AGENT_ORIGIN = SITE.origin
 export const AGENT_MCP_PATH = '/mcp'
 export const ADVANTAGE_MCP_ORIGIN = AGENT_ORIGIN + AGENT_MCP_PATH
 

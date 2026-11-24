@@ -11,13 +11,14 @@
 //   · schema.org JSON-LD (@type) OR RDFa/microdata itemscope equivalent on the object surface
 //
 // Source of truth: quantumSeo() → Seo.head. This module AUDITS and EMITS the package for pages, cards, and links.
+import { SITE } from './site/index.js'
 import type { HeadTuple, Seo } from './seo.js'
 import { quantumSeo } from './seo.js'
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'
 import { isUuidnaUrl } from './handle-permanence.js'
 
-const HOST = 'https://uuidna.com'
+const HOST = SITE.origin
 
 /** Required Open Graph properties — `property` attribute (RDFa), never `name`. */
 export const SEO_OG_REQUIRED = ['og:title', 'og:description', 'og:url', 'og:type'] as const

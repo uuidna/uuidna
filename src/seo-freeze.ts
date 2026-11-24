@@ -8,6 +8,7 @@
 // SEO audit (no vitepress build required for the freeze path): every subject has quantumSeo with canonical,
 // title, description band, JSON-LD; sitemap cover via site.gaps. Truncated-handle collisions past the birthday
 // point are NAMED and omitted from unique routing (never a wrong page); they are not a freeze break.
+import { SITE } from './site/index.js'
 import { existsRoot, rdRoot, wrRoot, mkdirRoot } from './boundary.js'
 import { theorems, isPagelessFile } from './theorems/index.js'
 import { publications } from './publish.js'
@@ -19,7 +20,7 @@ import { toUuid, merkleFold } from './address.js'
 import { seoPackageGaps } from './seo-package.js'
 
 export const SEO_URL_MAP_PATH = 'lean/seo-url-map.json'
-const HOST = 'https://uuidna.com'
+const HOST = SITE.origin
 
 export interface SeoUrlEntry {
   route: string

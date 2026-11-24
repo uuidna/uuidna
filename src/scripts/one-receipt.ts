@@ -414,18 +414,16 @@ export function actionsGaps(): Gap[] {
   }
   // The SAME law over the runtime itself: one node-version, tree-wide. A workflow left behind on an older major
   // gates the work on a runtime nothing else uses — how 22 sat under a deploy already building on 24, unseen.
-  const nodes: { major: number; where: string }[] = []
+  // The version is written once, in .node-version, and every setup-node step reads it (node-version-file), so a
+  // workflow cannot be left behind: a version typed in a workflow is a second copy, and it is the finding.
   for (const e of readdirSync(dir, { withFileTypes: true })) {
     if (e.isDirectory() || !e.name.endsWith('.yml')) continue
     fileText(join(dir, e.name)).split('\n').forEach((line, i) => {
       if (line.trimStart().startsWith('#')) return
-      const m = /^\s*node-version:\s*'?(\d+)/.exec(line)
-      if (m) nodes.push({ major: Number(m[1]), where: `${e.name}:${i + 1}` })
+      const m = /(?:^|[\s{,])node-version:\s*'?(\d+)/.exec(line)
+      if (m) gaps.push({ what: `${e.name}:${i + 1} types node ${m[1]} — the runtime the work is proven on is written once, in .node-version`, fix: `replace it with node-version-file: .node-version` })
     })
   }
-  const newestNode = nodes.reduce((hi, n) => (n.major > hi ? n.major : hi), 0)
-  for (const n of nodes.filter((n) => n.major < newestNode))
-    gaps.push({ what: `${n.where} gates on node ${n.major} while the tree already runs ${newestNode} — the runtime the work is proven on must be one`, fix: `set node-version: '${newestNode}' here, or move every workflow down together` })
   return gaps
 }
 
