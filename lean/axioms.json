@@ -6,7 +6,7 @@
  "dependencySets": {
   "(none)": 72409
  },
- "asked": "8df13eca-8d59-8a6f-afa4-121d345bf8ed",
+ "asked": "ac2c88d5-7de8-8022-b3a6-e3f8314bdc20",
  "toolchain": "leanprover/lean4:v4.33.0",
  "wings": {
   "45bcb8b0.lean": {
@@ -666,7 +666,7 @@
    }
   },
   "CrossFormulas.lean": {
-   "asked": "dd3c48aa-9699-8fd5-9bc3-18ffce601dab",
+   "asked": "0f73f957-0de6-8b42-b8c2-6dce74979510",
    "verdict": {
     "the_generated_closure_partitions_into_three_kinds": [],
     "the_arithmetic_alphabet_partitions_by_its_own_algebra": [],
@@ -71200,7 +71200,7 @@
    }
   },
   "Models.lean": {
-   "asked": "c5d860e2-7e53-8916-bae0-0ca86b589d1f",
+   "asked": "628c66d9-7bee-8e51-981b-1f71a36636cb",
    "verdict": {
     "a_token_approximates_eight_hexbits": [],
     "context_windows_are_transient_hexbits": [],
@@ -73884,10 +73884,10 @@
    }
   }
  },
- "receipt": "c1ade169-8b62-8174-878e-9574b42011ba",
+ "receipt": "74250ed4-7668-859d-8ed5-8544c10043a6",
  "crossed": {
-  "sorted": "c1ade169-8b62-8174-878e-9574b42011ba",
-  "reversed": "c1ade169-8b62-8174-878e-9574b42011ba",
+  "sorted": "74250ed4-7668-859d-8ed5-8544c10043a6",
+  "reversed": "74250ed4-7668-859d-8ed5-8544c10043a6",
   "agrees": true
  }
 }

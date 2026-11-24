@@ -146,10 +146,10 @@ costs every leaf, while checking one proof costs log2(N) siblings.
 | 1024 | 10 | 10^2 |
 | 4096 | 12 | 10^3 |
 | 16384 | 14 | 10^3 |
-| 65536 | 16 | 10^4 |
+| 65536 | 16 | 10^3 |
 
 Measured on this host, 64 to 65536 leaves — a 1024-fold in N takes the advantage from
-10^1 to 10^4. The verify cost barely moves (the proof grows from 6 siblings to
+10^1 to 10^3. The verify cost barely moves (the proof grows from 6 siblings to
 16); recompute carries the whole growth.
 
 **THE DECADE IS PUBLISHED AND THE RAW RATIO IS NOT**, and the first version of this table got that wrong. It

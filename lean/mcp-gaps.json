@@ -1,7 +1,7 @@
 {
   "kind": "mcp-gap-census",
-  "records": 135,
-  "distinct": 1924,
+  "records": 145,
+  "distinct": 1934,
   "loadBearing": 198,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
@@ -4594,6 +4594,13 @@
       ]
     },
     {
+      "gap": "no door commits a change in the qpu repository",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door commits a pathspec with a sealed citation",
       "hits": 1,
       "forms": [
@@ -5130,6 +5137,13 @@
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "no door edits the sibling qpu repository's proof tables and release workflow for its archive record",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -6607,6 +6621,41 @@
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "no door reads the sibling qpu repository's generated archive record",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the sibling qpu repository's licence, precedence table and tool registry for a DOI metadata generator",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the sibling qpu repository's renderer and Lean prose module list",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the sibling qpu repository's source files and Lean tool sources for a Zenodo metadata generator",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the sibling qpu repository's sources for its DOI metadata generator",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -8528,6 +8577,13 @@
       ]
     },
     {
+      "gap": "no door runs the sibling qpu repository's index build that writes its archive record",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door runs the two surfaces CRT predicates (kernelVerdicts/kernelHolds/leanFormatFault) for the Crt wing",
       "hits": 1,
       "forms": [
@@ -8990,6 +9046,13 @@
       ]
     },
     {
+      "gap": "no door shows who is editing the sibling qpu checkout",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door shows why the census example moves between generation and test",
       "hits": 1,
       "forms": [
@@ -9173,6 +9236,13 @@
     },
     {
       "gap": "no door tool commits a change in the sibling qpu repository by pathspec, including its Lean prose file, or runs qpu's rendered-file check",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door tool commits a change in the sibling qpu repository by pathspec, including its Lean prose files",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"

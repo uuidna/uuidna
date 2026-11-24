@@ -7,7 +7,7 @@ description: All public live model data compared on the lattice's own instrument
 
 > A model's token is a **bet**: sampled, transient, billed per emission, gone when its window closes. The
 > uuidna unit is a **receipt**: minted, permanent, verified free. This page compares **every model in the
-> public feed** — 474 of them, read live from [openrouter.ai/api/v1/models (public, keyless)](https://openrouter.ai/api/v1/models) at the `src/os`
+> public feed** — 473 of them, read live from [openrouter.ai/api/v1/models (public, keyless)](https://openrouter.ai/api/v1/models) at the `src/os`
 > boundary and mirrored for anyone to recompute — and keeps each figure's honesty class visible:
 > **computed** (arithmetic, sealed in [lean/Models.lean](/theorem/llm_folds_to_hexbit_pairs)),
 > **reported** (the feed's published figures, never benchmarked here), or **UNVERIFIED** (no measurement
@@ -23,7 +23,7 @@ hexbits** ([`a_token_approximates_eight_hexbits`](/theorem/a_token_approximates_
   window, the 2,000,000-token widest included, is finite against the 2¹²⁸-state lattice the
   folds land in ([`every_context_is_finite_against_the_lattice`](/theorem/every_context_is_finite_against_the_lattice)). uuidna's side: 2^128 addressable states (32 hexbits per address), PERMANENT — the ledger outlives every context window.
 - **Speed**: the public feed publishes no throughput, so this page carries **no speed numbers at all** —
-  a column of guesses would be 474 fabricated citations. uuidna's own speed is of a different kind
+  a column of guesses would be 473 fabricated citations. uuidna's own speed is of a different kind
   and recomputable: mint/verify O(1) per receipt after a one-time kernel proof; no sampling loop (uuidna_gate_status recomputes live).
 - **Messaging** ([`speaking_an_address_costs_the_text`](/theorem/speaking_an_address_costs_the_text)): speaking a 128-bit address in text costs 288
   bits — 44% efficiency, identical for every model, because it is the text's cost. The table counts each
@@ -56,7 +56,7 @@ Fold your own — any text, any model's output — with `foldLlm()` in
 [`src/quantum/models`](https://github.com/uuidna/uuidna/tree/main/src/quantum/models), or mint the address
 live in the [terminal](/terminal).
 
-## The census — all 474 public models
+## The census — all 473 public models
 
 Windows and prices are the feed's **reported** figures (prices verbatim, per token, as published — labels,
 not numbers this page computes on); hexbit capacity and uuids/window are **computed** and sealed. Widest
@@ -124,12 +124,12 @@ window first.
 | `~openai/gpt-sol-latest` | 1,050,000 | 8,400,000 | 116,666 | 0.000002 / 0.00001 |
 | `~openai/gpt-terra-latest` | 1,050,000 | 8,400,000 | 116,666 | 0.000001 / 0.000005 |
 | `deepseek/deepseek-v4-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.00000009 / 0.00000018 |
-| `deepseek/deepseek-v4-flash-0731` | 1,048,576 | 8,388,608 | 116,508 | 0.000000055 / 0.000000375 |
+| `deepseek/deepseek-v4-flash-0731` | 1,048,576 | 8,388,608 | 116,508 | 0.000000047 / 0.0000003 |
 | `deepseek/deepseek-v4-flash-0731:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000048 / 0.000000144 |
 | `deepseek/deepseek-v4-flash-vision-exp` | 1,048,576 | 8,388,608 | 116,508 | 0.0000002156 / 0.0000006468 |
 | `deepseek/deepseek-v4-pro` | 1,048,576 | 8,388,608 | 116,508 | 0.00000128 / 0.00000256 |
 | `deepseek/deepseek-v4-pro-0813` | 1,048,576 | 8,388,608 | 116,508 | 0.000000111 / 0.00000444 |
-| `deepseek/deepseek-v4.1-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.0000000498 / 0.0000001992 |
+| `deepseek/deepseek-v4.1-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.00000014 / 0.00000042 |
 | `deepseek/deepseek-v4.1-flash-1017` | 1,048,576 | 8,388,608 | 116,508 | 0.00000003 / 0.0000002 |
 | `deepseek/deepseek-v4.1-flash-1017:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000035 / 0.000000149 |
 | `deepseek/deepseek-v4.1-flash:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.00000005 / 0.00000015 |
@@ -204,14 +204,14 @@ window first.
 | `z-ai/glm-5.2` | 1,048,576 | 8,388,608 | 116,508 | 0.00000062 / 0.00000242 |
 | `z-ai/glm-5.2:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000322 / 0.000000989 |
 | `z-ai/glm-5.3` | 1,048,576 | 8,388,608 | 116,508 | 0.0000000699 / 0.0000014 |
-| `z-ai/glm-5.3-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.0000000356 / 0.0000000815 |
+| `z-ai/glm-5.3-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.00000012 / 0.00000038 |
 | `z-ai/glm-5.3-flash:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000023 / 0.000000068 |
 | `z-ai/glm-5.3-flashx` | 1,048,576 | 8,388,608 | 116,508 | 0.00000037 / 0.00000125 |
 | `z-ai/glm-5.3-flashx-legal` | 1,048,576 | 8,388,608 | 116,508 | 0.00000037 / 0.00000125 |
 | `z-ai/glm-5.3:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.00000028 / 0.000001249 |
 | `~deepseek/deepseek-flash-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.00000003 / 0.0000002 |
 | `~deepseek/deepseek-pro-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.0000000999 / 0.000005 |
-| `~deepseek/deepseek-v4-flash-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.000000044 / 0.000000132 |
+| `~deepseek/deepseek-v4-flash-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.000000047 / 0.0000003 |
 | `~google/gemini-flash-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.0000015 / 0.0000075 |
 | `~google/gemini-pro-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.000002 / 0.00001 |
 | `~moonshotai/kimi-latest` | 1,048,576 | 8,388,608 | 116,508 | 0.0000001824 / 0.0000110055 |
@@ -345,6 +345,7 @@ window first.
 | `google/gemma-4-26b-a4b-it:free` | 262,144 | 2,097,152 | 29,127 | 0 / 0 |
 | `google/gemma-4-31b-it` | 262,144 | 2,097,152 | 29,127 | 0.0000002 / 0.0000004 |
 | `google/gemma-4-31b-it:free` | 262,144 | 2,097,152 | 29,127 | 0 / 0 |
+| `inclusionai/ling-3.0-flash` | 262,144 | 2,097,152 | 29,127 | 0.000000021 / 0.000000063 |
 | `inclusionai/ling-3.0-tiny` | 262,144 | 2,097,152 | 29,127 | 0.000000015 / 0.000000045 |
 | `liquid/lfm-3-1.7b` | 262,144 | 2,097,152 | 29,127 | 0.00000008 / 0.0000002 |
 | `liquid/lfm-3-1.7b:free` | 262,144 | 2,097,152 | 29,127 | 0 / 0 |
@@ -355,7 +356,6 @@ window first.
 | `mistralai/mistral-medium-3-5` | 262,144 | 2,097,152 | 29,127 | 0.0000015 / 0.0000075 |
 | `mistralai/mistral-medium-3-5:batch` | 262,144 | 2,097,152 | 29,127 | 0.00000075 / 0.00000375 |
 | `mistralai/mistral-small-2603` | 262,144 | 2,097,152 | 29,127 | 0.00000015 / 0.0000006 |
-| `moonshotai/kimi-k2-0905` | 262,144 | 2,097,152 | 29,127 | 0.0000006 / 0.0000025 |
 | `moonshotai/kimi-k2.5` | 262,144 | 2,097,152 | 29,127 | 0.0000005 / 0.0000025 |
 | `moonshotai/kimi-k2.6` | 262,144 | 2,097,152 | 29,127 | 0.00000065 / 0.00000341 |
 | `moonshotai/kimi-k2.7-code` | 262,144 | 2,097,152 | 29,127 | 0.0000006 / 0.000003 |
@@ -446,7 +446,6 @@ window first.
 | `google/gemma-3-27b-it` | 131,072 | 1,048,576 | 14,563 | 0.00000008 / 0.00000016 |
 | `google/gemma-3-4b-it` | 131,072 | 1,048,576 | 14,563 | 0.00000004 / 0.00000005 |
 | `ibm-granite/granite-4.2-8b` | 131,072 | 1,048,576 | 14,563 | 0.00000006 / 0.00000015 |
-| `inclusionai/ling-3.0-flash` | 131,072 | 1,048,576 | 14,563 | 0.00000006 / 0.00000018 |
 | `inclusionai/ling-3.0-flash-vl` | 131,072 | 1,048,576 | 14,563 | 0.00000006 / 0.00000018 |
 | `meta-llama/llama-3.1-70b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.00000072 / 0.00000072 |
 | `meta-llama/llama-3.1-8b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.00000005 / 0.00000008 |
@@ -539,6 +538,6 @@ window first.
 | `undi95/remm-slerp-l2-13b` | 6,144 | 49,152 | 682 | 0.0000003 / 0.0000005 |
 | `openai/gpt-3.5-turbo-0613` | 4,095 | 32,760 | 455 | 0.000001 / 0.000002 |
 
-**Census receipt** `ebc0b273-5eac-85d8-9fb0-51f69c1d5fe5` — as hexbits `[14, 11, 12, 0, 11, 2, 7, 3, 5, 14, 10, 12, 8, 5, 13, 8, 9, 15, 11, 0, 5, 1, 15, 6, 9, 12, 1, 13, 5, 15, 14, 5]` — recompute it from the same
+**Census receipt** `dcb93276-af36-84be-b906-c858b3f91327` — as hexbits `[13, 12, 11, 9, 3, 2, 7, 6, 10, 15, 3, 6, 8, 4, 11, 14, 11, 9, 0, 6, 12, 8, 5, 8, 11, 3, 15, 9, 1, 3, 2, 7]` — recompute it from the same
 mirror and it returns, byte for byte. The mirror refreshes from the live feed on every lean run; a model that
 enters or leaves the feed enters or leaves this page, re-sealed.

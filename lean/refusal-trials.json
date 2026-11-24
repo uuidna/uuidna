@@ -9,7 +9,7 @@
  "purged": 0,
  "collisionPairs": 3034,
  "rounds": 0,
- "receipt": "91c7627c-48ac-8228-aab1-b90501bc8619",
+ "receipt": "98c166cb-19dc-8450-879c-f2fec1300a82",
  "trials": [
   {
    "lead": "KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.",
@@ -97150,8 +97150,8 @@
   "toolchain": "leanprover/lean4:v4.33.0",
   "lean/leads.json": "8b9948f6-b92a-8d1e-9bf5-af246e9e9b9c",
   "lean/wave-queue.json": "ac1e94a7-a8fc-8d72-80cc-10aa748de4c6",
-  "src/theorems/generated.ts": "b301325a-b3a2-8715-9be7-8a29765ad12f",
-  "lean/axioms.json": "d4dc333a-426b-81ad-a49c-87c57e6a36ad",
+  "src/theorems/generated.ts": "b838b788-21f6-8022-97d0-0b82e61fea4e",
+  "lean/axioms.json": "f17749e3-acd2-8180-b359-1767472998a2",
   "lean-toolchain": "8de5f85e-020b-868f-9a1d-a0dc0bf7066e"
  },
  "kernel": {
@@ -97433,10 +97433,10 @@
   }
  },
  "unreceipted": [],
- "seal": "e04c8e7c-17a2-8f0d-98c2-2fc3bd44b071",
+ "seal": "f3fdb904-4757-8e81-97d0-44c31d52cc01",
  "crossed": {
-  "sorted": "91c7627c-48ac-8228-aab1-b90501bc8619",
-  "reversed": "91c7627c-48ac-8228-aab1-b90501bc8619",
+  "sorted": "98c166cb-19dc-8450-879c-f2fec1300a82",
+  "reversed": "98c166cb-19dc-8450-879c-f2fec1300a82",
   "agrees": true
  }
 }

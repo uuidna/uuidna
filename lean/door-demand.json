@@ -1,12 +1,12 @@
 {
  "why": "The doors sessions asked for, ranked by how often they asked. Every refused ad-hoc command in this repository may proceed only by stating the gap it fills, and the hook appends that sentence to dist/evidence/mcp-gaps.jsonl, so this tree has been recording the list of doors it lacks in its own words. This reads that log. Each row is cross-formulated — what sessions ASK against what the catalogue SERVES, two surfaces that must agree — and each is DEMAND rather than absence, because a repeated ask can mean the asker missed a door that exists. Written by src/scripts/audit-door-demand.ts on every run, EMPTY INCLUDED: an absent file and an empty log are different facts.",
- "requests": 110,
- "distinct": 77,
+ "requests": 144,
+ "distinct": 111,
  "served": 257,
  "families": [
   {
    "verb": "commit",
-   "asks": 28
+   "asks": 32
   },
   {
    "verb": "ledger",
@@ -22,6 +22,14 @@
   },
   {
    "verb": "doc",
+   "asks": 2
+  },
+  {
+   "verb": "test",
+   "asks": 2
+  },
+  {
+   "verb": "index",
    "asks": 1
   },
   {
@@ -33,11 +41,11 @@
    "asks": 1
   }
  ],
- "unclassified": 68,
+ "unclassified": 94,
  "held": [
   {
    "verb": "commit",
-   "asks": 28,
+   "asks": 32,
    "samples": [
     "no door counts commits by Trial-Receipt trailer over git history for a settlement measurement",
     "no door recomputes the statement census at a past commit or from the raw lean files",
@@ -73,9 +81,25 @@
   },
   {
    "verb": "doc",
+   "asks": 2,
+   "samples": [
+    "no door counts generic negation words in Lean doc comments against discharge in the statement",
+    "no door shows how the docs generator builds an entry"
+   ]
+  },
+  {
+   "verb": "test",
+   "asks": 2,
+   "samples": [
+    "no door shows which tests cover the changed modules",
+    "no door shows why the census example moves between generation and test"
+   ]
+  },
+  {
+   "verb": "index",
    "asks": 1,
    "samples": [
-    "no door counts generic negation words in Lean doc comments against discharge in the statement"
+    "no door runs the sibling qpu repository's index build that writes its archive record"
    ]
   },
   {
@@ -96,15 +120,15 @@
  "open": 1,
  "leads": [
   {
-   "lead": "28 recorded ask(s) for a door that commits, against 257 doors served — sessions stated this gap 28 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door counts commits by Trial-Receipt trailer over git history for a settlement measurement\".",
+   "lead": "32 recorded ask(s) for a door that commits, against 257 doors served — sessions stated this gap 32 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door counts commits by Trial-Receipt trailer over git history for a settlement measurement\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   }
  ],
- "receipt": "e30aa59d-1839-83c8-8a99-b548bfea9ae7",
+ "receipt": "3beb6649-42db-8c3a-88e4-9e9fa06aa03b",
  "crossed": {
-  "sorted": "e30aa59d-1839-83c8-8a99-b548bfea9ae7",
-  "reversed": "e30aa59d-1839-83c8-8a99-b548bfea9ae7",
+  "sorted": "3beb6649-42db-8c3a-88e4-9e9fa06aa03b",
+  "reversed": "3beb6649-42db-8c3a-88e4-9e9fa06aa03b",
   "agrees": true
  }
 }
