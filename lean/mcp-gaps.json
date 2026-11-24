@@ -1,7 +1,7 @@
 {
   "kind": "mcp-gap-census",
-  "records": 115,
-  "distinct": 1904,
+  "records": 133,
+  "distinct": 1922,
   "loadBearing": 198,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
@@ -5434,6 +5434,13 @@
       ]
     },
     {
+      "gap": "no door lists node processes still running in this tree",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door lists or edits files of the separate qpu checkout (qpu-strict) for source development",
       "hits": 1,
       "forms": [
@@ -5609,6 +5616,13 @@
       ]
     },
     {
+      "gap": "no door lists wallet references outside src",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door lists where a config value (the Node version) is defined across workflows and package manifests",
       "hits": 1,
       "forms": [
@@ -5666,6 +5680,13 @@
     },
     {
       "gap": "no door locates the installed Lean toolchain binary the court's trial uses",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door locates the qpu serve module and its wallet branch",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -5847,7 +5868,21 @@
       ]
     },
     {
+      "gap": "no door names the scripts that spawn develop",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door names the writer of lean/axioms.json",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door names the writer of the stale artifact",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -6002,6 +6037,13 @@
     },
     {
       "gap": "no door prints the Links.lean grid-width defs and doc",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door prints the paid-tools wallet branch",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -7408,6 +7450,13 @@
       ]
     },
     {
+      "gap": "no door reports the reserve script's exit code",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reports the seams/carries/dz surface",
       "hits": 1,
       "forms": [
@@ -8451,6 +8500,13 @@
       ]
     },
     {
+      "gap": "no door runs the dormant-script exercise alone",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door runs the lean kernel on a witness's own scratch copy of a wing with #print axioms plus a must-fail control; the 2x7 rosetta kernel face requires an independent recompile",
       "hits": 1,
       "forms": [
@@ -8794,7 +8850,42 @@
       ]
     },
     {
+      "gap": "no door shows how the artifact audit folds a file and how the generator seals it",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows how the docs generator builds an entry",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows how the qpu repository authors a prose sentence",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door shows impossibility lines in context",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows the dormant scripts' declared writes or what stamps the fold file",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows the lines around each flagged comment",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -8843,6 +8934,13 @@
       ]
     },
     {
+      "gap": "no door shows what build:packages runs",
+      "hits": 1,
+      "forms": [
+        "grep"
+      ]
+    },
+    {
       "gap": "no door shows what the ship script runs",
       "hits": 1,
       "forms": [
@@ -8864,7 +8962,21 @@
       ]
     },
     {
+      "gap": "no door shows which module writes the fold file",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door shows which tests cover the changed modules",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows why the census example moves between generation and test",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -9036,6 +9148,20 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "no door tool commits a change in the sibling qpu repository by pathspec, including its Lean prose file",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door tool commits a change in the sibling qpu repository by pathspec, including its Lean prose file, or runs qpu's rendered-file check",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {

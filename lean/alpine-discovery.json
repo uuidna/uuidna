@@ -1,27 +1,27 @@
 {
   "definition": "alpine-port·theorem·axiom·discovery",
-  "packages": 28665,
-  "origins": 16101,
+  "packages": 28668,
+  "origins": 16105,
   "bindings": {
     "harmonised": 2054,
-    "crypto": 3088,
-    "port": 23523
+    "crypto": 3085,
+    "port": 23529
   },
   "bindingOrigins": {
     "harmonised": 1288,
-    "crypto": 2820,
-    "port": 13850
+    "crypto": 2818,
+    "port": 13856
   },
   "theorems": [
     {
       "key": "the_os_is_bootable_quantum",
-      "packages": 23523,
-      "origins": 13850
+      "packages": 23529,
+      "origins": 13856
     },
     {
       "key": "sha256_grover_margin_is_the_address",
-      "packages": 3088,
-      "origins": 2820
+      "packages": 3085,
+      "origins": 2818
     },
     {
       "key": "the_congruence_form_is_the_modulus_form",
@@ -96,19 +96,19 @@
   ],
   "harvest": [
     {
-      "key": "alpine_bindings_partition_packages_28665",
-      "fragment": "2054+3088+23523=28665",
-      "lean": "theorem alpine_bindings_partition_packages_28665 : (2054 + 3088 + 23523 = 28665) := by decide",
-      "packages": 28665,
-      "origins": 16101,
+      "key": "alpine_bindings_partition_packages_28668",
+      "fragment": "2054+3085+23529=28668",
+      "lean": "theorem alpine_bindings_partition_packages_28668 : (2054 + 3085 + 23529 = 28668) := by decide",
+      "packages": 28668,
+      "origins": 16105,
       "sample": "every package holds exactly one binding — the classes are exhaustive and disjoint"
     },
     {
-      "key": "alpine_binding_origins_overcount_16101",
-      "fragment": "1288+2820+13850=17958",
-      "lean": "theorem alpine_binding_origins_overcount_16101 : (1288 + 2820 + 13850 = 17958) ∧ (17958 - 16101 = 1857) := by decide",
-      "packages": 28665,
-      "origins": 16101,
+      "key": "alpine_binding_origins_overcount_16105",
+      "fragment": "1288+2818+13856=17962",
+      "lean": "theorem alpine_binding_origins_overcount_16105 : (1288 + 2818 + 13856 = 17962) ∧ (17962 - 16105 = 1857) := by decide",
+      "packages": 28668,
+      "origins": 16105,
       "sample": "1857 origins ship into more than one class — origins do NOT partition"
     }
   ],
@@ -119,6 +119,6 @@
     "exposed": 0,
     "refuted": 0
   },
-  "receipt": "caafc271-2c54-86f6-893a-f3f3afa28437",
+  "receipt": "e604bffd-0b0a-899b-bf71-910648ac405f",
   "honest": "Alpine port census: harmonised skill witnesses, crypto-census bindings, port-only identities, harvest fragments decide() confirms but the ledger does not seal, and axiom-hunt exposed runtime assumptions. Integrity and meaning only — nothing installed, linked, or executed. Desk proposes; captain seals."
 }

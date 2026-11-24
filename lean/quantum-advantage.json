@@ -788,7 +788,7 @@
   "sweeps": 109,
   "verdict": "EXACT"
  },
- "receipt": "10e012ce-d0a9-833d-86e9-88d41009cfab",
+ "receipt": "3afa4b6e-432c-81ef-a900-f0cad2ba0af9",
  "report": {
   "baseline": {
    "errorsPerMillion": 1000,
@@ -915,8 +915,8 @@
   "unsealable": "served live — whether independent estimates settled on one decade is this host's timing noise"
  },
  "crossed": {
-  "sorted": "10e012ce-d0a9-833d-86e9-88d41009cfab",
-  "reversed": "10e012ce-d0a9-833d-86e9-88d41009cfab",
+  "sorted": "3afa4b6e-432c-81ef-a900-f0cad2ba0af9",
+  "reversed": "3afa4b6e-432c-81ef-a900-f0cad2ba0af9",
   "agrees": true
  }
 }

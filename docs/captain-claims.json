@@ -9951,8 +9951,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "2dc9c510-ead7-884d-ab70-55b7dbe375d7",
-      "address": "d4c4313d-8af1-8929-9743-ff47bf366fd4",
+      "lineAddress": "ba27af61-5cc6-8974-b397-03c289009a49",
+      "address": "9f39829f-028c-8fed-bc33-2511e29261e3",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -10436,8 +10436,8 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "a6a11be9-be79-8212-bf69-4060299f2a4a",
-      "address": "4adf13e1-6e06-8f6f-bef9-8f8415fc4e1d",
+      "lineAddress": "68f6f2bb-6c37-84b7-bb3b-c689ce27354a",
+      "address": "7b0b05b4-dfd3-8258-b694-87a25c888227",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
@@ -501689,8 +501689,8 @@
     },
     {
       "key": "the_generated_closure_partitions_into_three_kinds",
-      "lineAddress": "2608b159-d8d5-8b96-99af-c54f68578c74",
-      "address": "f5a773c6-6a04-889f-9215-c6bb7e57ee78",
+      "lineAddress": "cd7aa7e3-c3db-8fc4-bd3f-c14135142b58",
+      "address": "4010f1bd-5ec2-8bb7-bad9-48698524c6ca",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -501703,15 +501703,15 @@
     },
     {
       "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-      "lineAddress": "9cdd59d7-ede1-811e-bbee-9b1df23dcf1f",
-      "address": "6e0f796f-aebe-81b2-b3fa-63e16eef49ab",
+      "lineAddress": "be03a160-327f-8d78-b486-18a282ce9403",
+      "address": "25291408-0f35-852c-bdf6-9b6a21fb3985",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-      "lineAddress": "1eeb9b9f-9524-82b2-9132-ad5deabdd78b",
-      "address": "8dff8c85-f8e4-863f-9276-3567d7301a18",
+      "lineAddress": "4a6f85ec-4113-8a88-a6c7-7deb6bc5ad57",
+      "address": "20e6695d-a29c-87ba-8884-1af10af06470",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -509860,7 +509860,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "63997758-67c6-8db6-9fcd-404536e972ff",
+  "claim_receipt": "5cb353fd-2947-8a15-98b0-d2a7cb50f08d",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

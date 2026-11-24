@@ -2,18 +2,12 @@
  "kind": "artifact-receipts",
  "why": "Every derived artifact should carry a cross: a content address its own leaves fold to, by two routes that must agree (src/crossfold.ts), stamped by the one write door (src/artifact.ts) rather than by each writer. An artifact without one is an array a reader can compare to nothing. UNSEALED is a debt and may only shrink; STALE is a fault and fails now, because an address that no longer covers its content is worse than none.",
  "artifacts": 366,
- "sealed": 26,
+ "sealed": 27,
  "sealedElsewhere": 10,
  "unsealed": 34,
- "stale": 1,
+ "stale": 0,
  "unmeasured": 295,
- "staleRows": [
-  {
-   "file": "quantum-advantage.json",
-   "state": "STALE",
-   "why": "carries 10e012ce-d0a but its own content folds to 3afa4b6e-432"
-  }
- ],
+ "staleRows": [],
  "unmeasuredRows": [
   {
    "file": "acoustics-manifest.json",
@@ -1492,10 +1486,10 @@
   }
  ],
  "fix": "write it through wrArtifact(path, value) from src/artifact.ts instead of writeFileSync or a bare wrRoot — the seal is then computed from what was actually written, and no writer has to remember it.",
- "receipt": "700cc3c4-d06b-8f9a-add6-042ca40ab16e",
+ "receipt": "e26cf6a3-1c20-89e8-a136-00897d0df66e",
  "crossed": {
-  "sorted": "700cc3c4-d06b-8f9a-add6-042ca40ab16e",
-  "reversed": "700cc3c4-d06b-8f9a-add6-042ca40ab16e",
+  "sorted": "e26cf6a3-1c20-89e8-a136-00897d0df66e",
+  "reversed": "e26cf6a3-1c20-89e8-a136-00897d0df66e",
   "agrees": true
  }
 }
