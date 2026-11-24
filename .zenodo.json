@@ -321,5 +321,5 @@
       "resource_type": "publication-article"
     }
   ],
-  "notes": "License CC BY-NC-ND 4.0 — https://uuidna.com/license. Metadata generated from the ledger by src/scripts/gen-zenodo.ts at release time; the proofs recompute with `npm run lean`."
+  "notes": "License CC BY-NC-ND 4.0 — https://uuidna.com/license. Metadata generated from the ledger by src/scripts/gen-zenodo.ts at release time; the proofs recompute with `npm run lean`. Funding open to the work: https://github.com/sponsors/ceccec, https://revolut.me/ceccec. This record names no funder award."
 }
