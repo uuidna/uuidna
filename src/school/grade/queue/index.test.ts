@@ -8,6 +8,7 @@ import { join } from 'node:path'
 import { exerciseFromTemplate, lessonFile, proofBlock, type Exercise, type Probe } from '../proof/index.js'
 import { gradeQueue, gradeSubmission } from './index.js'
 import { kernelPresent, kernelProbe, leanEnv } from '../kernel/index.js'
+import { rdRoot } from '../../../boundary.js'
 import type { QueuedSubmission } from '../../submission/index.js'
 
 const PLUS_ZERO: Exercise = { course: 'nat', lesson: 'plus-zero', theorem: 'plus_zero', statement: '∀ n : Nat, n + 0 = n' }
@@ -30,7 +31,8 @@ test('the statement and name come from the lesson; the learner supplies only the
 })
 
 test('the kernel runs with only the variables lean needs', () => {
-  assert.deepEqual(leanEnv({ PATH: '/bin', HOME: '/h', GITHUB_TOKEN: 't', ACTIONS_ID_TOKEN_REQUEST_TOKEN: 'x', ACTIONS_RUNTIME_TOKEN: 'y' }), { PATH: '/bin', HOME: '/h' })
+  // and the repository's pinned toolchain, named to elan, since the probe runs where no lean-toolchain file sits above it
+  assert.deepEqual(leanEnv({ PATH: '/bin', HOME: '/h', GITHUB_TOKEN: 't', ACTIONS_ID_TOKEN_REQUEST_TOKEN: 'x', ACTIONS_RUNTIME_TOKEN: 'y' }), { PATH: '/bin', HOME: '/h', ELAN_TOOLCHAIN: rdRoot('lean-toolchain').trim() })
 })
 
 test('END TO END through the kernel probe: a right proof is kernel-accepted with no axioms, a wrong one kernel-refused', { skip: !kernelPresent() && 'lean is not on PATH on this host' }, () => {

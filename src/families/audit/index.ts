@@ -352,6 +352,10 @@ export class AuditFormulas {
 
   /** AUDIT ALL REALTIME: every live check of the slice that does not hold is a gap. The audit holds when each gap is a
    *  court lead carrying its resolve (routed to court, never removed, never silent). value = gaps in the slice. Paged. */
+  // THE COUNT IS THE LIST IT JUDGES. gate.gaps counts hard errors as its value but lists errors AND warnings, and this
+  // audit routed the whole list while reporting the errors-only count: a slice holding one warning read holds:true with
+  // routed 2 against value 1, and the test that asserts holds === (routed === value) failed only while a warning was live.
+  // A warning is a live check that does not hold, which is this audit's own definition of a gap, so every listed gap counts.
   static async realtime(from = 0): Promise<CrossFormula> {
     const { GateFormulas } = await import('../gate/index.js')
     const at = maxOf(0, truncOf(from))
@@ -359,7 +363,7 @@ export class AuditFormulas {
     const gaps = r.gaps ?? []
     const routed = gaps.filter((g) => typeof g.resolve === 'string' && g.resolve.length > 0).length
     const extra: Record<string, unknown> = { checked: r.take, total: r.total, routed, warnings: r.warnings, ...(r.next !== undefined ? { next: r.next } : {}), court: 'gate · /qpu/court' }
-    return crossFormulaOf({ id: 'audit-realtime', src: 'audit', dst: 'gate', formula: 'realtime(from) = |live checks of the slice that do not hold|; each a court lead with its resolve', value: r.value, proof: 'gate.gaps: every realtime gap is routed to court as a lead with a resolve — never removed, never silent', ...extra }, routed === gaps.length, { name: 'audit.realtime', params: [at] })
+    return crossFormulaOf({ id: 'audit-realtime', src: 'audit', dst: 'gate', formula: 'realtime(from) = |live checks of the slice that do not hold|; each a court lead with its resolve', value: gaps.length, proof: 'gate.gaps: every realtime gap is routed to court as a lead with a resolve — never removed, never silent', ...extra }, routed === gaps.length, { name: 'audit.realtime', params: [at] })
   }
 }
 
