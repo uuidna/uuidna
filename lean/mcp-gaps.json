@@ -1,8 +1,8 @@
 {
   "kind": "mcp-gap-census",
-  "records": 0,
-  "distinct": 1822,
-  "loadBearing": 181,
+  "records": 110,
+  "distinct": 1899,
+  "loadBearing": 198,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
     {
@@ -50,6 +50,13 @@
       "hits": 15,
       "forms": [
         "cd"
+      ]
+    },
+    {
+      "gap": "$G",
+      "hits": 10,
+      "forms": [
+        "G"
       ]
     },
     {
@@ -146,6 +153,15 @@
       "hits": 6,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door runs the kernel on a lead text",
+      "hits": 6,
+      "forms": [
+        "W",
+        "cd",
+        "export"
       ]
     },
     {
@@ -257,6 +273,13 @@
       "hits": 4,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads git history for when a lead row or a constant entered the tree",
+      "hits": 4,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -383,6 +406,13 @@
       ]
     },
     {
+      "gap": "no door counts theorem keys against distinct statements across past commits",
+      "hits": 3,
+      "forms": [
+        "W"
+      ]
+    },
+    {
       "gap": "no door edits a scratch Lean draft",
       "hits": 3,
       "forms": [
@@ -472,6 +502,14 @@
       "hits": 3,
       "forms": [
         "cat"
+      ]
+    },
+    {
+      "gap": "no door runs the kernel on a proposed lead text",
+      "hits": 3,
+      "forms": [
+        "cd",
+        "mkdir"
       ]
     },
     {
@@ -668,6 +706,13 @@
       ]
     },
     {
+      "gap": "no door counts margin theorem declarations across lean wings against the rows of src/theorems/generated.ts",
+      "hits": 2,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door crosses a family declaration",
       "hits": 2,
       "forms": [
@@ -742,10 +787,52 @@
       ]
     },
     {
+      "gap": "no door greps the source tree for the symbols a refuted lead names",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door greps the tree for a constant name or a lead's text for a witness census",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door greps the tree for the symbols a settlement row cites",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door judges a staged diff in a local qpu worktree",
       "hits": 2,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door lists commits around a lead's recording date",
+      "hits": 2,
+      "forms": [
+        "D"
+      ]
+    },
+    {
+      "gap": "no door lists tracked files by name or greps sources for a settlement's cited files and constructors",
+      "hits": 2,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door lists where the handle and hexagram constants are defined in source",
+      "hits": 2,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -791,10 +878,32 @@
       ]
     },
     {
+      "gap": "no door reads a past commit's ledger files to recount keys against distinct statements",
+      "hits": 2,
+      "forms": [
+        "W",
+        "export"
+      ]
+    },
+    {
       "gap": "no door reads generated docs",
       "hits": 2,
       "forms": [
         "S",
+        "export"
+      ]
+    },
+    {
+      "gap": "no door reads git history for when a lead row and its constants entered",
+      "hits": 2,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door reads git history for when a lead row entered",
+      "hits": 2,
+      "forms": [
         "export"
       ]
     },
@@ -817,6 +926,13 @@
       "hits": 2,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door recounts ledger keys against distinct statements by an independent rule",
+      "hits": 2,
+      "forms": [
+        "W"
       ]
     },
     {
@@ -1048,6 +1164,13 @@
       "hits": 2,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows the ledger file's shape at a past commit",
+      "hits": 2,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -4569,6 +4692,13 @@
       ]
     },
     {
+      "gap": "no door compares the wings' theorem names with the ledger's keys at a past commit",
+      "hits": 1,
+      "forms": [
+        "W"
+      ]
+    },
+    {
       "gap": "no door compares two published images region by region",
       "hits": 1,
       "forms": [
@@ -4580,6 +4710,13 @@
       "hits": 1,
       "forms": [
         "node -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door compares wing theorem names with ledger keys at a historical commit",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -4632,10 +4769,38 @@
       ]
     },
     {
+      "gap": "no door counts a word in one file raw versus comment-stripped, or shows the readings manifest head",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door counts commits by Trial-Receipt trailer over git history for a settlement measurement",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door counts generic negation words in Lean doc comments against discharge in the statement",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door counts mechanical rewrite sites",
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "no door counts re-namings at a historical commit by an independent rule",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -4657,6 +4822,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door counts theorem keys against distinct statements at a past commit",
+      "hits": 1,
+      "forms": [
+        "W"
       ]
     },
     {
@@ -4989,6 +5161,20 @@
       ]
     },
     {
+      "gap": "no door exports a past commit's ledger and wings for an independent recount",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door exports the full refuted rows (lead, killed_by, replaced_by, lean, kernel) for the court's pending settlement orders",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "no door exposes the lean toolchain path for a scratch proof",
       "hits": 1,
       "forms": [
@@ -5028,6 +5214,13 @@
       "hits": 1,
       "forms": [
         "node -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door greps a historical commit tree for remainder constants",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -5080,6 +5273,48 @@
       ]
     },
     {
+      "gap": "no door greps the tree and git history for a lead handle's constants",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door greps the tree and history for a lead's constants",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door greps the tree for a constant name and its history for a witness census",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door greps the tree for a constant name or the lead ledger for a handle",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door greps the tree for a lead's constants and its recording commit",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door greps the tree for the words of a lead under settlement",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door inspects generated pages",
       "hits": 1,
       "forms": [
@@ -5108,6 +5343,13 @@
       ]
     },
     {
+      "gap": "no door joins hot-path operation words to Alpine catalogue descriptions; counting rows for a settlement measurement",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door judges a drained call against the ledger at the call's own time",
       "hits": 1,
       "forms": [
@@ -5119,6 +5361,13 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "no door lets a court witness run its own census of a bare numeral 14 over the source",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -5255,6 +5504,20 @@
       ]
     },
     {
+      "gap": "no door lists the lean directory layout and the history of a lead row",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door lists the lean generator scripts or greps them for the count they print",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door lists the messaging doors",
       "hits": 1,
       "forms": [
@@ -5333,6 +5596,13 @@
     },
     {
       "gap": "no door lists unbuilt qpu lean files",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door lists where a config value (the Node version) is defined across workflows and package manifests",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -5535,6 +5805,13 @@
       ]
     },
     {
+      "gap": "no door measures which concurrency widths in the source are VE_FACES and which are literals",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door merges peer Lean files into a local qpu worktree",
       "hits": 1,
       "forms": [
@@ -5724,6 +6001,20 @@
       ]
     },
     {
+      "gap": "no door prints the passages a settlement row cites",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door prints the passages a settlement row cites for a court witness",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door prints the ZENODO_SEALS rows",
       "hits": 1,
       "forms": [
@@ -5906,6 +6197,13 @@
       ]
     },
     {
+      "gap": "no door reads a lead row and its named constants at a past commit",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reads a local qpu worktree tool code",
       "hits": 1,
       "forms": [
@@ -6022,6 +6320,34 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads git history for the tree at the commit that recorded a lead",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door reads git history of a lead row or a constant for a witness census",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door reads git history of a lead row or lists the lean tree for a witness census",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door reads git history or sizes of the theorem ledger for a witness census",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -6221,6 +6547,20 @@
       ]
     },
     {
+      "gap": "no door reads the shape of the theorem ledger source for a witness census",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door reads the theorem ledger file at a past commit",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door reads uuidna package surfaces",
       "hits": 1,
       "forms": [
@@ -6256,6 +6596,20 @@
       ]
     },
     {
+      "gap": "no door recomputes the chunk handle of a statement and the key-bearing address handle out of tree",
+      "hits": 1,
+      "forms": [
+        "D"
+      ]
+    },
+    {
+      "gap": "no door recomputes the statement census at a past commit or from the raw lean files",
+      "hits": 1,
+      "forms": [
+        "D"
+      ]
+    },
+    {
       "gap": "no door records a settlement investigation",
       "hits": 1,
       "forms": [
@@ -6274,6 +6628,20 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door recounts ledger keys against distinct lean statements and wing declarations at a past commit",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
+      "gap": "no door recounts ledger keys, distinct statements and wing theorems by an independent rule",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -6330,6 +6698,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports a deleted file's history or which sources read leads.json refused[]",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -7159,6 +7534,13 @@
       ]
     },
     {
+      "gap": "no door reports theorem ledger shape at a past commit",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door reports tree damage after an accidental generator run",
       "hits": 1,
       "forms": [
@@ -7817,6 +8199,13 @@
       ]
     },
     {
+      "gap": "no door returns the lean-negation finder's count without the state run; recomputing its rule read-only",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door returns the merkaba lead's context or its sealed theorems",
       "hits": 1,
       "forms": [
@@ -7832,6 +8221,13 @@
     },
     {
       "gap": "no door returns the merkaba mod-9 star-tetrahedron construction",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door returns the refusal-trial records of a lead by handle",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -7940,6 +8336,13 @@
       "hits": 1,
       "forms": [
         "cd"
+      ]
+    },
+    {
+      "gap": "no door runs an independent witness census over the ledger at a past commit, nor the kernel on a lead text",
+      "hits": 1,
+      "forms": [
+        "W"
       ]
     },
     {
@@ -8069,6 +8472,13 @@
       ]
     },
     {
+      "gap": "no door samples raw theorem lines from the wings",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door says which address the src/handles store is keyed on",
       "hits": 1,
       "forms": [
@@ -8125,6 +8535,13 @@
       ]
     },
     {
+      "gap": "no door searches source text for a named constant",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door searches the qpu repo's Lean docs",
       "hits": 1,
       "forms": [
@@ -8136,6 +8553,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door searches the source for the hot-path-to-catalogue join instrument named by a lead row",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -8272,6 +8696,13 @@
       ]
     },
     {
+      "gap": "no door serves the meaning-sources census (meaningCensus)",
+      "hits": 1,
+      "forms": [
+        "node -e"
+      ]
+    },
+    {
       "gap": "no door serves the REFUTED section of lean/leads.json (open_leads serves only open leads); a court investigator reopening a settlement cannot read the lead text or killed_by it must verify",
       "hits": 1,
       "forms": [
@@ -8286,7 +8717,28 @@
       ]
     },
     {
+      "gap": "no door shows a finder's source lines or checks cited file names against the tracked tree",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door shows a finder's source lines or runs the kernel on a recorded lead text",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door shows a generator's frozen width",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows a historical commit diff for a lead row",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -8335,10 +8787,24 @@
       ]
     },
     {
+      "gap": "no door shows the raw shape of ledger entries for an independent census rule",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door shows the shape of a formalised lead row (its lean text and kernel verdict) for the investigators' brief",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows the source of toUuid for an out-of-tree recomputation",
+      "hits": 1,
+      "forms": [
+        "ls"
       ]
     },
     {
@@ -8350,6 +8816,20 @@
     },
     {
       "gap": "no door shows uuidna file status",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows where the handle and hexagram bit constants are defined in source",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows which lines of lean-ledger.ts print or count theorems",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -8454,6 +8934,13 @@
       ]
     },
     {
+      "gap": "no door summarises the shape of the recorded book trial files",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door tallies a witness wave journal into faces and dissent",
       "hits": 1,
       "forms": [
@@ -8493,6 +8980,13 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "no door times decide() per path in microseconds for a settlement measurement",
+      "hits": 1,
+      "forms": [
+        "D"
       ]
     },
     {
@@ -8615,6 +9109,13 @@
       ]
     },
     {
+      "gap": "no door writes an investigator's result file; the text only quotes repo paths",
+      "hits": 1,
+      "forms": [
+        "D"
+      ]
+    },
+    {
       "gap": "no door writes source",
       "hits": 1,
       "forms": [
@@ -8699,6 +9200,13 @@
       ]
     },
     {
+      "gap": "no MCP door greps the tree for a named constant and the lead texts in git history",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no MCP door reads a single lean/leads.json row by handleOf(toUuid(row.lead)); witness rosetta needs get_lead {handle}",
       "hits": 1,
       "forms": [
@@ -8714,6 +9222,13 @@
     },
     {
       "gap": "no MCP door reads a slice of lean/refusal-trials.json",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no MCP door reads git history for when a lead row and a constant entered the tree",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -8738,6 +9253,13 @@
       "hits": 1,
       "forms": [
         "S"
+      ]
+    },
+    {
+      "gap": "no MCP door recounts ledger keys against distinct statements and wing declarations at a historical commit",
+      "hits": 1,
+      "forms": [
+        "W"
       ]
     },
     {
@@ -8825,7 +9347,28 @@
       ]
     },
     {
+      "gap": "no MCP door shows the ledger layout at a historical commit",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no MCP door shows the tree at the commit that recorded a lead",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no MCP door tests a wing's Prop for vacuity/faithfulness with an independent perturbation probe",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no MCP door traces the defining expressions of the hexagram constants across source files",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"

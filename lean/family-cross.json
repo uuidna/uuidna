@@ -5,7 +5,7 @@
  "agreeing": 2,
  "disagreeing": 0,
  "unmeasured": 0,
- "sealedWings": 262,
+ "sealedWings": 293,
  "rows": [
   {
    "family": "equilibrium-family",
@@ -23,10 +23,10 @@
   }
  ],
  "unmeasuredRows": [],
- "receipt": "b91c6212-09b0-896e-a4f0-1918252da845",
+ "receipt": "82db807b-4251-8393-bd96-50c60ca6be5b",
  "crossed": {
-  "sorted": "b91c6212-09b0-896e-a4f0-1918252da845",
-  "reversed": "b91c6212-09b0-896e-a4f0-1918252da845",
+  "sorted": "82db807b-4251-8393-bd96-50c60ca6be5b",
+  "reversed": "82db807b-4251-8393-bd96-50c60ca6be5b",
   "agrees": true
  }
 }

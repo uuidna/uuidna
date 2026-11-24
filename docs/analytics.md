@@ -1,7 +1,7 @@
 
 # uuidna — Advantage Metrics
 
-**Generated:** 2026-11-16
+**Generated:** 2026-11-23
 **Data source:** Live ledger (72409 sealed theorems)
 
 ---
@@ -25,7 +25,7 @@
 | **Security checks** | 6 | Automated audits (axioms, gates, defences, Clay problems) |
 | **Gate clean** | 100% | Zero fabricated theorem citations |
 | **Determinism clean** | 100% | No Math.*/Date/RNG in core (non-harmonic boundary named) |
-| **Supported modules** | 3889/3889 | Every module reachable (no dead code) |
+| **Supported modules** | 3891/3891 | Every module reachable (no dead code) |
 | **Runtime dependencies** | 0 | Zero third-party code executes |
 | **Coins conserved** | ✓ | Fair-exchange invariant proven (two_coins theorem) |
 

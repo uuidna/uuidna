@@ -1,9 +1,9 @@
 {
  "kind": "refusal-grounds",
  "why": "A refusal is only as good as its ground. A guard step that cites a theorem the ledger seals refuses with the kernel's authority; one that decides by a written rule refuses with its author's. This reads the guard's own source, so a finder added tomorrow is classified the day it lands, and it verifies every citation against the sealed set, because a citation to a theorem that does not exist counts for nothing.",
- "finders": 68,
+ "finders": 69,
  "grounded": 1,
- "writtenRule": 67,
+ "writtenRule": 68,
  "groundedRows": [
   {
    "finder": "legal",
@@ -63,6 +63,7 @@
   "attestation",
   "accounting",
   "prose-provenance",
+  "meaning-sources",
   "mcpcite",
   "stamp",
   "ratchet",
@@ -182,10 +183,10 @@
    ]
   }
  ],
- "receipt": "e4bf3154-813d-8f3e-9426-f9bfb1a99500",
+ "receipt": "44945bcd-6d54-8ae9-84ff-147b6f68d3b9",
  "crossed": {
-  "sorted": "e4bf3154-813d-8f3e-9426-f9bfb1a99500",
-  "reversed": "e4bf3154-813d-8f3e-9426-f9bfb1a99500",
+  "sorted": "44945bcd-6d54-8ae9-84ff-147b6f68d3b9",
+  "reversed": "44945bcd-6d54-8ae9-84ff-147b6f68d3b9",
   "agrees": true
  }
 }

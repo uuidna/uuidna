@@ -1,7 +1,7 @@
 {
- "statements": 71089,
- "formulas": 1524,
- "forms": 1319,
+ "statements": 72409,
+ "formulas": 1674,
+ "forms": 1469,
  "restatements": 205,
  "groups": [
   {
@@ -4334,10 +4334,10 @@
  ],
  "copies": 129,
  "crosses": 15,
- "receipt": "8fe3db60-b1d7-8052-a26e-70a488fb8093",
+ "receipt": "9fd15dd8-bb25-8b75-9747-cfe9fd48e542",
  "crossed": {
-  "sorted": "8fe3db60-b1d7-8052-a26e-70a488fb8093",
-  "reversed": "8fe3db60-b1d7-8052-a26e-70a488fb8093",
+  "sorted": "9fd15dd8-bb25-8b75-9747-cfe9fd48e542",
+  "reversed": "9fd15dd8-bb25-8b75-9747-cfe9fd48e542",
   "agrees": true
  }
 }

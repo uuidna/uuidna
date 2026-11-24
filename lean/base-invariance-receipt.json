@@ -1,13 +1,13 @@
 {
   "kind": "door-receipt",
-  "digest": "b4a26c23166954f3368092933b66b425",
+  "digest": "3db5109ce76445417298a3d9a7400ebb",
   "value": {
-    "asked": 2844,
-    "invariant": 765,
-    "notational": 257,
+    "asked": 3950,
+    "invariant": 809,
+    "notational": 1242,
     "declared": 9,
-    "suspect": 1810,
-    "unread": 3,
+    "suspect": 1880,
+    "unread": 10,
     "findings": [
       {
         "key": "division_by_zero",
@@ -1293,9 +1293,5018 @@
         "key": "unit_group_exponent_mod_107",
         "file": "FermatRing21.lean",
         "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "asked_26ca622d",
+        "file": "Asked.lean",
+        "how": "base 12: 999→1727"
+      },
+      {
+        "key": "asked_df1d4bed",
+        "file": "Asked.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "fam_absorption",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_accelerometer",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_accessibility",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 9→7"
+      },
+      {
+        "key": "fam_acoustics",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_acquisition",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_actionpotential",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_activation",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_actuarial",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_actuation",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_adhesive",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_admin",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_advertising",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_aerodynamics",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 9→7"
+      },
+      {
+        "key": "fam_aesthetics",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_agriculture",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_agronomy",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 10000→4096, 100→64"
+      },
+      {
+        "key": "fam_airship",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_alerting",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_algebra",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_alloy",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_alloys",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_altimetry",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_amortization",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_amplifiers",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_analytics",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_anatomy",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_anesthesiology",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_animation",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 9→7"
+      },
+      {
+        "key": "fam_annuity",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_anthropology",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_antibody",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_antitrust",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000000→262144, 100000→32768, 100→64, 10→8"
+      },
+      {
+        "key": "fam_apiculture",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_apiology",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_apocrypha",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_apoptosis",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_aquaculture",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_aquafarming",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100000→32768, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_aquaponics",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_aquifer",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_arbitrage",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_archaeology",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_arpeggio",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "fam_assay",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_assembly",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_assessment",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_asteroid",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_astrobiology",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_astrometry",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_astronomy",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_astrophysics",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_athletics",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_atmospheric",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_attention",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_auction",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_audiology",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_auditing",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_auth",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_authentication",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_authorization",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_automation",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 99→63"
+      },
+      {
+        "key": "fam_automotive",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_autoscaling",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_aviation",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_avionics",
+        "file": "FamiliesA.lean",
+        "how": "base 8: 1000→512, 9→7"
+      },
+      {
+        "key": "fam_backend",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_backhaul",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_backlash",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_backlog",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_bacteriology",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_baking",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 9→7"
+      },
+      {
+        "key": "fam_ballet",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_ballistics",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_bandwidth",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_banking",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000000→262144, 100000→32768, 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_bankruptcy",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 100000→32768, 100→64"
+      },
+      {
+        "key": "fam_barometry",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_basketball",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_bathymetry",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_battery",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_bayesian",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_beam",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_benchmark",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_bilingualism",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_bio",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 100000→32768, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_bioavailability",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_biochemistry",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_biodiversity",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_bioenergetics",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_biogeography",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_bioindicator",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_bioinformatics",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_biomass",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_biomechanics",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_biometrics",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 99→63"
+      },
+      {
+        "key": "fam_biophysics",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_blackhole",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_blockchain",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_blog",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_bond",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_botany",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_branding",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_breeding",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_brewing",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_broadcasting",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_budget",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 10000→4096, 100→64"
+      },
+      {
+        "key": "fam_budgeting",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_buffer",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 100→64"
+      },
+      {
+        "key": "fam_bundle",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_bundling",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_buoyancy",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_burndown",
+        "file": "FamiliesB.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_caching",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_cadence",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_calculus",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_calendar",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_calligraphy",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_campaign",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_canning",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_capacitor",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_caramelization",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_carbon",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_cardiology",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_cargo",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_cartography",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_casting",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_catalysis",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_catalyst",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_catering",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_census",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_ceramic",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 9→7"
+      },
+      {
+        "key": "fam_ceramics",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_cern",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_checksum",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_cheese",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_cheesemaking",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_chem",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_chemical",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_chemistry",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_chess",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_chocolate",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_choreography",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_chromatography",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_chronology",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_churn",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_cinema",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 9→7"
+      },
+      {
+        "key": "fam_cinematography",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_civil",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_claims",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_clearance",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_climate",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_climatology",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_climbing",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_cloud",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 10000→4096, 1000→512, 999→511, 100→64, 99→63"
+      },
+      {
+        "key": "fam_cloudflare",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_clustering",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_coaching",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_coagulation",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_code",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_codec",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_codicology",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_coding",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_coffee",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_cogeneration",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_cognition",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_cohort",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_collaboration",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_collateral",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_collision",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_colorgrading",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_colortheory",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_combustion",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_comet",
+        "file": "FamiliesC.lean",
+        "how": "base 16: 100000→1048576, 1000→4096, 100→256, 10→16"
+      },
+      {
+        "key": "fam_comparison",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 9→7"
+      },
+      {
+        "key": "fam_compensation",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000000→262144, 100000→32768, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_compliance",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000000→262144, 100→64, 10→8"
+      },
+      {
+        "key": "fam_composite",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_composites",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_composting",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_compress",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_compression",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_concrete",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_concurrency",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_conditioning",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_conduction",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_confectionery",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_conservation",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_consolidation",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_construction",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_content",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_contract",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_control",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_convection",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_conversion",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_cooling",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_corpus",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_corrosion",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_cosmogony",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_cosmology",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_costing",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_counterpoint",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_court",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_covenant",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_coverage",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_cpu",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_creditscore",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_creed",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_cricket",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_criminology",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100000→32768, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_criticalchain",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_cropyield",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 10000→4096, 100→64"
+      },
+      {
+        "key": "fam_crossdock",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63"
+      },
+      {
+        "key": "fam_cryptanalysis",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_crystal",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_crystallography",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_css",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_curing",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_curriculum",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_curvature",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_customer",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_cybernetics",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_cycling",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_cyclone",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_cytogenetics",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_cytology",
+        "file": "FamiliesC.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_dairy",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_dance",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_datacenter",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_dataquality",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_deadreckoning",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_delivery",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_demographics",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_demography",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_dentistry",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_deontology",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_deployment",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 999→511, 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fam_depreciation",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_derivative",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_derivatives",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 10000→4096, 100→64"
+      },
+      {
+        "key": "fam_dermatology",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_desalination",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63"
+      },
+      {
+        "key": "fam_determinism",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_devtools",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_dewpoint",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_dice",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_diffraction",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_diffusion",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_diplomacy",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_discourse",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_dispatch",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_distillation",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_distilling",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_distribution",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 10000→4096, 1000→512, 999→511, 100→64, 99→63"
+      },
+      {
+        "key": "fam_dns",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_dosage",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_dosimetry",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_download",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_drag",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_drayage",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_drilling",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_driver",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_drone",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_dyeing",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_dynamics",
+        "file": "FamiliesD.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_earnedvalue",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_ecology",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_ecommerce",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_education",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_elections",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100000→32768, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_electrical",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_electrocardiography",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_electrochemistry",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_electrolyte",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_electromagnetism",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_electronics",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_electrostatics",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_elevator",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_elnino",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_elo",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_email",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_embedding",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_embroidery",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_embryology",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_emissions",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_emotion",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_empiricism",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_employment",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_emulsification",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_endocrinology",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_endpoint",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_endurance",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_energy",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_engine",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_enrollment",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_enterprise",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 999→511, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_entertainment",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_entomology",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_entropy",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 10→8, 9→7"
+      },
+      {
+        "key": "fam_environment",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_enzyme",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_enzymology",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_epidemiology",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100000→32768, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_epigenetics",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_epigraphy",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_epistemology",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_equine",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_equity",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_ergometry",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_ergonomics",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 10000→4096, 100→64"
+      },
+      {
+        "key": "fam_eschatology",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "fam_estimating",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_estimation",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_etl",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_etymology",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_evapotranspiration",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_events",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_excavation",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_exchangerate",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_exoplanet",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_exoplanets",
+        "file": "FamiliesE.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_failure",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_family",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_fatigue",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_federated",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_feed",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_feedback",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_feedlot",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_fermentation",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 10000→4096, 100→64"
+      },
+      {
+        "key": "fam_fertilization",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_field",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 100→64, 9→7"
+      },
+      {
+        "key": "fam_filtering",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "fam_filters",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_financial",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_firewall",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_firmware",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 100000→32768, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_fishery",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_fitness",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_fleet",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 100000→32768, 100→64, 10→8"
+      },
+      {
+        "key": "fam_flightdynamics",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_fluid",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_fluiddynamics",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_folklore",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_foodsafety",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_forensic",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000000→262144, 1000→512"
+      },
+      {
+        "key": "fam_forestry",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_forging",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 10000→4096, 100→64"
+      },
+      {
+        "key": "fam_formant",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_forms",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_fourier",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_fpga",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_fractal",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_fracture",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_freight",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_friction",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_frontend",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_frontogenesis",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_fuelcell",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_fulfillment",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 1000→512, 100→64, 9→7"
+      },
+      {
+        "key": "fam_funnel",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_futures",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_fuzzing",
+        "file": "FamiliesF.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_galactic",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_galaxy",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100000→32768, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_gaming",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_gastroenterology",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_gastronomy",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_gear",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_gearing",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_genetics",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100000000→16777216, 1000000→262144, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_genome",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_genomics",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000000→262144, 100→64, 10→8"
+      },
+      {
+        "key": "fam_geo",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_geochemistry",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_geodesy",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_geography",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_geology",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_geometry",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_geomorphology",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_geophysics",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_geopolitics",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_geothermal",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_gerontology",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_gis",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_glaciology",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_glider",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_global",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_glomerular",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_glycolysis",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_glyphs",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_golf",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_governance",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_gps",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_gpu",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_gradient",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_grammar",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_graph",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_graphtheory",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_gravimetry",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_gravity",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_grazing",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_greenspace",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_grid",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_gripper",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_grouptheory",
+        "file": "FamiliesG.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_hail",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_halflife",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_hardness",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_hardware",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_harmony",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_harvest",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_hash",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_hashing",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_hazard",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_heatindex",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_heattransfer",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_hedging",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_helicopter",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_helminthology",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_hematocrit",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_hematology",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_hemodynamics",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_hermeneutics",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_herpetology",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_hieroglyphs",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_highlights",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_histology",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_historiography",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_hook",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_horticulture",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_hospitality",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_hosting",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 10000→4096, 1000→512, 999→511, 100→64, 99→63"
+      },
+      {
+        "key": "fam_hover",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_hovercraft",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100000→32768, 100→64"
+      },
+      {
+        "key": "fam_huffman",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_humidity",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_husbandry",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_hvac",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "fam_hydration",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_hydraulics",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_hydro",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_hydrography",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_hydrology",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_hydroponics",
+        "file": "FamiliesH.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_ichthyology",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 100000→32768, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_iconography",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_idealism",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_identity",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fam_immigration",
+        "file": "FamiliesI.lean",
+        "how": "base 16: 1000→4096"
+      },
+      {
+        "key": "fam_immunology",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_incidence",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_incident",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_indexing",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_inductor",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_inequality",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_inflation",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_informatics",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_ingestion",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_inspection",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_insurance",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_interaction",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_interconnect",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_interference",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_interleaving",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_inverter",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_invoice",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_iot",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_irrigation",
+        "file": "FamiliesI.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_jetstream",
+        "file": "FamiliesJ.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_jewelry",
+        "file": "FamiliesJ.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_jitter",
+        "file": "FamiliesJ.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_journalism",
+        "file": "FamiliesJ.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_jumping",
+        "file": "FamiliesJ.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_kalman",
+        "file": "FamiliesK.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_karst",
+        "file": "FamiliesK.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_kerning",
+        "file": "FamiliesK.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_kinematics",
+        "file": "FamiliesK.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_kinesiology",
+        "file": "FamiliesK.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_kinship",
+        "file": "FamiliesK.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "fam_knitting",
+        "file": "FamiliesK.lean",
+        "how": "base 8: 10000→4096, 1000→512, 10→8"
+      },
+      {
+        "key": "fam_kyc",
+        "file": "FamiliesK.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_landslide",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_landuse",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_lasers",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_lastmile",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_latency",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_lattice",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_law",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_lean",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_learning",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_leavening",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_ledger",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_lemmatization",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_lenses",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_lever",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_leverage",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_lexicography",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_lexicon",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_licensing",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_lidar",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_lift",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_limnology",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_linehaul",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_linguistics",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_linkage",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_liquidity",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_literacy",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_livestock",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_loadplanning",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_locale",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_localization",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_location",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_lodging",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_logging",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_logic",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_logistics",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_logogram",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_lottery",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_loyalty",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_luminosity",
+        "file": "FamiliesL.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_machining",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000000→262144, 100000→32768, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_macroeconomics",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_magnetism",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_magnetometry",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_maillard",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_malacology",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_malware",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_mammalogy",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_manifold",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_manipulator",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_manufacturing",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_maritime",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_marketing",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_masonry",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_materials",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_matrix",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_mealplanning",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_mechanical",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_med",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 10000→4096, 100→64"
+      },
+      {
+        "key": "fam_media",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_meiosis",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_melody",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_membrane",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_merchandising",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_messaging",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100000→32768, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_metabolism",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_metabolomics",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_metallurgy",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_meteoritics",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_meteorology",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_microbiology",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_microeconomics",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_microscopy",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_migration",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_milling",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_mineralogy",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_mining",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_mitosis",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_mixing",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_mixology",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_ml",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_mobility",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_modular",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_modulation",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_monasticism",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_monitoring",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 999→511, 100→64, 99→63"
+      },
+      {
+        "key": "fam_monopoly",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_monorail",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_monsoon",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_moon",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100000→32768, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_morphology",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_mortgage",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_motion",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_motivation",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_mtbf",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000000000→134217728, 1000000→262144, 10000→4096, 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_music",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "fam_mutation",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_mycology",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_myrmecology",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 10000→4096, 100→64"
+      },
+      {
+        "key": "fam_mysticism",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_mythography",
+        "file": "FamiliesM.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_nanomaterials",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_nanotechnology",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_navigation",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_nephrology",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_networking",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_neuralnet",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_neurology",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_neuron",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_neuropsychology",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_neuroscience",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_ngram",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63"
+      },
+      {
+        "key": "fam_nic",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_noise",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_noisepollution",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_notice",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_nuclear",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_nuclearpower",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_numeracy",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_numerology",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_numismatics",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_nursing",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_nutrition",
+        "file": "FamiliesN.lean",
+        "how": "base 8: 100→64, 9→7"
+      },
+      {
+        "key": "fam_obs",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 999→511, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_observability",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 999→511, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_oceanography",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_odometry",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_oligopoly",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_onboarding",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_oncology",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_onomastics",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_ontology",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_opendata",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_opera",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_ophthalmology",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_option",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_optometry",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_orbit",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_orbital",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_ornithology",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_orthography",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_orthopedics",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_oscillators",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_osmosis",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_outbreak",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_overtone",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_oxygenation",
+        "file": "FamiliesO.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_pacing",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_pagination",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_paleoclimate",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_paleontology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_papyrology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_parallax",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000000→262144, 100000→32768, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_parasitology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_parity",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63"
+      },
+      {
+        "key": "fam_partitioning",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_partner",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_passwords",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_pathogen",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_pathology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_pathplanning",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_patristics",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_payables",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_payload",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_payment",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_payroll",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_pedagogy",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_pediatrics",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_pedology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_pendulum",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_pentomino",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_perception",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_performance",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_permitting",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_personality",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_pest",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_petroleum",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_petrology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_pharma",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_pharmacokinetics",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_pharmacology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_philosophy",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_phonetics",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_photochemistry",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_photodiode",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_photogrammetry",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_photography",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_photometry",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_photosynthesis",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_photovoltaic",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_phycology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 99→63"
+      },
+      {
+        "key": "fam_physics",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_physiology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_physiotherapy",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_pickling",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_pid",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_piezoelectric",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_pipeline",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_piston",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_planetology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_plasma",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_podcasting",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_podiatry",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_poker",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_policy",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_pollination",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_polymer",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_polymers",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_polyphony",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_pomology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_portfolio",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_poultry",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_powerfactor",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_pragmatics",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_precipitation",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_premium",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_preservation",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_prevalence",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_pricing",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_primatology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_printmaking",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_probability",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_procurement",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_profiling",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_project",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_projectile",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_promotion",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 999→511, 100→64"
+      },
+      {
+        "key": "fam_proof",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_proofing",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_property",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_prophecy",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_propulsion",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_prosody",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_proteomics",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_prototyping",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_protozoology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_psalmody",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_psu",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_psychiatry",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_psychology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_psychometrics",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_psychophysics",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_publishing",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_pulley",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_pulmonology",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_pulsar",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_pump",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_pwm",
+        "file": "FamiliesP.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_qsec",
+        "file": "FamiliesQ.lean",
+        "how": "base 8: 10000→4096, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_quality",
+        "file": "FamiliesQ.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_quantization",
+        "file": "FamiliesQ.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_quantum",
+        "file": "FamiliesQ.lean",
+        "how": "base 8: 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_query",
+        "file": "FamiliesQ.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_queue",
+        "file": "FamiliesQ.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_queueing",
+        "file": "FamiliesQ.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_quilting",
+        "file": "FamiliesQ.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_radar",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_radiology",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_raid",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_rail",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_railway",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_ram",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_raster",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_ratelimiting",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_readability",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_realestate",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_reasoning",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_receipts",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_receivables",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_recovery",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_recruitment",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_rectifier",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_recycling",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_redistricting",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_redshift",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_redundancy",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_refraction",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_refrigeration",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_regression",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_rehabilitation",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_reinsurance",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 9→7"
+      },
+      {
+        "key": "fam_relativity",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_reliability",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000000→262144, 100000→32768, 99999→32767, 10000→4096, 9999→4095, 1000→512, 999→511, 100→64, 99→63"
+      },
+      {
+        "key": "fam_remediation",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_remotesensing",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_rendering",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_replenishment",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_replication",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_respiration",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_rest",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_restaurant",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_retail",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_retirement",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 10000→4096, 100→64"
+      },
+      {
+        "key": "fam_reverb",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_reverberation",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_rheology",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_rhetoric",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_rheumatology",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_rhythm",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_roasting",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_robotics",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_rocketry",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_rotation",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_route",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_router",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_routing",
+        "file": "FamiliesR.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_safety",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_sailing",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_salinity",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_sampling",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_satellite",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_savings",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_scheduling",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_scholasticism",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_science",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_scrabble",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 9→7"
+      },
+      {
+        "key": "fam_screening",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100000→32768, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_scripture",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_sculpture",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_search",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_securities",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64, 99→63"
+      },
+      {
+        "key": "fam_security",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_sedimentology",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_seismology",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_semantics",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_semiconductor",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_semiconductors",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_sentence",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_sentiment",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_serialization",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_serology",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_sessionmgmt",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_shamanism",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_shinto",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_shipping",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_shorthand",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_signaling",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_sikhism",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_silage",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_silviculture",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_simulation",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_sintering",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_sixsigma",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_slider",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_slotting",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_smartgrid",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_smoking",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_soccer",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_social",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_sociology",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_socket",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "fam_software",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_soilscience",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_solar",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_solid",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_solvency",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_solvent",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_sort",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_sourcing",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_spaceflight",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_spectroscopy",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_speleology",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_spicetrade",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_spirometry",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_sports",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_spring",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_ssd",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_stability",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_staffing",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_stagecraft",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_stainedglass",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_star",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_state",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_statistics",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_steering",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_steganography",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_stellar",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_stemming",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 9→7"
+      },
+      {
+        "key": "fam_steps",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_stoicism",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_storage",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_straingauge",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 10→8"
+      },
+      {
+        "key": "fam_stratigraphy",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_stream",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000000→262144, 100000→32768, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_streaming",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_strength",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_structural",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_submarine",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_subsidence",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_subsidy",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_sudoku",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 9→7"
+      },
+      {
+        "key": "fam_supplychain",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_surgery",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_survey",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_surveying",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_suspension",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_sustainability",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_swaps",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 10000→4096, 1000→512"
+      },
+      {
+        "key": "fam_syllabary",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_syllogism",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_synapse",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_syntax",
+        "file": "FamiliesS.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_tanning",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_taoism",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_tariff",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_taxation",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_tectonics",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_telecom",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_telemetry",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_tennis",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_testing",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63"
+      },
+      {
+        "key": "fam_text",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_textiles",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_thermochemistry",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_thermocouple",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_thermodynamics",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_throughput",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_tiling",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_tillage",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_timbre",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_timeseries",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_tls",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_tokenization",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_tomography",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_tooling",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_topology",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_toponymy",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_torsion",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_totemism",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_tourism",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_tox",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_toxicology",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_tpu",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000000→262144, 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_tracing",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_trading",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100000→32768, 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_trajectory",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_transcription",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_transformer",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_transit",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_translation",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_transport",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_treasury",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_tree",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_triangulation",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_tribology",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_trigonometry",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_trucking",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_tsunami",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_tuning",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_turbine",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_turnaround",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_typography",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_typology",
+        "file": "FamiliesT.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_ultrasonics",
+        "file": "FamiliesU.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_underwriting",
+        "file": "FamiliesU.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_unemployment",
+        "file": "FamiliesU.lean",
+        "how": "base 8: 100000→32768, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_upload",
+        "file": "FamiliesU.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_urbanism",
+        "file": "FamiliesU.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_urology",
+        "file": "FamiliesU.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_usability",
+        "file": "FamiliesU.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_vaccination",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_valuation",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_ventilation",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_verification",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_version",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_vet",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_veterinary",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_vibration",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_virality",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_virology",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 1000000→262144, 100→64"
+      },
+      {
+        "key": "fam_virtualization",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_vitals",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_viticulture",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_volatility",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_volcanology",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_vulcanology",
+        "file": "FamiliesV.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_walkability",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_warehouse",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_warehousing",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8"
+      },
+      {
+        "key": "fam_wastewater",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_waterquality",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_watershed",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_waveform",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000000→262144, 1000→512, 100→64"
+      },
+      {
+        "key": "fam_wavelet",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_waypoint",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_weather",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_weaving",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_website",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_welding",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fam_welfare",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_wind",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_windchill",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "fam_windpower",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_winemaking",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_wireframe",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fam_woodworking",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_workspace",
+        "file": "FamiliesW.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_xai",
+        "file": "FamiliesX.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "fam_yield",
+        "file": "FamiliesY.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_zeroshot",
+        "file": "FamiliesZ.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8"
+      },
+      {
+        "key": "fam_zerotrust",
+        "file": "FamiliesZ.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_zoning",
+        "file": "FamiliesZ.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "fam_zoology",
+        "file": "FamiliesZ.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "fam_zoroastrianism",
+        "file": "FamiliesZ.lean",
+        "how": "base 8: 1000→512"
       }
     ],
     "wings": [
+      {
+        "wing": "FamiliesC.lean",
+        "notational": 113,
+        "suspect": 6,
+        "invariant": 2
+      },
+      {
+        "wing": "FamiliesP.lean",
+        "notational": 101,
+        "suspect": 10,
+        "invariant": 4
+      },
+      {
+        "wing": "FamiliesS.lean",
+        "notational": 96,
+        "suspect": 13,
+        "invariant": 4
+      },
+      {
+        "wing": "FamiliesA.lean",
+        "notational": 65,
+        "suspect": 6,
+        "invariant": 3
+      },
+      {
+        "wing": "FamiliesM.lean",
+        "notational": 61,
+        "suspect": 1,
+        "invariant": 4
+      },
+      {
+        "wing": "FamiliesE.lean",
+        "notational": 56,
+        "suspect": 1,
+        "invariant": 3
+      },
+      {
+        "wing": "FamiliesT.lean",
+        "notational": 51,
+        "suspect": 2,
+        "invariant": 7
+      },
+      {
+        "wing": "FamiliesR.lean",
+        "notational": 50,
+        "suspect": 5,
+        "invariant": 2
+      },
+      {
+        "wing": "FamiliesB.lean",
+        "notational": 47,
+        "suspect": 1,
+        "invariant": 3
+      },
+      {
+        "wing": "FamiliesG.lean",
+        "notational": 43,
+        "suspect": 4,
+        "invariant": 1
+      },
+      {
+        "wing": "FamiliesF.lean",
+        "notational": 41,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
+        "wing": "FamiliesD.lean",
+        "notational": 39,
+        "suspect": 3,
+        "invariant": 3
+      },
+      {
+        "wing": "FamiliesH.lean",
+        "notational": 39,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "FamiliesL.lean",
+        "notational": 39,
+        "suspect": 3,
+        "invariant": 1
+      },
       {
         "wing": "FermatRing12.lean",
         "notational": 31,
@@ -1309,10 +6318,34 @@
         "invariant": 19
       },
       {
+        "wing": "FamiliesI.lean",
+        "notational": 24,
+        "suspect": 2,
+        "invariant": 1
+      },
+      {
+        "wing": "FamiliesO.lean",
+        "notational": 24,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
         "wing": "FermatRing15.lean",
         "notational": 24,
         "suspect": 8,
         "invariant": 43
+      },
+      {
+        "wing": "FamiliesN.lean",
+        "notational": 22,
+        "suspect": 2,
+        "invariant": 2
+      },
+      {
+        "wing": "FamiliesW.lean",
+        "notational": 21,
+        "suspect": 0,
+        "invariant": 0
       },
       {
         "wing": "FixedPower.lean",
@@ -1327,9 +6360,15 @@
         "invariant": 4
       },
       {
+        "wing": "FamiliesV.lean",
+        "notational": 16,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
         "wing": "Wave.lean",
         "notational": 14,
-        "suspect": 97,
+        "suspect": 100,
         "invariant": 7
       },
       {
@@ -1337,6 +6376,18 @@
         "notational": 9,
         "suspect": 27,
         "invariant": 31
+      },
+      {
+        "wing": "FamiliesK.lean",
+        "notational": 8,
+        "suspect": 0,
+        "invariant": 0
+      },
+      {
+        "wing": "FamiliesQ.lean",
+        "notational": 8,
+        "suspect": 0,
+        "invariant": 0
       },
       {
         "wing": "FermatRing18.lean",
@@ -1349,6 +6400,12 @@
         "notational": 8,
         "suspect": 3,
         "invariant": 0
+      },
+      {
+        "wing": "FamiliesU.lean",
+        "notational": 7,
+        "suspect": 0,
+        "invariant": 1
       },
       {
         "wing": "FermatRing14.lean",
@@ -1379,6 +6436,18 @@
         "notational": 6,
         "suspect": 5,
         "invariant": 2
+      },
+      {
+        "wing": "FamiliesJ.lean",
+        "notational": 5,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "FamiliesZ.lean",
+        "notational": 5,
+        "suspect": 0,
+        "invariant": 0
       },
       {
         "wing": "Glagolitic.lean",
@@ -1427,6 +6496,12 @@
         "notational": 3,
         "suspect": 3,
         "invariant": 1
+      },
+      {
+        "wing": "Asked.lean",
+        "notational": 2,
+        "suspect": 1,
+        "invariant": 0
       },
       {
         "wing": "Chess.lean",
@@ -1519,6 +6594,18 @@
         "invariant": 4
       },
       {
+        "wing": "FamiliesX.lean",
+        "notational": 1,
+        "suspect": 0,
+        "invariant": 0
+      },
+      {
+        "wing": "FamiliesY.lean",
+        "notational": 1,
+        "suspect": 0,
+        "invariant": 0
+      },
+      {
         "wing": "Fermat.lean",
         "notational": 1,
         "suspect": 3,
@@ -1601,6 +6688,12 @@
         "notational": 1,
         "suspect": 7,
         "invariant": 5
+      },
+      {
+        "wing": "45bcb8b0.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 0
       },
       {
         "wing": "Acoustics.lean",
@@ -2155,6 +7248,12 @@
         "invariant": 0
       },
       {
+        "wing": "UuidProgram.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 0
+      },
+      {
         "wing": "VectorEquilibrium.lean",
         "notational": 0,
         "suspect": 7,
@@ -2183,6 +7282,8 @@
       "alpine_dom_sc_ga_ie_99",
       "alpine_dom_sc_ma_ie_100",
       "alpine_page_list_cap_removed_315",
+      "asked_26ca622d",
+      "asked_df1d4bed",
       "beam_reactions",
       "beast_number_fits_two_readings",
       "binary_kilo_drift_compounds",
@@ -2268,6 +7369,989 @@
       "enumeration_hex4_2710",
       "exact_dilation_is_sparse_among_the_rationals",
       "exponent_reduces_at_lambda_100",
+      "fam_absorption",
+      "fam_accelerometer",
+      "fam_accessibility",
+      "fam_acoustics",
+      "fam_acquisition",
+      "fam_actionpotential",
+      "fam_activation",
+      "fam_actuarial",
+      "fam_actuation",
+      "fam_adhesive",
+      "fam_admin",
+      "fam_advertising",
+      "fam_aerodynamics",
+      "fam_aesthetics",
+      "fam_agriculture",
+      "fam_agronomy",
+      "fam_airship",
+      "fam_alerting",
+      "fam_algebra",
+      "fam_alloy",
+      "fam_alloys",
+      "fam_altimetry",
+      "fam_amortization",
+      "fam_amplifiers",
+      "fam_analytics",
+      "fam_anatomy",
+      "fam_anesthesiology",
+      "fam_animation",
+      "fam_annuity",
+      "fam_anthropology",
+      "fam_antibody",
+      "fam_antitrust",
+      "fam_apiculture",
+      "fam_apiology",
+      "fam_apocrypha",
+      "fam_apoptosis",
+      "fam_aquaculture",
+      "fam_aquafarming",
+      "fam_aquaponics",
+      "fam_aquifer",
+      "fam_arbitrage",
+      "fam_archaeology",
+      "fam_arpeggio",
+      "fam_assay",
+      "fam_assembly",
+      "fam_assessment",
+      "fam_asteroid",
+      "fam_astrobiology",
+      "fam_astrometry",
+      "fam_astronomy",
+      "fam_astrophysics",
+      "fam_athletics",
+      "fam_atmospheric",
+      "fam_attention",
+      "fam_auction",
+      "fam_audiology",
+      "fam_auditing",
+      "fam_auth",
+      "fam_authentication",
+      "fam_authorization",
+      "fam_automation",
+      "fam_automotive",
+      "fam_autoscaling",
+      "fam_aviation",
+      "fam_avionics",
+      "fam_backend",
+      "fam_backhaul",
+      "fam_backlash",
+      "fam_backlog",
+      "fam_bacteriology",
+      "fam_baking",
+      "fam_ballet",
+      "fam_ballistics",
+      "fam_bandwidth",
+      "fam_banking",
+      "fam_bankruptcy",
+      "fam_barometry",
+      "fam_basketball",
+      "fam_bathymetry",
+      "fam_battery",
+      "fam_bayesian",
+      "fam_beam",
+      "fam_benchmark",
+      "fam_bilingualism",
+      "fam_bio",
+      "fam_bioavailability",
+      "fam_biochemistry",
+      "fam_biodiversity",
+      "fam_bioenergetics",
+      "fam_biogeography",
+      "fam_bioindicator",
+      "fam_bioinformatics",
+      "fam_biomass",
+      "fam_biomechanics",
+      "fam_biometrics",
+      "fam_biophysics",
+      "fam_blackhole",
+      "fam_blockchain",
+      "fam_blog",
+      "fam_bond",
+      "fam_botany",
+      "fam_branding",
+      "fam_breeding",
+      "fam_brewing",
+      "fam_broadcasting",
+      "fam_budget",
+      "fam_budgeting",
+      "fam_buffer",
+      "fam_bundle",
+      "fam_bundling",
+      "fam_buoyancy",
+      "fam_burndown",
+      "fam_caching",
+      "fam_cadence",
+      "fam_calculus",
+      "fam_calendar",
+      "fam_calligraphy",
+      "fam_campaign",
+      "fam_canning",
+      "fam_capacitor",
+      "fam_caramelization",
+      "fam_carbon",
+      "fam_cardiology",
+      "fam_cargo",
+      "fam_cartography",
+      "fam_casting",
+      "fam_catalysis",
+      "fam_catalyst",
+      "fam_catering",
+      "fam_census",
+      "fam_ceramic",
+      "fam_ceramics",
+      "fam_cern",
+      "fam_checksum",
+      "fam_cheese",
+      "fam_cheesemaking",
+      "fam_chem",
+      "fam_chemical",
+      "fam_chemistry",
+      "fam_chess",
+      "fam_chocolate",
+      "fam_choreography",
+      "fam_chromatography",
+      "fam_chronology",
+      "fam_churn",
+      "fam_cinema",
+      "fam_cinematography",
+      "fam_civil",
+      "fam_claims",
+      "fam_clearance",
+      "fam_climate",
+      "fam_climatology",
+      "fam_climbing",
+      "fam_cloud",
+      "fam_cloudflare",
+      "fam_clustering",
+      "fam_coaching",
+      "fam_coagulation",
+      "fam_code",
+      "fam_codec",
+      "fam_codicology",
+      "fam_coding",
+      "fam_coffee",
+      "fam_cogeneration",
+      "fam_cognition",
+      "fam_cohort",
+      "fam_collaboration",
+      "fam_collateral",
+      "fam_collision",
+      "fam_colorgrading",
+      "fam_colortheory",
+      "fam_combustion",
+      "fam_comet",
+      "fam_comparison",
+      "fam_compensation",
+      "fam_compliance",
+      "fam_composite",
+      "fam_composites",
+      "fam_composting",
+      "fam_compress",
+      "fam_compression",
+      "fam_concrete",
+      "fam_concurrency",
+      "fam_conditioning",
+      "fam_conduction",
+      "fam_confectionery",
+      "fam_conservation",
+      "fam_consolidation",
+      "fam_construction",
+      "fam_content",
+      "fam_contract",
+      "fam_control",
+      "fam_convection",
+      "fam_conversion",
+      "fam_cooling",
+      "fam_corpus",
+      "fam_corrosion",
+      "fam_cosmogony",
+      "fam_cosmology",
+      "fam_costing",
+      "fam_counterpoint",
+      "fam_court",
+      "fam_covenant",
+      "fam_coverage",
+      "fam_cpu",
+      "fam_creditscore",
+      "fam_creed",
+      "fam_cricket",
+      "fam_criminology",
+      "fam_criticalchain",
+      "fam_cropyield",
+      "fam_crossdock",
+      "fam_cryptanalysis",
+      "fam_crystal",
+      "fam_crystallography",
+      "fam_css",
+      "fam_curing",
+      "fam_curriculum",
+      "fam_curvature",
+      "fam_customer",
+      "fam_cybernetics",
+      "fam_cycling",
+      "fam_cyclone",
+      "fam_cytogenetics",
+      "fam_cytology",
+      "fam_dairy",
+      "fam_dance",
+      "fam_datacenter",
+      "fam_dataquality",
+      "fam_deadreckoning",
+      "fam_delivery",
+      "fam_demographics",
+      "fam_demography",
+      "fam_dentistry",
+      "fam_deontology",
+      "fam_deployment",
+      "fam_depreciation",
+      "fam_derivative",
+      "fam_derivatives",
+      "fam_dermatology",
+      "fam_desalination",
+      "fam_determinism",
+      "fam_devtools",
+      "fam_dewpoint",
+      "fam_dice",
+      "fam_diffraction",
+      "fam_diffusion",
+      "fam_diplomacy",
+      "fam_discourse",
+      "fam_dispatch",
+      "fam_distillation",
+      "fam_distilling",
+      "fam_distribution",
+      "fam_dns",
+      "fam_dosage",
+      "fam_dosimetry",
+      "fam_download",
+      "fam_drag",
+      "fam_drayage",
+      "fam_drilling",
+      "fam_driver",
+      "fam_drone",
+      "fam_dyeing",
+      "fam_dynamics",
+      "fam_earnedvalue",
+      "fam_ecology",
+      "fam_ecommerce",
+      "fam_education",
+      "fam_elections",
+      "fam_electrical",
+      "fam_electrocardiography",
+      "fam_electrochemistry",
+      "fam_electrolyte",
+      "fam_electromagnetism",
+      "fam_electronics",
+      "fam_electrostatics",
+      "fam_elevator",
+      "fam_elnino",
+      "fam_elo",
+      "fam_email",
+      "fam_embedding",
+      "fam_embroidery",
+      "fam_embryology",
+      "fam_emissions",
+      "fam_emotion",
+      "fam_empiricism",
+      "fam_employment",
+      "fam_emulsification",
+      "fam_endocrinology",
+      "fam_endpoint",
+      "fam_endurance",
+      "fam_energy",
+      "fam_engine",
+      "fam_enrollment",
+      "fam_enterprise",
+      "fam_entertainment",
+      "fam_entomology",
+      "fam_entropy",
+      "fam_environment",
+      "fam_enzyme",
+      "fam_enzymology",
+      "fam_epidemiology",
+      "fam_epigenetics",
+      "fam_epigraphy",
+      "fam_epistemology",
+      "fam_equine",
+      "fam_equity",
+      "fam_ergometry",
+      "fam_ergonomics",
+      "fam_eschatology",
+      "fam_estimating",
+      "fam_estimation",
+      "fam_etl",
+      "fam_etymology",
+      "fam_evapotranspiration",
+      "fam_events",
+      "fam_excavation",
+      "fam_exchangerate",
+      "fam_exoplanet",
+      "fam_exoplanets",
+      "fam_failure",
+      "fam_family",
+      "fam_fatigue",
+      "fam_federated",
+      "fam_feed",
+      "fam_feedback",
+      "fam_feedlot",
+      "fam_fermentation",
+      "fam_fertilization",
+      "fam_field",
+      "fam_filtering",
+      "fam_filters",
+      "fam_financial",
+      "fam_firewall",
+      "fam_firmware",
+      "fam_fishery",
+      "fam_fitness",
+      "fam_fleet",
+      "fam_flightdynamics",
+      "fam_fluid",
+      "fam_fluiddynamics",
+      "fam_folklore",
+      "fam_foodsafety",
+      "fam_forensic",
+      "fam_forestry",
+      "fam_forging",
+      "fam_formant",
+      "fam_forms",
+      "fam_fourier",
+      "fam_fpga",
+      "fam_fractal",
+      "fam_fracture",
+      "fam_freight",
+      "fam_friction",
+      "fam_frontend",
+      "fam_frontogenesis",
+      "fam_fuelcell",
+      "fam_fulfillment",
+      "fam_funnel",
+      "fam_futures",
+      "fam_fuzzing",
+      "fam_galactic",
+      "fam_galaxy",
+      "fam_gaming",
+      "fam_gastroenterology",
+      "fam_gastronomy",
+      "fam_gear",
+      "fam_gearing",
+      "fam_genetics",
+      "fam_genome",
+      "fam_genomics",
+      "fam_geo",
+      "fam_geochemistry",
+      "fam_geodesy",
+      "fam_geography",
+      "fam_geology",
+      "fam_geometry",
+      "fam_geomorphology",
+      "fam_geophysics",
+      "fam_geopolitics",
+      "fam_geothermal",
+      "fam_gerontology",
+      "fam_gis",
+      "fam_glaciology",
+      "fam_glider",
+      "fam_global",
+      "fam_glomerular",
+      "fam_glycolysis",
+      "fam_glyphs",
+      "fam_golf",
+      "fam_governance",
+      "fam_gps",
+      "fam_gpu",
+      "fam_gradient",
+      "fam_grammar",
+      "fam_graph",
+      "fam_graphtheory",
+      "fam_gravimetry",
+      "fam_gravity",
+      "fam_grazing",
+      "fam_greenspace",
+      "fam_grid",
+      "fam_gripper",
+      "fam_grouptheory",
+      "fam_hail",
+      "fam_halflife",
+      "fam_hardness",
+      "fam_hardware",
+      "fam_harmony",
+      "fam_harvest",
+      "fam_hash",
+      "fam_hashing",
+      "fam_hazard",
+      "fam_heatindex",
+      "fam_heattransfer",
+      "fam_hedging",
+      "fam_helicopter",
+      "fam_helminthology",
+      "fam_hematocrit",
+      "fam_hematology",
+      "fam_hemodynamics",
+      "fam_hermeneutics",
+      "fam_herpetology",
+      "fam_hieroglyphs",
+      "fam_highlights",
+      "fam_histology",
+      "fam_historiography",
+      "fam_hook",
+      "fam_horticulture",
+      "fam_hospitality",
+      "fam_hosting",
+      "fam_hover",
+      "fam_hovercraft",
+      "fam_huffman",
+      "fam_humidity",
+      "fam_husbandry",
+      "fam_hvac",
+      "fam_hydration",
+      "fam_hydraulics",
+      "fam_hydro",
+      "fam_hydrography",
+      "fam_hydrology",
+      "fam_hydroponics",
+      "fam_ichthyology",
+      "fam_iconography",
+      "fam_idealism",
+      "fam_identity",
+      "fam_immigration",
+      "fam_immunology",
+      "fam_incidence",
+      "fam_incident",
+      "fam_indexing",
+      "fam_inductor",
+      "fam_inequality",
+      "fam_inflation",
+      "fam_informatics",
+      "fam_ingestion",
+      "fam_inspection",
+      "fam_insurance",
+      "fam_interaction",
+      "fam_interconnect",
+      "fam_interference",
+      "fam_interleaving",
+      "fam_inverter",
+      "fam_invoice",
+      "fam_iot",
+      "fam_irrigation",
+      "fam_jetstream",
+      "fam_jewelry",
+      "fam_jitter",
+      "fam_journalism",
+      "fam_jumping",
+      "fam_kalman",
+      "fam_karst",
+      "fam_kerning",
+      "fam_kinematics",
+      "fam_kinesiology",
+      "fam_kinship",
+      "fam_knitting",
+      "fam_kyc",
+      "fam_landslide",
+      "fam_landuse",
+      "fam_lasers",
+      "fam_lastmile",
+      "fam_latency",
+      "fam_lattice",
+      "fam_law",
+      "fam_lean",
+      "fam_learning",
+      "fam_leavening",
+      "fam_ledger",
+      "fam_lemmatization",
+      "fam_lenses",
+      "fam_lever",
+      "fam_leverage",
+      "fam_lexicography",
+      "fam_lexicon",
+      "fam_licensing",
+      "fam_lidar",
+      "fam_lift",
+      "fam_limnology",
+      "fam_linehaul",
+      "fam_linguistics",
+      "fam_linkage",
+      "fam_liquidity",
+      "fam_literacy",
+      "fam_livestock",
+      "fam_loadplanning",
+      "fam_locale",
+      "fam_localization",
+      "fam_location",
+      "fam_lodging",
+      "fam_logging",
+      "fam_logic",
+      "fam_logistics",
+      "fam_logogram",
+      "fam_lottery",
+      "fam_loyalty",
+      "fam_luminosity",
+      "fam_machining",
+      "fam_macroeconomics",
+      "fam_magnetism",
+      "fam_magnetometry",
+      "fam_maillard",
+      "fam_malacology",
+      "fam_malware",
+      "fam_mammalogy",
+      "fam_manifold",
+      "fam_manipulator",
+      "fam_manufacturing",
+      "fam_maritime",
+      "fam_marketing",
+      "fam_masonry",
+      "fam_materials",
+      "fam_matrix",
+      "fam_mealplanning",
+      "fam_mechanical",
+      "fam_med",
+      "fam_media",
+      "fam_meiosis",
+      "fam_melody",
+      "fam_membrane",
+      "fam_merchandising",
+      "fam_messaging",
+      "fam_metabolism",
+      "fam_metabolomics",
+      "fam_metallurgy",
+      "fam_meteoritics",
+      "fam_meteorology",
+      "fam_microbiology",
+      "fam_microeconomics",
+      "fam_microscopy",
+      "fam_migration",
+      "fam_milling",
+      "fam_mineralogy",
+      "fam_mining",
+      "fam_mitosis",
+      "fam_mixing",
+      "fam_mixology",
+      "fam_ml",
+      "fam_mobility",
+      "fam_modular",
+      "fam_modulation",
+      "fam_monasticism",
+      "fam_monitoring",
+      "fam_monopoly",
+      "fam_monorail",
+      "fam_monsoon",
+      "fam_moon",
+      "fam_morphology",
+      "fam_mortgage",
+      "fam_motion",
+      "fam_motivation",
+      "fam_mtbf",
+      "fam_music",
+      "fam_mutation",
+      "fam_mycology",
+      "fam_myrmecology",
+      "fam_mysticism",
+      "fam_mythography",
+      "fam_nanomaterials",
+      "fam_nanotechnology",
+      "fam_navigation",
+      "fam_nephrology",
+      "fam_networking",
+      "fam_neuralnet",
+      "fam_neurology",
+      "fam_neuron",
+      "fam_neuropsychology",
+      "fam_neuroscience",
+      "fam_ngram",
+      "fam_nic",
+      "fam_noise",
+      "fam_noisepollution",
+      "fam_notice",
+      "fam_nuclear",
+      "fam_nuclearpower",
+      "fam_numeracy",
+      "fam_numerology",
+      "fam_numismatics",
+      "fam_nursing",
+      "fam_nutrition",
+      "fam_obs",
+      "fam_observability",
+      "fam_oceanography",
+      "fam_odometry",
+      "fam_oligopoly",
+      "fam_onboarding",
+      "fam_oncology",
+      "fam_onomastics",
+      "fam_ontology",
+      "fam_opendata",
+      "fam_opera",
+      "fam_ophthalmology",
+      "fam_option",
+      "fam_optometry",
+      "fam_orbit",
+      "fam_orbital",
+      "fam_ornithology",
+      "fam_orthography",
+      "fam_orthopedics",
+      "fam_oscillators",
+      "fam_osmosis",
+      "fam_outbreak",
+      "fam_overtone",
+      "fam_oxygenation",
+      "fam_pacing",
+      "fam_pagination",
+      "fam_paleoclimate",
+      "fam_paleontology",
+      "fam_papyrology",
+      "fam_parallax",
+      "fam_parasitology",
+      "fam_parity",
+      "fam_partitioning",
+      "fam_partner",
+      "fam_passwords",
+      "fam_pathogen",
+      "fam_pathology",
+      "fam_pathplanning",
+      "fam_patristics",
+      "fam_payables",
+      "fam_payload",
+      "fam_payment",
+      "fam_payroll",
+      "fam_pedagogy",
+      "fam_pediatrics",
+      "fam_pedology",
+      "fam_pendulum",
+      "fam_pentomino",
+      "fam_perception",
+      "fam_performance",
+      "fam_permitting",
+      "fam_personality",
+      "fam_pest",
+      "fam_petroleum",
+      "fam_petrology",
+      "fam_pharma",
+      "fam_pharmacokinetics",
+      "fam_pharmacology",
+      "fam_philosophy",
+      "fam_phonetics",
+      "fam_photochemistry",
+      "fam_photodiode",
+      "fam_photogrammetry",
+      "fam_photography",
+      "fam_photometry",
+      "fam_photosynthesis",
+      "fam_photovoltaic",
+      "fam_phycology",
+      "fam_physics",
+      "fam_physiology",
+      "fam_physiotherapy",
+      "fam_pickling",
+      "fam_pid",
+      "fam_piezoelectric",
+      "fam_pipeline",
+      "fam_piston",
+      "fam_planetology",
+      "fam_plasma",
+      "fam_podcasting",
+      "fam_podiatry",
+      "fam_poker",
+      "fam_policy",
+      "fam_pollination",
+      "fam_polymer",
+      "fam_polymers",
+      "fam_polyphony",
+      "fam_pomology",
+      "fam_portfolio",
+      "fam_poultry",
+      "fam_powerfactor",
+      "fam_pragmatics",
+      "fam_precipitation",
+      "fam_premium",
+      "fam_preservation",
+      "fam_prevalence",
+      "fam_pricing",
+      "fam_primatology",
+      "fam_printmaking",
+      "fam_probability",
+      "fam_procurement",
+      "fam_profiling",
+      "fam_project",
+      "fam_projectile",
+      "fam_promotion",
+      "fam_proof",
+      "fam_proofing",
+      "fam_property",
+      "fam_prophecy",
+      "fam_propulsion",
+      "fam_prosody",
+      "fam_proteomics",
+      "fam_prototyping",
+      "fam_protozoology",
+      "fam_psalmody",
+      "fam_psu",
+      "fam_psychiatry",
+      "fam_psychology",
+      "fam_psychometrics",
+      "fam_psychophysics",
+      "fam_publishing",
+      "fam_pulley",
+      "fam_pulmonology",
+      "fam_pulsar",
+      "fam_pump",
+      "fam_pwm",
+      "fam_qsec",
+      "fam_quality",
+      "fam_quantization",
+      "fam_quantum",
+      "fam_query",
+      "fam_queue",
+      "fam_queueing",
+      "fam_quilting",
+      "fam_radar",
+      "fam_radiology",
+      "fam_raid",
+      "fam_rail",
+      "fam_railway",
+      "fam_ram",
+      "fam_raster",
+      "fam_ratelimiting",
+      "fam_readability",
+      "fam_realestate",
+      "fam_reasoning",
+      "fam_receipts",
+      "fam_receivables",
+      "fam_recovery",
+      "fam_recruitment",
+      "fam_rectifier",
+      "fam_recycling",
+      "fam_redistricting",
+      "fam_redshift",
+      "fam_redundancy",
+      "fam_refraction",
+      "fam_refrigeration",
+      "fam_regression",
+      "fam_rehabilitation",
+      "fam_reinsurance",
+      "fam_relativity",
+      "fam_reliability",
+      "fam_remediation",
+      "fam_remotesensing",
+      "fam_rendering",
+      "fam_replenishment",
+      "fam_replication",
+      "fam_respiration",
+      "fam_rest",
+      "fam_restaurant",
+      "fam_retail",
+      "fam_retirement",
+      "fam_reverb",
+      "fam_reverberation",
+      "fam_rheology",
+      "fam_rhetoric",
+      "fam_rheumatology",
+      "fam_rhythm",
+      "fam_roasting",
+      "fam_robotics",
+      "fam_rocketry",
+      "fam_rotation",
+      "fam_route",
+      "fam_router",
+      "fam_routing",
+      "fam_safety",
+      "fam_sailing",
+      "fam_salinity",
+      "fam_sampling",
+      "fam_satellite",
+      "fam_savings",
+      "fam_scheduling",
+      "fam_scholasticism",
+      "fam_science",
+      "fam_scrabble",
+      "fam_screening",
+      "fam_scripture",
+      "fam_sculpture",
+      "fam_search",
+      "fam_securities",
+      "fam_security",
+      "fam_sedimentology",
+      "fam_seismology",
+      "fam_semantics",
+      "fam_semiconductor",
+      "fam_semiconductors",
+      "fam_sentence",
+      "fam_sentiment",
+      "fam_serialization",
+      "fam_serology",
+      "fam_sessionmgmt",
+      "fam_shamanism",
+      "fam_shinto",
+      "fam_shipping",
+      "fam_shorthand",
+      "fam_signaling",
+      "fam_sikhism",
+      "fam_silage",
+      "fam_silviculture",
+      "fam_simulation",
+      "fam_sintering",
+      "fam_sixsigma",
+      "fam_slider",
+      "fam_slotting",
+      "fam_smartgrid",
+      "fam_smoking",
+      "fam_soccer",
+      "fam_social",
+      "fam_sociology",
+      "fam_socket",
+      "fam_software",
+      "fam_soilscience",
+      "fam_solar",
+      "fam_solid",
+      "fam_solvency",
+      "fam_solvent",
+      "fam_sort",
+      "fam_sourcing",
+      "fam_spaceflight",
+      "fam_spectroscopy",
+      "fam_speleology",
+      "fam_spicetrade",
+      "fam_spirometry",
+      "fam_sports",
+      "fam_spring",
+      "fam_ssd",
+      "fam_stability",
+      "fam_staffing",
+      "fam_stagecraft",
+      "fam_stainedglass",
+      "fam_star",
+      "fam_state",
+      "fam_statistics",
+      "fam_steering",
+      "fam_steganography",
+      "fam_stellar",
+      "fam_stemming",
+      "fam_steps",
+      "fam_stoicism",
+      "fam_storage",
+      "fam_straingauge",
+      "fam_stratigraphy",
+      "fam_stream",
+      "fam_streaming",
+      "fam_strength",
+      "fam_structural",
+      "fam_submarine",
+      "fam_subsidence",
+      "fam_subsidy",
+      "fam_sudoku",
+      "fam_supplychain",
+      "fam_surgery",
+      "fam_survey",
+      "fam_surveying",
+      "fam_suspension",
+      "fam_sustainability",
+      "fam_swaps",
+      "fam_syllabary",
+      "fam_syllogism",
+      "fam_synapse",
+      "fam_syntax",
+      "fam_tanning",
+      "fam_taoism",
+      "fam_tariff",
+      "fam_taxation",
+      "fam_tectonics",
+      "fam_telecom",
+      "fam_telemetry",
+      "fam_tennis",
+      "fam_testing",
+      "fam_text",
+      "fam_textiles",
+      "fam_thermochemistry",
+      "fam_thermocouple",
+      "fam_thermodynamics",
+      "fam_throughput",
+      "fam_tiling",
+      "fam_tillage",
+      "fam_timbre",
+      "fam_timeseries",
+      "fam_tls",
+      "fam_tokenization",
+      "fam_tomography",
+      "fam_tooling",
+      "fam_topology",
+      "fam_toponymy",
+      "fam_torsion",
+      "fam_totemism",
+      "fam_tourism",
+      "fam_tox",
+      "fam_toxicology",
+      "fam_tpu",
+      "fam_tracing",
+      "fam_trading",
+      "fam_trajectory",
+      "fam_transcription",
+      "fam_transformer",
+      "fam_transit",
+      "fam_translation",
+      "fam_transport",
+      "fam_treasury",
+      "fam_tree",
+      "fam_triangulation",
+      "fam_tribology",
+      "fam_trigonometry",
+      "fam_trucking",
+      "fam_tsunami",
+      "fam_tuning",
+      "fam_turbine",
+      "fam_turnaround",
+      "fam_typography",
+      "fam_typology",
+      "fam_ultrasonics",
+      "fam_underwriting",
+      "fam_unemployment",
+      "fam_upload",
+      "fam_urbanism",
+      "fam_urology",
+      "fam_usability",
+      "fam_vaccination",
+      "fam_valuation",
+      "fam_ventilation",
+      "fam_verification",
+      "fam_version",
+      "fam_vet",
+      "fam_veterinary",
+      "fam_vibration",
+      "fam_virality",
+      "fam_virology",
+      "fam_virtualization",
+      "fam_vitals",
+      "fam_viticulture",
+      "fam_volatility",
+      "fam_volcanology",
+      "fam_vulcanology",
+      "fam_walkability",
+      "fam_warehouse",
+      "fam_warehousing",
+      "fam_wastewater",
+      "fam_waterquality",
+      "fam_watershed",
+      "fam_waveform",
+      "fam_wavelet",
+      "fam_waypoint",
+      "fam_weather",
+      "fam_weaving",
+      "fam_website",
+      "fam_welding",
+      "fam_welfare",
+      "fam_wind",
+      "fam_windchill",
+      "fam_windpower",
+      "fam_winemaking",
+      "fam_wireframe",
+      "fam_woodworking",
+      "fam_workspace",
+      "fam_xai",
+      "fam_yield",
+      "fam_zeroshot",
+      "fam_zerotrust",
+      "fam_zoning",
+      "fam_zoology",
+      "fam_zoroastrianism",
       "fermat_window_exponent_one_counts_one_hundred",
       "fifty_move_rule_bounds_a_run",
       "firing_rate_saturates",
