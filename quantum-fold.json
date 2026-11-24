@@ -2,8 +2,8 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "1242d41a6fd3039a",
-      "principles": "4a8993bc47d1cbde",
+      "theorems": "59eede0a0c6b7934",
+      "principles": "2bd3262fea7b4023",
       "monographs": "dd44742ffb22a56d"
     },
     "served": {
@@ -28,31 +28,31 @@
     }
   },
   "trinity_folds": {
-    "sealed": "84bba749cff0df1d7a13c288aac9c7dd",
+    "sealed": "e1f903311751f7e57836dc66f4e174f8",
     "served": "2b2c04536d5130c43e564d1356d8cc56",
     "proven": "65b94142221a0948f87ca3002d3d9f06",
     "record": "5ea661c828479a024baa626537db87cc",
     "walks": "ecc81c4f542aa2c7240f654156ff31eb"
   },
-  "unified_fold": "f3121e67d8827dbd",
-  "receipt": "f8a9ef8d2c1f3aa5",
+  "unified_fold": "662275a9cdbee565",
+  "receipt": "d17e29c823cd6d8b",
   "rosette_receipt": {
     "rays": [
       "b11aab282e58e86d",
       "bf0a979de9af126f",
-      "cd596d5eac6a7b07",
+      "13c19ae5ec3eca3c",
       "a20454282e566346",
-      "b5faaeab276eb668",
+      "f09aa01029247c7e",
       "a761502744407dcd",
       "d30b9876b16ab69e"
     ],
-    "concurrence": "e8d5553049c5cda2a519c366f5dfd8d5"
+    "concurrence": "c5c044b1cfff448668610bb00bbaca72"
   },
   "aura": {
-    "rgb": "#dc3884",
-    "hsl": "hsl(28, 70%, 54%)",
+    "rgb": "#3339e1",
+    "hsl": "hsl(238, 74%, 54%)",
     "alphabet": "4c12110e5c171d38",
-    "movie": "b09c16220764b1a7",
+    "movie": "224c334354d79048",
     "lessons": "9b3f8cd35199c41f",
     "report": "940001b6ff9bd2fc",
     "session": "66193fed60a69b59",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 5,
-      "ray": 4,
+      "residue": 8,
+      "ray": 6,
       "wave": 4,
-      "hue": 28,
-      "sat": 70,
+      "hue": 238,
+      "sat": 74,
       "light": 54,
-      "period": 20,
+      "period": 24,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

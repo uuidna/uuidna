@@ -1,7 +1,7 @@
 {
   "kind": "mcp-gap-census",
-  "records": 133,
-  "distinct": 1922,
+  "records": 135,
+  "distinct": 1924,
   "loadBearing": 198,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
@@ -5868,6 +5868,13 @@
       ]
     },
     {
+      "gap": "no door names the DOI that stopped resolving",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door names the scripts that spawn develop",
       "hits": 1,
       "forms": [
@@ -8903,6 +8910,13 @@
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "no door shows the resolver's imports and types",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
