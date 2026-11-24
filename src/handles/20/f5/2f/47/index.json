@@ -1,0 +1,12 @@
+{
+  "handle": "20f52f47",
+  "address": "20f52f47-e9e8-8b43-a4f9-e4d9a93fb579",
+  "kind": "chunk",
+  "keys": [
+    "sixteen_bit_handles_would_collide"
+  ],
+  "statement": "73100 > 2 ^ 16",
+  "files": [
+    "Forensics.lean"
+  ]
+}

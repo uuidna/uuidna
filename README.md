@@ -1,6 +1,6 @@
 # uuidna — 72,323 distinct theorems under 72,409 keys · 2 coins · one receipt
 
-`eae52369-6ece-880b-84cf-8e4034a7cbcf`
+`80286e6a-73b1-8e32-a338-04a877c28703`
 
 **What every theorem carries, and what most do not.** Of 72,409 keys: proof · falsifier · address hold for all of them; **witness 51** (0.0%), **symbol 1419** (1.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 3 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
@@ -44,7 +44,7 @@ Every proof `by decide`, sorry-free, no Mathlib, axiom-free against the bare lea
 
 ## In three lines
 
-1. **72,409 theorems and 175,592,552 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
+1. **72,409 theorems and 175,592,570 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
 2. **Nothing here is asserted.** Every number is either walked by the kernel or computed from a rule the kernel checks against the walk. A literal that nobody can recompute is treated as a defect.
 3. **The boundary is in the theorem's name.** A result that holds over a window says so where you read it — `coprime_sum_blocked_reduced_3_mod_9`, `fixed_power_law_mod_45`. You never have to hunt a footnote to learn the scope.
 
@@ -92,7 +92,7 @@ exposed a wrong denominator that every rung above it had hidden.
 
 ## Thesis
 
-> Captain PhD — concept (Clay 8, DNA 10, gravity true, demos true) ∧ work (search 0, digest 256, Grover 128, codons 64) ∧ thesis (ok true, gaps 0) → **complete true**. Thesis wave 24 / 24. Receipt `27f52515-d487-8020-b903-daa715eeaf1f`.
+> Captain PhD — concept (Clay 8, DNA 10, gravity true, demos true) ∧ work (search 0, digest 256, Grover 128, codons 64) ∧ thesis (ok true, gaps 0) → **complete true**. Thesis wave 24 / 24. Receipt `a1d41444-5902-85c9-8778-cd17f4963ee3`.
 
 ### Proof of concept
 
@@ -294,8 +294,8 @@ disagree with a figure there.
 | DNA — concept | 4^3 = 64 · involution true | [codons_four_cubed](https://uuidna.com/theorem/codons_four_cubed) · [dna_complement_involution](https://uuidna.com/theorem/dna_complement_involution) |
 | DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
 | Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
-| Captain PhD — complete | true · receipt `27f52515-d487-8020-b903-daa715eeaf1f` | concept ∧ work ∧ thesis |
-| Ledger decided mass | 175,592,552 superpositions (6 hexbits) | sum of `by decide` domains |
+| Captain PhD — complete | true · receipt `a1d41444-5902-85c9-8778-cd17f4963ee3` | concept ∧ work ∧ thesis |
+| Ledger decided mass | 175,592,570 superpositions (6 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
@@ -403,12 +403,12 @@ The mathematical facts themselves are free for all — facts are not copyrightab
 specific expression and record. **One license for every uuidna publication and Zenodo deposit** — no per-publication drift.
 
 <!-- ports:begin -->
-**Alpine ported into 9 APIs.** 3500 packages, each domain answering through one door —
+**Alpine ported into 9 APIs.** 3501 packages, each domain answering through one door —
 provenance from Alpine's own published metadata, and one API of uuidna's own beside it.
 
 | domain | packages | origins | the one API offers |
 | --- | ---: | ---: | --- |
-| `shell` | 1281 | 682 | one exec door over uuidnaOS applets |
+| `shell` | 1282 | 683 | one exec door over uuidnaOS applets |
 | `driver` | 631 | 461 | the machine and the published bundle behind one door |
 | `database` | 438 | 325 | one query door where the address is the key |
 | `network` | 332 | 237 | fetch-and-address, so a read becomes citable |
@@ -419,7 +419,7 @@ provenance from Alpine's own published metadata, and one API of uuidna's own bes
 | `blockchain` | 29 | 19 | inclusion without disclosure |
 
 Package counts are per domain and the domains overlap — a chat bridge is also network — so these totals
-over-count rather than partition. Computed from the committed mirror on every build; receipt `e1026f70-80ed-8151-8de8-b5ee56cf61ff`.
+over-count rather than partition. Computed from the committed mirror on every build; receipt `83a5f6c7-9ee7-8ffb-8f00-f5bee5902b08`.
 <!-- ports:end -->
 
 <!-- clay:begin -->

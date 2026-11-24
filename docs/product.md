@@ -59,13 +59,13 @@ simulation served locally up to 16 qubits.
 
 ## Limits and known limitations (5.1.5.4)
 
-279 open lead(s) ship as known limitations, each closing when a UUID program decides it (`run.program`) or a
+280 open lead(s) ship as known limitations, each closing when a UUID program decides it (`run.program`) or a
 verdict settles it:
 
 | Source | Open leads |
 |---|---|
 | mcp-self-sufficiency | 198 |
-| refusals | 35 |
+| refusals | 36 |
 | api-github-audit | 35 |
 | api-search-feed | 7 |
 | expose | 3 |

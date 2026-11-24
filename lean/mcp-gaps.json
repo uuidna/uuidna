@@ -1,7 +1,7 @@
 {
   "kind": "mcp-gap-census",
-  "records": 110,
-  "distinct": 1899,
+  "records": 115,
+  "distinct": 1904,
   "loadBearing": 198,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
@@ -4608,6 +4608,13 @@
       ]
     },
     {
+      "gap": "no door commits a source change by pathspec",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door commits by pathspec",
       "hits": 1,
       "forms": [
@@ -8276,6 +8283,13 @@
       ]
     },
     {
+      "gap": "no door rewrites a retyped origin constant to read the site config",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door runs a bare Lean 4 kernel over an investigator's candidate involution file outside lean/ (run_trial only seals repo wings)",
       "hits": 1,
       "forms": [
@@ -8759,6 +8773,13 @@
       ]
     },
     {
+      "gap": "no door shows a source file's import lines",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door shows asset headers",
       "hits": 1,
       "forms": [
@@ -8822,6 +8843,13 @@
       ]
     },
     {
+      "gap": "no door shows what the ship script runs",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door shows where the handle and hexagram bit constants are defined in source",
       "hits": 1,
       "forms": [
@@ -8830,6 +8858,13 @@
     },
     {
       "gap": "no door shows which lines of lean-ledger.ts print or count theorems",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows which tests cover the changed modules",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
