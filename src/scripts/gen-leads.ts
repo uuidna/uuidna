@@ -52,12 +52,13 @@ const bound = (text: string): string => PHYSICS.test(text) ? ' ([`n_qubit_dimens
  *
  *  EMPHASIS DELIMITERS ARE DATA TOO. A settlement quoting `_meta.deposit` opened an <em> inside the <q> this generator
  *  writes, and markdown closed it at the next underscore, in the following line — so the <q> held an element with no
- *  end tag and the Vue compiler refused the page (measured 2026-11-08: one lead, the whole site build). Underscores and
- *  asterisks outside code spans are backslash-escaped, which markdown renders as the characters themselves; inside a
+ *  end tag and the Vue compiler refused the page (measured 2026-11-08: one lead, the whole site build). Underscores,
+ *  asterisks and backslashes outside code spans are backslash-escaped, which markdown renders as the characters
+ *  themselves (a backslash left alone would escape the backslash written before the next one); inside a
  *  code span a backslash would be literal, so code spans pass through as they are — markdown already keeps their
  *  contents from opening anything. */
 const say = (text: string): string => text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
-  .split(/(`[^`]*`)/).map((part, i) => (i % 2 ? part : part.replace(/[_*]/g, '\\$&'))).join('')
+  .split(/(`[^`]*`)/).map((part, i) => (i % 2 ? part : part.replace(/[\\_*]/g, '\\$&'))).join('')
 
 const line = (l: Lead): string =>
   `- **\`${handleOf(toUuid(l.lead))}\`** <q>${say(l.lead)}</q>${bound(l.lead)}` +
