@@ -5,6 +5,7 @@
  * Example: Causal + XAI blueprint = Fair + Interpretable Classification
  */
 
+import { ceilOf } from '../exact.js'
 import type { IntegrationBlueprint } from './blueprint-template.js'
 
 // ============================================================================
@@ -317,7 +318,7 @@ export function estimateEntanglementEffort(entanglement_id: string): {
     total_hours: entanglement.effort_hours,
     blueprints: entanglement.blueprints.length,
     theorems: entanglement.composed_theorems.length,
-    expected_duration_weeks: Math.ceil(entanglement.effort_hours / 40)
+    expected_duration_weeks: ceilOf(entanglement.effort_hours / 40)
   }
 }
 

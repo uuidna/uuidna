@@ -5,6 +5,7 @@
  * cannot reach (a live API call, runtime telemetry, a scheduler) is returned as null with
  * `measured: false`. Nothing here is a constant.
  */
+import { roundOf } from '../exact.js'
 import { leanSource, leanRecomputed } from '../quantum/processing/unit/lean.js'
 import { mcpOf, mcpChecksOf } from '../quantum/processing/unit/mcp.js'
 // families.js must stay imported here: its side effects register the hex families, and cite's
@@ -73,7 +74,7 @@ const theoremCoverage = (_args: Args = {}) => {
   return {
     total_theorems: theorems.length,
     proven_count: proven.length,
-    coverage_percent: theorems.length === 0 ? 0 : Math.round((1000 * proven.length) / theorems.length) / 10,
+    coverage_percent: theorems.length === 0 ? 0 : roundOf((1000 * proven.length) / theorems.length) / 10,
     by_domain: Object.fromEntries(
       [...domains].map(([d, v]) => [d, { count: v.count, proven: v.proven, status: v.proven === v.count ? 'RECOMPUTED' : 'INCOMPLETE' }]),
     ),

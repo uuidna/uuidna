@@ -127,17 +127,23 @@ const slowestRecorded = Object.values(readings?.secondsByFile ?? {}).reduce((m, 
  *  The deadline is DERIVED, not chosen: ten times what the shard itself took last time — ten being the mirror's own
  *  modulus, the same MIRROR_BASE the ledger counts ranks by — with the slowest file ever recorded standing in for a
  *  shard nothing has measured yet. A tenfold margin over a real measurement is not a guess about how long work
- *  should take; it is a statement that a run an order of magnitude past its own history has stopped being work. */
-const patienceMs = (shard: readonly string[]): number => {
+ *  should take; it is a statement that a run an order of magnitude past its own history has stopped being work.
+ *
+ *  A HOST THAT HAS RECORDED NOTHING HAS NO DEADLINE, because it has no history to be ten times past. A fresh clone
+ *  carries no readings file, and a stand-in of one second gave every shard ten seconds: all of them were killed, no
+ *  timing was written, and the next run read the same empty record — a landing that could not pass on a new machine
+ *  however green the tree. The first run on a host is the measurement the later deadlines are derived from. */
+const patienceMs = (shard: readonly string[]): number | null => {
   const seen = expectedSeconds(shard)
-  return (seen > 0 ? seen : slowestRecorded > 0 ? slowestRecorded : 1) * MIRROR_BASE * 1000
+  const basis = seen > 0 ? seen : slowestRecorded
+  return basis > 0 ? basis * MIRROR_BASE * 1000 : null
 }
 
 const runShard = (shard: string[]): Promise<Ran> => new Promise((done) => {
   const child = spawn(process.execPath, [...FLAGS, ...shard], { cwd: ROOT, stdio: ['ignore', 'pipe', 'inherit'], env: { ...process.env, UUIDNA_TEST_SHARD: '1' } })
   let text = '', partial = '', closed = false
   const deadline = patienceMs(shard)
-  const watchdog = setTimeout(() => {
+  const watchdog = deadline === null ? undefined : setTimeout(() => {
     if (closed) return
     // NAMED, NOT GUESSED AT: the reader gets the files that were open when the silence began.
     console.log(`⏱ shard did not close within ${(deadline / 1000).toFixed(0)}s (its own history says ${expectedSeconds(shard).toFixed(1)}s) — killing it so the silence is a failure and not a wait. Files: ${shard.join(' ')}`)

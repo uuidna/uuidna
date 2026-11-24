@@ -1,3 +1,4 @@
+import { maxOf } from '../exact.js'
 import { hexFamiliesOf, hexRunOf, qpuHexUuidOf } from '../quantum/processing/unit/index.js'
 import { chooseOf, mintOf, hexParamMaxOf, latticeNamesOf, tenOf, uuidReceiptOf } from '../quantum/processing/unit/index.js'
 const L = { ...latticeNamesOf(), mintOf, chooseOf, tenOf }
@@ -85,7 +86,7 @@ export const qpuDiscoverOf = async (live: number[] = [], slice?: { from?: number
   const seals: Seal[] = []
   // a family slice stays within a call's limits; the caller merges the slices back in full with discoverMergeOf
   const all = [...hexFamiliesOf()]
-  const from = Math.max(0, slice?.from ?? 0)
+  const from = maxOf(0, slice?.from ?? 0)
   const entries = slice ? all.slice(from, from + (slice.count ?? all.length)) : all
   for (const [family, formulas] of entries) {
     if (DOORS.has(family)) continue
@@ -97,7 +98,7 @@ export const qpuDiscoverOf = async (live: number[] = [], slice?: { from?: number
     const still = formulas.filter((f) => !f.live)
     const programs: { program: string[]; tuples: number[][] }[] = [
       ...still.map((f) => ({ program: [f.name], tuples: tuplesOf(f.arity, false) })),
-      ...still.flatMap((a) => still.map((b) => ({ program: [a.name, b.name], tuples: tuplesOf(Math.max(a.arity, b.arity), true) }))),
+      ...still.flatMap((a) => still.map((b) => ({ program: [a.name, b.name], tuples: tuplesOf(maxOf(a.arity, b.arity), true) }))),
     ]
     perFamily[family] = { programs: programs.length, runs: 0 }
     // THE CROSS FORMULAS SPEED THE SQUARE: a composition [a, b](p) is b at the value a reached, b(a(p), p₂ …); when both

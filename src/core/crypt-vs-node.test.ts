@@ -47,6 +47,9 @@ const ABSENT: Record<string, string> = {
   secureHeapUsed: 'OpenSSL heap', setEngine: 'OpenSSL engines', getFips: 'OpenSSL FIPS', setFips: 'OpenSSL FIPS',
   createCipher: 'removed from node', createDecipher: 'removed from node',
   encapsulate: 'absent formula (ML-KEM unbound)', decapsulate: 'absent formula (ML-KEM unbound)',
+  // added to node:crypto by the Node 26 line this tree now requires
+  createMac: 'absent formula (generic MAC interface unbound; HMAC ported via createHmac)', getMacs: 'OpenSSL catalogue of createMac',
+  parsePKCS12: 'absent PKCS#12 container parsing', randomUUIDv7: 'absent formula (UUIDv7 unbound; randomUUID ported)',
 }
 
 test('every node:crypto function is ported (parity) or absent (unbound/OpenSSL) — no intentional outs', () => {

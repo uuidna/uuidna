@@ -8,6 +8,7 @@
  *   tools/call connector { chips: true }
  *   tools/call connector { print: true }
  */
+import { maxOf } from '../exact.js'
 import { mkdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { ROOT } from '../boundary.js'
@@ -67,9 +68,9 @@ export const chipRayLayersOf = () => {
   const layers = Array.from({ length: faces.rays }, (_, ray) => ({
     ray,
     dimension: dim.value,
-    coinSlot: ray % Math.max(1, faces.coins),
-    faceIndex: (ray * faces.coins) % Math.max(1, faces.faces),
-    manages: `UUID ray ${ray}/${faces.rays} · coin ${ray % Math.max(1, faces.coins)} · face ${(ray * faces.coins) % Math.max(1, faces.faces)}`,
+    coinSlot: ray % maxOf(1, faces.coins),
+    faceIndex: (ray * faces.coins) % maxOf(1, faces.faces),
+    manages: `UUID ray ${ray}/${faces.rays} · coin ${ray % maxOf(1, faces.coins)} · face ${(ray * faces.coins) % maxOf(1, faces.faces)}`,
   }))
   return {
     kind: 'chip-ray-layers' as const,
@@ -319,7 +320,7 @@ export const printChipsOf = async (outDir: string = OUT): Promise<{
   wrote.push(`${rel}/qpu-chip-index.md`)
 
   // Test prints on tree printers (not a physical device) — imprint must verify for pass.
-  const copies = Math.max(1, wrote.length)
+  const copies = maxOf(1, wrote.length)
   const bytes = wrote.length * 1024
   const printers: ChipPrinterProbe[] = [
     (() => {
@@ -331,8 +332,8 @@ export const printChipsOf = async (outDir: string = OUT): Promise<{
       return { address: 'printmaking.editionsize', params: [copies, rays.lattice.coins], value: r.value, holds: r.holds === true, hex: r.hex ?? null, pass: r.holds === true && r.value > 0 && licenseVerify.verified }
     })(),
     (() => {
-      const r = PrintmakingFormulas.yieldratio(chips.filter((c) => c.holds).length, Math.max(1, chips.length))
-      return { address: 'printmaking.yieldratio', params: [chips.filter((c) => c.holds).length, Math.max(1, chips.length)], value: r.value, holds: r.holds === true, hex: r.hex ?? null, pass: r.holds === true && r.value === 100 }
+      const r = PrintmakingFormulas.yieldratio(chips.filter((c) => c.holds).length, maxOf(1, chips.length))
+      return { address: 'printmaking.yieldratio', params: [chips.filter((c) => c.holds).length, maxOf(1, chips.length)], value: r.value, holds: r.holds === true, hex: r.hex ?? null, pass: r.holds === true && r.value === 100 }
     })(),
     (() => {
       const r = DriverFormulas.dmaPages(bytes)

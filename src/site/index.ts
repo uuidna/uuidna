@@ -74,3 +74,5 @@ export const urlOf = (path: string): string => SITE.origin + (path.startsWith('/
 
 /** Absolute OG/social image — docs/public/og.png (1200×630). */
 export const OG_IMAGE = `${SITE.origin}/og.png` as const
+/** Its pixel size, declared once: og:image:width/height let a crawler lay the card out before fetching the image. */
+export const OG_IMAGE_SIZE = { width: 1200, height: 630 } as const

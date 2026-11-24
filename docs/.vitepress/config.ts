@@ -303,6 +303,9 @@ export default defineConfig({
           const bag = homeHeroOf(axis.census)
           fm.description = SITE.description
           pageData.description = SITE.description
+          // the home <title> is the name and the tagline, whole: the site template would render "uuidna · uuidna"
+          pageData.title = `${SITE.name} — ${SITE.tagline}`
+          pageData.titleTemplate = false
           fm.hero = { name: bag.name, text: bag.text, tagline: bag.tagline, actions: bag.actions }
           fm.features = bag.features
         }

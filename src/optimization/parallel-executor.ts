@@ -4,6 +4,7 @@
  * Targets 8x speedup on 8-core systems with 0% contention
  */
 
+import { maxOf, minOf } from '../exact.js'
 export interface WorkItem {
   id: string
   formulaId: string
@@ -62,7 +63,7 @@ export class ParallelExecutor {
   }
 
   constructor(coreCount: number = typeof navigator === 'undefined' ? 8 : 4) {
-    this.coreCount = Math.max(1, Math.min(coreCount, 8))
+    this.coreCount = maxOf(1, minOf(coreCount, 8))
     this.workers = Array.from(
       { length: this.coreCount },
       (_, i) => new OptimizationWorker(i)
@@ -133,14 +134,14 @@ export class ParallelExecutor {
     }
 
     // load balance from items per worker, a count the schedule fixes: no clock is read
-    const maxLoad = Math.max(...this.workers.map(w => w.processed), 0)
+    const maxLoad = maxOf(...this.workers.map(w => w.processed), 0)
     const avgLoad = this.workers.reduce((s, w) => s + w.processed, 0) / this.coreCount
     const loadBalance = avgLoad > 0 ? 1.0 - (maxLoad / avgLoad - 1.0) * 0.5 : 1.0
 
     this.metrics = {
       itemsProcessed: results.length,
       coresUtilized: this.workers.filter(w => w.processed > 0).length,
-      loadBalance: Math.max(0, Math.min(1, loadBalance))
+      loadBalance: maxOf(0, minOf(1, loadBalance))
     }
 
     return results
@@ -154,9 +155,9 @@ export class ParallelExecutor {
     // Speedup = itemCount / (overhead + itemCount/coreCount)
     // With perfect load balancing and minimal overhead
     const overhead = 0.5 // ms base overhead
-    const idealSpeedup = Math.min(this.coreCount, itemCount / Math.max(1, itemCount / this.coreCount))
+    const idealSpeedup = minOf(this.coreCount, itemCount / maxOf(1, itemCount / this.coreCount))
     const realizedSpeedup = idealSpeedup * 0.9 // 90% efficiency (10% overhead)
-    return Math.max(1.0, Math.min(this.coreCount, realizedSpeedup))
+    return maxOf(1.0, minOf(this.coreCount, realizedSpeedup))
   }
 
   getMetrics(): ExecutionMetrics {

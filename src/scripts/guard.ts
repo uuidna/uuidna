@@ -12,6 +12,7 @@ import { impossibilityReading } from './impossibility-gaps.js'
 import { attestationGaps } from './attestation-gaps.js'
 import { accountingGaps } from './accounting-gaps.js'
 import { proseProvenanceGaps } from '../prose-provenance.js'
+import { meaningSourceGaps } from '../meaning-sources.js'
 import { stampGaps } from './stamp.js'
 import { mcpCitationGaps } from '../mcp-citations.js'
 import { ratchetGaps } from './ratchet-gaps.js'
@@ -391,6 +392,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // page that does not declare itself is a machine's prose a reader could take for a person's, which dilutes
   // exactly the authorship claim the request was reaching for. No check here certifies human authorship.
   { name: 'prose-provenance', run: () => proseProvenanceGaps() },
+  // MEANING COMES FROM A SOURCE (the captain, 2026-11-23). The kernel decides a wing's arithmetic and never reads
+  // the sentence that says what the numbers stand for, so a wrong reading enters without breaking a proof. Every
+  // wing must name a source a reader can open: a DOI, an ISBN, a standard, or the Mathlib declaration it restates.
+  { name: 'meaning-sources', run: () => meaningSourceGaps() },
   { name: 'mcpcite', run: () => mcpCitationGaps() },
   { name: 'stamp', run: () => stampGaps() },
   { name: 'ratchet', run: () => ratchetGaps(RATCHETS) },

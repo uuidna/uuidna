@@ -1,3 +1,4 @@
+import { floorOf, minOf, roundOf } from '../../../exact.js'
 import { test as receiptedTest } from './receipted.js'
 import type { TestContext } from 'node:test'
 import assert from 'node:assert/strict'
@@ -116,7 +117,7 @@ test('release: the site end to end — every address it lists answers, every pag
     try { warm = await get('/'); last = String(warm.status) } catch (e) { last = (e as Error).message }
   }
   assert.ok(warm && warm.status === 200, `the site answers its root within five minutes of a deploy (last: ${last})`)
-  t.diagnostic(`cold start ${Math.round((Date.now() - started) / 1000)}s`)
+  t.diagnostic(`cold start ${roundOf((Date.now() - started) / 1000)}s`)
   // the site names its own addresses: nothing is listed here
   const sitemap = await (await get('/sitemap.xml', 'application/xml')).text()
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]!).pathname)
@@ -182,7 +183,7 @@ test('release: every public API is fused and used — the registry walked throug
   assert.equal(walk.fused, walk.walked, 'every API is fused: its document read and its operations derived')
   assert.ok(walk.used > 0 && walk.statuses['200'] > 0, 'reads were made and answered')
   // and live, in hex: the i-th API's operations are derived and its first operation resolved at their addresses
-  const from = Math.floor((walk.listed * 7) / 16)
+  const from = floorOf((walk.listed * 7) / 16)
   const ops = await Promise.all(Array.from({ length: 8 }, (_, k) => hex('api', ['operations'], [from + k])))
   assert.deepEqual(ops.map((r, k) => (r.holds ? null : `api.operations(${from + k}) ${String(r.denied ?? r.value)}`)).filter(Boolean), [], 'every API of the live slice is fused: its document read at its address')
   const first = await hex('api', ['call'], [from, 0, 0])
@@ -249,7 +250,7 @@ test('release: every clay formula is cross developed from every perspective and 
   }
   const how = Object.fromEntries(await Promise.all(names.map(async (name) => [name, await crossed(name)])))
   assert.deepEqual(names.filter((name) => !how[name]), [], 'every clay formula is cross developed: a relation, a seal, or an involution holding on every input')
-  const p = await hex('data', ['perspectives'], [Math.min(relations.length, 14)])
+  const p = await hex('data', ['perspectives'], [minOf(relations.length, 14)])
   assert.equal(p.holds, true, `every relation answers alike from every referrer perspective: ${JSON.stringify((p.steps as { reading?: unknown }[] | undefined)?.at(-1)?.reading ?? {}).slice(0, 300)}`)
   // the datasets, at scale: every formula's terms looked up in OEIS live — one parameter as it is, two with the other
   // fixed at each of a slice of small naturals, none through the relation that reaches its value
@@ -264,7 +265,7 @@ test('release: every clay formula is cross developed from every perspective and 
       if (s.agrees === true) identified += 1
     }
   }
-  t.diagnostic(`${names.map((n) => `${n}: ${how[n]}`).join(', ')}; ${relations.filter((r) => r.ways.some((w) => w.family === 'clay')).length} relations cross clay, ${p.value} of ${Math.min(relations.length, 14)} relations closed from every perspective, ${research.value} matched in the record; OEIS: ${identified} of ${looked} lookups identified`)
+  t.diagnostic(`${names.map((n) => `${n}: ${how[n]}`).join(', ')}; ${relations.filter((r) => r.ways.some((w) => w.family === 'clay')).length} relations cross clay, ${p.value} of ${minOf(relations.length, 14)} relations closed from every perspective, ${research.value} matched in the record; OEIS: ${identified} of ${looked} lookups identified`)
 })
 
 test('release: the chat answers every formula asked in words with its numbers — combinatorial questions, 100% precision, one wave per family', async (t) => {

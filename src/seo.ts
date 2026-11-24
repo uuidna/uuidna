@@ -16,6 +16,7 @@ import { publications } from './publish.js'
 import { captainRights } from './captain/rights/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { handleOf } from './handle.js'
+import { SITE, OG_IMAGE, OG_IMAGE_SIZE } from './site/index.js'
 
 const HOST = 'https://uuidna.com'
 
@@ -171,8 +172,8 @@ export function quantumSeo(subject: { key?: string; slug?: string; route?: strin
   const canonical = route === '/' ? HOST + '/' : `${HOST}${route}`
   const address = toUuid('uuidna-page:' + canonical)           // the page's content-address — the quantum message
   const section = (clean(subject.route ?? '').split('/')[0] || 'home')
-  const title = subject.title || 'uuidna'
-  const description = subject.description || `${title} — part of uuidna: content-addressed identity, honest by construction; every claim links a sealed Lean proof. Integrity.`
+  const title = subject.title || SITE.name
+  const description = subject.description || `${title === SITE.name ? title : `${title} — part of ${SITE.name}`}: content-addressed identity, honest by construction; every claim links a sealed Lean proof. Integrity.`
   const keywords = ['uuidna', section, 'content-address', 'lean', 'honest']
   const entity = MAIN_ENTITY[route]
   const jsonLd = {
@@ -202,7 +203,7 @@ function seal(kind: Seo['kind'], route: string, canonical: string, address: stri
   const priorSame = Array.isArray(baseLd.sameAs) ? baseLd.sameAs as string[]
     : typeof baseLd.sameAs === 'string' ? [baseLd.sameAs] : []
   const ld = { ...baseLd, sameAs: [...priorSame.filter((u) => u !== door), door] }
-  const ogImage = `${HOST}/og.png` // docs/public/og.png — 1200×630; summary_large_image only when this ships
+  const ogImage = OG_IMAGE // docs/public/og.png; summary_large_image only when this ships
   const head: HeadTuple[] = [
     ['link', { rel: 'canonical', href: canonical }],
     ['link', { rel: 'alternate', href: door, type: 'text/html', title: 'uuidna handle door (DOI-class stable URL)' }],
@@ -210,9 +211,17 @@ function seal(kind: Seo['kind'], route: string, canonical: string, address: stri
     ['meta', { property: 'og:type', content: kind === 'page' ? 'website' : 'article' }],
     ['meta', { property: 'og:title', content: title }],
     ['meta', { property: 'og:description', content: description }],
+    ['meta', { property: 'og:site_name', content: SITE.name }],
+    ['meta', { property: 'og:locale', content: 'en_US' }],
     ['meta', { property: 'og:url', content: canonical }],
     ['meta', { property: 'og:image', content: ogImage }],
+    ['meta', { property: 'og:image:type', content: 'image/png' }],
+    ['meta', { property: 'og:image:width', content: String(OG_IMAGE_SIZE.width) }],
+    ['meta', { property: 'og:image:height', content: String(OG_IMAGE_SIZE.height) }],
+    ['meta', { property: 'og:image:alt', content: `${SITE.name}: ${SITE.tagline}` }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: title }],
+    ['meta', { name: 'twitter:description', content: description }],
     ['meta', { name: 'twitter:image', content: ogImage }],
     ['meta', { property: 'uuidna:address', content: ogId }],
     ['meta', { property: 'uuidna:handle', content: handle }],
