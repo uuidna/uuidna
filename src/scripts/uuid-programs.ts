@@ -19,7 +19,8 @@
 // field would keep the first (the same bytes come back) and break the second (the call now names a different door).
 // Both are asserted on every combination, in both directions.
 //
-// COMPLETE OVER WHAT CAN BE ENUMERATED, AND EXPLICIT ABOUT WHAT CANNOT. The decidable product is
+// COMPLETE OVER WHAT CAN BE ENUMERATED, AND EXPLICIT ABOUT WHAT CANNOT: 2^80 calls is a walk no machine finishes.
+// The decidable product is
 // doors × params = 251 × 65,536 = 16,449,536 calls, and every one of them is walked — not a sample, not a stride.
 // handle (2^32) and envelope (2^48) are NOT enumerated, because their product with the above is 2^80 calls and no
 // machine finishes it. They are carried through slices DISJOINT from the program and params fields, so the enumerated
@@ -83,7 +84,7 @@ const served = await servedAsync<{
     }
 
     // INDEPENDENCE, MEASURED. The product proof above enumerates two of four fields; it is only the whole space if the
-    // other two cannot affect the result. Vary them over a basis and require the verdict to be identical.
+    // other two do not affect the result. Vary them over a basis and require the verdict to be identical.
     let disagreements = 0
     let bases = 0
     for (let hi = 0; hi < 16; hi += 1) {

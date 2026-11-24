@@ -25,7 +25,10 @@ const RESERVED = 'reserved.uuidna'
 
 interface PackFile { path: string; size: number }
 interface PackResult { files: PackFile[]; unpackedSize: number }
-const measure = (): PackResult => JSON.parse(execSync('npm pack --dry-run --json', { encoding: 'utf8' }))[0]
+// MEASURED WITHOUT LIFECYCLE SCRIPTS. A dry run still runs prepack, which rebuilds every package and re-derives the
+// ledger: minutes of work that wrote a dozen files this script never declared and outlived the exercise that ran it.
+// The measurement reads the files as they stand on disk, which is what a reservation is aligned against.
+const measure = (): PackResult => JSON.parse(execSync('npm pack --dry-run --json --ignore-scripts', { encoding: 'utf8' }))[0]
 
 /** the target is derived
  *  for the header when the base already sits exactly on a boundary. Integer arithmetic only — Math.* settles no

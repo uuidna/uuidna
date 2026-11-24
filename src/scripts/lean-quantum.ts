@@ -328,6 +328,7 @@ console.log('computing ' + FACTS.length + ' QUANTUM facts (exact classical compu
 // the header names the tactics the proofs use, read from the proofs themselves
 const tactics = [...new Set(FACTS.flatMap((f) => [...f.lean.matchAll(/\bby\s+([a-z_]+)/g)].map((m) => m[1]!)))].sort()
 
+// what the header below states IS: the classical state-vector bound, sealed as n_qubit_dimension
 emit({ file: 'Quantum.lean', skill: 'quantum', defs: LXOR_DEF + '\n\n' + AMPS_DEF,
   ...(tactics.join() === 'decide' ? {} : { proofs: `Every proof checked by the kernel (by ${tactics.join(', by ')})` }),
   header: 'The QUANTUM computer — the exact facts the classical state-vector code (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL computation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL.',

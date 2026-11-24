@@ -1,3 +1,4 @@
+// @non-harmonic: the registry and each fetched spec are cached for a window, and a cache window is read off the wall clock.
 import { minOf } from '../exact.js'
 import { packageVersion } from '../quantum/processing/unit/version.js'
 import { contentUuidOf, facesOf, hexRegisterOf, qpuHexUuidOf, mcpFuseOf, schemaMethodsOf, uuidReceiptOf, type QpuMethod } from '../quantum/processing/unit/index.js'

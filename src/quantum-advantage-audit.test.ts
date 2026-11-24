@@ -19,7 +19,8 @@ test('usable-capacity advantage audit VERIFY path holds under 60s', () => {
   assert.ok(a.ms < 60_000, `verify path ${a.ms}ms must be <60000`)
   assert.ok(a.levels >= 4, 'all datapath levels present')
   assert.ok(a.sealDigest.length === 32)
-  // the audit checks sealed keys and counts, never wording: no gap it can raise is about a denial or a claim
+  // the audit checks sealed keys and counts, never wording: no gap it can raise is about a denial or a claim; what
+  // IS, is the classical bound those keys seal (n_qubit_dimension)
   assert.doesNotMatch(a.honest, /denial|quantum advantage|TypeScript computes/i)
   assert.match(a.honest, new RegExp(`${QA_REQUIRED_THEOREMS.length} required sealed keys`))
 })

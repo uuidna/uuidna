@@ -6254,7 +6254,7 @@ const reservedOf = (name: string): string => (seededNames.has(name) ? 'seeded' :
  * a second hop returns — the map is its own inverse. With `coins = 2` the involution restricted to seats IS the swap
  * of the two teams, which is why this is a swap and not arithmetic dressed up as one.
  *
- * A seeded name cannot be forged. A refusal that stops there hands the caller a true sentence and no next move, so
+ * A seeded name cannot be forged, because the unit seeds its own furniture under its own names. A refusal that stops there hands the caller a true sentence and no next move, so
  * it returns the seat the hop lands on: the same idea, on the other team, which is free because the unit seeds its
  * own furniture under its own names and a hopped name is not one of them. */
 const hopNameOf = (name: string): string =>
@@ -6606,7 +6606,7 @@ export type QpuTeaching = {
 
 /**
  * THE EVIDENCE. Each row is an occasion, not a conclusion; no row names a pair as entangled, because no row is
- * entitled to. Rows in only one direction are deliberately present — a detector that cannot come out negative
+ * entitled to. Rows in only one direction are deliberately present — a detector that never comes out negative
  * is furniture, and the one-way pairs below are what prove this one can.
   * @wing science
   * @kind constant

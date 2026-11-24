@@ -24163,7 +24163,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "of": "monitor"
    },
-   "excerpt": "{\"definition\":\"uuidnaos-monitor·vitepress\",\"present\":true,\"panels\":55,\"pages\":72,\"live\":21,\"static\":34,\"receipt\":\"0a2ad305-a241-8be5-8d01-c0d882f994f5\",\"honest…"
+   "excerpt": "{\"definition\":\"uuidnaos-monitor·vitepress\",\"present\":true,\"panels\":55,\"pages\":73,\"live\":21,\"static\":34,\"receipt\":\"22c47865-1082-81a6-a44f-7dd2b8b88d17\",\"honest…"
   }
  },
  "uuidna_list_tools": {

@@ -1,3 +1,4 @@
+// @non-harmonic: reads through the hosted door are cached for a window and an offline door is retried after one, both timed by the wall clock.
 import { ceilOf, floorOf, maxOf, minOf } from '../exact.js'
 import './involute.js'
 import './shadcn.js'

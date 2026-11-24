@@ -1,3 +1,4 @@
+// @non-harmonic: a job is a spawned process: its id, its start and its finish are read off the wall clock and the host RNG.
 // A HEAVY DOOR RUNS AS A JOB. A door whose computation is long (the discovery over every window, for one) would block the
 // server's event loop for the whole run, so no other call is answered meanwhile. `job` runs any door in a child process:
 // { task, params } starts it and answers at once with an id; { id } answers its status, and its result once done.

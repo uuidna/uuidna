@@ -1,3 +1,4 @@
+// @non-harmonic: the $currentDate update operator writes the wall clock, as MongoDB defines it.
 /**
  * A DOCUMENT DATABASE WITH MONGODB SEMANTICS, ON WHATEVER STORE IT IS GIVEN.
  *
