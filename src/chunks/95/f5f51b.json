@@ -1,0 +1,12 @@
+{
+  "handle": "95f5f51b",
+  "address": "95f5f51b-bc8e-80c0-a686-ba0b91863489",
+  "statement": "(((((100 : Int) - (88 : Int)) * (100 : Int)) / (100 : Int)) = (12 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (200 : Int)) = (7 : Int)) ∧ (((900 : Int) / (300 : Int)) = (3 : Int)) ∧ (((2 : Int) * (3 : Int)) = (6 : Int)) ∧ (((400 : Int) / (50 : Int)) = (8 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_ceramics"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

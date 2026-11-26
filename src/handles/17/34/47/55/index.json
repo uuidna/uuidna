@@ -1,11 +1,20 @@
 {
+<<<<<<<< HEAD:src/handles/c4/ff/e2/63/index.json
+  "handle": "c4ffe263",
+  "address": "c4ffe263-34c6-82cd-b8ea-bdc45d33e7ae",
+========
   "handle": "17344755",
   "address": "17344755-6fca-8b0a-8578-eeae6677108e",
+>>>>>>>> origin/main:src/handles/17/34/47/55/index.json
   "kind": "chunk",
   "keys": [
     "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure"
   ],
+<<<<<<<< HEAD:src/handles/c4/ff/e2/63/index.json
+  "statement": "((498 * 100 < 766422) ∧ (1728 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674))",
+========
   "statement": "((498 * 100 < 767158) ∧ (1729 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674))",
+>>>>>>>> origin/main:src/handles/17/34/47/55/index.json
   "files": [
     "CrossFormulas.lean"
   ]

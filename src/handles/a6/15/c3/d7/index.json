@@ -1,0 +1,12 @@
+{
+  "handle": "a615c3d7",
+  "address": "a615c3d7-cae7-8842-a414-bf1bab22c060",
+  "kind": "chunk",
+  "keys": [
+    "fam_photography"
+  ],
+  "statement": "(((8 : Int) * (125 : Int)) = (1000 : Int)) ∧ ((((50 : Int) * (10 : Int)) / (25 : Int)) = (20 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((4000 : Int) * (3000 : Int)) / (1000000 : Int)) = (12 : Int)) ∧ ((((36 : Int) * (100 : Int)) / (24 : Int)) = (150 : Int)) ∧ (((2 : Int) ^ (3 : Nat)) = (8 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (3 : Int)) = (66 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

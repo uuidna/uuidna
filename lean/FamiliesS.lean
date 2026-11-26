@@ -104,13 +104,12 @@ theorem fam_sedimentology : ((((500 : Int) + (100 : Int)) / (2 : Int)) = (300 : 
 theorem fam_seismology : (((750 : Int) / (100 : Int)) = (7 : Int)) ∧ (((7 : Int) * (7 : Int)) = (49 : Int)) ∧ (((10 : Int) * (5 : Int)) = (50 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (20 : Int)) = (35 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((((100 : Int) * (10 : Int)) / (5 : Int)) = (200 : Int)) ∧ ((((100 : Int) * (10 : Int)) / (0 : Int)) = (0 : Int)) ∧ (((30 : Int) + (45 : Int)) = (75 : Int)) ∧ (((500 : Int) / (100 : Int)) = (5 : Int)) ∧ (((500 : Int) / (0 : Int)) = (0 : Int)) ∧ (((1000 : Int) * (3 : Int)) = (3000 : Int)) := by decide
 
 /-- semantics: similarity(3, 4) = 75; polysemy(10, 3) = 3; entailment(2, 5) = 40; ambiguity(12, 4) = 3;
-    density(30, 100) = 30; distance(5) = 5; coherence(9, 10) = 90; sentiment(70, 30) = 40; sentiment(30, 70) =
-    -40 -/
-theorem fam_semantics : ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ (((10 : Int) / (3 : Int)) = (3 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (5 : Int)) = (40 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ (((70 : Int) - (30 : Int)) = (40 : Int)) ∧ (((30 : Int) - (70 : Int)) = (-40 : Int)) := by decide
+    density(30, 100) = 30; coherence(9, 10) = 90; sentiment(70, 30) = 40; sentiment(30, 70) = -40 -/
+theorem fam_semantics : ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ (((10 : Int) / (3 : Int)) = (3 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (5 : Int)) = (40 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ (((70 : Int) - (30 : Int)) = (40 : Int)) ∧ (((30 : Int) - (70 : Int)) = (-40 : Int)) := by decide
 
-/-- semiconductor: bandgap(1120) = 1120; carrier(600, 400) = 1000; diesyield(90, 100) = 90; doping(5, 1000000) =
-    5; junction(1000, 10) = 10000; mobility(1400, 2) = 700; resistivity(5, 1) = 5; threshold(700) = 700 -/
-theorem fam_semiconductor : ((1120 : Int) = (1120 : Int)) ∧ (((600 : Int) + (400 : Int)) = (1000 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((5 : Int) * (1000000 : Int)) / (1000000 : Int)) = (5 : Int)) ∧ ((((1000 : Int) * (100 : Int)) / (10 : Int)) = (10000 : Int)) ∧ (((1400 : Int) / (2 : Int)) = (700 : Int)) ∧ (((5 : Int) / (1 : Int)) = (5 : Int)) ∧ ((700 : Int) = (700 : Int)) := by decide
+/-- semiconductor: carrier(600, 400) = 1000; diesyield(90, 100) = 90; doping(5, 1000000) = 5; junction(1000, 10)
+    = 10000; mobility(1400, 2) = 700; resistivity(5, 1) = 5 -/
+theorem fam_semiconductor : (((600 : Int) + (400 : Int)) = (1000 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((5 : Int) * (1000000 : Int)) / (1000000 : Int)) = (5 : Int)) ∧ ((((1000 : Int) * (100 : Int)) / (10 : Int)) = (10000 : Int)) ∧ (((1400 : Int) / (2 : Int)) = (700 : Int)) ∧ (((5 : Int) / (1 : Int)) = (5 : Int)) := by decide
 
 /-- semiconductors: bandgap(1120, 50) = 1070; doping(500, 8) = 4000; mobility(1400, 7) = 200; resistivity(10,
     50, 25) = 20; threshold(5, 2) = 3; threshold(1, 2) = 0; yield(950, 1000) = 95; wafer(31416, 100) = 314;
@@ -166,8 +165,8 @@ theorem fam_sharding : ((-((-(1000 : Int)) / (256 : Int))) = (4 : Int)) ∧ (((6
 theorem fam_shinto : (((8 : Int) * (1000 : Int)) = (8000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (2 : Int)))) = (66 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((3 : Int) + (2 : Int)) = (5 : Int)) ∧ (((20 : Int) * (1 : Int)) = (20 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) := by decide
 
 /-- shipping: teu(100, 2) = 200; utilization(900, 1000) = 90; transittime(12000, 500) = 24; freightrate(10000,
-    50) = 200; demurrage(5, 150) = 750; dwelltime(72) = 72; ontime(95, 100) = 95; bunkerfuel(1000, 30) = 30000 -/
-theorem fam_shipping : (((100 : Int) * (2 : Int)) = (200 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((12000 : Int) / (500 : Int)) = (24 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ (((5 : Int) * (150 : Int)) = (750 : Int)) ∧ ((72 : Int) = (72 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((1000 : Int) * (30 : Int)) = (30000 : Int)) := by decide
+    50) = 200; demurrage(5, 150) = 750; ontime(95, 100) = 95; bunkerfuel(1000, 30) = 30000 -/
+theorem fam_shipping : (((100 : Int) * (2 : Int)) = (200 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((12000 : Int) / (500 : Int)) = (24 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ (((5 : Int) * (150 : Int)) = (750 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((1000 : Int) * (30 : Int)) = (30000 : Int)) := by decide
 
 /-- shogi: squares(9, 9) = 81; pieces(20, 2) = 40; promotions(6, 0) = 6; dropcombos(7, 2) = 21; movepaths(8, 3)
     = 336; handsubsets(7) = 128; rankcount(9, 0) = 9; branchingfactor(80, 0) = 80 -/
@@ -199,8 +198,8 @@ theorem fam_silage : ((((350 : Int) * (100 : Int)) / (1000 : Int)) = (35 : Int))
 theorem fam_silviculture : (((((10 : Int) ^ (2 : Nat)) * (4 : Int)) / (4 : Int)) = (100 : Int)) ∧ (((5000 : Int) / (50 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (50 : Int))) = (30 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (80 : Int))) = (0 : Int)) ∧ ((-((-(100 : Int)) / (10 : Int))) = (10 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (300 : Int))) = (700 : Int)) ∧ (((100 : Int) * (20 : Int)) = (2000 : Int)) ∧ (((8 : Int) * (25 : Int)) = (200 : Int)) := by decide
 
 /-- simulation: timestep(1000, 100) = 10; convergence(50, 10) = 5; montecarlo(785, 1000) = 78; stability(95,
-    100) = 95; resolution(1000, 50) = 20; speedup(800, 100) = 800; accuracy(990, 1000) = 99; iterations(42) = 42 -/
-theorem fam_simulation : (((1000 : Int) / (100 : Int)) = (10 : Int)) ∧ (((50 : Int) / (10 : Int)) = (5 : Int)) ∧ ((((785 : Int) * (100 : Int)) / (1000 : Int)) = (78 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (100 : Int)) = (800 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((42 : Int) = (42 : Int)) := by decide
+    100) = 95; resolution(1000, 50) = 20; speedup(800, 100) = 800; accuracy(990, 1000) = 99 -/
+theorem fam_simulation : (((1000 : Int) / (100 : Int)) = (10 : Int)) ∧ (((50 : Int) / (10 : Int)) = (5 : Int)) ∧ ((((785 : Int) * (100 : Int)) / (1000 : Int)) = (78 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (100 : Int)) = (800 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) := by decide
 
 /-- sintering: densification(95, 60, 100) = 87; density(950, 1000) = 95; greendensity(500, 100) = 500;
     holdtime(1200, 10) = 120; neckgrowth(30, 100) = 30; porosity(95) = 5; shrinkage(100, 85) = 15;
@@ -211,9 +210,9 @@ theorem fam_sintering : (((((95 : Int) - (60 : Int)) * (100 : Int)) / ((100 : In
     opportunities(1000, 5) = 5000; rolledthroughput(95, 90, 90) = 76; sigma(600, 100) = 6; yield(950, 1000) = 95 -/
 theorem fam_sixsigma : ((((400 : Int) * (100 : Int)) / (300 : Int)) = (133 : Int)) ∧ (((1000 : Int) * (3 : Int)) = (3000 : Int)) ∧ ((((5 : Int) * (1000000 : Int)) / (1000 : Int)) = (5000 : Int)) ∧ ((((20 : Int) * (1000 : Int)) / (1000 : Int)) = (20 : Int)) ∧ (((1000 : Int) * (5 : Int)) = (5000 : Int)) ∧ (((((95 : Int) * (90 : Int)) * (90 : Int)) / (10000 : Int)) = (76 : Int)) ∧ (((600 : Int) / (100 : Int)) = (6 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) := by decide
 
-/-- slider: slides(5) = 5; index(1, 4) = 25; autoplay(3000, 5) = 15000; loop(7, 5) = 2; visible(3, 12) = 25;
-    gap(5, 16) = 64; transition(300) = 300; pages(10, 3) = 4 -/
-theorem fam_slider : ((5 : Int) = (5 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (4 : Int)) = (25 : Int)) ∧ (((3000 : Int) * (5 : Int)) = (15000 : Int)) ∧ (((7 : Int) % (5 : Int)) = (2 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ (((fmax (0 : Int) ((5 : Int) - (1 : Int))) * (16 : Int)) = (64 : Int)) ∧ ((300 : Int) = (300 : Int)) ∧ ((-((-(10 : Int)) / (3 : Int))) = (4 : Int)) := by decide
+/-- slider: index(1, 4) = 25; autoplay(3000, 5) = 15000; loop(7, 5) = 2; visible(3, 12) = 25; gap(5, 16) = 64;
+    pages(10, 3) = 4 -/
+theorem fam_slider : ((((1 : Int) * (100 : Int)) / (4 : Int)) = (25 : Int)) ∧ (((3000 : Int) * (5 : Int)) = (15000 : Int)) ∧ (((7 : Int) % (5 : Int)) = (2 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ (((fmax (0 : Int) ((5 : Int) - (1 : Int))) * (16 : Int)) = (64 : Int)) ∧ ((-((-(10 : Int)) / (3 : Int))) = (4 : Int)) := by decide
 
 /-- slotting: pickdensity(500, 50) = 10; traveltime(1000, 20) = 50; velocityrank(900, 100) = 9;
     utilizationrate(85, 100) = 85; replenishrate(600, 6) = 100; goldenzone(40, 200) = 20; picksperslot(800, 40)
@@ -245,8 +244,8 @@ theorem fam_social : ((((500 : Int) * (100 : Int)) / (10000 : Int)) = (5 : Int))
 theorem fam_socialnetwork : ((((5 : Int) * (100 : Int)) / ((11 : Int) - (1 : Int))) = (50 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (60 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (50 : Int)) = (60 : Int)) ∧ (((420 : Int) / (100 : Int)) = (4 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (48 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (7 : Int))) = (3 : Int)) ∧ ((((35 : Int) * (100 : Int)) / (50 : Int)) = (70 : Int)) := by decide
 
 /-- sociology: gini(20, 100) = 20; mobility(30, 100) = 30; network(5, 10) = 100; cohesion(50, 10) = 5;
-    segregation(40, 100) = 40; participation(60, 100) = 60; diffusion(25, 100) = 25; cohort(42) = 42 -/
-theorem fam_sociology : ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((10 : Int) * (200 : Int)) / ((5 : Int) * ((5 : Int) - (1 : Int)))) = (100 : Int)) ∧ (((50 : Int) / (10 : Int)) = (5 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ ((42 : Int) = (42 : Int)) := by decide
+    segregation(40, 100) = 40; participation(60, 100) = 60; diffusion(25, 100) = 25 -/
+theorem fam_sociology : ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((10 : Int) * (200 : Int)) / ((5 : Int) * ((5 : Int) - (1 : Int)))) = (100 : Int)) ∧ (((50 : Int) / (10 : Int)) = (5 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) := by decide
 
 /-- socket: ports(16) = 65536; backlog(128, 0) = 128; connections(1000, 4) = 4000; timeout(120, 2) = 60;
     buffers(64, 1024) = 65536; states(11, 0) = 11; handshake(3, 0) = 3; combos(6, 2) = 15 -/
@@ -314,9 +313,9 @@ theorem fam_spaceflight : (((9400 : Int) * (1 : Int)) = (9400 : Int)) ∧ (((11 
     linewidth(900, 3) = 300 -/
 theorem fam_spectroscopy : (((500 : Int) * (6 : Int)) = (3000 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (20 : Int)) = (400 : Int)) ∧ (((100 : Int) / (5 : Int)) = (20 : Int)) ∧ (((600 : Int) / (3 : Int)) = (200 : Int)) ∧ (((500 : Int) - (480 : Int)) = (20 : Int)) ∧ (((480 : Int) - (500 : Int)) = (-20 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((900 : Int) / (3 : Int)) = (300 : Int)) := by decide
 
-/-- speleology: depth(2197) = 2197; extent(12, 50) = 600; speleothem(100, 4) = 25; dissolution(30, 200) = 15;
-    survey(750, 1000) = 75; gradient(45, 300) = 15; humidity(95, 100) = 95; chambers(42) = 42 -/
-theorem fam_speleology : ((2197 : Int) = (2197 : Int)) ∧ (((12 : Int) * (50 : Int)) = (600 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (200 : Int)) = (15 : Int)) ∧ ((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (300 : Int)) = (15 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((42 : Int) = (42 : Int)) := by decide
+/-- speleology: extent(12, 50) = 600; speleothem(100, 4) = 25; dissolution(30, 200) = 15; survey(750, 1000) =
+    75; gradient(45, 300) = 15; humidity(95, 100) = 95 -/
+theorem fam_speleology : (((12 : Int) * (50 : Int)) = (600 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (200 : Int)) = (15 : Int)) ∧ ((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (300 : Int)) = (15 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) := by decide
 
 /-- spicetrade: spicecount(40, 20) = 60; routepairs(12, 2) = 66; priceindex(100, 3) = 300; originsubsets(6) =
     64; traderoutes(8, 3) = 24; volumetons(1000, 5) = 5000; blendcombos(15, 3) = 455; marginpct(40, 100) = 40 -/
@@ -334,8 +333,8 @@ theorem fam_spirometry : ((((4000 : Int) * (100 : Int)) / (5000 : Int)) = (80 : 
 
 /-- sports: win(60, 100) = 60; average(2500, 100) = 25; differential(110, 95) = 15; differential(95, 110) = -15;
     possession(55, 90) = 61; rating(450, 1000) = 45; standings(50, 32) = 18; standings(32, 50) = -18; pace(10,
-    2400) = 240; streak(7) = 7 -/
-theorem fam_sports : ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((2500 : Int) / (100 : Int)) = (25 : Int)) ∧ (((110 : Int) - (95 : Int)) = (15 : Int)) ∧ (((95 : Int) - (110 : Int)) = (-15 : Int)) ∧ ((((55 : Int) * (100 : Int)) / (90 : Int)) = (61 : Int)) ∧ ((((450 : Int) * (100 : Int)) / (1000 : Int)) = (45 : Int)) ∧ (((50 : Int) - (32 : Int)) = (18 : Int)) ∧ (((32 : Int) - (50 : Int)) = (-18 : Int)) ∧ (((2400 : Int) / (10 : Int)) = (240 : Int)) ∧ ((7 : Int) = (7 : Int)) := by decide
+    2400) = 240 -/
+theorem fam_sports : ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ (((2500 : Int) / (100 : Int)) = (25 : Int)) ∧ (((110 : Int) - (95 : Int)) = (15 : Int)) ∧ (((95 : Int) - (110 : Int)) = (-15 : Int)) ∧ ((((55 : Int) * (100 : Int)) / (90 : Int)) = (61 : Int)) ∧ ((((450 : Int) * (100 : Int)) / (1000 : Int)) = (45 : Int)) ∧ (((50 : Int) - (32 : Int)) = (18 : Int)) ∧ (((32 : Int) - (50 : Int)) = (-18 : Int)) ∧ (((2400 : Int) / (10 : Int)) = (240 : Int)) := by decide
 
 /-- spring: force(50, 10) = 500; constant(20, 1) = 20; coils(10, 2) = 12; deflection(100, 20) = 5; energy(500,
     2) = 250; series(100, 200) = 300; parallelsum(50, 50) = 100; combos(6, 2) = 15 -/
@@ -347,9 +346,8 @@ theorem fam_spring : (((50 : Int) * (10 : Int)) = (500 : Int)) ∧ (((20 : Int) 
 theorem fam_sprint : (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int)) ∧ (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ (((80 : Int) / (10 : Int)) = (8 : Int)) ∧ (((400 : Int) / (4 : Int)) = (100 : Int)) ∧ ((fmax (11 : Int) (12 : Int)) = (12 : Int)) ∧ (((10 : Int) * (10 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (150 : Int))) = (50 : Int)) := by decide
 
 /-- ssd: iops(32, 100) = 320000; throughput(320000, 4) = 1280000; tbw(256, 3000) = 768; overprovision(512, 480)
-    = 32; wearleveling(10000, 1000) = 10; channels(16, 4) = 4; pagesize(8, 512) = 4096; queuedepth(32) = 32;
-    dwpd(730, 200, 365) = 10 -/
-theorem fam_ssd : ((((32 : Int) * (1000000 : Int)) / (100 : Int)) = (320000 : Int)) ∧ (((320000 : Int) * (4 : Int)) = (1280000 : Int)) ∧ ((((256 : Int) * (3000 : Int)) / (1000 : Int)) = (768 : Int)) ∧ (((512 : Int) - (480 : Int)) = (32 : Int)) ∧ (((10000 : Int) / (1000 : Int)) = (10 : Int)) ∧ ((-((-(16 : Int)) / (4 : Int))) = (4 : Int)) ∧ (((8 : Int) * (512 : Int)) = (4096 : Int)) ∧ ((32 : Int) = (32 : Int)) ∧ ((((730 : Int) * (1000 : Int)) / ((200 : Int) * (365 : Int))) = (10 : Int)) := by decide
+    = 32; wearleveling(10000, 1000) = 10; channels(16, 4) = 4; pagesize(8, 512) = 4096; dwpd(730, 200, 365) = 10 -/
+theorem fam_ssd : ((((32 : Int) * (1000000 : Int)) / (100 : Int)) = (320000 : Int)) ∧ (((320000 : Int) * (4 : Int)) = (1280000 : Int)) ∧ ((((256 : Int) * (3000 : Int)) / (1000 : Int)) = (768 : Int)) ∧ (((512 : Int) - (480 : Int)) = (32 : Int)) ∧ (((10000 : Int) / (1000 : Int)) = (10 : Int)) ∧ ((-((-(16 : Int)) / (4 : Int))) = (4 : Int)) ∧ (((8 : Int) * (512 : Int)) = (4096 : Int)) ∧ ((((730 : Int) * (1000 : Int)) / ((200 : Int) * (365 : Int))) = (10 : Int)) := by decide
 
 /-- stability: gainmargin(200, 100) = 200; phasemargin(180, 135) = 45; crossoverfrequency(1000, 4) = 250;
     poles(3, 2) = 7; zeros(5, 2) = 3; marginratio(200, 50) = 400; dampingfactor(70, 100) = 70 -/
@@ -373,9 +371,9 @@ theorem fam_stainedglass : (((12 : Int) * (8 : Int)) = (96 : Int)) ∧ (((40 : I
     0) = 7; lifetime(10, 1000) = 10000; radius(7, 100) = 700; combos(7, 2) = 21 -/
 theorem fam_star : (((4 : Int) * (100 : Int)) = (400 : Int)) ∧ ((fmax (0 : Int) ((15 : Int) - (5 : Int))) = (10 : Int)) ∧ (((3260 : Int) / (1000 : Int)) = (3 : Int)) ∧ (((2 : Int) * (1 : Int)) = (2 : Int)) ∧ (((7 : Int) + (0 : Int)) = (7 : Int)) ∧ (((10 : Int) * (1000 : Int)) = (10000 : Int)) ∧ (((7 : Int) * (100 : Int)) = (700 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (7 : Int)) (Int.toNat (2 : Int)))) = (21 : Int)) := by decide
 
-/-- state: actions(600, 60) = 10; depth(3) = 3; diff(1, 8) = 12; hydration(9, 10) = 90; memoized(950, 1000) =
-    95; rerenders(50, 200) = 25; selectors(42) = 42; stores(4) = 4 -/
-theorem fam_state : (((600 : Int) / (60 : Int)) = (10 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (8 : Int)) = (12 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((42 : Int) = (42 : Int)) ∧ ((4 : Int) = (4 : Int)) := by decide
+/-- state: actions(600, 60) = 10; diff(1, 8) = 12; hydration(9, 10) = 90; memoized(950, 1000) = 95;
+    rerenders(50, 200) = 25 -/
+theorem fam_state : (((600 : Int) / (60 : Int)) = (10 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (8 : Int)) = (12 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) := by decide
 
 /-- statics: centroid(10, 30, 8) = 6; friction(500, 40) = 200; moment(50, 4) = 200; normalforce(50, 10) = 500;
     reaction(100, 3, 10) = 30; shear(800, 300) = 500; truss(7) = 11 -/
@@ -405,9 +403,9 @@ theorem fam_stellar : ((((10 : Int) * (10000 : Int)) / (1000 : Int)) = (100 : In
     understemming(9, 300) = 3; stemlength(3, 7) = 0 -/
 theorem fam_stemming : (((12 : Int) + (18 : Int)) = (30 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (640 : Int))) = (360 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (200 : Int)) = (2 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (3 : Int))) = (4 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (5 : Int))) = (7 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (300 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (7 : Int))) = (0 : Int)) := by decide
 
-/-- steps: progress(3, 4) = 75; current(2, 5) = 40; remaining(3, 5) = 2; count(7) = 7; order(3, 5) = 1; order(6,
-    5) = 0; duration(5, 30) = 150; depth(3) = 3; completion(80, 100) = 80 -/
-theorem fam_steps : ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (5 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((5 : Int) - (3 : Int))) = (2 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((if (if (3 : Int) ≤ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (6 : Int) ≤ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((5 : Int) * (30 : Int)) = (150 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) := by decide
+/-- steps: progress(3, 4) = 75; current(2, 5) = 40; remaining(3, 5) = 2; order(3, 5) = 1; order(6, 5) = 0;
+    duration(5, 30) = 150; completion(80, 100) = 80 -/
+theorem fam_steps : ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (5 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) ((5 : Int) - (3 : Int))) = (2 : Int)) ∧ ((if (if (3 : Int) ≤ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (6 : Int) ≤ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((5 : Int) * (30 : Int)) = (150 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) := by decide
 
 /-- stoichiometry: moles(180, 18) = 10; moles(5, 0) = 0; molarmass(2, 16) = 32; limiting(5, 3) = 3; yield(80,
     100) = 80; molarity(6, 2) = 3; dilution(10, 2, 4) = 5; percentmass(2, 18) = 11; empirical(2, 4) = 2 -/
@@ -441,9 +439,9 @@ theorem fam_stratigraphy : (((600 : Int) / (300 : Int)) = (2 : Int)) ∧ (((1500
     1024) = 65536; backpressure(80, 100) = 80; segments(10000, 188) = 53; pipes(3, 0) = 3; combos(6, 2) = 15 -/
 theorem fam_stream : ((-((-(100000 : Int)) / (4096 : Int))) = (25 : Int)) ∧ (((8 : Int) * (4096 : Int)) = (32768 : Int)) ∧ (((1000000 : Int) / (1000 : Int)) = (1000 : Int)) ∧ (((64 : Int) * (1024 : Int)) = (65536 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((10000 : Int) / (188 : Int)) = (53 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) := by decide
 
-/-- streaming: bitrate(6000, 60) = 100; buffer(30, 100) = 30; rebuffer(12, 4) = 3; latency(250) = 250;
-    bandwidth(1000, 8) = 125; quality(90, 100) = 90; concurrency(750, 1000) = 75; startup(1200) = 1200 -/
-theorem fam_streaming : (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int)) ∧ ((250 : Int) = (250 : Int)) ∧ (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((1200 : Int) = (1200 : Int)) := by decide
+/-- streaming: bitrate(6000, 60) = 100; buffer(30, 100) = 30; rebuffer(12, 4) = 3; bandwidth(1000, 8) = 125;
+    quality(90, 100) = 90; concurrency(750, 1000) = 75 -/
+theorem fam_streaming : (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int)) ∧ (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) := by decide
 
 /-- strength: volume(100, 5, 3) = 1500; intensity(80, 100) = 80; tonnage(500, 10) = 5000; density(5000, 50) =
     100; relativestrength(150, 75) = 200; restratio(180, 60) = 3; progression(105, 100) = 5; workcapacity(20,
@@ -479,10 +477,9 @@ theorem fam_sudoku : (((9 : Int) * (9 : Int)) = (81 : Int)) ∧ (((3 : Int) * (3
     100) = 5 -/
 theorem fam_supplychain : ((fmax (0 : Int) ((17 : Int) - (10 : Int))) = (7 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (17 : Int))) = (0 : Int)) ∧ (((1000 : Int) / (250 : Int)) = (4 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ (((40 : Int) * (5 : Int)) = (200 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((100 : Int) / (20 : Int)) = (5 : Int)) := by decide
 
-/-- surgery: duration(60, 180) = 120; duration(180, 60) = 0; bloodloss(450) = 450; mortality(2, 100) = 2;
-    complication(15, 200) = 7; recovery(90, 100) = 90; margin(85, 100) = 85; throughput(12, 8) = 1; success(95,
-    100) = 95 -/
-theorem fam_surgery : ((fmax (0 : Int) ((180 : Int) - (60 : Int))) = (120 : Int)) ∧ ((fmax (0 : Int) ((60 : Int) - (180 : Int))) = (0 : Int)) ∧ ((450 : Int) = (450 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (200 : Int)) = (7 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ (((12 : Int) / (8 : Int)) = (1 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) := by decide
+/-- surgery: duration(60, 180) = 120; duration(180, 60) = 0; mortality(2, 100) = 2; complication(15, 200) = 7;
+    recovery(90, 100) = 90; margin(85, 100) = 85; throughput(12, 8) = 1; success(95, 100) = 95 -/
+theorem fam_surgery : ((fmax (0 : Int) ((180 : Int) - (60 : Int))) = (120 : Int)) ∧ ((fmax (0 : Int) ((60 : Int) - (180 : Int))) = (0 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (200 : Int)) = (7 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ (((12 : Int) / (8 : Int)) = (1 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) := by decide
 
 /-- survey: bearings(360, 1) = 360; stations(12, 8) = 20; arcseconds(60, 60) = 3600; traverse(100, 5) = 500;
     gridcells(16, 16) = 256; area(100, 50) = 5000; angles(60, 60, 60) = 180; combos(8, 2) = 28 -/
@@ -509,8 +506,8 @@ theorem fam_sustainability : ((((120 : Int) * (100 : Int)) / (100 : Int)) = (120
 theorem fam_swaps : ((((10000 : Int) * (500 : Int)) / (10000 : Int)) = (500 : Int)) ∧ ((((10000 : Int) * ((300 : Int) + (200 : Int))) / (10000 : Int)) = (500 : Int)) ∧ ((fmax (0 : Int) ((800 : Int) - (300 : Int))) = (500 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (800 : Int))) = (0 : Int)) ∧ (((1000 : Int) * (50 : Int)) = (50000 : Int)) ∧ ((((500 : Int) * (10000 : Int)) / (10000 : Int)) = (500 : Int)) ∧ ((fmax (0 : Int) ((250 : Int) - (200 : Int))) = (50 : Int)) ∧ ((((10500 : Int) * (10000 : Int)) / ((10000 : Int) + (500 : Int))) = (10000 : Int)) ∧ (((((50000 : Int) * (500 : Int)) * (365 : Int)) / (3650000 : Int)) = (2500 : Int)) := by decide
 
 /-- swine: litter(110, 10) = 11; feedconversion(300, 100) = 300; averagedailygain(900, 90) = 10; weaning(90,
-    100) = 90; leanness(58, 100) = 58; farrowing(220, 100) = 220; mortality(5, 1000) = 0; market(120) = 120 -/
-theorem fam_swine : (((110 : Int) / (10 : Int)) = (11 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ (((900 : Int) / (90 : Int)) = (10 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((58 : Int) * (100 : Int)) / (100 : Int)) = (58 : Int)) ∧ ((((220 : Int) * (100 : Int)) / (100 : Int)) = (220 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((120 : Int) = (120 : Int)) := by decide
+    100) = 90; leanness(58, 100) = 58; farrowing(220, 100) = 220; mortality(5, 1000) = 0 -/
+theorem fam_swine : (((110 : Int) / (10 : Int)) = (11 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ (((900 : Int) / (90 : Int)) = (10 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((58 : Int) * (100 : Int)) / (100 : Int)) = (58 : Int)) ∧ ((((220 : Int) * (100 : Int)) / (100 : Int)) = (220 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) := by decide
 
 /-- syllabary: syllables(5, 10) = 50; cvcombos(15, 2) = 105; consonants(14, 0) = 14; vowels(5, 0) = 5;
     gridcells(14, 5) = 70; orderingchoices(5) = 120; charsubsets(6) = 64; coverage(95, 100) = 95 -/
@@ -525,9 +522,9 @@ theorem fam_syllogism : (((4 : Int) * (4 : Int)) = (16 : Int)) ∧ (((4 : Int) +
     strength(80, 100) = 80; plasticity(100, 20) = 80; transmitters(6, 0) = 6; combos(6, 2) = 15 -/
 theorem fam_synapse : (((100 : Int) * (10 : Int)) = (1000 : Int)) ∧ (((200 : Int) / (10 : Int)) = (20 : Int)) ∧ (((1000 : Int) * (1 : Int)) = (1000 : Int)) ∧ (((100 : Int) / (50 : Int)) = (2 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (20 : Int))) = (80 : Int)) ∧ (((6 : Int) + (0 : Int)) = (6 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) := by decide
 
-/-- syntax: depth(12, 3) = 4; branching(20, 5) = 4; agreement(9, 10) = 90; complexity(15, 5) = 3; ambiguity(7) =
-    7; dependency(8, 10) = 80; recursion(3) = 3; wellformed(95, 100) = 95 -/
-theorem fam_syntax : (((12 : Int) / (3 : Int)) = (4 : Int)) ∧ (((20 : Int) / (5 : Int)) = (4 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ (((15 : Int) / (5 : Int)) = (3 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) := by decide
+/-- syntax: depth(12, 3) = 4; branching(20, 5) = 4; agreement(9, 10) = 90; complexity(15, 5) = 3; dependency(8,
+    10) = 80; wellformed(95, 100) = 95 -/
+theorem fam_syntax : (((12 : Int) / (3 : Int)) = (4 : Int)) ∧ (((20 : Int) / (5 : Int)) = (4 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (10 : Int)) = (90 : Int)) ∧ (((15 : Int) / (5 : Int)) = (3 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) := by decide
 
 /-- synthesis: length(3, 5) = 8; vocabulary(2, 4) = 6; tokens(10, 7) = 70; examples(4, 3) = 12; rewrites(5, 6) =
     30; paths(4) = 16; candidates(3, 4) = 81; effort(8, 6) = 48 -/

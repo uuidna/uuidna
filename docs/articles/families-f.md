@@ -7,7 +7,7 @@ description: "Computed from lean/FamiliesF.lean — 43 sealed theorems, every cl
 
 > THE FAMILIES, F — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. — held by [fam_failure](/theorem/fam_failure) and its 42 siblings below.
 
-**43 theorems** and **16,911 decided cases**, from [fam_failure](/theorem/fam_failure) onward, each proven `by decide` in <a href="/lean/FamiliesF.lean">lean/FamiliesF.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**43 theorems** and **16,706 decided cases**, from [fam_failure](/theorem/fam_failure) onward, each proven `by decide` in <a href="/lean/FamiliesF.lean">lean/FamiliesF.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FFamiliesF.lean)** — nothing to install. The editor fetches `lean/FamiliesF.lean` from the repository and re-decides all 43 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -60,11 +60,11 @@ The ledger holds this as [fam_feedlot](/theorem/fam_feedlot) — proven `by deci
 (((500 : Int) * (8 : Int)) = (4000 : Int)) ∧ (((360 : Int) / (180 : Int)) = (2 : Int)) ∧ ((-((-(fmax (0 : Int) ((1200 : Int) - (600 : Int)))) / (3 : Int))) = (200 : Int)) ∧ (((2400 : Int) / (120 : Int)) = (20 : Int)) ∧ (((1200 : Int) / (200 : Int)) = (6 : Int)) ∧ (((6000 : Int) / (100 : Int)) = (60 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (300 : Int)) = (15 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1200 : Int)) = (75 : Int)) ∧ (((100 : Int) / (0 : Int)) = (0 : Int))
 ```
 
-### fermentation: biomass(10000, 100) = 100; conversion(80, 100) = 80; ethanol(45, 50) = 90; inoculation(5, 100) = 5; output(60, 100) = 60; ph(30, 100) = 30; rate(1200, 48) = 25; temperature(37) = 37
+### fermentation: biomass(10000, 100) = 100; conversion(80, 100) = 80; ethanol(45, 50) = 90; inoculation(5, 100) = 5; output(60, 100) = 60; ph(30, 100) = 30; rate(1200, 48) = 25
 The ledger holds this as [fam_fermentation](/theorem/fam_fermentation) — proven `by decide`, sorry-free:
 
 ```lean
-(((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((1200 : Int) / (48 : Int)) = (25 : Int)) ∧ ((37 : Int) = (37 : Int))
+(((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((1200 : Int) / (48 : Int)) = (25 : Int))
 ```
 
 ### ferry: capacity(200, 2) = 400; crossingtime(60, 1) = 60; vehicledecks(2, 1) = 3; dailycrossings(1440, 90) = 16; loadfactor(75, 100) = 75; turnaroundmin(60, 2) = 30; routepairs(8, 2) = 28; throughput(400, 16) = 6400
@@ -81,11 +81,11 @@ The ledger holds this as [fam_fertilization](/theorem/fam_fertilization) — pro
 ((fmax (0 : Int) ((200 : Int) - (50 : Int))) = (150 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (40 : Int)) = (25 : Int)) ∧ (((50 : Int) * (120 : Int)) = (6000 : Int)) ∧ (((8 : Int) * (25 : Int)) = (200 : Int)) ∧ ((((200 : Int) * (15 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (40 : Int)) = (150 : Int)) ∧ (((180 : Int) / (3 : Int)) = (60 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (200 : Int)) = (60 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int))
 ```
 
-### field: depth(3) = 3; group(100, 4) = 25; indexed(3, 12) = 25; length(40, 100) = 1; length(140, 100) = 0; localized(6, 12) = 50; options(5) = 5; required(9, 12) = 75
+### field: group(100, 4) = 25; indexed(3, 12) = 25; length(40, 100) = 1; length(140, 100) = 0; localized(6, 12) = 50; required(9, 12) = 75
 The ledger holds this as [fam_field](/theorem/fam_field) — proven `by decide`, sorry-free:
 
 ```lean
-((3 : Int) = (3 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((if (if (40 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (140 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (12 : Int)) = (50 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (12 : Int)) = (75 : Int))
+(((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((if (if (40 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (140 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (12 : Int)) = (50 : Int)) ∧ ((((9 : Int) * (100 : Int)) / (12 : Int)) = (75 : Int))
 ```
 
 ### filtering: cutoff(48000, 4) = 12000; passband(3000, 1000) = 2000; stopband(4000, 500) = 4500; rolloff(4) = 24; order(96, 24) = 4; groupdelay(101) = 50; attenuation(4, 3) = 72; bandwidth(12000, 4) = 3000; passband(1000, 3000) = 0
@@ -109,11 +109,11 @@ The ledger holds this as [fam_financial](/theorem/fam_financial) — proven `by 
 ((-((-(100000 : Int)) / (40 : Int))) = (2500 : Int)) ∧ ((-((-(50000 : Int)) / (12000 : Int))) = (5 : Int)) ∧ (((((15000 : Int) - (10000 : Int)) * (100 : Int)) / (10000 : Int)) = (50 : Int)) ∧ (((((200000 : Int) - (120000 : Int)) * (100 : Int)) / (200000 : Int)) = (40 : Int)) ∧ (((300000 : Int) / (100000 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((80000 : Int) - (50000 : Int))) = (30000 : Int)) ∧ ((fmax (0 : Int) ((50000 : Int) - (80000 : Int))) = (0 : Int)) ∧ (((300000 : Int) / (30000 : Int)) = (10 : Int)) ∧ ((((1000 : Int) * (((100 : Int) + (10 : Int)) ^ (3 : Nat))) / ((100 : Int) ^ (3 : Nat))) = (1331 : Int))
 ```
 
-### firewall: blockrate(250, 1000) = 25; throughput(60000, 60) = 1000; rules(512) = 512; latency(45) = 45; falseblock(3, 250) = 1; connections(800, 1000) = 80; inspection(900, 1000) = 90; coverage(48, 64) = 75
+### firewall: blockrate(250, 1000) = 25; throughput(60000, 60) = 1000; falseblock(3, 250) = 1; connections(800, 1000) = 80; inspection(900, 1000) = 90; coverage(48, 64) = 75
 The ledger holds this as [fam_firewall](/theorem/fam_firewall) — proven `by decide`, sorry-free:
 
 ```lean
-((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((60000 : Int) / (60 : Int)) = (1000 : Int)) ∧ ((512 : Int) = (512 : Int)) ∧ ((45 : Int) = (45 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (250 : Int)) = (1 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((48 : Int) * (100 : Int)) / (64 : Int)) = (75 : Int))
+((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((60000 : Int) / (60 : Int)) = (1000 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (250 : Int)) = (1 : Int)) ∧ ((((800 : Int) * (100 : Int)) / (1000 : Int)) = (80 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((48 : Int) * (100 : Int)) / (64 : Int)) = (75 : Int))
 ```
 
 ### firmware: sectors(1024, 512) = 2; sectors(1024, 0) = 0; words(16) = 4; pages(1000, 256) = 3; checksumWords(16) = 8; bootBlocks(8192, 4096) = 2; slots(1048576, 524288) = 2; otaDelta(5000, 4000) = 1000; otaDelta(100, 200) = 0; image(32, 4096) = 131072; freespace(8192, 5000) = 3192; crc(64, 4) = 256; stack(8, 256) = 2048; isr(64, 4) = 256; watchdog(1000, 10) = 100; flashcycles(5000, 100000) = 5

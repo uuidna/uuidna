@@ -1,0 +1,12 @@
+{
+  "handle": "3bef3073",
+  "address": "3bef3073-65d5-8c53-ac39-1603f585436d",
+  "kind": "chunk",
+  "keys": [
+    "fam_biodiversity"
+  ],
+  "statement": "(((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int))",
+  "files": [
+    "FamiliesB.lean"
+  ]
+}

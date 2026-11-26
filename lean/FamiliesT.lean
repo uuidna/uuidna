@@ -57,8 +57,8 @@ theorem fam_teleology : (((3 : Int) + (2 : Int)) = (5 : Int)) ∧ ((Int.ofNat (f
 theorem fam_telescope : (((200 : Int) * (1 : Int)) = (200 : Int)) ∧ (((2000 : Int) / (25 : Int)) = (80 : Int)) ∧ (((2000 : Int) / (200 : Int)) = (10 : Int)) ∧ (((116 : Int) / (1 : Int)) = (116 : Int)) ∧ (((200 : Int) * (200 : Int)) = (40000 : Int)) ∧ (((2 : Int) + (0 : Int)) = (2 : Int)) ∧ (((60 : Int) / (1 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) := by decide
 
 /-- tennis: firstserve(60, 100) = 60; acerate(10, 80) = 12; breakpoints(3, 8) = 37; winners(40, 20) = 200;
-    rally(400, 100) = 4; dominance(6, 10) = 60; servespeed(200) = 200; returnpct(30, 50) = 60 -/
-theorem fam_tennis : ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (80 : Int)) = (12 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (8 : Int)) = (37 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (20 : Int)) = (200 : Int)) ∧ (((400 : Int) / (100 : Int)) = (4 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (10 : Int)) = (60 : Int)) ∧ ((200 : Int) = (200 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (50 : Int)) = (60 : Int)) := by decide
+    rally(400, 100) = 4; dominance(6, 10) = 60; returnpct(30, 50) = 60 -/
+theorem fam_tennis : ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (80 : Int)) = (12 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (8 : Int)) = (37 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (20 : Int)) = (200 : Int)) ∧ (((400 : Int) / (100 : Int)) = (4 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (10 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (50 : Int)) = (60 : Int)) := by decide
 
 /-- teratology: malformationrate(3, 100) = 3; criticalwindows(3, 5) = 8; doseresponse(1000, 10) = 100;
     exposurepairs(8, 2) = 28; riskindex(5, 4) = 20; stageorderings(5) = 120; thresholddose(500, 350) = 150;
@@ -66,8 +66,8 @@ theorem fam_tennis : ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) �
 theorem fam_teratology : ((((3 : Int) * (100 : Int)) / (100 : Int)) = (3 : Int)) ∧ (((3 : Int) + (5 : Int)) = (8 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ (((5 : Int) * (4 : Int)) = (20 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (350 : Int))) = (150 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) := by decide
 
 /-- testing: coverage(850, 1000) = 85; passrate(495, 500) = 99; flakiness(3, 100) = 3; defects(12, 8000) = 1;
-    regression(2, 40) = 5; assertions(900, 300) = 3; mutation(76, 100) = 76; duration(4200) = 4200 -/
-theorem fam_testing : ((((850 : Int) * (100 : Int)) / (1000 : Int)) = (85 : Int)) ∧ ((((495 : Int) * (100 : Int)) / (500 : Int)) = (99 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (100 : Int)) = (3 : Int)) ∧ ((((12 : Int) * (1000 : Int)) / (8000 : Int)) = (1 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (40 : Int)) = (5 : Int)) ∧ (((900 : Int) / (300 : Int)) = (3 : Int)) ∧ ((((76 : Int) * (100 : Int)) / (100 : Int)) = (76 : Int)) ∧ ((4200 : Int) = (4200 : Int)) := by decide
+    regression(2, 40) = 5; assertions(900, 300) = 3; mutation(76, 100) = 76 -/
+theorem fam_testing : ((((850 : Int) * (100 : Int)) / (1000 : Int)) = (85 : Int)) ∧ ((((495 : Int) * (100 : Int)) / (500 : Int)) = (99 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (100 : Int)) = (3 : Int)) ∧ ((((12 : Int) * (1000 : Int)) / (8000 : Int)) = (1 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (40 : Int)) = (5 : Int)) ∧ (((900 : Int) / (300 : Int)) = (3 : Int)) ∧ ((((76 : Int) * (100 : Int)) / (100 : Int)) = (76 : Int)) := by decide
 
 /-- text: bytes(1000, 2) = 2000; words(5000, 5) = 1000; base64(1000, 3) = 334; lines(8000, 80) = 100;
     tokens(4000, 4) = 1000; entropybits(16, 8) = 128; chunks(10000, 512) = 20; pairs(10, 2) = 45 -/
@@ -153,8 +153,8 @@ theorem fam_tomography : (((300 : Int) / (5 : Int)) = (60 : Int)) ∧ (((180 : I
 theorem fam_tooling : (((10000 : Int) / (250 : Int)) = (40 : Int)) ∧ (((500 : Int) * (3 : Int)) = (1500 : Int)) ∧ (((2000 : Int) * (2 : Int)) = (4000 : Int)) ∧ ((((1000 : Int) * (314 : Int)) / (1000 : Int)) = (314 : Int)) ∧ ((-((-(100 : Int)) / (8 : Int))) = (13 : Int)) ∧ (((1200 : Int) / (150 : Int)) = (8 : Int)) ∧ (((5000 : Int) / (500 : Int)) = (10 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (24 : Int)) = (75 : Int)) := by decide
 
 /-- topology: euler(6, 12, 8) = 2; euler(1, 3, 0) = -2; genus(2) = 0; genus(0) = 2; connectivity(100, 25) = 4;
-    betti(5, 2) = 3; dimension(3) = 3; homology(7, 4) = 3; neighborhood(10, 5) = 50; boundary(30, 100) = 30 -/
-theorem fam_topology : ((((6 : Int) - (12 : Int)) + (8 : Int)) = (2 : Int)) ∧ ((((1 : Int) - (3 : Int)) + (0 : Int)) = (-2 : Int)) ∧ ((fmax (0 : Int) ((2 : Int) - (2 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((2 : Int) - (0 : Int))) = (2 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((5 : Int) - (2 : Int))) = (3 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (4 : Int))) = (3 : Int)) ∧ (((10 : Int) * (5 : Int)) = (50 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) := by decide
+    betti(5, 2) = 3; homology(7, 4) = 3; neighborhood(10, 5) = 50; boundary(30, 100) = 30 -/
+theorem fam_topology : ((((6 : Int) - (12 : Int)) + (8 : Int)) = (2 : Int)) ∧ ((((1 : Int) - (3 : Int)) + (0 : Int)) = (-2 : Int)) ∧ ((fmax (0 : Int) ((2 : Int) - (2 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((2 : Int) - (0 : Int))) = (2 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((5 : Int) - (2 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (4 : Int))) = (3 : Int)) ∧ (((10 : Int) * (5 : Int)) = (50 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) := by decide
 
 /-- toponymy: placecount(500, 10) = 5000; etymologypaths(4) = 24; elementpairs(12, 2) = 66; languagelayers(3, 2)
     = 5; suffixcombos(10, 3) = 120; distributionsubsets(5) = 32; densityper(5000, 100) = 50;
@@ -234,9 +234,9 @@ theorem fam_transliteration : (((26 : Int) * (2 : Int)) = (52 : Int)) ∧ ((Int.
 theorem fam_transport : (((300 : Int) / (5 : Int)) = (60 : Int)) ∧ ((-((-(300 : Int)) / (60 : Int))) = (5 : Int)) ∧ (((500 : Int) / (25 : Int)) = (20 : Int)) ∧ (((50 : Int) * (4 : Int)) = (200 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (200 : Int)) = (75 : Int)) ∧ (((60 : Int) / (5 : Int)) = (12 : Int)) ∧ (((100 : Int) * (8 : Int)) = (800 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (60 : Int)) = (150 : Int)) := by decide
 
 /-- treasury: liquidity(200, 100) = 200; workingcapital(500, 300) = 200; workingcapital(300, 500) = 0;
-    cashflow(100, 60) = 40; cashflow(60, 100) = -40; interest(1000, 5) = 50; maturity(90) = 90; hedge(80, 100) =
-    80; reserve(120, 100) = 120; conversion(75, 100) = 75 -/
-theorem fam_treasury : ((((200 : Int) * (100 : Int)) / (100 : Int)) = (200 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (300 : Int))) = (200 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (500 : Int))) = (0 : Int)) ∧ (((100 : Int) - (60 : Int)) = (40 : Int)) ∧ (((60 : Int) - (100 : Int)) = (-40 : Int)) ∧ ((((1000 : Int) * (5 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((90 : Int) = (90 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) := by decide
+    cashflow(100, 60) = 40; cashflow(60, 100) = -40; interest(1000, 5) = 50; hedge(80, 100) = 80; reserve(120,
+    100) = 120; conversion(75, 100) = 75 -/
+theorem fam_treasury : ((((200 : Int) * (100 : Int)) / (100 : Int)) = (200 : Int)) ∧ ((fmax (0 : Int) ((500 : Int) - (300 : Int))) = (200 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (500 : Int))) = (0 : Int)) ∧ (((100 : Int) - (60 : Int)) = (40 : Int)) ∧ (((60 : Int) - (100 : Int)) = (-40 : Int)) ∧ ((((1000 : Int) * (5 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) := by decide
 
 /-- tree: nodes(32, 1) = 31; height(100, 10) = 10; leaves(4) = 16; internal(31, 16) = 15; children(2, 5) = 10;
     paths(16, 1) = 16; depth(4, 0) = 4; subsets(5) = 32 -/
@@ -258,8 +258,8 @@ theorem fam_trigonometry : ((((100 : Int) * (1000 : Int)) / (100 : Int)) = (1000
 
 /-- trucking: costpermile(2000, 500) = 4; fuelefficiency(700, 100) = 7; loadfactor(40000, 45000) = 88;
     deadhead(100, 500) = 20; utilization(600, 800) = 75; hoursofservice(8, 11) = 3; hoursofservice(14, 11) = 0;
-    turnaround(6) = 6; payload(30000, 80000) = 37 -/
-theorem fam_trucking : (((2000 : Int) / (500 : Int)) = (4 : Int)) ∧ (((700 : Int) / (100 : Int)) = (7 : Int)) ∧ ((((40000 : Int) * (100 : Int)) / (45000 : Int)) = (88 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (500 : Int)) = (20 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (800 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((11 : Int) - (8 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((11 : Int) - (14 : Int))) = (0 : Int)) ∧ ((6 : Int) = (6 : Int)) ∧ ((((30000 : Int) * (100 : Int)) / (80000 : Int)) = (37 : Int)) := by decide
+    payload(30000, 80000) = 37 -/
+theorem fam_trucking : (((2000 : Int) / (500 : Int)) = (4 : Int)) ∧ (((700 : Int) / (100 : Int)) = (7 : Int)) ∧ ((((40000 : Int) * (100 : Int)) / (45000 : Int)) = (88 : Int)) ∧ ((((100 : Int) * (100 : Int)) / (500 : Int)) = (20 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (800 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((11 : Int) - (8 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((11 : Int) - (14 : Int))) = (0 : Int)) ∧ ((((30000 : Int) * (100 : Int)) / (80000 : Int)) = (37 : Int)) := by decide
 
 /-- tsunami: wavespeed(40000, 20) = 2000; wavelength(200, 1) = 200; runup(10, 3) = 30; traveltime(6000, 200) =
     30; amplitude(500, 50) = 450; inundationdistance(30, 100) = 3000; energyindex(8, 1000) = 8000;

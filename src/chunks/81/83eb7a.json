@@ -1,0 +1,12 @@
+{
+  "handle": "8183eb7a",
+  "address": "8183eb7a-b555-8857-98e1-695aaf8c8dc4",
+  "statement": "(((100 : Int) * (2 : Int)) = (200 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((12000 : Int) / (500 : Int)) = (24 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ (((5 : Int) * (150 : Int)) = (750 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((1000 : Int) * (30 : Int)) = (30000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_shipping"
+  ],
+  "files": [
+    "FamiliesS.lean"
+  ]
+}

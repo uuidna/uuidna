@@ -7,7 +7,7 @@ description: "Computed from lean/FamiliesA.lean — 76 sealed theorems, every cl
 
 > THE FAMILIES, A — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. — held by [fam_absorption](/theorem/fam_absorption) and its 75 siblings below.
 
-**76 theorems** and **144,205 decided cases**, from [fam_absorption](/theorem/fam_absorption) onward, each proven `by decide` in <a href="/lean/FamiliesA.lean">lean/FamiliesA.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**76 theorems** and **143,945 decided cases**, from [fam_absorption](/theorem/fam_absorption) onward, each proven `by decide` in <a href="/lean/FamiliesA.lean">lean/FamiliesA.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FFamiliesA.lean)** — nothing to install. The editor fetches `lean/FamiliesA.lean` from the repository and re-decides all 76 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -74,11 +74,11 @@ The ledger holds this as [fam_activation](/theorem/fam_activation) — proven `b
 ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (10 : Int))) = (0 : Int)) ∧ ((if (if (10 : Int) ≥ (4 : Int) then (1 : Int) else 0) ≠ 0 then ((10 : Int) - (4 : Int)) else ((10 : Int) / (5 : Int))) = (6 : Int)) ∧ ((if (if (20 : Int) ≥ (100 : Int) then (1 : Int) else 0) ≠ 0 then ((20 : Int) - (100 : Int)) else ((20 : Int) / (4 : Int))) = (5 : Int)) ∧ ((if (if (7 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (3 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (25 : Int) ≥ (100 : Int) then (1 : Int) else 0) ≠ 0 then (100 : Int) else (((25 : Int) * (100 : Int)) / (100 : Int))) = (25 : Int)) ∧ ((if (if (200 : Int) ≥ (100 : Int) then (1 : Int) else 0) ≠ 0 then (100 : Int) else (((200 : Int) * (100 : Int)) / (100 : Int))) = (100 : Int)) ∧ ((fmin (120 : Int) (100 : Int)) = (100 : Int)) ∧ ((fmin (50 : Int) (100 : Int)) = (50 : Int)) ∧ ((if (if (8 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (8 : Int) else (0 : Int)) = (8 : Int)) ∧ ((if (if (3 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (3 : Int) else (0 : Int)) = (0 : Int)) ∧ ((fmin (fmax (150 : Int) (10 : Int)) (100 : Int)) = (100 : Int)) ∧ ((fmin (fmax (5 : Int) (10 : Int)) (100 : Int)) = (10 : Int)) ∧ ((if (if (30 : Int) > (10 : Int) then (1 : Int) else 0) ≠ 0 then (30 : Int) else (0 : Int)) = (30 : Int)) ∧ ((if (if (5 : Int) > (10 : Int) then (1 : Int) else 0) ≠ 0 then (5 : Int) else (0 : Int)) = (0 : Int))
 ```
 
-### actuarial: mortality(5, 1000) = 5; lossratio(70, 100) = 70; reserve(1000, 2) = 2000; annuity(100, 12) = 1200; premium(1000, 20) = 1200; lifeexpectancy(80) = 80; discount(1100, 10) = 1000; solvency(150, 100) = 150; expectedclaims(3, 4) = 12; lossratio2(60, 100) = 60; reserve2(100, 30) = 70; exposure(5, 3) = 15; purepremium(100, 5) = 20; combinedratio(60, 30, 100) = 90; survival(100, 7) = 93
+### actuarial: mortality(5, 1000) = 5; lossratio(70, 100) = 70; reserve(1000, 2) = 2000; annuity(100, 12) = 1200; premium(1000, 20) = 1200; discount(1100, 10) = 1000; solvency(150, 100) = 150; expectedclaims(3, 4) = 12; lossratio2(60, 100) = 60; reserve2(100, 30) = 70; exposure(5, 3) = 15; purepremium(100, 5) = 20; combinedratio(60, 30, 100) = 90; survival(100, 7) = 93
 The ledger holds this as [fam_actuarial](/theorem/fam_actuarial) — proven `by decide`, sorry-free:
 
 ```lean
-((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ (((1000 : Int) * (2 : Int)) = (2000 : Int)) ∧ (((100 : Int) * (12 : Int)) = (1200 : Int)) ∧ ((((1000 : Int) * ((100 : Int) + (20 : Int))) / (100 : Int)) = (1200 : Int)) ∧ ((80 : Int) = (80 : Int)) ∧ ((((1100 : Int) * (100 : Int)) / ((100 : Int) + (10 : Int))) = (1000 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (100 : Int)) = (150 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ (((5 : Int) * (3 : Int)) = (15 : Int)) ∧ (((100 : Int) / (5 : Int)) = (20 : Int)) ∧ (((((60 : Int) + (30 : Int)) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (7 : Int))) = (93 : Int))
+((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ (((1000 : Int) * (2 : Int)) = (2000 : Int)) ∧ (((100 : Int) * (12 : Int)) = (1200 : Int)) ∧ ((((1000 : Int) * ((100 : Int) + (20 : Int))) / (100 : Int)) = (1200 : Int)) ∧ ((((1100 : Int) * (100 : Int)) / ((100 : Int) + (10 : Int))) = (1000 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (100 : Int)) = (150 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ (((5 : Int) * (3 : Int)) = (15 : Int)) ∧ (((100 : Int) / (5 : Int)) = (20 : Int)) ∧ (((((60 : Int) + (30 : Int)) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (7 : Int))) = (93 : Int))
 ```
 
 ### actuation: force(50, 20) = 1000; stroke(5, 100) = 500; holdingtorque(3, 50) = 150; dutycycle(30, 120) = 25; responsetime(1000, 50) = 20; backlash(10, 3) = 30; stiffness(1000, 4) = 250; thrust(100, 10) = 6280
@@ -431,18 +431,18 @@ The ledger holds this as [fam_athletics](/theorem/fam_athletics) — proven `by 
 (((300 : Int) / (5 : Int)) = (60 : Int)) ∧ (((1000 : Int) / (125 : Int)) = (8 : Int)) ∧ (((1000 : Int) / (500 : Int)) = (2 : Int)) ∧ (((400 : Int) / (4 : Int)) = (100 : Int)) ∧ ((((12 : Int) * (1000 : Int)) / (30 : Int)) = (400 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((10 : Int) ^ (2 : Nat)) / ((2 : Int) * (10 : Int))) = (5 : Int)) ∧ ((((950 : Int) * (1000 : Int)) / (1000 : Int)) = (950 : Int))
 ```
 
-### atmospheric: pressure(1013, 300) = 713; lapserate(60, 10) = 6; humidity(15, 20) = 75; ozone(300) = 300; windshear(80, 20) = 60; stability(15, 25) = 10; coriolis(100, 45) = 50; aerosol(1000, 4) = 250
+### atmospheric: pressure(1013, 300) = 713; lapserate(60, 10) = 6; humidity(15, 20) = 75; windshear(80, 20) = 60; stability(15, 25) = 10; coriolis(100, 45) = 50; aerosol(1000, 4) = 250
 The ledger holds this as [fam_atmospheric](/theorem/fam_atmospheric) — proven `by decide`, sorry-free:
 
 ```lean
-((fmax (0 : Int) ((1013 : Int) - (300 : Int))) = (713 : Int)) ∧ (((60 : Int) / (10 : Int)) = (6 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ ((300 : Int) = (300 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (20 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((25 : Int) - (15 : Int))) = (10 : Int)) ∧ ((((100 : Int) * (45 : Int)) / (90 : Int)) = (50 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int))
+((fmax (0 : Int) ((1013 : Int) - (300 : Int))) = (713 : Int)) ∧ (((60 : Int) / (10 : Int)) = (6 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (20 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((25 : Int) - (15 : Int))) = (10 : Int)) ∧ ((((100 : Int) * (45 : Int)) / (90 : Int)) = (50 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int))
 ```
 
-### attention: focus(45, 60) = 75; vigilance(8, 10) = 80; distraction(12, 4) = 3; span(25) = 25; switching(20, 5) = 4; selective(30, 100) = 30; sustained(90, 120) = 75; workload(80, 100) = 80
+### attention: focus(45, 60) = 75; vigilance(8, 10) = 80; distraction(12, 4) = 3; switching(20, 5) = 4; selective(30, 100) = 30; sustained(90, 120) = 75; workload(80, 100) = 80
 The ledger holds this as [fam_attention](/theorem/fam_attention) — proven `by decide`, sorry-free:
 
 ```lean
-((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int)) ∧ ((25 : Int) = (25 : Int)) ∧ (((20 : Int) / (5 : Int)) = (4 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (120 : Int)) = (75 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))
+((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ (((12 : Int) / (4 : Int)) = (3 : Int)) ∧ (((20 : Int) / (5 : Int)) = (4 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (120 : Int)) = (75 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))
 ```
 
 ### auction: clearing(150, 100) = 150; competition(90, 30) = 3; estimate(1200, 1000) = 120; increment(1000, 10) = 100; premium(1000, 25) = 250; proxy(500, 300) = 200; reserve(800, 500) = 300; reserve(400, 500) = 0; selltrough(80, 100) = 80
@@ -459,11 +459,11 @@ The ledger holds this as [fam_audio](/theorem/fam_audio) — proven `by decide`,
 (((44100 : Int) * (2 : Int)) = (88200 : Int)) ∧ ((((44100 : Int) * (2 : Int)) * (2 : Int)) = (176400 : Int)) ∧ (((44100 : Int) * (16 : Int)) = (705600 : Int)) ∧ (((44100 : Int) / (1024 : Int)) = (43 : Int)) ∧ (((2 : Int) + (0 : Int)) = (2 : Int)) ∧ (((88200 : Int) / (44100 : Int)) = (2 : Int)) ∧ (((16 : Int) * (1 : Int)) = (16 : Int)) ∧ ((-((-(44100 : Int)) / (1152 : Int))) = (39 : Int))
 ```
 
-### audiology: threshold(40) = 40; loss(60, 25) = 240; discrimination(45, 50) = 90; gain(120, 40) = 300; frequency(8000, 2) = 4000; masking(80, 20) = 400; reverberation(600, 120) = 5; tinnitus(6000, 4000) = 150; loss(10, 0) = 0
+### audiology: loss(60, 25) = 240; discrimination(45, 50) = 90; gain(120, 40) = 300; frequency(8000, 2) = 4000; masking(80, 20) = 400; reverberation(600, 120) = 5; tinnitus(6000, 4000) = 150; loss(10, 0) = 0
 The ledger holds this as [fam_audiology](/theorem/fam_audiology) — proven `by decide`, sorry-free:
 
 ```lean
-((40 : Int) = (40 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (25 : Int)) = (240 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (40 : Int)) = (300 : Int)) ∧ (((8000 : Int) / (2 : Int)) = (4000 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (20 : Int)) = (400 : Int)) ∧ (((600 : Int) / (120 : Int)) = (5 : Int)) ∧ ((((6000 : Int) * (100 : Int)) / (4000 : Int)) = (150 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int))
+((((60 : Int) * (100 : Int)) / (25 : Int)) = (240 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (40 : Int)) = (300 : Int)) ∧ (((8000 : Int) / (2 : Int)) = (4000 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (20 : Int)) = (400 : Int)) ∧ (((600 : Int) / (120 : Int)) = (5 : Int)) ∧ ((((6000 : Int) * (100 : Int)) / (4000 : Int)) = (150 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int))
 ```
 
 ### auditing: materiality(5, 1000) = 0; samplesize(1000, 20) = 50; errorrate(3, 50) = 6; coverage(80, 100) = 80; findings(2, 40) = 5; variance(110, 100) = 110; risk(3, 4) = 12; compliance(95, 100) = 95
@@ -480,11 +480,11 @@ The ledger holds this as [fam_auth](/theorem/fam_auth) — proven `by decide`, s
 ((if (if (5 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (3 : Int) ≥ (5 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((fmax (0 : Int) ((4600 : Int) - (1000 : Int))) = (3600 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((12 : Int) * (4 : Int)) = (48 : Int)) ∧ ((fmin (10 : Int) (3 : Int)) = (3 : Int)) ∧ ((fmax (0 : Int) ((4600 : Int) - (1000 : Int))) = (3600 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int))
 ```
 
-### authentication: entropy(62, 8) = 496; falsereject(2, 100) = 2; falseaccept(1, 100) = 1; sessions(100, 25) = 4; lockout(8, 5) = 3; lockout(3, 5) = 0; tokenlife(3600) = 3600; strength(4, 12) = 48; mfa(3) = 3
+### authentication: entropy(62, 8) = 496; falsereject(2, 100) = 2; falseaccept(1, 100) = 1; sessions(100, 25) = 4; lockout(8, 5) = 3; lockout(3, 5) = 0; strength(4, 12) = 48
 The ledger holds this as [fam_authentication](/theorem/fam_authentication) — proven `by decide`, sorry-free:
 
 ```lean
-(((62 : Int) * (8 : Int)) = (496 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (100 : Int)) = (1 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (5 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (5 : Int))) = (0 : Int)) ∧ ((3600 : Int) = (3600 : Int)) ∧ (((4 : Int) * (12 : Int)) = (48 : Int)) ∧ ((3 : Int) = (3 : Int))
+(((62 : Int) * (8 : Int)) = (496 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (100 : Int)) = (1 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (5 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (5 : Int))) = (0 : Int)) ∧ (((4 : Int) * (12 : Int)) = (48 : Int))
 ```
 
 ### authorization: rolecount(50, 4) = 200; permissionmatrix(20, 30) = 600; leastprivilege(10, 7) = 3; leastprivilege(5, 8) = 0; policyeval(90, 10) = 1; policyeval(10, 90) = 0; grantratio(450, 500) = 90; scopebreadth(12, 8) = 96; separationofduty(3, 60) = 5; accessreviewlag(100, 40) = 60; accessreviewlag(30, 50) = 0

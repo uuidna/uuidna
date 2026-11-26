@@ -1,7 +1,13 @@
 {
+<<<<<<<< HEAD:src/chunks/c4/ffe263.json
+  "handle": "c4ffe263",
+  "address": "c4ffe263-34c6-82cd-b8ea-bdc45d33e7ae",
+  "statement": "((498 * 100 < 766422) ∧ (1728 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674))",
+========
   "handle": "17344755",
   "address": "17344755-6fca-8b0a-8578-eeae6677108e",
   "statement": "((498 * 100 < 767158) ∧ (1729 > 114)) ∧ ((114 * 14 ≤ 1674) ∧ (114 * 15 > 1674))",
+>>>>>>>> origin/main:src/chunks/17/344755.json
   "tactic": "decide",
   "keys": [
     "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure"

@@ -1,0 +1,12 @@
+{
+  "handle": "53b69cd8",
+  "address": "53b69cd8-0d4e-8492-bd10-7fab3e87f61d",
+  "kind": "chunk",
+  "keys": [
+    "fam_rhetoric"
+  ],
+  "statement": "(((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (200 : Int)) = (10 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

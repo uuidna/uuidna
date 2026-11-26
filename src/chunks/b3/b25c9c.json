@@ -1,0 +1,12 @@
+{
+  "handle": "b3b25c9c",
+  "address": "b3b25c9c-fe4e-8576-b329-0345abcbc381",
+  "statement": "(((62 : Int) * (8 : Int)) = (496 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (100 : Int)) = (2 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (100 : Int)) = (1 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (5 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (5 : Int))) = (0 : Int)) ∧ (((4 : Int) * (12 : Int)) = (48 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_authentication"
+  ],
+  "files": [
+    "FamiliesA.lean"
+  ]
+}

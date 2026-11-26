@@ -114,9 +114,9 @@ theorem fam_bioavailability : ((((500 : Int) * (100 : Int)) / (1000 : Int)) = (5
     200; michaelis(100, 50, 50) = 50; molarity(180, 18) = 10; ph(70, 10) = 7; turnover(1000, 10) = 100 -/
 theorem fam_biochemistry : (((6 : Int) - (1 : Int)) = (5 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((200 : Int) * (100 : Int)) / (100 : Int)) = (200 : Int)) ∧ ((((100 : Int) * (50 : Int)) / ((50 : Int) + (50 : Int))) = (50 : Int)) ∧ (((180 : Int) / (18 : Int)) = (10 : Int)) ∧ (((70 : Int) / (10 : Int)) = (7 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) := by decide
 
-/-- biodiversity: richness(42) = 42; evenness(1000, 10) = 100; shannon(25, 100) = 25; simpson(60, 100) = 60;
-    endemism(30, 100) = 30; turnover(40, 100) = 40; abundance(1000, 25) = 40; rarity(15, 100) = 15 -/
-theorem fam_biodiversity : ((42 : Int) = (42 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) := by decide
+/-- biodiversity: evenness(1000, 10) = 100; shannon(25, 100) = 25; simpson(60, 100) = 60; endemism(30, 100) =
+    30; turnover(40, 100) = 40; abundance(1000, 25) = 40; rarity(15, 100) = 15 -/
+theorem fam_biodiversity : (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) := by decide
 
 /-- bioenergetics: atphydrolysis(10, 31) = 310; efficiency(40, 100) = 40; electrontransport(10, 3) = 30;
     gibbsfree(100, 10, 5) = 50; phosphateratio(25, 10) = 25; protonmotive(140, 1) = 199; redoxpotential(820,
@@ -147,8 +147,8 @@ theorem fam_biomass : (((18000 : Int) / (1000 : Int)) = (18 : Int)) ∧ ((((120 
 theorem fam_biomechanics : (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ (((10 : Int) * ((4 : Int) ^ (2 : Nat))) = (160 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((80 : Int) * (5 : Int)) = (400 : Int)) ∧ (((70 : Int) * ((5 : Int) + (10 : Int))) = (1050 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ (((10 : Int) * (50 : Int)) = (500 : Int)) ∧ (((120 : Int) / (60 : Int)) = (2 : Int)) := by decide
 
 /-- biometrics: far(2, 10000) = 2; frr(50, 10000) = 50; accuracy(990, 1000) = 99; enrollment(95, 100) = 95;
-    matchscore(80, 100) = 80; templatesize(2048) = 2048; throughput(6000, 60) = 100; liveness(99, 100) = 99 -/
-theorem fam_biometrics : ((((2 : Int) * (10000 : Int)) / (10000 : Int)) = (2 : Int)) ∧ ((((50 : Int) * (10000 : Int)) / (10000 : Int)) = (50 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((2048 : Int) = (2048 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)) := by decide
+    matchscore(80, 100) = 80; throughput(6000, 60) = 100; liveness(99, 100) = 99 -/
+theorem fam_biometrics : ((((2 : Int) * (10000 : Int)) / (10000 : Int)) = (2 : Int)) ∧ ((((50 : Int) * (10000 : Int)) / (10000 : Int)) = (50 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int)) := by decide
 
 /-- biophysics: diffusion(10, 4) = 25; membrane(100, 4) = 25; elasticity(2000, 5) = 400; osmosis(3, 1000) = 3;
     binding(90, 10) = 9; conductance(50, 10) = 5; folding(80, 100) = 80; tension(600, 20) = 30 -/
@@ -160,12 +160,12 @@ theorem fam_biophysics : ((((10 : Int) ^ (2 : Nat)) / (4 : Int)) = (25 : Int)) �
 theorem fam_blackhole : (((10 : Int) * (3 : Int)) = (30 : Int)) ∧ (((620000 : Int) / (620 : Int)) = (1000 : Int)) ∧ (((100 : Int) * (100 : Int)) = (10000 : Int)) ∧ ((((9 : Int) * (10 : Int)) / (2 : Int)) = (45 : Int)) ∧ (((10 : Int) * (9 : Int)) = (90 : Int)) ∧ ((((2 : Int) * (1000 : Int)) / ((2 : Int) ^ (3 : Nat))) = (250 : Int)) ∧ ((((10 : Int) * (10 : Int)) * (10 : Int)) = (1000 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((1000 : Int) / (0 : Int)) = (0 : Int)) := by decide
 
 /-- blockchain: throughput(6000, 60) = 100; difficulty(1000, 25) = 40; blocktime(600, 50) = 12; confirmation(3,
-    6) = 50; fee(250, 8) = 2000; merkle(1024) = 1024; stake(30, 100) = 30; finality(4, 8) = 50 -/
-theorem fam_blockchain : (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ (((600 : Int) / (50 : Int)) = (12 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (6 : Int)) = (50 : Int)) ∧ (((250 : Int) * (8 : Int)) = (2000 : Int)) ∧ ((1024 : Int) = (1024 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (8 : Int)) = (50 : Int)) := by decide
+    6) = 50; fee(250, 8) = 2000; stake(30, 100) = 30; finality(4, 8) = 50 -/
+theorem fam_blockchain : (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (25 : Int)) = (40 : Int)) ∧ (((600 : Int) / (50 : Int)) = (12 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (6 : Int)) = (50 : Int)) ∧ (((250 : Int) * (8 : Int)) = (2000 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (8 : Int)) = (50 : Int)) := by decide
 
 /-- blog: readtime(1000, 200) = 5; excerpt(140, 160) = 1; excerpt(200, 160) = 0; categories(100, 8) = 12;
-    pagination(95, 10) = 10; slug(12, 4) = 8; related(3, 10) = 30; freshness(1000, 850) = 150; series(7) = 7 -/
-theorem fam_blog : ((-((-(1000 : Int)) / (200 : Int))) = (5 : Int)) ∧ ((if (if (140 : Int) ≤ (160 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (200 : Int) ≤ (160 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ ((-((-(95 : Int)) / (10 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (4 : Int))) = (8 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (850 : Int))) = (150 : Int)) ∧ ((7 : Int) = (7 : Int)) := by decide
+    pagination(95, 10) = 10; slug(12, 4) = 8; related(3, 10) = 30; freshness(1000, 850) = 150 -/
+theorem fam_blog : ((-((-(1000 : Int)) / (200 : Int))) = (5 : Int)) ∧ ((if (if (140 : Int) ≤ (160 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (200 : Int) ≤ (160 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ ((-((-(95 : Int)) / (10 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (4 : Int))) = (8 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (850 : Int))) = (150 : Int)) := by decide
 
 /-- bond: coupon(5, 100) = 5; facevalue(1000, 1) = 1000; yield(4, 100) = 4; maturity(10, 0) = 10; duration(90,
     10) = 9; payments(10, 2) = 20; rating(10, 2) = 8; combos(6, 2) = 15 -/
@@ -194,9 +194,9 @@ theorem fam_breeding : ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int))
     efficiency(75, 100) = 75; gravity(50, 10) = 5000; carbonation(100, 10) = 10; mash(500, 1000) = 50 -/
 theorem fam_brewing : (((((1075 : Int) - (1000 : Int)) * (1000 : Int)) / (75 : Int)) = (1000 : Int)) ∧ (((((100 : Int) - (20 : Int)) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((5 : Int) * (100 : Int)) = (500 : Int)) ∧ (((400 : Int) / (10 : Int)) = (40 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((((50 : Int) * (1000 : Int)) / (10 : Int)) = (5000 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((((500 : Int) * (100 : Int)) / (1000 : Int)) = (50 : Int)) := by decide
 
-/-- broadcasting: reach(250, 1000) = 25; share(300, 1200) = 25; bitrate(6000000, 2) = 3000000; latency(40) = 40;
-    coverage(50, 12) = 600; rating(45, 1000) = 4; bandwidth(8, 6) = 48; dropout(3, 300) = 1 -/
-theorem fam_broadcasting : ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1200 : Int)) = (25 : Int)) ∧ (((6000000 : Int) / (2 : Int)) = (3000000 : Int)) ∧ ((40 : Int) = (40 : Int)) ∧ (((50 : Int) * (12 : Int)) = (600 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (1000 : Int)) = (4 : Int)) ∧ (((8 : Int) * (6 : Int)) = (48 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (300 : Int)) = (1 : Int)) := by decide
+/-- broadcasting: reach(250, 1000) = 25; share(300, 1200) = 25; bitrate(6000000, 2) = 3000000; coverage(50, 12)
+    = 600; rating(45, 1000) = 4; bandwidth(8, 6) = 48; dropout(3, 300) = 1 -/
+theorem fam_broadcasting : ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1200 : Int)) = (25 : Int)) ∧ (((6000000 : Int) / (2 : Int)) = (3000000 : Int)) ∧ (((50 : Int) * (12 : Int)) = (600 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (1000 : Int)) = (4 : Int)) ∧ (((8 : Int) * (6 : Int)) = (48 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (300 : Int)) = (1 : Int)) := by decide
 
 /-- buddhism: nobletruths(4, 0) = 4; pathfactors(8, 0) = 8; preceptsubsets(5) = 32; suttacount(10000, 1) =
     10000; pathorderings(8) = 40320; aggregates(5, 0) = 5; rebirthrealms(6, 0) = 6; meditationcombos(8, 2) = 28 -/
@@ -216,8 +216,8 @@ theorem fam_budgeting : (((((1100 : Int) - (1000 : Int)) * (100 : Int)) / (1000 
 theorem fam_buffer : (((2 : Int) ^ (12 : Nat)) = (4096 : Int)) ∧ (((4096 : Int) / (64 : Int)) = (64 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (4096 : Int))) = (904 : Int)) ∧ (((4096 : Int) / (16 : Int)) = (256 : Int)) ∧ ((-((-(10000 : Int)) / (4096 : Int))) = (3 : Int)) ∧ (((100000 : Int) / (4096 : Int)) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) := by decide
 
 /-- bundle: chunks(100, 30) = 4; treeshake(300, 1000) = 30; gzip(1000, 300) = 30; split(8, 10) = 80; budget(900,
-    1000) = 1; budget(1100, 1000) = 0; dedupe(12) = 12; entry(5000, 10) = 500; overhead(50, 1000) = 5 -/
-theorem fam_bundle : ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((if (if (900 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (1100 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ (((5000 : Int) / (10 : Int)) = (500 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) := by decide
+    1000) = 1; budget(1100, 1000) = 0; entry(5000, 10) = 500; overhead(50, 1000) = 5 -/
+theorem fam_bundle : ((-((-(100 : Int)) / (30 : Int))) = (4 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((if (if (900 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (1100 : Int) ≤ (1000 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((5000 : Int) / (10 : Int)) = (500 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) := by decide
 
 /-- bundling: chunks(100, 30) = 4; treeshake(1000, 600) = 400; minifyratio(1000, 400) = 60; gzipratio(1000, 250)
     = 4; splitpoints(8, 2) = 10; cachehash(1000, 7) = 31007; loadtime(10000, 100) = 100; dedupe(50, 20) = 30;

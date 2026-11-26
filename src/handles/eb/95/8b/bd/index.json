@@ -1,0 +1,12 @@
+{
+  "handle": "eb958bbd",
+  "address": "eb958bbd-272c-8cd7-b5dc-52c3d9e04c81",
+  "kind": "chunk",
+  "keys": [
+    "fam_proteomics"
+  ],
+  "statement": "((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int)) ∧ (((2400 : Int) / (3 : Int)) = (800 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (200 : Int)) = (30 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((((18 : Int) * (100 : Int)) / (20 : Int)) = (90 : Int)) ∧ (((120 : Int) / (40 : Int)) = (3 : Int)) ∧ (((50000 : Int) / (1000 : Int)) = (50 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

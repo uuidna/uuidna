@@ -149,3 +149,14 @@ export function ratchetGaps(ratchets: readonly Ratchet[]): Gap[] {
   }
   return gaps
 }
+
+// run alone (`npm run x -- ratchet-gaps`): every declared ratchet against its seal, each gap with its exact fix
+// ratchets.ts imports this module, so the table is loaded after both have finished evaluating, never awaited at the top
+if (process.argv[1]?.endsWith('ratchet-gaps.js')) {
+  void import('./ratchets.js').then(({ RATCHETS }) => {
+    const gaps = ratchetGaps(RATCHETS)
+    for (const g of gaps) console.log(`  GAP ${g.what}\n  FIX ${g.fix}`)
+    console.log(gaps.length ? `✗ ratchet — ${gaps.length} gap(s)` : '✓ ratchet — every measure holds its seal or better')
+    if (gaps.length) process.exitCode = 1
+  })
+}

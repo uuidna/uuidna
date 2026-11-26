@@ -1,7 +1,7 @@
 {
  "why": "Each Lean line, indexed by its statement, with every key that seals it. A wing verifies STANDALONE — no lean file imports another — so a fact needed in two wings is re-proven in both, on purpose, and that cost is declared here rather than discovered by census. A statement sealed twice inside ONE file is never declared: it buys no independence and one of the two must go. This list may only SHRINK.",
- "distinct": 72323,
- "keys": 72409,
+ "distinct": 72322,
+ "keys": 72408,
  "renamings": 86,
  "reuse": {
   "(1 * 1) % 9 = 1": [
@@ -665,10 +665,10 @@
    "Proofde5612a2.lean"
   ]
  },
- "receipt": "6998a01e-240a-8588-a74c-3844a27fa111",
+ "receipt": "1608b7ab-97ab-875e-a915-c879e464f465",
  "crossed": {
-  "sorted": "6998a01e-240a-8588-a74c-3844a27fa111",
-  "reversed": "6998a01e-240a-8588-a74c-3844a27fa111",
+  "sorted": "1608b7ab-97ab-875e-a915-c879e464f465",
+  "reversed": "1608b7ab-97ab-875e-a915-c879e464f465",
   "agrees": true
  }
 }

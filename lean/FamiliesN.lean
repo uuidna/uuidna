@@ -42,9 +42,9 @@ theorem fam_networking : (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ (((3000 
     relu(42) = 42; relu(-5) = 0; fanin(8192, 64) = 128; flops(8192, 512) = 16896; capacity(512, 32) = 16384 -/
 theorem fam_neuralnet : ((((100 : Int) * (10 : Int)) + (10 : Int)) = (1010 : Int)) ∧ (((3 : Int) + (2 : Int)) = (5 : Int)) ∧ (((4 : Int) * (128 : Int)) = (512 : Int)) ∧ (((128 : Int) * (64 : Int)) = (8192 : Int)) ∧ ((fmax (0 : Int) (42 : Int)) = (42 : Int)) ∧ ((fmax (0 : Int) (-5 : Int)) = (0 : Int)) ∧ (((8192 : Int) / (64 : Int)) = (128 : Int)) ∧ ((((2 : Int) * (8192 : Int)) + (512 : Int)) = (16896 : Int)) ∧ (((512 : Int) * (32 : Int)) = (16384 : Int)) := by decide
 
-/-- neurology: glasgow(4, 5, 6) = 15; reflex(2) = 2; conduction(60, 2) = 30; seizure(3, 30) = 10; stroke(8, 40)
-    = 20; latency(100) = 100; perfusion(900, 18) = 50; recovery(3, 4) = 75 -/
-theorem fam_neurology : ((((4 : Int) + (5 : Int)) + (6 : Int)) = (15 : Int)) ∧ ((2 : Int) = (2 : Int)) ∧ (((60 : Int) / (2 : Int)) = (30 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (30 : Int)) = (10 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (40 : Int)) = (20 : Int)) ∧ ((100 : Int) = (100 : Int)) ∧ (((900 : Int) / (18 : Int)) = (50 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) := by decide
+/-- neurology: glasgow(4, 5, 6) = 15; conduction(60, 2) = 30; seizure(3, 30) = 10; stroke(8, 40) = 20;
+    perfusion(900, 18) = 50; recovery(3, 4) = 75 -/
+theorem fam_neurology : ((((4 : Int) + (5 : Int)) + (6 : Int)) = (15 : Int)) ∧ (((60 : Int) / (2 : Int)) = (30 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (30 : Int)) = (10 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (40 : Int)) = (20 : Int)) ∧ (((900 : Int) / (18 : Int)) = (50 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) := by decide
 
 /-- neuron: synapses(1000, 7) = 7000; dendrites(1000, 0) = 1000; threshold(70, 55) = 15; spikes(100, 10) = 1000;
     axonlength(100, 1) = 100; refractory(20, 2) = 18; layers(6, 0) = 6; combos(6, 2) = 15 -/
@@ -56,19 +56,17 @@ theorem fam_neuron : (((1000 : Int) * (7 : Int)) = (7000 : Int)) ∧ (((1000 : I
 theorem fam_neuropsychology : ((((12 : Int) * (100 : Int)) / (10 : Int)) = (120 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) ∧ ((((fmax (0 : Int) ((60 : Int) - (40 : Int))) * (100 : Int)) / ((60 : Int) + (40 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (75 : Int))) = (25 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (80 : Int))) = (0 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (50 : Int)) = (60 : Int)) ∧ (((49 : Int) / (7 : Int)) = (7 : Int)) ∧ ((((120 : Int) * (60 : Int)) / (60 : Int)) = (120 : Int)) ∧ ((fmax (0 : Int) ((48 : Int) - (8 : Int))) = (40 : Int)) := by decide
 
 /-- neuroscience: firing(1000, 10) = 100; potential(50, 70) = -20; potential(90, 20) = 70; synapse(10000, 100) =
-    100; conduction(1200, 10) = 120; plasticity(30, 100) = 30; refractory(2) = 2; connectivity(5000, 100) = 50;
-    threshold(55) = 55 -/
-theorem fam_neuroscience : (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((50 : Int) - (70 : Int)) = (-20 : Int)) ∧ (((90 : Int) - (20 : Int)) = (70 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ (((1200 : Int) / (10 : Int)) = (120 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((2 : Int) = (2 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((55 : Int) = (55 : Int)) := by decide
+    100; conduction(1200, 10) = 120; plasticity(30, 100) = 30; connectivity(5000, 100) = 50 -/
+theorem fam_neuroscience : (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ (((50 : Int) - (70 : Int)) = (-20 : Int)) ∧ (((90 : Int) - (20 : Int)) = (70 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ (((1200 : Int) / (10 : Int)) = (120 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) := by decide
 
 /-- ngram: count(1000, 3) = 998; probability(5, 1000) = 5; probability(3, 0) = 0; laplacesmoothing(4, 1000,
     1000) = 2; perplexityproxy(1000, 8) = 125; coverage(90, 100) = 90; backoffweight(400, 1000) = 400;
     vocabularysize(5000, 1200) = 3800; conditionalcount(100, 1) = 99; conditionalcount(0, 5) = 0 -/
 theorem fam_ngram : ((fmax (0 : Int) (((1000 : Int) - (3 : Int)) + (1 : Int))) = (998 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ ((((3 : Int) * (1000 : Int)) / (0 : Int)) = (0 : Int)) ∧ (((((4 : Int) + (1 : Int)) * (1000 : Int)) / ((1000 : Int) + (1000 : Int))) = (2 : Int)) ∧ (((1000 : Int) / (8 : Int)) = (125 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((400 : Int) * (1000 : Int)) / (1000 : Int)) = (400 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (1200 : Int))) = (3800 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (1 : Int))) = (99 : Int)) ∧ ((fmax (0 : Int) ((0 : Int) - (5 : Int))) = (0 : Int)) := by decide
 
-/-- nic: linerate(100) = 100; throughput(100, 90) = 90; packets(10, 1500) = 833333; mtu(9000) = 9000;
-    overhead(1518, 1500) = 18; duplex(100) = 200; queues(8, 4) = 32; interrupts(1000, 64) = 16; bandwidth(16,
-    32) = 512 -/
-theorem fam_nic : ((100 : Int) = (100 : Int)) ∧ ((((100 : Int) * (90 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((10 : Int) * (125000000 : Int)) / (1500 : Int)) = (833333 : Int)) ∧ ((9000 : Int) = (9000 : Int)) ∧ (((1518 : Int) - (1500 : Int)) = (18 : Int)) ∧ (((100 : Int) * (2 : Int)) = (200 : Int)) ∧ (((8 : Int) * (4 : Int)) = (32 : Int)) ∧ ((-((-(1000 : Int)) / (64 : Int))) = (16 : Int)) ∧ (((16 : Int) * (32 : Int)) = (512 : Int)) := by decide
+/-- nic: throughput(100, 90) = 90; packets(10, 1500) = 833333; overhead(1518, 1500) = 18; duplex(100) = 200;
+    queues(8, 4) = 32; interrupts(1000, 64) = 16; bandwidth(16, 32) = 512 -/
+theorem fam_nic : ((((100 : Int) * (90 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((10 : Int) * (125000000 : Int)) / (1500 : Int)) = (833333 : Int)) ∧ (((1518 : Int) - (1500 : Int)) = (18 : Int)) ∧ (((100 : Int) * (2 : Int)) = (200 : Int)) ∧ (((8 : Int) * (4 : Int)) = (32 : Int)) ∧ ((-((-(1000 : Int)) / (64 : Int))) = (16 : Int)) ∧ (((16 : Int) * (32 : Int)) = (512 : Int)) := by decide
 
 /-- nim: heaps(3, 0) = 3; totalstones(3, 5, 7) = 15; movecombos(15, 2) = 105; positionsubsets(6) = 64;
     grundyvalue(15, 4) = 3; winningmoves(2, 1) = 3; heapmax(7, 5) = 7; parity(15, 2) = 1 -/
@@ -84,9 +82,9 @@ theorem fam_noise : ((fmax (0 : Int) ((90 : Int) - (30 : Int))) = (60 : Int)) �
     15; annoyanceindex(70, 1000) = 700 -/
 theorem fam_noisepollution : (((3600 : Int) / (60 : Int)) = (60 : Int)) ∧ (((((12 : Int) * (60 : Int)) + ((12 : Int) * ((50 : Int) + (10 : Int)))) / (24 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((75 : Int) - (65 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) ((60 : Int) - (65 : Int))) = (0 : Int)) ∧ (((85 : Int) * (8 : Int)) = (680 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - ((6 : Int) * (3 : Int)))) = (82 : Int)) ∧ ((((12 : Int) ^ (2 : Nat)) / (8 : Int)) = (18 : Int)) ∧ ((fmax (0 : Int) ((65 : Int) - (50 : Int))) = (15 : Int)) ∧ ((((70 : Int) * (1000 : Int)) / (100 : Int)) = (700 : Int)) := by decide
 
-/-- notice: severity(3) = 3; dismiss(30, 120) = 25; cta(45, 300) = 15; duration(5000) = 5000; stack(4) = 4;
-    priority(7, 3) = 1; priority(3, 7) = 0; impressions(80, 100) = 80; autohide(10) = 10 -/
-theorem fam_notice : ((3 : Int) = (3 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (300 : Int)) = (15 : Int)) ∧ ((5000 : Int) = (5000 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((if (if (7 : Int) ≥ (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (3 : Int) ≥ (7 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((10 : Int) = (10 : Int)) := by decide
+/-- notice: dismiss(30, 120) = 25; cta(45, 300) = 15; priority(7, 3) = 1; priority(3, 7) = 0; impressions(80,
+    100) = 80 -/
+theorem fam_notice : ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (300 : Int)) = (15 : Int)) ∧ ((if (if (7 : Int) ≥ (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (3 : Int) ≥ (7 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) := by decide
 
 /-- nuclear: decay(1000, 3) = 125; activity(5000, 2) = 10; binding(1600, 200) = 8; criticality(105, 100) = 105;
     enrichment(5, 100) = 5; fission(2000, 10) = 200; dose(900, 3) = 100; shielding(800, 2) = 200 -/
@@ -124,9 +122,9 @@ theorem fam_numerology : ((((3 : Int) + (6 : Int)) + (9 : Int)) = (18 : Int)) �
 theorem fam_numismatics : (((500 : Int) * (10 : Int)) = (5000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((400 : Int) + (100 : Int)) = (500 : Int)) ∧ (((60 : Int) * (4 : Int)) = (240 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ (((360 : Int) / (12 : Int)) = (30 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) := by decide
 
 /-- nursing: dosage(70, 5) = 350; droprate(1000, 480) = 2; droprate(1000, 0) = 0; ratio(24, 6) = 4; ratio(24, 0)
-    = 0; acuity(7) = 7; handwash(90, 100) = 90; handwash(5, 0) = 0; fluid(2000, 1500) = 500; fluid(1000, 1500) =
-    0; medication(95, 100) = 95; medication(5, 0) = 0; workload(12, 8) = 1; workload(12, 0) = 0 -/
-theorem fam_nursing : (((70 : Int) * (5 : Int)) = (350 : Int)) ∧ (((1000 : Int) / (480 : Int)) = (2 : Int)) ∧ (((1000 : Int) / (0 : Int)) = (0 : Int)) ∧ (((24 : Int) / (6 : Int)) = (4 : Int)) ∧ (((24 : Int) / (0 : Int)) = (0 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((fmax (0 : Int) ((2000 : Int) - (1500 : Int))) = (500 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (1500 : Int))) = (0 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ (((12 : Int) / (8 : Int)) = (1 : Int)) ∧ (((12 : Int) / (0 : Int)) = (0 : Int)) := by decide
+    = 0; handwash(90, 100) = 90; handwash(5, 0) = 0; fluid(2000, 1500) = 500; fluid(1000, 1500) = 0;
+    medication(95, 100) = 95; medication(5, 0) = 0; workload(12, 8) = 1; workload(12, 0) = 0 -/
+theorem fam_nursing : (((70 : Int) * (5 : Int)) = (350 : Int)) ∧ (((1000 : Int) / (480 : Int)) = (2 : Int)) ∧ (((1000 : Int) / (0 : Int)) = (0 : Int)) ∧ (((24 : Int) / (6 : Int)) = (4 : Int)) ∧ (((24 : Int) / (0 : Int)) = (0 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ ((fmax (0 : Int) ((2000 : Int) - (1500 : Int))) = (500 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (1500 : Int))) = (0 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int)) ∧ (((12 : Int) / (8 : Int)) = (1 : Int)) ∧ (((12 : Int) / (0 : Int)) = (0 : Int)) := by decide
 
 /-- nutrition: energy(100, 4) = 400; protein(50) = 200; carbs(50) = 200; fat(20) = 180; deficit(1800, 2200) =
     400; deficit(2500, 2200) = 0; macros(30, 120) = 25; hydration(2100, 70) = 30; bmr(70, 24) = 1680 -/

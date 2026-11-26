@@ -7,7 +7,7 @@ description: "Computed from lean/FamiliesQ.lean — 8 sealed theorems, every cla
 
 > THE FAMILIES, Q — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. — held by [fam_qsec](/theorem/fam_qsec) and its 7 siblings below.
 
-**8 theorems** and **2,910 decided cases**, from [fam_qsec](/theorem/fam_qsec) onward, each proven `by decide` in <a href="/lean/FamiliesQ.lean">lean/FamiliesQ.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**8 theorems** and **2,787 decided cases**, from [fam_qsec](/theorem/fam_qsec) onward, each proven `by decide` in <a href="/lean/FamiliesQ.lean">lean/FamiliesQ.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FFamiliesQ.lean)** — nothing to install. The editor fetches `lean/FamiliesQ.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -39,11 +39,11 @@ The ledger holds this as [fam_quantum](/theorem/fam_quantum) — proven `by deci
 (((5 : Int) + (0 : Int)) = (5 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ (((20 : Int) * (3 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ (((10 : Int) + (5 : Int)) = (15 : Int)) ∧ (((1024 : Int) * (1 : Int)) = (1024 : Int)) ∧ ((((99 : Int) * (100 : Int)) / (100 : Int)) = (99 : Int))
 ```
 
-### query: pages(100, 10) = 10; skip(3, 10) = 20; depth(2) = 2; where(4) = 4; population(5, 2) = 10; sort(3) = 3; limit(500, 100) = 100; hit(45, 100) = 45
+### query: pages(100, 10) = 10; skip(3, 10) = 20; population(5, 2) = 10; limit(500, 100) = 100; hit(45, 100) = 45
 The ledger holds this as [fam_query](/theorem/fam_query) — proven `by decide`, sorry-free:
 
 ```lean
-((-((-(100 : Int)) / (10 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) (((3 : Int) - (1 : Int)) * (10 : Int))) = (20 : Int)) ∧ ((2 : Int) = (2 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ (((5 : Int) * (2 : Int)) = (10 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((fmin (500 : Int) (100 : Int)) = (100 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int))
+((-((-(100 : Int)) / (10 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) (((3 : Int) - (1 : Int)) * (10 : Int))) = (20 : Int)) ∧ (((5 : Int) * (2 : Int)) = (10 : Int)) ∧ ((fmin (500 : Int) (100 : Int)) = (100 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int))
 ```
 
 ### queue: throughput(6000, 60) = 100; latency(1000, 100) = 10; depth(64, 0) = 64; waittime(120, 4) = 30; slots(6) = 64; arrivals(10, 60) = 600; service(1000, 10) = 100; combos(8, 2) = 28

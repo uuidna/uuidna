@@ -7,7 +7,7 @@ description: "Computed from lean/FamiliesV.lean — 18 sealed theorems, every cl
 
 > THE FAMILIES, V — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. — held by [fam_vaccination](/theorem/fam_vaccination) and its 17 siblings below.
 
-**18 theorems** and **7,864 decided cases**, from [fam_vaccination](/theorem/fam_vaccination) onward, each proven `by decide` in <a href="/lean/FamiliesV.lean">lean/FamiliesV.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**18 theorems** and **7,618 decided cases**, from [fam_vaccination](/theorem/fam_vaccination) onward, each proven `by decide` in <a href="/lean/FamiliesV.lean">lean/FamiliesV.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FFamiliesV.lean)** — nothing to install. The editor fetches `lean/FamiliesV.lean` from the repository and re-decides all 18 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -60,11 +60,11 @@ The ledger holds this as [fam_version](/theorem/fam_version) — proven `by deci
 ((fmin (50 : Int) (20 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (20 : Int))) = (30 : Int)) ∧ (((60 : Int) / (5 : Int)) = (12 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ ((fmax (0 : Int) ((160 : Int) - (100 : Int))) = (60 : Int)) ∧ ((fmax (0 : Int) ((160 : Int) - (200 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (12 : Int))) = (8 : Int)) ∧ (((100 : Int) / (20 : Int)) = (5 : Int))
 ```
 
-### vet: dose(20, 5) = 100; age(3, 7) = 21; bodyscore(5) = 5; herd(3, 12) = 25; gestation(100, 63) = 163; feed(40, 3) = 1; vaccination(80, 100) = 80; fluids(10, 60) = 600
+### vet: dose(20, 5) = 100; age(3, 7) = 21; herd(3, 12) = 25; gestation(100, 63) = 163; feed(40, 3) = 1; vaccination(80, 100) = 80; fluids(10, 60) = 600
 The ledger holds this as [fam_vet](/theorem/fam_vet) — proven `by decide`, sorry-free:
 
 ```lean
-(((20 : Int) * (5 : Int)) = (100 : Int)) ∧ (((3 : Int) * (7 : Int)) = (21 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ (((100 : Int) + (63 : Int)) = (163 : Int)) ∧ ((((40 : Int) * (3 : Int)) / (100 : Int)) = (1 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((10 : Int) * (60 : Int)) = (600 : Int))
+(((20 : Int) * (5 : Int)) = (100 : Int)) ∧ (((3 : Int) * (7 : Int)) = (21 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ (((100 : Int) + (63 : Int)) = (163 : Int)) ∧ ((((40 : Int) * (3 : Int)) / (100 : Int)) = (1 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((10 : Int) * (60 : Int)) = (600 : Int))
 ```
 
 ### veterinary: dose(10, 5) = 50; caloricrequirement(20, 30) = 600; bcs(55, 50) = 110; fluidtherapy(1000, 250) = 4; heartrate(240, 2) = 120; medicationinterval(24, 3) = 8; bodyweightgain(10, 15) = 5; bodyweightgain(15, 10) = 0; gestation(63, 63) = 1; gestation(30, 63) = 0
@@ -81,18 +81,18 @@ The ledger holds this as [fam_vibration](/theorem/fam_vibration) — proven `by 
 (((5000 : Int) / (10 : Int)) = (500 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((60 : Int) * (3 : Int)) = (180 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((20 : Int) * (25 : Int)) = (500 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (200 : Int)) = (150 : Int)) ∧ (((3 : Int) * (100 : Int)) = (300 : Int))
 ```
 
-### virality: coefficient(200, 15) = 30; cycletime(7) = 7; shares(250, 1000) = 25; amplification(600, 50) = 12; reach(10000, 100) = 100; engagement(300, 1000) = 30; saturation(2500, 10000) = 25; halflife(48) = 48
+### virality: coefficient(200, 15) = 30; shares(250, 1000) = 25; amplification(600, 50) = 12; reach(10000, 100) = 100; engagement(300, 1000) = 30; saturation(2500, 10000) = 25
 The ledger holds this as [fam_virality](/theorem/fam_virality) — proven `by decide`, sorry-free:
 
 ```lean
-((((200 : Int) * (15 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((600 : Int) / (50 : Int)) = (12 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((2500 : Int) * (100 : Int)) / (10000 : Int)) = (25 : Int)) ∧ ((48 : Int) = (48 : Int))
+((((200 : Int) * (15 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((600 : Int) / (50 : Int)) = (12 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((2500 : Int) * (100 : Int)) / (10000 : Int)) = (25 : Int))
 ```
 
-### virology: titer(50, 100) = 5000; load(1000000, 5) = 200000; replication(5000, 100) = 50; infectivity(80, 100) = 80; mutation(3, 30000) = 100; latency(14) = 14; clearance(90, 100) = 90; neutralization(75, 100) = 75
+### virology: titer(50, 100) = 5000; load(1000000, 5) = 200000; replication(5000, 100) = 50; infectivity(80, 100) = 80; mutation(3, 30000) = 100; clearance(90, 100) = 90; neutralization(75, 100) = 75
 The ledger holds this as [fam_virology](/theorem/fam_virology) — proven `by decide`, sorry-free:
 
 ```lean
-(((50 : Int) * (100 : Int)) = (5000 : Int)) ∧ (((1000000 : Int) / (5 : Int)) = (200000 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((3 : Int) * (1000000 : Int)) / (30000 : Int)) = (100 : Int)) ∧ ((14 : Int) = (14 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int))
+(((50 : Int) * (100 : Int)) = (5000 : Int)) ∧ (((1000000 : Int) / (5 : Int)) = (200000 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((3 : Int) * (1000000 : Int)) / (30000 : Int)) = (100 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((75 : Int) * (100 : Int)) / (100 : Int)) = (75 : Int))
 ```
 
 ### virtualization: overcommit(32, 8) = 400; density(65536, 2048) = 32; consolidation(100, 8) = 13; ballooning(4096, 1024) = 3072; vcpu(2, 8, 2) = 32; allocation(16, 2048) = 32768; overhead(512, 2048) = 25; migration(16384, 1024) = 16; ballooning(512, 1024) = 0
@@ -123,11 +123,11 @@ The ledger holds this as [fam_volatility](/theorem/fam_volatility) — proven `b
 ((fmax (0 : Int) ((150 : Int) - (90 : Int))) = (60 : Int)) ∧ (((2 : Int) * (16 : Int)) = (32 : Int)) ∧ ((((2 : Int) * (5 : Int)) * (2 : Int)) = (20 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (100 : Int)) = (150 : Int)) ∧ (((500 : Int) / (5 : Int)) = (100 : Int)) ∧ ((((200 : Int) * (25 : Int)) / (100 : Int)) = (50 : Int)) ∧ (((fmax (0 : Int) ((120 : Int) - (100 : Int))) / (10 : Int)) = (2 : Int)) ∧ ((((fmax (0 : Int) ((200 : Int) - (150 : Int))) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((9 : Int) - (4 : Int))) = (5 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (3 : Int))) = (7 : Int)) ∧ ((((1000 : Int) * (5 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((3 : Int) ^ (2 : Nat)) + ((4 : Int) ^ (2 : Nat))) = (25 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (3 : Int))) = (5 : Int)) ∧ (((10 : Int) / (4 : Int)) = (2 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (0 : Int)) = (0 : Int))
 ```
 
-### volcanology: vei(7) = 7; effusion(1000, 10) = 100; viscosity(50, 1000) = 50; ash(1000, 4) = 250; magma(6000, 60) = 100; pyroclastic(30, 4) = 120; gas(900, 500) = 400; gas(300, 500) = 0; repose(42) = 42
+### volcanology: effusion(1000, 10) = 100; viscosity(50, 1000) = 50; ash(1000, 4) = 250; magma(6000, 60) = 100; pyroclastic(30, 4) = 120; gas(900, 500) = 400; gas(300, 500) = 0
 The ledger holds this as [fam_volcanology](/theorem/fam_volcanology) — proven `by decide`, sorry-free:
 
 ```lean
-((7 : Int) = (7 : Int)) ∧ (((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((50 : Int) * (1000 : Int)) / (1000 : Int)) = (50 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((30 : Int) * (4 : Int)) = (120 : Int)) ∧ ((fmax (0 : Int) ((900 : Int) - (500 : Int))) = (400 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (500 : Int))) = (0 : Int)) ∧ ((42 : Int) = (42 : Int))
+(((1000 : Int) / (10 : Int)) = (100 : Int)) ∧ ((((50 : Int) * (1000 : Int)) / (1000 : Int)) = (50 : Int)) ∧ (((1000 : Int) / (4 : Int)) = (250 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ (((30 : Int) * (4 : Int)) = (120 : Int)) ∧ ((fmax (0 : Int) ((900 : Int) - (500 : Int))) = (400 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (500 : Int))) = (0 : Int))
 ```
 
 ### vulcanology: vei(4, 5) = 5; ejectavolume(1000, 3) = 3000; explosivity(5000, 1000) = 5; lavaflowrate(6000, 60) = 100; ashheight(12, 1000) = 12000; repose(1000, 200) = 800; magmaviscosity(100, 4) = 400; hazardindex(80, 100) = 80

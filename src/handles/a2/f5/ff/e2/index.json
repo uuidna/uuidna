@@ -1,0 +1,12 @@
+{
+  "handle": "a2f5ffe2",
+  "address": "a2f5ffe2-f943-87e0-8c5a-303595eee54b",
+  "kind": "chunk",
+  "keys": [
+    "fam_tennis"
+  ],
+  "statement": "((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (80 : Int)) = (12 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (8 : Int)) = (37 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (20 : Int)) = (200 : Int)) ∧ (((400 : Int) / (100 : Int)) = (4 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (10 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (50 : Int)) = (60 : Int))",
+  "files": [
+    "FamiliesT.lean"
+  ]
+}

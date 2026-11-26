@@ -1,0 +1,12 @@
+{
+  "handle": "eea39fa6",
+  "address": "eea39fa6-420f-801d-9e3e-34645179c6be",
+  "statement": "((((850 : Int) * (100 : Int)) / (1000 : Int)) = (85 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ (((50000 : Int) / (1000 : Int)) = (50 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ (((1200 : Int) / (12 : Int)) = (100 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (100 : Int)) = (120 : Int)) ∧ ((((700 : Int) * (100 : Int)) / (1000 : Int)) = (70 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_cohort"
+  ],
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

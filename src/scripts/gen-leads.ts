@@ -52,20 +52,21 @@ const bound = (text: string): string => PHYSICS.test(text) ? ' ([`n_qubit_dimens
  *
  *  EMPHASIS DELIMITERS ARE DATA TOO. A settlement quoting `_meta.deposit` opened an <em> inside the <q> this generator
  *  writes, and markdown closed it at the next underscore, in the following line — so the <q> held an element with no
- *  end tag and the Vue compiler refused the page (measured 2026-11-08: one lead, the whole site build). Underscores and
- *  asterisks outside code spans are backslash-escaped, which markdown renders as the characters themselves; inside a
+ *  end tag and the Vue compiler refused the page (measured 2026-11-08: one lead, the whole site build). Underscores,
+ *  asterisks and backslashes outside code spans are backslash-escaped, which markdown renders as the characters
+ *  themselves (a backslash left alone would escape the backslash written before the next one); inside a
  *  code span a backslash would be literal, so code spans pass through as they are — markdown already keeps their
  *  contents from opening anything. */
 const say = (text: string): string => text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
-  .split(/(`[^`]*`)/).map((part, i) => (i % 2 ? part : part.replace(/[_*]/g, '\\$&'))).join('')
+  .split(/(`[^`]*`)/).map((part, i) => (i % 2 ? part : part.replace(/[\\_*]/g, '\\$&'))).join('')
 
 const line = (l: Lead): string =>
-  `- **\`${handleOf(toUuid(l.lead))}\`** ${say(l.lead)}${bound(l.lead)}` +
+  `- **\`${handleOf(toUuid(l.lead))}\`** <q>${say(l.lead)}</q>${bound(l.lead)}` +
   (l.owes ? `\n  <br>_owes:_ ${say(l.owes)}` : '') +
   (l.killed_by ? `\n  <br>_killed by:_ ${say(l.killed_by)}` : '') +
   further(l)
 const reopenedLine = ({ l, s }: { l: Lead; s: Settlement | null }): string =>
-  `- **\`${handleOf(toUuid(l.lead))}\`** ${say(l.lead)}${bound(l.lead)}` +
+  `- **\`${handleOf(toUuid(l.lead))}\`** <q>${say(l.lead)}</q>${bound(l.lead)}` +
   // A REOPENED SETTLEMENT IS QUOTED, NEVER TAUGHT. Its words stay exactly as they were said — nobody withdraws a
   // settlement, they only prove what they meant — but a settlement whose evidence has since left the tree would
   // otherwise have this page teaching paths that no longer exist. <q> marks it as a claim on record, which is what

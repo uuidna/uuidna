@@ -1,11 +1,20 @@
 {
+<<<<<<<< HEAD:src/handles/98/e7/d4/e2/index.json
+  "handle": "98e7d4e2",
+  "address": "98e7d4e2-e6ce-8c9c-a0d5-1c3e46f75ecc",
+========
   "handle": "42b216dc",
   "address": "42b216dc-2814-89d1-b32d-5b5e1930e2ea",
+>>>>>>>> origin/main:src/handles/42/b2/16/dc/index.json
   "kind": "chunk",
   "keys": [
     "context_windows_are_transient_hexbits"
   ],
+<<<<<<<< HEAD:src/handles/98/e7/d4/e2/index.json
+  "statement": "(((modelContextRows.map (fun r => r.length)).sum) = 476) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+========
   "statement": "(((modelContextRows.map (fun r => r.length)).sum) = 473) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+>>>>>>>> origin/main:src/handles/42/b2/16/dc/index.json
   "files": [
     "Models.lean"
   ]

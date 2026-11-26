@@ -1,0 +1,12 @@
+{
+  "handle": "ffb98169",
+  "address": "ffb98169-ae50-81a9-9b91-aa4b7477d1d9",
+  "statement": "(((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((1200 : Int) / (48 : Int)) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_fermentation"
+  ],
+  "files": [
+    "FamiliesF.lean"
+  ]
+}

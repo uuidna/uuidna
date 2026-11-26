@@ -1,0 +1,12 @@
+{
+  "handle": "d00e787c",
+  "address": "d00e787c-d53b-8fd0-a643-a8f999757c3f",
+  "statement": "((((200 : Int) * (15 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((600 : Int) / (50 : Int)) = (12 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((2500 : Int) * (100 : Int)) / (10000 : Int)) = (25 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_virality"
+  ],
+  "files": [
+    "FamiliesV.lean"
+  ]
+}

@@ -7,7 +7,7 @@ description: "Computed from lean/FamiliesL.lean — 45 sealed theorems, every cl
 
 > THE FAMILIES, L — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. — held by [fam_landslide](/theorem/fam_landslide) and its 44 siblings below.
 
-**45 theorems** and **18,098 decided cases**, from [fam_landslide](/theorem/fam_landslide) onward, each proven `by decide` in <a href="/lean/FamiliesL.lean">lean/FamiliesL.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**45 theorems** and **17,410 decided cases**, from [fam_landslide](/theorem/fam_landslide) onward, each proven `by decide` in <a href="/lean/FamiliesL.lean">lean/FamiliesL.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FFamiliesL.lean)** — nothing to install. The editor fetches `lean/FamiliesL.lean` from the repository and re-decides all 45 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -46,11 +46,11 @@ The ledger holds this as [fam_latency](/theorem/fam_latency) — proven `by deci
 ((((15 : Int) + (8 : Int)) + (2 : Int)) = (25 : Int)) ∧ (((100 : Int) * (2 : Int)) = (200 : Int)) ∧ (((3000 : Int) / (200 : Int)) = (15 : Int)) ∧ (((10 : Int) * (5 : Int)) = (50 : Int)) ∧ (((2 : Int) * (25 : Int)) = (50 : Int)) ∧ ((((1500 : Int) * (8 : Int)) / (1000 : Int)) = (12 : Int)) ∧ (((20 : Int) * (3 : Int)) = (60 : Int)) ∧ (((8000 : Int) / (1000 : Int)) = (8 : Int))
 ```
 
-### latinsquare: cells(4) = 16; symbols(4) = 4; rows(4) = 4; cols(4) = 4; mols(4) = 3; transversal(4) = 4; order(4) = 4; firstrow(4) = 24; isotopy(4) = 13824; paratopy(4) = 82944; subsquare(2) = 4
+### latinsquare: cells(4) = 16; mols(4) = 3; firstrow(4) = 24; isotopy(4) = 13824; paratopy(4) = 82944; subsquare(2) = 4
 The ledger holds this as [fam_latinsquare](/theorem/fam_latinsquare) — proven `by decide`, sorry-free:
 
 ```lean
-(((4 : Int) ^ (2 : Nat)) = (16 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ (((4 : Int) - (1 : Int)) = (3 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (4 : Int)))) ^ (3 : Nat)) = (13824 : Int)) ∧ (((6 : Int) * ((Int.ofNat (ffact (Int.toNat (4 : Int)))) ^ (3 : Nat))) = (82944 : Int)) ∧ (((2 : Int) ^ (2 : Nat)) = (4 : Int))
+(((4 : Int) ^ (2 : Nat)) = (16 : Int)) ∧ (((4 : Int) - (1 : Int)) = (3 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (4 : Int)))) ^ (3 : Nat)) = (13824 : Int)) ∧ (((6 : Int) * ((Int.ofNat (ffact (Int.toNat (4 : Int)))) ^ (3 : Nat))) = (82944 : Int)) ∧ (((2 : Int) ^ (2 : Nat)) = (4 : Int))
 ```
 
 ### lattice: points(10, 10, 10) = 1000; unitcells(100, 8) = 800; coordinationnumber(6, 6) = 12; symmetryorderings(4) = 24; planepairs(6, 2) = 15; packingfraction(74, 100) = 74; latticevectors(3, 0) = 3; millerindices(3) = 8
@@ -60,18 +60,18 @@ The ledger holds this as [fam_lattice](/theorem/fam_lattice) — proven `by deci
 ((((10 : Int) * (10 : Int)) * (10 : Int)) = (1000 : Int)) ∧ (((100 : Int) * (8 : Int)) = (800 : Int)) ∧ (((6 : Int) + (6 : Int)) = (12 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) ∧ ((((74 : Int) * (100 : Int)) / (100 : Int)) = (74 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((2 : Int) ^ (3 : Nat)) = (8 : Int))
 ```
 
-### law: limitation(6) = 2190; deadline(2460000, 21) = 2460021; quorum(9, 50) = 5; majority(5, 9) = 1; majority(4, 9) = 0; supermajority(6, 9, 66) = 1; supermajority(5, 9, 66) = 0; supermajority(6, 9, 67) = 0; notice(14, 21) = 1; notice(28, 21) = 0; reviewed(0) = 0; reviewed(1) = 1; redirected(14, 9) = 5; redirected(14, 14) = 0; fast(90121, 400) = 89721; fast(400, 400) = 0; fast(10, 14) = 0
+### law: limitation(6) = 2190; deadline(2460000, 21) = 2460021; quorum(9, 50) = 5; majority(5, 9) = 1; majority(4, 9) = 0; supermajority(6, 9, 66) = 1; supermajority(5, 9, 66) = 0; supermajority(6, 9, 67) = 0; notice(14, 21) = 1; notice(28, 21) = 0; redirected(14, 9) = 5; redirected(14, 14) = 0; fast(90121, 400) = 89721; fast(400, 400) = 0; fast(10, 14) = 0
 The ledger holds this as [fam_law](/theorem/fam_law) — proven `by decide`, sorry-free:
 
 ```lean
-(((6 : Int) * (365 : Int)) = (2190 : Int)) ∧ (((2460000 : Int) + (21 : Int)) = (2460021 : Int)) ∧ ((-((-((9 : Int) * (50 : Int))) / (100 : Int))) = (5 : Int)) ∧ ((if (if ((2 : Int) * (5 : Int)) > (9 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if ((2 : Int) * (4 : Int)) > (9 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if ((100 : Int) * (6 : Int)) ≥ ((9 : Int) * (66 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if ((100 : Int) * (5 : Int)) ≥ ((9 : Int) * (66 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if ((100 : Int) * (6 : Int)) ≥ ((9 : Int) * (67 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (21 : Int) ≥ (14 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (21 : Int) ≥ (28 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((0 : Int) = (0 : Int)) ∧ ((1 : Int) = (1 : Int)) ∧ ((fmax (0 : Int) ((14 : Int) - (9 : Int))) = (5 : Int)) ∧ ((fmax (0 : Int) ((14 : Int) - (14 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((90121 : Int) - (400 : Int))) = (89721 : Int)) ∧ ((fmax (0 : Int) ((400 : Int) - (400 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (14 : Int))) = (0 : Int))
+(((6 : Int) * (365 : Int)) = (2190 : Int)) ∧ (((2460000 : Int) + (21 : Int)) = (2460021 : Int)) ∧ ((-((-((9 : Int) * (50 : Int))) / (100 : Int))) = (5 : Int)) ∧ ((if (if ((2 : Int) * (5 : Int)) > (9 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if ((2 : Int) * (4 : Int)) > (9 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if ((100 : Int) * (6 : Int)) ≥ ((9 : Int) * (66 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if ((100 : Int) * (5 : Int)) ≥ ((9 : Int) * (66 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if ((100 : Int) * (6 : Int)) ≥ ((9 : Int) * (67 : Int)) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (21 : Int) ≥ (14 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (21 : Int) ≥ (28 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((fmax (0 : Int) ((14 : Int) - (9 : Int))) = (5 : Int)) ∧ ((fmax (0 : Int) ((14 : Int) - (14 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((90121 : Int) - (400 : Int))) = (89721 : Int)) ∧ ((fmax (0 : Int) ((400 : Int) - (400 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (14 : Int))) = (0 : Int))
 ```
 
-### layout: span(6, 12) = 50; columns(12) = 12; aspect(16, 9) = 177; basis(50) = 50; grow(1, 4) = 25; gap(4, 8) = 24; order(3, 12) = 1; order(13, 12) = 0; track(1200, 12) = 100
+### layout: span(6, 12) = 50; aspect(16, 9) = 177; grow(1, 4) = 25; gap(4, 8) = 24; order(3, 12) = 1; order(13, 12) = 0; track(1200, 12) = 100
 The ledger holds this as [fam_layout](/theorem/fam_layout) — proven `by decide`, sorry-free:
 
 ```lean
-((((6 : Int) * (100 : Int)) / (12 : Int)) = (50 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ ((((16 : Int) * (100 : Int)) / (9 : Int)) = (177 : Int)) ∧ ((50 : Int) = (50 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (4 : Int)) = (25 : Int)) ∧ (((fmax (0 : Int) ((4 : Int) - (1 : Int))) * (8 : Int)) = (24 : Int)) ∧ ((if (if (3 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (13 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((1200 : Int) / (12 : Int)) = (100 : Int))
+((((6 : Int) * (100 : Int)) / (12 : Int)) = (50 : Int)) ∧ ((((16 : Int) * (100 : Int)) / (9 : Int)) = (177 : Int)) ∧ ((((1 : Int) * (100 : Int)) / (4 : Int)) = (25 : Int)) ∧ (((fmax (0 : Int) ((4 : Int) - (1 : Int))) * (8 : Int)) = (24 : Int)) ∧ ((if (if (3 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (13 : Int) ≤ (12 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((1200 : Int) / (12 : Int)) = (100 : Int))
 ```
 
 ### lean: valueadd(30, 120) = 25; waste(120, 30) = 90; flow(1000, 20) = 50; pull(100, 40) = 60; kanban(120, 5, 20) = 30; changeover(8, 15) = 120; oee(90, 95, 99) = 84; leadtime(10, 30, 5) = 45
@@ -151,11 +151,11 @@ The ledger holds this as [fam_licensing](/theorem/fam_licensing) — proven `by 
 ((-((-(100 : Int)) / (5 : Int))) = (20 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (50 : Int)) = (90 : Int)) ∧ (((12 : Int) * (100 : Int)) = (1200 : Int)) ∧ ((if (if (80 : Int) ≤ (100 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (100 : Int) ≤ (80 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((20 : Int) * (50 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (100 : Int))) = (20 : Int)) ∧ (((2024 : Int) + (3 : Int)) = (2027 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (250 : Int))) = (750 : Int))
 ```
 
-### lidar: range(300, 1000) = 150000; pointdensity(10000, 50) = 200; accuracy(5, 1000) = 50; returns(950, 1000) = 95; penetration(300, 1000) = 30; swath(500, 60) = 30000; resolution(25) = 25; noise(20, 1000) = 2
+### lidar: range(300, 1000) = 150000; pointdensity(10000, 50) = 200; accuracy(5, 1000) = 50; returns(950, 1000) = 95; penetration(300, 1000) = 30; swath(500, 60) = 30000; noise(20, 1000) = 2
 The ledger holds this as [fam_lidar](/theorem/fam_lidar) — proven `by decide`, sorry-free:
 
 ```lean
-((((300 : Int) * (1000 : Int)) / (2 : Int)) = (150000 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ ((((5 : Int) * (10000 : Int)) / (1000 : Int)) = (50 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ (((500 : Int) * (60 : Int)) = (30000 : Int)) ∧ ((25 : Int) = (25 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (1000 : Int)) = (2 : Int))
+((((300 : Int) * (1000 : Int)) / (2 : Int)) = (150000 : Int)) ∧ (((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ ((((5 : Int) * (10000 : Int)) / (1000 : Int)) = (50 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ (((500 : Int) * (60 : Int)) = (30000 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (1000 : Int)) = (2 : Int))
 ```
 
 ### lift: force(50, 20) = 1000; coefficient(600, 1000) = 60; aspectratio(30, 90) = 10; angleofattack(12, 4) = 8; liftdragratio(1800, 100) = 18; circulation(5000, 100) = 50; stallmargin(15, 12) = 3; stallmargin(10, 15) = 0; loading(24000, 30) = 800
@@ -165,18 +165,18 @@ The ledger holds this as [fam_lift](/theorem/fam_lift) — proven `by decide`, s
 (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (1000 : Int)) = (60 : Int)) ∧ ((((30 : Int) * (30 : Int)) / (90 : Int)) = (10 : Int)) ∧ ((fmax (0 : Int) ((12 : Int) - (4 : Int))) = (8 : Int)) ∧ (((1800 : Int) / (100 : Int)) = (18 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((fmax (0 : Int) ((15 : Int) - (12 : Int))) = (3 : Int)) ∧ ((fmax (0 : Int) ((10 : Int) - (15 : Int))) = (0 : Int)) ∧ (((24000 : Int) / (30 : Int)) = (800 : Int))
 ```
 
-### limnology: oxygen(8, 10) = 80; clarity(4) = 4; trophic(1000, 50) = 20; residence(10000, 100) = 100; stratification(22, 7) = 15; stratification(7, 22) = 0; productivity(6000, 60) = 100; ph(50, 100) = 50; turbidity(3, 10) = 30
+### limnology: oxygen(8, 10) = 80; trophic(1000, 50) = 20; residence(10000, 100) = 100; stratification(22, 7) = 15; stratification(7, 22) = 0; productivity(6000, 60) = 100; ph(50, 100) = 50; turbidity(3, 10) = 30
 The ledger holds this as [fam_limnology](/theorem/fam_limnology) — proven `by decide`, sorry-free:
 
 ```lean
-((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((22 : Int) - (7 : Int))) = (15 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (22 : Int))) = (0 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int))
+((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((10000 : Int) / (100 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((22 : Int) - (7 : Int))) = (15 : Int)) ∧ ((fmax (0 : Int) ((7 : Int) - (22 : Int))) = (0 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int))
 ```
 
-### linearalgebra: trace2(7, 9) = 16; matrixelements(3, 4) = 12; ranknullity(2, 3) = 5; nullity(4, 1) = 3; orthogonal(3, 4) = 1; outerproduct(2, 3) = 6; span(3, 5) = 3
+### linearalgebra: trace2(7, 9) = 16; matrixelements(3, 4) = 12; ranknullity(2, 3) = 5; nullity(4, 1) = 3; outerproduct(2, 3) = 6; span(3, 5) = 3
 The ledger holds this as [fam_linearalgebra](/theorem/fam_linearalgebra) — proven `by decide`, sorry-free:
 
 ```lean
-(((7 : Int) + (9 : Int)) = (16 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ (((2 : Int) + (3 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((4 : Int) - (1 : Int))) = (3 : Int)) ∧ ((1 : Int) = (1 : Int)) ∧ (((2 : Int) * (3 : Int)) = (6 : Int)) ∧ ((fmin (3 : Int) (5 : Int)) = (3 : Int))
+(((7 : Int) + (9 : Int)) = (16 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ (((2 : Int) + (3 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((4 : Int) - (1 : Int))) = (3 : Int)) ∧ (((2 : Int) * (3 : Int)) = (6 : Int)) ∧ ((fmin (3 : Int) (5 : Int)) = (3 : Int))
 ```
 
 ### linehaul: transittime(1200, 60) = 20; costpermile(1000, 2) = 2000; avgspeed(1200, 20) = 60; fuelburn(1200, 6) = 200; payloadmiles(20000, 1200) = 24000000; driverhours(600, 60) = 10; teamutilization(20, 24) = 83; laneprofit(3000, 2000) = 1000
@@ -186,11 +186,11 @@ The ledger holds this as [fam_linehaul](/theorem/fam_linehaul) — proven `by de
 (((1200 : Int) / (60 : Int)) = (20 : Int)) ∧ (((1000 : Int) * (2 : Int)) = (2000 : Int)) ∧ (((1200 : Int) / (20 : Int)) = (60 : Int)) ∧ (((1200 : Int) / (6 : Int)) = (200 : Int)) ∧ (((20000 : Int) * (1200 : Int)) = (24000000 : Int)) ∧ (((600 : Int) / (60 : Int)) = (10 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (24 : Int)) = (83 : Int)) ∧ ((fmax (0 : Int) ((3000 : Int) - (2000 : Int))) = (1000 : Int))
 ```
 
-### linguistics: syllables(100, 2) = 200; lexical(400, 1000) = 40; readability(500, 25) = 20; cognates(300, 1000) = 30; phonemes(44) = 44; frequency(50, 1000000) = 50; morphemes(200, 3) = 600; distance(5, 20) = 25
+### linguistics: syllables(100, 2) = 200; lexical(400, 1000) = 40; readability(500, 25) = 20; cognates(300, 1000) = 30; frequency(50, 1000000) = 50; morphemes(200, 3) = 600; distance(5, 20) = 25
 The ledger holds this as [fam_linguistics](/theorem/fam_linguistics) — proven `by decide`, sorry-free:
 
 ```lean
-(((100 : Int) * (2 : Int)) = (200 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (1000 : Int)) = (40 : Int)) ∧ (((500 : Int) / (25 : Int)) = (20 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((44 : Int) = (44 : Int)) ∧ ((((50 : Int) * (1000000 : Int)) / (1000000 : Int)) = (50 : Int)) ∧ (((200 : Int) * (3 : Int)) = (600 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (20 : Int)) = (25 : Int))
+(((100 : Int) * (2 : Int)) = (200 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (1000 : Int)) = (40 : Int)) ∧ (((500 : Int) / (25 : Int)) = (20 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((50 : Int) * (1000000 : Int)) / (1000000 : Int)) = (50 : Int)) ∧ (((200 : Int) * (3 : Int)) = (600 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (20 : Int)) = (25 : Int))
 ```
 
 ### linkage: degreesoffreedom(6, 2) = 4; linkcount(4, 1) = 5; jointcount(5, 1) = 4; reach(30, 4) = 120; transmissionangle(90, 30) = 60; mechanicaladvantage(100, 25) = 4; couplercurve(12, 3) = 36; grashofcondition(10, 8) = 1
@@ -242,11 +242,11 @@ The ledger holds this as [fam_loan](/theorem/fam_loan) — proven `by decide`, s
 (((20000 : Int) * (1 : Int)) = (20000 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((24000 : Int) / (360 : Int)) = (66 : Int)) ∧ (((30 : Int) * (12 : Int)) = (360 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((20000 : Int) / (360 : Int)) = (55 : Int)) ∧ (((2 : Int) + (0 : Int)) = (2 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int))
 ```
 
-### locale: coverage(750, 1000) = 75; fallback(250, 1000) = 25; locales(7) = 7; fields(12, 40) = 30; words(5000, 1200) = 3800; words(1200, 5000) = 0; rtl(2, 8) = 25; complete(6, 8) = 75; storage(40, 7) = 280
+### locale: coverage(750, 1000) = 75; fallback(250, 1000) = 25; fields(12, 40) = 30; words(5000, 1200) = 3800; words(1200, 5000) = 0; rtl(2, 8) = 25; complete(6, 8) = 75; storage(40, 7) = 280
 The ledger holds this as [fam_locale](/theorem/fam_locale) — proven `by decide`, sorry-free:
 
 ```lean
-((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (40 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (1200 : Int))) = (3800 : Int)) ∧ ((fmax (0 : Int) ((1200 : Int) - (5000 : Int))) = (0 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (8 : Int)) = (25 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (8 : Int)) = (75 : Int)) ∧ (((40 : Int) * (7 : Int)) = (280 : Int))
+((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (40 : Int)) = (30 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (1200 : Int))) = (3800 : Int)) ∧ ((fmax (0 : Int) ((1200 : Int) - (5000 : Int))) = (0 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (8 : Int)) = (25 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (8 : Int)) = (75 : Int)) ∧ (((40 : Int) * (7 : Int)) = (280 : Int))
 ```
 
 ### localization: covariance(4, 4) = 16; gain(30, 100) = 30; innovation(120, 100) = 20; confidence(90, 100) = 90; gridresolution(1000, 50) = 20; particlecount(100, 5) = 500; updaterate(1000, 20) = 50; positionvariance(400, 4) = 100

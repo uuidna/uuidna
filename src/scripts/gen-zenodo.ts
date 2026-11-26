@@ -102,6 +102,15 @@ const SYNC_CHAIN = '10.5281/zenodo.21970356'
 const related_identifiers = softwareArchiveRelatedIdentifiers().map((r) =>
   r.identifier === SYNC_CHAIN && r.relation === 'isIdenticalTo' ? { ...r, identifier: STANDING_CHAIN } : r)
 
+// FUNDING IS READ FROM .github/FUNDING.yml, GitHub's documented sponsorship file, never typed here: each GitHub
+// Sponsors account and each custom URL it names. Zenodo's grants field holds funder awards only, and none is named,
+// so what is open to the work is stated in the notes.
+const funding = readFileSync(join(ROOT, '.github/FUNDING.yml'), 'utf8').split('\n').flatMap((line) => {
+  const m = /^(github|custom):\s*\[([^\]]*)\]/.exec(line)
+  const names = m ? m[2]!.split(',').map((s) => s.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean) : []
+  return m?.[1] === 'github' ? names.map((n) => `https://github.com/sponsors/${n}`) : names
+})
+
 const zenodo = {
   title,
   description,
@@ -124,7 +133,8 @@ const zenodo = {
   related_identifiers,
   notes:
     'License CC BY-NC-ND 4.0 — https://uuidna.com/license. Metadata generated from the ledger by ' +
-    'src/scripts/gen-zenodo.ts at release time; the proofs recompute with `npm run lean`.',
+    'src/scripts/gen-zenodo.ts at release time; the proofs recompute with `npm run lean`.' +
+    (funding.length ? ` Funding open to the work: ${funding.join(', ')}. This record names no funder award.` : ''),
 }
 
 const out = JSON.stringify(zenodo, null, 2) + '\n'

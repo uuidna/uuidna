@@ -7,7 +7,7 @@ description: "Computed from lean/FamiliesH.lean — 44 sealed theorems, every cl
 
 > THE FAMILIES, H — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. — held by [fam_hail](/theorem/fam_hail) and its 43 siblings below.
 
-**44 theorems** and **16,526 decided cases**, from [fam_hail](/theorem/fam_hail) onward, each proven `by decide` in <a href="/lean/FamiliesH.lean">lean/FamiliesH.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**44 theorems** and **15,683 decided cases**, from [fam_hail](/theorem/fam_hail) onward, each proven `by decide` in <a href="/lean/FamiliesH.lean">lean/FamiliesH.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FFamiliesH.lean)** — nothing to install. The editor fetches `lean/FamiliesH.lean` from the repository and re-decides all 44 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -25,11 +25,11 @@ The ledger holds this as [fam_halflife](/theorem/fam_halflife) — proven `by de
 (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ (((1000 : Int) / ((2 : Int) ^ (3 : Nat))) = (125 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - ((1000 : Int) / ((2 : Int) ^ (3 : Nat))))) = (875 : Int)) ∧ ((((1000 : Int) * (693 : Int)) / ((10 : Int) * (1000 : Int))) = (69 : Int)) ∧ ((((1000 : Int) * (1443 : Int)) / (1000 : Int)) = (1443 : Int)) ∧ ((((1000 : Int) * (69 : Int)) / (1000 : Int)) = (69 : Int)) ∧ (((100 : Int) / ((2 : Int) ^ (2 : Nat))) = (25 : Int)) ∧ (((10 : Int) * ((2 : Int) ^ (3 : Nat))) = (80 : Int))
 ```
 
-### handle: hexits() = 8; bits() = 32; count() = 4; nibbles() = 32; space() = 4294967296; pair(16, 16) = 256; trinity(2, 3, 4) = 24; compression() = 4; index(7) = 7
+### handle: space() = 4294967296; pair(16, 16) = 256; trinity(2, 3, 4) = 24
 The ledger holds this as [fam_handle](/theorem/fam_handle) — proven `by decide`, sorry-free:
 
 ```lean
-((8 : Int) = (8 : Int)) ∧ ((32 : Int) = (32 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((32 : Int) = (32 : Int)) ∧ (((2 : Int) ^ (32 : Nat)) = (4294967296 : Int)) ∧ (((16 : Int) * (16 : Int)) = (256 : Int)) ∧ ((((2 : Int) * (3 : Int)) * (4 : Int)) = (24 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((7 : Int) = (7 : Int))
+(((2 : Int) ^ (32 : Nat)) = (4294967296 : Int)) ∧ (((16 : Int) * (16 : Int)) = (256 : Int)) ∧ ((((2 : Int) * (3 : Int)) * (4 : Int)) = (24 : Int))
 ```
 
 ### hanoi: disks(10, 0) = 10; movesupperbound(10) = 1024; pegs(3, 0) = 3; recursiondepth(10, 0) = 10; subtowers(10, 2) = 45; moveorderings(5) = 120; statesubsets(8) = 256; transfertime(1024, 1) = 1024
@@ -137,11 +137,11 @@ The ledger holds this as [fam_hematocrit](/theorem/fam_hematocrit) — proven `b
 ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ (((450 : Int) / (5 : Int)) = (90 : Int)) ∧ (((150 : Int) / (5 : Int)) = (30 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (450 : Int)) = (33 : Int)) ∧ (((5 : Int) * (5000 : Int)) = (25000 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (1000 : Int)) = (15 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (45 : Int))) = (55 : Int)) ∧ ((((45 : Int) * (10 : Int)) / (100 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((45 : Int) - (100 : Int))) = (0 : Int))
 ```
 
-### hematology: hematocrit(45, 100) = 45; hemoglobin(150, 10) = 15; mcv(45, 5) = 90; inr(13, 12) = 108; platelets(250000, 1000) = 250; oxygen(97, 100) = 97; clotting(12) = 12; differential(60, 100) = 60
+### hematology: hematocrit(45, 100) = 45; hemoglobin(150, 10) = 15; mcv(45, 5) = 90; inr(13, 12) = 108; platelets(250000, 1000) = 250; oxygen(97, 100) = 97; differential(60, 100) = 60
 The ledger holds this as [fam_hematology](/theorem/fam_hematology) — proven `by decide`, sorry-free:
 
 ```lean
-((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ (((150 : Int) / (10 : Int)) = (15 : Int)) ∧ ((((45 : Int) * (10 : Int)) / (5 : Int)) = (90 : Int)) ∧ ((((13 : Int) * (100 : Int)) / (12 : Int)) = (108 : Int)) ∧ (((250000 : Int) / (1000 : Int)) = (250 : Int)) ∧ ((((97 : Int) * (100 : Int)) / (100 : Int)) = (97 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int))
+((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ (((150 : Int) / (10 : Int)) = (15 : Int)) ∧ ((((45 : Int) * (10 : Int)) / (5 : Int)) = (90 : Int)) ∧ ((((13 : Int) * (100 : Int)) / (12 : Int)) = (108 : Int)) ∧ (((250000 : Int) / (1000 : Int)) = (250 : Int)) ∧ ((((97 : Int) * (100 : Int)) / (100 : Int)) = (97 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int))
 ```
 
 ### hemodynamics: cardiacoutput(70, 70) = 4900; strokevolume(120, 50) = 70; meanarterialpressure(120, 80) = 93; ejectionfraction(70, 120) = 58; pulsepressure(120, 80) = 40; vascularresistance(93, 5) = 1488; pulserate(360, 5) = 72; perfusionpressure(93, 13) = 80; perfusionpressure(13, 93) = 0
@@ -165,11 +165,11 @@ The ledger holds this as [fam_hermeneutics](/theorem/fam_hermeneutics) — prove
 (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (3 : Int)))) = (56 : Int)) ∧ ((((3 : Int) + (4 : Int)) + (2 : Int)) = (9 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (60 : Int))) = (40 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (4 : Int)))) = (210 : Int)) ∧ (((Int.ofNat (ffact (Int.toNat (6 : Int)))) / (Int.ofNat (ffact (Int.toNat ((6 : Int) - (2 : Int)))))) = (30 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int))
 ```
 
-### herpetology: thermoregulation(30, 20) = 10; thermoregulation(15, 20) = 0; venom(5, 1000) = 5; clutch(100, 4) = 25; incubation(60) = 60; metabolism(100, 25) = 4; growth(50, 20) = 30; growth(20, 50) = 0; survival(80, 100) = 80; scalation(170, 10) = 17
+### herpetology: thermoregulation(30, 20) = 10; thermoregulation(15, 20) = 0; venom(5, 1000) = 5; clutch(100, 4) = 25; metabolism(100, 25) = 4; growth(50, 20) = 30; growth(20, 50) = 0; survival(80, 100) = 80; scalation(170, 10) = 17
 The ledger holds this as [fam_herpetology](/theorem/fam_herpetology) — proven `by decide`, sorry-free:
 
 ```lean
-((fmax (0 : Int) ((30 : Int) - (20 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) ((15 : Int) - (20 : Int))) = (0 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((60 : Int) = (60 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (20 : Int))) = (30 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (50 : Int))) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((170 : Int) / (10 : Int)) = (17 : Int))
+((fmax (0 : Int) ((30 : Int) - (20 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) ((15 : Int) - (20 : Int))) = (0 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (20 : Int))) = (30 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (50 : Int))) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((170 : Int) / (10 : Int)) = (17 : Int))
 ```
 
 ### hieroglyphs: signs(700, 1) = 700; determinatives(100, 0) = 100; cartouchepairs(10, 2) = 45; phonemsigns(24, 0) = 24; categorysubsets(6) = 64; readingorderings(5) = 120; biliterals(80, 20) = 100; decipheredratio(90, 100) = 90
@@ -179,11 +179,11 @@ The ledger holds this as [fam_hieroglyphs](/theorem/fam_hieroglyphs) — proven 
 (((700 : Int) * (1 : Int)) = (700 : Int)) ∧ (((100 : Int) + (0 : Int)) = (100 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ (((24 : Int) + (0 : Int)) = (24 : Int)) ∧ (((2 : Int) ^ (6 : Nat)) = (64 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((80 : Int) + (20 : Int)) = (100 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int))
 ```
 
-### highlights: items(5) = 5; active(3, 10) = 30; scroll(250, 1000) = 25; reveal(2, 8) = 25; sticky(80) = 80; parallax(50, 200) = 100; duration(400) = 400; threshold(50) = 50
+### highlights: active(3, 10) = 30; scroll(250, 1000) = 25; reveal(2, 8) = 25; parallax(50, 200) = 100
 The ledger holds this as [fam_highlights](/theorem/fam_highlights) — proven `by decide`, sorry-free:
 
 ```lean
-((5 : Int) = (5 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (8 : Int)) = (25 : Int)) ∧ ((80 : Int) = (80 : Int)) ∧ ((((50 : Int) * (200 : Int)) / (100 : Int)) = (100 : Int)) ∧ ((400 : Int) = (400 : Int)) ∧ ((50 : Int) = (50 : Int))
+((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (8 : Int)) = (25 : Int)) ∧ ((((50 : Int) * (200 : Int)) / (100 : Int)) = (100 : Int))
 ```
 
 ### hinduism: vedas(4, 0) = 4; deitycombos(33, 2) = 528; yogapaths(4, 0) = 4; mantrarepetitions(108, 1) = 108; chakras(7, 0) = 7; versesum(700, 1) = 700; stageorderings(4) = 24; gunasubsets(3) = 8
@@ -193,11 +193,11 @@ The ledger holds this as [fam_hinduism](/theorem/fam_hinduism) — proven `by de
 (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (33 : Int)) (Int.toNat (2 : Int)))) = (528 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ (((108 : Int) * (1 : Int)) = (108 : Int)) ∧ (((7 : Int) + (0 : Int)) = (7 : Int)) ∧ (((700 : Int) * (1 : Int)) = (700 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ (((2 : Int) ^ (3 : Nat)) = (8 : Int))
 ```
 
-### histology: staining(750, 1000) = 75; thickness(5) = 5; magnification(4000, 10) = 400; density(1200, 10) = 120; fibrosis(30, 100) = 30; necrosis(20, 200) = 10; grade(3) = 3; infiltration(900, 3) = 300
+### histology: staining(750, 1000) = 75; magnification(4000, 10) = 400; density(1200, 10) = 120; fibrosis(30, 100) = 30; necrosis(20, 200) = 10; infiltration(900, 3) = 300
 The ledger holds this as [fam_histology](/theorem/fam_histology) — proven `by decide`, sorry-free:
 
 ```lean
-((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ (((4000 : Int) / (10 : Int)) = (400 : Int)) ∧ (((1200 : Int) / (10 : Int)) = (120 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (200 : Int)) = (10 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ (((900 : Int) / (3 : Int)) = (300 : Int))
+((((750 : Int) * (100 : Int)) / (1000 : Int)) = (75 : Int)) ∧ (((4000 : Int) / (10 : Int)) = (400 : Int)) ∧ (((1200 : Int) / (10 : Int)) = (120 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (200 : Int)) = (10 : Int)) ∧ (((900 : Int) / (3 : Int)) = (300 : Int))
 ```
 
 ### historiography: sourcecount(40, 20) = 60; narrativeorderings(5) = 120; biasfactors(2, 3, 1) = 6; periodizations(10, 3) = 120; crosschecks(12, 4) = 48; interpretiveframes(5) = 32; consensuslevel(70, 100) = 70; revisionspan(200, 50) = 150
@@ -207,11 +207,11 @@ The ledger holds this as [fam_historiography](/theorem/fam_historiography) — p
 (((40 : Int) + (20 : Int)) = (60 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((((2 : Int) + (3 : Int)) + (1 : Int)) = (6 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (3 : Int)))) = (120 : Int)) ∧ (((12 : Int) * (4 : Int)) = (48 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (50 : Int))) = (150 : Int))
 ```
 
-### hook: chain(6, 100) = 600; latency(5000, 100) = 50; order(3, 6) = 1; order(7, 6) = 0; mutations(3, 12) = 25; failures(5, 100) = 5; depth(3) = 3; coverage(8, 10) = 80; fired(10, 6) = 60
+### hook: chain(6, 100) = 600; latency(5000, 100) = 50; order(3, 6) = 1; order(7, 6) = 0; mutations(3, 12) = 25; failures(5, 100) = 5; coverage(8, 10) = 80; fired(10, 6) = 60
 The ledger holds this as [fam_hook](/theorem/fam_hook) — proven `by decide`, sorry-free:
 
 ```lean
-(((6 : Int) * (100 : Int)) = (600 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((if (if (3 : Int) ≤ (6 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (7 : Int) ≤ (6 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ (((10 : Int) * (6 : Int)) = (60 : Int))
+(((6 : Int) * (100 : Int)) = (600 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ ((if (if (3 : Int) ≤ (6 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (7 : Int) ≤ (6 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ (((10 : Int) * (6 : Int)) = (60 : Int))
 ```
 
 ### horticulture: spacing(1000, 40) = 25; germination(90, 100) = 90; pruning(30, 120) = 25; irrigation(5000, 100) = 50; fertilizer(800, 100) = 8; ph(65, 100) = 65; lightdays(14, 90) = 1260; propagation(18, 24) = 75
@@ -235,11 +235,11 @@ The ledger holds this as [fam_hosting](/theorem/fam_hosting) — proven `by deci
 (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ (((12 : Int) * (5 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((190 : Int) - (100 : Int))) = (90 : Int)) ∧ ((fmax (0 : Int) ((190 : Int) - (200 : Int))) = (0 : Int)) ∧ ((((10000 : Int) * (90 : Int)) / (1000 : Int)) = (900 : Int)) ∧ ((((999 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ (((1000 : Int) * (5 : Int)) = (5000 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (100 : Int))) = (20 : Int)) ∧ ((fmax (0 : Int) ((80 : Int) - (100 : Int))) = (0 : Int))
 ```
 
-### hover: delay(300) = 300; scale(200, 150) = 300; reveal(40, 100) = 40; transition(250) = 250; stagger(5, 30) = 150; depth(3) = 3; cards(8) = 8; trigger(25, 100) = 25
+### hover: scale(200, 150) = 300; reveal(40, 100) = 40; stagger(5, 30) = 150; trigger(25, 100) = 25
 The ledger holds this as [fam_hover](/theorem/fam_hover) — proven `by decide`, sorry-free:
 
 ```lean
-((300 : Int) = (300 : Int)) ∧ ((((200 : Int) * (150 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ ((250 : Int) = (250 : Int)) ∧ (((5 : Int) * (30 : Int)) = (150 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((8 : Int) = (8 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int))
+((((200 : Int) * (150 : Int)) / (100 : Int)) = (300 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (100 : Int)) = (40 : Int)) ∧ (((5 : Int) * (30 : Int)) = (150 : Int)) ∧ ((((25 : Int) * (100 : Int)) / (100 : Int)) = (25 : Int))
 ```
 
 ### hovercraft: liftpressure(5000, 2) = 2500; skirtarea(40, 1) = 40; payload(2000, 1) = 2000; speed(60, 1) = 60; fanpower(200, 2) = 400; clearance(300, 1) = 300; cushionforce(2500, 40) = 100000; efficiency(70, 100) = 70

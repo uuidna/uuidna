@@ -1,0 +1,12 @@
+{
+  "handle": "0efb1460",
+  "address": "0efb1460-796a-821f-b11e-416550b408b6",
+  "kind": "chunk",
+  "keys": [
+    "fam_ray"
+  ],
+  "statement": "((fmin (40 : Int) (32 : Int)) = (32 : Int)) ∧ ((((0 : Int) + (16 : Int)) % (32 : Int)) = (16 : Int)) ∧ ((((20 : Int) + (16 : Int)) % (32 : Int)) = (4 : Int)) ∧ ((if (if (20 : Int) < (16 : Int) then (1 : Int) else 0) ≠ 0 then (20 : Int) else ((31 : Int) - (20 : Int))) = (11 : Int)) ∧ ((((10 : Int) * (16 : Int)) + (5 : Int)) = (165 : Int))",
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

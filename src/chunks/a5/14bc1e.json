@@ -1,0 +1,12 @@
+{
+  "handle": "a514bc1e",
+  "address": "a514bc1e-f04d-8e7d-b35a-4d0b51cdbde5",
+  "statement": "(((((80 : Int) - (40 : Int)) * (100 : Int)) / ((80 : Int) + (40 : Int))) = (33 : Int)) ∧ (((4000 : Int) / (1000 : Int)) = (4 : Int)) ∧ ((((40 : Int) * (100 : Int)) / (80 : Int)) = (50 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (1000 : Int)) = (90 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((700 : Int) * (10 : Int)) = (7000 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_remotesensing"
+  ],
+  "files": [
+    "FamiliesR.lean"
+  ]
+}

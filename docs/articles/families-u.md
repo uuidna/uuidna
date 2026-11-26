@@ -7,7 +7,7 @@ description: "Computed from lean/FamiliesU.lean — 8 sealed theorems, every cla
 
 > THE FAMILIES, U — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. — held by [fam_ui](/theorem/fam_ui) and its 7 siblings below.
 
-**8 theorems** and **2,962 decided cases**, from [fam_ui](/theorem/fam_ui) onward, each proven `by decide` in <a href="/lean/FamiliesU.lean">lean/FamiliesU.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**8 theorems** and **2,921 decided cases**, from [fam_ui](/theorem/fam_ui) onward, each proven `by decide` in <a href="/lean/FamiliesU.lean">lean/FamiliesU.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FFamiliesU.lean)** — nothing to install. The editor fetches `lean/FamiliesU.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -53,11 +53,11 @@ The ledger holds this as [fam_urbanism](/theorem/fam_urbanism) — proven `by de
 (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((1200 : Int) * (100 : Int)) / (1000 : Int)) = (120 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ (((100 : Int) * (80 : Int)) = (8000 : Int)) ∧ (((200 : Int) / (10 : Int)) = (20 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (100 : Int)) = (250 : Int)) ∧ (((50000 : Int) / (25 : Int)) = (2000 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int))
 ```
 
-### urology: flowrate(500, 25) = 20; residual(50, 400) = 12; psa(12, 3) = 4; output(1800, 24) = 75; stone(7) = 7; frequency(8, 24) = 33; concentration(600, 2) = 300; continence(27, 30) = 90
+### urology: flowrate(500, 25) = 20; residual(50, 400) = 12; psa(12, 3) = 4; output(1800, 24) = 75; frequency(8, 24) = 33; concentration(600, 2) = 300; continence(27, 30) = 90
 The ledger holds this as [fam_urology](/theorem/fam_urology) — proven `by decide`, sorry-free:
 
 ```lean
-(((500 : Int) / (25 : Int)) = (20 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (400 : Int)) = (12 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int)) ∧ (((1800 : Int) / (24 : Int)) = (75 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (24 : Int)) = (33 : Int)) ∧ (((600 : Int) / (2 : Int)) = (300 : Int)) ∧ ((((27 : Int) * (100 : Int)) / (30 : Int)) = (90 : Int))
+(((500 : Int) / (25 : Int)) = (20 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (400 : Int)) = (12 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int)) ∧ (((1800 : Int) / (24 : Int)) = (75 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (24 : Int)) = (33 : Int)) ∧ (((600 : Int) / (2 : Int)) = (300 : Int)) ∧ ((((27 : Int) * (100 : Int)) / (30 : Int)) = (90 : Int))
 ```
 
 ### usability: success(90, 100) = 90; efficiency(5, 10) = 50; errors(3, 100) = 3; satisfaction(40, 50) = 80; learnability(100, 4) = 25; timeontask(600, 10) = 60; sus(32) = 80; retention(70, 100) = 70

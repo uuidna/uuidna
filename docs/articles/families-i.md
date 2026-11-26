@@ -7,15 +7,15 @@ description: "Computed from lean/FamiliesI.lean — 27 sealed theorems, every cl
 
 > THE FAMILIES, I — each family's formulas sealed at the witnesses its own test states: the formula's right-hand side as exact integer arithmetic at the test's arguments, equal to the test's value, and equal to what the family's method returns. — held by [fam_ichthyology](/theorem/fam_ichthyology) and its 26 siblings below.
 
-**27 theorems** and **10,799 decided cases**, from [fam_ichthyology](/theorem/fam_ichthyology) onward, each proven `by decide` in <a href="/lean/FamiliesI.lean">lean/FamiliesI.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**27 theorems** and **10,635 decided cases**, from [fam_ichthyology](/theorem/fam_ichthyology) onward, each proven `by decide` in <a href="/lean/FamiliesI.lean">lean/FamiliesI.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FFamiliesI.lean)** — nothing to install. The editor fetches `lean/FamiliesI.lean` from the repository and re-decides all 27 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
-### ichthyology: condition(1000, 10) = 100000; fecundity(50000, 1000) = 50; schooling(6000, 60) = 100; growth(200, 150) = 50; growth(100, 150) = 0; buoyancy(5, 100) = 5; gillrate(900, 15) = 60; mortality(10, 100) = 10; trophic(4) = 4
+### ichthyology: condition(1000, 10) = 100000; fecundity(50000, 1000) = 50; schooling(6000, 60) = 100; growth(200, 150) = 50; growth(100, 150) = 0; buoyancy(5, 100) = 5; gillrate(900, 15) = 60; mortality(10, 100) = 10
 The ledger holds this as [fam_ichthyology](/theorem/fam_ichthyology) — proven `by decide`, sorry-free:
 
 ```lean
-((((1000 : Int) * (100000 : Int)) / ((10 : Int) ^ (3 : Nat))) = (100000 : Int)) ∧ (((50000 : Int) / (1000 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (150 : Int))) = (50 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (150 : Int))) = (0 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((900 : Int) / (15 : Int)) = (60 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int)) ∧ ((4 : Int) = (4 : Int))
+((((1000 : Int) * (100000 : Int)) / ((10 : Int) ^ (3 : Nat))) = (100000 : Int)) ∧ (((50000 : Int) / (1000 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((200 : Int) - (150 : Int))) = (50 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (150 : Int))) = (0 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ (((900 : Int) / (15 : Int)) = (60 : Int)) ∧ ((((10 : Int) * (100 : Int)) / (100 : Int)) = (10 : Int))
 ```
 
 ### iconography: symbolcount(12, 8) = 20; attributepairs(12, 2) = 66; gesturetypes(5, 3) = 15; colorsubsets(6) = 64; compositionorderings(5) = 120; haloforms(3, 2) = 5; motifcombos(10, 3) = 120; canonratio(80, 100) = 80
@@ -130,11 +130,11 @@ The ledger holds this as [fam_insurance](/theorem/fam_insurance) — proven `by 
 ((((100000 : Int) * (2 : Int)) / (100 : Int)) = (2000 : Int)) ∧ ((fmax (0 : Int) ((5000 : Int) - (500 : Int))) = (4500 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (500 : Int))) = (0 : Int)) ∧ ((((10000 : Int) * (60 : Int)) / (100 : Int)) = (6000 : Int)) ∧ ((fmin (8000 : Int) (5000 : Int)) = (5000 : Int)) ∧ ((((70000 : Int) * (100 : Int)) / (100000 : Int)) = (70 : Int)) ∧ ((fmax (0 : Int) ((50000 : Int) - (30000 : Int))) = (20000 : Int)) ∧ ((fmin (8000 : Int) (10000 : Int)) = (8000 : Int)) ∧ ((((4000 : Int) * (20 : Int)) / (100 : Int)) = (800 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ ((((100 : Int) * (80 : Int)) / (100 : Int)) = (80 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (40 : Int))) = (60 : Int)) ∧ (((3 : Int) * (4 : Int)) = (12 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int))
 ```
 
-### interaction: fitts(500, 10) = 5000; responsetime(200) = 200; clicks(10, 2) = 5; gestures(7) = 7; feedback(300, 100) = 200; affordance(8, 10) = 80; flow(90, 10) = 90; targetsize(44) = 44
+### interaction: fitts(500, 10) = 5000; clicks(10, 2) = 5; feedback(300, 100) = 200; affordance(8, 10) = 80; flow(90, 10) = 90
 The ledger holds this as [fam_interaction](/theorem/fam_interaction) — proven `by decide`, sorry-free:
 
 ```lean
-((((500 : Int) * (100 : Int)) / (10 : Int)) = (5000 : Int)) ∧ ((200 : Int) = (200 : Int)) ∧ (((10 : Int) / (2 : Int)) = (5 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (100 : Int))) = (200 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((((90 : Int) * (100 : Int)) / ((90 : Int) + (10 : Int))) = (90 : Int)) ∧ ((44 : Int) = (44 : Int))
+((((500 : Int) * (100 : Int)) / (10 : Int)) = (5000 : Int)) ∧ (((10 : Int) / (2 : Int)) = (5 : Int)) ∧ ((fmax (0 : Int) ((300 : Int) - (100 : Int))) = (200 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((((90 : Int) * (100 : Int)) / ((90 : Int) + (10 : Int))) = (90 : Int))
 ```
 
 ### interconnect: lanes(4, 16) = 64; bandwidth(16, 32) = 512; throughput(130, 128, 130) = 128; latency(5, 100) = 500; width(16, 1) = 16; topology(8, 3) = 12; duplex(512) = 1024; transfers(32, 16) = 512; overhead(130, 128) = 2; hops(8) = 7

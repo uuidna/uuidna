@@ -33,7 +33,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | Skill | Theorems | Wings | Open missions | Start with |
 | --- | ---: | ---: | ---: | --- |
 | wave | 67208 | 93 | 153 | `b97801e1` |
-| families | 1124 | 26 | 26 | `028cc8f6` |
+| families | 1123 | 26 | 26 | `028cc8f6` |
 | fermat | 2096 | 24 | 24 | `257643cd` |
 | involution | 20 | 11 | 13 | `fdb12218` |
 | vortex | 41 | 5 | 7 | `fa48a04a` |
@@ -1280,10 +1280,10 @@ _a sealed Lean line with no TypeScript mirror in the wing emitter — the comput
   <br><small>deliverable: 128 theorems in FamiliesC.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
   <br><small>covers: [`fam_cache`](/theorem/fam_cache) · [`fam_caching`](/theorem/fam_caching) · [`fam_cadence`](/theorem/fam_cadence) · [`fam_calculus`](/theorem/fam_calculus) · [`fam_calendar`](/theorem/fam_calendar) · [`fam_calligraphy`](/theorem/fam_calligraphy) · [`fam_campaign`](/theorem/fam_campaign) · [`fam_canning`](/theorem/fam_canning) · [`fam_canon`](/theorem/fam_canon) · [`fam_capacitor`](/theorem/fam_capacitor) · [`fam_caramelization`](/theorem/fam_caramelization) · [`fam_carbon`](/theorem/fam_carbon) · +116 more in the wing</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
-- **`396bd9cd`** give 47 theorems in FamiliesD.lean the symbol leg
-  <br><small>○ open — ✓ address-recomputes · ✗ symbol-leg-written · fused `3e402e12-e54c…`</small>
-  <br><small>deliverable: 47 theorems in FamiliesD.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
-  <br><small>covers: [`fam_dairy`](/theorem/fam_dairy) · [`fam_dance`](/theorem/fam_dance) · [`fam_datacenter`](/theorem/fam_datacenter) · [`fam_dataquality`](/theorem/fam_dataquality) · [`fam_db`](/theorem/fam_db) · [`fam_deadreckoning`](/theorem/fam_deadreckoning) · [`fam_dedup`](/theorem/fam_dedup) · [`fam_delivery`](/theorem/fam_delivery) · [`fam_demographics`](/theorem/fam_demographics) · [`fam_demography`](/theorem/fam_demography) · [`fam_dentistry`](/theorem/fam_dentistry) · [`fam_deontology`](/theorem/fam_deontology) · +35 more in the wing</small>
+- **`1c1c94eb`** give 46 theorems in FamiliesD.lean the symbol leg
+  <br><small>○ open — ✓ address-recomputes · ✗ symbol-leg-written · fused `459480ac-aa00…`</small>
+  <br><small>deliverable: 46 theorems in FamiliesD.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`fam_dairy`](/theorem/fam_dairy) · [`fam_dance`](/theorem/fam_dance) · [`fam_datacenter`](/theorem/fam_datacenter) · [`fam_dataquality`](/theorem/fam_dataquality) · [`fam_deadreckoning`](/theorem/fam_deadreckoning) · [`fam_dedup`](/theorem/fam_dedup) · [`fam_delivery`](/theorem/fam_delivery) · [`fam_demographics`](/theorem/fam_demographics) · [`fam_demography`](/theorem/fam_demography) · [`fam_dentistry`](/theorem/fam_dentistry) · [`fam_deontology`](/theorem/fam_deontology) · [`fam_deployment`](/theorem/fam_deployment) · +34 more in the wing</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
 - **`d8200202`** give 62 theorems in FamiliesE.lean the symbol leg
   <br><small>○ open — ✓ address-recomputes · ✗ symbol-leg-written · fused `a0721d85-eca9…`</small>

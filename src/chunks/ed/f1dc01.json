@@ -1,0 +1,12 @@
+{
+  "handle": "edf1dc01",
+  "address": "edf1dc01-6df2-85a7-96c1-f6ecd4f296aa",
+  "statement": "((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (200 : Int)) = (30 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ ((((27 : Int) * (100 : Int)) / (30 : Int)) = (90 : Int)) ∧ (((((20 : Int) - (5 : Int)) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (12 : Int)) = (25 : Int)) ∧ ((fmax (0 : Int) ((8 : Int) - (3 : Int))) = (5 : Int)) ∧ ((fmax (0 : Int) ((3 : Int) - (8 : Int))) = (0 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_psychiatry"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

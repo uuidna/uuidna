@@ -105,9 +105,9 @@ theorem fam_embedding : (((768 : Int) * (12 : Int)) = (9216 : Int)) ∧ ((((3 : 
     85 -/
 theorem fam_embroidery : (((1000 : Int) * (5 : Int)) = (5000 : Int)) ∧ (((12 : Int) + (6 : Int)) = (18 : Int)) ∧ (((8 : Int) + (0 : Int)) = (8 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (10 : Int)) (Int.toNat (2 : Int)))) = (45 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((2 : Int) ^ (5 : Nat)) = (32 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((((85 : Int) * (100 : Int)) / (100 : Int)) = (85 : Int)) := by decide
 
-/-- embryology: gestation(280) = 280; cleavage(8, 4) = 2; viability(8, 10) = 80; implantation(2, 4) = 50;
-    blastocyst(5, 10) = 50; fragmentation(2, 10) = 20; morphology(5) = 5; differentiation(50, 100) = 50 -/
-theorem fam_embryology : ((280 : Int) = (280 : Int)) ∧ (((8 : Int) / (4 : Int)) = (2 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (4 : Int)) = (50 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (10 : Int)) = (50 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (10 : Int)) = (20 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) := by decide
+/-- embryology: cleavage(8, 4) = 2; viability(8, 10) = 80; implantation(2, 4) = 50; blastocyst(5, 10) = 50;
+    fragmentation(2, 10) = 20; differentiation(50, 100) = 50 -/
+theorem fam_embryology : (((8 : Int) / (4 : Int)) = (2 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (4 : Int)) = (50 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (10 : Int)) = (50 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (10 : Int)) = (20 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) := by decide
 
 /-- emissions: intensity(1000, 40) = 25; percapita(8000, 1000) = 8; reduction(1000, 750) = 25; scope(300, 1000)
     = 30; equivalent(50, 25) = 1250; tax(1000, 15) = 150; allowance(1200, 1000) = 200; allowance(800, 1000) = 0;
@@ -137,9 +137,9 @@ theorem fam_emulsification : (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((
     sensitivity(80, 10) = 800; secretion(100, 4) = 25; halflife(10, 5) = 1; feedback(90, 30) = 300 -/
 theorem fam_endocrinology : ((((90 : Int) * (10 : Int)) / (405 : Int)) = (2 : Int)) ∧ ((((5400 : Int) + (4600 : Int)) / (1000 : Int)) = (10 : Int)) ∧ ((((2 : Int) * (100 : Int)) / (4 : Int)) = (50 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (50 : Int)) = (300 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (10 : Int)) = (800 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ ((((10 : Int) * (693 : Int)) / ((5 : Int) * (1000 : Int))) = (1 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (30 : Int)) = (300 : Int)) := by decide
 
-/-- endpoint: latency(5000, 100) = 50; rate(6000, 60) = 100; status(990, 1000) = 99; methods(4) = 4; auth(3, 10)
-    = 30; payload(20, 8) = 160; depth(5) = 5; error(5, 1000) = 0; error(50, 1000) = 5 -/
-theorem fam_endpoint : (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ (((20 : Int) * (8 : Int)) = (160 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) := by decide
+/-- endpoint: latency(5000, 100) = 50; rate(6000, 60) = 100; status(990, 1000) = 99; auth(3, 10) = 30;
+    payload(20, 8) = 160; error(5, 1000) = 0; error(50, 1000) = 5 -/
+theorem fam_endpoint : (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ (((20 : Int) * (8 : Int)) = (160 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (1000 : Int)) = (0 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (1000 : Int)) = (5 : Int)) := by decide
 
 /-- endurance: vo2proxy(3500, 70) = 50; timetoexhaustion(6000, 20) = 300; aerobicratio(80, 100) = 80;
     lactatethreshold(85, 100) = 85; heartratereserve(190, 60) = 130; trainingload(120, 5) = 600;
@@ -169,9 +169,9 @@ theorem fam_enterprise : (((1000 : Int) * (50 : Int)) = (50000 : Int)) ∧ ((if 
     30; completion(42, 48) = 87 -/
 theorem fam_entertainment : ((((4200 : Int) * (10 : Int)) / (500 : Int)) = (84 : Int)) ∧ (((10 : Int) * (48 : Int)) = (480 : Int)) ∧ (((200000 : Int) * (12 : Int)) = (2400000 : Int)) ∧ ((((1000000 : Int) * (12 : Int)) / (100 : Int)) = (120000 : Int)) ∧ ((((5000000 : Int) * (30 : Int)) / (100 : Int)) = (1500000 : Int)) ∧ ((((900 : Int) * (8 : Int)) / (60 : Int)) = (120 : Int)) ∧ ((((300 : Int) * (100 : Int)) / (1000 : Int)) = (30 : Int)) ∧ ((((42 : Int) * (100 : Int)) / (48 : Int)) = (87 : Int)) := by decide
 
-/-- entomology: colony(50000, 1) = 50001; metamorphosis(4) = 4; swarm(12000, 3) = 4000; foraging(600, 20) = 30;
-    infestation(30, 120) = 25; pollination(90, 200) = 45; lifecycle(1000, 950) = 95; wingbeat(12000, 60) = 200 -/
-theorem fam_entomology : (((50000 : Int) + (1 : Int)) = (50001 : Int)) ∧ ((4 : Int) = (4 : Int)) ∧ (((12000 : Int) / (3 : Int)) = (4000 : Int)) ∧ (((600 : Int) / (20 : Int)) = (30 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (200 : Int)) = (45 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((12000 : Int) / (60 : Int)) = (200 : Int)) := by decide
+/-- entomology: colony(50000, 1) = 50001; swarm(12000, 3) = 4000; foraging(600, 20) = 30; infestation(30, 120) =
+    25; pollination(90, 200) = 45; lifecycle(1000, 950) = 95; wingbeat(12000, 60) = 200 -/
+theorem fam_entomology : (((50000 : Int) + (1 : Int)) = (50001 : Int)) ∧ (((12000 : Int) / (3 : Int)) = (4000 : Int)) ∧ (((600 : Int) / (20 : Int)) = (30 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (200 : Int)) = (45 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) ∧ (((12000 : Int) / (60 : Int)) = (200 : Int)) := by decide
 
 /-- entropy: shannon(1000) = 9; maxentropy(1000) = 10; jointentropy(1000, 1000) = 18; conditionalentropy(18, 9)
     = 9; mutualinformation(10, 8, 15) = 3; relativeentropy(2000, 500) = 2; informationgain(16, 10) = 6;
@@ -209,9 +209,9 @@ theorem fam_epigraphy : (((20 : Int) * (30 : Int)) = (600 : Int)) ∧ ((Int.ofNa
     doubtmargin(100, 70) = 30 -/
 theorem fam_epistemology : (((2 : Int) ^ (8 : Nat)) = (256 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (12 : Int)) (Int.toNat (3 : Int)))) = (220 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((3 : Int) + (2 : Int)) = (5 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (5 : Int)) (Int.toNat (2 : Int)))) = (10 : Int)) ∧ (((2 : Int) ^ (4 : Nat)) = (16 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (70 : Int))) = (30 : Int)) := by decide
 
-/-- equine: speed(100, 10) = 10; stride(600, 4) = 150; heartrate(240, 5) = 48; bodycondition(5) = 5;
-    gestation(340) = 340; feedratio(15, 20) = 75; height(16) = 16; recovery(40, 120) = 80; recovery(120, 40) = 0 -/
-theorem fam_equine : (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((600 : Int) / (4 : Int)) = (150 : Int)) ∧ (((240 : Int) / (5 : Int)) = (48 : Int)) ∧ ((5 : Int) = (5 : Int)) ∧ ((340 : Int) = (340 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ ((16 : Int) = (16 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (40 : Int))) = (80 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (120 : Int))) = (0 : Int)) := by decide
+/-- equine: speed(100, 10) = 10; stride(600, 4) = 150; heartrate(240, 5) = 48; feedratio(15, 20) = 75;
+    recovery(40, 120) = 80; recovery(120, 40) = 0 -/
+theorem fam_equine : (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ (((600 : Int) / (4 : Int)) = (150 : Int)) ∧ (((240 : Int) / (5 : Int)) = (48 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (20 : Int)) = (75 : Int)) ∧ ((fmax (0 : Int) ((120 : Int) - (40 : Int))) = (80 : Int)) ∧ ((fmax (0 : Int) ((40 : Int) - (120 : Int))) = (0 : Int)) := by decide
 
 /-- equity: shares(1000, 1000) = 1000000; eps(5000, 1000) = 5; pe(200, 10) = 20; marketcap(1000, 50) = 50000;
     dividendyield(3, 100) = 3; float(85, 100) = 85; classes(2, 0) = 2; combos(6, 2) = 15 -/
@@ -222,8 +222,8 @@ theorem fam_equity : (((1000 : Int) * (1000 : Int)) = (1000000 : Int)) ∧ (((50
 theorem fam_ergometry : (((200 : Int) * (5 : Int)) = (1000 : Int)) ∧ (((500 : Int) * (60 : Int)) = (30000 : Int)) ∧ (((120 : Int) / (2 : Int)) = (60 : Int)) ∧ (((600 : Int) / (10 : Int)) = (60 : Int)) ∧ (((3000 : Int) / (60 : Int)) = (50 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((5 : Int) * (500 : Int)) = (2500 : Int)) ∧ (((3600 : Int) / (60 : Int)) = (60 : Int)) := by decide
 
 /-- ergonomics: lift(20, 6) = 120; reach(45, 60) = 75; posture(30, 90) = 33; repetition(120, 60) = 2;
-    fatigue(480, 60) = 800; illumination(10000, 20) = 500; noise(85) = 85; strain(60, 100) = 60 -/
-theorem fam_ergonomics : (((20 : Int) * (6 : Int)) = (120 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (90 : Int)) = (33 : Int)) ∧ (((120 : Int) / (60 : Int)) = (2 : Int)) ∧ ((((480 : Int) * (100 : Int)) / (60 : Int)) = (800 : Int)) ∧ (((10000 : Int) / (20 : Int)) = (500 : Int)) ∧ ((85 : Int) = (85 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) := by decide
+    fatigue(480, 60) = 800; illumination(10000, 20) = 500; strain(60, 100) = 60 -/
+theorem fam_ergonomics : (((20 : Int) * (6 : Int)) = (120 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (90 : Int)) = (33 : Int)) ∧ (((120 : Int) / (60 : Int)) = (2 : Int)) ∧ ((((480 : Int) * (100 : Int)) / (60 : Int)) = (800 : Int)) ∧ (((10000 : Int) / (20 : Int)) = (500 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (100 : Int)) = (60 : Int)) := by decide
 
 /-- eschatology: stageorderings(5) = 120; scenariocombos(8, 3) = 56; symbolcount(7, 3) = 21; cyclelength(7, 70)
     = 490; outcomechoices(6) = 64; intervalspan(1000, 700) = 300; tribulationphases(3, 4) = 7; numbersum(6, 6,

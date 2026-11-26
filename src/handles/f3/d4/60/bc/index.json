@@ -1,0 +1,12 @@
+{
+  "handle": "f3d460bc",
+  "address": "f3d460bc-a4e7-81c1-968b-4e1fda5ea1b9",
+  "kind": "chunk",
+  "keys": [
+    "fam_geophysics"
+  ],
+  "statement": "(((6000 : Int) / (2 : Int)) = (3000 : Int)) ∧ (((1000 : Int) / ((10 : Int) ^ (2 : Nat))) = (10 : Int)) ∧ (((8000 : Int) / ((2 : Int) ^ (3 : Nat))) = (1000 : Int)) ∧ (((30 : Int) * (3 : Int)) = (90 : Int)) ∧ (((6000 : Int) / (2 : Int)) = (3000 : Int)) ∧ (((240 : Int) / (4 : Int)) = (60 : Int)) ∧ ((((33 : Int) * (100 : Int)) / (100 : Int)) = (33 : Int))",
+  "files": [
+    "FamiliesG.lean"
+  ]
+}

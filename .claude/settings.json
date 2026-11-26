@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "hooks": {
     "SessionStart": [
       {
@@ -50,5 +51,16 @@
         ]
       }
     ]
+  },
+  "extraKnownMarketplaces": {
+    "uuidna": {
+      "source": {
+        "source": "github",
+        "repo": "uuidna/qpu"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "qpu@uuidna": true
   }
 }

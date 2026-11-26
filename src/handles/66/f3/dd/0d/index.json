@@ -1,0 +1,12 @@
+{
+<<<<<<<< HEAD:src/handles/66/f3/dd/0d/index.json
+  "handle": "66f3dd0d",
+  "address": "66f3dd0d-c3e0-8d1f-97b3-6252bf8049aa",
+========
+  "handle": "28f48e16",
+  "address": "28f48e16-6a86-804d-b3d3-fb349273ec2b",
+>>>>>>>> origin/main:src/handles/28/f4/8e/16/index.json
+  "kind": "publication",
+  "route": "/publications/models",
+  "identity": "models"
+}

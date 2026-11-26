@@ -1,0 +1,12 @@
+{
+  "handle": "5ad9d91e",
+  "address": "5ad9d91e-0aa7-8d60-a5a7-fb3c3ef6f4fb",
+  "statement": "(((500 : Int) / (25 : Int)) = (20 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (400 : Int)) = (12 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int)) ∧ (((1800 : Int) / (24 : Int)) = (75 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (24 : Int)) = (33 : Int)) ∧ (((600 : Int) / (2 : Int)) = (300 : Int)) ∧ ((((27 : Int) * (100 : Int)) / (30 : Int)) = (90 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_urology"
+  ],
+  "files": [
+    "FamiliesU.lean"
+  ]
+}

@@ -1,7 +1,13 @@
 {
+<<<<<<<< HEAD:src/chunks/98/e7d4e2.json
+  "handle": "98e7d4e2",
+  "address": "98e7d4e2-e6ce-8c9c-a0d5-1c3e46f75ecc",
+  "statement": "(((modelContextRows.map (fun r => r.length)).sum) = 476) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+========
   "handle": "42b216dc",
   "address": "42b216dc-2814-89d1-b32d-5b5e1930e2ea",
   "statement": "(((modelContextRows.map (fun r => r.length)).sum) = 473) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+>>>>>>>> origin/main:src/chunks/42/b216dc.json
   "tactic": "decide",
   "keys": [
     "context_windows_are_transient_hexbits"

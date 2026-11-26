@@ -1,0 +1,12 @@
+{
+  "handle": "f05f4b3b",
+  "address": "f05f4b3b-79e2-8ab5-93bf-3f7e0874aa0f",
+  "statement": "(2772847 + 498 + 766422 = 3539767) ∧ ((2772847 > 3 * 766422) ∧ (2772847 < 4 * 766422))",
+  "tactic": "decide",
+  "keys": [
+    "the_generated_closure_partitions_into_three_kinds"
+  ],
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

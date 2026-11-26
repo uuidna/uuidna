@@ -22,9 +22,9 @@ theorem fam_zerotrust : ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)
     30; height(60, 12) = 5; parking(50, 2) = 100; openspace(10000, 4000) = 6000; lotsize(50000, 5000) = 10 -/
 theorem fam_zoning : ((((15000 : Int) * (100 : Int)) / (10000 : Int)) = (150 : Int)) ∧ ((((4000 : Int) * (100 : Int)) / (10000 : Int)) = (40 : Int)) ∧ ((fmax (0 : Int) (((100 : Int) - (20 : Int)) - (15 : Int))) = (65 : Int)) ∧ (((120 : Int) / (4 : Int)) = (30 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((50 : Int) * (2 : Int)) = (100 : Int)) ∧ ((fmax (0 : Int) ((10000 : Int) - (4000 : Int))) = (6000 : Int)) ∧ (((50000 : Int) / (5000 : Int)) = (10 : Int)) := by decide
 
-/-- zoology: population(100, 30) = 70; density(100, 4) = 25; metabolism(50, 3) = 150; lifespan(12) = 12;
-    fecundity(1000, 40) = 25; predation(30, 100) = 30; migration(6000, 60) = 100; survival(950, 1000) = 95 -/
-theorem fam_zoology : ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ (((1000 : Int) / (40 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) := by decide
+/-- zoology: population(100, 30) = 70; density(100, 4) = 25; metabolism(50, 3) = 150; fecundity(1000, 40) = 25;
+    predation(30, 100) = 30; migration(6000, 60) = 100; survival(950, 1000) = 95 -/
+theorem fam_zoology : ((fmax (0 : Int) ((100 : Int) - (30 : Int))) = (70 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((50 : Int) * (3 : Int)) = (150 : Int)) ∧ (((1000 : Int) / (40 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((6000 : Int) / (60 : Int)) = (100 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) := by decide
 
 /-- zoroastrianism: principles(3, 0) = 3; amesha(7, 0) = 7; dualitypairs(2, 2) = 1; hymncount(17, 1) = 17;
     fireranks(3, 0) = 3; prayerorderings(5) = 120; gathasubsets(5) = 32; cosmiccycles(3, 1000) = 3000 -/

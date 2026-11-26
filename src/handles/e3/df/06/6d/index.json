@@ -1,0 +1,12 @@
+{
+<<<<<<<< HEAD:src/handles/e3/df/06/6d/index.json
+  "handle": "e3df066d",
+  "address": "e3df066d-f238-80d0-84e9-40ee0dffe1a9",
+========
+  "handle": "c4970e85",
+  "address": "c4970e85-cdba-8973-9a3e-57ead7e23a9d",
+>>>>>>>> origin/main:src/handles/c4/97/0e/85/index.json
+  "kind": "publication",
+  "route": "/publications/cyber",
+  "identity": "cyber"
+}

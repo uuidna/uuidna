@@ -1,0 +1,12 @@
+{
+  "handle": "b7e4bc35",
+  "address": "b7e4bc35-da77-8632-bc7f-c04f2d410ec4",
+  "statement": "((fmax (0 : Int) ((340 : Int) - (100 : Int))) = (240 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (340 : Int))) = (0 : Int)) ∧ ((((60 : Int) * (100 : Int)) / (240 : Int)) = (25 : Int)) ∧ (((20 : Int) / (4 : Int)) = (5 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ (((30 : Int) / (4 : Int)) = (7 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((120 : Int) / (8 : Int)) = (15 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_pipeline"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

@@ -22,8 +22,8 @@ theorem fam_galactic : (((60000 : Int) / (300 : Int)) = (200 : Int)) ∧ (((200 
 theorem fam_galaxy : (((100 : Int) * (1000 : Int)) = (100000 : Int)) ∧ (((4 : Int) + (0 : Int)) = (4 : Int)) ∧ (((100 : Int) * (1000 : Int)) = (100000 : Int)) ∧ ((((70 : Int) * (1000 : Int)) / (1000 : Int)) = (70 : Int)) ∧ (((3 : Int) + (0 : Int)) = (3 : Int)) ∧ (((50 : Int) * (20 : Int)) = (1000 : Int)) ∧ (((1 : Int) + (0 : Int)) = (1 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (6 : Int)) (Int.toNat (2 : Int)))) = (15 : Int)) := by decide
 
 /-- gaming: framerate(3600, 60) = 60; score(1500, 3) = 4500; winrate(45, 60) = 75; kd(30, 12) = 250; xp(10, 100)
-    = 10000; damage(50, 20) = 30; damage(20, 50) = 0; latency(45) = 45; accuracy(80, 100) = 80 -/
-theorem fam_gaming : (((3600 : Int) / (60 : Int)) = (60 : Int)) ∧ (((1500 : Int) * (3 : Int)) = (4500 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (12 : Int)) = (250 : Int)) ∧ ((((10 : Int) ^ (2 : Nat)) * (100 : Int)) = (10000 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (20 : Int))) = (30 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (50 : Int))) = (0 : Int)) ∧ ((45 : Int) = (45 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) := by decide
+    = 10000; damage(50, 20) = 30; damage(20, 50) = 0; accuracy(80, 100) = 80 -/
+theorem fam_gaming : (((3600 : Int) / (60 : Int)) = (60 : Int)) ∧ (((1500 : Int) * (3 : Int)) = (4500 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (60 : Int)) = (75 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (12 : Int)) = (250 : Int)) ∧ ((((10 : Int) ^ (2 : Nat)) * (100 : Int)) = (10000 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (20 : Int))) = (30 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (50 : Int))) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) := by decide
 
 /-- gastroenterology: transit(240, 24) = 10; absorption(80, 100) = 80; ph(140, 100) = 140; motility(120, 60) =
     2; bmi(70, 175) = 22; bleeding(500, 5000) = 10; enzyme(1000, 50) = 20; clearance(90, 100) = 90 -/
@@ -67,8 +67,8 @@ theorem fam_genetics : (((300 : Int) / (3 : Int)) = (100 : Int)) ∧ ((((410 : I
 theorem fam_genome : (((3000 : Int) * (1000 : Int)) = (3000000 : Int)) ∧ (((20000 : Int) * (1 : Int)) = (20000 : Int)) ∧ (((3000 : Int) / (3 : Int)) = (1000 : Int)) ∧ (((23 : Int) + (0 : Int)) = (23 : Int)) ∧ ((((41 : Int) * (100 : Int)) / (100 : Int)) = (41 : Int)) ∧ (((1000 : Int) / (100 : Int)) = (10 : Int)) ∧ (((1000 : Int) * (150 : Int)) = (150000 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) := by decide
 
 /-- genomics: coverage(3000, 100) = 30; gccontent(50, 100) = 50; snp(10, 1000000) = 10; heterozygosity(5, 100) =
-    5; assembly(50, 200) = 25; n50(5000) = 5000; mutation(100, 10) = 10; synteny(8, 10) = 80 -/
-theorem fam_genomics : (((3000 : Int) / (100 : Int)) = (30 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((10 : Int) * (1000000 : Int)) / (1000000 : Int)) = (10 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((5000 : Int) = (5000 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) := by decide
+    5; assembly(50, 200) = 25; mutation(100, 10) = 10; synteny(8, 10) = 80 -/
+theorem fam_genomics : (((3000 : Int) / (100 : Int)) = (30 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (100 : Int)) = (50 : Int)) ∧ ((((10 : Int) * (1000000 : Int)) / (1000000 : Int)) = (10 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (100 : Int)) = (5 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ (((100 : Int) / (10 : Int)) = (10 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) := by decide
 
 /-- geo: arcseconds(60, 60) = 3600; tiles(10) = 1024; zoomcells(8) = 256; gridcells(16, 16) = 256; degrees(3600,
     60) = 60; area(100, 50) = 5000; quadkeys(4) = 16; waypoints(10, 2) = 12 -/
@@ -80,17 +80,17 @@ theorem fam_geochemistry : ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : I
 
 /-- geodesy: flattening(298, 297) = 33; arc(90, 6371) = 10002; geoid(100, 30) = 70; geoid(30, 100) = -70;
     datum(2, 1000) = 2000; convergence(30, 45) = 15; elevation(100, 30) = 70; elevation(30, 100) = -70;
-    baseline(5, 1000) = 5000; precision(7) = 7 -/
-theorem fam_geodesy : (((((298 : Int) - (297 : Int)) * (10000 : Int)) / (298 : Int)) = (33 : Int)) ∧ (((((90 : Int) * (6371 : Int)) * (314 : Int)) / (18000 : Int)) = (10002 : Int)) ∧ (((100 : Int) - (30 : Int)) = (70 : Int)) ∧ (((30 : Int) - (100 : Int)) = (-70 : Int)) ∧ ((((2 : Int) * (1000000 : Int)) / (1000 : Int)) = (2000 : Int)) ∧ ((((30 : Int) * (45 : Int)) / (90 : Int)) = (15 : Int)) ∧ (((100 : Int) - (30 : Int)) = (70 : Int)) ∧ (((30 : Int) - (100 : Int)) = (-70 : Int)) ∧ ((((5 : Int) * (1000000 : Int)) / (1000 : Int)) = (5000 : Int)) ∧ ((7 : Int) = (7 : Int)) := by decide
+    baseline(5, 1000) = 5000 -/
+theorem fam_geodesy : (((((298 : Int) - (297 : Int)) * (10000 : Int)) / (298 : Int)) = (33 : Int)) ∧ (((((90 : Int) * (6371 : Int)) * (314 : Int)) / (18000 : Int)) = (10002 : Int)) ∧ (((100 : Int) - (30 : Int)) = (70 : Int)) ∧ (((30 : Int) - (100 : Int)) = (-70 : Int)) ∧ ((((2 : Int) * (1000000 : Int)) / (1000 : Int)) = (2000 : Int)) ∧ ((((30 : Int) * (45 : Int)) / (90 : Int)) = (15 : Int)) ∧ (((100 : Int) - (30 : Int)) = (70 : Int)) ∧ (((30 : Int) - (100 : Int)) = (-70 : Int)) ∧ ((((5 : Int) * (1000000 : Int)) / (1000 : Int)) = (5000 : Int)) := by decide
 
 /-- geography: density(10000, 50) = 200; gradient(15, 100) = 15; distance(3, 111) = 333; area(40, 25) = 1000;
     elevation(8848, 5300) = 3548; elevation(100, 200) = 0; watershed(9000, 30) = 300; urbanization(45, 100) =
     45; connectivity(120, 40) = 300 -/
 theorem fam_geography : (((10000 : Int) / (50 : Int)) = (200 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (100 : Int)) = (15 : Int)) ∧ (((3 : Int) * (111 : Int)) = (333 : Int)) ∧ (((40 : Int) * (25 : Int)) = (1000 : Int)) ∧ ((fmax (0 : Int) ((8848 : Int) - (5300 : Int))) = (3548 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (200 : Int))) = (0 : Int)) ∧ (((9000 : Int) / (30 : Int)) = (300 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ ((((120 : Int) * (100 : Int)) / (40 : Int)) = (300 : Int)) := by decide
 
-/-- geology: magnitude(7) = 7; depth(10, 25) = 250; porosity(30, 120) = 25; age(5730, 3) = 17190; density(2700,
-    1) = 2700; strata(14) = 14; erosion(500, 100) = 5; grade(15, 200) = 7 -/
-theorem fam_geology : ((7 : Int) = (7 : Int)) ∧ (((10 : Int) * (25 : Int)) = (250 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ (((5730 : Int) * (3 : Int)) = (17190 : Int)) ∧ (((2700 : Int) / (1 : Int)) = (2700 : Int)) ∧ ((14 : Int) = (14 : Int)) ∧ (((500 : Int) / (100 : Int)) = (5 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (200 : Int)) = (7 : Int)) := by decide
+/-- geology: depth(10, 25) = 250; porosity(30, 120) = 25; age(5730, 3) = 17190; density(2700, 1) = 2700;
+    erosion(500, 100) = 5; grade(15, 200) = 7 -/
+theorem fam_geology : (((10 : Int) * (25 : Int)) = (250 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ (((5730 : Int) * (3 : Int)) = (17190 : Int)) ∧ (((2700 : Int) / (1 : Int)) = (2700 : Int)) ∧ (((500 : Int) / (100 : Int)) = (5 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (200 : Int)) = (7 : Int)) := by decide
 
 /-- geometry: area(10, 4) = 20; perimeter(6, 5) = 30; rectangle(8, 3) = 24; circle(10) = 314; volume(24, 5) =
     120; pythagorean(3, 4) = 25; angle(720, 6) = 120; angle(720, 0) = 0; diagonal(3, 4) = 25 -/
@@ -102,8 +102,8 @@ theorem fam_geometry : ((((10 : Int) * (4 : Int)) / (2 : Int)) = (20 : Int)) ∧
 theorem fam_geomorphology : ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ (((5000 : Int) / (100 : Int)) = (50 : Int)) ∧ (((240 : Int) / (60 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((2400 : Int) - (400 : Int))) = (2000 : Int)) ∧ ((fmax (0 : Int) ((400 : Int) - (2400 : Int))) = (0 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((150 : Int) * (100 : Int)) / (100 : Int)) = (150 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (200 : Int)) = (25 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) := by decide
 
 /-- geophysics: seismicvelocity(6000, 2) = 3000; gravity(1000, 10) = 10; magnetic(8000, 2) = 1000; heatflow(30,
-    3) = 90; density(6000, 2) = 3000; resistivity(240, 4) = 60; magnitude(7) = 7; isostasy(33, 100) = 33 -/
-theorem fam_geophysics : (((6000 : Int) / (2 : Int)) = (3000 : Int)) ∧ (((1000 : Int) / ((10 : Int) ^ (2 : Nat))) = (10 : Int)) ∧ (((8000 : Int) / ((2 : Int) ^ (3 : Nat))) = (1000 : Int)) ∧ (((30 : Int) * (3 : Int)) = (90 : Int)) ∧ (((6000 : Int) / (2 : Int)) = (3000 : Int)) ∧ (((240 : Int) / (4 : Int)) = (60 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((33 : Int) * (100 : Int)) / (100 : Int)) = (33 : Int)) := by decide
+    3) = 90; density(6000, 2) = 3000; resistivity(240, 4) = 60; isostasy(33, 100) = 33 -/
+theorem fam_geophysics : (((6000 : Int) / (2 : Int)) = (3000 : Int)) ∧ (((1000 : Int) / ((10 : Int) ^ (2 : Nat))) = (10 : Int)) ∧ (((8000 : Int) / ((2 : Int) ^ (3 : Nat))) = (1000 : Int)) ∧ (((30 : Int) * (3 : Int)) = (90 : Int)) ∧ (((6000 : Int) / (2 : Int)) = (3000 : Int)) ∧ (((240 : Int) / (4 : Int)) = (60 : Int)) ∧ ((((33 : Int) * (100 : Int)) / (100 : Int)) = (33 : Int)) := by decide
 
 /-- geopolitics: powerindex(50, 30, 20) = 100; allianceweight(12, 8) = 96; tradedependency(250, 1000) = 25;
     bordertension(100, 30) = 3; influencescore(15, 4) = 60; sanctionimpact(1000, 300) = 700; balanceofpower(600,
@@ -111,8 +111,8 @@ theorem fam_geophysics : (((6000 : Int) / (2 : Int)) = (3000 : Int)) ∧ (((1000
 theorem fam_geopolitics : ((((50 : Int) + (30 : Int)) + (20 : Int)) = (100 : Int)) ∧ (((12 : Int) * (8 : Int)) = (96 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (1000 : Int)) = (25 : Int)) ∧ (((100 : Int) / (30 : Int)) = (3 : Int)) ∧ (((15 : Int) * (4 : Int)) = (60 : Int)) ∧ ((fmax (0 : Int) ((1000 : Int) - (300 : Int))) = (700 : Int)) ∧ ((((600 : Int) * (100 : Int)) / (400 : Int)) = (150 : Int)) ∧ ((if (if (85 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (50 : Int) ≥ (70 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) := by decide
 
 /-- geothermal: gradient(300, 10000) = 30; power(50, 80) = 4000; efficiency(12, 100) = 12; cop(400, 100) = 400;
-    capacity(90, 100) = 90; drilling(1200, 30) = 40; reinjection(95, 100) = 95; enthalpy(250) = 250 -/
-theorem fam_geothermal : ((((300 : Int) * (1000 : Int)) / (10000 : Int)) = (30 : Int)) ∧ (((50 : Int) * (80 : Int)) = (4000 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (100 : Int)) = (12 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (100 : Int)) = (400 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((1200 : Int) / (30 : Int)) = (40 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) ∧ ((250 : Int) = (250 : Int)) := by decide
+    capacity(90, 100) = 90; drilling(1200, 30) = 40; reinjection(95, 100) = 95 -/
+theorem fam_geothermal : ((((300 : Int) * (1000 : Int)) / (10000 : Int)) = (30 : Int)) ∧ (((50 : Int) * (80 : Int)) = (4000 : Int)) ∧ ((((12 : Int) * (100 : Int)) / (100 : Int)) = (12 : Int)) ∧ ((((400 : Int) * (100 : Int)) / (100 : Int)) = (400 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ (((1200 : Int) / (30 : Int)) = (40 : Int)) ∧ ((((95 : Int) * (100 : Int)) / (100 : Int)) = (95 : Int)) := by decide
 
 /-- germination: rate(200, 10) = 20; meantime(500, 100) = 5; energy(80, 100) = 80; viability(95, 100) = 95;
     speedindex(50, 10) = 500; uniformity(14, 3) = 11; uniformity(3, 14) = 0; finalpercent(90, 100) = 90;
@@ -137,9 +137,9 @@ theorem fam_glaciology : (((80 : Int) - (50 : Int)) = (30 : Int)) ∧ (((30 : In
     stallspeed(60, 1) = 60; liftdragpairs(8, 2) = 28; thermalgain(2000, 1500) = 500; range(40, 1000) = 40000 -/
 theorem fam_glider : (((400 : Int) / (10 : Int)) = (40 : Int)) ∧ (((100 : Int) / (100 : Int)) = (1 : Int)) ∧ (((15 : Int) * (1 : Int)) = (15 : Int)) ∧ (((225 : Int) / (15 : Int)) = (15 : Int)) ∧ (((60 : Int) * (1 : Int)) = (60 : Int)) ∧ ((Int.ofNat (fchoose (Int.toNat (8 : Int)) (Int.toNat (2 : Int)))) = (28 : Int)) ∧ ((fmax (0 : Int) ((2000 : Int) - (1500 : Int))) = (500 : Int)) ∧ (((40 : Int) * (1000 : Int)) = (40000 : Int)) := by decide
 
-/-- global: fields(7) = 7; locales(990, 1000) = 99; versions(10, 5) = 5; size(12, 3) = 36; access(3, 4) = 75;
-    cached(90, 100) = 90; depth(3) = 3; populated(8, 10) = 80 -/
-theorem fam_global : ((7 : Int) = (7 : Int)) ∧ ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((fmin (10 : Int) (5 : Int)) = (5 : Int)) ∧ (((12 : Int) * (3 : Int)) = (36 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((3 : Int) = (3 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) := by decide
+/-- global: locales(990, 1000) = 99; versions(10, 5) = 5; size(12, 3) = 36; access(3, 4) = 75; cached(90, 100) =
+    90; populated(8, 10) = 80 -/
+theorem fam_global : ((((990 : Int) * (100 : Int)) / (1000 : Int)) = (99 : Int)) ∧ ((fmin (10 : Int) (5 : Int)) = (5 : Int)) ∧ (((12 : Int) * (3 : Int)) = (36 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (4 : Int)) = (75 : Int)) ∧ ((((90 : Int) * (100 : Int)) / (100 : Int)) = (90 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (10 : Int)) = (80 : Int)) := by decide
 
 /-- glomerular: excretion(100, 2) = 200; clearance(200, 2) = 100; filtrationrate(100, 2, 2) = 100;
     creatinineclearance(120, 1, 1) = 120; filtrationfraction(125, 625) = 20; filteredload(100, 5) = 500;
@@ -167,11 +167,11 @@ theorem fam_governance : ((((6 : Int) * (100 : Int)) / (10 : Int)) = (60 : Int))
     = 0; pseudorange(68, 300) = 20400; ttff(12, 18, 15) = 45; accuracy(2, 5) = 10; elevationmask(24, 9) = 15 -/
 theorem fam_gps : ((fmax (0 : Int) ((31 : Int) - (7 : Int))) = (24 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ ((if (if (8 : Int) ≥ (4 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (2 : Int) ≥ (4 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((68 : Int) * (300 : Int)) = (20400 : Int)) ∧ ((((12 : Int) + (18 : Int)) + (15 : Int)) = (45 : Int)) ∧ (((2 : Int) * (5 : Int)) = (10 : Int)) ∧ ((fmax (0 : Int) ((24 : Int) - (9 : Int))) = (15 : Int)) := by decide
 
-/-- gpu: cores(128, 64) = 8192; warpsize() = 32; warps(100) = 4; occupancy(48, 64) = 75; grid(256, 1024) =
-    262144; blocks(10000, 256) = 40; flops(8192, 2, 2) = 32768; bandwidth(32, 100) = 3200; intensity(1000, 250)
-    = 4; ridge(32768, 3200) = 11; bound(4, 11) = 0; bound(20, 11) = 1; shared(4096, 8) = 32768; hide(16, 4, 60)
-    = 1; hide(4, 1, 60) = 0; speedup(1024, 32) = 32; util(6144, 8192) = 75 -/
-theorem fam_gpu : (((128 : Int) * (64 : Int)) = (8192 : Int)) ∧ ((32 : Int) = (32 : Int)) ∧ ((-((-(100 : Int)) / (32 : Int))) = (4 : Int)) ∧ ((((48 : Int) * (100 : Int)) / (64 : Int)) = (75 : Int)) ∧ (((256 : Int) * (1024 : Int)) = (262144 : Int)) ∧ ((-((-(10000 : Int)) / (256 : Int))) = (40 : Int)) ∧ ((((8192 : Int) * (2 : Int)) * (2 : Int)) = (32768 : Int)) ∧ (((32 : Int) * (100 : Int)) = (3200 : Int)) ∧ (((1000 : Int) / (250 : Int)) = (4 : Int)) ∧ ((-((-(32768 : Int)) / (3200 : Int))) = (11 : Int)) ∧ ((if (if (4 : Int) ≥ (11 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (20 : Int) ≥ (11 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ (((4096 : Int) * (8 : Int)) = (32768 : Int)) ∧ ((if (if ((16 : Int) * (4 : Int)) ≥ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if ((4 : Int) * (1 : Int)) ≥ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((1024 : Int) / (32 : Int)) = (32 : Int)) ∧ ((((6144 : Int) * (100 : Int)) / (8192 : Int)) = (75 : Int)) := by decide
+/-- gpu: cores(128, 64) = 8192; warps(100) = 4; occupancy(48, 64) = 75; grid(256, 1024) = 262144; blocks(10000,
+    256) = 40; flops(8192, 2, 2) = 32768; bandwidth(32, 100) = 3200; intensity(1000, 250) = 4; ridge(32768,
+    3200) = 11; bound(4, 11) = 0; bound(20, 11) = 1; shared(4096, 8) = 32768; hide(16, 4, 60) = 1; hide(4, 1,
+    60) = 0; speedup(1024, 32) = 32; util(6144, 8192) = 75 -/
+theorem fam_gpu : (((128 : Int) * (64 : Int)) = (8192 : Int)) ∧ ((-((-(100 : Int)) / (32 : Int))) = (4 : Int)) ∧ ((((48 : Int) * (100 : Int)) / (64 : Int)) = (75 : Int)) ∧ (((256 : Int) * (1024 : Int)) = (262144 : Int)) ∧ ((-((-(10000 : Int)) / (256 : Int))) = (40 : Int)) ∧ ((((8192 : Int) * (2 : Int)) * (2 : Int)) = (32768 : Int)) ∧ (((32 : Int) * (100 : Int)) = (3200 : Int)) ∧ (((1000 : Int) / (250 : Int)) = (4 : Int)) ∧ ((-((-(32768 : Int)) / (3200 : Int))) = (11 : Int)) ∧ ((if (if (4 : Int) ≥ (11 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((if (if (20 : Int) ≥ (11 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ (((4096 : Int) * (8 : Int)) = (32768 : Int)) ∧ ((if (if ((16 : Int) * (4 : Int)) ≥ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if ((4 : Int) * (1 : Int)) ≥ (60 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ (((1024 : Int) / (32 : Int)) = (32 : Int)) ∧ ((((6144 : Int) * (100 : Int)) / (8192 : Int)) = (75 : Int)) := by decide
 
 /-- gradient: step(100, 5) = 500; update(100, 3, 10) = 70; learningrate(1000, 4) = 250; momentum(9, 10, 5) = 95;
     norm(3, 4) = 25; clip(100, 30) = 30; clip(20, 30) = 20; decay(100, 30) = 70; epoch(1000, 32) = 32 -/
@@ -222,6 +222,6 @@ theorem fam_grid : ((-((-(10 : Int)) / (3 : Int))) = (4 : Int)) ∧ (((fmax (0 :
     80 -/
 theorem fam_gripper : (((50 : Int) * (4 : Int)) = (200 : Int)) ∧ ((fmax (0 : Int) ((100 : Int) - (20 : Int))) = (80 : Int)) ∧ (((200 : Int) / (2 : Int)) = (100 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ (((2 : Int) + (1 : Int)) = (3 : Int)) ∧ (((50 : Int) * (2 : Int)) = (100 : Int)) ∧ (((200 : Int) / (4 : Int)) = (50 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) := by decide
 
-/-- grouptheory: order(6, 4) = 24; cosets(24, 6) = 4; cyclicorder(12) = 12; subgroupindex(60, 12) = 5;
-    cosetcount(100, 25) = 4; symmetricorder(5) = 120; elementorder(4, 6) = 3; elementorder(5, 6) = 6 -/
-theorem fam_grouptheory : (((6 : Int) * (4 : Int)) = (24 : Int)) ∧ (((24 : Int) / (6 : Int)) = (4 : Int)) ∧ ((12 : Int) = (12 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((6 : Int) / (Int.ofNat (fgcd 100 (Int.toNat (4 : Int)) (Int.toNat (6 : Int))))) = (3 : Int)) ∧ (((6 : Int) / (Int.ofNat (fgcd 100 (Int.toNat (5 : Int)) (Int.toNat (6 : Int))))) = (6 : Int)) := by decide
+/-- grouptheory: order(6, 4) = 24; cosets(24, 6) = 4; subgroupindex(60, 12) = 5; cosetcount(100, 25) = 4;
+    symmetricorder(5) = 120; elementorder(4, 6) = 3; elementorder(5, 6) = 6 -/
+theorem fam_grouptheory : (((6 : Int) * (4 : Int)) = (24 : Int)) ∧ (((24 : Int) / (6 : Int)) = (4 : Int)) ∧ (((60 : Int) / (12 : Int)) = (5 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ (((6 : Int) / (Int.ofNat (fgcd 100 (Int.toNat (4 : Int)) (Int.toNat (6 : Int))))) = (3 : Int)) ∧ (((6 : Int) / (Int.ofNat (fgcd 100 (Int.toNat (5 : Int)) (Int.toNat (6 : Int))))) = (6 : Int)) := by decide

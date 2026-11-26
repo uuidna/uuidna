@@ -1152,7 +1152,6 @@ fam_dairy 26
 fam_dance 26
 fam_datacenter 26
 fam_dataquality 26
-fam_db 26
 fam_deadreckoning 26
 fam_dedup 26
 fam_delivery 26

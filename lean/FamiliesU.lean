@@ -37,9 +37,9 @@ theorem fam_upload : (((1920 : Int) * (1080 : Int)) = (2073600 : Int)) ∧ ((((1
     2000; servicecoverage(950, 1000) = 95 -/
 theorem fam_urbanism : (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((1200 : Int) * (100 : Int)) / (1000 : Int)) = (120 : Int)) ∧ ((((3 : Int) * (100 : Int)) / (10 : Int)) = (30 : Int)) ∧ (((100 : Int) * (80 : Int)) = (8000 : Int)) ∧ (((200 : Int) / (10 : Int)) = (20 : Int)) ∧ ((((250 : Int) * (100 : Int)) / (100 : Int)) = (250 : Int)) ∧ (((50000 : Int) / (25 : Int)) = (2000 : Int)) ∧ ((((950 : Int) * (100 : Int)) / (1000 : Int)) = (95 : Int)) := by decide
 
-/-- urology: flowrate(500, 25) = 20; residual(50, 400) = 12; psa(12, 3) = 4; output(1800, 24) = 75; stone(7) =
-    7; frequency(8, 24) = 33; concentration(600, 2) = 300; continence(27, 30) = 90 -/
-theorem fam_urology : (((500 : Int) / (25 : Int)) = (20 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (400 : Int)) = (12 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int)) ∧ (((1800 : Int) / (24 : Int)) = (75 : Int)) ∧ ((7 : Int) = (7 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (24 : Int)) = (33 : Int)) ∧ (((600 : Int) / (2 : Int)) = (300 : Int)) ∧ ((((27 : Int) * (100 : Int)) / (30 : Int)) = (90 : Int)) := by decide
+/-- urology: flowrate(500, 25) = 20; residual(50, 400) = 12; psa(12, 3) = 4; output(1800, 24) = 75; frequency(8,
+    24) = 33; concentration(600, 2) = 300; continence(27, 30) = 90 -/
+theorem fam_urology : (((500 : Int) / (25 : Int)) = (20 : Int)) ∧ ((((50 : Int) * (100 : Int)) / (400 : Int)) = (12 : Int)) ∧ (((12 : Int) / (3 : Int)) = (4 : Int)) ∧ (((1800 : Int) / (24 : Int)) = (75 : Int)) ∧ ((((8 : Int) * (100 : Int)) / (24 : Int)) = (33 : Int)) ∧ (((600 : Int) / (2 : Int)) = (300 : Int)) ∧ ((((27 : Int) * (100 : Int)) / (30 : Int)) = (90 : Int)) := by decide
 
 /-- usability: success(90, 100) = 90; efficiency(5, 10) = 50; errors(3, 100) = 3; satisfaction(40, 50) = 80;
     learnability(100, 4) = 25; timeontask(600, 10) = 60; sus(32) = 80; retention(70, 100) = 70 -/

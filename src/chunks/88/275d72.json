@@ -1,0 +1,12 @@
+{
+  "handle": "88275d72",
+  "address": "88275d72-4511-836b-8acc-6d3ee77b8132",
+  "statement": "(((9 : Int) - (1 : Int)) = (8 : Int)) ∧ ((((9 : Int) - (1 : Int)) * (100 : Int)) = (800 : Int)) ∧ (((9 : Int) * (100 : Int)) = (900 : Int)) ∧ (((1 : Int) * (100 : Int)) = (100 : Int)) ∧ ((((900 : Int) * (100 : Int)) / (100 : Int)) = (900 : Int)) ∧ ((-((-(10000 : Int)) / (4096 : Int))) = (3 : Int)) ∧ (((3 : Int) + (1 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((1 : Int) - (1 : Int))) = (0 : Int)) ∧ ((fmax (0 : Int) ((0 : Int) - (1 : Int))) = (0 : Int)) ∧ ((if (if (2 : Int) > (0 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_dedup"
+  ],
+  "files": [
+    "FamiliesD.lean"
+  ]
+}

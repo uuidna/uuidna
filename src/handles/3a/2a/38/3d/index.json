@@ -1,0 +1,12 @@
+{
+  "handle": "3a2a383d",
+  "address": "3a2a383d-404c-84a4-a217-02548bf5b2a8",
+  "kind": "chunk",
+  "keys": [
+    "fam_canon"
+  ],
+  "statement": "((Int.ofNat (ffact (Int.toNat (4 : Int)))) = (24 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (5 : Int)))) = (120 : Int)) ∧ ((Int.ofNat (ffact (Int.toNat (0 : Int)))) = (1 : Int)) ∧ ((((2 : Int) ^ (5 : Nat)) - (1 : Int)) = (31 : Int)) ∧ ((((2 : Int) ^ (1 : Nat)) - (1 : Int)) = (1 : Int))",
+  "files": [
+    "FamiliesC.lean"
+  ]
+}

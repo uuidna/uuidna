@@ -1,0 +1,12 @@
+{
+  "handle": "827db1aa",
+  "address": "827db1aa-699f-894e-993e-6fc5d96ac92e",
+  "statement": "((fmax (0 : Int) ((30 : Int) - (20 : Int))) = (10 : Int)) ∧ ((fmax (0 : Int) ((15 : Int) - (20 : Int))) = (0 : Int)) ∧ ((((5 : Int) * (1000 : Int)) / (1000 : Int)) = (5 : Int)) ∧ (((100 : Int) / (4 : Int)) = (25 : Int)) ∧ (((100 : Int) / (25 : Int)) = (4 : Int)) ∧ ((fmax (0 : Int) ((50 : Int) - (20 : Int))) = (30 : Int)) ∧ ((fmax (0 : Int) ((20 : Int) - (50 : Int))) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int)) ∧ (((170 : Int) / (10 : Int)) = (17 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_herpetology"
+  ],
+  "files": [
+    "FamiliesH.lean"
+  ]
+}

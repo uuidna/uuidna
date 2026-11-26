@@ -1,0 +1,12 @@
+{
+  "handle": "d76e78e4",
+  "address": "d76e78e4-0f2d-8396-bd01-ad50bca86623",
+  "statement": "((((30 : Int) * (100 : Int)) / (120 : Int)) = (25 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (300 : Int)) = (15 : Int)) ∧ ((if (if (7 : Int) ≥ (3 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (1 : Int)) ∧ ((if (if (3 : Int) ≥ (7 : Int) then (1 : Int) else 0) ≠ 0 then (1 : Int) else 0) = (0 : Int)) ∧ ((((80 : Int) * (100 : Int)) / (100 : Int)) = (80 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_notice"
+  ],
+  "files": [
+    "FamiliesN.lean"
+  ]
+}

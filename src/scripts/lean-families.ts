@@ -206,6 +206,9 @@ for (const d of readdirSync(FAM).sort()) {
     if (typeof fn !== 'function') { gap('method not exported'); continue }
     const call = `${name}(${args.join(', ')}) = ${exp}`
     if (parts.some((p) => p.call === call)) continue
+    // a formula that hands its witness back unchanged states x = x, which holds for every x and proves nothing about the
+    // method: the witness is recorded as a gap, never sealed as a theorem of the family
+    if (leanOf(e, env) === lit(big(exp!))) { gap('formula is the identity on its witness'); continue }
     const nums = args.map((a) => Number(big(a))), want = Number(big(exp!))
     parts.push({
       call,

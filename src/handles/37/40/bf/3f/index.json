@@ -1,0 +1,12 @@
+{
+  "handle": "3740bf3f",
+  "address": "3740bf3f-1cb2-8b33-8ba6-54a3ad4f85d4",
+  "kind": "chunk",
+  "keys": [
+    "fam_petroleum"
+  ],
+  "statement": "((((141500 : Int) / (1000 : Int)) - (131 : Int)) = (10 : Int)) ∧ ((((30 : Int) * (100 : Int)) / (100 : Int)) = (30 : Int)) ∧ ((((20 : Int) * (100 : Int)) / (100 : Int)) = (20 : Int)) ∧ (((1000 : Int) / (50 : Int)) = (20 : Int)) ∧ ((((45 : Int) * (100 : Int)) / (100 : Int)) = (45 : Int)) ∧ (((500 : Int) * (24 : Int)) = (12000 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

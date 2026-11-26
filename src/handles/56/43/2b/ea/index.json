@@ -1,0 +1,12 @@
+{
+  "handle": "56432bea",
+  "address": "56432bea-7e1a-85c4-b062-59c5963a01c9",
+  "kind": "chunk",
+  "keys": [
+    "fam_phonetics"
+  ],
+  "statement": "(((2400 : Int) / (3 : Int)) = (800 : Int)) ∧ (((2200 : Int) / (10 : Int)) = (220 : Int)) ∧ (((15 : Int) / (3 : Int)) = (5 : Int)) ∧ ((((6 : Int) * (100 : Int)) / (10 : Int)) = (60 : Int)) ∧ ((((70 : Int) * (100 : Int)) / (100 : Int)) = (70 : Int)) ∧ ((((4 : Int) * (100 : Int)) / (10 : Int)) = (40 : Int))",
+  "files": [
+    "FamiliesP.lean"
+  ]
+}

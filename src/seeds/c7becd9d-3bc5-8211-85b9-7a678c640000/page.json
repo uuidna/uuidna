@@ -2,7 +2,11 @@
   "file": "Cyber.lean",
   "slug": "cyber",
   "status": "usable",
+<<<<<<<< HEAD:src/seeds/c7ecdbc5-de6e-87d1-9901-7a678c640000/page.json
+  "address": "b07fefb7-8409-8eba-8fab-37fa302c61fb",
+========
   "address": "e43b65a2-7b28-8912-954f-2d85e7efb538",
+>>>>>>>> origin/main:src/seeds/c7becd9d-3bc5-8211-85b9-7a678c640000/page.json
   "page": {
     "root": {
       "type": "root",
@@ -37,7 +41,11 @@
               "children": [
                 {
                   "type": "text",
+<<<<<<<< HEAD:src/seeds/c7ecdbc5-de6e-87d1-9901-7a678c640000/page.json
+                  "text": "A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. Leaving out this wing's own 3 records, 73,096 leaves sit under 256 + 44,024 + 72,933 + 73,096 folders across the 4 levels, so with the root the store occupies 263,406 inodes — more than three for every record it holds. The floor is two by construction: the deepest folder is named by the whole handle and no two records share one, so that level holds exactly one folder per leaf (73,096 for 73,096), and every record costs its file and its own folder before any level above is counted. On 2026-09-13 that footprint filled the build host's vnode table and panicked the machine twice; a resource the host must hold per inode is the surface, and it is sealed here so the next growth is measured before it is felt."
+========
                   "text": "A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. Leaving out this wing's own 3 records, 73,097 leaves sit under 256 + 44,022 + 72,934 + 73,097 folders across the 4 levels, so with the root the store occupies 263,407 inodes — more than three for every record it holds. The floor is two by construction: the deepest folder is named by the whole handle and no two records share one, so that level holds exactly one folder per leaf (73,097 for 73,097), and every record costs its file and its own folder before any level above is counted. On 2026-09-13 that footprint filled the build host's vnode table and panicked the machine twice; a resource the host must hold per inode is the surface, and it is sealed here so the next growth is measured before it is felt."
+>>>>>>>> origin/main:src/seeds/c7becd9d-3bc5-8211-85b9-7a678c640000/page.json
                 }
               ]
             },
@@ -47,7 +55,11 @@
               "children": [
                 {
                   "type": "text",
+<<<<<<<< HEAD:src/seeds/c7ecdbc5-de6e-87d1-9901-7a678c640000/page.json
+                  "text": "(73096 + 256 + 44024 + 72933 + 73096 + 1 = 263406) ∧ (263406 > 3 * 73096)"
+========
                   "text": "(73097 + 256 + 44022 + 72934 + 73097 + 1 = 263407) ∧ (263407 > 3 * 73097)"
+>>>>>>>> origin/main:src/seeds/c7becd9d-3bc5-8211-85b9-7a678c640000/page.json
                 }
               ]
             },
@@ -57,7 +69,11 @@
               "children": [
                 {
                   "type": "text",
+<<<<<<<< HEAD:src/seeds/c7ecdbc5-de6e-87d1-9901-7a678c640000/page.json
+                  "text": "theorem the_store_footprint_is_its_folders : (73096 + 256 + 44024 + 72933 + 73096 + 1 = 263406) ∧ (263406 > 3 * 73096) := by decide"
+========
                   "text": "theorem the_store_footprint_is_its_folders : (73097 + 256 + 44022 + 72934 + 73097 + 1 = 263407) ∧ (263407 > 3 * 73097) := by decide"
+>>>>>>>> origin/main:src/seeds/c7becd9d-3bc5-8211-85b9-7a678c640000/page.json
                 }
               ]
             }

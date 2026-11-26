@@ -1309,7 +1309,8 @@ export function scriptsGaps(root: string = ROOT): Gap[] {
     // The script name is escaped in full, not just `:` and `.`. A name is npm's to choose, and npm allows characters
     // that mean something to a regex — one `+` or `(` in a script name turned this guard into either a wrong match
     // or a thrown SyntaxError, and the gap it reports would have vanished quietly (js/incomplete-sanitization).
-    if (new RegExp(`npm run (?:--silent )?${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![a-z0-9:-])`).test(haystack)) continue
+    // a workflow also calls a script through the CI door, `uuidna_ci '{"step":"npm:<name>"}'` — that is a caller too
+    if (new RegExp(`(?:npm run (?:--silent )?|"step":"npm:)${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![a-z0-9:-])`).test(haystack)) continue
     const file = /dist\/scripts\/([a-z0-9-]+)\.js/.exec(body)![1]
     gaps.push({
       what: `package.json script "${name}" is a thin wrapper around dist/scripts/${file}.js that nothing outside package.json calls`,
@@ -2305,6 +2306,12 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'blocks') report('one-receipt blocks', blocksGaps(), 'the two Payload shapes never disagree — every theorem addresses the same across richText docs and layout blocks.')
   else if (cmd === 'state') report('one-receipt state', stateGaps(), 'the folded question has one copy — no workflow re-implements what npm run state already answers.')
   else if (cmd === 'folders') report('one-receipt folders', foldersGaps(), 'every module folder is one word holding index faces only — one concept, one name.')
+  else if (cmd === 'scripts') report('one-receipt scripts', scriptsGaps(), 'every script is reachable and declares what it writes.')
+  else if (cmd === 'comments') report('one-receipt comments', commentsGaps(), 'every comment is what its code does.')
+  else if (cmd === 'citations') report('one-receipt citations', citationsGaps(), 'every citation resolves to what it names.')
+  // deadkey reads KEY_SHAPE, declared below this block: it runs once the module has finished evaluating
+  else if (cmd === 'deadkey') setTimeout(() => report('one-receipt deadkey', deadkeyGaps(), 'every named key resolves to a sealed theorem.'), 0)
+  else if (cmd === 'hexbit') report('one-receipt hexbit', hexbitGaps(), 'every hexbit surface agrees with its register.')
   else if (cmd === 'negation') report('one-receipt negation', negationGaps(), 'no lean lead is lost in prose — every stated boundary names the proof that fixes it, even when negating.')
   else if (cmd === 'lean-negation') report('one-receipt lean-negation', leanNegationGaps(), 'every object-level negation above a Lean line is discharged beneath, or declared SCOPE:')
   else if (cmd === 'precede') report('one-receipt precede', precedeGaps(), 'no derived file is staged ahead of the source it derives from — every commit can be recomputed from what it publishes.')

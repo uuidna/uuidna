@@ -1,0 +1,12 @@
+{
+  "handle": "0aa2277d",
+  "address": "0aa2277d-1c5d-8abb-806b-29969d320afc",
+  "statement": "((((1200 : Int) * (1000 : Int)) / (60 : Int)) = (20000 : Int)) ∧ (((100 : Int) / (8 : Int)) = (12 : Int)) ∧ (((500 : Int) / (20 : Int)) = (25 : Int)) ∧ ((((7 : Int) * (100 : Int)) / (10 : Int)) = (70 : Int)) ∧ (((2000 : Int) / (8 : Int)) = (250 : Int)) ∧ ((((5 : Int) * (100 : Int)) / (20 : Int)) = (25 : Int)) ∧ ((((15 : Int) * (100 : Int)) / (30 : Int)) = (50 : Int))",
+  "tactic": "decide",
+  "keys": [
+    "fam_primatology"
+  ],
+  "files": [
+    "FamiliesP.lean"
+  ]
+}
